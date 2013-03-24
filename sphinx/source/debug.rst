@@ -1,0 +1,5 @@
+debug
+=====
+
+.. automodule:: debug
+   :members:

@@ -1,0 +1,5 @@
+animatorystates
+===============
+
+.. automodule:: animatorystates
+   :members:

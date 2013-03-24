@@ -1,0 +1,5 @@
+character
+=========
+
+.. automodule:: character
+   :members:

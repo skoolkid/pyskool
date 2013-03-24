@@ -1,0 +1,5 @@
+eric
+====
+
+.. automodule:: eric
+   :members:

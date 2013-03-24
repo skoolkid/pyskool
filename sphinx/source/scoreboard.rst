@@ -1,0 +1,5 @@
+scoreboard
+==========
+
+.. automodule:: scoreboard
+   :members:

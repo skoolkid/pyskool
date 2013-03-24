@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+TEMPLATE=${1:-pyskool.py.rst}
+ODIR=${2:-.}
+
+write_man() {
+  gamedir=$1
+  game=$2
+  seealso=$3
+  script=${gamedir}.py
+
+  sed ${TEMPLATE} -e "s/%{script}/${script}/g" -e "s/%{game}/${game}/g" -e "s/%{seealso}/${seealso}/g" -e "s/%{gamedir}/${gamedir}/g" | rst2man > ${ODIR}/${script}.6
+}
+
+write_man skool_daze "Skool Daze" "back_to_skool.py(6), skool_daze_take_too.py(6), ezad_looks.py(6), back_to_skool_daze.py(6)."
+write_man back_to_skool "Back to Skool" "skool_daze.py(6), skool_daze_take_too.py(6), ezad_looks.py(6), back_to_skool_daze.py(6)."
+write_man skool_daze_take_too "Skool Daze Take Too" "skool_daze.py(6), back_to_skool.py(6), ezad_looks.py(6), back_to_skool_daze.py(6)."
+write_man ezad_looks "Ezad Looks" "skool_daze.py(6), back_to_skool.py(6), skool_daze_take_too.py(6), back_to_skool_daze.py(6)."
+write_man back_to_skool_daze "Back to Skool Daze" "skool_daze.py(6), back_to_skool.py(6), skool_daze_take_too.py(6), ezad_looks.py(6)."

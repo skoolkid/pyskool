@@ -1,0 +1,5 @@
+barrier
+=======
+
+.. automodule:: barrier
+   :members:

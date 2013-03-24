@@ -1,0 +1,5 @@
+stinkbomb
+=========
+
+.. automodule:: stinkbomb
+   :members:

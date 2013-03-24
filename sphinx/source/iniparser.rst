@@ -1,0 +1,5 @@
+iniparser
+=========
+
+.. automodule:: iniparser
+   :members:

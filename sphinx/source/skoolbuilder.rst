@@ -1,0 +1,5 @@
+skoolbuilder
+============
+
+.. automodule:: skoolbuilder
+   :members:

@@ -1,0 +1,152 @@
+Installing and running Pyskool
+==============================
+
+Requirements
+------------
+Pyskool requires `Python <http://www.python.org/download/>`_ (version 2.6 or
+2.7) and `Pygame <http://www.pygame.org/download.shtml>`_ (version 1.7+).
+
+On Linux/\*BSD, Python and Pygame are available via the package management
+system. Python is in the `python` package on all systems; Pygame is in the
+`python-pygame` package on Debian-based distros and openSUSE, the `pygame`
+package on Fedora, the `devel/py-game` port on FreeBSD and NetBSD, and the
+`devel/pygame` port on OpenBSD.
+
+Windows and Mac OS X users should take care to select the Pygame installer that
+matches the version of Python that is installed.
+
+Installing Pyskool
+------------------
+Pyskool can be run from wherever the zip archive or tarball was unpacked - it
+does not need to be installed in any particular location. However, if you would
+like to install Pyskool as a Python package, you can do so by using the
+supplied ``setup.py`` script. After installation, the game launcher scripts
+(`skool_daze.py`, `back_to_skool.py` and the others) can be run from anywhere,
+instead of just the directory in which the Pyskool zip archive or tarball was
+unpacked.
+
+Windows
+^^^^^^^
+To install Pyskool as a Python package on Windows, open a command prompt,
+change to the directory where Pyskool was unpacked, and run the following
+command::
+
+  > setup.py install
+
+This should install the Pyskool game launcher scripts in
+`C:\\Python2X\\Scripts` (assuming you have installed Python in `C:\\Python2X`),
+which means you can run them from anywhere (assuming you have added
+`C:\\Python2X\\Scripts` to the ``Path`` environment variable).
+
+Linux/\*BSD/Mac OS X
+^^^^^^^^^^^^^^^^^^^^
+To install Pyskool as a Python package on Linux/\*BSD/Mac OS X, open a terminal
+window, change to the directory where Pyskool was unpacked, and run the
+following command as root::
+
+  # ./setup.py install
+
+This should install the Pyskool game launcher scripts in `/usr/local/bin` (or
+some other suitable location in your ``PATH``), which means you can run them
+from anywhere.
+
+Running Pyskool
+---------------
+
+Windows
+^^^^^^^
+To run Pyskool in Skool Daze mode, double-click the `skool_daze.py` file in
+the Pyskool directory. To run Pyskool in Back to Skool mode, double-click
+`back_to_skool.py`.
+
+If that doesn't work, try the command line. Open a command prompt, change to
+the Pyskool directory, and do::
+
+  > skool_daze.py
+
+to run Pyskool in Skool Daze mode; or, to run Pyskool in Back to Skool mode::
+
+  > back_to_skool.py
+
+Linux/\*BSD/Mac OS X
+^^^^^^^^^^^^^^^^^^^^
+To run Pyskool in Skool Daze mode, open a terminal window, change to the
+Pyskool directory, and do::
+
+ $ ./skool_daze.py
+
+or, to run Pyskool in Back to Skool mode::
+
+ $ ./back_to_skool.py
+
+Pyskool data files
+------------------
+When `skool_daze.py`, `back_to_skool.py` or one of the other game launcher
+scripts is executed, it looks for the following things:
+
+* a file named `pyskool.ini` (the main ini file)
+* a directory named `images`
+* a directory named `sounds`
+* a directory named `ini/<game_name>` (where `<game_name>` is `skool_daze`,
+  `back_to_skool`, or whatever)
+
+Each of these things must be present in one of the following directories in
+order for Pyskool to find it:
+
+* the current working directory
+* `$HOME/.pyskool` (if it exists; Pyskool will try to create it if it doesn't)
+* the directory containing the game launcher script
+* `/usr/share/pyskool`
+
+`$HOME` refers to the user's home directory. On Windows this is typically
+`C:\\Documents and Settings\\username`.
+
+If Pyskool doesn't start, run the game launcher script from the command line
+and read the diagnostic messages that are printed to the console for clues
+about what's going wrong.
+
+When Pyskool is running, it will dump screenshots to, save games to, and load
+games from either `$HOME/.pyskool` (if it exists), or the current working
+directory.
+
+Command line options
+--------------------
+`skool_daze.py`, `back_to_skool.py` and the other game launcher scripts support
+a few command line options:
+
+* ``--version`` - show the version number of Pyskool and exit
+* ``-h`` or ``--help`` - show a summary of the available options
+* ``-s SCALE`` or ``--scale=SCALE`` - set the scale of the display; overrides
+  the `Scale` setting in the :ref:`screenConfig` section
+* ``-i INIDIR`` or ``--inidir=INIDIR`` - use ini files from a specified
+  directory
+* ``-q`` or ``--quick-start`` - start the game quickly by skipping the
+  scroll-skool-into-view and theme tune sequence; overrides the `QuickStart`
+  setting in the :ref:`gameConfig` section
+* ``-c`` or ``--cheat`` - enable cheat keys; overrides the `Cheat` setting in
+  the :ref:`gameConfig` section
+* ``-l SAVEFILE`` or ``--load=SAVEFILE`` - load a previously saved game
+* ``-r SAVEDIR`` or ``--load-last=SAVEDIR`` - load the most recently saved game
+  from the specified directory
+* ``--create-ini`` - create the ini files required by the game and exit
+* ``--get-images`` - get any missing images required by the game and exit
+
+The ``--create-ini`` option writes the stock ini files required by the game to
+`$HOME/.pyskool/ini/<game_name>`.
+
+The ``--get-images`` option first looks for Skool Daze and Back to Skool tape
+or snapshot files by the following names in `$HOME/.pyskool`:
+
+* `skool_daze.tzx`
+* `skool_daze.sna`
+* `skool_daze.z80`
+* `skool_daze.szx`
+* `back_to_skool.tzx`
+* `back_to_skool.sna`
+* `back_to_skool.z80`
+* `back_to_skool.szx`
+
+If no such files are found, TZX files are downloaded from one of the sources
+listed in `images.ini` and saved to `$HOME/.pyskool`. Then the required images
+are built from the tape or snapshot files and saved to the appropriate
+subdirectories under `$HOME/.pyskool/images/originalx1`.

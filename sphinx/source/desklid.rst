@@ -1,0 +1,5 @@
+desklid
+=======
+
+.. automodule:: desklid
+   :members:
