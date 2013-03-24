@@ -7,6 +7,7 @@ usage:
 	@echo "  ini      create the stock Pyskool game ini files in ~/.pyskool"
 	@echo "  doc      build the documentation"
 	@echo "  clean    clean the documentation"
+	@echo "  release  build a Pyskool release tarball and zip archive"
 
 .PHONY: scripts
 scripts:
@@ -29,3 +30,7 @@ doc:
 .PHONY: clean
 clean:
 	$(MAKE) -C sphinx clean
+
+.PHONY: release
+release:
+	utils/mkpstarball

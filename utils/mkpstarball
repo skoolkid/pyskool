@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+if [ -z "$PYSKOOL_HOME" ]; then
+  echo "Error: PYSKOOL_HOME not defined."
+  exit 1
+fi
+if [ ! -d "$PYSKOOL_HOME" ]; then
+  echo "Error: directory not found: $PYSKOOL_HOME"
+  exit 1
+fi
+
+UTILS=$PYSKOOL_HOME/utils
+cd $PYSKOOL_HOME
+VERSION=$(./pyskool.py --version | cut -f1 -d' ')
+DISTDIR=${PYSKOOL_HOME}/dist
+mkdir -p $DISTDIR
+PKGNAME=pyskool-$VERSION
+ABSDIR=${DISTDIR}/$PKGNAME
+rm -rf ${ABSDIR}*
+DOCSDIR=${ABSDIR}/docs
+mkdir -p $DOCSDIR
+DOCSRC=${ABSDIR}/docs-src
+mkdir -p ${DOCSRC}/build
+
+rsync -aR setup.py COPYING icon.png images.ini pyskool.ini sounds \
+  pyskool/*.py man/{pyskool.py.rst,create-manpages} $ABSDIR
+for p in skool_daze{,_take_too} back_to_skool{,_daze} ezad_looks; do
+  cp -p pyskool.py $ABSDIR/${p}.py
+done
+
+# Images
+$UTILS/get-images.py $ABSDIR > /dev/null
+rm $ABSDIR/*.tzx
+cat > $ABSDIR/images/originalx1/images.txt <<EOF
+The images in these subdirectories were generated from memory snapshots of the
+original Skool Daze and Back to Skool games. The copyright in the original games
+is held by Microsphere Computer Services Ltd.
+EOF
+
+# Ini files
+$UTILS/create-ini.py -q $ABSDIR
+
+# Documentation
+cd $PYSKOOL_HOME/sphinx
+rm -rf build/*
+if ! make html &> /dev/null; then
+  echo "*** Error building documentation; aborting"
+  exit 1
+fi
+rsync -a --exclude=.buildinfo --exclude=objects.inv build/html/ $DOCSDIR
+rsync -a Makefile make.bat source $DOCSRC
+
+# Man pages
+cd $ABSDIR/man
+./create-manpages
+rm create-manpages pyskool.py.rst
+
+cd $DISTDIR
+
+echo Creating ${DISTDIR}/${PKGNAME}.tar.xz
+tar acf ${PKGNAME}.tar.xz $PKGNAME
+
+echo Creating ${DISTDIR}/${PKGNAME}.zip
+zip -9qr ${PKGNAME}.zip $PKGNAME
