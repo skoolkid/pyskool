@@ -4,6 +4,7 @@ usage:
 	@echo "  usage    show this help"
 	@echo "  scripts  create the game launcher scripts"
 	@echo "  images   create the stock Pyskool images in ~/.pyskool"
+	@echo "  ini      create the stock Pyskool game ini files in ~/.pyskool"
 	@echo "  doc      build the documentation"
 	@echo "  clean    clean the documentation"
 
@@ -16,6 +17,10 @@ scripts:
 .PHONY: images
 images:
 	PYSKOOL_HOME=. utils/get-images.py ~/.pyskool
+
+.PHONY: ini
+ini:
+	PYSKOOL_HOME=. utils/create-ini.py ~/.pyskool
 
 .PHONY: doc
 doc:
