@@ -1,0 +1,165 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>iniparser &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="input" href="input.html" />
+    <link rel="prev" title="graphics" href="graphics.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="input.html" title="input"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="graphics.html" title="graphics"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-iniparser">
+<span id="iniparser"></span><h1>iniparser<a class="headerlink" href="#module-iniparser" title="Permalink to this headline">¶</a></h1>
+<p>Parse a single ini file, or a directory of ini files.</p>
+<dl class="class">
+<dt id="iniparser.IniParser">
+<em class="property">class </em><tt class="descclassname">iniparser.</tt><tt class="descname">IniParser</tt><big>(</big><em>path</em><big>)</big><a class="headerlink" href="#iniparser.IniParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses one or more ini files.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> &#8211; An ini file, or a directory to scan for ini files.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="iniparser.IniParser.get_config">
+<tt class="descname">get_config</tt><big>(</big><em>pattern</em><big>)</big><a class="headerlink" href="#iniparser.IniParser.get_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a dictionary of keys and values from every section whose name
+matches <cite>pattern</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="iniparser.IniParser.parse_section">
+<tt class="descname">parse_section</tt><big>(</big><em>name</em>, <em>parse_numbers=True</em>, <em>num_elements=None</em>, <em>split=True</em>, <em>separator='</em>, <em>'</em><big>)</big><a class="headerlink" href="#iniparser.IniParser.parse_section" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract the elements from every line in a section. The return value
+is a list of lists of elements from each line (if <cite>split</cite> is <cite>True</cite>),
+or a list of the lines. If the named section does not exist, an empty
+list is returned.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; The name of the section.</li>
+<li><strong>parse_numbers</strong> &#8211; If <cite>True</cite>, any numeric element is converted to a
+number; otherwise it is left as a string.</li>
+<li><strong>num_elements</strong> &#8211; The minimum number of elements to return for each
+line in the section. If any line has fewer
+elements than this, the list of elements is padded
+out with <cite>None</cite> instances.</li>
+<li><strong>split</strong> &#8211; If <cite>True</cite>, each line is split on commas; otherwise, the
+line is returned whole.</li>
+<li><strong>separator</strong> &#8211; The character sequence that separates the elements in
+a line.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="graphics.html"
+                        title="previous chapter">graphics</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="input.html"
+                        title="next chapter">input</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="input.html" title="input"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="graphics.html" title="graphics"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

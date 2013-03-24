@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>desklid &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="droppable" href="droppable.html" />
+    <link rel="prev" title="debug" href="debug.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="droppable.html" title="droppable"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="debug.html" title="debug"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-desklid">
+<span id="desklid"></span><h1>desklid<a class="headerlink" href="#module-desklid" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#desklid.DeskLid" title="desklid.DeskLid"><tt class="xref py py-class docutils literal"><span class="pre">DeskLid</span></tt></a> class.</p>
+<dl class="class">
+<dt id="desklid.DeskLid">
+<em class="property">class </em><tt class="descclassname">desklid.</tt><tt class="descname">DeskLid</tt><big>(</big><em>desk_lid_id</em>, <em>command_list_id</em>, <em>x_offset</em><big>)</big><a class="headerlink" href="#desklid.DeskLid" title="Permalink to this definition">¶</a></dt>
+<dd><p>A desk lid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>desk_lid_id</strong> &#8211; The ID of the desk lid.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the desk lid will use.</li>
+<li><strong>x_offset</strong> &#8211; The offset (relative to the desk being opened) at which
+the desk lid should be displayed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="desklid.DeskLid.deliver_contents">
+<tt class="descname">deliver_contents</tt><big>(</big><big>)</big><a class="headerlink" href="#desklid.DeskLid.deliver_contents" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deliver the contents of the desk to whoever raised the lid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="desklid.DeskLid.get_command_list_id">
+<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#desklid.DeskLid.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ID of the command list used by the desk lid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lesson_id</strong> &#8211; The ID of the current lesson (ignored - desk lids do
+not follow a timetable).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="desklid.DeskLid.raise_lid">
+<tt class="descname">raise_lid</tt><big>(</big><em>desk</em>, <em>character</em><big>)</big><a class="headerlink" href="#desklid.DeskLid.raise_lid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raise the lid of a desk.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>desk</strong> (<a class="reference internal" href="room.html#room.Desk" title="room.Desk"><tt class="xref py py-class docutils literal"><span class="pre">Desk</span></tt></a>) &#8211; The desk.</li>
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character raising the lid.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="debug.html"
+                        title="previous chapter">debug</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="droppable.html"
+                        title="next chapter">droppable</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="droppable.html" title="droppable"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="debug.html" title="debug"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

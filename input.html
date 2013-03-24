@@ -1,0 +1,197 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>input &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="items" href="items.html" />
+    <link rel="prev" title="iniparser" href="iniparser.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="items.html" title="items"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="iniparser.html" title="iniparser"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-input">
+<span id="input"></span><h1>input<a class="headerlink" href="#module-input" title="Permalink to this headline">¶</a></h1>
+<p>Collect input from the keyboard.</p>
+<dl class="class">
+<dt id="input.Keyboard">
+<em class="property">class </em><tt class="descclassname">input.</tt><tt class="descname">Keyboard</tt><a class="headerlink" href="#input.Keyboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Collects input from the keyboard.</p>
+<dl class="method">
+<dt id="input.Keyboard.finish_writing">
+<tt class="descname">finish_writing</tt><big>(</big><big>)</big><a class="headerlink" href="#input.Keyboard.finish_writing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the keyboard to normal operation after Eric has finished
+writing on a blackboard.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="input.Keyboard.got_quit">
+<tt class="descname">got_quit</tt><big>(</big><big>)</big><a class="headerlink" href="#input.Keyboard.got_quit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the window close button was clicked.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="input.Keyboard.is_pressed">
+<tt class="descname">is_pressed</tt><big>(</big><em>keys</em><big>)</big><a class="headerlink" href="#input.Keyboard.is_pressed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether any one of a set of keys is being pressed, or
+<cite>False</cite> if Eric is writing on a blackboard at the moment.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keys</strong> &#8211; A list of keys to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="input.Keyboard.pressed">
+<tt class="descname">pressed</tt><big>(</big><em>keys</em><big>)</big><a class="headerlink" href="#input.Keyboard.pressed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether any one of a set of keys either is being pressed or
+was pressed since the last keyboard check.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keys</strong> &#8211; A list of keys to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="input.Keyboard.pump">
+<tt class="descname">pump</tt><big>(</big><big>)</big><a class="headerlink" href="#input.Keyboard.pump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process the input event queue.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="input.Keyboard.start_writing">
+<tt class="descname">start_writing</tt><big>(</big><big>)</big><a class="headerlink" href="#input.Keyboard.start_writing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prepare the keyboard for Eric writing on a blackboard, during which
+time keypresses are echoed on the blackboard instead of making Eric
+move.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="input.Keyboard.was_pressed">
+<tt class="descname">was_pressed</tt><big>(</big><em>keys</em>, <em>force_check=False</em><big>)</big><a class="headerlink" href="#input.Keyboard.was_pressed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether any one of a set of keys was pressed since the last
+keyboard check.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>keys</strong> &#8211; A list of keys to check.</li>
+<li><strong>force_check</strong> &#8211; If <cite>True</cite>, check keys even if Eric is writing on a
+blackboard.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="iniparser.html"
+                        title="previous chapter">iniparser</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="items.html"
+                        title="next chapter">items</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="items.html" title="items"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="iniparser.html" title="iniparser"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

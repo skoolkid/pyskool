@@ -1,0 +1,348 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>barrier &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="bike" href="bike.html" />
+    <link rel="prev" title="animatorystates" href="animatorystates.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bike.html" title="bike"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="animatorystates.html" title="animatorystates"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-barrier">
+<span id="barrier"></span><h1>barrier<a class="headerlink" href="#module-barrier" title="Permalink to this headline">¶</a></h1>
+<p>Classes representing the parts of the skool that cause obstructions, namely
+walls, windows and doors.</p>
+<dl class="class">
+<dt id="barrier.Barrier">
+<em class="property">class </em><tt class="descclassname">barrier.</tt><tt class="descname">Barrier</tt><big>(</big><em>barrier_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em>, <em>climb_phases=()</em>, <em>fly_phases=()</em><big>)</big><a class="headerlink" href="#barrier.Barrier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract superclass of all obstructions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barrier_id</strong> &#8211; The ID of the barrier.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the barrier.</li>
+<li><strong>bottom_y</strong> &#8211; The y-coordinate of the bottom of the barrier.</li>
+<li><strong>top_y</strong> &#8211; The y-coordinate of the top of the barrier.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="barrier.Barrier.impedes">
+<tt class="descname">impedes</tt><big>(</big><em>character</em>, <em>distance=0</em>, <em>force_shut=False</em><big>)</big><a class="headerlink" href="#barrier.Barrier.impedes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is impeded by this barrier.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</li>
+<li><strong>distance</strong> &#8211; The maximum distance in front of the character at
+which the barrier should be considered an obstruction.</li>
+<li><strong>force_shut</strong> &#8211; If <cite>True</cite>, the barrier will be considered an
+obstruction even if it&#8217;s open; otherwise it will be
+considered an obstruction only when closed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="barrier.Barrier.is_door">
+<tt class="descname">is_door</tt><big>(</big><big>)</big><a class="headerlink" href="#barrier.Barrier.is_door" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the barrier is a door (or window). Subclasses
+override this method as appropriate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="barrier.Barrier.is_shut">
+<tt class="descname">is_shut</tt><big>(</big><big>)</big><a class="headerlink" href="#barrier.Barrier.is_shut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the barrier is shut. Subclasses override this method
+as appropriate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="barrier.Door">
+<em class="property">class </em><tt class="descclassname">barrier.</tt><tt class="descname">Door</tt><big>(</big><em>door_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em>, <em>shut</em>, <em>auto_shut_delay</em>, <em>climb_phases</em>, <em>fly_phases=()</em><big>)</big><a class="headerlink" href="#barrier.Door" title="Permalink to this definition">¶</a></dt>
+<dd><p>A door that may be opened and closed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>door_id</strong> &#8211; The ID of the door.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the door.</li>
+<li><strong>bottom_y</strong> &#8211; The y-coordinate of the bottom of the door.</li>
+<li><strong>top_y</strong> &#8211; The y-coordinate of the top of the door.</li>
+<li><strong>shut</strong> &#8211; Whether the door is shut at the start of the game.</li>
+<li><strong>auto_shut_delay</strong> &#8211; The delay before the door shuts automatically; if
+zero or negative, the door will not shut
+automatically.</li>
+<li><strong>climb_phases</strong> &#8211; The sequence of animation phases to use for Eric if he
+climbs over the door when it&#8217;s shut.</li>
+<li><strong>fly_phases</strong> &#8211; The sequence of animation phases to use for Eric if he
+he flies over the door after hitting it while standing
+on the saddle of the bike.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="barrier.Door.auto_shut">
+<tt class="descname">auto_shut</tt><big>(</big><big>)</big><a class="headerlink" href="#barrier.Door.auto_shut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this door should automatically shut now.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="barrier.Door.build_images">
+<tt class="descname">build_images</tt><big>(</big><big>)</big><a class="headerlink" href="#barrier.Door.build_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the images for the barrier. This method is called after
+rescaling the screen or loading a saved game.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="barrier.Door.get_images">
+<tt class="descname">get_images</tt><big>(</big><big>)</big><a class="headerlink" href="#barrier.Door.get_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a 2-tuple containing a list of images of the current state of
+the door, and the coordinates at which to draw the door.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="barrier.Door.is_door">
+<tt class="descname">is_door</tt><big>(</big><big>)</big><a class="headerlink" href="#barrier.Door.is_door" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this is a door.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="barrier.Door.is_shut">
+<tt class="descname">is_shut</tt><big>(</big><big>)</big><a class="headerlink" href="#barrier.Door.is_shut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the door is shut.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="barrier.Door.move">
+<tt class="descname">move</tt><big>(</big><em>shut</em><big>)</big><a class="headerlink" href="#barrier.Door.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open or close the door.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>shut</strong> &#8211; If <cite>True</cite>, close the door; otherwise open it.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A 2-tuple containing a list of images of the current state of
+the door, and the coordinates at which to draw the door.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="barrier.Door.set_images">
+<tt class="descname">set_images</tt><big>(</big><em>open_images</em>, <em>shut_images</em>, <em>top_left</em><big>)</big><a class="headerlink" href="#barrier.Door.set_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the images to use for the door when open or closed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>open_images</strong> &#8211; A list of the images to use when the door is open.</li>
+<li><strong>shut_images</strong> &#8211; A list of the images to use when the door is
+closed.</li>
+<li><strong>top_left</strong> &#8211; The coordinates at which to draw the image of the
+door.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="barrier.Wall">
+<em class="property">class </em><tt class="descclassname">barrier.</tt><tt class="descname">Wall</tt><big>(</big><em>barrier_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em>, <em>climb_phases=()</em>, <em>fly_phases=()</em><big>)</big><a class="headerlink" href="#barrier.Wall" title="Permalink to this definition">¶</a></dt>
+<dd><p>A wall in the skool.</p>
+<dl class="method">
+<dt id="barrier.Wall.separates">
+<tt class="descname">separates</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#barrier.Wall.separates" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this wall blocks the view from one location to
+another.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>a</strong> (<a class="reference internal" href="location.html#location.Location" title="location.Location"><tt class="xref py py-class docutils literal"><span class="pre">Location</span></tt></a>) &#8211; The first location.</li>
+<li><strong>b</strong> (<a class="reference internal" href="location.html#location.Location" title="location.Location"><tt class="xref py py-class docutils literal"><span class="pre">Location</span></tt></a>) &#8211; The other location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="barrier.Window">
+<em class="property">class </em><tt class="descclassname">barrier.</tt><tt class="descname">Window</tt><big>(</big><em>window_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em>, <em>shut</em>, <em>opener_coords</em>, <em>phases</em>, <em>not_a_bird</em><big>)</big><a class="headerlink" href="#barrier.Window" title="Permalink to this definition">¶</a></dt>
+<dd><p>A window that may be opened and closed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>window_id</strong> &#8211; The ID of the window.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the window.</li>
+<li><strong>bottom_y</strong> &#8211; The y-coordinate of the bottom of the window.</li>
+<li><strong>top_y</strong> &#8211; The y-coordinate of the top of the window.</li>
+<li><strong>shut</strong> &#8211; Whether the window is shut at the start of the game.</li>
+<li><strong>opener_coords</strong> &#8211; Where a character should stand to open or close the
+window.</li>
+<li><strong>phases</strong> &#8211; The animation phases to use for Eric if he jumps out of the
+window.</li>
+<li><strong>not_a_bird</strong> &#8211; The ID of the command list Mr Wacker should switch to
+when Eric hits the ground after jumping out of the
+window; if not blank, Eric will be paralysed when he
+hits the ground.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="animatorystates.html"
+                        title="previous chapter">animatorystates</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="bike.html"
+                        title="next chapter">bike</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="bike.html" title="bike"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="animatorystates.html" title="animatorystates"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

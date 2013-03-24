@@ -1,0 +1,5 @@
+water
+=====
+
+.. automodule:: water
+   :members:

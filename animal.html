@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>animal &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="animatorystates" href="animatorystates.html" />
+    <link rel="prev" title="ai" href="ai.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="animatorystates.html" title="animatorystates"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ai.html" title="ai"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-animal">
+<span id="animal"></span><h1>animal<a class="headerlink" href="#module-animal" title="Permalink to this headline">¶</a></h1>
+<p>Classes that represent the animals in the game.</p>
+<dl class="class">
+<dt id="animal.Animal">
+<em class="property">class </em><tt class="descclassname">animal.</tt><tt class="descname">Animal</tt><big>(</big><em>animal_id</em>, <em>command_list_id</em>, <em>initial_as</em>, <em>location</em><big>)</big><a class="headerlink" href="#animal.Animal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract superclass for any animals in the game.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>animal_id</strong> &#8211; The ID of the animal.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the animal will use.</li>
+<li><strong>initial_as</strong> &#8211; The animal&#8217;s initial animatory state.</li>
+<li><strong>location</strong> &#8211; The animal&#8217;s initial location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="animal.Animal.get_command_list_id">
+<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#animal.Animal.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ID of the command list used by the animal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lesson_id</strong> &#8211; The ID of the current lesson (ignored - animals do
+not follow a timetable).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Animal.is_blocked">
+<tt class="descname">is_blocked</tt><big>(</big><em>distance=0</em><big>)</big><a class="headerlink" href="#animal.Animal.is_blocked" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <cite>True</cite> if the animal can proceed no further in the current
+direction, <cite>False</cite> otherwise.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>distance</strong> &#8211; The maximum distance to check in front of the animal.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Animal.is_frog">
+<tt class="descname">is_frog</tt><big>(</big><big>)</big><a class="headerlink" href="#animal.Animal.is_frog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this animal is a frog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Animal.is_mouse">
+<tt class="descname">is_mouse</tt><big>(</big><big>)</big><a class="headerlink" href="#animal.Animal.is_mouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this animal is a mouse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="animal.Frog">
+<em class="property">class </em><tt class="descclassname">animal.</tt><tt class="descname">Frog</tt><big>(</big><em>frog_id</em>, <em>command_list_id</em>, <em>initial_as</em>, <em>location</em>, <em>sit_xy</em>, <em>eric_proximity</em><big>)</big><a class="headerlink" href="#animal.Frog" title="Permalink to this definition">¶</a></dt>
+<dd><p>A frog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>frog_id</strong> &#8211; The ID of the frog.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the frog will use.</li>
+<li><strong>initial_as</strong> &#8211; The frog&#8217;s initial animatory state.</li>
+<li><strong>location</strong> &#8211; The frog&#8217;s initial location.</li>
+<li><strong>sit_xy</strong> &#8211; The coordinates of the frog within its sprite when it&#8217;s
+sitting (used for collision detection and placement in
+cups).</li>
+<li><strong>eric_proximity</strong> &#8211; The minimum distance from the frog that Eric can be
+before it will try to hop away.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="animal.Frog.bounce_off_head">
+<tt class="descname">bounce_off_head</tt><big>(</big><big>)</big><a class="headerlink" href="#animal.Frog.bounce_off_head" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the frog bounce off a character&#8217;s head.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Frog.check_heads">
+<tt class="descname">check_heads</tt><big>(</big><big>)</big><a class="headerlink" href="#animal.Frog.check_heads" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether this frog has hit anybody&#8217;s head, and take appropriate
+action (such as handing the safe key to Eric) if so.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Frog.fall_from_cup">
+<tt class="descname">fall_from_cup</tt><big>(</big><em>cup</em><big>)</big><a class="headerlink" href="#animal.Frog.fall_from_cup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make this frog fall out of a cup.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cup</strong> &#8211; The cup.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Frog.insert_into_cup">
+<tt class="descname">insert_into_cup</tt><big>(</big><em>cup</em><big>)</big><a class="headerlink" href="#animal.Frog.insert_into_cup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert this frog into a cup. The frog will be trapped until Eric
+knocks the frog out.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cup</strong> &#8211; The cup.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Frog.is_catchable_at">
+<tt class="descname">is_catchable_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#animal.Frog.is_catchable_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the frog is currently catchable at a given location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Frog.is_eric_nearby">
+<tt class="descname">is_eric_nearby</tt><big>(</big><big>)</big><a class="headerlink" href="#animal.Frog.is_eric_nearby" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether Eric is on the same floor as and close to the frog.
+The answer is used by the frog to decide whether to hop.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Frog.is_frog">
+<tt class="descname">is_frog</tt><big>(</big><big>)</big><a class="headerlink" href="#animal.Frog.is_frog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this animal is a frog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Frog.sit">
+<tt class="descname">sit</tt><big>(</big><big>)</big><a class="headerlink" href="#animal.Frog.sit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the frog assume a sitting position.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="animal.Mouse">
+<em class="property">class </em><tt class="descclassname">animal.</tt><tt class="descname">Mouse</tt><big>(</big><em>mouse_id</em>, <em>command_list_id</em>, <em>initial_as</em>, <em>location</em>, <em>sprite_xy</em>, <em>immortal=True</em><big>)</big><a class="headerlink" href="#animal.Mouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>A mouse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mouse_id</strong> &#8211; The ID of the mouse.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the mouse will use.</li>
+<li><strong>initial_as</strong> &#8211; The mouse&#8217;s initial animatory state.</li>
+<li><strong>location</strong> &#8211; The mouse&#8217;s initial location.</li>
+<li><strong>sprite_xy</strong> &#8211; The coordinates of the mouse within its sprite (used for
+detecting whether Eric has caught it).</li>
+<li><strong>immortal</strong> &#8211; If <cite>True</cite>, the mouse will not disappear until Eric catches
+it; otherwise it will die (disappear from the game) after
+a certain time.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="animal.Mouse.die">
+<tt class="descname">die</tt><big>(</big><big>)</big><a class="headerlink" href="#animal.Mouse.die" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kill this mouse. The mouse is removed from the game, never to be
+seen again.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Mouse.is_catchable_at">
+<tt class="descname">is_catchable_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#animal.Mouse.is_catchable_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the mouse is currently catchable at a given location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Mouse.is_mouse">
+<tt class="descname">is_mouse</tt><big>(</big><big>)</big><a class="headerlink" href="#animal.Mouse.is_mouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this animal is a mouse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="animal.Mouse.scare_people">
+<tt class="descname">scare_people</tt><big>(</big><big>)</big><a class="headerlink" href="#animal.Mouse.scare_people" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alert any nearby musophobes of this mouse&#8217;s presence.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ai.html"
+                        title="previous chapter">ai</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="animatorystates.html"
+                        title="next chapter">animatorystates</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="animatorystates.html" title="animatorystates"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ai.html" title="ai"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

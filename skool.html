@@ -1,0 +1,1757 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>skool &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="sound" href="sound.html" />
+    <link rel="prev" title="skoolbuilder" href="skoolbuilder.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="sound.html" title="sound"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="skoolbuilder.html" title="skoolbuilder"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-skool">
+<span id="skool"></span><h1>skool<a class="headerlink" href="#module-skool" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#skool.Skool" title="skool.Skool"><tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt></a> class.</p>
+<dl class="class">
+<dt id="skool.Skool">
+<em class="property">class </em><tt class="descclassname">skool.</tt><tt class="descname">Skool</tt><big>(</big><em>config</em>, <em>screen</em>, <em>beeper</em>, <em>cast</em>, <em>gallery</em><big>)</big><a class="headerlink" href="#skool.Skool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the play area and its features and fixtures.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters from the ini file.</li>
+<li><strong>screen</strong> (<a class="reference internal" href="graphics.html#graphics.Screen" title="graphics.Screen"><tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt></a>) &#8211; The screen to draw on.</li>
+<li><strong>beeper</strong> (<a class="reference internal" href="sound.html#sound.Beeper" title="sound.Beeper"><tt class="xref py py-class docutils literal"><span class="pre">Beeper</span></tt></a>) &#8211; The beeper to use.</li>
+<li><strong>cast</strong> (<a class="reference internal" href="cast.html#cast.Cast" title="cast.Cast"><tt class="xref py py-class docutils literal"><span class="pre">Cast</span></tt></a>) &#8211; The cast of characters.</li>
+<li><strong>gallery</strong> (<a class="reference internal" href="graphics.html#graphics.Gallery" title="graphics.Gallery"><tt class="xref py py-class docutils literal"><span class="pre">Gallery</span></tt></a>) &#8211; The gallery to obtain skool images from.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="skool.Skool.add_bike">
+<tt class="descname">add_bike</tt><big>(</big><em>bike_id</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>location</em>, <em>command_list_id</em>, <em>top_left</em>, <em>size</em>, <em>coords</em>, <em>move_delay</em>, <em>pedal_momentum</em>, <em>max_momentum</em><big>)</big><a class="headerlink" href="#skool.Skool.add_bike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a bike to the skool and the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bike_id</strong> &#8211; The bike&#8217;s unique ID.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the bike&#8217;s sprite group.</li>
+<li><strong>initial_as</strong> &#8211; The bike&#8217;s initial animatory state.</li>
+<li><strong>location</strong> &#8211; The bike&#8217;s initial location.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the bike will use.</li>
+<li><strong>top_left</strong> &#8211; The coordinates of the top left of the image of the
+base of the tree without the bike.</li>
+<li><strong>size</strong> &#8211; The size of the image.</li>
+<li><strong>coords</strong> &#8211; The coordinates of the image in the skool.</li>
+<li><strong>move_delay</strong> &#8211; The delay between consecutive movements of the bike
+when wheeling along or being pedalled.</li>
+<li><strong>pedal_momentum</strong> &#8211; The momentum increment when the bike is
+pedalled.</li>
+<li><strong>max_momentum</strong> &#8211; The maximum momentum the bike can have.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_blackboard">
+<tt class="descname">add_blackboard</tt><big>(</big><em>room_id</em>, <em>top_left</em>, <em>size</em>, <em>chalk</em><big>)</big><a class="headerlink" href="#skool.Skool.add_blackboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a blackboard to a room in the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room_id</strong> &#8211; The ID of the room.</li>
+<li><strong>top_left</strong> &#8211; The coordinates of the top-left of the blackboard.</li>
+<li><strong>size</strong> &#8211; The size (width, height) of the blackboard.</li>
+<li><strong>chalk</strong> &#8211; The chalk colour to use when writing on the blackboard.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_chair">
+<tt class="descname">add_chair</tt><big>(</big><em>room_id</em>, <em>x</em><big>)</big><a class="headerlink" href="#skool.Skool.add_chair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a chair to a classroom in the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room_id</strong> &#8211; The ID of the classroom.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the chair.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_cup">
+<tt class="descname">add_cup</tt><big>(</big><em>cup_id</em>, <em>empty_top_left</em>, <em>size</em>, <em>coords</em><big>)</big><a class="headerlink" href="#skool.Skool.add_cup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a cup to the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cup_id</strong> &#8211; The cup&#8217;s unique ID.</li>
+<li><strong>empty_top_left</strong> &#8211; The coordinates of the top left of the image of
+the cup when empty.</li>
+<li><strong>size</strong> &#8211; The size of the image.</li>
+<li><strong>coords</strong> &#8211; The coordinates of the cup in the skool.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_desk">
+<tt class="descname">add_desk</tt><big>(</big><em>room_id</em>, <em>x</em><big>)</big><a class="headerlink" href="#skool.Skool.add_desk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a desk to a classroom in the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room_id</strong> &#8211; The ID of the classroom.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the desk.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_door">
+<tt class="descname">add_door</tt><big>(</big><em>door_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em>, <em>initially_shut</em>, <em>auto_shut_delay</em>, <em>shut_top_left</em>, <em>size</em>, <em>coords</em>, <em>climb_phases</em>, <em>fly_phases</em><big>)</big><a class="headerlink" href="#skool.Skool.add_door" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a door to the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>door_id</strong> &#8211; The door&#8217;s unique ID.</li>
+<li><strong>x</strong> &#8211; The door&#8217;s x-coordinate.</li>
+<li><strong>bottom_y</strong> &#8211; The y-coordinate of the bottom of the door.</li>
+<li><strong>top_y</strong> &#8211; The y-coordinate of the top of the door.</li>
+<li><strong>initially_shut</strong> &#8211; Whether the door is shut at the start of a game.</li>
+<li><strong>auto_shut_delay</strong> &#8211; The delay before the door shuts automatically;
+if zero or negative, the door will not shut
+automatically.</li>
+<li><strong>shut_top_left</strong> &#8211; The coordinates of the top left of the image of
+the door when shut.</li>
+<li><strong>size</strong> &#8211; The size of the image.</li>
+<li><strong>coords</strong> &#8211; The coordinates of the door in the skool.</li>
+<li><strong>climb_phases</strong> &#8211; The sequence of animation phases to use for Eric
+if he climbs over the door when it&#8217;s shut; if
+empty, Eric will not be able to climb over the
+door.</li>
+<li><strong>fly_phases</strong> &#8211; The sequence of animation phases to use for Eric if
+he flies over the door after hitting it while
+standing on the saddle of the bike; if empty, Eric
+will not be able to fly over the door.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_floor">
+<tt class="descname">add_floor</tt><big>(</big><em>floor_id</em>, <em>min_x</em>, <em>max_x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.add_floor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a floor to the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>floor_id</strong> &#8211; The floor&#8217;s unique ID.</li>
+<li><strong>min_x</strong> &#8211; The x-coordinate of the left edge of the floor.</li>
+<li><strong>max_x</strong> &#8211; The x-coordinate of the right edge of the floor.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the floor.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_font_character">
+<tt class="descname">add_font_character</tt><big>(</big><em>char</em>, <em>offset</em>, <em>width</em><big>)</big><a class="headerlink" href="#skool.Skool.add_font_character" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the location and width of a font character bitmap in the font
+image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>char</strong> &#8211; The font character.</li>
+<li><strong>offset</strong> &#8211; The offset (in pixels) of the font character bitmap from
+the left edge of the font image.</li>
+<li><strong>width</strong> &#8211; The width of the font character bitmap.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_inventory_item">
+<tt class="descname">add_inventory_item</tt><big>(</big><em>item_id</em>, <em>top_left</em>, <em>size</em><big>)</big><a class="headerlink" href="#skool.Skool.add_inventory_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an inventory item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>item_id</strong> &#8211; The item&#8217;s unique ID.</li>
+<li><strong>top_left</strong> &#8211; The coordinates of the top left of the image of the
+inventory item.</li>
+<li><strong>size</strong> &#8211; The size of the image.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_lines">
+<tt class="descname">add_lines</tt><big>(</big><em>addend</em><big>)</big><a class="headerlink" href="#skool.Skool.add_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add some lines to Eric&#8217;s total. If, as a result, Eric has exceeded
+the lines limit, appropriate action is taken.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>addend</strong> &#8211; The number of lines to add.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_location">
+<tt class="descname">add_location</tt><big>(</big><em>location_id</em>, <em>coords</em><big>)</big><a class="headerlink" href="#skool.Skool.add_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a named location. Named locations can be used by the <a class="reference internal" href="ai.html#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a>
+command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>location_id</strong> &#8211; The name of the location.</li>
+<li><strong>coords</strong> &#8211; The coordinates of the location (as a 2-tuple).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_no_go_zone">
+<tt class="descname">add_no_go_zone</tt><big>(</big><em>zone_id</em>, <em>min_x</em>, <em>max_x</em>, <em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#skool.Skool.add_no_go_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a no-go zone to the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>zone_id</strong> &#8211; The zone&#8217;s unique ID.</li>
+<li><strong>min_x</strong> &#8211; The x-coordinate of the left edge of the zone.</li>
+<li><strong>max_x</strong> &#8211; The x-coordinate of the right edge of the zone.</li>
+<li><strong>bottom_y</strong> &#8211; The y-coordinate of the bottom edge of the zone.</li>
+<li><strong>top_y</strong> &#8211; The y-coordinate of the top edge of the zone.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_plant">
+<tt class="descname">add_plant</tt><big>(</big><em>plant_id</em>, <em>sprite_group_id</em>, <em>x</em>, <em>y</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#skool.Skool.add_plant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a plant pot to the skool, and a plant to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>plant_id</strong> &#8211; The plant&#8217;s unique ID.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the plant&#8217;s sprite group.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the plant.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the plant.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the plant will use.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_room">
+<tt class="descname">add_room</tt><big>(</big><em>room_id</em>, <em>name</em>, <em>top_left</em>, <em>bottom_right</em>, <em>get_along</em><big>)</big><a class="headerlink" href="#skool.Skool.add_room" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a room to the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room_id</strong> &#8211; The room&#8217;s unique ID.</li>
+<li><strong>name</strong> &#8211; The room&#8217;s name (as it will appear in the lesson box).</li>
+<li><strong>top_left</strong> &#8211; The coordinates of the top-left corner of the room.</li>
+<li><strong>bottom_right</strong> &#8211; The coordinates of the bottom-right corner of the
+room.</li>
+<li><strong>get_along</strong> &#8211; Whether Eric should be told to get a move on if he&#8217;s
+spotted in this room when the timetable says he
+should be somewhere else.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_routes">
+<tt class="descname">add_routes</tt><big>(</big><em>home_floor_id</em>, <em>dest_floor_ids</em>, <em>staircase_id</em><big>)</big><a class="headerlink" href="#skool.Skool.add_routes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add routes from one floor (the home floor) to other floors.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>home_floor_id</strong> &#8211; The ID of the home floor.</li>
+<li><strong>dest_floor_ids</strong> &#8211; The IDs of the destination floors.</li>
+<li><strong>staircase_id</strong> &#8211; The ID of the first staircase to use when moving
+from the home floor to any of the destination
+floors.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_safe">
+<tt class="descname">add_safe</tt><big>(</big><em>top_left</em>, <em>size</em>, <em>coords</em><big>)</big><a class="headerlink" href="#skool.Skool.add_safe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a safe to the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>top_left</strong> &#8211; The coordinates of the top left of the image of the
+safe.</li>
+<li><strong>size</strong> &#8211; The size of the image.</li>
+<li><strong>coords</strong> &#8211; The coordinates of the safe in the skool.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_shield">
+<tt class="descname">add_shield</tt><big>(</big><em>score</em>, <em>top_left</em>, <em>size</em>, <em>coords</em><big>)</big><a class="headerlink" href="#skool.Skool.add_shield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a shield to the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>top_left</strong> &#8211; The coordinates of the top left of the image of the
+shield.</li>
+<li><strong>size</strong> &#8211; The size of the image.</li>
+<li><strong>coords</strong> &#8211; The coordinates of the shield in the skool.</li>
+<li><strong>score</strong> &#8211; The score for hitting the shield.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_staircase">
+<tt class="descname">add_staircase</tt><big>(</big><em>staircase_id</em>, <em>bottom</em>, <em>top</em>, <em>force</em>, <em>alias</em><big>)</big><a class="headerlink" href="#skool.Skool.add_staircase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a staircase to the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>staircase_id</strong> &#8211; The unique ID of the staircase.</li>
+<li><strong>bottom</strong> &#8211; The coordinates of the bottom of the staircase.</li>
+<li><strong>top</strong> &#8211; The coordinates of the top of the staircase.</li>
+<li><strong>force</strong> &#8211; If <cite>True</cite>, the staircase must be ascended or descended
+when approached.</li>
+<li><strong>alias</strong> &#8211; An alias for the staircase (may be blank).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_to_score">
+<tt class="descname">add_to_score</tt><big>(</big><em>addend</em><big>)</big><a class="headerlink" href="#skool.Skool.add_to_score" title="Permalink to this definition">¶</a></dt>
+<dd><p>Award some points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>addend</strong> &#8211; The number of points to add to the score.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_wall">
+<tt class="descname">add_wall</tt><big>(</big><em>wall_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#skool.Skool.add_wall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a wall to the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>wall_id</strong> &#8211; The wall&#8217;s unique ID.</li>
+<li><strong>x</strong> &#8211; The wall&#8217;s x-coordinate.</li>
+<li><strong>bottom_y</strong> &#8211; The y-coordinate of the bottom of the wall.</li>
+<li><strong>top_y</strong> &#8211; The y-coordinate of the top of the wall.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.add_window">
+<tt class="descname">add_window</tt><big>(</big><em>window_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em>, <em>initially_shut</em>, <em>opener_coords</em>, <em>shut_top_left</em>, <em>size</em>, <em>coords</em>, <em>descent_phases</em>, <em>not_a_bird</em><big>)</big><a class="headerlink" href="#skool.Skool.add_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a window to the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>window_id</strong> &#8211; The window&#8217;s unique ID.</li>
+<li><strong>x</strong> &#8211; The window&#8217;s x-coordinate.</li>
+<li><strong>bottom_y</strong> &#8211; The y-coordinate of the bottom of the window.</li>
+<li><strong>top_y</strong> &#8211; The y-coordinate of the top of the window.</li>
+<li><strong>initially_shut</strong> &#8211; Whether the window is shut at the start of a
+game.</li>
+<li><strong>opener_coords</strong> &#8211; The coordinates at which a character should stand
+to open or close the window.</li>
+<li><strong>shut_top_left</strong> &#8211; The coordinates of the top left of the image of
+the window when shut.</li>
+<li><strong>size</strong> &#8211; The size of the image.</li>
+<li><strong>coords</strong> &#8211; The coordinates of the window in the skool.</li>
+<li><strong>descent_phases</strong> &#8211; The animation phases to use for Eric if he jumps
+out of the window.</li>
+<li><strong>not_a_bird</strong> &#8211; The ID of the command list Mr Wacker should switch
+to when Eric hits the ground after jumping out of
+the window; if not blank, Eric will be paralysed
+when he hits the ground.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.auto_shut_doors">
+<tt class="descname">auto_shut_doors</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.auto_shut_doors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shut any automatically shutting doors that are due to be and can be
+shut.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.barrier">
+<tt class="descname">barrier</tt><big>(</big><em>character</em>, <em>distance=0</em><big>)</big><a class="headerlink" href="#skool.Skool.barrier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the barrier (wall, window or door) that is in front of a
+character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</li>
+<li><strong>distance</strong> &#8211; The maximum distance to check in front of the
+character.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The wall, window or door in front of the character, or <cite>None</cite>
+if there is none.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.beside_blackboard">
+<tt class="descname">beside_blackboard</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.beside_blackboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is beside a blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.can_reveal_safe_secret">
+<tt class="descname">can_reveal_safe_secret</tt><big>(</big><em>flashing</em><big>)</big><a class="headerlink" href="#skool.Skool.can_reveal_safe_secret" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether safe combination letters can be revealed now. This
+will be <cite>True</cite> only if the following conditions are met:</p>
+<ul class="simple">
+<li>the safe has not been opened yet</li>
+<li>all the shields are flashing, or <cite>flashing</cite> is <cite>False</cite></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.chain_bike">
+<tt class="descname">chain_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.chain_bike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Chain the bike to the tree.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.chair">
+<tt class="descname">chair</tt><big>(</big><em>character</em>, <em>check_dir=True</em><big>)</big><a class="headerlink" href="#skool.Skool.chair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the chair that is beside a character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</li>
+<li><strong>check_dir</strong> &#8211; If <cite>True</cite>, return the chair only if the character is
+facing the correct way to sit in it; otherwise,
+return the chair whichever way the character is
+facing.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The chair, or <cite>None</cite> if there is none.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.check_drinks_cabinet">
+<tt class="descname">check_drinks_cabinet</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.check_drinks_cabinet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the drinks cabinet is at a given location and is
+open.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location to check.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location to check.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.check_safe">
+<tt class="descname">check_safe</tt><big>(</big><em>x</em>, <em>y</em>, <em>got_key</em><big>)</big><a class="headerlink" href="#skool.Skool.check_safe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether there is a safe that can be opened at a given
+location. The safe will be opened if Eric either has the safe key, or
+has written the safe combination on a blackboard while all the shields
+are flashing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location to check.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location to check.</li>
+<li><strong>got_key</strong> &#8211; Whether Eric has the safe key.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.cup">
+<tt class="descname">cup</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.cup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the cup at a given location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The cup, or <cite>None</cite> if there is no cup at the given location.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.desk">
+<tt class="descname">desk</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.desk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the desk that a character is sitting at.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The desk, or <cite>None</cite> if the character is not sitting at a
+desk.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.draw">
+<tt class="descname">draw</tt><big>(</big><em>update=True</em><big>)</big><a class="headerlink" href="#skool.Skool.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>update</strong> &#8211; Whether to update the screen after drawing.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.draw_mutable">
+<tt class="descname">draw_mutable</tt><big>(</big><em>images</em>, <em>coords</em><big>)</big><a class="headerlink" href="#skool.Skool.draw_mutable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw a mutable object (a door, window, cup, or bike-on-a-tree).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>images</strong> &#8211; The images of the mutable object.</li>
+<li><strong>coords</strong> &#8211; The coordinates at which to draw the object.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.end_game">
+<tt class="descname">end_game</tt><big>(</big><em>up_a_year=False</em><big>)</big><a class="headerlink" href="#skool.Skool.end_game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate that the game should restart. The score will be cleared if
+Eric was expelled, or retained if he went up a year.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>up_a_year</strong> &#8211; Whether Eric has gone up a year.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.expand_message">
+<tt class="descname">expand_message</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#skool.Skool.expand_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a message with character name and newline macros expanded. A
+character name macro takes the form <cite>$WACKER</cite> (for example), which
+expands to the name of the character whose ID is <cite>WACKER</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> &#8211; The message that may contain unexpanded name macros.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A list of the lines in the expanded message.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.expel_eric">
+<tt class="descname">expel_eric</tt><big>(</big><em>command_list_id</em><big>)</big><a class="headerlink" href="#skool.Skool.expel_eric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set whoever is responsible for expelling Eric on his way.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command_list_id</strong> &#8211; The ID of the command list the expeller should
+switch to.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.fill_cup">
+<tt class="descname">fill_cup</tt><big>(</big><em>cup_id</em>, <em>contents</em><big>)</big><a class="headerlink" href="#skool.Skool.fill_cup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill a cup with water, sherry, or nothing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cup_id</strong> &#8211; The ID of the cup.</li>
+<li><strong>contents</strong> &#8211; The stuff to fill the cup with.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.fill_desks">
+<tt class="descname">fill_desks</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.fill_desks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide the water pistol and stinkbombs in randomly chosen desks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.floor">
+<tt class="descname">floor</tt><big>(</big><em>thing</em><big>)</big><a class="headerlink" href="#skool.Skool.floor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the floor that a character or thing is in direct contact
+with.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>thing</strong> &#8211; The character or thing.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The floor, or <cite>None</cite> is the character is not on a floor.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.floor_at">
+<tt class="descname">floor_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.floor_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the floor at a given location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.floor_below">
+<tt class="descname">floor_below</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.floor_below" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the highest floor that is below a character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_assembly_message">
+<tt class="descname">get_assembly_message</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_assembly_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a message to deliver during assembly (with verb and noun
+randomly chosen).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_door">
+<tt class="descname">get_door</tt><big>(</big><em>door_id</em><big>)</big><a class="headerlink" href="#skool.Skool.get_door" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the door or window with a given ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>door_id</strong> &#8211; The ID of the door or window.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_height">
+<tt class="descname">get_height</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the height of the play area (in pixels).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_home_room">
+<tt class="descname">get_home_room</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_home_room" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the room Eric&#8217;s supposed to be in at the moment.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The room, or <cite>None</cite> if it&#8217;s an unsupervised period or Eric
+still has time to reach the room in which the class will be
+taking place.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_inventory_images">
+<tt class="descname">get_inventory_images</tt><big>(</big><em>item_ids</em><big>)</big><a class="headerlink" href="#skool.Skool.get_inventory_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of images of inventory items.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item_ids</strong> &#8211; The IDs of the inventory items.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_lesson_desc">
+<tt class="descname">get_lesson_desc</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_lesson_desc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the teacher and the room for this period (for
+display in the lesson box). The name of the teacher will be blank if
+it&#8217;s Playtime or Revision Library.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_lines_message">
+<tt class="descname">get_lines_message</tt><big>(</big><em>num_lines</em>, <em>name</em><big>)</big><a class="headerlink" href="#skool.Skool.get_lines_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a lines message containing the number of lines being given
+and the recipient&#8217;s name.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>num_lines</strong> &#8211; The number of lines being given.</li>
+<li><strong>name</strong> &#8211; The recipient&#8217;s name.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_mouse_image">
+<tt class="descname">get_mouse_image</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_mouse_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an image of a captured mouse (as it appears in the mouse
+inventory).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_room">
+<tt class="descname">get_room</tt><big>(</big><em>room_id</em><big>)</big><a class="headerlink" href="#skool.Skool.get_room" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the room with a given ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>room_id</strong> &#8211; The ID of the room.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_teacher">
+<tt class="descname">get_teacher</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_teacher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return Eric&#8217;s teacher for this period.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Eric&#8217;s teacher, or <cite>None</cite> if it&#8217;s an unsupervised period.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.get_width">
+<tt class="descname">get_width</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width of the play area (in pixels).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.got_bike_combination">
+<tt class="descname">got_bike_combination</tt><big>(</big><em>blackboard</em><big>)</big><a class="headerlink" href="#skool.Skool.got_bike_combination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the bike combination is written on a blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blackboard</strong> (<a class="reference internal" href="room.html#room.Blackboard" title="room.Blackboard"><tt class="xref py py-class docutils literal"><span class="pre">Blackboard</span></tt></a>) &#8211; The blackboard to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.got_safe_combination">
+<tt class="descname">got_safe_combination</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.got_safe_combination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the safe combination is written on any of the
+blackboards in the skool.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.got_signal">
+<tt class="descname">got_signal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#skool.Skool.got_signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a signal has been raised.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>signal</strong> &#8211; The signal to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.got_storeroom_combination">
+<tt class="descname">got_storeroom_combination</tt><big>(</big><em>blackboard</em><big>)</big><a class="headerlink" href="#skool.Skool.got_storeroom_combination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the storeroom combination is written on a blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blackboard</strong> (<a class="reference internal" href="room.html#room.Blackboard" title="room.Blackboard"><tt class="xref py py-class docutils literal"><span class="pre">Blackboard</span></tt></a>) &#8211; The blackboard to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.hide_in_desk">
+<tt class="descname">hide_in_desk</tt><big>(</big><em>item</em><big>)</big><a class="headerlink" href="#skool.Skool.hide_in_desk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hide an item (stinkbombs or a water pistol) in a desk.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> &#8211; The item to hide.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.hit_shield">
+<tt class="descname">hit_shield</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.hit_shield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether there is a shield that can be hit at a given location,
+and make it flash or unflash if required. If the last shield was made
+to flash or unflash, appropriate sound effects are played, points are
+awarded, and other required actions are taken.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location to check.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location to check.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><cite>True</cite> if a shield was hit, <cite>False</cite> otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.in_no_go_zone">
+<tt class="descname">in_no_go_zone</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.in_no_go_zone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a given location is in a no-go zone.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.in_playground">
+<tt class="descname">in_playground</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.in_playground" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is in the playground.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.initialise_bike_combo">
+<tt class="descname">initialise_bike_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.initialise_bike_combo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the bike combination.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.initialise_cast">
+<tt class="descname">initialise_cast</tt><big>(</big><em>keyboard</em><big>)</big><a class="headerlink" href="#skool.Skool.initialise_cast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the cast and the safe, bike and storeroom
+combinations.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyboard</strong> (<a class="reference internal" href="input.html#input.Keyboard" title="input.Keyboard"><tt class="xref py py-class docutils literal"><span class="pre">Keyboard</span></tt></a>) &#8211; The keyboard for Eric to use.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.initialise_safe_combo">
+<tt class="descname">initialise_safe_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.initialise_safe_combo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the safe combination.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.initialise_storeroom_combo">
+<tt class="descname">initialise_storeroom_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.initialise_storeroom_combo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the storeroom combination.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.is_assembly">
+<tt class="descname">is_assembly</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.is_assembly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether it&#8217;s Assembly.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.is_door_shut">
+<tt class="descname">is_door_shut</tt><big>(</big><em>barrier_id</em><big>)</big><a class="headerlink" href="#skool.Skool.is_door_shut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a door or window is shut.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>barrier_id</strong> &#8211; The ID of the door or window.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.is_playtime">
+<tt class="descname">is_playtime</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.is_playtime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether it&#8217;s Playtime.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.is_teaching_eric">
+<tt class="descname">is_teaching_eric</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.is_teaching_eric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is teaching Eric&#8217;s class this period.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.is_time_remaining">
+<tt class="descname">is_time_remaining</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#skool.Skool.is_time_remaining" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether there is no more than a certain number of skool clock
+ticks remaining before the bell rings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> &#8211; The number of ticks.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.is_time_to_start_lesson">
+<tt class="descname">is_time_to_start_lesson</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.is_time_to_start_lesson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether enough time has passed to start the lesson. This is
+used, for example, to check whether a teacher should tell the kids to
+sit down, or continue pacing up and down outside the classroom doorway.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.line_of_sight_between">
+<tt class="descname">line_of_sight_between</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#skool.Skool.line_of_sight_between" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether there is a clear line of sight between two points
+(that is, there are no walls between them).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.make_sitting_sound">
+<tt class="descname">make_sitting_sound</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.make_sitting_sound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play a sitting sound effect. This will be a walking sound effect,
+chosen at random from those available.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.make_walking_sound">
+<tt class="descname">make_walking_sound</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#skool.Skool.make_walking_sound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play a walking sound effect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> &#8211; The index of the walking sound effect.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.move_bike_away">
+<tt class="descname">move_bike_away</tt><big>(</big><em>barrier_id</em><big>)</big><a class="headerlink" href="#skool.Skool.move_bike_away" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the bike away from a door if necessary (so that it may be
+closed).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>barrier_id</strong> &#8211; The ID of the door.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.move_characters">
+<tt class="descname">move_characters</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.move_characters" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the characters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">-1 if the screen should scroll right, 1 if it should scroll
+left, or 0 if it should not scroll (after moving Eric).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.move_door">
+<tt class="descname">move_door</tt><big>(</big><em>barrier_id</em>, <em>shut</em><big>)</big><a class="headerlink" href="#skool.Skool.move_door" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open or close a door or window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barrier_id</strong> &#8211; The ID of the door or window.</li>
+<li><strong>shut</strong> &#8211; <cite>True</cite> if the door or window should be closed, <cite>False</cite>
+if it should be opened.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.nearby_window">
+<tt class="descname">nearby_window</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.nearby_window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a window that is close to a character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The window, or <cite>None</cite> if there is no window nearby.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.next_lesson">
+<tt class="descname">next_lesson</tt><big>(</big><em>ring_bell</em><big>)</big><a class="headerlink" href="#skool.Skool.next_lesson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Proceed to the next lesson in the timetable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ring_bell</strong> &#8211; Whether to ring the bell.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.next_staircase">
+<tt class="descname">next_staircase</tt><big>(</big><em>home_floor</em>, <em>dest_floor</em><big>)</big><a class="headerlink" href="#skool.Skool.next_staircase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the next staircase that any character on one floor (the home
+floor) should ascend or descend next to reach another floor (the
+destination floor).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>home_floor</strong> &#8211; The home floor.</li>
+<li><strong>dest_floor</strong> &#8211; The destination floor.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.on_floor">
+<tt class="descname">on_floor</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.on_floor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is in direct contact with a floor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.on_staircase">
+<tt class="descname">on_staircase</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.on_staircase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is on a step of any of the staircases in
+the skool.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.plant_pot">
+<tt class="descname">plant_pot</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.plant_pot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plant pot at a given location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The plant pot, or <cite>None</cite> if there is no plant pot at the
+given location.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.play_sound">
+<tt class="descname">play_sound</tt><big>(</big><em>sound_id</em>, <em>mode=1</em>, <em>pre_resume=None</em>, <em>pre_resume_args=()</em><big>)</big><a class="headerlink" href="#skool.Skool.play_sound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play a sound effect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sound_id</strong> &#8211; The ID of the sound effect.</li>
+<li><strong>mode</strong> &#8211; See <a class="reference internal" href="sound.html#sound.Beeper.play" title="sound.Beeper.play"><tt class="xref py py-meth docutils literal"><span class="pre">sound.Beeper.play()</span></tt></a>.</li>
+<li><strong>pre_resume</strong> &#8211; A method to execute after a sound effect played in
+<a class="reference internal" href="sound.html#sound.SUSPEND" title="sound.SUSPEND"><tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt></a> mode has finished.</li>
+<li><strong>pre_resume_args</strong> &#8211; The arguments for the <cite>pre_resume</cite> method.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.print_lesson">
+<tt class="descname">print_lesson</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.print_lesson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the lesson description in the lesson box.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.reinitialise">
+<tt class="descname">reinitialise</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.reinitialise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reinitialise the skool in preparation for a new game.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.resolve_location_id">
+<tt class="descname">resolve_location_id</tt><big>(</big><em>location_id</em><big>)</big><a class="headerlink" href="#skool.Skool.resolve_location_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolve a location ID into a pair of coordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>location_id</strong> &#8211; The ID of the location.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The coordinates of the location.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.restore">
+<tt class="descname">restore</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform tasks required immediately after rescaling or loading a
+saved game. The tasks are:</p>
+<ul class="simple">
+<li>set the screen size and background colour</li>
+<li>set the window icon and title</li>
+<li>print the logo, score box, lesson box and inventories</li>
+<li>restore the blackboard images</li>
+<li>redraw the bike, cups, doors, and windows</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.resume">
+<tt class="descname">resume</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.resume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run any method that was queued up before playing a sound effect in
+<a class="reference internal" href="sound.html#sound.SUSPEND" title="sound.SUSPEND"><tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt></a> mode.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.rewind_clock">
+<tt class="descname">rewind_clock</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#skool.Skool.rewind_clock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rewind the skool clock by a number of ticks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> &#8211; The number of ticks.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.room">
+<tt class="descname">room</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.room" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the room a character is in (or <cite>None</cite> if he is not in a
+room).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.scroll">
+<tt class="descname">scroll</tt><big>(</big><em>inc</em>, <em>clock</em><big>)</big><a class="headerlink" href="#skool.Skool.scroll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scroll the skool left or right across the screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>inc</strong> &#8211; The scroll increment; should be -1 (scroll right), 0 (don&#8217;t
+scroll), or 1 (scroll left).</li>
+<li><strong>clock</strong> &#8211; The clock to use to time the scrolling.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.scroll_on">
+<tt class="descname">scroll_on</tt><big>(</big><em>clock</em><big>)</big><a class="headerlink" href="#skool.Skool.scroll_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scroll the skool into view across the screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>clock</strong> &#8211; The clock to use to time the scrolling.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.set_home_room">
+<tt class="descname">set_home_room</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.set_home_room" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set Eric&#8217;s home room for the current period. The home room is the
+place Eric should be in by now; if he&#8217;s not, and he&#8217;s spotted by a
+teacher, he will be given lines.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.should_get_along">
+<tt class="descname">should_get_along</tt><big>(</big><em>eric</em><big>)</big><a class="headerlink" href="#skool.Skool.should_get_along" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether Eric is somewhere other than he should be.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.signal">
+<tt class="descname">signal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#skool.Skool.signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raise a signal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>signal</strong> &#8211; The signal to raise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.staircase">
+<tt class="descname">staircase</tt><big>(</big><em>character</em>, <em>distance=0</em><big>)</big><a class="headerlink" href="#skool.Skool.staircase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the staircase that a character is on or close to.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</li>
+<li><strong>distance</strong> &#8211; The maximum distance in front of the character to
+check for a staircase.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The staircase, or <cite>None</cite> if there is none.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.start_clock">
+<tt class="descname">start_clock</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#skool.Skool.start_clock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the skool clock with a certain number of ticks remaining till
+the bell rings.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> &#8211; The number of ticks.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.stop_clock">
+<tt class="descname">stop_clock</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.stop_clock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the skool clock.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.tick">
+<tt class="descname">tick</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.tick" title="Permalink to this definition">¶</a></dt>
+<dd><p>Advance the skool clock by one tick.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.unchain_bike">
+<tt class="descname">unchain_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.unchain_bike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unchain the bike from the tree.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.unflash">
+<tt class="descname">unflash</tt><big>(</big><em>flashable</em><big>)</big><a class="headerlink" href="#skool.Skool.unflash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a flashing object stop flashing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>flashable</strong> &#8211; The flashing object.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.unset_home_room">
+<tt class="descname">unset_home_room</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.unset_home_room" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unset Eric&#8217;s home room for the current period. This is used when
+assembly is finished (so that Eric is not told off for being outside
+the assembly hall after Mr Wacker has finished speaking).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.unsignal">
+<tt class="descname">unsignal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#skool.Skool.unsignal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lower a signal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>signal</strong> &#8211; The signal to lower.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.update_score_box">
+<tt class="descname">update_score_box</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.update_score_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the score, lines total and hi-score.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.visible_blackboard">
+<tt class="descname">visible_blackboard</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.visible_blackboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the blackboard that is in a character&#8217;s line of sight, or
+<cite>None</cite> if there is none.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.window">
+<tt class="descname">window</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.window" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the window that is in front of a character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The window, or <cite>None</cite> if there is no window.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.wipe_board">
+<tt class="descname">wipe_board</tt><big>(</big><em>blackboard</em>, <em>column</em><big>)</big><a class="headerlink" href="#skool.Skool.wipe_board" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wipe a bit of a blackboard clean.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>blackboard</strong> &#8211; The blackboard.</li>
+<li><strong>column</strong> &#8211; The column of the blackboard to wipe.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="skool.Skool.write_on_board">
+<tt class="descname">write_on_board</tt><big>(</big><em>character</em>, <em>blackboard</em>, <em>message</em>, <em>index=1</em><big>)</big><a class="headerlink" href="#skool.Skool.write_on_board" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write the next character of a message on a blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character writing on the blackboard.</li>
+<li><strong>blackboard</strong> &#8211; The blackboard.</li>
+<li><strong>message</strong> &#8211; The message being written.</li>
+<li><strong>index</strong> &#8211; The index of the next character in the message to write.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><cite>True</cite> if the entire message has been written, <cite>False</cite>
+otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="skoolbuilder.html"
+                        title="previous chapter">skoolbuilder</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="sound.html"
+                        title="next chapter">sound</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="sound.html" title="sound"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="skoolbuilder.html" title="skoolbuilder"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

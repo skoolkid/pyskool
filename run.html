@@ -1,0 +1,279 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Installing and running Pyskool &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Playing Pyskool" href="play.html" />
+    <link rel="prev" title="What is Pyskool?" href="whatis.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="play.html" title="Playing Pyskool"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="whatis.html" title="What is Pyskool?"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="installing-and-running-pyskool">
+<h1>Installing and running Pyskool<a class="headerlink" href="#installing-and-running-pyskool" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>Pyskool requires <a class="reference external" href="http://www.python.org/download/">Python</a> (version 2.6 or
+2.7) and <a class="reference external" href="http://www.pygame.org/download.shtml">Pygame</a> (version 1.7+).</p>
+<p>On Linux/*BSD, Python and Pygame are available via the package management
+system. Python is in the <cite>python</cite> package on all systems; Pygame is in the
+<cite>python-pygame</cite> package on Debian-based distros and openSUSE, the <cite>pygame</cite>
+package on Fedora, the <cite>devel/py-game</cite> port on FreeBSD and NetBSD, and the
+<cite>devel/pygame</cite> port on OpenBSD.</p>
+<p>Windows and Mac OS X users should take care to select the Pygame installer that
+matches the version of Python that is installed.</p>
+</div>
+<div class="section" id="installing-pyskool">
+<h2>Installing Pyskool<a class="headerlink" href="#installing-pyskool" title="Permalink to this headline">¶</a></h2>
+<p>Pyskool can be run from wherever the zip archive or tarball was unpacked - it
+does not need to be installed in any particular location. However, if you would
+like to install Pyskool as a Python package, you can do so by using the
+supplied <tt class="docutils literal"><span class="pre">setup.py</span></tt> script. After installation, the game launcher scripts
+(<cite>skool_daze.py</cite>, <cite>back_to_skool.py</cite> and the others) can be run from anywhere,
+instead of just the directory in which the Pyskool zip archive or tarball was
+unpacked.</p>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<p>To install Pyskool as a Python package on Windows, open a command prompt,
+change to the directory where Pyskool was unpacked, and run the following
+command:</p>
+<div class="highlight-none"><div class="highlight"><pre>&gt; setup.py install
+</pre></div>
+</div>
+<p>This should install the Pyskool game launcher scripts in
+<cite>C:\Python2X\Scripts</cite> (assuming you have installed Python in <cite>C:\Python2X</cite>),
+which means you can run them from anywhere (assuming you have added
+<cite>C:\Python2X\Scripts</cite> to the <tt class="docutils literal"><span class="pre">Path</span></tt> environment variable).</p>
+</div>
+<div class="section" id="linux-bsd-mac-os-x">
+<h3>Linux/*BSD/Mac OS X<a class="headerlink" href="#linux-bsd-mac-os-x" title="Permalink to this headline">¶</a></h3>
+<p>To install Pyskool as a Python package on Linux/*BSD/Mac OS X, open a terminal
+window, change to the directory where Pyskool was unpacked, and run the
+following command as root:</p>
+<div class="highlight-none"><div class="highlight"><pre># ./setup.py install
+</pre></div>
+</div>
+<p>This should install the Pyskool game launcher scripts in <cite>/usr/local/bin</cite> (or
+some other suitable location in your <tt class="docutils literal"><span class="pre">PATH</span></tt>), which means you can run them
+from anywhere.</p>
+</div>
+</div>
+<div class="section" id="running-pyskool">
+<h2>Running Pyskool<a class="headerlink" href="#running-pyskool" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Windows<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>To run Pyskool in Skool Daze mode, double-click the <cite>skool_daze.py</cite> file in
+the Pyskool directory. To run Pyskool in Back to Skool mode, double-click
+<cite>back_to_skool.py</cite>.</p>
+<p>If that doesn&#8217;t work, try the command line. Open a command prompt, change to
+the Pyskool directory, and do:</p>
+<div class="highlight-none"><div class="highlight"><pre>&gt; skool_daze.py
+</pre></div>
+</div>
+<p>to run Pyskool in Skool Daze mode; or, to run Pyskool in Back to Skool mode:</p>
+<div class="highlight-none"><div class="highlight"><pre>&gt; back_to_skool.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Linux/*BSD/Mac OS X<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>To run Pyskool in Skool Daze mode, open a terminal window, change to the
+Pyskool directory, and do:</p>
+<div class="highlight-none"><div class="highlight"><pre>$ ./skool_daze.py
+</pre></div>
+</div>
+<p>or, to run Pyskool in Back to Skool mode:</p>
+<div class="highlight-none"><div class="highlight"><pre>$ ./back_to_skool.py
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pyskool-data-files">
+<h2>Pyskool data files<a class="headerlink" href="#pyskool-data-files" title="Permalink to this headline">¶</a></h2>
+<p>When <cite>skool_daze.py</cite>, <cite>back_to_skool.py</cite> or one of the other game launcher
+scripts is executed, it looks for the following things:</p>
+<ul class="simple">
+<li>a file named <cite>pyskool.ini</cite> (the main ini file)</li>
+<li>a directory named <cite>images</cite></li>
+<li>a directory named <cite>sounds</cite></li>
+<li>a directory named <cite>ini/&lt;game_name&gt;</cite> (where <cite>&lt;game_name&gt;</cite> is <cite>skool_daze</cite>,
+<cite>back_to_skool</cite>, or whatever)</li>
+</ul>
+<p>Each of these things must be present in one of the following directories in
+order for Pyskool to find it:</p>
+<ul class="simple">
+<li>the current working directory</li>
+<li><cite>$HOME/.pyskool</cite> (if it exists; Pyskool will try to create it if it doesn&#8217;t)</li>
+<li>the directory containing the game launcher script</li>
+<li><cite>/usr/share/pyskool</cite></li>
+</ul>
+<p><cite>$HOME</cite> refers to the user&#8217;s home directory. On Windows this is typically
+<cite>C:\Documents and Settings\username</cite>.</p>
+<p>If Pyskool doesn&#8217;t start, run the game launcher script from the command line
+and read the diagnostic messages that are printed to the console for clues
+about what&#8217;s going wrong.</p>
+<p>When Pyskool is running, it will dump screenshots to, save games to, and load
+games from either <cite>$HOME/.pyskool</cite> (if it exists), or the current working
+directory.</p>
+</div>
+<div class="section" id="command-line-options">
+<h2>Command line options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
+<p><cite>skool_daze.py</cite>, <cite>back_to_skool.py</cite> and the other game launcher scripts support
+a few command line options:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">--version</span></tt> - show the version number of Pyskool and exit</li>
+<li><tt class="docutils literal"><span class="pre">-h</span></tt> or <tt class="docutils literal"><span class="pre">--help</span></tt> - show a summary of the available options</li>
+<li><tt class="docutils literal"><span class="pre">-s</span> <span class="pre">SCALE</span></tt> or <tt class="docutils literal"><span class="pre">--scale=SCALE</span></tt> - set the scale of the display; overrides
+the <cite>Scale</cite> setting in the <a class="reference internal" href="inifile.html#screenconfig"><em>[ScreenConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">-i</span> <span class="pre">INIDIR</span></tt> or <tt class="docutils literal"><span class="pre">--inidir=INIDIR</span></tt> - use ini files from a specified
+directory</li>
+<li><tt class="docutils literal"><span class="pre">-q</span></tt> or <tt class="docutils literal"><span class="pre">--quick-start</span></tt> - start the game quickly by skipping the
+scroll-skool-into-view and theme tune sequence; overrides the <cite>QuickStart</cite>
+setting in the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">-c</span></tt> or <tt class="docutils literal"><span class="pre">--cheat</span></tt> - enable cheat keys; overrides the <cite>Cheat</cite> setting in
+the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">-l</span> <span class="pre">SAVEFILE</span></tt> or <tt class="docutils literal"><span class="pre">--load=SAVEFILE</span></tt> - load a previously saved game</li>
+<li><tt class="docutils literal"><span class="pre">-r</span> <span class="pre">SAVEDIR</span></tt> or <tt class="docutils literal"><span class="pre">--load-last=SAVEDIR</span></tt> - load the most recently saved game
+from the specified directory</li>
+<li><tt class="docutils literal"><span class="pre">--create-ini</span></tt> - create the ini files required by the game and exit</li>
+<li><tt class="docutils literal"><span class="pre">--get-images</span></tt> - get any missing images required by the game and exit</li>
+</ul>
+<p>The <tt class="docutils literal"><span class="pre">--create-ini</span></tt> option writes the stock ini files required by the game to
+<cite>$HOME/.pyskool/ini/&lt;game_name&gt;</cite>.</p>
+<p>The <tt class="docutils literal"><span class="pre">--get-images</span></tt> option first looks for Skool Daze and Back to Skool tape
+or snapshot files by the following names in <cite>$HOME/.pyskool</cite>:</p>
+<ul class="simple">
+<li><cite>skool_daze.tzx</cite></li>
+<li><cite>skool_daze.sna</cite></li>
+<li><cite>skool_daze.z80</cite></li>
+<li><cite>skool_daze.szx</cite></li>
+<li><cite>back_to_skool.tzx</cite></li>
+<li><cite>back_to_skool.sna</cite></li>
+<li><cite>back_to_skool.z80</cite></li>
+<li><cite>back_to_skool.szx</cite></li>
+</ul>
+<p>If no such files are found, TZX files are downloaded from one of the sources
+listed in <cite>images.ini</cite> and saved to <cite>$HOME/.pyskool</cite>. Then the required images
+are built from the tape or snapshot files and saved to the appropriate
+subdirectories under <cite>$HOME/.pyskool/images/originalx1</cite>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installing and running Pyskool</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#installing-pyskool">Installing Pyskool</a><ul>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#linux-bsd-mac-os-x">Linux/*BSD/Mac OS X</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-pyskool">Running Pyskool</a><ul>
+<li><a class="reference internal" href="#id1">Windows</a></li>
+<li><a class="reference internal" href="#id2">Linux/*BSD/Mac OS X</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool-data-files">Pyskool data files</a></li>
+<li><a class="reference internal" href="#command-line-options">Command line options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="whatis.html"
+                        title="previous chapter">What is Pyskool?</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="play.html"
+                        title="next chapter">Playing Pyskool</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="play.html" title="Playing Pyskool"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="whatis.html" title="What is Pyskool?"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

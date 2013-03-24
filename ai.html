@@ -1,0 +1,3733 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>ai &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="animal" href="animal.html" />
+    <link rel="prev" title="Commands" href="commands.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="animal.html" title="animal"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="commands.html" title="Commands"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-ai">
+<span id="ai"></span><h1>ai<a class="headerlink" href="#module-ai" title="Permalink to this headline">¶</a></h1>
+<p>Classes that implement the commands found in command lists, such as
+<a class="reference internal" href="#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a> and <a class="reference internal" href="#ai.ConductClass" title="ai.ConductClass"><tt class="xref py py-class docutils literal"><span class="pre">ConductClass</span></tt></a>.</p>
+<dl class="class">
+<dt id="ai.AddLines">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">AddLines</tt><big>(</big><em>lines</em><big>)</big><a class="headerlink" href="#ai.AddLines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that adds lines to Eric&#8217;s total. May be used by any character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lines</strong> (<em>number</em>) &#8211; The lines to add to Eric&#8217;s total.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.AddLines.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.AddLines.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character add lines to Eric&#8217;s total.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.AddLines.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.AddLines.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Catch">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Catch</tt><a class="headerlink" href="#ai.Catch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes Eric catch a mouse or frog (if one is at hand).</p>
+<dl class="method">
+<dt id="ai.Catch.catch_animal">
+<tt class="descname">catch_animal</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Catch.catch_animal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make Eric catch a mouse or frog if one is at the location of his
+hand.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Catch.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Catch.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.Catch.catch_animal" title="ai.Catch.catch_animal"><tt class="xref py py-meth docutils literal"><span class="pre">catch_animal()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.Catch.stand_up" title="ai.Catch.stand_up"><tt class="xref py py-meth docutils literal"><span class="pre">stand_up()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Catch.stand_up">
+<tt class="descname">stand_up</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Catch.stand_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make Eric stand up straight after bending over to catch a mouse or
+frog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.ChaseEricOut">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">ChaseEricOut</tt><big>(</big><em>min_x</em><big>)</big><a class="headerlink" href="#ai.ChaseEricOut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character chase Eric up to the girls&#8217; side of the
+skool gate. It is used by Miss Take if she spots him in the girls&#8217; skool
+when it&#8217;s not playtime.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>min_x</strong> &#8211; The x-coordinate at which the character should stop chasing
+Eric, and stand on guard.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.ChaseEricOut.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ChaseEricOut.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character take the next step while chasing Eric, or remain by
+his side if already there.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.GoTowardsXY" title="ai.GoTowardsXY"><tt class="xref py py-class docutils literal"><span class="pre">GoTowardsXY</span></tt></a> command if the character hasn&#8217;t caught
+up with Eric yet, or <cite>None</cite> if the character is already by
+Eric&#8217;s side.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.CheckIfTouchingEric">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">CheckIfTouchingEric</tt><big>(</big><em>eric_knows_signal</em>, <em>eric_has_mumps_signal</em><big>)</big><a class="headerlink" href="#ai.CheckIfTouchingEric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that checks whether a character is touching Eric. This command
+is used by Angelface when he has mumps.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>eric_knows_signal</strong> &#8211; The signal used to indicate that Eric has been
+told to avoid the character who has mumps.</li>
+<li><strong>eric_has_mumps_signal</strong> &#8211; The signal to use to indicate that Eric has
+mumps.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.CheckIfTouchingEric.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.CheckIfTouchingEric.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character check whether he&#8217;s touching Eric (and has therefore
+transmitted his disease). If Eric has been informed of the character&#8217;s
+condition, and the character is touching Eric, the appropriate signal
+is raised to indicate that Eric has mumps.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Command">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Command</tt><a class="headerlink" href="#ai.Command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract class from which all other command classes inherit. Subclasses
+should implement a method named <cite>execute</cite>.</p>
+<dl class="method">
+<dt id="ai.Command.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Command.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the command. The default implementation provided here does
+nothing; subclasses should override this method to supply the desired
+behaviour.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Command.finish">
+<tt class="descname">finish</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Command.finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform any required cleanup before the command is removed from the
+command stack. This method is called on a controlling command just
+before it is terminated, and on an interruptible command when it is
+interrupted. The default implementation provided here does nothing;
+subclasses override this method as necessary.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Command.is_GoTo">
+<tt class="descname">is_GoTo</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Command.is_GoTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is one of the <a class="reference internal" href="#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a> commands.
+This method returns <cite>False</cite>, but the <a class="reference internal" href="#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a> commands override it
+and return <cite>True</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Command.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Command.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible. An interruptible
+command can be terminated immediately by a command list restart. This
+method returns <cite>True</cite>, but subclasses may override it and return
+<cite>False</cite> instead.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.CommandList">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">CommandList</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#ai.CommandList" title="Permalink to this definition">¶</a></dt>
+<dd><p>A list of commands built from a <a class="reference internal" href="#ai.CommandListTemplate" title="ai.CommandListTemplate"><tt class="xref py py-class docutils literal"><span class="pre">CommandListTemplate</span></tt></a>. Maintains
+a command stack from which commands are popped after they have finished
+executing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to be controlled (the command list owner).</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.CommandList.add_command">
+<tt class="descname">add_command</tt><big>(</big><em>command</em><big>)</big><a class="headerlink" href="#ai.CommandList.add_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a command to the stack.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> &#8211; The <a class="reference internal" href="#ai.Command" title="ai.Command"><tt class="xref py py-class docutils literal"><span class="pre">Command</span></tt></a> to add.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.command">
+<tt class="descname">command</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.CommandList.command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hand control of the command list owner over to the current command.
+The steps taken are:</p>
+<ol class="arabic simple">
+<li>Add the controlling command (if there is one, and the current
+command is interruptible) to the stack.</li>
+<li>Add the subcommand (if there is one, and the current command is
+interruptible) to the stack.</li>
+<li>If the command stack is empty, pull the next command from the
+command list and add it to the stack.</li>
+<li>Execute the current command (the last command on the stack).</li>
+<li>Act on the return value from the current command; if it is:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><cite>None</cite>, then return from this method;</li>
+<li><cite>self</cite> (the command itself), then pop the current command from the
+stack and go to step 3;</li>
+<li>another command, then add that command to the stack and go to step
+4.</li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.get_GoTo_destination">
+<tt class="descname">get_GoTo_destination</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.CommandList.get_GoTo_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the destination of the character, or <cite>None</cite> if he is not
+under the control of a <a class="reference internal" href="#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a> command.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.is_GoToing">
+<tt class="descname">is_GoToing</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.CommandList.is_GoToing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the character is under the control of one of the
+<a class="reference internal" href="#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a> commands.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.CommandList.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <cite>False</cite> if the command stack contains an uninterruptible
+command, <cite>True</cite> otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.jump">
+<tt class="descname">jump</tt><big>(</big><em>offset</em><big>)</big><a class="headerlink" href="#ai.CommandList.jump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jump forwards (or backwards) in the list of commands.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>offset</strong> &#8211; The offset by which to jump. -2 means the previous
+command, -1 means the current command, 0 means the next
+command, and 1 means the next command but one.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.restart">
+<tt class="descname">restart</tt><big>(</big><em>index=None</em><big>)</big><a class="headerlink" href="#ai.CommandList.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restart this command list. When the current command finishes, the
+next command will be the first command in the command list, or the
+command denoted by <cite>index</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>index</strong> &#8211; The index of the command at which to restart (defaults to
+0).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.set_GoTo_destination">
+<tt class="descname">set_GoTo_destination</tt><big>(</big><em>destination</em><big>)</big><a class="headerlink" href="#ai.CommandList.set_GoTo_destination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the destination of the character if he is under the control of a
+<a class="reference internal" href="#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a> command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>destination</strong> (<a class="reference internal" href="location.html#location.Location" title="location.Location"><tt class="xref py py-class docutils literal"><span class="pre">Location</span></tt></a>) &#8211; The destination to set.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.set_controlling_command">
+<tt class="descname">set_controlling_command</tt><big>(</big><em>command</em><big>)</big><a class="headerlink" href="#ai.CommandList.set_controlling_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the controlling command for this command list. The controlling
+command, if set, is executed before and in addition to the current
+command on the stack (see <a class="reference internal" href="#ai.CommandList.command" title="ai.CommandList.command"><tt class="xref py py-meth docutils literal"><span class="pre">command()</span></tt></a>). <a class="reference internal" href="#ai.WalkFast" title="ai.WalkFast"><tt class="xref py py-class docutils literal"><span class="pre">WalkFast</span></tt></a> and
+<a class="reference internal" href="#ai.HitNowAndThen" title="ai.HitNowAndThen"><tt class="xref py py-class docutils literal"><span class="pre">HitNowAndThen</span></tt></a> are examples of commands that are used as
+controlling commands.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> (<a class="reference internal" href="#ai.Command" title="ai.Command"><tt class="xref py py-class docutils literal"><span class="pre">Command</span></tt></a>) &#8211; The command to set as the controlling command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.set_restart_point">
+<tt class="descname">set_restart_point</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.CommandList.set_restart_point" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the current and all previous commands from the command list.
+When the current command finishes, the next command will be regarded as
+the first for the purposes of a command list restart.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.set_subcommand">
+<tt class="descname">set_subcommand</tt><big>(</big><em>command_name</em>, <em>args</em><big>)</big><a class="headerlink" href="#ai.CommandList.set_subcommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the subcommand for this command list. The subcommand, if set, is
+executed before and in addition to the current command on the stack
+(see <a class="reference internal" href="#ai.CommandList.command" title="ai.CommandList.command"><tt class="xref py py-meth docutils literal"><span class="pre">command()</span></tt></a>). <a class="reference internal" href="#ai.MonitorEric" title="ai.MonitorEric"><tt class="xref py py-class docutils literal"><span class="pre">MonitorEric</span></tt></a> is an example of a command
+that is used as a subcommand.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command_name</strong> &#8211; The name of the command to set as the subcommand.</li>
+<li><strong>args</strong> &#8211; The subcommand&#8217;s arguments.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandList.set_template">
+<tt class="descname">set_template</tt><big>(</big><em>template</em><big>)</big><a class="headerlink" href="#ai.CommandList.set_template" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the template for this command list. This method is used to
+replace a character&#8217;s current command list (e.g. when the bell rings).
+Any interruptible commands remaining on the stack are removed (after
+calling their <a class="reference internal" href="#ai.Command.finish" title="ai.Command.finish"><tt class="xref py py-meth docutils literal"><span class="pre">finish()</span></tt></a> methods); uninterruptible
+commands are left in place so that they have a chance to finish before
+the new command list kicks in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>template</strong> &#8211; The <a class="reference internal" href="#ai.CommandListTemplate" title="ai.CommandListTemplate"><tt class="xref py py-class docutils literal"><span class="pre">CommandListTemplate</span></tt></a> to use.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.CommandListTemplate">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">CommandListTemplate</tt><big>(</big><em>command_list_id</em><big>)</big><a class="headerlink" href="#ai.CommandListTemplate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Template from which a specific command list may be created (one or more
+times). <cite>command_list_id</cite> is an identifier for the command list, used only
+for debugging purposes.</p>
+<dl class="method">
+<dt id="ai.CommandListTemplate.add_command">
+<tt class="descname">add_command</tt><big>(</big><em>command_class</em>, <em>*params</em><big>)</big><a class="headerlink" href="#ai.CommandListTemplate.add_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a command to this template.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command_class</strong> &#8211; The class object that implements the command.</li>
+<li><strong>params</strong> &#8211; The command&#8217;s parameters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.CommandListTemplate.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><em>start</em><big>)</big><a class="headerlink" href="#ai.CommandListTemplate.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of commands (initialised command class instances)
+constructed from this template.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>start</strong> &#8211; The index of the first command. If <cite>start</cite> is 0, the
+entire list of commands is returned. If <cite>start</cite> is N&gt;0,
+the first N commands are omitted.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.ComplexCommand">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">ComplexCommand</tt><a class="headerlink" href="#ai.ComplexCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract class used by many commands that require a fixed sequence of
+steps to be executed with little or no conditional logic. Each step is
+implemented as a separate method. Subclasses must implement a method named
+<cite>get_commands</cite> that returns a list of the names of the methods to execute.</p>
+<dl class="method">
+<dt id="ai.ComplexCommand.done">
+<tt class="descname">done</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ComplexCommand.done" title="Permalink to this definition">¶</a></dt>
+<dd><p>Terminate this complex command. This method is typically used as the
+last step in the sequence, and is provided for convenience to
+subclasses.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> (to terminate this command)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.ComplexCommand.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ComplexCommand.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the next step (method) in this command&#8217;s sequence. What
+happens after that depends on the return value from the method called;
+if it is:</p>
+<ul class="simple">
+<li><cite>False</cite>, then the step is taken to be still in progress, and will
+be executed again the next time this method is called</li>
+<li><cite>None</cite>, then the step is taken to be finished</li>
+<li><cite>self</cite> (this command), then the entire command is taken to be
+finished, and no more steps will be executed</li>
+<li>another command, then that command is added to the stack (so that
+it will be executed before proceeding to the next step)</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.ComplexCommand.restart">
+<tt class="descname">restart</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ComplexCommand.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return to the first step in the sequence.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.ConductAssembly">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">ConductAssembly</tt><a class="headerlink" href="#ai.ConductAssembly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character conduct assembly. This involves
+delivering a detention message.</p>
+<dl class="method">
+<dt id="ai.ConductAssembly.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ConductAssembly.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character deliver a detention message. After the message has
+been delivered, a signal is raised to indicate that assembly is
+finished.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the detention message has been delivered, or a
+<a class="reference internal" href="#ai.Say" title="ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.ConductClass">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">ConductClass</tt><big>(</big><em>signal=None</em>, <em>qa_group=None</em><big>)</big><a class="headerlink" href="#ai.ConductClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character conduct a class. It determines whether
+the character is teaching Eric, and passes control to a
+<a class="reference internal" href="#ai.ConductClassWithEric" title="ai.ConductClassWithEric"><tt class="xref py py-class docutils literal"><span class="pre">ConductClassWithEric</span></tt></a> or <a class="reference internal" href="#ai.ConductClassWithoutEric" title="ai.ConductClassWithoutEric"><tt class="xref py py-class docutils literal"><span class="pre">ConductClassWithoutEric</span></tt></a> command
+as appropriate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>signal</strong> &#8211; The signal raised by the swot to indicate that he&#8217;s ready to
+start the lesson.</li>
+<li><strong>qa_group</strong> &#8211; The Q&amp;A group from which to choose questions and answers
+for the teacher and the swot; if <cite>None</cite>, the Q&amp;A group
+will be chosen at random from those available each time a
+question and answer is generated.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.ConductClass.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ConductClass.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character conduct a class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.ConductClassWithoutEric" title="ai.ConductClassWithoutEric"><tt class="xref py py-class docutils literal"><span class="pre">ConductClassWithoutEric</span></tt></a> command if the character is
+not teaching Eric; <cite>None</cite> if the character is teaching Eric
+but the swot hasn&#8217;t shown up yet; a
+<a class="reference internal" href="#ai.ConductClassWithEric" title="ai.ConductClassWithEric"><tt class="xref py py-class docutils literal"><span class="pre">ConductClassWithEric</span></tt></a> command otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.ConductClassWithEric">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">ConductClassWithEric</tt><big>(</big><em>qa_group=None</em><big>)</big><a class="headerlink" href="#ai.ConductClassWithEric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character conduct a class with Eric. This involves
+waiting until the swot shows up, listening to him while he tells tales and
+responding appropriately, wiping the board (if there is one in the room),
+optionally writing on the board, and finally either telling the kids what
+to do and pacing up and down until the bell rings, or starting a
+question-and-answer session with the swot. At various points in this
+process, the character will also respond to the swot&#8217;s tales about Eric
+being missing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>qa_group</strong> &#8211; The Q&amp;A group from which to choose questions and answers
+for the teacher and the swot; if <cite>None</cite>, the Q&amp;A group
+will be chosen at random from those available each time a
+question and answer is generated.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.ConductClassWithEric.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ConductClassWithEric.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character perform the next required action while conducting
+the class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite> if the character should do nothing at the moment, or
+an appropriate <a class="reference internal" href="#ai.Command" title="ai.Command"><tt class="xref py py-class docutils literal"><span class="pre">Command</span></tt></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.ConductClassWithoutEric">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">ConductClassWithoutEric</tt><a class="headerlink" href="#ai.ConductClassWithoutEric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character conduct a class without Eric. This
+involves wiping the board (if there is one in the room), optionally writing
+on the board, telling the kids what to do, and then pacing up and down
+until the bell rings.</p>
+<dl class="method">
+<dt id="ai.ConductClassWithoutEric.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ConductClassWithoutEric.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character perform the next step in conducting this class.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.WipeBoard" title="ai.WipeBoard"><tt class="xref py py-class docutils literal"><span class="pre">WipeBoard</span></tt></a> command; a <a class="reference internal" href="#ai.GoToXY" title="ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command to
+make the character return to the middle of the board after
+wiping it; a <a class="reference internal" href="#ai.WriteOnBoard" title="ai.WriteOnBoard"><tt class="xref py py-class docutils literal"><span class="pre">WriteOnBoard</span></tt></a> command (possibly); a
+<a class="reference internal" href="#ai.TellClassWhatToDo" title="ai.TellClassWhatToDo"><tt class="xref py py-class docutils literal"><span class="pre">TellClassWhatToDo</span></tt></a> command; or a <a class="reference internal" href="#ai.WalkUpOrDown" title="ai.WalkUpOrDown"><tt class="xref py py-class docutils literal"><span class="pre">WalkUpOrDown</span></tt></a>
+command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.DoAssemblyDuty">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">DoAssemblyDuty</tt><big>(</big><em>assembly_started</em>, <em>assembly_finished</em><big>)</big><a class="headerlink" href="#ai.DoAssemblyDuty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character perform assembly duty. This involves
+checking whether Eric is present in the assembly hall, and chasing him down
+if he&#8217;s absent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>assembly_started</strong> &#8211; The signal that indicates assembly has started.</li>
+<li><strong>assembly_finished</strong> &#8211; The signal that indicates assembly is finished.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.DoAssemblyDuty.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.DoAssemblyDuty.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character perform assembly duty. If the character has just
+successfully herded the absent Eric to the assembly hall, the
+character&#8217;s command list is restarted (so that he returns to the back
+of the assembly hall and starts the Eric-watching process over again).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character has just herded Eric back to the
+assembly hall, or assembly has finished; <cite>None</cite> if it&#8217;s not
+time to start keeping an eye out for Eric yet, or Eric is
+present; or a <a class="reference internal" href="#ai.FetchEric" title="ai.FetchEric"><tt class="xref py py-class docutils literal"><span class="pre">FetchEric</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.DropStinkbomb">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">DropStinkbomb</tt><a class="headerlink" href="#ai.DropStinkbomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character drop a stinkbomb.</p>
+<dl class="method">
+<dt id="ai.DropStinkbomb.drop">
+<tt class="descname">drop</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.DropStinkbomb.drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character drop a stinkbomb (thus creating a stinkbomb cloud).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.DropStinkbomb.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.DropStinkbomb.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.DropStinkbomb.raise_arm" title="ai.DropStinkbomb.raise_arm"><tt class="xref py py-meth docutils literal"><span class="pre">raise_arm()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.DropStinkbomb.drop" title="ai.DropStinkbomb.drop"><tt class="xref py py-meth docutils literal"><span class="pre">drop()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.DropStinkbomb.lower" title="ai.DropStinkbomb.lower"><tt class="xref py py-meth docutils literal"><span class="pre">lower()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ComplexCommand.done" title="ai.ComplexCommand.done"><tt class="xref py py-meth docutils literal"><span class="pre">done()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.DropStinkbomb.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.DropStinkbomb.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.DropStinkbomb.lower">
+<tt class="descname">lower</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.DropStinkbomb.lower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character lower his arm after dropping a stinkbomb.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.DropStinkbomb.raise_arm">
+<tt class="descname">raise_arm</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.DropStinkbomb.raise_arm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character raise his arm in preparation for dropping a
+stinkbomb.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.DumpWaterPistol">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">DumpWaterPistol</tt><a class="headerlink" href="#ai.DumpWaterPistol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes Eric throw away his water pistol.</p>
+<dl class="method">
+<dt id="ai.DumpWaterPistol.dump_water_pistol">
+<tt class="descname">dump_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.DumpWaterPistol.dump_water_pistol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make Eric drop his water pistol.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.DumpWaterPistol.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.DumpWaterPistol.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.DumpWaterPistol.dump_water_pistol" title="ai.DumpWaterPistol.dump_water_pistol"><tt class="xref py py-meth docutils literal"><span class="pre">dump_water_pistol()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.DumpWaterPistol.stand_up" title="ai.DumpWaterPistol.stand_up"><tt class="xref py py-meth docutils literal"><span class="pre">stand_up()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.DumpWaterPistol.stand_up">
+<tt class="descname">stand_up</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.DumpWaterPistol.stand_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make Eric stand up straight again after dropping his water pistol.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.EndGame">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">EndGame</tt><a class="headerlink" href="#ai.EndGame" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that ends the game. May be used by any character.</p>
+<dl class="method">
+<dt id="ai.EndGame.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.EndGame.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character end the game.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.EvadeMouse">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">EvadeMouse</tt><big>(</big><em>delay</em><big>)</big><a class="headerlink" href="#ai.EvadeMouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character stand on a chair or start jumping.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delay</strong> &#8211; The delay before the character will get off a chair or stop
+jumping.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.EvadeMouse.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.EvadeMouse.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character:</p>
+<ol class="arabic simple">
+<li>stand or remain standing on a chair, or</li>
+<li>start or continue jumping, or</li>
+<li>finish either one of these activities (after a certain time).</li>
+</ol>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character has finished standing on a chair or
+jumping, <cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.EvadeMouse.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.EvadeMouse.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (a musophobe must not be distracted while evading a
+mouse).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Fall">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Fall</tt><a class="headerlink" href="#ai.Fall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a falling object (a conker or a drop of water or
+sherry).</p>
+<dl class="method">
+<dt id="ai.Fall.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Fall.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control an object that may be falling. If the object is not falling,
+do nothing; otherwise make it fall a bit, taking appropriate action if
+it hits the floor or a person&#8217;s head.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Fall.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Fall.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (falling objects do not care about the bell).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.FallToFloor">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">FallToFloor</tt><a class="headerlink" href="#ai.FallToFloor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls Eric&#8217;s descent to the floor (as from a bike that
+has run out of momentum, or a plant that has died).</p>
+<dl class="method">
+<dt id="ai.FallToFloor.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FallToFloor.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make Eric fall. If he has reached the floor, he will assume a
+sitting position.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if Eric has hit the floor, or <cite>None</cite> if he&#8217;s still
+falling.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.FetchEric">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">FetchEric</tt><a class="headerlink" href="#ai.FetchEric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character find and hover around Eric until he goes
+to wherever he should be.</p>
+<dl class="method">
+<dt id="ai.FetchEric.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FetchEric.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character take the next step in the search for Eric.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if Eric is where he should be, or is due to be
+expelled; <cite>None</cite> if the character is already beside Eric; or
+a <a class="reference internal" href="#ai.GoTowardsXY" title="ai.GoTowardsXY"><tt class="xref py py-class docutils literal"><span class="pre">GoTowardsXY</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.FindEric">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">FindEric</tt><a class="headerlink" href="#ai.FindEric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character go and find Eric.</p>
+<dl class="method">
+<dt id="ai.FindEric.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FindEric.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character take the next step in the search for Eric. The
+skool clock is stopped to ensure that the character has enough time to
+find him. When Eric is found, he is frozen until the character decides
+to unfreeze him.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if Eric has been found and frozen, <cite>None</cite> if Eric has
+been found but cannot be frozen at the moment, or a
+<a class="reference internal" href="#ai.GoTowardsXY" title="ai.GoTowardsXY"><tt class="xref py py-class docutils literal"><span class="pre">GoTowardsXY</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.FindEricIfMissing">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">FindEricIfMissing</tt><a class="headerlink" href="#ai.FindEricIfMissing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character start looking for Eric if he&#8217;s not where
+he should be.</p>
+<dl class="method">
+<dt id="ai.FindEricIfMissing.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FindEricIfMissing.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character check whether Eric is where he should be, and go
+looking for him if not.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if Eric is where he should be, or a <a class="reference internal" href="#ai.FetchEric" title="ai.FetchEric"><tt class="xref py py-class docutils literal"><span class="pre">FetchEric</span></tt></a>
+command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.FindSeat">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">FindSeat</tt><big>(</big><em>go_to_back=True</em>, <em>move_along=True</em><big>)</big><a class="headerlink" href="#ai.FindSeat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character find a seat and sit down.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>go_to_back</strong> &#8211; <cite>True</cite> if the character should seek out the back seat,
+<cite>False</cite> if he should find the nearest seat.</li>
+<li><strong>move_along</strong> &#8211; <cite>True</cite> if the character should move along to the next
+seat even if he&#8217;s already standing beside one, <cite>False</cite>
+otherwise.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.FindSeat.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FindSeat.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character find a seat, turn round if he&#8217;s already beside one
+but facing the wrong way, or sit down.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character sat down, <cite>None</cite> if he&#8217;s beside a
+seat but had to turn round, or a <a class="reference internal" href="#ai.GoToXY" title="ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command to
+send him to a seat.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.FireCatapult">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">FireCatapult</tt><a class="headerlink" href="#ai.FireCatapult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character fire a catapult.</p>
+<dl class="method">
+<dt id="ai.FireCatapult.aim">
+<tt class="descname">aim</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireCatapult.aim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character start or finish raising his catapult to eye level.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> if the character has yet to raise the catapult to eye
+level, or <cite>None</cite> if he has raised it to eye level.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.FireCatapult.fire">
+<tt class="descname">fire</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireCatapult.fire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character launch a catapult pellet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.FireCatapult.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireCatapult.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.FireCatapult.aim" title="ai.FireCatapult.aim"><tt class="xref py py-meth docutils literal"><span class="pre">aim()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.FireCatapult.fire" title="ai.FireCatapult.fire"><tt class="xref py py-meth docutils literal"><span class="pre">fire()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.FireCatapult.lower" title="ai.FireCatapult.lower"><tt class="xref py py-meth docutils literal"><span class="pre">lower()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ComplexCommand.done" title="ai.ComplexCommand.done"><tt class="xref py py-meth docutils literal"><span class="pre">done()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.FireCatapult.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireCatapult.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (a catapult-firing character should finish what he&#8217;s
+started).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.FireCatapult.lower">
+<tt class="descname">lower</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireCatapult.lower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character start or finish lowering his catapult.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> if the character has not finished lowering his
+catapult, or <cite>None</cite> if he has.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.FireNowAndThen">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">FireNowAndThen</tt><a class="headerlink" href="#ai.FireNowAndThen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character check whether it&#8217;s a good time to launch
+a catapult pellet, and act accordingly. This command is used as a
+controlling command (see <a class="reference internal" href="#ai.CommandList.set_controlling_command" title="ai.CommandList.set_controlling_command"><tt class="xref py py-meth docutils literal"><span class="pre">CommandList.set_controlling_command()</span></tt></a>).</p>
+<dl class="method">
+<dt id="ai.FireNowAndThen.get_command">
+<tt class="descname">get_command</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireNowAndThen.get_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the command that should be used to make a character fire his
+catapult.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.FireCatapult" title="ai.FireCatapult"><tt class="xref py py-class docutils literal"><span class="pre">FireCatapult</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.FireNowAndThen.ready">
+<tt class="descname">ready</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireNowAndThen.ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this character will fire a catapult pellet. The
+answer will be <cite>True</cite> if all the conditions described in
+<a class="reference internal" href="#ai.HitOrFireNowAndThen.ready" title="ai.HitOrFireNowAndThen.ready"><tt class="xref py py-class docutils literal"><span class="pre">HitOrFireNowAndThen.ready</span></tt></a> are met, and also:</p>
+<ul class="simple">
+<li>The character&#8217;s x-coordinate is divisible by 4.</li>
+<li>The character&#8217;s catapult pellet is not currently airborne.</li>
+<li>The character chooses to.</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.FireWaterPistol">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">FireWaterPistol</tt><a class="headerlink" href="#ai.FireWaterPistol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character fire a water pistol.</p>
+<dl class="method">
+<dt id="ai.FireWaterPistol.aim">
+<tt class="descname">aim</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireWaterPistol.aim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character take out his water pistol and aim it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.FireWaterPistol.fire">
+<tt class="descname">fire</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireWaterPistol.fire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character pull the trigger of his water pistol (thus
+releasing a jet of water or sherry).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.FireWaterPistol.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireWaterPistol.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.FireWaterPistol.aim" title="ai.FireWaterPistol.aim"><tt class="xref py py-meth docutils literal"><span class="pre">aim()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.FireWaterPistol.fire" title="ai.FireWaterPistol.fire"><tt class="xref py py-meth docutils literal"><span class="pre">fire()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.FireWaterPistol.lower" title="ai.FireWaterPistol.lower"><tt class="xref py py-meth docutils literal"><span class="pre">lower()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ComplexCommand.done" title="ai.ComplexCommand.done"><tt class="xref py py-meth docutils literal"><span class="pre">done()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.FireWaterPistol.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireWaterPistol.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.FireWaterPistol.lower">
+<tt class="descname">lower</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.FireWaterPistol.lower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character put his water pistol back in his pocket.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Flight">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Flight</tt><big>(</big><em>phases</em>, <em>command_list_id=None</em><big>)</big><a class="headerlink" href="#ai.Flight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls Eric&#8217;s flight through a designated sequence of
+locations (relative to the starting point) and animatory states.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>phases</strong> &#8211; The phases of animation to proceed through.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list Mr Wacker should switch
+to when Eric hits the ground; if not blank, Eric
+will be paralysed when he hits the ground.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.Flight.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Flight.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move Eric to the next location and phase of animation in the
+flight sequence.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if Eric has landed safely; a <a class="reference internal" href="#ai.Freeze" title="ai.Freeze"><tt class="xref py py-class docutils literal"><span class="pre">Freeze</span></tt></a> command if
+Eric has landed but is now immobilised (as when falling from a
+great height); or <cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Floored">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Floored</tt><big>(</big><em>count</em><big>)</big><a class="headerlink" href="#ai.Floored" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a character who has been knocked to the floor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>count</strong> &#8211; The delay before the character should get up.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.Floored.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Floored.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character remain on the floor, or get up if enough time has
+passed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character has got up and is ready to resume
+normal service, <cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Floored.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Floored.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (the bell cannot raise characters from the floor).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Follow">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Follow</tt><big>(</big><em>character_id</em><big>)</big><a class="headerlink" href="#ai.Follow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character follow another character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character_id</strong> &#8211; The ID of the character to follow.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.Follow.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Follow.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character go to the same destination as another character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the destination has been reached, or a <a class="reference internal" href="#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a>
+command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Freeze">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Freeze</tt><a class="headerlink" href="#ai.Freeze" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls Eric while he&#8217;s frozen (as by the
+<a class="reference internal" href="#ai.FindEric" title="ai.FindEric"><tt class="xref py py-class docutils literal"><span class="pre">FindEric</span></tt></a> command).</p>
+<dl class="method">
+<dt id="ai.Freeze.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Freeze.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control Eric while he&#8217;s frozen. Each time this method is called, a
+check is made whether Eric has acknowledged understanding of the
+message being delivered to him (see <a class="reference internal" href="#ai.TellEricAndWait" title="ai.TellEricAndWait"><tt class="xref py py-class docutils literal"><span class="pre">TellEricAndWait</span></tt></a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.GoTo">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">GoTo</tt><big>(</big><em>location_id</em>, <em>destination=None</em>, <em>go_one_step=False</em><big>)</big><a class="headerlink" href="#ai.GoTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character go to a location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>location_id</strong> &#8211; The ID of the location to go to (may be <cite>None</cite>).</li>
+<li><strong>destination</strong> (<a class="reference internal" href="location.html#location.Location" title="location.Location"><tt class="xref py py-class docutils literal"><span class="pre">Location</span></tt></a>) &#8211; The location to go to (required if <cite>location_id</cite>
+is <cite>None</cite>).</li>
+<li><strong>go_one_step</strong> &#8211; <cite>True</cite> if this command should terminate after
+sending the character one step towards the
+destination.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.GoTo.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.GoTo.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character take the next step towards his destination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character has already reached his destination,
+<cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.GoTo.is_GoTo">
+<tt class="descname">is_GoTo</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.GoTo.is_GoTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is one of the <a class="reference internal" href="#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a> commands.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.GoToRandomLocation">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">GoToRandomLocation</tt><a class="headerlink" href="#ai.GoToRandomLocation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character go to a location chosen at random.</p>
+<dl class="method">
+<dt id="ai.GoToRandomLocation.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.GoToRandomLocation.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character start the journey towards a randomly chosen
+location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.GoToXY">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">GoToXY</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#ai.GoToXY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character go to a location specified by x- and
+y-coordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location to go to.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location to go to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.GoTowardsXY">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">GoTowardsXY</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#ai.GoTowardsXY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character take one step towards a location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location to go towards.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location to go towards.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.GrassAndAnswerQuestions">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">GrassAndAnswerQuestions</tt><a class="headerlink" href="#ai.GrassAndAnswerQuestions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character tell tales and answer the teacher&#8217;s
+questions during a lesson. It is used by the swot.</p>
+<dl class="method">
+<dt id="ai.GrassAndAnswerQuestions.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.GrassAndAnswerQuestions.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character tell a tale, wait for a teacher to ask a question,
+or answer a teacher&#8217;s question.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite> if the character should do nothing at the moment, or
+an appropriate <a class="reference internal" href="#ai.Command" title="ai.Command"><tt class="xref py py-class docutils literal"><span class="pre">Command</span></tt></a>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Grow">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Grow</tt><big>(</big><em>half</em>, <em>full</em>, <em>die</em><big>)</big><a class="headerlink" href="#ai.Grow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a plant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>half</strong> &#8211; The delay between being watered and appearing at half-height.</li>
+<li><strong>full</strong> &#8211; The delay between being watered and growing to full height.</li>
+<li><strong>die</strong> &#8211; The delay between being watered and dying.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.Grow.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Grow.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control a plant. If the plant has recently been watered, it will
+grow to full height and then die (disappear).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Grow.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Grow.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (plants do not care about the bell).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Hit">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Hit</tt><a class="headerlink" href="#ai.Hit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character throw a punch.</p>
+<dl class="method">
+<dt id="ai.Hit.aim">
+<tt class="descname">aim</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Hit.aim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character start or finish raising his fist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite> if the character&#8217;s fist is fully raised, <cite>False</cite>
+otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Hit.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Hit.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.Hit.aim" title="ai.Hit.aim"><tt class="xref py py-meth docutils literal"><span class="pre">aim()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.Hit.hit" title="ai.Hit.hit"><tt class="xref py py-meth docutils literal"><span class="pre">hit()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.Hit.lower" title="ai.Hit.lower"><tt class="xref py py-meth docutils literal"><span class="pre">lower()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ComplexCommand.done" title="ai.ComplexCommand.done"><tt class="xref py py-meth docutils literal"><span class="pre">done()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Hit.hit">
+<tt class="descname">hit</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Hit.hit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character deck anyone unfortunate enough to come into contact
+with his raised fist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Hit.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Hit.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Hit.lower">
+<tt class="descname">lower</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Hit.lower" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character start or finish lowering his fist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite> if the character&#8217;s fist is fully lowered, <cite>False</cite>
+otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.HitNowAndThen">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">HitNowAndThen</tt><a class="headerlink" href="#ai.HitNowAndThen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character check whether it&#8217;s a good time to throw a
+punch, and act accordingly. This command is used as a controlling command
+(see <a class="reference internal" href="#ai.CommandList.set_controlling_command" title="ai.CommandList.set_controlling_command"><tt class="xref py py-meth docutils literal"><span class="pre">CommandList.set_controlling_command()</span></tt></a>).</p>
+<dl class="method">
+<dt id="ai.HitNowAndThen.get_command">
+<tt class="descname">get_command</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.HitNowAndThen.get_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the command that should be used to make a character throw a
+punch.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.Hit" title="ai.Hit"><tt class="xref py py-class docutils literal"><span class="pre">Hit</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.HitNowAndThen.ready">
+<tt class="descname">ready</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.HitNowAndThen.ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this character will throw a punch. The answer will be
+<cite>True</cite> if all the conditions described in
+<a class="reference internal" href="#ai.HitOrFireNowAndThen.ready" title="ai.HitOrFireNowAndThen.ready"><tt class="xref py py-meth docutils literal"><span class="pre">HitOrFireNowAndThen.ready()</span></tt></a> are met, and also:</p>
+<ul class="simple">
+<li>There is someone punchable in front of the character.</li>
+<li>The character chooses to.</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.HitOrFireNowAndThen">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">HitOrFireNowAndThen</tt><a class="headerlink" href="#ai.HitOrFireNowAndThen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract command that makes a character check whether it&#8217;s a good time
+to throw a punch or launch a catapult pellet, and act accordingly.</p>
+<dl class="method">
+<dt id="ai.HitOrFireNowAndThen.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.HitOrFireNowAndThen.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character start throwing a punch or launching a catapult
+pellet if conditions are favourable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if conditions are not favourable, or a <a class="reference internal" href="#ai.Hit" title="ai.Hit"><tt class="xref py py-class docutils literal"><span class="pre">Hit</span></tt></a> or
+<a class="reference internal" href="#ai.FireCatapult" title="ai.FireCatapult"><tt class="xref py py-class docutils literal"><span class="pre">FireCatapult</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.HitOrFireNowAndThen.ready">
+<tt class="descname">ready</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.HitOrFireNowAndThen.ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether now is a good time for this character to throw a
+punch or fire a catapult pellet. The answer will be <cite>True</cite> if all the
+following conditions are met:</p>
+<ul class="simple">
+<li>The character is not on a staircase.</li>
+<li>There are no adults nearby facing the character.</li>
+<li>The character is standing upright.</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Hop">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Hop</tt><big>(</big><em>phases</em><big>)</big><a class="headerlink" href="#ai.Hop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a frog while it&#8217;s hopping.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>phases</strong> &#8211; The phases of animation to use for the hop.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.Hop.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Hop.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a frog to the next phase of animation in the hop.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the hop is finished, or <cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Hop.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Hop.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Jump">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Jump</tt><a class="headerlink" href="#ai.Jump" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character jump.</p>
+<dl class="method">
+<dt id="ai.Jump.down">
+<tt class="descname">down</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Jump.down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character return to the floor after jumping.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Jump.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Jump.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.Jump.up" title="ai.Jump.up"><tt class="xref py py-meth docutils literal"><span class="pre">up()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.Jump.down" title="ai.Jump.down"><tt class="xref py py-meth docutils literal"><span class="pre">down()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ComplexCommand.done" title="ai.ComplexCommand.done"><tt class="xref py py-meth docutils literal"><span class="pre">done()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Jump.up">
+<tt class="descname">up</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Jump.up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character jump into the air.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.JumpIfOpen">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">JumpIfOpen</tt><big>(</big><em>door_id</em>, <em>offset</em><big>)</big><a class="headerlink" href="#ai.JumpIfOpen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that jumps forwards or backwards in a character&#8217;s command list
+if a specified door or window is open.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>door_id</strong> &#8211; The ID of the door or window to check.</li>
+<li><strong>offset</strong> (<em>number</em>) &#8211; The offset by which to jump in the command list.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.JumpIfOpen.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.JumpIfOpen.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jump forwards or backwards in a character&#8217;s command list if a
+specified door or window is open.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.JumpIfShut">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">JumpIfShut</tt><big>(</big><em>door_id</em>, <em>offset</em><big>)</big><a class="headerlink" href="#ai.JumpIfShut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that jumps forwards or backwards in a character&#8217;s command list
+if a specified door or window is shut.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>door_id</strong> &#8211; The ID of the door or window to check.</li>
+<li><strong>offset</strong> (<em>number</em>) &#8211; The offset by which to jump in the command list.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.JumpIfShut.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.JumpIfShut.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Jump forwards or backwards in a character&#8217;s command list if a
+specified door or window is shut.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.JumpOffSaddle">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">JumpOffSaddle</tt><a class="headerlink" href="#ai.JumpOffSaddle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls Eric after he&#8217;s jumped off the saddle of the bike.</p>
+<dl class="method">
+<dt id="ai.JumpOffSaddle.check_cup">
+<tt class="descname">check_cup</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.JumpOffSaddle.check_cup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Place the frog in a cup (if Eric has it and has reached a cup).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.JumpOffSaddle.fall">
+<tt class="descname">fall</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.JumpOffSaddle.fall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guide Eric back to the floor after jumping off the saddle of the
+bike.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> if Eric has not reached the floor yet, or <cite>None</cite>
+otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.JumpOffSaddle.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.JumpOffSaddle.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.JumpOffSaddle.rise" title="ai.JumpOffSaddle.rise"><tt class="xref py py-meth docutils literal"><span class="pre">rise()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.JumpOffSaddle.reach" title="ai.JumpOffSaddle.reach"><tt class="xref py py-meth docutils literal"><span class="pre">reach()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.JumpOffSaddle.check_cup" title="ai.JumpOffSaddle.check_cup"><tt class="xref py py-meth docutils literal"><span class="pre">check_cup()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.JumpOffSaddle.fall" title="ai.JumpOffSaddle.fall"><tt class="xref py py-meth docutils literal"><span class="pre">fall()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ComplexCommand.done" title="ai.ComplexCommand.done"><tt class="xref py py-meth docutils literal"><span class="pre">done()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.JumpOffSaddle.reach">
+<tt class="descname">reach</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.JumpOffSaddle.reach" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make Eric rise again and raise his arm (to reach for a cup).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.JumpOffSaddle.rise">
+<tt class="descname">rise</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.JumpOffSaddle.rise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make Eric rise off the bike saddle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Kiss">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Kiss</tt><a class="headerlink" href="#ai.Kiss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls Eric while he kisses (or attempts to kiss) another
+character.</p>
+<dl class="method">
+<dt id="ai.Kiss.finish_kiss">
+<tt class="descname">finish_kiss</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Kiss.finish_kiss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control Eric as he finishes a kiss or attempted kiss. If there was
+no one within kissing range in front of Eric, he will return from the
+midstride position. If there was someone kissable within kissing range,
+they will either finish the kiss with Eric (if they accepted it) or
+deck him (if they decided to slap him instead).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Kiss.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Kiss.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.Kiss.start_kiss" title="ai.Kiss.start_kiss"><tt class="xref py py-meth docutils literal"><span class="pre">start_kiss()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.Kiss.finish_kiss" title="ai.Kiss.finish_kiss"><tt class="xref py py-meth docutils literal"><span class="pre">finish_kiss()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ComplexCommand.done" title="ai.ComplexCommand.done"><tt class="xref py py-meth docutils literal"><span class="pre">done()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Kiss.start_kiss">
+<tt class="descname">start_kiss</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Kiss.start_kiss" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control Eric as he begins an attempt to kiss someone. If there is no
+one within kissing range in front of Eric, he will move midstride. If
+there is someone kissable within kissing range, they will either accept
+the kiss or slap him.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.KnockedOver">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">KnockedOver</tt><big>(</big><em>delay</em>, <em>reprimand_delay</em>, <em>sleep</em><big>)</big><a class="headerlink" href="#ai.KnockedOver" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls an adult character who has been knocked over by a
+catapult pellet or conker.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>delay</strong> &#8211; The delay before the character rises.</li>
+<li><strong>reprimand_delay</strong> &#8211; The delay before the character gives lines to
+someone for knocking him over.</li>
+<li><strong>sleep</strong> &#8211; Whether the character should remain unconscious for a while
+(as when Albert is struck by a conker).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.KnockedOver.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.KnockedOver.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control an adult character who has been knocked over. If conditions
+are right and the character holds a safe combination letter, he will
+reveal it. If enough time has passed since being knocked over, the
+character will give lines if any suitable recipient is nearby.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character has got up and is ready to resume
+normal service, <cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.MonitorEric">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">MonitorEric</tt><big>(</big><em>command_list_id</em>, <em>chase_x</em><big>)</big><a class="headerlink" href="#ai.MonitorEric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character keep an eye out for Eric, and act
+appropriately if he&#8217;s spotted. It is used by Miss Take to make her chase
+Eric out of the girls&#8217; skool if she spots him there when it&#8217;s not
+playtime. This command is used as a subcommand (see
+<a class="reference internal" href="#ai.CommandList.set_subcommand" title="ai.CommandList.set_subcommand"><tt class="xref py py-meth docutils literal"><span class="pre">CommandList.set_subcommand()</span></tt></a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command_list_id</strong> &#8211; The ID of the command list to execute if Eric is
+spotted.</li>
+<li><strong>chase_x</strong> &#8211; The x-coordinate beyond which Eric must be for the monitor
+to start chasing Eric.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.MonitorEric.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MonitorEric.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character check whether they can see Eric in the girls&#8217; skool
+during a non-playtime period, and switch to an appropriate command list
+if so.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.MoveAboutUntil">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">MoveAboutUntil</tt><big>(</big><em>signal</em>, <em>walkabout_range=(1</em>, <em>7)</em><big>)</big><a class="headerlink" href="#ai.MoveAboutUntil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character walk up and down until a signal is
+raised.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>signal</strong> &#8211; The signal to wait for.</li>
+<li><strong>walkabout_range</strong> &#8211; The minimum and maximum distances to walk away from
+the walkabout origin.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.MoveAboutUntil.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveAboutUntil.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character walk up and down unless the signal has been raised.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the signal has been raised, or a <a class="reference internal" href="#ai.WalkAround" title="ai.WalkAround"><tt class="xref py py-class docutils literal"><span class="pre">WalkAround</span></tt></a>
+command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.MoveBike">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">MoveBike</tt><a class="headerlink" href="#ai.MoveBike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a bike when Eric&#8217;s not sitting on the saddle.</p>
+<dl class="method">
+<dt id="ai.MoveBike.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveBike.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control a bike when Eric&#8217;s not sitting on the saddle. If the bike is
+resting on the floor or is not yet visible, do nothing; otherwise move
+the bike forwards.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.MoveBike.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveBike.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (the bike does not care about the bell).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.MoveDeskLid">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">MoveDeskLid</tt><big>(</big><em>delay</em><big>)</big><a class="headerlink" href="#ai.MoveDeskLid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a desk lid.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delay</strong> &#8211; The delay before an opened desk lid closes.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.MoveDeskLid.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveDeskLid.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control a desk lid. If the desk lid is not raised, nothing happens.
+If the desk lid has just been raised, the contents of the desk (if any)
+are delivered to the lid-raiser.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.MoveDoor">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">MoveDoor</tt><big>(</big><em>barrier_id</em>, <em>shut</em><big>)</big><a class="headerlink" href="#ai.MoveDoor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract command that makes a character open or close a door or
+window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>barrier_id</strong> &#8211; The ID of the door or window.</li>
+<li><strong>shut</strong> &#8211; <cite>True</cite> if the door or window should be shut, <cite>False</cite>
+otherwise.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.MoveDoor.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveDoor.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.MoveDoor.raise_arm" title="ai.MoveDoor.raise_arm"><tt class="xref py py-meth docutils literal"><span class="pre">raise_arm()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.MoveDoor.move_door" title="ai.MoveDoor.move_door"><tt class="xref py py-meth docutils literal"><span class="pre">move_door()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.MoveDoor.lower_arm" title="ai.MoveDoor.lower_arm"><tt class="xref py py-meth docutils literal"><span class="pre">lower_arm()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ComplexCommand.done" title="ai.ComplexCommand.done"><tt class="xref py py-meth docutils literal"><span class="pre">done()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.MoveDoor.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveDoor.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.MoveDoor.lower_arm">
+<tt class="descname">lower_arm</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveDoor.lower_arm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character lower his arm after opening or closing a door or
+window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.MoveDoor.move_door">
+<tt class="descname">move_door</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveDoor.move_door" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open or close a door or window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.MoveDoor.raise_arm">
+<tt class="descname">raise_arm</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveDoor.raise_arm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character raise his arm in preparation for opening or closing
+a door or window, or do nothing if the door/window is already in the
+desired state.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the door/window is already in the desired state, or
+<cite>None</cite> if the character raised his arm.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.MoveFrog">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">MoveFrog</tt><big>(</big><em>p_hop</em>, <em>p_turn_round</em>, <em>p_short_hop</em><big>)</big><a class="headerlink" href="#ai.MoveFrog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a frog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>p_hop</strong> &#8211; Probability that the frog will keep still if Eric is not
+nearby.</li>
+<li><strong>p_turn_round</strong> &#8211; Probability that the frog will turn round.</li>
+<li><strong>p_short_hop</strong> &#8211; Probability that the frog will attempt a short hop
+(instead of a long hop) if not turning round.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.MoveFrog.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveFrog.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control a frog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.Hop" title="ai.Hop"><tt class="xref py py-class docutils literal"><span class="pre">Hop</span></tt></a> command, or <cite>None</cite> if the frog decides not to
+move.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.MoveFrog.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveFrog.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (frogs do not care about the bell).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.MoveMouse">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">MoveMouse</tt><big>(</big><em>hide_range</em>, <em>sprints</em>, <em>sprint_range</em>, <em>life_range</em><big>)</big><a class="headerlink" href="#ai.MoveMouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a mouse.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>hide_range</strong> (<em>2-tuple</em>) &#8211; Minimum and maximum delays before the mouse comes out of
+hiding.</li>
+<li><strong>sprints</strong> (<em>2-tuple</em>) &#8211; Minimum and maximum number of sprints the mouse will make
+before hiding.</li>
+<li><strong>sprint_range</strong> (<em>2-tuple</em>) &#8211; Minimum and maximum distances of a sprint.</li>
+<li><strong>life_range</strong> (<em>2-tuple</em>) &#8211; Minimum and maximum number of sprint sessions the mouse
+will engage in before dying (if released by Eric).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.MoveMouse.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveMouse.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control a mouse. The pattern of movements of a mouse is as follows:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Sprint up and down a few times.</li>
+<li>Hide for a bit.</li>
+<li>Go to 1, or die.</li>
+</ol>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.MoveMouse.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveMouse.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (mice do not care about the bell).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.MovePellet">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">MovePellet</tt><a class="headerlink" href="#ai.MovePellet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a catapult pellet.</p>
+<dl class="method">
+<dt id="ai.MovePellet.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MovePellet.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a catapult pellet if it&#8217;s currently airborne, remove it from
+sight if it&#8217;s reached the end of its flight, or else do nothing. If the
+pellet is airborne and hits a wall, door, window, shield, cup, conker
+or head, appropriate action is taken.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.MovePellet.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MovePellet.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (a catapult pellet should not be stopped by the
+bell).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.MoveWater">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">MoveWater</tt><a class="headerlink" href="#ai.MoveWater" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a stream of liquid (water or sherry) fired from a
+water pistol.</p>
+<dl class="method">
+<dt id="ai.MoveWater.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveWater.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move a stream of water or sherry one phase further in its
+trajectory. If the liquid hits a cup, a plant or the floor on its
+journey, appropriate action is taken.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.MoveWater.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.MoveWater.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (flying liquids are unstoppable).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.OpenDoor">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">OpenDoor</tt><big>(</big><em>barrier_id</em><big>)</big><a class="headerlink" href="#ai.OpenDoor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character open a door or window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>barrier_id</strong> &#8211; The ID of the door or window.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Pause">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Pause</tt><a class="headerlink" href="#ai.Pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command used to occupy a character while they are responding to an
+attempted kiss from Eric.</p>
+<dl class="method">
+<dt id="ai.Pause.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Pause.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Occupy a character while they are responding to an attempted kiss
+from Eric. The character&#8217;s animation is controlled by the <a class="reference internal" href="#ai.Kiss" title="ai.Kiss"><tt class="xref py py-class docutils literal"><span class="pre">Kiss</span></tt></a>
+command while this command is in effect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character has finished responding to the kiss,
+or <cite>None</cite> if they are still occupied.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.ReleaseMice">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">ReleaseMice</tt><a class="headerlink" href="#ai.ReleaseMice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes Eric release some mice.</p>
+<dl class="method">
+<dt id="ai.ReleaseMice.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ReleaseMice.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.ReleaseMice.release_mice" title="ai.ReleaseMice.release_mice"><tt class="xref py py-meth docutils literal"><span class="pre">release_mice()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ReleaseMice.stand_up" title="ai.ReleaseMice.stand_up"><tt class="xref py py-meth docutils literal"><span class="pre">stand_up()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.ReleaseMice.release_mice">
+<tt class="descname">release_mice</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ReleaseMice.release_mice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make Eric release some mice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.ReleaseMice.stand_up">
+<tt class="descname">stand_up</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ReleaseMice.stand_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make Eric stand up straight after bending over to release some mice.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Restart">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Restart</tt><a class="headerlink" href="#ai.Restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that restarts a character&#8217;s command list.</p>
+<dl class="method">
+<dt id="ai.Restart.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Restart.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restart a character&#8217;s command list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.RideBike">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">RideBike</tt><big>(</big><em>bike</em><big>)</big><a class="headerlink" href="#ai.RideBike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls Eric while he&#8217;s on a bike.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bike</strong> &#8211; The bike Eric&#8217;s riding.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.RideBike.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.RideBike.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control Eric while he&#8217;s on a bike. Keep the bike moving if Eric
+pedals, or carry Eric along with the bike if he&#8217;s standing on the
+saddle.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if Eric has dismounted; a <a class="reference internal" href="#ai.JumpOffSaddle" title="ai.JumpOffSaddle"><tt class="xref py py-class docutils literal"><span class="pre">JumpOffSaddle</span></tt></a>
+command if Eric jumped while standing on the saddle; a
+<a class="reference internal" href="#ai.Flight" title="ai.Flight"><tt class="xref py py-class docutils literal"><span class="pre">Flight</span></tt></a> command if Eric hit the skool gate while
+standing on the saddle; a <a class="reference internal" href="#ai.FallToFloor" title="ai.FallToFloor"><tt class="xref py py-class docutils literal"><span class="pre">FallToFloor</span></tt></a> command if the
+bike ran out of momentum; or <cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Say">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Say</tt><big>(</big><em>words</em>, <em>notify=False</em><big>)</big><a class="headerlink" href="#ai.Say" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character say something.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>words</strong> &#8211; The words to say.</li>
+<li><strong>notify</strong> &#8211; <cite>True</cite> if the character who is listening should be notified
+(as during a question-and-answer session between a teacher
+and the swot), <cite>False</cite> otherwise.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.Say.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Say.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character utter the next bit of whatever he&#8217;s saying. If the
+character has finished speaking, his speech bubble is removed, and any
+listeners are notified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character has finished speaking, <cite>None</cite>
+otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.Say.finish">
+<tt class="descname">finish</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Say.finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the character&#8217;s speech bubble. This method is called if the
+command is removed from the command stack before exiting normally.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.SetClock">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">SetClock</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#ai.SetClock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character set the skool clock to a specified time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> (<em>number</em>) &#8211; The time to set the clock to (remaining ticks till the bell
+rings).</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.SetClock.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.SetClock.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character set the skool clock.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.SetControllingCommand">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">SetControllingCommand</tt><big>(</big><em>command_name</em>, <em>*params</em><big>)</big><a class="headerlink" href="#ai.SetControllingCommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that sets a controlling command on a character&#8217;s command list.
+See <a class="reference internal" href="#ai.CommandList.set_controlling_command" title="ai.CommandList.set_controlling_command"><tt class="xref py py-meth docutils literal"><span class="pre">CommandList.set_controlling_command()</span></tt></a> for more details.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command_name</strong> &#8211; The name of the controlling command.</li>
+<li><strong>params</strong> &#8211; The controlling command&#8217;s initialisation parameters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.SetControllingCommand.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.SetControllingCommand.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the controlling command on a character&#8217;s command list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.SetRestartPoint">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">SetRestartPoint</tt><a class="headerlink" href="#ai.SetRestartPoint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes the next command in a character&#8217;s command list be
+regarded as the first (for the purposes of a restart).</p>
+<dl class="method">
+<dt id="ai.SetRestartPoint.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.SetRestartPoint.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the next command in a character&#8217;s command list be regarded as
+the first (for the purposes of a restart).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.SetSubcommand">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">SetSubcommand</tt><big>(</big><em>command_name</em>, <em>*args</em><big>)</big><a class="headerlink" href="#ai.SetSubcommand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that sets a subcommand on a character&#8217;s command list. See
+<a class="reference internal" href="#ai.CommandList.set_controlling_command" title="ai.CommandList.set_controlling_command"><tt class="xref py py-meth docutils literal"><span class="pre">CommandList.set_controlling_command()</span></tt></a> for more details.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command_name</strong> &#8211; The name of the subcommand.</li>
+<li><strong>args</strong> &#8211; The subcommand&#8217;s parameters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.SetSubcommand.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.SetSubcommand.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a subcommand on a character&#8217;s command list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.ShadowEric">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">ShadowEric</tt><a class="headerlink" href="#ai.ShadowEric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character run after Eric and then hover around him
+until the bell rings.</p>
+<dl class="method">
+<dt id="ai.ShadowEric.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.ShadowEric.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character take the next step in the search for Eric, or
+remain by his side.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.GoTowardsXY" title="ai.GoTowardsXY"><tt class="xref py py-class docutils literal"><span class="pre">GoTowardsXY</span></tt></a> command if the character hasn&#8217;t found
+Eric yet, or <cite>None</cite> if the character is already by Eric&#8217;s
+side.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.ShutDoor">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">ShutDoor</tt><big>(</big><em>barrier_id</em><big>)</big><a class="headerlink" href="#ai.ShutDoor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character close a door or window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>barrier_id</strong> &#8211; The ID of the door or window.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Signal">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Signal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#ai.Signal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character raise a signal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>signal</strong> &#8211; The signal to raise.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.Signal.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Signal.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character raise a signal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.SitForAssembly">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">SitForAssembly</tt><big>(</big><em>assembly_finished</em>, <em>sit_direction</em>, <em>sit_range=(1</em>, <em>4)</em><big>)</big><a class="headerlink" href="#ai.SitForAssembly" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character find a spot to sit down during assembly,
+and keeps him seated until assembly has finished.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>assembly_finished</strong> &#8211; The signal that indicates assembly is finished.</li>
+<li><strong>sit_direction</strong> &#8211; The direction to face when sitting down.</li>
+<li><strong>sit_range</strong> &#8211; The minimum and maximum distances the character should
+walk back to find a spot to sit.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.SitForAssembly.find_spot_to_sit">
+<tt class="descname">find_spot_to_sit</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.SitForAssembly.find_spot_to_sit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character find a spot to sit during assembly. If assembly has
+already finished, the command is terminated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if assembly has finished, or a <a class="reference internal" href="#ai.GoToXY" title="ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command
+to send the character to a place to sit down.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.SitForAssembly.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.SitForAssembly.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.SitForAssembly.find_spot_to_sit" title="ai.SitForAssembly.find_spot_to_sit"><tt class="xref py py-meth docutils literal"><span class="pre">find_spot_to_sit()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.SitForAssembly.sit_down" title="ai.SitForAssembly.sit_down"><tt class="xref py py-meth docutils literal"><span class="pre">sit_down()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.SitForAssembly.get_up" title="ai.SitForAssembly.get_up"><tt class="xref py py-meth docutils literal"><span class="pre">get_up()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ComplexCommand.done" title="ai.ComplexCommand.done"><tt class="xref py py-meth docutils literal"><span class="pre">done()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.SitForAssembly.get_up">
+<tt class="descname">get_up</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.SitForAssembly.get_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character get up if assembly has finished. If assembly has
+not finished yet, return here next time.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> if assembly is still in progress, or <cite>None</cite> if the
+character got up off the floor.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.SitForAssembly.sit_down">
+<tt class="descname">sit_down</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.SitForAssembly.sit_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character sit down for assembly, or turn round to face the
+right way for assembly. If assembly has already finished, the command
+is terminated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if assembly has finished, <cite>False</cite> if the character
+was turned round, or <cite>None</cite> if the character sat down.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.SitStill">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">SitStill</tt><a class="headerlink" href="#ai.SitStill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character do nothing. It is used to make a
+character sit still during a lesson.</p>
+<dl class="method">
+<dt id="ai.SitStill.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.SitStill.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character do nothing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.StalkAndHit">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">StalkAndHit</tt><big>(</big><em>character_id</em><big>)</big><a class="headerlink" href="#ai.StalkAndHit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character seek out another character while throwing
+occasional punches. This command is used as a controlling command (see
+<a class="reference internal" href="#ai.CommandList.set_controlling_command" title="ai.CommandList.set_controlling_command"><tt class="xref py py-meth docutils literal"><span class="pre">CommandList.set_controlling_command()</span></tt></a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character_id</strong> &#8211; The ID of the character to stalk.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.StalkAndHit.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.StalkAndHit.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character proceed one step further towards whoever he&#8217;s
+stalking, and consider throwing a punch while he&#8217;s at it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.HitNowAndThen" title="ai.HitNowAndThen"><tt class="xref py py-class docutils literal"><span class="pre">HitNowAndThen</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.StartAssemblyIfReady">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">StartAssemblyIfReady</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#ai.StartAssemblyIfReady" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that restarts a character&#8217;s command list unless it&#8217;s time to
+start assembly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>signal</strong> &#8211; The signal to raise to indicate that assembly has started.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.StartAssemblyIfReady.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.StartAssemblyIfReady.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restart a character&#8217;s command list unless it&#8217;s time to start
+assembly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if it&#8217;s time to start assembly, <cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.StartDinnerIfReady">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">StartDinnerIfReady</tt><a class="headerlink" href="#ai.StartDinnerIfReady" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character start dinner if the time has come, or
+restarts the character&#8217;s command list if it&#8217;s still too early. It is used
+by teachers on dinner duty.</p>
+<dl class="method">
+<dt id="ai.StartDinnerIfReady.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.StartDinnerIfReady.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character start dinner, or restart his command list if it&#8217;s
+too early to start dinner.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.StartLessonIfReady">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">StartLessonIfReady</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#ai.StartLessonIfReady" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character start a lesson if the time has come, or
+restarts the character&#8217;s command list if it&#8217;s still too early.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>signal</strong> &#8211; The signal to raise when starting the lesson.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.StartLessonIfReady.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.StartLessonIfReady.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character start a lesson, or restart his command list if it&#8217;s
+too early to start the lesson. If it&#8217;s time to start the lesson, the
+character has a special safe secret question, and he can see the answer
+on a nearby blackboard, he will reveal his safe secret.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.TellKidsToSitDown" title="ai.TellKidsToSitDown"><tt class="xref py py-class docutils literal"><span class="pre">TellKidsToSitDown</span></tt></a> command if it&#8217;s time to start the
+lesson, <cite>self</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Stink">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Stink</tt><big>(</big><em>delay</em><big>)</big><a class="headerlink" href="#ai.Stink" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls a stinkbomb cloud.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>delay</strong> &#8211; The delay before the stinkbomb disappears.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.Stink.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Stink.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Animate a stinkbomb cloud (if it&#8217;s visible).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.StopEric">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">StopEric</tt><big>(</big><em>alertee_id</em>, <em>command_list_id</em>, <em>alert_message</em>, <em>escape_x</em>, <em>danger_zone</em><big>)</big><a class="headerlink" href="#ai.StopEric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character try to stop Eric escaping from skool, and
+alert whoever should be alerted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>alertee_id</strong> &#8211; The ID of the character to alert.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the alerted character
+should use.</li>
+<li><strong>alert_message</strong> &#8211; The alert message to scream.</li>
+<li><strong>escape_x</strong> &#8211; The x-coordinate beyond which Eric should be regarded as
+trying to escape.</li>
+<li><strong>danger_zone</strong> &#8211; The minimum and maximum distance to the left of the
+watcher that Eric must be for him to raise the alarm.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.StopEric.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.StopEric.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character raise the alarm (if he hasn&#8217;t already) that Eric is
+trying to escape, and continue trying to stop Eric if need be.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character has deemed it no longer necessary to
+try and stop Eric escaping, or <cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.TellClassWhatToDo">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">TellClassWhatToDo</tt><a class="headerlink" href="#ai.TellClassWhatToDo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character tell a class what to do. It is used by
+teachers.</p>
+<dl class="method">
+<dt id="ai.TellClassWhatToDo.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.TellClassWhatToDo.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character tell the class what to do.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.Say" title="ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command, or <cite>self</cite> if the character has
+finished telling the class what to do.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.TellEric">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">TellEric</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#ai.TellEric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character say something to Eric.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> &#8211; The message to give to Eric.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.TellEric.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.TellEric.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character say something to Eric. When the character has
+finished speaking, Eric will be unfrozen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character has finished speaking, or a
+<a class="reference internal" href="#ai.Say" title="ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.TellEricAndWait">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">TellEricAndWait</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#ai.TellEricAndWait" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character say something to Eric, and wait for a
+response.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> &#8211; The message to give to Eric.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.TellEricAndWait.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.TellEricAndWait.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character say something to Eric, and then wait for a
+response. When Eric has responded, he will be unfrozen. If Eric does
+not respond within a certain period, the character will repeat the
+message and wait again.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if Eric has responded, <cite>None</cite> if the character is
+waiting for Eric to respond, or a <a class="reference internal" href="#ai.Say" title="ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.TellKidsToSitDown">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">TellKidsToSitDown</tt><a class="headerlink" href="#ai.TellKidsToSitDown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character tell the kids to sit down.</p>
+<dl class="method">
+<dt id="ai.TellKidsToSitDown.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.TellKidsToSitDown.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character tell the kids to sit down.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.Say" title="ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command, or <cite>self</cite> if the character has
+finished telling the kids to sit down.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.TripPeopleUp">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">TripPeopleUp</tt><a class="headerlink" href="#ai.TripPeopleUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character trip people up while running towards his
+destination. This command is used as a controlling command (see
+<a class="reference internal" href="#ai.CommandList.set_controlling_command" title="ai.CommandList.set_controlling_command"><tt class="xref py py-meth docutils literal"><span class="pre">CommandList.set_controlling_command()</span></tt></a>).</p>
+<dl class="method">
+<dt id="ai.TripPeopleUp.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.TripPeopleUp.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character start or continue running, and trip up anyone in
+his path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Unsignal">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Unsignal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#ai.Unsignal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character lower a signal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>signal</strong> &#8211; The signal to lower.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.Unsignal.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Unsignal.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character lower a signal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.WaitAtDoor">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">WaitAtDoor</tt><big>(</big><em>door_id</em><big>)</big><a class="headerlink" href="#ai.WaitAtDoor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character wait at a door until everyone is on the
+correct side of it (that is, boys on the boys&#8217; side, girls on the girls&#8217;
+side).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>door_id</strong> &#8211; The ID of the door to wait at.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.WaitAtDoor.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WaitAtDoor.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character wait at a door until everyone is on the correct
+side of it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if everyone is on the correct side of the door,
+<cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.WaitUntil">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">WaitUntil</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#ai.WaitUntil" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character wait until a signal is raised.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>signal</strong> &#8211; The signal to wait for.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.WaitUntil.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WaitUntil.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character wait for a signal.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the signal has been raised, <cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.WalkAround">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">WalkAround</tt><big>(</big><em>walkabouts</em>, <em>walkabout_range=(1</em>, <em>7)</em><big>)</big><a class="headerlink" href="#ai.WalkAround" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character walk up and down a given number of times.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>walkabouts</strong> &#8211; The number of times to walk up and down.</li>
+<li><strong>walkabout_range</strong> &#8211; The minimum and maximum distances to walk away from
+the walkabout origin.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.WalkAround.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WalkAround.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character walk up (away from the walkabout origin) or down
+(back to the walkabout origin). If the character is on a staircase,
+make him finish going up or down it first.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the designated number of walkabouts has been
+performed, <cite>None</cite> if the character is on a staircase, or
+a <a class="reference internal" href="#ai.GoToXY" title="ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.WalkFast">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">WalkFast</tt><a class="headerlink" href="#ai.WalkFast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character walk fast (as kids do half the time, and
+teachers do when chasing Eric). This command is used as a controlling
+command (see <a class="reference internal" href="#ai.CommandList.set_controlling_command" title="ai.CommandList.set_controlling_command"><tt class="xref py py-meth docutils literal"><span class="pre">CommandList.set_controlling_command()</span></tt></a>).</p>
+<dl class="method">
+<dt id="ai.WalkFast.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WalkFast.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ensure that a character starts or continues to walk fast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.WalkFast.finish">
+<tt class="descname">finish</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WalkFast.finish" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trigger a speed change for the character so that he no longer runs
+continuously.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.WalkUpOrDown">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">WalkUpOrDown</tt><a class="headerlink" href="#ai.WalkUpOrDown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character walk up (away from an origin) or down
+(back to the origin).</p>
+<dl class="method">
+<dt id="ai.WalkUpOrDown.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WalkUpOrDown.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character walk up or down.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.GoToXY" title="ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command, or <cite>self</cite> if the character is ready
+to turn round.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.WatchForEric">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">WatchForEric</tt><big>(</big><em>alertee_id</em>, <em>command_list_id</em>, <em>alert_message</em>, <em>escape_x</em>, <em>danger_zone</em><big>)</big><a class="headerlink" href="#ai.WatchForEric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character keep an eye out for Eric, and alert
+someone if they spot him trying to escape from skool. This command is used
+as a controlling command (see <a class="reference internal" href="#ai.CommandList.set_controlling_command" title="ai.CommandList.set_controlling_command"><tt class="xref py py-meth docutils literal"><span class="pre">CommandList.set_controlling_command()</span></tt></a>).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>alertee_id</strong> &#8211; The ID of the character to alert.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the alerted character
+should use.</li>
+<li><strong>alert_message</strong> &#8211; The message to scream if Eric is spotted trying to
+escape.</li>
+<li><strong>escape_x</strong> &#8211; The x-coordinate beyond which Eric should be regarded as
+trying to escape.</li>
+<li><strong>danger_zone</strong> &#8211; The minimum and maximum distance to the left of the
+watcher that Eric must be for him to raise the alarm.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.WatchForEric.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WatchForEric.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character check whether Eric is trying to escape from skool,
+and take appropriate action if he is.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.StopEric" title="ai.StopEric"><tt class="xref py py-class docutils literal"><span class="pre">StopEric</span></tt></a> command if Eric is spotted trying to
+escape, or <cite>self</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.WipeBoard">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">WipeBoard</tt><a class="headerlink" href="#ai.WipeBoard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character wipe a blackboard.</p>
+<dl class="method">
+<dt id="ai.WipeBoard.get_commands">
+<tt class="descname">get_commands</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WipeBoard.get_commands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the list of steps (methods) to execute for this complex
+command. The steps are:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#ai.WipeBoard.walk" title="ai.WipeBoard.walk"><tt class="xref py py-meth docutils literal"><span class="pre">walk()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.WipeBoard.wipe" title="ai.WipeBoard.wipe"><tt class="xref py py-meth docutils literal"><span class="pre">wipe()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.WipeBoard.lower_arm" title="ai.WipeBoard.lower_arm"><tt class="xref py py-meth docutils literal"><span class="pre">lower_arm()</span></tt></a></li>
+<li><a class="reference internal" href="#ai.ComplexCommand.done" title="ai.ComplexCommand.done"><tt class="xref py py-meth docutils literal"><span class="pre">done()</span></tt></a></li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.WipeBoard.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WipeBoard.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (blackboards should never be left partially wiped).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.WipeBoard.lower_arm">
+<tt class="descname">lower_arm</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WipeBoard.lower_arm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character lower his arm after wiping a bit of a blackboard.
+If there are any bits of the blackboard left to wipe, the command is
+restarted.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.WipeBoard.walk">
+<tt class="descname">walk</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WipeBoard.walk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character walk to the next part of the blackboard that needs
+wiping. If the character hasn&#8217;t started wiping yet, he is sent to the
+nearest edge of the blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="#ai.GoToXY" title="ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command to send the character to the
+appropriate location.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.WipeBoard.wipe">
+<tt class="descname">wipe</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WipeBoard.wipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character raise his arm and wipe a bit of a blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>None</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.Write">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">Write</tt><a class="headerlink" href="#ai.Write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that controls Eric while he&#8217;s writing on a blackboard.</p>
+<dl class="method">
+<dt id="ai.Write.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.Write.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control Eric while he&#8217;s writing on a blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if Eric has finished writing on the blackboard,
+<cite>None</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.WriteOnBoard">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">WriteOnBoard</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#ai.WriteOnBoard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character write on a blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> &#8211; The message to write on the blackboard.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.WriteOnBoard.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WriteOnBoard.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character write the next letter of the message on a
+blackboard. The character&#8217;s arm will be alternately raised or lowered
+while writing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the character has finished writing, <cite>None</cite>
+otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ai.WriteOnBoard.is_interruptible">
+<tt class="descname">is_interruptible</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WriteOnBoard.is_interruptible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this command is interruptible.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite> (a blackboard should not be left half-written on)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ai.WriteOnBoardUnless">
+<em class="property">class </em><tt class="descclassname">ai.</tt><tt class="descname">WriteOnBoardUnless</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#ai.WriteOnBoardUnless" title="Permalink to this definition">¶</a></dt>
+<dd><p>Command that makes a character write on a blackboard unless a specified
+signal has been raised.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>signal</strong> &#8211; The signal to check before writing on the blackboard.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="ai.WriteOnBoardUnless.execute">
+<tt class="descname">execute</tt><big>(</big><big>)</big><a class="headerlink" href="#ai.WriteOnBoardUnless.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character write on a blackboard unless a signal has been
+raised.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>self</cite> if the signal has been raised, or the blackboard is
+dirty, or the character has finished writing on the
+blackboard; a <a class="reference internal" href="#ai.WriteOnBoard" title="ai.WriteOnBoard"><tt class="xref py py-class docutils literal"><span class="pre">WriteOnBoard</span></tt></a> command otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="ai.get_command_class">
+<tt class="descclassname">ai.</tt><tt class="descname">get_command_class</tt><big>(</big><em>command_name</em><big>)</big><a class="headerlink" href="#ai.get_command_class" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the class object for a given command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command_name</strong> &#8211; The name of the command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="commands.html"
+                        title="previous chapter">Commands</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="animal.html"
+                        title="next chapter">animal</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="animal.html" title="animal"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="commands.html" title="Commands"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

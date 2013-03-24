@@ -1,0 +1,1568 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cast &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="character" href="character.html" />
+    <link rel="prev" title="bike" href="bike.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="character.html" title="character"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bike.html" title="bike"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-cast">
+<span id="cast"></span><h1>cast<a class="headerlink" href="#module-cast" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#cast.Cast" title="cast.Cast"><tt class="xref py py-class docutils literal"><span class="pre">Cast</span></tt></a> class.</p>
+<dl class="class">
+<dt id="cast.Cast">
+<em class="property">class </em><tt class="descclassname">cast.</tt><tt class="descname">Cast</tt><big>(</big><em>config</em>, <em>screen</em>, <em>gallery</em><big>)</big><a class="headerlink" href="#cast.Cast" title="Permalink to this definition">¶</a></dt>
+<dd><p>The control centre from which the entire cast of characters is
+monitored.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters from the ini file.</li>
+<li><strong>screen</strong> (<a class="reference internal" href="graphics.html#graphics.Screen" title="graphics.Screen"><tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt></a>) &#8211; The screen to draw on.</li>
+<li><strong>gallery</strong> (<a class="reference internal" href="graphics.html#graphics.Gallery" title="graphics.Gallery"><tt class="xref py py-class docutils literal"><span class="pre">Gallery</span></tt></a>) &#8211; The gallery of images to use for drawing.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="cast.Cast.add_bike">
+<tt class="descname">add_bike</tt><big>(</big><em>bike_id</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>location</em>, <em>command_list_id</em>, <em>move_delay</em>, <em>pedal_momentum</em>, <em>max_momentum</em><big>)</big><a class="headerlink" href="#cast.Cast.add_bike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the bike to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bike_id</strong> &#8211; The ID of the bike.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the bike&#8217;s sprite group.</li>
+<li><strong>initial_as</strong> &#8211; The bike&#8217;s initial animatory state.</li>
+<li><strong>location</strong> &#8211; The bike&#8217;s initial location (after being unchained).</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the bike will use.</li>
+<li><strong>move_delay</strong> &#8211; The delay between consecutive movements of the bike
+when wheeling along or being pedalled.</li>
+<li><strong>pedal_momentum</strong> &#8211; The momentum increment when the bike is
+pedalled.</li>
+<li><strong>max_momentum</strong> &#8211; The maximum momentum the bike can have.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_blackboard_message">
+<tt class="descname">add_blackboard_message</tt><big>(</big><em>character_id</em>, <em>message</em><big>)</big><a class="headerlink" href="#cast.Cast.add_blackboard_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a blackboard message to a character&#8217;s collection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the character.</li>
+<li><strong>message</strong> &#8211; The blackboard message.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_character">
+<tt class="descname">add_character</tt><big>(</big><em>character_id</em>, <em>name</em>, <em>title</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>direction</em>, <em>head_xy</em>, <em>flags</em><big>)</big><a class="headerlink" href="#cast.Cast.add_character" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a character (other than Eric) to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The character&#8217;s unique ID.</li>
+<li><strong>name</strong> &#8211; The character&#8217;s name.</li>
+<li><strong>title</strong> &#8211; The character&#8217;s title (how he is addressed by the swot).</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the character&#8217;s sprite group.</li>
+<li><strong>initial_as</strong> &#8211; The character&#8217;s initial animatory state.</li>
+<li><strong>direction</strong> &#8211; The character&#8217;s initial direction.</li>
+<li><strong>head_xy</strong> &#8211; The coordinates of the character&#8217;s head within his
+sprite when he&#8217;s standing upright (used for collision
+detection).</li>
+<li><strong>flags</strong> &#8211; The character&#8217;s flags.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_command">
+<tt class="descname">add_command</tt><big>(</big><em>command_list_id</em>, <em>command_name</em>, <em>*params</em><big>)</big><a class="headerlink" href="#cast.Cast.add_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a command to a command list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>command_list_id</strong> &#8211; The ID of the command list.</li>
+<li><strong>command_name</strong> &#8211; The name of the command.</li>
+<li><strong>params</strong> &#8211; The command&#8217;s parameters.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_command_list">
+<tt class="descname">add_command_list</tt><big>(</big><em>character_id</em>, <em>lesson_id</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#cast.Cast.add_command_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a command list to a character&#8217;s personal timetable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the character.</li>
+<li><strong>lesson_id</strong> &#8211; The ID of the lesson to place the command list
+against.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_conker">
+<tt class="descname">add_conker</tt><big>(</big><em>object_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>min_x</em>, <em>max_x</em>, <em>min_y</em>, <em>max_y</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#cast.Cast.add_conker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the conker to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>object_id</strong> &#8211; The ID of the conker.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the conker&#8217;s sprite group.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the conker will use.</li>
+<li><strong>min_x</strong> &#8211; The minimum x-coordinate a pellet must reach to knock the
+conker out of the tree.</li>
+<li><strong>max_x</strong> &#8211; The maximum x-coordinate a pellet must reach to knock the
+conker out of the tree.</li>
+<li><strong>min_y</strong> &#8211; The minimum y-coordinate a pellet must fly at to knock
+the conker out of the tree.</li>
+<li><strong>max_y</strong> &#8211; The maximum y-coordinate a pellet must fly at to knock
+the conker out of the tree.</li>
+<li><strong>hit_xy</strong> &#8211; The coordinates of the conker within its sprite (used
+for collision detection).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_desk_lid">
+<tt class="descname">add_desk_lid</tt><big>(</big><em>desk_lid_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>x_offset</em><big>)</big><a class="headerlink" href="#cast.Cast.add_desk_lid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the desk lid to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>desk_lid_id</strong> &#8211; The ID of the desk lid.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the desk lid&#8217;s sprite group.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the desk lid will
+use.</li>
+<li><strong>x_offset</strong> &#8211; The offset (relative to the desk being opened) at
+which the desk lid should be displayed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_eric">
+<tt class="descname">add_eric</tt><big>(</big><em>character_id</em>, <em>name</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>direction</em>, <em>head_xy</em>, <em>flags</em>, <em>bend_over_hand_xy</em><big>)</big><a class="headerlink" href="#cast.Cast.add_eric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add Eric to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; Eric&#8217;s unique ID.</li>
+<li><strong>name</strong> &#8211; Eric&#8217;s name.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of Eric&#8217;s sprite group.</li>
+<li><strong>initial_as</strong> &#8211; Eric&#8217;s initial animatory state.</li>
+<li><strong>direction</strong> &#8211; Eric&#8217;s initial direction.</li>
+<li><strong>head_xy</strong> &#8211; The coordinates of Eric&#8217;s head within his sprite when
+he&#8217;s standing upright (used for collision detection).</li>
+<li><strong>flags</strong> &#8211; Eric&#8217;s character flags.</li>
+<li><strong>bend_over_hand_xy</strong> &#8211; The coordinates of Eric&#8217;s hand within his
+left-facing <cite>BENDING_OVER</cite> sprite (used to
+determine where a mouse or frog should be
+when caught or released).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_frog">
+<tt class="descname">add_frog</tt><big>(</big><em>frog_id</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>location</em>, <em>command_list_id</em>, <em>turn_round</em>, <em>short_hop</em>, <em>long_hop</em>, <em>sit_xy</em>, <em>eric_proximity</em><big>)</big><a class="headerlink" href="#cast.Cast.add_frog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a frog to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>frog_id</strong> &#8211; The ID of the frog.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the frog&#8217;s sprite group.</li>
+<li><strong>initial_as</strong> &#8211; The frog&#8217;s initial animatory state.</li>
+<li><strong>location</strong> &#8211; The frog&#8217;s initial location.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the frog will use.</li>
+<li><strong>turn_round</strong> &#8211; The animation phases to use when the frog turns
+round.</li>
+<li><strong>short_hop</strong> &#8211; The animation phases to use when the frog makes a
+short hop.</li>
+<li><strong>long_hop</strong> &#8211; The animation phases to use when the frog makes a long
+hop.</li>
+<li><strong>sit_xy</strong> &#8211; The coordinates of the frog within its sprite when it&#8217;s
+sitting (used for collision detection and placement in
+cups).</li>
+<li><strong>eric_proximity</strong> &#8211; The minimum distance from the frog that Eric can
+be before it will try to hop away.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_lesson_message">
+<tt class="descname">add_lesson_message</tt><big>(</big><em>character_id</em>, <em>message</em>, <em>condition</em><big>)</big><a class="headerlink" href="#cast.Cast.add_lesson_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a lesson message to a character&#8217;s collection. A lesson message
+is something like &#8216;START READING AT THE NEXT CHAPTER IN YOUR BOOKS&#8217;,
+which will be used by a teacher during class if he&#8217;s not teaching Eric,
+or he has decided not to have a question-and-answer session with the
+swot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the character.</li>
+<li><strong>message</strong> &#8211; The lesson message.</li>
+<li><strong>condition</strong> (<em>string</em>) &#8211; The name of the condition that must be met before the
+lesson message is used.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_lines_message">
+<tt class="descname">add_lines_message</tt><big>(</big><em>character_id</em>, <em>message_id</em>, <em>message</em><big>)</big><a class="headerlink" href="#cast.Cast.add_lines_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a lines message to a character&#8217;s collection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the character.</li>
+<li><strong>message_id</strong> &#8211; The ID of the lines message.</li>
+<li><strong>message</strong> &#8211; The lines message.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_mouse">
+<tt class="descname">add_mouse</tt><big>(</big><em>mouse_id</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>location</em>, <em>command_list_id</em>, <em>sprite_xy</em>, <em>immortal=True</em><big>)</big><a class="headerlink" href="#cast.Cast.add_mouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a mouse to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mouse_id</strong> &#8211; The ID of the mouse.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the mouse&#8217;s sprite group.</li>
+<li><strong>initial_as</strong> &#8211; The mouse&#8217;s initial animatory state.</li>
+<li><strong>location</strong> &#8211; The mouse&#8217;s initial location.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the mouse will use.</li>
+<li><strong>sprite_xy</strong> &#8211; The coordinates of the mouse within its sprite (used
+for detecting whether Eric has caught it).</li>
+<li><strong>immortal</strong> &#8211; Whether the mouse is immortal (will not disappear
+until Eric catches it).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_mouse_location">
+<tt class="descname">add_mouse_location</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.add_mouse_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a location at which a new immortal mouse may appear after Eric
+catches one.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The x-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_pellet">
+<tt class="descname">add_pellet</tt><big>(</big><em>character_id</em>, <em>pellet_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>pellet_range</em>, <em>hit_zone</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#cast.Cast.add_pellet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a pellet to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the pellet&#8217;s owner.</li>
+<li><strong>pellet_id</strong> &#8211; The ID of the pellet.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the pellet&#8217;s sprite group.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the pellet will use.</li>
+<li><strong>pellet_range</strong> &#8211; The maximum distance the pellet will travel after
+launch.</li>
+<li><strong>hit_zone</strong> &#8211; The size of the portion at the end of the pellet&#8217;s
+journey in which it can hit things.</li>
+<li><strong>hit_xy</strong> &#8211; The coordinates of the pellet within its sprite (used
+for collision detection).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_plant">
+<tt class="descname">add_plant</tt><big>(</big><em>plant_id</em>, <em>sprite_group_id</em>, <em>x</em>, <em>y</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#cast.Cast.add_plant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a plant to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>plant_id</strong> &#8211; The ID of the plant.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the plant&#8217;s sprite group.</li>
+<li><strong>x</strong> &#8211; The plant&#8217;s x-coordinate.</li>
+<li><strong>y</strong> &#8211; The plant&#8217;s y-coordinate.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the bike will use.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The plant.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_sherry_drop">
+<tt class="descname">add_sherry_drop</tt><big>(</big><em>object_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#cast.Cast.add_sherry_drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the sherry drop to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>object_id</strong> &#8211; The ID of the sherry drop.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the sherry drop&#8217;s sprite group.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the sherry drop will
+use.</li>
+<li><strong>hit_xy</strong> &#8211; The coordinates of the sherry drop within its sprite
+(used for collision detection).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_sit_down_message">
+<tt class="descname">add_sit_down_message</tt><big>(</big><em>character_id</em>, <em>message</em><big>)</big><a class="headerlink" href="#cast.Cast.add_sit_down_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a sit-down message for a character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the character</li>
+<li><strong>message</strong> &#8211; The sit-down message.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_sprite">
+<tt class="descname">add_sprite</tt><big>(</big><em>group_id</em>, <em>sprite_id</em>, <em>sprite_index</em><big>)</big><a class="headerlink" href="#cast.Cast.add_sprite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a sprite (an animatory state image) to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>group_id</strong> &#8211; The sprite group ID.</li>
+<li><strong>sprite_id</strong> &#8211; The sprite ID.</li>
+<li><strong>sprite_index</strong> &#8211; The index of the sprite in the sprite matrix.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_stinkbomb">
+<tt class="descname">add_stinkbomb</tt><big>(</big><em>character_id</em>, <em>stinkbomb_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>phases</em>, <em>stink_range</em><big>)</big><a class="headerlink" href="#cast.Cast.add_stinkbomb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a stinkbomb to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the stinkbomb&#8217;s owner.</li>
+<li><strong>stinkbomb_id</strong> &#8211; The ID of the stinkbomb.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the stinkbomb&#8217;s sprite group.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the stinkbomb will
+use.</li>
+<li><strong>phases</strong> &#8211; The phases of animation the stinkbomb cloud will use.</li>
+<li><strong>stink_range</strong> &#8211; The maximum distance from which the stinkbomb can
+be smelt.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_water">
+<tt class="descname">add_water</tt><big>(</big><em>character_id</em>, <em>water_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>phases</em><big>)</big><a class="headerlink" href="#cast.Cast.add_water" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a jet of water or sherry to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the water/sherry&#8217;s owner.</li>
+<li><strong>water_id</strong> &#8211; The ID of the water/sherry.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the water/sherry&#8217;s sprite group.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the water/sherry
+will use.</li>
+<li><strong>phases</strong> &#8211; The phases of animation the water will use after being
+fired from a water pistol.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.add_water_drop">
+<tt class="descname">add_water_drop</tt><big>(</big><em>object_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#cast.Cast.add_water_drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the water drop to the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>object_id</strong> &#8211; The ID of the water drop.</li>
+<li><strong>sprite_group_id</strong> &#8211; The ID of the water drop&#8217;s sprite group.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the water drop will
+use.</li>
+<li><strong>hit_xy</strong> &#8211; The coordinates of the water drop within its sprite
+(used for collision detection).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.can_get_lines">
+<tt class="descname">can_get_lines</tt><big>(</big><em>message_id</em><big>)</big><a class="headerlink" href="#cast.Cast.can_get_lines" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether any member of the cast can give a specific lines
+message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message_id</strong> &#8211; The ID of the lines message.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.caught_mouse">
+<tt class="descname">caught_mouse</tt><big>(</big><em>mouse</em><big>)</big><a class="headerlink" href="#cast.Cast.caught_mouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take appropriate action when a mouse is caught. If the mouse is
+immortal (defined in the [Mice] section of the ini file), it will be
+relocated (so that Eric can catch it again). If it is not immortal
+(Eric previously released it), it is removed from the game.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mouse</strong> &#8211; The captured mouse.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.change_command_list">
+<tt class="descname">change_command_list</tt><big>(</big><em>character_id</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#cast.Cast.change_command_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Switch a character to a new command list.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the character.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.check_heads_at">
+<tt class="descname">check_heads_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.check_heads_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether a frog has hit the head of anyone who holds a safe
+key, and hand the safe key to Eric if so.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> &#8211; The x-coordinate to check for heads.</li>
+<li><strong>y</strong> &#8211; The y-coordinate to check for heads.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><cite>True</cite> if the frog hit someone&#8217;s head, <cite>False</cite> otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.conker_falling">
+<tt class="descname">conker_falling</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.conker_falling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a conker is currently falling.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.create_lesson">
+<tt class="descname">create_lesson</tt><big>(</big><em>swot</em>, <em>room</em><big>)</big><a class="headerlink" href="#cast.Cast.create_lesson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a new <a class="reference internal" href="lesson.html#lesson.Lesson" title="lesson.Lesson"><tt class="xref py py-class docutils literal"><span class="pre">Lesson</span></tt></a> instance for the swot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>swot</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The swot.</li>
+<li><strong>room</strong> (<a class="reference internal" href="room.html#room.Room" title="room.Room"><tt class="xref py py-class docutils literal"><span class="pre">Room</span></tt></a>) &#8211; The room in which the lesson will take place.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.drop_anyone_at">
+<tt class="descname">drop_anyone_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.drop_anyone_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Drop any character at a given location. This is used by plants when
+they die.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.eric_understood">
+<tt class="descname">eric_understood</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.eric_understood" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether Eric understood the message just delivered to him.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.expand_names">
+<tt class="descname">expand_names</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#cast.Cast.expand_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace occurrences of $BLAH in a message with the name of the
+character whose unique ID is &#8216;BLAH&#8217;.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> &#8211; The message.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.expand_title">
+<tt class="descname">expand_title</tt><big>(</big><em>message</em>, <em>character</em><big>)</big><a class="headerlink" href="#cast.Cast.expand_title" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace any title macros in a message with the title of a character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> &#8211; The message that may contain title macros.</li>
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character whose title should be substituted.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.expel_eric">
+<tt class="descname">expel_eric</tt><big>(</big><em>character_id</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#cast.Cast.expel_eric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark Eric as expelled and set somebody on their way to expel him.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the character who will expel Eric.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the character should
+switch to.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.freeze_eric">
+<tt class="descname">freeze_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.freeze_eric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempt to freeze Eric. The attempt will fail if Eric is writing on
+a blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite> if Eric was frozen, <cite>False</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get">
+<tt class="descname">get</tt><big>(</big><em>character_id</em><big>)</big><a class="headerlink" href="#cast.Cast.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a member of the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character_id</strong> &#8211; The ID of the cast member.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_absent_tale">
+<tt class="descname">get_absent_tale</tt><big>(</big><em>teacher</em><big>)</big><a class="headerlink" href="#cast.Cast.get_absent_tale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a tale about Eric being absent for the swot to tell a
+teacher.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>teacher</strong> &#8211; The teacher.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_animal">
+<tt class="descname">get_animal</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.get_animal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return any animal that is on the floor at a given location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The animal, or <cite>None</cite> if there is none.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_conkerable">
+<tt class="descname">get_conkerable</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.get_conkerable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a suitable character to hit with a conker at a given
+location, or <cite>None</cite> if there is none. A character is considered
+suitable if he can be knocked over by a conker.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The x-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_eric_stopper">
+<tt class="descname">get_eric_stopper</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.get_eric_stopper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return any character who is currently standing in Eric&#8217;s way (as
+Albert does when trying to prevent him from escaping), or <cite>None</cite> if
+there is none.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_hit_tale">
+<tt class="descname">get_hit_tale</tt><big>(</big><em>teacher</em><big>)</big><a class="headerlink" href="#cast.Cast.get_hit_tale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a tale about hitting for the swot to tell a teacher.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>teacher</strong> &#8211; The teacher.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A 2-tuple containing the ID of the character blamed by the
+swot, and the tale.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_images">
+<tt class="descname">get_images</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.get_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of images for every member of the cast.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_location_of_eric">
+<tt class="descname">get_location_of_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.get_location_of_eric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the non-staircase location closest to Eric.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_nearby_adults">
+<tt class="descname">get_nearby_adults</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#cast.Cast.get_nearby_adults" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of adults who are close to and facing a target
+character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The target character.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_nearby_lines_givers">
+<tt class="descname">get_nearby_lines_givers</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#cast.Cast.get_nearby_lines_givers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of lines-givers who are close to and facing a target
+character, and are able to give lines now.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The target character.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_nearest_lines_recipient">
+<tt class="descname">get_nearest_lines_recipient</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#cast.Cast.get_nearest_lines_recipient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the potential lines recipient who is nearest to a target
+character, or <cite>None</cite> if there is none.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The target character.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_pelletable">
+<tt class="descname">get_pelletable</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.get_pelletable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the most suitable character to hit with a catapult pellet at
+a given location, or <cite>None</cite> if there is none.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The x-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_punchee">
+<tt class="descname">get_punchee</tt><big>(</big><em>character</em>, <em>offset</em><big>)</big><a class="headerlink" href="#cast.Cast.get_punchee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the first punchable character who is facing a target
+character at a given distance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The target character.</li>
+<li><strong>offset</strong> &#8211; The distance in front of the target character to look
+for facing characters.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A punchable character, or <cite>None</cite> if there is none at the
+given distance.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_sherryable">
+<tt class="descname">get_sherryable</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.get_sherryable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a suitable character to hit with a drop of sherry at a given
+location, or <cite>None</cite> if there is none. A character is considered
+suitable if he holds a storeroom combination letter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The x-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_speech_bubbles">
+<tt class="descname">get_speech_bubbles</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.get_speech_bubbles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a list of speech bubbles currently in use by the cast.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_waterable">
+<tt class="descname">get_waterable</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.get_waterable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a suitable character to hit with a drop of water at a given
+location, or <cite>None</cite> if there is none. A character is considered
+suitable if he holds a bike combination digit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The x-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.get_write_tale">
+<tt class="descname">get_write_tale</tt><big>(</big><em>writer_id</em>, <em>teacher</em><big>)</big><a class="headerlink" href="#cast.Cast.get_write_tale" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a tale about writing on the blackboard for the swot to tell a
+teacher.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>writer_id</strong> &#8211; The ID of the character to who wrote on the
+blackboard.</li>
+<li><strong>teacher</strong> &#8211; The teacher.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A 2-tuple containing <cite>writer_id</cite> and the tale, or
+<cite>(None, None)</cite> if the character who wrote on the board is not
+in the list of scapegoats favoured by the swot.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.has_kissees">
+<tt class="descname">has_kissees</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.has_kissees" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether anyone in the cast can kiss Eric.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.hit_conker">
+<tt class="descname">hit_conker</tt><big>(</big><em>pellet</em><big>)</big><a class="headerlink" href="#cast.Cast.hit_conker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether a catapult pellet has hit a conker. If it has, the
+conker will start falling.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pellet</strong> &#8211; The catapult pellet.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite> if a conker was hit, <cite>False</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.initialise">
+<tt class="descname">initialise</tt><big>(</big><em>skool</em>, <em>keyboard</em><big>)</big><a class="headerlink" href="#cast.Cast.initialise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise every member of the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>skool</strong> (<a class="reference internal" href="skool.html#skool.Skool" title="skool.Skool"><tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt></a>) &#8211; The skool.</li>
+<li><strong>keyboard</strong> (<a class="reference internal" href="input.html#input.Keyboard" title="input.Keyboard"><tt class="xref py py-class docutils literal"><span class="pre">Keyboard</span></tt></a>) &#8211; The keyboard for Eric to use.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.initialise_bike_combo">
+<tt class="descname">initialise_bike_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.initialise_bike_combo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the bike combination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The combination.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.initialise_safe_combo">
+<tt class="descname">initialise_safe_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.initialise_safe_combo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the safe combination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The combination.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.initialise_storeroom_combo">
+<tt class="descname">initialise_storeroom_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.initialise_storeroom_combo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialise the storeroom combination.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The combination.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.insert_frog">
+<tt class="descname">insert_frog</tt><big>(</big><em>cup</em><big>)</big><a class="headerlink" href="#cast.Cast.insert_frog" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert any frogs that have been caught by Eric into a cup.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cup</strong> &#8211; The cup.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.is_beside_bike">
+<tt class="descname">is_beside_bike</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#cast.Cast.is_beside_bike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is next to the bike.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.is_beside_eric">
+<tt class="descname">is_beside_eric</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#cast.Cast.is_beside_eric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is beside Eric (and so need go no further
+to find him).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.is_bike_visible">
+<tt class="descname">is_bike_visible</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.is_bike_visible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the bike is in the play area at the moment.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.is_eric_absent">
+<tt class="descname">is_eric_absent</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.is_eric_absent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether Eric is playing truant.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.is_eric_expelled">
+<tt class="descname">is_eric_expelled</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.is_eric_expelled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether Eric is due to be or is in the process of being
+expelled.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.is_home">
+<tt class="descname">is_home</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#cast.Cast.is_home" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether every character is on the &#8216;home&#8217; side of a given
+x-coordinate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; The x-coordinate.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.is_standing_on_kid">
+<tt class="descname">is_standing_on_kid</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#cast.Cast.is_standing_on_kid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is standing on a kid who&#8217;s been knocked
+out.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.is_touching_eric">
+<tt class="descname">is_touching_eric</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#cast.Cast.is_touching_eric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is in the same location as Eric.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.kill_mouse">
+<tt class="descname">kill_mouse</tt><big>(</big><em>mouse</em><big>)</big><a class="headerlink" href="#cast.Cast.kill_mouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a mouse from the game.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mouse</strong> &#8211; The mouse to remove.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.kissee">
+<tt class="descname">kissee</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.kissee" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the first kissable candidate in front of Eric, or <cite>None</cite> if
+there is none.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.knock_cup">
+<tt class="descname">knock_cup</tt><big>(</big><em>cup</em><big>)</big><a class="headerlink" href="#cast.Cast.knock_cup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a cup spill its contents (as when hit by a catapult pellet). A
+cup may contain water, sherry, a frog, or nothing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cup</strong> &#8211; The cup.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.lift_anyone_at">
+<tt class="descname">lift_anyone_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.lift_anyone_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lift any character at a given location. This is used by plants when
+growing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.move">
+<tt class="descname">move</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.move" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the members of the cast.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">-1 if the screen should scroll right, 1 if it should scroll
+left, or 0 if it should not scroll (after moving Eric).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.move_bike_away">
+<tt class="descname">move_bike_away</tt><big>(</big><em>door</em><big>)</big><a class="headerlink" href="#cast.Cast.move_bike_away" title="Permalink to this definition">¶</a></dt>
+<dd><p>Move the bike away from a door if necessary (so that it may be
+closed).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>door</strong> &#8211; The door.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.open_desk">
+<tt class="descname">open_desk</tt><big>(</big><em>character</em>, <em>desk</em><big>)</big><a class="headerlink" href="#cast.Cast.open_desk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character open a desk. The desk lid will be raised.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</li>
+<li><strong>desk</strong> &#8211; The desk.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.plant">
+<tt class="descname">plant</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#cast.Cast.plant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the plant that a character is standing on, or <cite>None</cite> if he&#8217;s
+not standing on one.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.reinitialise">
+<tt class="descname">reinitialise</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.reinitialise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reinitialise every member of the cast.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.release_mice">
+<tt class="descname">release_mice</tt><big>(</big><em>num_mice</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.release_mice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Release some mice at a given location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>num_mice</strong> &#8211; The number of mice to release.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.relocate_mouse">
+<tt class="descname">relocate_mouse</tt><big>(</big><em>mouse</em><big>)</big><a class="headerlink" href="#cast.Cast.relocate_mouse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relocate a mouse at a randomly chosen location.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.restore">
+<tt class="descname">restore</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform tasks required immediately after restoring a saved game. The
+tasks are:</p>
+<ul class="simple">
+<li>build the sprite images</li>
+<li>print the inventory</li>
+<li>print the mouse inventory</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.scare_musophobes">
+<tt class="descname">scare_musophobes</tt><big>(</big><em>mouse</em><big>)</big><a class="headerlink" href="#cast.Cast.scare_musophobes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make any characters near a mouse respond appropriately.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mouse</strong> &#8211; The mouse.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.set_lesson">
+<tt class="descname">set_lesson</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#cast.Cast.set_lesson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the lesson (as after the bell rings). Everybody except Eric
+collects a new command list from their personal timetable.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lesson_id</strong> &#8211; The ID of the lesson.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.set_location">
+<tt class="descname">set_location</tt><big>(</big><em>character_id</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.set_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the location of a character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the character.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.set_random_locations">
+<tt class="descname">set_random_locations</tt><big>(</big><em>character_id</em>, <em>locations</em><big>)</big><a class="headerlink" href="#cast.Cast.set_random_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the collection of random locations for a character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character_id</strong> &#8211; The ID of the character.</li>
+<li><strong>locations</strong> &#8211; The locations.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.smeller">
+<tt class="descname">smeller</tt><big>(</big><em>stinkbomb</em><big>)</big><a class="headerlink" href="#cast.Cast.smeller" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a character who can smell a stinkbomb, or <cite>None</cite> if there is
+none.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stinkbomb</strong> &#8211; The stinkbomb.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.somebody_near_door">
+<tt class="descname">somebody_near_door</tt><big>(</big><em>door</em><big>)</big><a class="headerlink" href="#cast.Cast.somebody_near_door" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether somebody is standing near a door.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>door</strong> &#8211; The door to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.trip_people_up_at">
+<tt class="descname">trip_people_up_at</tt><big>(</big><em>character</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#cast.Cast.trip_people_up_at" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make a character trip people up at a given location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character trying to trip people up.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.unchain_bike">
+<tt class="descname">unchain_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.unchain_bike" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bring the bike into the play area (as after being unchained).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.unfreeze_eric">
+<tt class="descname">unfreeze_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#cast.Cast.unfreeze_eric" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unfreeze Eric.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cast.Cast.water_plant">
+<tt class="descname">water_plant</tt><big>(</big><em>plant_pot</em>, <em>liquid</em><big>)</big><a class="headerlink" href="#cast.Cast.water_plant" title="Permalink to this definition">¶</a></dt>
+<dd><p>Water (or sherry) a plant. If the liquid is water, the plant will
+start growing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>plant_pot</strong> &#8211; The plant pot hit by the water or sherry.</li>
+<li><strong>liquid</strong> &#8211; The type of liquid.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="bike.html"
+                        title="previous chapter">bike</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="character.html"
+                        title="next chapter">character</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="character.html" title="character"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bike.html" title="bike"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

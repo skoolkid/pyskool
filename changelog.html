@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Changelog &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Graphics" href="images.html" />
+    <link rel="prev" title="General info" href="info.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="images.html" title="Graphics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="info.html" title="General info"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>1.0.1 (2012-12-07)<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Moved the man pages to section 6</li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>1.0 (2012-12-03)<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Added the <tt class="docutils literal"><span class="pre">--get-images</span></tt> command line option (to download TZX files of
+Skool Daze and Back to Skool from sources listed in <cite>images.ini</cite> and extract
+images from them)</li>
+<li>Added the <tt class="docutils literal"><span class="pre">--create-ini</span></tt> command line option (to create the stock game ini
+files)</li>
+<li>Added the ability to switch between full-screen and windowed mode by pressing
+F11</li>
+<li>Man pages for the game launcher scripts are included in the <cite>man</cite> directory</li>
+<li>Fixed the audio latency that can occur when using Pygame 1.8+</li>
+<li>Fixed the bug that enables Eric to ride the bike past Albert when he has his
+arm raised</li>
+<li>Fixed the bug that makes Eric remain aloft after the knocked out kid he&#8217;s
+standing on (near a staircase) has risen</li>
+<li>Fixed the bug in Back to Skool Daze that makes the shield on the shelf in the
+boys&#8217; skool turn into a cup when Eric goes onto the next year</li>
+<li>Fixed the <cite>ezad_looks/mutables.png</cite> image (each pair of shield/safe images
+was in the wrong order)</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>0.6 (2011-06-05)<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Pyskool can be installed as a Python package using <tt class="docutils literal"><span class="pre">setup.py</span> <span class="pre">install</span></tt></li>
+<li>Changed the menu show/hide key from F10 (which activates the menu bar in
+Windows) to F12</li>
+<li>Added default key bindings to <cite>pyskool.ini</cite></li>
+<li>Fixed the bug that enables Eric to kiss Hayley while she&#8217;s sitting down</li>
+<li>Fixed the bug that makes Mr Wacker give Eric lines for being on the floor or
+not in skool while expelling him for jumping out of the top-floor window</li>
+<li>Fixed the bug that causes sprite graphics to lose their transparency when a
+game saved at one colour depth is loaded at a higher colour depth</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>0.5.4 (2011-03-15)<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Fixed the bug that causes a crash when Eric tries to get on the bike.</p>
+</div>
+<div class="section" id="id5">
+<h2>0.5.3 (2010-12-16)<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>Fixed the bug that prevented a saved game from loading when using
+<tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> 0 (hi-res colour).</p>
+</div>
+<div class="section" id="id6">
+<h2>0.5.2 (2010-11-03)<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Added a jumping sound effect to Skool Daze</li>
+<li>Fixed a graphic glitch in the girls&#8217; shoes</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>0.5.1 (2010-06-21)<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>Fixed the bug that causes a crash during a non-question-and-answer lesson when
+the teacher has returned to the blackboard after fetching the truant Eric.</p>
+</div>
+<div class="section" id="id8">
+<h2>0.5 (2010-06-08)<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Added an in-game menu</li>
+<li>Screen can be rescaled while Pyskool is running</li>
+<li>Key bindings are defined in <cite>pyskool.ini</cite></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>0.4 (2010-05-28)<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Added the ability to save and load games</li>
+<li>The score box is drawn using labels defined in the <a class="reference internal" href="inifile.html#messageconfig"><em>[MessageConfig]</em></a>
+section</li>
+<li>Added lesson box background images</li>
+<li>Added message box images (now the message boxes in Skool Daze mode look like
+those used in the original game)</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>0.3 (2010-05-18)<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Moved data that was embedded in the Python code into the ini files: there are
+now over 100 more parameters to tweak in the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a>,
+<a class="reference internal" href="inifile.html#screenconfig"><em>[ScreenConfig]</em></a>, <a class="reference internal" href="inifile.html#lessonconfig"><em>[LessonConfig]</em></a>, <a class="reference internal" href="inifile.html#timetableconfig"><em>[TimetableConfig]</em></a>,
+<a class="reference internal" href="inifile.html#timingconfig"><em>[TimingConfig]</em></a> and <a class="reference internal" href="inifile.html#animationphases"><em>[AnimationPhases ...]</em></a> sections, and extra
+character-controlling arguments to play with in the <a class="reference internal" href="commands.html#walkaround"><em>WalkAround</em></a>,
+<a class="reference internal" href="commands.html#moveaboutuntil"><em>MoveAboutUntil</em></a>, <a class="reference internal" href="commands.html#movemouse"><em>MoveMouse</em></a>, <a class="reference internal" href="commands.html#movefrog"><em>MoveFrog</em></a>, and
+<a class="reference internal" href="commands.html#watchforeric"><em>WatchForEric</em></a> commands (for example)</li>
+<li>Added utility scripts <cite>createini.py</cite> (generates ini files) and
+<cite>extract-png.py</cite> (extracts graphics from memory snapshots of the original
+skool games)</li>
+<li>Added documentation sources in <cite>docs-src</cite></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>0.2.4 (2010-04-30)<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>Added the following features:</p>
+<ul class="simple">
+<li>&#8216;Back to Skool Daze&#8217; example customisation</li>
+<li>Keyboard is checked during long sound effects (so you can pause or quit while
+the tune is playing, for example)</li>
+<li>Screenshots can be taken while the game is paused</li>
+<li>[Screen] section in the ini files</li>
+<li>API documentation</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2>0.2.3 (2010-04-13)<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>Added the &#8216;Ezad Looks&#8217; example customisation.</p>
+</div>
+<div class="section" id="id13">
+<h2>0.2.2 (2010-04-02)<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>Added the following features in Back to Skool mode:</p>
+<ul class="simple">
+<li>Eric is paralysed and expelled after jumping out of the top-floor window</li>
+<li>Albert alerts Mr Wacker if he spots Eric trying to escape</li>
+<li>Mr Wacker shadows Eric after being alerted by Albert</li>
+<li>Mr Creak and Mr Rockitt behave correctly during assembly</li>
+<li>Mr Withit does assembly duty</li>
+<li>Eric gets lines for not sitting down facing the stage during assembly</li>
+<li>Eric gets lines for standing on plants</li>
+<li>Miss Take chases Eric out of the girls&#8217; skool if she spots him there when
+it&#8217;s not playtime</li>
+</ul>
+<p>Also fixed the following bugs:</p>
+<ul class="simple">
+<li>Game crashes if Eric tries to sit back on the saddle of the bike after
+standing on it</li>
+<li>Eric gets lines for riding the bike in the playground</li>
+<li>Eric gets lines if spotted falling from a window</li>
+<li>Screen scrolls right every time Eric kisses Hayley</li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h2>0.2.1 (2010-03-26)<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<p>Added the following features in Back to Skool mode:</p>
+<ul class="simple">
+<li>Eric can release mice</li>
+<li>The girls and Miss Take will jump up and down or stand on a chair if they
+spot a mouse nearby</li>
+<li>Eric can kiss (or try to kiss) Hayley</li>
+<li>Eric can open desks and collect the water pistol or stinkbombs</li>
+<li>Eric can drop stinkbombs</li>
+<li>Mr Wacker will open a nearby window if he smells a stinkbomb</li>
+<li>Eric can fire the water pistol</li>
+<li>Eric can fill the water pistol with sherry</li>
+<li>Eric can throw away the water pistol</li>
+<li>Cups can be filled with water or sherry</li>
+<li>Plants grow when watered</li>
+<li>Eric can stand on plant pots</li>
+<li>Eric is lifted by a growing plant</li>
+<li>Eric can step off a fully grown plant through an open window</li>
+<li>Eric can step off a fully grown plant over the skool gate</li>
+<li>Drops of water or sherry can be knocked out of a cup with a catapult pellet</li>
+<li>Teachers reveal bike combination digits when hit by a drop of water</li>
+<li>Eric can unchain the bike by writing the combination on a blackboard</li>
+<li>Eric can ride the bike</li>
+<li>Eric can stand on the saddle of the bike</li>
+<li>Eric can jump off the saddle of the bike</li>
+<li>Eric is launched over the closed skool gate if he hits it while standing on
+the saddle of the bike</li>
+<li>Teachers reveal storeroom combination letters when hit by a drop of sherry</li>
+<li>Eric can get the storeroom key (and hence the frog) by writing the
+combination on a blackboard</li>
+<li>Conker falls from the tree when hit by a catapult pellet</li>
+<li>Falling conker can knock people out</li>
+<li>Eric can place the frog in a cup</li>
+<li>Eric can get the safe key by knocking the frog from a cup onto Miss Take&#8217;s
+head</li>
+<li>Eric can open the safe by jumping up to it when he has the key</li>
+</ul>
+<p>Also fixed the following bugs:</p>
+<ul class="simple">
+<li>Game crashes if a character is chasing or looking for Eric while Eric is on a
+staircase or jumping</li>
+<li>Eric does not get lines if caught writing on a blackboard</li>
+<li>Eric gets lines for being in the assembly hall during non-assembly periods</li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h2>0.2 (2010-03-16)<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Added mice and frogs and the ability to catch them</li>
+<li>Fixed glitches in the animatory state graphics (<cite>sprites.png</cite>)</li>
+<li>Added the <cite>SHERRY</cite> sound sample</li>
+<li>Added the <cite>GameFps</cite> and <cite>ScrollFps</cite> configuration parameters</li>
+</ul>
+<p>Also fixed the following bugs:</p>
+<ul class="simple">
+<li>Game crashes if you press &#8216;Delete&#8217; while writing on a blackboard</li>
+<li>If a little boy talks to ERIC while he&#8217;s writing on a blackboard, pressing
+&#8216;U&#8217; has no effect</li>
+<li>During dinner, the teacher on duty keeps giving Eric lines for not finding a
+seat</li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h2>0.1.2 (2009-07-22)<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<p>Fixed bug in Skool Daze mode where shields stay flashing after Eric&#8217;s been
+expelled.</p>
+</div>
+<div class="section" id="id17">
+<h2>0.1.1 (2009-04-29)<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<p>Fixed bug where Eric gets trapped in his seat if he&#8217;s knocked out of it by a
+catapult pellet and then tries to stand up.</p>
+</div>
+<div class="section" id="id18">
+<h2>0.1 (2008-11-12)<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Eric is expelled after exceeding the lines limit</li>
+<li>The swot tells tales</li>
+<li>Teachers track down Eric if he tries to skip class</li>
+</ul>
+<p>In Skool Daze mode:</p>
+<ul class="simple">
+<li>Special playtimes have been implemented</li>
+<li>Teachers give lines for all possible infractions</li>
+<li>All commands required in Skool Daze mode have been implemented</li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h2>0.0.4 (2008-10-24)<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Eric can write on blackboards</li>
+<li>Improved keyboard responsiveness</li>
+<li>Added ready-made example customisation: Skool Daze Take Too</li>
+</ul>
+<p>In Skool Daze mode:</p>
+<ul class="simple">
+<li>Teachers reveal safe combination letters when all shields are flashing</li>
+<li>Eric can open the safe after writing the combination code on a blackboard</li>
+<li>Eric can unflash all the shields after opening the safe</li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h2>0.0.3 (2008-10-08)<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Sound effects and tunes</li>
+<li>Teachers give lines for some infractions</li>
+<li>Eric can jump (into the air and onto other kids, too)</li>
+<li>Eric can make shields flash</li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h2>0.0.2 (2008-09-23)<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Added <tt class="docutils literal"><span class="pre">--scale</span></tt> and <tt class="docutils literal"><span class="pre">--ini</span></tt> command line options</li>
+<li>Bully can knock people out</li>
+<li>Tearaway can fire catapult pellets</li>
+<li>Eric can do these things too</li>
+<li>Tearaway writes on the blackboards</li>
+<li>Implemented several previously unimplemented commands</li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h2>0.0.1 (2008-09-09)<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<p>Initial public release.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Changelog</a><ul>
+<li><a class="reference internal" href="#id1">1.0.1 (2012-12-07)</a></li>
+<li><a class="reference internal" href="#id2">1.0 (2012-12-03)</a></li>
+<li><a class="reference internal" href="#id3">0.6 (2011-06-05)</a></li>
+<li><a class="reference internal" href="#id4">0.5.4 (2011-03-15)</a></li>
+<li><a class="reference internal" href="#id5">0.5.3 (2010-12-16)</a></li>
+<li><a class="reference internal" href="#id6">0.5.2 (2010-11-03)</a></li>
+<li><a class="reference internal" href="#id7">0.5.1 (2010-06-21)</a></li>
+<li><a class="reference internal" href="#id8">0.5 (2010-06-08)</a></li>
+<li><a class="reference internal" href="#id9">0.4 (2010-05-28)</a></li>
+<li><a class="reference internal" href="#id10">0.3 (2010-05-18)</a></li>
+<li><a class="reference internal" href="#id11">0.2.4 (2010-04-30)</a></li>
+<li><a class="reference internal" href="#id12">0.2.3 (2010-04-13)</a></li>
+<li><a class="reference internal" href="#id13">0.2.2 (2010-04-02)</a></li>
+<li><a class="reference internal" href="#id14">0.2.1 (2010-03-26)</a></li>
+<li><a class="reference internal" href="#id15">0.2 (2010-03-16)</a></li>
+<li><a class="reference internal" href="#id16">0.1.2 (2009-07-22)</a></li>
+<li><a class="reference internal" href="#id17">0.1.1 (2009-04-29)</a></li>
+<li><a class="reference internal" href="#id18">0.1 (2008-11-12)</a></li>
+<li><a class="reference internal" href="#id19">0.0.4 (2008-10-24)</a></li>
+<li><a class="reference internal" href="#id20">0.0.3 (2008-10-08)</a></li>
+<li><a class="reference internal" href="#id21">0.0.2 (2008-09-23)</a></li>
+<li><a class="reference internal" href="#id22">0.0.1 (2008-09-09)</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="info.html"
+                        title="previous chapter">General info</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="images.html"
+                        title="next chapter">Graphics</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="images.html" title="Graphics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="info.html" title="General info"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,168 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Graphics &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Main ini file" href="mainini.html" />
+    <link rel="prev" title="Changelog" href="changelog.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mainini.html" title="Main ini file"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="changelog.html" title="Changelog"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="graphics">
+<span id="id1"></span><h1>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h1>
+<p>The stock Pyskool graphics are stored in PNG files in subdirectories named
+<cite>back_to_skool</cite>, <cite>common</cite> and <cite>skool_daze</cite> under <cite>images/originalx1</cite>. The
+PNG files are:</p>
+<ul class="simple">
+<li><cite>bubble.png</cite> - speech bubble and lip</li>
+<li><cite>font.png</cite> - the skool font</li>
+<li><cite>inventory.png</cite> - mouse, frog, water pistol etc. (Back to Skool only)</li>
+<li><cite>lesson_box.png</cite> - the lesson box background</li>
+<li><cite>logo.png</cite> - the, er, logo</li>
+<li><cite>message_box.png</cite> - the message box background</li>
+<li><cite>mutables_ink.png</cite> - doors, windows, shields, safe etc. (ink colours only)</li>
+<li><cite>mutables_paper.png</cite> - doors, windows, shields, safe etc. (ink colours only)</li>
+<li><cite>mutables.png</cite> - doors, windows, shields, safe etc. (full colour)</li>
+<li><cite>scorebox.png</cite> - the score/lines/hi-score box background</li>
+<li><cite>skool_ink.png</cite> - the skool (ink colours only)</li>
+<li><cite>skool_paper.png</cite> - the skool (paper colours only)</li>
+<li><cite>skool.png</cite> - the skool (full colour)</li>
+<li><cite>sprites.png</cite> - the characters in various &#8216;animatory states&#8217;</li>
+</ul>
+<p>These images were extracted straight from memory snapshots of Skool Daze and
+Back to Skool, and are therefore identical to the graphics in the original
+games (hence the <cite>original</cite> prefix in the directory name), except for minor
+glitches that have been fixed. (See
+<a class="reference external" href="http://pyskool.ca/disassemblies/skool_daze/graphics/glitches.html">Skool Daze graphic glitches</a>
+and
+<a class="reference external" href="http://pyskool.ca/disassemblies/back_to_skool/graphics/glitches.html">Back to Skool graphic glitches</a>.)</p>
+<p>The <cite>*_ink.png</cite> and <cite>*_paper.png</cite> files are used in <tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> 1 (see
+<a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a>) in order to emulate the Spectrum display, which was
+restricted to two colours (&#8216;ink&#8217; and &#8216;paper&#8217;) per 8x8-pixel block.</p>
+<p><cite>sprites.png</cite> is an 8x16 array of sprites for the characters in the game. These
+sprites are all facing left, and are flipped to obtain the corresponding
+right-facing sprites.</p>
+<p>Any of these images can be customised using your favourite image editor.</p>
+<p>Pyskool performs the following steps to determine the base directory for
+graphics to use in the game:</p>
+<ul class="simple">
+<li>Collect the values of <tt class="docutils literal"><span class="pre">ImageSet</span></tt> and <tt class="docutils literal"><span class="pre">Scale</span></tt> from the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a>
+and <a class="reference internal" href="inifile.html#screenconfig"><em>[ScreenConfig]</em></a> sections of the config file</li>
+<li>Look for the directory <cite>images/&lt;ImageSet&gt;x&lt;Scale&gt;</cite></li>
+<li>Use images from that directory if it exists, or...</li>
+<li>...use images from <cite>images/&lt;ImageSet&gt;x1</cite> and scale them up</li>
+</ul>
+<p>The actual image files used from the base directory are defined in the
+<a class="reference internal" href="inifile.html#images"><em>[Images]</em></a> section.</p>
+<p>If you wanted to create your own hi-res graphics at 2x the original Spectrum
+size, you could place them under a base directory called <cite>images/Customx2</cite>
+and use the following parameter value in the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a> section:</p>
+<div class="highlight-none"><div class="highlight"><pre>ImageSet, Custom
+</pre></div>
+</div>
+<p>and the following parameter values in the <a class="reference internal" href="inifile.html#screenconfig"><em>[ScreenConfig]</em></a> section:</p>
+<div class="highlight-none"><div class="highlight"><pre>Scale, 2
+GraphicsMode, 0
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="changelog.html"
+                        title="previous chapter">Changelog</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mainini.html"
+                        title="next chapter">Main ini file</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mainini.html" title="Main ini file"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="changelog.html" title="Changelog"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+skool
+=====
+
+.. automodule:: skool
+   :members:

@@ -1,0 +1,5 @@
+game
+====
+
+.. automodule:: game
+   :members:

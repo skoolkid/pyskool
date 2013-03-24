@@ -1,0 +1,5 @@
+input
+=====
+
+.. automodule:: input
+   :members:

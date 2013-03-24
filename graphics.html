@@ -1,0 +1,939 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>graphics &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="iniparser" href="iniparser.html" />
+    <link rel="prev" title="game" href="game.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="iniparser.html" title="iniparser"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="game.html" title="game"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-graphics">
+<span id="graphics"></span><h1>graphics<a class="headerlink" href="#module-graphics" title="Permalink to this headline">¶</a></h1>
+<p>Classes concerned with the screen and drawing things on it.</p>
+<dl class="class">
+<dt id="graphics.Font">
+<em class="property">class </em><tt class="descclassname">graphics.</tt><tt class="descname">Font</tt><big>(</big><em>image</em>, <em>ink_key</em>, <em>paper_key</em><big>)</big><a class="headerlink" href="#graphics.Font" title="Permalink to this definition">¶</a></dt>
+<dd><p>The skool font.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>image</strong> (<a class="reference internal" href="#graphics.Image" title="graphics.Image"><tt class="xref py py-class docutils literal"><span class="pre">Image</span></tt></a>) &#8211; The font image.</li>
+<li><strong>ink_key</strong> (<em>RGB triplet</em>) &#8211; The ink colour in <cite>font.png</cite> (used to create transparency).</li>
+<li><strong>paper_key</strong> (<em>RGB triplet</em>) &#8211; The paper colour in <cite>font.png</cite> (used to create
+transparency).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="graphics.Font.add_character">
+<tt class="descname">add_character</tt><big>(</big><em>char</em>, <em>offset</em>, <em>width</em><big>)</big><a class="headerlink" href="#graphics.Font.add_character" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the location and width of a font character bitmap in the font
+image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>char</strong> &#8211; The font character.</li>
+<li><strong>offset</strong> &#8211; The offset (in pixels) of the font character bitmap from
+the left edge of the font image.</li>
+<li><strong>width</strong> &#8211; The width of the font character bitmap.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Font.build_image">
+<tt class="descname">build_image</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Font.build_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the font image. This method is called after rescaling the
+screen or loading a saved game.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Font.has_char">
+<tt class="descname">has_char</tt><big>(</big><em>char</em><big>)</big><a class="headerlink" href="#graphics.Font.has_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the skool font contains a bitmap for a given
+character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>char</strong> &#8211; The character to look for.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Font.render">
+<tt class="descname">render</tt><big>(</big><em>words</em>, <em>ink</em>, <em>paper</em><big>)</big><a class="headerlink" href="#graphics.Font.render" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an image (a <cite>pygame.Surface</cite>) of a text message written in
+the skool font.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>words</strong> &#8211; The message.</li>
+<li><strong>ink</strong> &#8211; RGB triplet</li>
+<li><strong>ink</strong> &#8211; The desired ink colour.</li>
+<li><strong>paper</strong> &#8211; RGB triplet</li>
+<li><strong>paper</strong> &#8211; The desired paper colour.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="graphics.Gallery">
+<em class="property">class </em><tt class="descclassname">graphics.</tt><tt class="descname">Gallery</tt><big>(</big><em>images_dir</em>, <em>config</em>, <em>scale</em>, <em>images</em><big>)</big><a class="headerlink" href="#graphics.Gallery" title="Permalink to this definition">¶</a></dt>
+<dd><p>A container for all the images used in a game.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>images_dir</strong> &#8211; The path to the <cite>images</cite> directory.</li>
+<li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters from the ini file.</li>
+<li><strong>scale</strong> &#8211; The desired scale of the images; if <cite>None</cite>, the <cite>Scale</cite>
+configuration parameter will be used to set the scale.</li>
+<li><strong>images</strong> (<em>dict</em>) &#8211; Key-value pairs (image ID, path) from the <cite>Images</cite> section.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="graphics.Gallery.get_image">
+<tt class="descname">get_image</tt><big>(</big><em>image_id</em><big>)</big><a class="headerlink" href="#graphics.Gallery.get_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an <a class="reference internal" href="#graphics.Image" title="graphics.Image"><tt class="xref py py-class docutils literal"><span class="pre">Image</span></tt></a> from the gallery, or <cite>None</cite> if there is no
+image in the gallery with the given ID. The image will be scaled up as
+necessary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image_id</strong> &#8211; The ID of the image.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Gallery.get_surface">
+<tt class="descname">get_surface</tt><big>(</big><em>image_id</em><big>)</big><a class="headerlink" href="#graphics.Gallery.get_surface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an image (a <cite>pygame.Surface</cite>) from the gallery, or <cite>None</cite>
+if there is no image in the gallery with the given ID. The image will
+be scaled up as necessary.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image_id</strong> &#8211; The ID of the image.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Gallery.reset">
+<tt class="descname">reset</tt><big>(</big><em>scale</em><big>)</big><a class="headerlink" href="#graphics.Gallery.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the scale and clear the image cache.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>scale</strong> &#8211; The scale.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Gallery.restore">
+<tt class="descname">restore</tt><big>(</big><em>images_dir</em><big>)</big><a class="headerlink" href="#graphics.Gallery.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform tasks required immediately after loading a saved game.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>images_dir</strong> &#8211; The path to the <cite>images</cite> directory.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Gallery.scale_coords">
+<tt class="descname">scale_coords</tt><big>(</big><em>coords</em><big>)</big><a class="headerlink" href="#graphics.Gallery.scale_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale up a pair of coordinates and return them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coords</strong> &#8211; The coordinates.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Gallery.scale_down">
+<tt class="descname">scale_down</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Gallery.scale_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrease the scale factor by 1 (if it is greater than 1). The image
+cache will be cleared.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite> if the scale factor was decreased, <cite>False</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Gallery.scale_length">
+<tt class="descname">scale_length</tt><big>(</big><em>length</em><big>)</big><a class="headerlink" href="#graphics.Gallery.scale_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale up a length and return it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Gallery.scale_up">
+<tt class="descname">scale_up</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Gallery.scale_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increase the scale factor by 1. The image cache will be cleared.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="graphics.Image">
+<em class="property">class </em><tt class="descclassname">graphics.</tt><tt class="descname">Image</tt><big>(</big><em>gallery</em>, <em>image_id</em>, <em>surface</em>, <em>top_left=None</em>, <em>size=None</em>, <em>flipped=False</em>, <em>colorkey=None</em><big>)</big><a class="headerlink" href="#graphics.Image" title="Permalink to this definition">¶</a></dt>
+<dd><p>A container for a <cite>pygame.Surface</cite>. This is used to handle the saving
+and restoring of images, because a <cite>pygame.Surface</cite> cannot be pickled
+directly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>gallery</strong> (<a class="reference internal" href="#graphics.Gallery" title="graphics.Gallery"><tt class="xref py py-class docutils literal"><span class="pre">Gallery</span></tt></a>) &#8211; The gallery of images.</li>
+<li><strong>image_id</strong> &#8211; The ID of the image (the parent image) from which this
+image is derived.</li>
+<li><strong>surface</strong> (<cite>pygame.Surface</cite>) &#8211; The image itself.</li>
+<li><strong>top_left</strong> &#8211; The coordinates of the top-left corner of this image
+inside the parent image.</li>
+<li><strong>flipped</strong> &#8211; If <cite>True</cite>, the image will be flipped before use.</li>
+<li><strong>colorkey</strong> &#8211; The colour key.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="graphics.Image.blit">
+<tt class="descname">blit</tt><big>(</big><em>*args</em><big>)</big><a class="headerlink" href="#graphics.Image.blit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Blit a <cite>pygame.Surface</cite> onto this image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>args</strong> &#8211; Arguments passed to <cite>pygame.Surface.blit()</cite>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Image.build">
+<tt class="descname">build</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Image.build" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the image. This method is called after rescaling the screen or
+loading a saved game.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Image.copy">
+<tt class="descname">copy</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Image.copy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a copy of the image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Image.flip">
+<tt class="descname">flip</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Image.flip" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a flipped copy of the image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Image.get_height">
+<tt class="descname">get_height</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Image.get_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width of the image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Image.get_size">
+<tt class="descname">get_size</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Image.get_size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the size (width, height) of the image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Image.get_width">
+<tt class="descname">get_width</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Image.get_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width of the image.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Image.scale_blit">
+<tt class="descname">scale_blit</tt><big>(</big><em>source</em>, <em>dest</em>, <em>area=None</em><big>)</big><a class="headerlink" href="#graphics.Image.scale_blit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw an image on this image using scaled coordinates.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>source</strong> (<cite>pygame.Surface</cite>) &#8211; The image to draw.</li>
+<li><strong>dest</strong> &#8211; The coordinates at which to draw the image.</li>
+<li><strong>area</strong> &#8211; A 4-tuple - <cite>(left, top, width, height)</cite> - defining the
+subsurface of the image to draw.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Image.scale_length">
+<tt class="descname">scale_length</tt><big>(</big><em>length</em><big>)</big><a class="headerlink" href="#graphics.Image.scale_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale up a length and return it.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Image.set_colorkey">
+<tt class="descname">set_colorkey</tt><big>(</big><em>colorkey</em><big>)</big><a class="headerlink" href="#graphics.Image.set_colorkey" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the colour key of the image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>colorkey</strong> &#8211; The colour key.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Image.subsurface">
+<tt class="descname">subsurface</tt><big>(</big><em>coords</em>, <em>size</em><big>)</big><a class="headerlink" href="#graphics.Image.subsurface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a subsurface of the image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>coords</strong> &#8211; The coordinates of the top-left corner of the
+subsurface.</li>
+<li><strong>size</strong> &#8211; The size of the subsurface.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="graphics.Screen">
+<em class="property">class </em><tt class="descclassname">graphics.</tt><tt class="descname">Screen</tt><big>(</big><em>config</em>, <em>gallery</em>, <em>title_prefix</em><big>)</big><a class="headerlink" href="#graphics.Screen" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents the screen upon which everything is drawn.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters from the ini file.</li>
+<li><strong>gallery</strong> (<a class="reference internal" href="#graphics.Gallery" title="graphics.Gallery"><tt class="xref py py-class docutils literal"><span class="pre">Gallery</span></tt></a>) &#8211; The gallery of images to use for drawing.</li>
+<li><strong>title_prefix</strong> &#8211; The window title prefix.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="graphics.Screen.add_font_character">
+<tt class="descname">add_font_character</tt><big>(</big><em>char</em>, <em>offset</em>, <em>width</em><big>)</big><a class="headerlink" href="#graphics.Screen.add_font_character" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the location and width of a font character bitmap in the font
+image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>char</strong> &#8211; The font character.</li>
+<li><strong>offset</strong> &#8211; The offset (in pixels) of the font character bitmap from
+the left edge of the font image.</li>
+<li><strong>width</strong> &#8211; The width of the font character bitmap.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.contains">
+<tt class="descname">contains</tt><big>(</big><em>character</em>, <em>full=True</em><big>)</big><a class="headerlink" href="#graphics.Screen.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is on-screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</li>
+<li><strong>full</strong> &#8211; If <cite>True</cite>, return whether the character&#8217;s entire sprite
+is on-screen; if <cite>False</cite>, return whether any part of the
+character&#8217;s sprite is on-screen.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.draw">
+<tt class="descname">draw</tt><big>(</big><em>skool_images</em>, <em>cast</em>, <em>speech_bubbles</em>, <em>update</em><big>)</big><a class="headerlink" href="#graphics.Screen.draw" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw everything on the screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>skool_images</strong> &#8211; The play area images.</li>
+<li><strong>cast</strong> &#8211; The cast (3-tuples, <cite>(x, y, image)</cite>, where <cite>x</cite> and <cite>y</cite>
+are the coordinates, and <cite>image</cite> is an image of a cast
+member).</li>
+<li><strong>speech_bubbles</strong> &#8211; Speech bubbles (3-tuples, <cite>(x, y, image)</cite>).</li>
+<li><strong>update</strong> &#8211; Whether to update the screen after drawing.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.draw_menu">
+<tt class="descname">draw_menu</tt><big>(</big><em>menu</em>, <em>refresh=False</em><big>)</big><a class="headerlink" href="#graphics.Screen.draw_menu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draw the menu and update the screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>menu</strong> (<a class="reference internal" href="game.html#game.Menu" title="game.Menu"><tt class="xref py py-class docutils literal"><span class="pre">Menu</span></tt></a>) &#8211; The menu.</li>
+<li><strong>refresh</strong> &#8211; If <cite>True</cite>, the entire screen will be updated; if
+<cite>False</cite>, only the part of the screen occupied by the
+menu will be updated.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.get_bubble">
+<tt class="descname">get_bubble</tt><big>(</big><em>words</em>, <em>lip_pos</em>, <em>shift</em><big>)</big><a class="headerlink" href="#graphics.Screen.get_bubble" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a speech bubble displaying a portion of a message.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>words</strong> &#8211; The text of the message.</li>
+<li><strong>lip_pos</strong> &#8211; The offset (in tiles) from the left edge of the speech
+bubble at which to place the lip.</li>
+<li><strong>shift</strong> &#8211; The offset (in tiles) by which to shift the text image
+before displaying it in the bubble; if negative, leading
+spaces will be displayed.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A 2-tuple, <cite>(bubble, done)</cite>, where <cite>bubble</cite> is the speech
+bubble image (an <a class="reference internal" href="#graphics.Image" title="graphics.Image"><tt class="xref py py-class docutils literal"><span class="pre">Image</span></tt></a>), and <cite>done</cite> is <cite>True</cite> if the
+entire message has been spoken, <cite>False</cite> otherwise.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.get_scroll_increment">
+<tt class="descname">get_scroll_increment</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#graphics.Screen.get_scroll_increment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the direction in which the screen should be scrolled when
+Eric is at a given x-coordinate.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; Eric&#8217;s x-coordinate.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">-1 if the screen should scroll right, 1 if it should scroll
+left, or 0 if it should not scroll.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.get_text">
+<tt class="descname">get_text</tt><big>(</big><em>words</em>, <em>ink</em>, <em>paper</em>, <em>transparent=True</em><big>)</big><a class="headerlink" href="#graphics.Screen.get_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a <cite>pygame.Surface</cite> displaying some text in the skool font.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>words</strong> &#8211; The text.</li>
+<li><strong>ink</strong> &#8211; The ink colour to use.</li>
+<li><strong>paper</strong> &#8211; The paper colour to use.</li>
+<li><strong>transparent</strong> &#8211; Whether the paper colour should be transparent.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.has_font_char">
+<tt class="descname">has_font_char</tt><big>(</big><em>char</em><big>)</big><a class="headerlink" href="#graphics.Screen.has_font_char" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the skool font contains a bitmap for a given
+character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>char</strong> &#8211; The character to look for.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.initialise_column">
+<tt class="descname">initialise_column</tt><big>(</big><em>skool_width</em>, <em>eric_x</em><big>)</big><a class="headerlink" href="#graphics.Screen.initialise_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the leftmost column of the play area that will appear on the
+screen when the game starts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>skool_width</strong> &#8211; The width of the entire play area (in pixels).</li>
+<li><strong>eric_x</strong> &#8211; Eric&#8217;s initial x-coordinate.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.print_inventory">
+<tt class="descname">print_inventory</tt><big>(</big><em>item_images=()</em><big>)</big><a class="headerlink" href="#graphics.Screen.print_inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the inventory. If no inventory is defined, nothing happens.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item_images</strong> &#8211; A sequence of item images to draw in the inventory
+box.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.print_lesson">
+<tt class="descname">print_lesson</tt><big>(</big><em>*text_lines</em><big>)</big><a class="headerlink" href="#graphics.Screen.print_lesson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print some text in the lesson box.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>text_lines</strong> &#8211; The lines of text to print.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.print_message_box">
+<tt class="descname">print_message_box</tt><big>(</big><em>x</em>, <em>y</em>, <em>message</em>, <em>ink</em>, <em>paper</em><big>)</big><a class="headerlink" href="#graphics.Screen.print_message_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a message box.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the messenger&#8217;s head.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the messenger&#8217;s head.</li>
+<li><strong>message</strong> (<em>tuple</em>) &#8211; The lines of text to write in the box.</li>
+<li><strong>ink</strong> (<em>RGB triplet</em>) &#8211; The ink colour of the box.</li>
+<li><strong>paper</strong> (<em>RGB triplet</em>) &#8211; The paper colour of the box.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.print_mice">
+<tt class="descname">print_mice</tt><big>(</big><em>count=0</em>, <em>mouse_image=None</em><big>)</big><a class="headerlink" href="#graphics.Screen.print_mice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the mouse inventory. If no mouse inventory is defined, nothing
+happens.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>count</strong> &#8211; The number of mice to draw.</li>
+<li><strong>mouse_image</strong> &#8211; An image of a captured mouse.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.print_score_box">
+<tt class="descname">print_score_box</tt><big>(</big><em>score</em>, <em>lines</em>, <em>hi_score</em><big>)</big><a class="headerlink" href="#graphics.Screen.print_score_box" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print the score, lines total and hi-score in the score box.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>score</strong> &#8211; The score.</li>
+<li><strong>lines</strong> &#8211; The lines total.</li>
+<li><strong>hi_score</strong> &#8211; The hi-score.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.reinitialise">
+<tt class="descname">reinitialise</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Screen.reinitialise" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reinitialise the screen for a new game.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.scale_coords">
+<tt class="descname">scale_coords</tt><big>(</big><em>coords</em><big>)</big><a class="headerlink" href="#graphics.Screen.scale_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scale up a pair of coordinates and return them.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>coords</strong> &#8211; The coordinates.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.scale_down">
+<tt class="descname">scale_down</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Screen.scale_down" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decrease the scale factor by 1 (if it is greater than 1), and redraw
+the screen.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.scale_up">
+<tt class="descname">scale_up</tt><big>(</big><big>)</big><a class="headerlink" href="#graphics.Screen.scale_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>Increase the scale factor by 1, and redraw the screen.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.scroll">
+<tt class="descname">scroll</tt><big>(</big><em>inc</em>, <em>skool</em>, <em>clock</em><big>)</big><a class="headerlink" href="#graphics.Screen.scroll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scroll the skool a number of columns across the screen.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>inc</strong> &#8211; The scroll increment (-1 to scroll one column at a time
+rightwards, 1 to scroll one column at a time leftwards).</li>
+<li><strong>skool</strong> (<a class="reference internal" href="skool.html#skool.Skool" title="skool.Skool"><tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt></a>) &#8211; The skool.</li>
+<li><strong>clock</strong> (<cite>pygame.time.Clock</cite>) &#8211; The clock to use to time the scrolling.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.scroll_skool">
+<tt class="descname">scroll_skool</tt><big>(</big><em>skool</em>, <em>clock</em><big>)</big><a class="headerlink" href="#graphics.Screen.scroll_skool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Scroll the skool across the entire width of the screen from right to
+left.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>skool</strong> (<a class="reference internal" href="skool.html#skool.Skool" title="skool.Skool"><tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt></a>) &#8211; The skool.</li>
+<li><strong>clock</strong> (<cite>pygame.time.Clock</cite>) &#8211; The clock to use to time the scrolling.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.setup">
+<tt class="descname">setup</tt><big>(</big><em>set_mode=False</em><big>)</big><a class="headerlink" href="#graphics.Screen.setup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set up the following things:</p>
+<blockquote>
+<div><ul class="simple">
+<li>the window title and icon</li>
+<li>the screen background</li>
+<li>the logo image</li>
+<li>the score box</li>
+<li>(optionally) the size of the screen</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>set_mode</strong> &#8211; If <cite>True</cite>, the size of the screen will be set.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="graphics.Screen.take_screenshot">
+<tt class="descname">take_screenshot</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#graphics.Screen.take_screenshot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take a screenshot and save it to a file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> &#8211; The name of the file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.FONT">
+<tt class="descclassname">graphics.</tt><tt class="descname">FONT</tt><em class="property"> = 'FONT'</em><a class="headerlink" href="#graphics.FONT" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the font image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.INVENTORY">
+<tt class="descclassname">graphics.</tt><tt class="descname">INVENTORY</tt><em class="property"> = 'INVENTORY'</em><a class="headerlink" href="#graphics.INVENTORY" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the inventory items image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.LESSON_BOX">
+<tt class="descclassname">graphics.</tt><tt class="descname">LESSON_BOX</tt><em class="property"> = 'LESSON_BOX'</em><a class="headerlink" href="#graphics.LESSON_BOX" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the lesson box image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.LOGO">
+<tt class="descclassname">graphics.</tt><tt class="descname">LOGO</tt><em class="property"> = 'LOGO'</em><a class="headerlink" href="#graphics.LOGO" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the logo image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.MESSAGE_BOX">
+<tt class="descclassname">graphics.</tt><tt class="descname">MESSAGE_BOX</tt><em class="property"> = 'MESSAGE_BOX'</em><a class="headerlink" href="#graphics.MESSAGE_BOX" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the message box image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.MUTABLES">
+<tt class="descclassname">graphics.</tt><tt class="descname">MUTABLES</tt><em class="property"> = 'MUTABLES'</em><a class="headerlink" href="#graphics.MUTABLES" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the mutables image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.MUTABLES_INK">
+<tt class="descclassname">graphics.</tt><tt class="descname">MUTABLES_INK</tt><em class="property"> = 'MUTABLES_INK'</em><a class="headerlink" href="#graphics.MUTABLES_INK" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the ink-only mutables image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.MUTABLES_PAPER">
+<tt class="descclassname">graphics.</tt><tt class="descname">MUTABLES_PAPER</tt><em class="property"> = 'MUTABLES_PAPER'</em><a class="headerlink" href="#graphics.MUTABLES_PAPER" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the paper-only mutables image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.SCOREBOX">
+<tt class="descclassname">graphics.</tt><tt class="descname">SCOREBOX</tt><em class="property"> = 'SCOREBOX'</em><a class="headerlink" href="#graphics.SCOREBOX" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the score box image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.SKOOL">
+<tt class="descclassname">graphics.</tt><tt class="descname">SKOOL</tt><em class="property"> = 'SKOOL'</em><a class="headerlink" href="#graphics.SKOOL" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the play area image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.SKOOL_INK">
+<tt class="descclassname">graphics.</tt><tt class="descname">SKOOL_INK</tt><em class="property"> = 'SKOOL_INK'</em><a class="headerlink" href="#graphics.SKOOL_INK" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the ink-only play area image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.SKOOL_PAPER">
+<tt class="descclassname">graphics.</tt><tt class="descname">SKOOL_PAPER</tt><em class="property"> = 'SKOOL_PAPER'</em><a class="headerlink" href="#graphics.SKOOL_PAPER" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the paper-only play area image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.SPEECH_BUBBLE">
+<tt class="descclassname">graphics.</tt><tt class="descname">SPEECH_BUBBLE</tt><em class="property"> = 'SPEECH_BUBBLE'</em><a class="headerlink" href="#graphics.SPEECH_BUBBLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the speech bubble image.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="graphics.SPRITES">
+<tt class="descclassname">graphics.</tt><tt class="descname">SPRITES</tt><em class="property"> = 'SPRITES'</em><a class="headerlink" href="#graphics.SPRITES" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sprites image.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="game.html"
+                        title="previous chapter">game</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="iniparser.html"
+                        title="next chapter">iniparser</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="iniparser.html" title="iniparser"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="game.html" title="game"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

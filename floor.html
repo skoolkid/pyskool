@@ -1,0 +1,169 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>floor &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="game" href="game.html" />
+    <link rel="prev" title="eric" href="eric.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="game.html" title="game"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="eric.html" title="eric"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-floor">
+<span id="floor"></span><h1>floor<a class="headerlink" href="#module-floor" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#floor.Floor" title="floor.Floor"><tt class="xref py py-class docutils literal"><span class="pre">Floor</span></tt></a> class.</p>
+<dl class="class">
+<dt id="floor.Floor">
+<em class="property">class </em><tt class="descclassname">floor.</tt><tt class="descname">Floor</tt><big>(</big><em>floor_id</em>, <em>left_x</em>, <em>right_x</em>, <em>y</em><big>)</big><a class="headerlink" href="#floor.Floor" title="Permalink to this definition">¶</a></dt>
+<dd><p>A region of the skool regarded as a starting point from which to reach a
+destination (which will be on the same or another floor).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>floor_id</strong> &#8211; The floor&#8217;s unique ID.</li>
+<li><strong>left_x</strong> &#8211; The x-coordinate of the left edge of the floor.</li>
+<li><strong>right_x</strong> &#8211; The x-coordinate of the right edge of the floor.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the floor.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="floor.Floor.below">
+<tt class="descname">below</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#floor.Floor.below" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether this floor is below a character&#8217;s current location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="floor.Floor.contains_location">
+<tt class="descname">contains_location</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#floor.Floor.contains_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the location <cite>(x, y)</cite> is on this floor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="floor.Floor.supports">
+<tt class="descname">supports</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#floor.Floor.supports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is on this floor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="eric.html"
+                        title="previous chapter">eric</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="game.html"
+                        title="next chapter">game</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="game.html" title="game"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="eric.html" title="eric"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+staircase
+=========
+
+.. automodule:: staircase
+   :members:

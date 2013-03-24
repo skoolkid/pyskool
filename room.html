@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>room &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="scoreboard" href="scoreboard.html" />
+    <link rel="prev" title="plant" href="plant.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="scoreboard.html" title="scoreboard"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plant.html" title="plant"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-room">
+<span id="room"></span><h1>room<a class="headerlink" href="#module-room" title="Permalink to this headline">¶</a></h1>
+<p>Classes that represent the rooms in the skool and their furniture.</p>
+<dl class="class">
+<dt id="room.Blackboard">
+<em class="property">class </em><tt class="descclassname">room.</tt><tt class="descname">Blackboard</tt><big>(</big><em>screen</em>, <em>top_left</em>, <em>size</em>, <em>chalk</em>, <em>skool_image</em><big>)</big><a class="headerlink" href="#room.Blackboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>A blackboard in a classroom.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>screen</strong> (<a class="reference internal" href="graphics.html#graphics.Screen" title="graphics.Screen"><tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt></a>) &#8211; The screen.</li>
+<li><strong>top_left</strong> &#8211; The coordinates of the top-left of the blackboard.</li>
+<li><strong>size</strong> &#8211; The size (width, height) of the blackboard.</li>
+<li><strong>chalk</strong> &#8211; The chalk colour to use when writing on the blackboard.</li>
+<li><strong>skool_image</strong> (<a class="reference internal" href="graphics.html#graphics.Image" title="graphics.Image"><tt class="xref py py-class docutils literal"><span class="pre">Image</span></tt></a>) &#8211; An image of the skool.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="room.Blackboard.beside">
+<tt class="descname">beside</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#room.Blackboard.beside" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is standing beside the blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Blackboard.build_images">
+<tt class="descname">build_images</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Blackboard.build_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the images for the blackboard. This method is called after
+rescaling the screen or loading a saved game.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Blackboard.clear">
+<tt class="descname">clear</tt><big>(</big><em>blit=False</em><big>)</big><a class="headerlink" href="#room.Blackboard.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark this blackboard as clean.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blit</strong> &#8211; If <cite>True</cite>, the blackboard surface will be blitted clean
+too; otherwise it will be left alone.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Blackboard.is_dirty">
+<tt class="descname">is_dirty</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Blackboard.is_dirty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether anything is written on the blackboard.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Blackboard.newline">
+<tt class="descname">newline</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Blackboard.newline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start a new line on the blackboard.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Blackboard.restore">
+<tt class="descname">restore</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Blackboard.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore the image of this blackboard. This method is used after
+restoring a saved game.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Blackboard.shows">
+<tt class="descname">shows</tt><big>(</big><em>text</em>, <em>in_order=True</em><big>)</big><a class="headerlink" href="#room.Blackboard.shows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the blackboard displays all the characters in a given
+piece of text.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>text</strong> &#8211; The text to look for.</li>
+<li><strong>in_order</strong> &#8211; If <cite>True</cite>, return <cite>True</cite> only if the order of the
+characters written on the board matches too.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Blackboard.wipe">
+<tt class="descname">wipe</tt><big>(</big><em>column</em><big>)</big><a class="headerlink" href="#room.Blackboard.wipe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wipe a column of the blackboard clean.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>column</strong> &#8211; The column to wipe clean.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Blackboard.write">
+<tt class="descname">write</tt><big>(</big><em>char</em><big>)</big><a class="headerlink" href="#room.Blackboard.write" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a character on the blackboard.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>char</strong> &#8211; The character to write.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="room.Chair">
+<em class="property">class </em><tt class="descclassname">room.</tt><tt class="descname">Chair</tt><big>(</big><em>room</em>, <em>x</em><big>)</big><a class="headerlink" href="#room.Chair" title="Permalink to this definition">¶</a></dt>
+<dd><p>A seat in a classroom.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room</strong> (<a class="reference internal" href="#room.Room" title="room.Room"><tt class="xref py py-class docutils literal"><span class="pre">Room</span></tt></a>) &#8211; The room the chair is in.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the chair.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="room.Chair.seat">
+<tt class="descname">seat</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#room.Chair.seat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the chair as being occupied by a character.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character sitting in the chair.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Chair.vacate">
+<tt class="descname">vacate</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Chair.vacate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark this chair as vacant.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="room.Desk">
+<em class="property">class </em><tt class="descclassname">room.</tt><tt class="descname">Desk</tt><big>(</big><em>room</em>, <em>x</em><big>)</big><a class="headerlink" href="#room.Desk" title="Permalink to this definition">¶</a></dt>
+<dd><p>A desk (that can be opened) in a classroom.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room</strong> (<a class="reference internal" href="#room.Room" title="room.Room"><tt class="xref py py-class docutils literal"><span class="pre">Room</span></tt></a>) &#8211; The room the desk is in.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the desk.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="room.Desk.empty">
+<tt class="descname">empty</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Desk.empty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mark the desk as empty.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Desk.insert">
+<tt class="descname">insert</tt><big>(</big><em>item</em><big>)</big><a class="headerlink" href="#room.Desk.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert an inventory item (water pistol or stinkbombs) into the desk.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> &#8211; The ID of the item to insert.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="room.NoGoZone">
+<em class="property">class </em><tt class="descclassname">room.</tt><tt class="descname">NoGoZone</tt><big>(</big><em>zone_id</em>, <em>min_x</em>, <em>max_x</em>, <em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#room.NoGoZone" title="Permalink to this definition">¶</a></dt>
+<dd><p>A region of the skool in which Eric is never allowed to be.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>zone_id</strong> &#8211; The zone&#8217;s unique ID.</li>
+<li><strong>min_x</strong> &#8211; The x-coordinate of the left edge of the zone.</li>
+<li><strong>max_x</strong> &#8211; The x-coordinate of the right edge of the zone.</li>
+<li><strong>bottom_y</strong> &#8211; The y-coordinate of the bottom edge of the zone.</li>
+<li><strong>top_y</strong> &#8211; The y-coordinate of the top edge of the zone.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="room.NoGoZone.contains">
+<tt class="descname">contains</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#room.NoGoZone.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a given location is inside the zone.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="room.Room">
+<em class="property">class </em><tt class="descclassname">room.</tt><tt class="descname">Room</tt><big>(</big><em>room_id</em>, <em>name</em>, <em>top_left</em>, <em>bottom_right</em>, <em>get_along</em><big>)</big><a class="headerlink" href="#room.Room" title="Permalink to this definition">¶</a></dt>
+<dd><p>A classroom or some other region of the skool that Eric is expected to
+show up in when the timetable demands it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>room_id</strong> &#8211; The unique ID of the room.</li>
+<li><strong>name</strong> &#8211; The name of the room (as it should appear in the lesson box).</li>
+<li><strong>top_left</strong> &#8211; The coordinates of the top-left corner of the room.</li>
+<li><strong>bottom_right</strong> &#8211; The coordinates of the bottom-right corner of the
+room.</li>
+<li><strong>get_along</strong> &#8211; If <cite>True</cite>, Eric will be told to get along if he&#8217;s found
+in this room when the timetable doesn&#8217;t say he should be
+in it.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="room.Room.add_blackboard">
+<tt class="descname">add_blackboard</tt><big>(</big><em>screen</em>, <em>top_left</em>, <em>size</em>, <em>chalk</em>, <em>skool_image</em><big>)</big><a class="headerlink" href="#room.Room.add_blackboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a blackboard to the room.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>screen</strong> (<a class="reference internal" href="graphics.html#graphics.Screen" title="graphics.Screen"><tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt></a>) &#8211; The screen.</li>
+<li><strong>top_left</strong> &#8211; The coordinates of the top-left of the blackboard.</li>
+<li><strong>size</strong> &#8211; The size (width, height) of the blackboard.</li>
+<li><strong>chalk</strong> &#8211; The chalk colour to use when writing on the blackboard.</li>
+<li><strong>skool_image</strong> (<a class="reference internal" href="graphics.html#graphics.Image" title="graphics.Image"><tt class="xref py py-class docutils literal"><span class="pre">Image</span></tt></a>) &#8211; An image of the skool.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.add_chair">
+<tt class="descname">add_chair</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#room.Room.add_chair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a chair to the room.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; The x-coordinate of the chair.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.add_desk">
+<tt class="descname">add_desk</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#room.Room.add_desk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a desk (that can be opened) to the room.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; The x-coordinate of the desk.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.beside_blackboard">
+<tt class="descname">beside_blackboard</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#room.Room.beside_blackboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is standing beside the blackboard in this
+room.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.blackboard_dirty">
+<tt class="descname">blackboard_dirty</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Room.blackboard_dirty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return <cite>True</cite> if the room has a blackboard and it is dirty,
+<cite>False</cite> otherwise.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.build_blackboard_images">
+<tt class="descname">build_blackboard_images</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Room.build_blackboard_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the images for the blackboard in this room (if any). This
+method is called after rescaling the screen or loading a saved game.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.chair">
+<tt class="descname">chair</tt><big>(</big><em>character</em>, <em>check_dir=True</em><big>)</big><a class="headerlink" href="#room.Room.chair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the chair in this room that a character is next to, or
+<cite>None</cite> if the character is not next to a chair.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</li>
+<li><strong>check_dir</strong> &#8211; If <cite>True</cite>, return a chair only if the character is
+beside one and facing the right way to sit in it;
+otherwise disregard the direction in which the
+character is facing.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.contains">
+<tt class="descname">contains</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#room.Room.contains" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is in this room.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.desk">
+<tt class="descname">desk</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#room.Room.desk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the desk in this room that a character is sitting at, or
+<cite>None</cite> if the character is not sitting at a desk.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.get_blackboard_writer">
+<tt class="descname">get_blackboard_writer</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Room.get_blackboard_writer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the character who wrote on the blackboard in this room, or
+<cite>None</cite> if either the room has no blackboard, or the blackboard is
+clean.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.get_chair_direction">
+<tt class="descname">get_chair_direction</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Room.get_chair_direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the direction in which the chairs in this room are facing.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">-1 if the chairs are facing left, 1 if they are facing right,
+or <cite>None</cite> if there are no chairs in the room.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.get_next_chair">
+<tt class="descname">get_next_chair</tt><big>(</big><em>character</em>, <em>move_along</em>, <em>go_to_back</em><big>)</big><a class="headerlink" href="#room.Room.get_next_chair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the chair that a character should find and sit in.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character looking for a chair.</li>
+<li><strong>move_along</strong> &#8211; If <cite>True</cite> (and <cite>go_to_back</cite> is False), return the
+next seat along if the character is currently beside
+one; otherwise return the seat closest to the
+character.</li>
+<li><strong>go_to_back</strong> &#8211; If <cite>True</cite>, return the back seat in the room.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A 2-tuple containing the target chair and the direction it
+faces (-1 or 1).</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.has_blackboard">
+<tt class="descname">has_blackboard</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Room.has_blackboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the room has a blackboard.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.restore_blackboard">
+<tt class="descname">restore_blackboard</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Room.restore_blackboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restore the image of the blackboard in this room. This method is
+used to draw the contents of a blackboard afresh after restoring a
+saved game.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="room.Room.wipe_blackboard">
+<tt class="descname">wipe_blackboard</tt><big>(</big><big>)</big><a class="headerlink" href="#room.Room.wipe_blackboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wipe the blackboard in the room (if any) and mark it as clean.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="plant.html"
+                        title="previous chapter">plant</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="scoreboard.html"
+                        title="next chapter">scoreboard</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="scoreboard.html" title="scoreboard"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plant.html" title="plant"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

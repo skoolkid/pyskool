@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>plant &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="room" href="room.html" />
+    <link rel="prev" title="pellet" href="pellet.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="room.html" title="room"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="pellet.html" title="pellet"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-plant">
+<span id="plant"></span><h1>plant<a class="headerlink" href="#module-plant" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#plant.Plant" title="plant.Plant"><tt class="xref py py-class docutils literal"><span class="pre">Plant</span></tt></a> and <a class="reference internal" href="#plant.PlantPot" title="plant.PlantPot"><tt class="xref py py-class docutils literal"><span class="pre">PlantPot</span></tt></a> classes.</p>
+<dl class="class">
+<dt id="plant.Plant">
+<em class="property">class </em><tt class="descclassname">plant.</tt><tt class="descname">Plant</tt><big>(</big><em>plant_id</em>, <em>command_list_id</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#plant.Plant" title="Permalink to this definition">¶</a></dt>
+<dd><p>A plant that grows when watered.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>plant_id</strong> &#8211; The ID of the plant.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the plant will use.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the plant.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the plant.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="plant.Plant.appear">
+<tt class="descname">appear</tt><big>(</big><big>)</big><a class="headerlink" href="#plant.Plant.appear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the plant appear half-grown. Anyone standing on the plant pot
+will be lifted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="plant.Plant.die">
+<tt class="descname">die</tt><big>(</big><big>)</big><a class="headerlink" href="#plant.Plant.die" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the plant die. Anyone standing on the head of the plant will
+be dropped to the ground.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="plant.Plant.finish_growing">
+<tt class="descname">finish_growing</tt><big>(</big><big>)</big><a class="headerlink" href="#plant.Plant.finish_growing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the plant appear fully grown. Anyone standing on the head of
+the plant will be lifted.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="plant.Plant.get_command_list_id">
+<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#plant.Plant.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ID of the command list used by the plant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lesson_id</strong> &#8211; The ID of the current lesson (ignored - plants do
+not follow a timetable).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="plant.Plant.grow">
+<tt class="descname">grow</tt><big>(</big><big>)</big><a class="headerlink" href="#plant.Plant.grow" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make this plant start growing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="plant.Plant.head_coords">
+<tt class="descname">head_coords</tt><big>(</big><big>)</big><a class="headerlink" href="#plant.Plant.head_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the coordinates of the head of the plant.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="plant.Plant.is_fully_grown">
+<tt class="descname">is_fully_grown</tt><big>(</big><big>)</big><a class="headerlink" href="#plant.Plant.is_fully_grown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the plant is fully grown.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="plant.Plant.supports">
+<tt class="descname">supports</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#plant.Plant.supports" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a character is standing on the head of the plant.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="plant.PlantPot">
+<em class="property">class </em><tt class="descclassname">plant.</tt><tt class="descname">PlantPot</tt><big>(</big><em>plant_pot_id</em>, <em>plant</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#plant.PlantPot" title="Permalink to this definition">¶</a></dt>
+<dd><p>A plant pot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>plant_pot_id</strong> &#8211; The ID of the plant pot.</li>
+<li><strong>plant</strong> (<a class="reference internal" href="#plant.Plant" title="plant.Plant"><tt class="xref py py-class docutils literal"><span class="pre">Plant</span></tt></a>) &#8211; The plant in the plant pot.</li>
+<li><strong>x</strong> &#8211; The x-coordinate of the plant pot.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the plant pot.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="pellet.html"
+                        title="previous chapter">pellet</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="room.html"
+                        title="next chapter">room</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="room.html" title="room"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="pellet.html" title="pellet"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

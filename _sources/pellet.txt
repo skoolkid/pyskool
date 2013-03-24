@@ -1,0 +1,5 @@
+pellet
+======
+
+.. automodule:: pellet
+   :members:

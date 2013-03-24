@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>sound &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="staircase" href="staircase.html" />
+    <link rel="prev" title="skool" href="skool.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="staircase.html" title="staircase"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="skool.html" title="skool"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-sound">
+<span id="sound"></span><h1>sound<a class="headerlink" href="#module-sound" title="Permalink to this headline">¶</a></h1>
+<p>Play sound effects.</p>
+<dl class="class">
+<dt id="sound.Beeper">
+<em class="property">class </em><tt class="descclassname">sound.</tt><tt class="descname">Beeper</tt><big>(</big><em>sounds_dir</em>, <em>config</em><big>)</big><a class="headerlink" href="#sound.Beeper" title="Permalink to this definition">¶</a></dt>
+<dd><p>The maker of sound effects.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sounds_dir</strong> &#8211; The path to the <cite>sounds</cite> directory.</li>
+<li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters from the ini file.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="sound.Beeper.add_sound">
+<tt class="descname">add_sound</tt><big>(</big><em>sound_id</em>, <em>sound_file</em><big>)</big><a class="headerlink" href="#sound.Beeper.add_sound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a sound effect to the beeper&#8217;s collection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sound_id</strong> &#8211; The ID of the sound effect.</li>
+<li><strong>sound_file</strong> &#8211; The file name of the sound effect (relative to the
+<cite>sounds</cite> directory).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sound.Beeper.is_busy">
+<tt class="descname">is_busy</tt><big>(</big><big>)</big><a class="headerlink" href="#sound.Beeper.is_busy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether a sound effect is being played at the moment in
+<a class="reference internal" href="#sound.SUSPEND" title="sound.SUSPEND"><tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt></a> mode.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sound.Beeper.make_sitting_sound">
+<tt class="descname">make_sitting_sound</tt><big>(</big><em>mode</em><big>)</big><a class="headerlink" href="#sound.Beeper.make_sitting_sound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play a sitting sound effect. This will be a walking sound effect,
+chosen at random from those available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> &#8211; The mode in which to play the sound effect (see
+<a class="reference internal" href="#sound.Beeper.play" title="sound.Beeper.play"><tt class="xref py py-meth docutils literal"><span class="pre">play()</span></tt></a>).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sound.Beeper.make_walking_sound">
+<tt class="descname">make_walking_sound</tt><big>(</big><em>index</em>, <em>mode</em><big>)</big><a class="headerlink" href="#sound.Beeper.make_walking_sound" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play a walking sound effect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>index</strong> &#8211; The index of the walking sound effect.</li>
+<li><strong>mode</strong> &#8211; The mode in which to play the sound effect (see
+<a class="reference internal" href="#sound.Beeper.play" title="sound.Beeper.play"><tt class="xref py py-meth docutils literal"><span class="pre">play()</span></tt></a>).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sound.Beeper.pause">
+<tt class="descname">pause</tt><big>(</big><big>)</big><a class="headerlink" href="#sound.Beeper.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause the playing of any sound effect.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sound.Beeper.play">
+<tt class="descname">play</tt><big>(</big><em>sound_id</em>, <em>mode=1</em><big>)</big><a class="headerlink" href="#sound.Beeper.play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play a sound effect.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sound_id</strong> &#8211; The ID of the sound effect.</li>
+<li><strong>mode</strong> &#8211; If <a class="reference internal" href="#sound.SUSPEND" title="sound.SUSPEND"><tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt></a>, movement of characters and screen
+updates are suspended until the sound effect has finished
+playing, but the quit and pause keys will be checked in
+the meantime; if <a class="reference internal" href="#sound.ASYNC" title="sound.ASYNC"><tt class="xref py py-data docutils literal"><span class="pre">ASYNC</span></tt></a> (or anything else), the
+sound effect will play asynchronously.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sound.Beeper.restore">
+<tt class="descname">restore</tt><big>(</big><em>sounds_dir</em><big>)</big><a class="headerlink" href="#sound.Beeper.restore" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform tasks required immediately after loading a saved game.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sounds_dir</strong> &#8211; The path to the <cite>sounds</cite> directory.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sound.Beeper.unpause">
+<tt class="descname">unpause</tt><big>(</big><big>)</big><a class="headerlink" href="#sound.Beeper.unpause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resume the playing of any sound effect.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.ALL_SHIELDS">
+<tt class="descclassname">sound.</tt><tt class="descname">ALL_SHIELDS</tt><em class="property"> = 'ALL_SHIELDS'</em><a class="headerlink" href="#sound.ALL_SHIELDS" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when all the shields have been flashed.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.ASYNC">
+<tt class="descclassname">sound.</tt><tt class="descname">ASYNC</tt><em class="property"> = 2</em><a class="headerlink" href="#sound.ASYNC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sound effect play mode: asynchronous.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.BELL">
+<tt class="descclassname">sound.</tt><tt class="descname">BELL</tt><em class="property"> = 'BELL'</em><a class="headerlink" href="#sound.BELL" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect for the bell.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.BIKE">
+<tt class="descclassname">sound.</tt><tt class="descname">BIKE</tt><em class="property"> = 'BIKE'</em><a class="headerlink" href="#sound.BIKE" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when the bike is unchained.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.CATAPULT">
+<tt class="descclassname">sound.</tt><tt class="descname">CATAPULT</tt><em class="property"> = 'CATAPULT'</em><a class="headerlink" href="#sound.CATAPULT" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric&#8217;s catapult is fired.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.CONKER">
+<tt class="descclassname">sound.</tt><tt class="descname">CONKER</tt><em class="property"> = 'CONKER'</em><a class="headerlink" href="#sound.CONKER" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Albert is knocked unconscious by the
+conker.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.DESK">
+<tt class="descclassname">sound.</tt><tt class="descname">DESK</tt><em class="property"> = 'DESK'</em><a class="headerlink" href="#sound.DESK" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric finds something in a desk.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.FROG">
+<tt class="descclassname">sound.</tt><tt class="descname">FROG</tt><em class="property"> = 'FROG'</em><a class="headerlink" href="#sound.FROG" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric catches the frog or places it in a
+cup.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.JUMP">
+<tt class="descclassname">sound.</tt><tt class="descname">JUMP</tt><em class="property"> = 'JUMP'</em><a class="headerlink" href="#sound.JUMP" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric jumps.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.KISS">
+<tt class="descclassname">sound.</tt><tt class="descname">KISS</tt><em class="property"> = 'KISS'</em><a class="headerlink" href="#sound.KISS" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric kisses someone.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.KNOCKED_OUT">
+<tt class="descclassname">sound.</tt><tt class="descname">KNOCKED_OUT</tt><em class="property"> = 'KNOCKED_OUT'</em><a class="headerlink" href="#sound.KNOCKED_OUT" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric is knocked over.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.LINES1">
+<tt class="descclassname">sound.</tt><tt class="descname">LINES1</tt><em class="property"> = 'LINES1'</em><a class="headerlink" href="#sound.LINES1" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of lines sound effect 1.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.LINES2">
+<tt class="descclassname">sound.</tt><tt class="descname">LINES2</tt><em class="property"> = 'LINES2'</em><a class="headerlink" href="#sound.LINES2" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of lines sound effect 2.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.MOUSE">
+<tt class="descclassname">sound.</tt><tt class="descname">MOUSE</tt><em class="property"> = 'MOUSE'</em><a class="headerlink" href="#sound.MOUSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when a mouse is caught.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.OPEN_SAFE">
+<tt class="descclassname">sound.</tt><tt class="descname">OPEN_SAFE</tt><em class="property"> = 'OPEN_SAFE'</em><a class="headerlink" href="#sound.OPEN_SAFE" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when the safe is opened (with the
+combination).</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.SAFE_KEY">
+<tt class="descclassname">sound.</tt><tt class="descname">SAFE_KEY</tt><em class="property"> = 'SAFE_KEY'</em><a class="headerlink" href="#sound.SAFE_KEY" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric gets the safe key.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.SHERRY">
+<tt class="descclassname">sound.</tt><tt class="descname">SHERRY</tt><em class="property"> = 'SHERRY'</em><a class="headerlink" href="#sound.SHERRY" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric fills the water pistol with sherry.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.SHIELD">
+<tt class="descclassname">sound.</tt><tt class="descname">SHIELD</tt><em class="property"> = 'SHIELD'</em><a class="headerlink" href="#sound.SHIELD" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when a shield is hit.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.STOREROOM_KEY">
+<tt class="descclassname">sound.</tt><tt class="descname">STOREROOM_KEY</tt><em class="property"> = 'STOREROOM_KEY'</em><a class="headerlink" href="#sound.STOREROOM_KEY" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric gets the storeroom key.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.SUSPEND">
+<tt class="descclassname">sound.</tt><tt class="descname">SUSPEND</tt><em class="property"> = 1</em><a class="headerlink" href="#sound.SUSPEND" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sound effect play mode: suspend character movement and screen updates.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.TUNE">
+<tt class="descclassname">sound.</tt><tt class="descname">TUNE</tt><em class="property"> = 'TUNE'</em><a class="headerlink" href="#sound.TUNE" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the opening tune.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.UP_A_YEAR">
+<tt class="descclassname">sound.</tt><tt class="descname">UP_A_YEAR</tt><em class="property"> = 'UP_A_YEAR'</em><a class="headerlink" href="#sound.UP_A_YEAR" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric goes up a year.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.WALK_SOUNDS">
+<tt class="descclassname">sound.</tt><tt class="descname">WALK_SOUNDS</tt><em class="property"> = ('WALK0', 'WALK1', 'WALK2', 'WALK3')</em><a class="headerlink" href="#sound.WALK_SOUNDS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Walking sound effect IDs.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="sound.WATER_PISTOL">
+<tt class="descclassname">sound.</tt><tt class="descname">WATER_PISTOL</tt><em class="property"> = 'WATER_PISTOL'</em><a class="headerlink" href="#sound.WATER_PISTOL" title="Permalink to this definition">¶</a></dt>
+<dd><p>ID of the sound effect to play when Eric&#8217;s water pistol is fired.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="skool.html"
+                        title="previous chapter">skool</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="staircase.html"
+                        title="next chapter">staircase</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="staircase.html" title="staircase"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="skool.html" title="skool"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

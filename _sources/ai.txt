@@ -1,0 +1,5 @@
+ai
+==
+
+.. automodule:: ai
+   :members:

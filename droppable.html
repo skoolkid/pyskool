@@ -1,0 +1,289 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>droppable &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="eric" href="eric.html" />
+    <link rel="prev" title="desklid" href="desklid.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="eric.html" title="eric"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="desklid.html" title="desklid"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-droppable">
+<span id="droppable"></span><h1>droppable<a class="headerlink" href="#module-droppable" title="Permalink to this headline">¶</a></h1>
+<p>Classes for things in the skool that fall from a height onto the floor or
+someone&#8217;s head.</p>
+<dl class="class">
+<dt id="droppable.Conker">
+<em class="property">class </em><tt class="descclassname">droppable.</tt><tt class="descname">Conker</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>min_x</em>, <em>max_x</em>, <em>min_y</em>, <em>max_y</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#droppable.Conker" title="Permalink to this definition">¶</a></dt>
+<dd><p>A conker (as knocked out of a tree by a catapult pellet).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>object_id</strong> &#8211; The ID of the conker.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the conker will use.</li>
+<li><strong>min_x</strong> &#8211; The minimum x-coordinate a pellet must reach to knock the
+conker out of the tree.</li>
+<li><strong>max_x</strong> &#8211; The maximum x-coordinate a pellet must reach to knock the
+conker out of the tree.</li>
+<li><strong>min_y</strong> &#8211; The minimum y-coordinate a pellet must fly at to knock the
+conker out of the tree.</li>
+<li><strong>max_y</strong> &#8211; The maximum y-coordinate a pellet must fly at to knock the
+conker out of the tree.</li>
+<li><strong>hit_xy</strong> &#8211; The coordinates of the conker within its sprite (used for
+collision detection).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="droppable.Conker.hit_by">
+<tt class="descname">hit_by</tt><big>(</big><em>pellet</em><big>)</big><a class="headerlink" href="#droppable.Conker.hit_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the conker was hit by a catapult pellet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pellet</strong> (<a class="reference internal" href="pellet.html#pellet.Pellet" title="pellet.Pellet"><tt class="xref py py-class docutils literal"><span class="pre">Pellet</span></tt></a>) &#8211; The catapult pellet to check.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="droppable.Conker.hit_victim">
+<tt class="descname">hit_victim</tt><big>(</big><big>)</big><a class="headerlink" href="#droppable.Conker.hit_victim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Knock anyone over or out who was unfortunate enough to be struck by
+the conker.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite> if someone was struck, <cite>False</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="droppable.Drop">
+<em class="property">class </em><tt class="descclassname">droppable.</tt><tt class="descname">Drop</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em>, <em>animatory_state</em>, <em>direction</em><big>)</big><a class="headerlink" href="#droppable.Drop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract superclass for a drop of liquid (water or sherry).</p>
+<dl class="method">
+<dt id="droppable.Drop.hit_victim">
+<tt class="descname">hit_victim</tt><big>(</big><big>)</big><a class="headerlink" href="#droppable.Drop.hit_victim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Knock anyone over who was unfortunate enough to be struck by the
+drop of liquid, and make them reveal a secret.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite> if someone was struck, <cite>False</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="droppable.Droppable">
+<em class="property">class </em><tt class="descclassname">droppable.</tt><tt class="descname">Droppable</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em>, <em>animatory_state</em>, <em>direction</em><big>)</big><a class="headerlink" href="#droppable.Droppable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract superclass for objects that fall from a height.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>object_id</strong> &#8211; The ID of the object.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the object will use.</li>
+<li><strong>hit_xy</strong> &#8211; The coordinates of the object within its sprite (used for
+collision detection).</li>
+<li><strong>animatory_state</strong> &#8211; The object&#8217;s animatory state.</li>
+<li><strong>direction</strong> &#8211; The direction the object faces (this is used to orient
+the object&#8217;s animatory state).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="droppable.Droppable.fall">
+<tt class="descname">fall</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#droppable.Droppable.fall" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make the object begin its descent from a specified location.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="droppable.Droppable.get_command_list_id">
+<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#droppable.Droppable.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ID of the command list used by this object.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lesson_id</strong> &#8211; The ID of the current lesson (ignored - this object
+does not follow a timetable).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="droppable.SherryDrop">
+<em class="property">class </em><tt class="descclassname">droppable.</tt><tt class="descname">SherryDrop</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#droppable.SherryDrop" title="Permalink to this definition">¶</a></dt>
+<dd><p>A drop of sherry (as knocked from a cup by a catapult pellet).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>object_id</strong> &#8211; The ID of the sherry drop.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the drop will use.</li>
+<li><strong>hit_xy</strong> &#8211; The coordinates of the sherry drop within its sprite (used
+for collision detection).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="class">
+<dt id="droppable.WaterDrop">
+<em class="property">class </em><tt class="descclassname">droppable.</tt><tt class="descname">WaterDrop</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#droppable.WaterDrop" title="Permalink to this definition">¶</a></dt>
+<dd><p>A drop of water (as knocked from a cup by a catapult pellet).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>object_id</strong> &#8211; The ID of the water drop.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the drop will use.</li>
+<li><strong>hit_xy</strong> &#8211; The coordinates of the water drop within its sprite (used
+for collision detection).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="desklid.html"
+                        title="previous chapter">desklid</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="eric.html"
+                        title="next chapter">eric</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="eric.html" title="eric"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="desklid.html" title="desklid"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

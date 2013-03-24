@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>pellet &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="plant" href="plant.html" />
+    <link rel="prev" title="mutable" href="mutable.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="plant.html" title="plant"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mutable.html" title="mutable"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-pellet">
+<span id="pellet"></span><h1>pellet<a class="headerlink" href="#module-pellet" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#pellet.Pellet" title="pellet.Pellet"><tt class="xref py py-class docutils literal"><span class="pre">Pellet</span></tt></a> class.</p>
+<dl class="class">
+<dt id="pellet.Pellet">
+<em class="property">class </em><tt class="descclassname">pellet.</tt><tt class="descname">Pellet</tt><big>(</big><em>pellet_id</em>, <em>command_list_id</em>, <em>pellet_range</em>, <em>hit_zone</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#pellet.Pellet" title="Permalink to this definition">¶</a></dt>
+<dd><p>A catapult pellet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>pellet_id</strong> &#8211; The ID of the pellet.</li>
+<li><strong>command_list_id</strong> &#8211; The ID of the command list the pellet will use.</li>
+<li><strong>pellet_range</strong> &#8211; The maximum distance the pellet will travel after
+launch.</li>
+<li><strong>hit_zone</strong> &#8211; The size of the portion at the end of the pellet&#8217;s
+journey in which it can hit things.</li>
+<li><strong>hit_xy</strong> &#8211; The coordinates of the pellet within its sprite (used for
+collision detection).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="pellet.Pellet.get_command_list_id">
+<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pellet.Pellet.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the ID of the command list used by the pellet.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lesson_id</strong> &#8211; The ID of the current lesson (ignored - pellets do
+not follow a timetable).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pellet.Pellet.get_hit_coords">
+<tt class="descname">get_hit_coords</tt><big>(</big><big>)</big><a class="headerlink" href="#pellet.Pellet.get_hit_coords" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the coordinates of the pellet adjusted for comparison with
+the coordinates of a cup, shield or conker.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pellet.Pellet.get_victim">
+<tt class="descname">get_victim</tt><big>(</big><big>)</big><a class="headerlink" href="#pellet.Pellet.get_victim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whoever has been hit by this pellet, or <cite>None</cite> if no one was
+hit.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pellet.Pellet.hit_conker">
+<tt class="descname">hit_conker</tt><big>(</big><big>)</big><a class="headerlink" href="#pellet.Pellet.hit_conker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the pellet hit a conker in the tree, and make the
+conker fall if so.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite> if the pellet hit a conker, <cite>False</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pellet.Pellet.hit_cup">
+<tt class="descname">hit_cup</tt><big>(</big><big>)</big><a class="headerlink" href="#pellet.Pellet.hit_cup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the pellet hit a cup, and spill its contents if so.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite> if the pellet hit a cup containing water, sherry or a
+frog, <cite>False</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pellet.Pellet.hit_shield">
+<tt class="descname">hit_shield</tt><big>(</big><big>)</big><a class="headerlink" href="#pellet.Pellet.hit_shield" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check whether the pellet hit a shield, and make the shield flash or
+unflash as appropriate if so.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite> if the pellet hit a shield, <cite>False</cite> otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pellet.Pellet.impeded">
+<tt class="descname">impeded</tt><big>(</big><em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#pellet.Pellet.impeded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return whether the pellet is blocked by an object (such as a wall).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>bottom_y</strong> &#8211; The y-coordinate of the bottom of the object.</li>
+<li><strong>top_y</strong> &#8211; The y-coordinate of the top of the object.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pellet.Pellet.launch">
+<tt class="descname">launch</tt><big>(</big><em>x</em>, <em>y</em>, <em>direction</em><big>)</big><a class="headerlink" href="#pellet.Pellet.launch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch the pellet from a starting point.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> &#8211; The x-coordinate of the starting point.</li>
+<li><strong>y</strong> &#8211; The y-coordinate of the starting point.</li>
+<li><strong>direction</strong> &#8211; The direction the pellet will travel.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mutable.html"
+                        title="previous chapter">mutable</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="plant.html"
+                        title="next chapter">plant</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="plant.html" title="plant"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mutable.html" title="mutable"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

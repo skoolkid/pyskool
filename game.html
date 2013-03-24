@@ -1,0 +1,232 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>game &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="graphics" href="graphics.html" />
+    <link rel="prev" title="floor" href="floor.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="graphics.html" title="graphics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="floor.html" title="floor"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-game">
+<span id="game"></span><h1>game<a class="headerlink" href="#module-game" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#game.Game" title="game.Game"><tt class="xref py py-class docutils literal"><span class="pre">Game</span></tt></a> class.</p>
+<dl class="class">
+<dt id="game.Game">
+<em class="property">class </em><tt class="descclassname">game.</tt><tt class="descname">Game</tt><big>(</big><em>ini_file</em>, <em>images_dir</em>, <em>sounds_dir</em>, <em>scale</em>, <em>ini_dir</em>, <em>quick_start</em>, <em>cheat</em>, <em>version</em>, <em>sav_file</em><big>)</big><a class="headerlink" href="#game.Game" title="Permalink to this definition">¶</a></dt>
+<dd><p>Builds the skool and the cast, and executes the main loop of the
+game.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ini_file</strong> &#8211; The main Pyskool ini file.</li>
+<li><strong>images_dir</strong> &#8211; The path to the <cite>images</cite> directory.</li>
+<li><strong>sounds_dir</strong> &#8211; The path to the <cite>sounds</cite> directory.</li>
+<li><strong>scale</strong> (<em>number</em>) &#8211; The desired scale at which to run the game.</li>
+<li><strong>ini_dir</strong> &#8211; The directory to scan for game ini files.</li>
+<li><strong>quick_start</strong> &#8211; <cite>True</cite> to force the game to start quickly, <cite>None</cite> to
+use the <cite>QuickStart</cite> ini file parameter.</li>
+<li><strong>cheat</strong> &#8211; <cite>True</cite> to force cheat keys to be enabled, <cite>None</cite> to use the
+<cite>Cheat</cite> ini file parameter.</li>
+<li><strong>version</strong> (<em>string</em>) &#8211; The version number of Pyskool.</li>
+<li><strong>sav_file</strong> &#8211; A file from which to restore a saved game.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="game.Game.play">
+<tt class="descname">play</tt><big>(</big><big>)</big><a class="headerlink" href="#game.Game.play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the game and enter the main loop.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="game.Menu">
+<em class="property">class </em><tt class="descclassname">game.</tt><tt class="descname">Menu</tt><big>(</big><em>screen</em>, <em>config</em>, <em>items</em><big>)</big><a class="headerlink" href="#game.Menu" title="Permalink to this definition">¶</a></dt>
+<dd><p>The in-game menu.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>screen</strong> (<a class="reference internal" href="graphics.html#graphics.Screen" title="graphics.Screen"><tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt></a>) &#8211; The screen (to draw the menu on).</li>
+<li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters.</li>
+<li><strong>items</strong> &#8211; The menu items (<cite>(operation, label)</cite> tuples).</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="game.Menu.build_images">
+<tt class="descname">build_images</tt><big>(</big><em>screen</em><big>)</big><a class="headerlink" href="#game.Menu.build_images" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build the title image and menu item images.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.Menu.get_operation">
+<tt class="descname">get_operation</tt><big>(</big><em>keyboard</em><big>)</big><a class="headerlink" href="#game.Menu.get_operation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the operation to perform (which may be <cite>None</cite>).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="game.Menu.reset">
+<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#game.Menu.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the menu. Specifically:</p>
+<ul class="simple">
+<li>set the selected index to 0</li>
+<li>clear the status text</li>
+<li>clear the backdrop on which the menu is drawn</li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="data">
+<dt id="game.LOAD">
+<tt class="descclassname">game.</tt><tt class="descname">LOAD</tt><em class="property"> = 'LOAD'</em><a class="headerlink" href="#game.LOAD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Menu operation: Load.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="game.QUIT">
+<tt class="descclassname">game.</tt><tt class="descname">QUIT</tt><em class="property"> = 'QUIT'</em><a class="headerlink" href="#game.QUIT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Menu operation: Quit.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="game.RESUME">
+<tt class="descclassname">game.</tt><tt class="descname">RESUME</tt><em class="property"> = 'RESUME'</em><a class="headerlink" href="#game.RESUME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Menu operation: Resume.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="game.SAVE">
+<tt class="descclassname">game.</tt><tt class="descname">SAVE</tt><em class="property"> = 'SAVE'</em><a class="headerlink" href="#game.SAVE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Menu operation: Save.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="game.SCALE_DOWN">
+<tt class="descclassname">game.</tt><tt class="descname">SCALE_DOWN</tt><em class="property"> = 'SCALE_DOWN'</em><a class="headerlink" href="#game.SCALE_DOWN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Menu operation: Decrease scale.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="game.SCALE_UP">
+<tt class="descclassname">game.</tt><tt class="descname">SCALE_UP</tt><em class="property"> = 'SCALE_UP'</em><a class="headerlink" href="#game.SCALE_UP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Menu operation: Increase scale.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="game.UPDATE">
+<tt class="descclassname">game.</tt><tt class="descname">UPDATE</tt><em class="property"> = 'UPDATE'</em><a class="headerlink" href="#game.UPDATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Menu operation: Update the screen.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="floor.html"
+                        title="previous chapter">floor</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="graphics.html"
+                        title="next chapter">graphics</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="graphics.html" title="graphics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="floor.html" title="floor"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

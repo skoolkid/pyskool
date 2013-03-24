@@ -1,0 +1,1808 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Game ini files &mdash; Pyskool 1.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="next" title="Commands" href="commands.html" />
+    <link rel="prev" title="Main ini file" href="mainini.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="commands.html" title="Commands"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mainini.html" title="Main ini file"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="game-ini-files">
+<span id="ini-file"></span><h1>Game ini files<a class="headerlink" href="#game-ini-files" title="Permalink to this headline">¶</a></h1>
+<p>The game ini files determine many aspects of the game, such as the names of the
+characters, the order of the lessons, and what characters do during lessons.</p>
+<p>By default, the ini files for a particular game are arranged in one of the
+subdirectories of the <cite>ini</cite> directory thus:</p>
+<ul class="simple">
+<li><cite>command_lists.ini</cite> - <a class="reference internal" href="#commandlist"><em>command lists</em></a></li>
+<li><cite>config.ini</cite> - configuration parameters</li>
+<li><cite>font.ini</cite> - font character bitmap descriptions (see <a class="reference internal" href="#font"><em>[Font]</em></a>)</li>
+<li><cite>lessons.ini</cite> - the <a class="reference internal" href="#timetable"><em>main timetable</em></a> and
+<a class="reference internal" href="#lessons"><em>lessons</em></a></li>
+<li><cite>messages.ini</cite> - messages</li>
+<li><cite>skool.ini</cite> - <a class="reference internal" href="#walls"><em>walls</em></a>, <a class="reference internal" href="#floors"><em>floors</em></a> and other parts of
+the skool</li>
+<li><cite>sprites.ini</cite> - sprite and <a class="reference internal" href="#characters"><em>character</em></a> definitions</li>
+</ul>
+<p>However, this arrangement is quite arbitrary; Pyskool will read every file with
+a <cite>.ini</cite> suffix in the subdirectory regardless of its name or contents. So you
+could, if you wish, concatenate all the ini files into one large ini file, and
+Pyskool will still work.</p>
+<p>What follows is a description of every section of the ini files. Armed with
+this knowledge, and by consulting the <a class="reference internal" href="commands.html#command-ref"><em>command reference</em></a>
+where necessary, you&#8217;ll be able to start mucking around with how Pyskool works
+and how the game characters behave.</p>
+<p>If you can&#8217;t be bothered to read any of this and instead just want to get your
+modding hands dirty right now, head over to <a class="reference internal" href="examples.html#example-customisations"><em>Example customisations</em></a>.</p>
+<p>If you&#8217;re even lazier than that, head over to the
+<a class="reference internal" href="examples.html#ready-made"><em>ready-made customisations</em></a> that are distributed with
+Pyskool.</p>
+<div class="section" id="animationphases">
+<span id="id1"></span><h2>[AnimationPhases ...]<a class="headerlink" href="#animationphases" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">AnimationPhases</span> <span class="pre">...</span></tt> section names take the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>AnimationPhases phaseSetId
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">phaseSetId</span></tt> is a descriptive unique ID for the list of animation
+phases that follows.</p>
+<p>The format of an animation phase depends on who uses the phase set.</p>
+<p>Each phase in the phase sets used by the frog (<tt class="docutils literal"><span class="pre">FrogTurnRound</span></tt>,
+<tt class="docutils literal"><span class="pre">FrogShortHop</span></tt> and <tt class="docutils literal"><span class="pre">FrogLongHop</span></tt>) looks like this:</p>
+<div class="highlight-none"><div class="highlight"><pre>animatoryState, xInc, directionChange
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">animatoryState</span></tt> is the ID of the animatory state</li>
+<li><tt class="docutils literal"><span class="pre">xInc</span></tt> is the x-coordinate increment</li>
+<li><tt class="docutils literal"><span class="pre">directionChange</span></tt> is the direction multiplier (-1 to change direction, 1 to
+not)</li>
+</ul>
+<p>Each phase in the phase sets used by Eric (<tt class="docutils literal"><span class="pre">DescentMiddleWindow</span></tt>,
+<tt class="docutils literal"><span class="pre">DescentUpperWindow</span></tt>, <tt class="docutils literal"><span class="pre">ClimbSkoolGate</span></tt> and <tt class="docutils literal"><span class="pre">FlyOverSkoolGate</span></tt>) looks like
+this:</p>
+<div class="highlight-none"><div class="highlight"><pre>xInc, yInc, animatoryState
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">xInc</span></tt> is the x-coordinate increment</li>
+<li><tt class="docutils literal"><span class="pre">yInc</span></tt> is the y-coordinate increment</li>
+<li><tt class="docutils literal"><span class="pre">animatoryState</span></tt> is the ID of Eric&#8217;s animatory state</li>
+</ul>
+<p>Each phase in the phase set used by the stream of water or sherry fired from a
+water pistol (<tt class="docutils literal"><span class="pre">Water</span></tt>) looks like this:</p>
+<div class="highlight-none"><div class="highlight"><pre>animatoryState, xInc, yInc, hit
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">animatoryState</span></tt> is the ID of the animatory state</li>
+<li><tt class="docutils literal"><span class="pre">xInc</span></tt> is the x-coordinate increment</li>
+<li><tt class="docutils literal"><span class="pre">yInc</span></tt> is the y-coordinate increment</li>
+<li><tt class="docutils literal"><span class="pre">hit</span></tt> is 0 if the water cannot hit anything, 1 if it can hit a cup, or 2 if
+it can hit a plant or the ground in this phase</li>
+</ul>
+<p>Each phase in the phase set used by a stinkbomb when dropped (<tt class="docutils literal"><span class="pre">Stinkbomb</span></tt>)
+looks like this:</p>
+<div class="highlight-none"><div class="highlight"><pre>animatoryState, direction
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">animatoryState</span></tt> is the ID of the animatory state</li>
+<li><tt class="docutils literal"><span class="pre">direction</span></tt> is the direction (-1 for left, 1 for right)</li>
+</ul>
+</div>
+<div class="section" id="assemblymessages">
+<h2>[AssemblyMessages]<a class="headerlink" href="#assemblymessages" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">AssemblyMessages</span></tt> section contains all the information required to build
+a message used by the headmaster during assembly in Back to Skool.</p>
+<p>There are two types of entry in this section. The first type of entry is the
+message template entry:</p>
+<div class="highlight-none"><div class="highlight"><pre>MESSAGE, assemblyMessageTemplate
+</pre></div>
+</div>
+<p>which defines the template for an assembly message. The section can contain one
+or more message templates.</p>
+<p>The second type of entry is the macro replacement entry:</p>
+<div class="highlight-none"><div class="highlight"><pre>MACRO, text
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">MACRO</span></tt> is the name of a macro that appears in a message template
+(prefixed by <tt class="docutils literal"><span class="pre">$</span></tt>), and <tt class="docutils literal"><span class="pre">text</span></tt> is the text to which the macro should expand.
+Multiple macro replacement entries may be defined for any given macro. When an
+assembly message is created, the message template is chosen at random, and the
+macro replacements are chosen at random.</p>
+<p>In the stock Back to Skool ini files in Pyskool, there is only one assembly
+message template, which contains two macros (<tt class="docutils literal"><span class="pre">$VERB</span></tt> and <tt class="docutils literal"><span class="pre">$NOUN</span></tt>).</p>
+</div>
+<div class="section" id="bike">
+<span id="id2"></span><h2>[Bike]<a class="headerlink" href="#bike" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Bike</span></tt> section contains a single line of the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>bikeId, spriteGroupId, animatoryState, unchainXY, commandListId, topLeft, size, coords, moveDelay, pedalMomentum, maxMomentum
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bikeId</span></tt> is the bike&#8217;s ID</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the bike</li>
+<li><tt class="docutils literal"><span class="pre">animatoryState</span></tt> is the bike&#8217;s initial animatory state</li>
+<li><tt class="docutils literal"><span class="pre">unchainXY</span></tt> is the bike&#8217;s initial coordinates (in <cite>(x, y)</cite> form) after
+being unchained</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
+that the bike will use</li>
+<li><tt class="docutils literal"><span class="pre">topLeft</span></tt> is the coordinates (in <cite>(x, y)</cite> form) of the top left of the
+image of the base of the tree with no bike attached</li>
+<li><tt class="docutils literal"><span class="pre">size</span></tt> is the size of the image (in <cite>(width, height)</cite> form)</li>
+<li><tt class="docutils literal"><span class="pre">coords</span></tt> are the coordinates (in <cite>(x, y)</cite> form) of the mutable image in the
+play area</li>
+<li><tt class="docutils literal"><span class="pre">moveDelay</span></tt> is the delay between consecutive movements of the bike when
+wheeling along or being pedalled (the higher the number, the slower the bike
+will go)</li>
+<li><tt class="docutils literal"><span class="pre">pedalMomentum</span></tt> is the momentum increment when the bike is pedalled</li>
+<li><tt class="docutils literal"><span class="pre">maxMomentum</span></tt> is the maximum momentum the bike can have</li>
+</ul>
+<p>The bike images can be found in <cite>mutables.png</cite> (or <cite>mutables_ink.png</cite> and
+<cite>mutables_paper.png</cite> if <tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> is 1 - see <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a>).
+<cite>mutables.png</cite> is arranged so that the image of the bike attached to the base
+of the tree is at <cite>(x + width, y)</cite>, where <cite>(x, y)</cite> are the coordinates of the
+image of the base of the tree with no bike attached. These two images are the
+same size.</p>
+</div>
+<div class="section" id="blackboardmessages">
+<span id="id3"></span><h2>[BlackboardMessages ...]<a class="headerlink" href="#blackboardmessages" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">[BlackboardMessages</span> <span class="pre">...]</span></tt> section names take the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>BlackboardMessages characterId
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">characterId</span></tt> is the unique ID of a character (see <a class="reference internal" href="#characters"><em>[Characters]</em></a>).</p>
+<p>Each <tt class="docutils literal"><span class="pre">BlackboardMessages</span></tt> section contains a list of messages (one per line)
+that may be written on a blackboard by the character whose ID is
+<tt class="docutils literal"><span class="pre">characterId</span></tt>.</p>
+<p>There are two special characters used in blackboard messages: <tt class="docutils literal"><span class="pre">^</span></tt> and <tt class="docutils literal"><span class="pre">$</span></tt>.
+<tt class="docutils literal"><span class="pre">^</span></tt> represents the newline character (as defined by the <tt class="docutils literal"><span class="pre">Newline</span></tt>
+configuration parameter in the <a class="reference internal" href="#messageconfig"><em>[MessageConfig]</em></a> section). <tt class="docutils literal"><span class="pre">$</span></tt> is used to
+prefix the unique ID of a character, as in:</p>
+<div class="highlight-none"><div class="highlight"><pre>TEARAWAY, i hate^$WACKER
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">$WACKER</span></tt> will be replaced by whatever name has been given to the
+character whose unique ID is <tt class="docutils literal"><span class="pre">WACKER</span></tt>.</p>
+<p>If no blackboard messages are defined for a particular character, that
+character will never write on a blackboard.</p>
+</div>
+<div class="section" id="blackboards">
+<span id="id4"></span><h2>[Blackboards]<a class="headerlink" href="#blackboards" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Blackboards</span></tt> section defines the blackboards in the classrooms. Each
+line has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>roomId, topLeft, size, chalk
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">roomId</span></tt> is the classroom&#8217;s unique ID (see <a class="reference internal" href="#rooms"><em>[Rooms]</em></a>)</li>
+<li><tt class="docutils literal"><span class="pre">topLeft</span></tt> is the coordinates of the top-left of the blackboard</li>
+<li><tt class="docutils literal"><span class="pre">size</span></tt> is the size (width, height) of the blackboard</li>
+<li><tt class="docutils literal"><span class="pre">chalk</span></tt> is the chalk colour (as an RGB triplet) to use when writing on the
+blackboard</li>
+</ul>
+<p>In the stock Pyskool ini files, <tt class="docutils literal"><span class="pre">chalk</span></tt> is set to (255, 255, 255) - bright
+white - which coincides with the transparent colour used in the skool ink image
+(see <tt class="docutils literal"><span class="pre">SkoolInkKey</span></tt> in the <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a> section). This means that in
+graphics mode 1 (see <tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> in the <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a> section),
+anything written on the board will take on the background (paper) colour, which
+is how blackboards worked in the original games.</p>
+</div>
+<div class="section" id="catapultpellets">
+<span id="id5"></span><h2>[CatapultPellets]<a class="headerlink" href="#catapultpellets" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">CatapultPellets</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>characterId, pelletId, spriteGroupId, commandListId, range, hitZone, hitXY
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is the unique ID of the catapult-wielding character</li>
+<li><tt class="docutils literal"><span class="pre">pelletId</span></tt> is the unique ID of the catapult pellet</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the pellet</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
+that the pellet will use</li>
+<li><tt class="docutils literal"><span class="pre">range</span></tt> is the distance the pellet will fly after being launched</li>
+<li><tt class="docutils literal"><span class="pre">hitZone</span></tt> is the size of the interval at the end of the pellet&#8217;s flight
+where it can knock a character over</li>
+<li><tt class="docutils literal"><span class="pre">hitXY</span></tt> is the coordinates of the pellet within its sprite (used for
+collision detection)</li>
+</ul>
+<p>Each character whose unique ID appears in this section will be fitted out with
+a catapult. In the stock Pyskool this will be Eric and the tearaway - the only
+characters with catapult-firing sprites.</p>
+</div>
+<div class="section" id="chairs">
+<span id="id6"></span><h2>[Chairs]<a class="headerlink" href="#chairs" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Chairs</span></tt> section contains one line for each classroom in the skool. Each
+line has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>roomId, x1, x2, x3..., xN
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">roomId</span></tt> is the classroom&#8217;s unique ID (see <a class="reference internal" href="#rooms"><em>[Rooms]</em></a>)</li>
+<li><tt class="docutils literal"><span class="pre">x1</span></tt>, <tt class="docutils literal"><span class="pre">x2</span></tt>, <tt class="docutils literal"><span class="pre">x3</span></tt> and so on are the x-coordinates of the chairs in the
+classroom</li>
+</ul>
+<p>The order in which the x-coordinates are listed is significant: <tt class="docutils literal"><span class="pre">x1</span></tt> should
+correspond to the &#8216;front seat&#8217; and <tt class="docutils literal"><span class="pre">xN</span></tt> should correspond to the &#8216;back seat&#8217;.
+So if <tt class="docutils literal"><span class="pre">x1</span></tt> &lt; <tt class="docutils literal"><span class="pre">xN</span></tt>, characters will sit down facing left; if
+<tt class="docutils literal"><span class="pre">x1</span></tt> &gt; <tt class="docutils literal"><span class="pre">xN</span></tt>, characters will sit down facing right.</p>
+</div>
+<div class="section" id="characters">
+<span id="id7"></span><h2>[Characters]<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">Characters</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>characterId, name[/title], spriteGroupId, animatoryState, direction, (x, y), headXY, flags
+</pre></div>
+</div>
+<p>and corresponds to a single character, where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is the character&#8217;s unique ID (which should be alphanumeric
+and is used to refer to the character in other parts of the ini file)</li>
+<li><tt class="docutils literal"><span class="pre">name</span></tt> is the character&#8217;s name (as displayed in the game), and <tt class="docutils literal"><span class="pre">title</span></tt>
+(if supplied) is the name used by the swot to address the character</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the character</li>
+<li><tt class="docutils literal"><span class="pre">animatoryState</span></tt> is the character&#8217;s initial animatory state</li>
+<li><tt class="docutils literal"><span class="pre">direction</span></tt> is the character&#8217;s initial direction (-1 for left, 1 for right)</li>
+<li><tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y)</span></tt> are the character&#8217;s initial coordinates</li>
+<li><tt class="docutils literal"><span class="pre">headXY</span></tt> are the coordinates of the character&#8217;s head within his sprite when
+he&#8217;s standing upright (used for collision detection)</li>
+<li><tt class="docutils literal"><span class="pre">flags</span></tt> is a string of flags defining the character&#8217;s abilities and
+vulnerabilities</li>
+</ul>
+<p>Recognised flags and their meanings are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">A</span></tt> - is an adult</li>
+<li><tt class="docutils literal"><span class="pre">B</span></tt> - belongs in the boys&#8217; skool</li>
+<li><tt class="docutils literal"><span class="pre">C</span></tt> - can be knocked over by a conker (see also <tt class="docutils literal"><span class="pre">Z</span></tt>)</li>
+<li><tt class="docutils literal"><span class="pre">D</span></tt> - can open doors and windows</li>
+<li><tt class="docutils literal"><span class="pre">F</span></tt> - can be knocked out by a fist</li>
+<li><tt class="docutils literal"><span class="pre">G</span></tt> - belongs in the girls&#8217; skool</li>
+<li><tt class="docutils literal"><span class="pre">K</span></tt> - holds the key to the safe</li>
+<li><tt class="docutils literal"><span class="pre">L</span></tt> - can give lines</li>
+<li><tt class="docutils literal"><span class="pre">M</span></tt> - is scared of mice</li>
+<li><tt class="docutils literal"><span class="pre">N</span></tt> - can smell stinkbombs (and will open a nearby window if possible)</li>
+<li><tt class="docutils literal"><span class="pre">P</span></tt> - can be knocked over by a catapult pellet</li>
+<li><tt class="docutils literal"><span class="pre">R</span></tt> - can receive lines</li>
+<li><tt class="docutils literal"><span class="pre">S</span></tt> - holds a safe combination letter</li>
+<li><tt class="docutils literal"><span class="pre">T</span></tt> - can be tripped up by a stampeding kid (see <a class="reference internal" href="commands.html#trippeopleup"><em>TripPeopleUp</em></a>)</li>
+<li><tt class="docutils literal"><span class="pre">U</span></tt> - lines received by this character will be added to Eric&#8217;s total</li>
+<li><tt class="docutils literal"><span class="pre">V</span></tt> - lines received by this character will be added to Eric&#8217;s score</li>
+<li><tt class="docutils literal"><span class="pre">W</span></tt> - usually walks (unlike kids who sometimes run)</li>
+<li><tt class="docutils literal"><span class="pre">X</span></tt> - holds a bike combination digit</li>
+<li><tt class="docutils literal"><span class="pre">Y</span></tt> - holds a storeroom door combination letter</li>
+<li><tt class="docutils literal"><span class="pre">Z</span></tt> - will be temporarily paralysed if struck by a falling conker (see also
+<tt class="docutils literal"><span class="pre">C</span></tt>)</li>
+</ul>
+</div>
+<div class="section" id="commandlist">
+<span id="id8"></span><h2>[CommandList ...]<a class="headerlink" href="#commandlist" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">[CommandList</span> <span class="pre">...]</span></tt> section names take the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>CommandList commandListId
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">commandListId</span></tt> is a descriptive unique ID for the list of commands
+that follows. These unique IDs are used in the <a class="reference internal" href="#lessons"><em>[Lesson ...]</em></a> sections: for
+each type of lesson there is, every character is assigned a single command list
+to follow.</p>
+<p>One example of a command list is:</p>
+<div class="highlight-none"><div class="highlight"><pre>[CommandList Walkabout1-Wacker]
+GoTo, HeadsStudy:Window
+GoToRandomLocation
+Restart
+</pre></div>
+</div>
+<p>This command list is used occasionally by the headmaster; it makes him
+repeatedly go to one of his <a class="reference internal" href="#randomlocations"><em>random locations</em></a> and then
+back to his study.</p>
+<p>Each line in a command list contains the command name followed by a
+comma-separated list of arguments. See the
+<a class="reference internal" href="commands.html#command-ref"><em>command reference</em></a> for more details on the commands that may
+be used to control a character.</p>
+</div>
+<div class="section" id="conker">
+<span id="id9"></span><h2>[Conker]<a class="headerlink" href="#conker" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Conker</span></tt> section defines a conker (as knocked out of the tree by a
+catapult pellet). It contains a single line of the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>objectId, spriteGroupId, commandListId, minX, maxX, minY, maxY, hitXY
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">objectId</span></tt> is a unique ID for the conker</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the conker</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
+that the conker will use when knocked out of the tree</li>
+<li><tt class="docutils literal"><span class="pre">minX</span></tt>, <tt class="docutils literal"><span class="pre">maxX</span></tt>, <tt class="docutils literal"><span class="pre">minY</span></tt> and <tt class="docutils literal"><span class="pre">maxY</span></tt> define the rectangle inside the
+tree that contains the conker; a pellet that hits a spot in that rectangle
+will cause a conker to fall</li>
+<li><tt class="docutils literal"><span class="pre">hitXY</span></tt> is the coordinates of the conker within its sprite (used for
+collision detection)</li>
+</ul>
+</div>
+<div class="section" id="cups">
+<span id="id10"></span><h2>[Cups]<a class="headerlink" href="#cups" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Cups</span></tt> section contains information about cups (of which there are four
+in Back to Skool, and none in Skool Daze). Each line describes a single cup,
+and has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>cupId, emptyTopLeft, size, coords
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">cupId</span></tt> is the unique ID of the cup</li>
+<li><tt class="docutils literal"><span class="pre">emptyTopLeft</span></tt> is the coordinates (in <cite>(x, y)</cite> form) of the top left of the
+image of the cup when empty</li>
+<li><tt class="docutils literal"><span class="pre">size</span></tt> is the size of the image (in <cite>(width, height)</cite> form)</li>
+<li><tt class="docutils literal"><span class="pre">coords</span></tt> are the coordinates (in <cite>(x, y)</cite> form) of the cup in the skool</li>
+</ul>
+<p>The cup images can be found in <cite>mutables.png</cite> (or <cite>mutables_ink.png</cite> and
+<cite>mutables_paper.png</cite> if <tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> is 1 - see <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a>).
+<cite>mutables.png</cite> is arranged so that the image of a cup when it contains water is
+at <cite>(x + width, y)</cite>, and the image of a cup when it contains sherry is at
+<cite>(x + 2 * width, y)</cite> (where <cite>(x, y)</cite> are the coordinates of the image of the
+cup when empty). The three images for any given cup are the same size.</p>
+</div>
+<div class="section" id="desklid">
+<span id="id11"></span><h2>[DeskLid]<a class="headerlink" href="#desklid" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">DeskLid</span></tt> section contains a single line of the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>deskLidId, spriteGroupId, commandListId, xOffset
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">deskLidId</span></tt> is the unique ID of the desk lid</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the desk lid when raised</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
+that the desk lid will use</li>
+<li><tt class="docutils literal"><span class="pre">xOffset</span></tt> - the offset (relative to the desk being opened) at which the
+desk lid should be displayed</li>
+</ul>
+</div>
+<div class="section" id="desks">
+<span id="id12"></span><h2>[Desks]<a class="headerlink" href="#desks" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">Desks</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>roomId, x1, x2...
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">roomId</span></tt> is a classroom&#8217;s unique ID (see <a class="reference internal" href="#rooms"><em>[Rooms]</em></a>)</li>
+<li><tt class="docutils literal"><span class="pre">x1</span></tt>, <tt class="docutils literal"><span class="pre">x2</span></tt> and so on are the x-coordinates of the desks in the classroom
+(which should be a subset of the x-coordinates of the chairs in the classroom
+- see <a class="reference internal" href="#chairs"><em>[Chairs]</em></a>)</li>
+</ul>
+<p>Any chair that is in a room and at an x-coordinate that appears in the
+<tt class="docutils literal"><span class="pre">Desks</span></tt> section will be fitted out with a desk lid that can be raised (see
+<a class="reference internal" href="#desklid"><em>[DeskLid]</em></a>).</p>
+</div>
+<div class="section" id="doors">
+<span id="id13"></span><h2>[Doors]<a class="headerlink" href="#doors" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Doors</span></tt> section contains details of the doors in the game. Each line
+has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>doorId, x, bottomY, topY, initiallyShut, autoShutDelay, shutTopLeft, size, coords[, climb[, fly]]
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">doorId</span></tt> is the door&#8217;s unique ID</li>
+<li><tt class="docutils literal"><span class="pre">x</span></tt> is the door&#8217;s x-coordinate</li>
+<li><tt class="docutils literal"><span class="pre">bottomY</span></tt> and <tt class="docutils literal"><span class="pre">topY</span></tt> are the y-coordinates of the bottom and top of the
+door</li>
+<li><tt class="docutils literal"><span class="pre">initiallyShut</span></tt> is <tt class="docutils literal"><span class="pre">Y</span></tt> if the door should be shut when the game starts</li>
+<li><tt class="docutils literal"><span class="pre">autoShutDelay</span></tt> is the delay before the door swings shut automatically; if
+zero or negative, the door will not shut automatically</li>
+<li><tt class="docutils literal"><span class="pre">shutTopLeft</span></tt> is the coordinates (in <cite>(x, y)</cite> form) of the top left of the
+image of the door when shut</li>
+<li><tt class="docutils literal"><span class="pre">size</span></tt> is the size of the image (in <cite>(width, height)</cite> form)</li>
+<li><tt class="docutils literal"><span class="pre">coords</span></tt> are the coordinates (in <cite>(x, y)</cite> form) of the door in the skool</li>
+<li><tt class="docutils literal"><span class="pre">climb</span></tt> is the ID of the sequence of
+<a class="reference internal" href="#animationphases"><em>animation phases</em></a> to use for Eric if he climbs over
+the door when it&#8217;s shut; if not defined, Eric will not be able to climb over
+the door</li>
+<li><tt class="docutils literal"><span class="pre">fly</span></tt> is the ID of the sequence of
+<a class="reference internal" href="#animationphases"><em>animation phases</em></a> to use for Eric if he flies over
+the door after hitting it while standing on the saddle of the bike; if not
+defined, Eric will not be able to fly over the door</li>
+</ul>
+<p>The door images can be found in <cite>mutables.png</cite> (or <cite>mutables_ink.png</cite> and
+<cite>mutables_paper.png</cite> if <tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> is 1 - see <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a>).
+<cite>mutables.png</cite> is arranged so that the image of a door when open is at
+<cite>(x + width, y)</cite>, where <cite>(x, y)</cite> are the coordinates of the image of the same
+door/window when shut. The open/shut images for any given door are the same
+size.</p>
+</div>
+<div class="section" id="eric">
+<h2>[Eric]<a class="headerlink" href="#eric" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Eric</span></tt> section describes our hero, Eric. It contains a single line in the
+format:</p>
+<div class="highlight-none"><div class="highlight"><pre>characterId, name, spriteGroupId, animatoryState, direction, (x, y), headXY, flags[, bendOverHandXY]
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is Eric&#8217;s unique ID (which should be alphanumeric)</li>
+<li><tt class="docutils literal"><span class="pre">name</span></tt> is Eric&#8217;s name</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for Eric</li>
+<li><tt class="docutils literal"><span class="pre">animatoryState</span></tt> is Eric&#8217;s initial animatory state</li>
+<li><tt class="docutils literal"><span class="pre">direction</span></tt> is Eric&#8217;s initial direction (-1 for left, 1 for right)</li>
+<li><tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y)</span></tt> are Eric&#8217;s initial coordinates</li>
+<li><tt class="docutils literal"><span class="pre">headXY</span></tt> are the coordinates of Eric&#8217;s head within his sprite when he&#8217;s
+standing upright (used for collision detection)</li>
+<li><tt class="docutils literal"><span class="pre">flags</span></tt> is a string of flags defining Eric&#8217;s abilities and vulnerabilities</li>
+<li><tt class="docutils literal"><span class="pre">bendOverHandXY</span></tt> is the coordinates of Eric&#8217;s hand within his left-facing
+<cite>BENDING_OVER</cite> sprite (used to determine where a mouse or frog should be when
+caught or released)</li>
+</ul>
+<p>For a description of the available flags, see <a class="reference internal" href="#characters"><em>[Characters]</em></a>.</p>
+</div>
+<div class="section" id="font">
+<span id="id14"></span><h2>[Font]<a class="headerlink" href="#font" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Font</span></tt> section is used to determine the location and size of the font
+character bitmaps in the <cite>font.png</cite> graphic. Each line has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>&quot;char&quot;, offset, width
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">char</span></tt> is the font character (e.g. <tt class="docutils literal"><span class="pre">f</span></tt>, <tt class="docutils literal"><span class="pre">&#64;</span></tt>, <tt class="docutils literal"><span class="pre">!</span></tt>)</li>
+<li><tt class="docutils literal"><span class="pre">offset</span></tt> is the font character&#8217;s distance in pixels from the left of the
+image</li>
+<li><tt class="docutils literal"><span class="pre">width</span></tt> is its width in pixels</li>
+</ul>
+</div>
+<div class="section" id="floors">
+<span id="id15"></span><h2>[Floors]<a class="headerlink" href="#floors" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Floors</span></tt> section contains details of the &#8220;floors&#8221; in the skool. A &#8220;floor&#8221;
+(note the quotes) is a region of the skool that cannot be reached from another
+region of the skool without navigating a staircase. For example, in Skool Daze,
+the region to the left of the Map Room wall is one floor, and the region to the
+right of the Map Room wall is another floor. You can&#8217;t get from one to other
+without going up or down a staircase (walking through walls is prohibited).</p>
+<p>Each line in this section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>floorId, minX, maxX, y
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">floorId</span></tt> is the floor&#8217;s unique ID</li>
+<li><tt class="docutils literal"><span class="pre">minX</span></tt> and <tt class="docutils literal"><span class="pre">maxX</span></tt> are the x-coordinates of the left and right limits of
+the floor</li>
+<li><tt class="docutils literal"><span class="pre">y</span></tt> is the y-coordinate of the floor (3 = top floor, 10 = middle floor,
+17 = bottom floor)</li>
+</ul>
+<p>The unique IDs are used in the <a class="reference internal" href="#routes"><em>[Routes]</em></a> section.</p>
+</div>
+<div class="section" id="frogs">
+<span id="id16"></span><h2>[Frogs]<a class="headerlink" href="#frogs" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">Frogs</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>frogId, spriteGroupId, animatoryState, (x, y), commandListId, turnRound, shortHop, longHop, sitXY, ericProximity
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">frogId</span></tt> is the unique ID of the frog</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the frog</li>
+<li><tt class="docutils literal"><span class="pre">animatoryState</span></tt> is the frog&#8217;s initial animatory state</li>
+<li><tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y)</span></tt> are the frog&#8217;s initial coordinates</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
+that the frog will use</li>
+<li><tt class="docutils literal"><span class="pre">turnRound</span></tt> is the ID of the sequence of
+<a class="reference internal" href="#animationphases"><em>animation phases</em></a> to use when the frog turns round</li>
+<li><tt class="docutils literal"><span class="pre">shortHop</span></tt> is the ID of the sequence of
+<a class="reference internal" href="#animationphases"><em>animation phases</em></a> to use when the frog makes a short
+hop</li>
+<li><tt class="docutils literal"><span class="pre">longHop</span></tt> is the ID of the sequence of
+<a class="reference internal" href="#animationphases"><em>animation phases</em></a> to use when the frog makes a long
+hop</li>
+<li><tt class="docutils literal"><span class="pre">sitXY</span></tt> is the coordinates of the frog within its sprite when it&#8217;s sitting
+(used for collision detection and placement in cups)</li>
+<li><tt class="docutils literal"><span class="pre">ericProximity</span></tt> is the minimum distance from the frog that Eric can be
+before it will try to hop away</li>
+</ul>
+<p>Any frog defined in this section will be catchable by ERIC, and show up in the
+on-screen inventory when caught.</p>
+</div>
+<div class="section" id="gameconfig">
+<span id="id17"></span><h2>[GameConfig]<a class="headerlink" href="#gameconfig" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">GameConfig</span></tt> section contains configuration parameters in the format:</p>
+<div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
+</pre></div>
+</div>
+<p>Recognised parameters are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">AllShieldsScore</span></tt> - points awarded for hitting all the shields</li>
+<li><tt class="docutils literal"><span class="pre">AssemblyHallId</span></tt> - ID of the assembly hall (as defined in the <a class="reference internal" href="#rooms"><em>[Rooms]</em></a>
+section); this is used to check whether Eric can sit or should be sitting on
+the floor</li>
+<li><tt class="docutils literal"><span class="pre">AssemblySitDirection</span></tt> - the direction Eric should face when sitting down
+for assembly (<tt class="docutils literal"><span class="pre">-1</span></tt> for left, <tt class="docutils literal"><span class="pre">1</span></tt> for right)</li>
+<li><tt class="docutils literal"><span class="pre">BesideEricXRange</span></tt> - maximum horizontal distance from Eric at which a
+character can be to be considered beside him</li>
+<li><tt class="docutils literal"><span class="pre">BikeCombinationScore</span></tt> - points awarded for writing the bike combination on
+a blackboard</li>
+<li><tt class="docutils literal"><span class="pre">BikeSecrets</span></tt> - valid bike combination characters</li>
+<li><tt class="docutils literal"><span class="pre">Cheat</span></tt> - 0 = disable cheat keys, 1 = enable cheat keys</li>
+<li><tt class="docutils literal"><span class="pre">ConkerClockTicks</span></tt> - the number of ticks by which the skool clock is
+rewound (that is, the number of ticks by which the current period is
+extended) when a character is paralysed by a falling conker</li>
+<li><tt class="docutils literal"><span class="pre">ConkerWakeTime</span></tt> - the time (clock ticks remaining before the next bell
+ring) at which a character paralysed by a conker will remobilise</li>
+<li><tt class="docutils literal"><span class="pre">DrinksCabinetDoorId</span></tt> - the ID of the drinks cabinet door (see
+<a class="reference internal" href="#doors"><em>[Doors]</em></a>); this is used to detect whether Eric has jumped up to it (to
+get the sherry)</li>
+<li><tt class="docutils literal"><span class="pre">EvadeMouseDelay</span></tt> - the delay before a character frightened by a mouse will
+either get off a chair or stop jumping</li>
+<li><tt class="docutils literal"><span class="pre">ExpellerId</span></tt> - the ID of the character who is responsible for expelling
+Eric</li>
+<li><tt class="docutils literal"><span class="pre">FireCatapultProbability</span></tt> - the probability that the tearaway will fire his
+catapult if conditions are suitable</li>
+<li><tt class="docutils literal"><span class="pre">HitProbability</span></tt> - the probability that the bully will throw a punch if
+conditions are suitable</li>
+<li><tt class="docutils literal"><span class="pre">Icon</span></tt> - the name of the icon file to use</li>
+<li><tt class="docutils literal"><span class="pre">ImageSet</span></tt> - the name of the image set to use</li>
+<li><tt class="docutils literal"><span class="pre">GameFps</span></tt> - the number of frames per second at which the game should
+attempt to run; raise it to increase the game speed, or lower it to decrease
+the game speed</li>
+<li><tt class="docutils literal"><span class="pre">KissCounter</span></tt> - the initial value of the kiss counter for a character</li>
+<li><tt class="docutils literal"><span class="pre">KissCounterDeckrement</span></tt> - the amount by which a character&#8217;s kiss counter is
+decreased after being knocked over</li>
+<li><tt class="docutils literal"><span class="pre">KissCounterDecrement</span></tt> - the amount by which a character&#8217;s kiss counter is
+decreased after kissing Eric</li>
+<li><tt class="docutils literal"><span class="pre">KissDistance</span></tt> - the exact distance in front of Eric a character must be in
+order to be kissable</li>
+<li><tt class="docutils literal"><span class="pre">KissLines</span></tt> - the number of lines a kissee does for Eric on each kiss</li>
+<li><tt class="docutils literal"><span class="pre">LinesGivingRange</span></tt> - the maximum horizontal and vertical distances a
+character must be away from a target character to be considered close enough
+to give or be given lines</li>
+<li><tt class="docutils literal"><span class="pre">LinesRange</span></tt> - minimum and maximum number of lines (divided by 100) that
+may be given out in one go</li>
+<li><tt class="docutils literal"><span class="pre">LocationMarker</span></tt> - prefix used in a destination ID to denote the location
+of a character</li>
+<li><tt class="docutils literal"><span class="pre">MaxLines</span></tt> - the maximum number of lines Eric may accumulate before being
+expelled</li>
+<li><tt class="docutils literal"><span class="pre">MaxMiceRelease</span></tt> - the maximum number of mice to release per attempt</li>
+<li><tt class="docutils literal"><span class="pre">MinimumLinesDelay</span></tt> - the minimum delay between two non-immediate
+lines-givings by the same teacher</li>
+<li><tt class="docutils literal"><span class="pre">MouseCatchScore</span></tt> - points awarded for catching a mouse</li>
+<li><tt class="docutils literal"><span class="pre">MouseProximity</span></tt> - maximum distance at which a musophobe can detect a mouse
+(and so be scared by it)</li>
+<li><tt class="docutils literal"><span class="pre">Name</span></tt> - the name of the game</li>
+<li><tt class="docutils literal"><span class="pre">Playground</span></tt> - the x-coordinates of the left and right boundaries of the
+playground (used for checking whether Eric&#8217;s in the playground)</li>
+<li><tt class="docutils literal"><span class="pre">PlayTuneOnRestart</span></tt> - 1 to play the theme tune after restarting the game
+for advancing a year; 0 otherwise</li>
+<li><tt class="docutils literal"><span class="pre">QuickStart</span></tt> - 0 to scroll the skool into view and play the theme tune (as
+in the original games); 1 to skip this sequence</li>
+<li><tt class="docutils literal"><span class="pre">RestartOnYearEnd</span></tt> - 1 if the game should restart after advancing a year
+(as in Back to Skool); 0 otherwise (as in Skool Daze)</li>
+<li><tt class="docutils literal"><span class="pre">SafeKeyScore</span></tt> - points awarded when the safe key is obtained</li>
+<li><tt class="docutils literal"><span class="pre">SafeOpenScore</span></tt> - points awarded for opening the safe with the correct
+combination</li>
+<li><tt class="docutils literal"><span class="pre">SafeSecrets</span></tt> - valid safe combination characters</li>
+<li><tt class="docutils literal"><span class="pre">SaveGameDir</span></tt> - the directory in which saved games will be stored</li>
+<li><tt class="docutils literal"><span class="pre">SaveGameCompression</span></tt> - the compression level to use when saving a game
+(0 = no compression, 9 = maximum compression)</li>
+<li><tt class="docutils literal"><span class="pre">ScreenshotDir</span></tt> - the directory in which screenshots are dumped</li>
+<li><tt class="docutils literal"><span class="pre">SherryId</span></tt> - the ID to use for sherry fired from a water pistol; by default
+this is different from the value of <tt class="docutils literal"><span class="pre">WaterId</span></tt> so that sherry will not make
+plants grow</li>
+<li><tt class="docutils literal"><span class="pre">SpriteSize</span></tt> - the width and height of a sprite (in tiles)</li>
+<li><tt class="docutils literal"><span class="pre">StoreroomCombinationScore</span></tt> - points awarded for writing the storeroom
+combination on a blackboard</li>
+<li><tt class="docutils literal"><span class="pre">StoreroomDoorId</span></tt> - the ID of the science lab storeroom door (see
+<a class="reference internal" href="#doors"><em>[Doors]</em></a>); this is used to detect whether Eric can open a door with the
+storeroom key</li>
+<li><tt class="docutils literal"><span class="pre">StoreroomSecrets</span></tt> - valid storeroom combination characters</li>
+<li><tt class="docutils literal"><span class="pre">TooManyLinesCommandList</span></tt> - the ID of the command list Mr Wacker should use
+to expel Eric after he&#8217;s exceeded the lines limit</li>
+<li><tt class="docutils literal"><span class="pre">UpAYearScore</span></tt> - points awarded for advancing a year</li>
+<li><tt class="docutils literal"><span class="pre">WaterId</span></tt> - the ID to use for water fired from a water pistol; liquid with
+this ID will make plants grow (see <tt class="docutils literal"><span class="pre">SherryId</span></tt>)</li>
+<li><tt class="docutils literal"><span class="pre">WindowProximity</span></tt> - maximum distance at which a window is considered nearby
+(i.e. worth opening if a stinkbomb is smelt)</li>
+</ul>
+</div>
+<div class="section" id="grassmessages">
+<h2>[GrassMessages]<a class="headerlink" href="#grassmessages" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">GrassMessages</span></tt> section contains five lines of the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>Writers, characterId[, characterId...]
+WriteTale, &lt;text&gt;
+Hitters, characterId[, characterId...]
+HitTale, &lt;text&gt;
+AbsentTale, &lt;text&gt;
+</pre></div>
+</div>
+<p>The information in this section is used by the swot to determine who can be
+blamed for hitting him or writing on a blackboard, and what to say when telling
+tales.</p>
+<p>The <tt class="docutils literal"><span class="pre">Writers</span></tt> line contains a comma-separated list of IDs of characters who
+can be blamed for writing on a blackboard. The <tt class="docutils literal"><span class="pre">WriteTale</span></tt> line contains the
+text of the blackboard-writing tale.</p>
+<p>The <tt class="docutils literal"><span class="pre">Hitters</span></tt> line contains a comma-separated list of IDs of characters who
+can be blamed for hitting the swot. The <tt class="docutils literal"><span class="pre">HitTale</span></tt> line contains the text of
+the so-and-so-hit-me tale.</p>
+<p>The <tt class="docutils literal"><span class="pre">AbsentTale</span></tt> line contains the text that will be spoken by the swot when
+he&#8217;s telling on Eric for being absent during class.</p>
+<p>The text of a tale may contain any of the following macros:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">$TITLE</span></tt> - which will be replaced by the teacher&#8217;s title, as defined in the
+<a class="reference internal" href="#characters"><em>[Characters]</em></a> section; to change this macro, set the <tt class="docutils literal"><span class="pre">TitleMacro</span></tt>
+configuration parameter in the <a class="reference internal" href="#messageconfig"><em>[MessageConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">$1</span></tt> - which will be replaced by the name of the hitter or writer chosen
+from the <tt class="docutils literal"><span class="pre">Hitters</span></tt> or <tt class="docutils literal"><span class="pre">Writers</span></tt> list; to change this macro, set the
+<tt class="docutils literal"><span class="pre">GrasseeMacro</span></tt> configuration parameter in the <a class="reference internal" href="#messageconfig"><em>[MessageConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">$characterId</span></tt> (where <tt class="docutils literal"><span class="pre">characterId</span></tt> is the unique ID of any character) -
+which will be replaced by the name of that character</li>
+</ul>
+</div>
+<div class="section" id="images">
+<span id="id18"></span><h2>[Images]<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">Images</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>imageId, path
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">imageId</span></tt> is the unique ID of an image</li>
+<li><tt class="docutils literal"><span class="pre">path</span></tt> is the location of the corresponding image file on disk (relative to
+the <cite>images</cite> directory)</li>
+</ul>
+<p>Recognised image IDs and the images they refer to are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">FONT</span></tt>: the skool font</li>
+<li><tt class="docutils literal"><span class="pre">INVENTORY</span></tt>: mouse, frog, water pistol etc. (Back to Skool only)</li>
+<li><tt class="docutils literal"><span class="pre">LESSON_BOX</span></tt>: the lesson box background</li>
+<li><tt class="docutils literal"><span class="pre">LOGO</span></tt>: the logo</li>
+<li><tt class="docutils literal"><span class="pre">MESSAGE_BOX</span></tt>: the message box used to display messages above a character&#8217;s
+head (lines messages, escape alarm messages, and safe, bike, and storeroom
+combination characters)</li>
+<li><tt class="docutils literal"><span class="pre">MUTABLES</span></tt>: doors, windows etc. (Back to Skool) or shields and safe (Skool
+Daze) - full colour</li>
+<li><tt class="docutils literal"><span class="pre">MUTABLES_INK</span></tt>: doors, windows etc. (Back to Skool) or shields and safe
+(Skool Daze) - ink only</li>
+<li><tt class="docutils literal"><span class="pre">MUTABLES_PAPER</span></tt>: doors, windows etc. (Back to Skool) or shields and safe
+(Skool Daze) - paper only</li>
+<li><tt class="docutils literal"><span class="pre">SCOREBOX</span></tt>: , the score/lines/hi-score box background</li>
+<li><tt class="docutils literal"><span class="pre">SKOOL</span></tt>: the skool - full colour</li>
+<li><tt class="docutils literal"><span class="pre">SKOOL_INK</span></tt>: the skool - ink colours only</li>
+<li><tt class="docutils literal"><span class="pre">SKOOL_PAPER</span></tt>: the skool - paper colours only</li>
+<li><tt class="docutils literal"><span class="pre">SPEECH_BUBBLE</span></tt>: speech bubble and lip</li>
+<li><tt class="docutils literal"><span class="pre">SPRITES</span></tt>: the characters in various &#8216;animatory states&#8217;</li>
+</ul>
+</div>
+<div class="section" id="inventory">
+<span id="id19"></span><h2>[Inventory]<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">Inventory</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>itemId, topLeft, size
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">itemId</span></tt> is the unique ID of an item that can be collected</li>
+<li><tt class="docutils literal"><span class="pre">topLeft</span></tt> is the coordinates (in <cite>(x, y)</cite> form) of the top left of the
+image of the item in <cite>inventory.png</cite></li>
+<li><tt class="docutils literal"><span class="pre">size</span></tt> is the size of the image (in <cite>(width, height)</cite> form)</li>
+</ul>
+<p>The item IDs recognised by Pyskool are as follows:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">FROG</span></tt> - a frog</li>
+<li><tt class="docutils literal"><span class="pre">MOUSE</span></tt> - a mouse</li>
+<li><tt class="docutils literal"><span class="pre">SAFE_KEY</span></tt> - the key to the head&#8217;s safe</li>
+<li><tt class="docutils literal"><span class="pre">SHERRY_PISTOL</span></tt> - a water pistol (containing sherry)</li>
+<li><tt class="docutils literal"><span class="pre">STINKBOMBS3</span></tt> - three stinkbombs</li>
+<li><tt class="docutils literal"><span class="pre">STINKBOMBS2</span></tt> - two stinkbombs</li>
+<li><tt class="docutils literal"><span class="pre">STINKBOMBS1</span></tt> - one stinkbomb</li>
+<li><tt class="docutils literal"><span class="pre">STOREROOM_KEY</span></tt> - the key to the science lab storeroom</li>
+<li><tt class="docutils literal"><span class="pre">WATER_PISTOL</span></tt> - a water pistol (containing water)</li>
+</ul>
+<p>The order in which the items appear in the <tt class="docutils literal"><span class="pre">Inventory</span></tt> section determines the
+order in which they will be printed in the on-screen inventory.</p>
+<p>See also the <a class="reference internal" href="#mice"><em>[Mice]</em></a> and <a class="reference internal" href="#frogs"><em>[Frogs]</em></a> sections (for details on those
+animals), and the <tt class="docutils literal"><span class="pre">InventoryPos</span></tt> and <tt class="docutils literal"><span class="pre">MouseInventoryPos</span></tt> configuration
+parameters in the <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a> section.</p>
+</div>
+<div class="section" id="lesson">
+<span id="lessons"></span><h2>[Lesson ...]<a class="headerlink" href="#lesson" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">[Lesson</span> <span class="pre">...]</span></tt> section names take the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>Lesson lessonId [*]characterId, roomId
+</pre></div>
+</div>
+<p>if the lesson will take place with a teacher in a classroom or the dinner hall,
+or:</p>
+<div class="highlight-none"><div class="highlight"><pre>Lesson lessonId locationId
+</pre></div>
+</div>
+<p>if the lesson is an unsupervised period, where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">lessonId</span></tt> is the lesson ID as it appears in the <a class="reference internal" href="#timetable"><em>[Timetable]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is the character ID of the teacher taking Eric&#8217;s class
+(prefixed by &#8216;*&#8217; if the teacher&#8217;s  name should not be printed in the lesson
+box, as during <tt class="docutils literal"><span class="pre">DINNER</span></tt>)</li>
+<li><tt class="docutils literal"><span class="pre">roomId</span></tt> is the ID of the room in which Eric&#8217;s class will take place</li>
+<li><tt class="docutils literal"><span class="pre">locationId</span></tt> is one of <tt class="docutils literal"><span class="pre">PLAYTIME</span></tt>, <tt class="docutils literal"><span class="pre">REVISION</span> <span class="pre">LIBRARY</span></tt>, and <tt class="docutils literal"><span class="pre">ASSEMBLY</span></tt></li>
+</ul>
+<p>Each line in a <tt class="docutils literal"><span class="pre">[Lesson</span> <span class="pre">...]</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>characterId, commandListId
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is the unique ID of a character (see <a class="reference internal" href="#characters"><em>[Characters]</em></a>)</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a> that
+will control the character&#8217;s movements during the lesson</li>
+</ul>
+<p>A command list is a sequence of commands - such as <a class="reference internal" href="commands.html#goto"><em>GoTo</em></a> or
+<a class="reference internal" href="commands.html#findseat"><em>FindSeat</em></a> - that make a character appear intelligent (kind of). See
+<a class="reference internal" href="#commandlist"><em>[CommandList ...]</em></a> for more details.</p>
+<p>In any <tt class="docutils literal"><span class="pre">[Lesson</span> <span class="pre">...]</span></tt> section there should be one line for each character
+defined in the <a class="reference internal" href="#characters"><em>[Characters]</em></a> section.</p>
+</div>
+<div class="section" id="lessonconfig">
+<span id="id20"></span><h2>[LessonConfig]<a class="headerlink" href="#lessonconfig" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">LessonConfig</span></tt> section contains configuration parameters in the format:</p>
+<div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
+</pre></div>
+</div>
+<p>Recognised parameters are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">BlackboardBacktrack</span></tt> - the distance a teacher walks back after wiping a
+blackboard</li>
+<li><tt class="docutils literal"><span class="pre">BlackboardPaceDistance</span></tt> - the distance a teacher should pace up and down
+in front of the blackboard during a lesson without a question-and-answer
+session</li>
+<li><tt class="docutils literal"><span class="pre">EricsTeacherWriteOnBoardProbability</span></tt> - the probability that a teacher will
+write on the blackboard during a lesson with Eric and the swot</li>
+<li><tt class="docutils literal"><span class="pre">GrassForHittingProbability</span></tt> - the probability that the swot will grass on
+someone for hitting him</li>
+<li><tt class="docutils literal"><span class="pre">LinesForTalesProbability</span></tt> - the probability that the teacher will give the
+swot lines for telling tales</li>
+<li><tt class="docutils literal"><span class="pre">QASessionProbability</span></tt> - the probability that the teacher will start a
+question-and-answer session with the swot</li>
+<li><tt class="docutils literal"><span class="pre">WriteOnBoardProbability</span></tt> - the probability that a teacher will write on
+the blackboard during a lesson without Eric and the swot</li>
+</ul>
+</div>
+<div class="section" id="lessonmessages">
+<span id="id21"></span><h2>[LessonMessages]<a class="headerlink" href="#lessonmessages" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">LessonMessages</span></tt> section contains a list of messages that will be used by
+teachers who are not teaching Eric, or teachers who are teaching Eric but have
+chosen not to do a question-and-answer session. Each line in the section takes
+the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>characterId|*, lessonMessage[, condition]
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is the unique ID of a teacher</li>
+<li><tt class="docutils literal"><span class="pre">lessonMessage</span></tt> is the message to add to that teacher&#8217;s repertoire</li>
+<li><tt class="docutils literal"><span class="pre">condition</span></tt> is a condition identifier that must evaluate to true before the
+message can be used</li>
+</ul>
+<p>If <tt class="docutils literal"><span class="pre">*</span></tt> is used instead of a specific character ID, the message will be placed
+in every teacher&#8217;s repertoire.</p>
+<p>A lesson message may contain a character sequence <tt class="docutils literal"><span class="pre">$(N,</span> <span class="pre">M)</span></tt> (where <cite>N</cite> and
+<cite>M</cite> are numbers); if so, it will be replaced by a random number between <cite>N</cite> and
+<cite>M</cite>.</p>
+<p>The only recognised condition identifier is:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">BoardDirty</span></tt></li>
+</ul>
+<p>(as defined by the <tt class="docutils literal"><span class="pre">BoardDirtyConditionId</span></tt> parameter in the
+<a class="reference internal" href="#messageconfig"><em>[MessageConfig]</em></a> section) which, if specified, means the message will be
+used only if the blackboard (if there is one) has been written on. Any other
+condition identifier will evaluate to true.</p>
+</div>
+<div class="section" id="linesmessages">
+<span id="id22"></span><h2>[LinesMessages]<a class="headerlink" href="#linesmessages" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">LinesMessages</span></tt> section contains a list of admonitions delivered by
+lines-givers when Eric has been spotted doing something he shouldn&#8217;t. Each line
+in this section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>characterId|*, linesMessageId, linesMessage
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is the unique ID of the lines-giving character</li>
+<li><tt class="docutils literal"><span class="pre">linesMessageId</span></tt> is the unique ID of the following message</li>
+<li><tt class="docutils literal"><span class="pre">linesMessage</span></tt> is the admonition itself</li>
+</ul>
+<p>If <tt class="docutils literal"><span class="pre">*</span></tt> is used instead of a character ID, the lines message will be used by
+all lines-givers (unless they have been explicitly assigned a lines message
+with the same lines message ID). For example:</p>
+<div class="highlight-none"><div class="highlight"><pre>WITHIT, NO_HITTING, BE GENTLE^NOW
+*, NO_HITTING, DON&#39;T HIT^YOUR MATES
+</pre></div>
+</div>
+<p>would make Mr Withit scream &#8220;BE GENTLE NOW&#8221; whenever he sees Eric throwing a
+punch, whereas every other teacher would scream &#8220;DON&#8217;T HIT YOUR MATES&#8221; instead.</p>
+<p>A lines message always spans two lines on-screen. A caret (<tt class="docutils literal"><span class="pre">^</span></tt>) is used by
+default to indicate where the words should be wrapped; to change this, set the
+<tt class="docutils literal"><span class="pre">Newline</span></tt> configuration parameter in the <a class="reference internal" href="#messageconfig"><em>[MessageConfig]</em></a> section.</p>
+<p>Lines message IDs used in both Skool Daze and Back to Skool are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">BE_PUNCTUAL</span></tt> - Eric was late for class</li>
+<li><tt class="docutils literal"><span class="pre">COME_ALONG_1</span></tt> - the truant Eric is being guided to the classroom</li>
+<li><tt class="docutils literal"><span class="pre">COME_ALONG_2</span></tt> - the truant Eric is still being guided to the classroom</li>
+<li><tt class="docutils literal"><span class="pre">GET_ALONG</span></tt> - Eric is not in class when he should be</li>
+<li><tt class="docutils literal"><span class="pre">GET_OUT</span></tt> - Eric&#8217;s somewhere that only staff are allowed to be</li>
+<li><tt class="docutils literal"><span class="pre">GET_UP</span></tt> - Eric is sitting on the floor</li>
+<li><tt class="docutils literal"><span class="pre">NEVER_AGAIN</span></tt> - teacher thinks Eric knocked him down</li>
+<li><tt class="docutils literal"><span class="pre">NO_CATAPULTS</span></tt> - catapults are forbidden</li>
+<li><tt class="docutils literal"><span class="pre">NO_HITTING</span></tt> - Eric must not throw punches</li>
+<li><tt class="docutils literal"><span class="pre">NO_TALES</span></tt> - the swot gets his just deserts</li>
+<li><tt class="docutils literal"><span class="pre">NO_WRITING</span></tt> - Eric mustn&#8217;t write on blackboards</li>
+<li><tt class="docutils literal"><span class="pre">SIT_DOWN</span></tt> - Eric is not sitting down in class</li>
+<li><tt class="docutils literal"><span class="pre">STAY_IN_CLASS</span></tt> - Eric popped out of class and then returned</li>
+</ul>
+<p>Lines message IDs used only in Skool Daze are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">COME_ALONG_3</span></tt> - the truant Eric still hasn&#8217;t made it to the classroom</li>
+<li><tt class="docutils literal"><span class="pre">NO_JUMPING</span></tt> - jumping is not allowed in Skool Daze</li>
+<li><tt class="docutils literal"><span class="pre">NO_SITTING_ON_STAIRS</span></tt> - sitting on stairs is not allowed in Skool Daze</li>
+</ul>
+<p>Lines message IDs used only in Back to Skool are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">BACK_TO_SKOOL</span></tt> - Eric should be back in the boys&#8217; skool by now</li>
+<li><tt class="docutils literal"><span class="pre">GET_OFF_PLANT</span></tt> - standing on plants is not good</li>
+<li><tt class="docutils literal"><span class="pre">NO_BIKES</span></tt> - riding bikes inside the skool is also not good</li>
+<li><tt class="docutils literal"><span class="pre">NO_STINKBOMBS</span></tt> - stinkbombs are prohibited</li>
+<li><tt class="docutils literal"><span class="pre">NO_WATERPISTOLS</span></tt> - as are water pistols</li>
+<li><tt class="docutils literal"><span class="pre">SIT_FACING_STAGE</span></tt> - Eric needs to face the headmaster during assembly</li>
+</ul>
+<p>The lines message IDs are used internally, and should not be changed. If a
+particular lines message ID is missing from the list, then lines will not be
+given for the infraction it refers to. So if there were no entry in the
+<tt class="docutils literal"><span class="pre">LinesMessages</span></tt> section with the lines message ID <tt class="docutils literal"><span class="pre">NO_HITTING</span></tt>, no lines
+would ever be dished out for hitting.</p>
+</div>
+<div class="section" id="messageconfig">
+<span id="id23"></span><h2>[MessageConfig]<a class="headerlink" href="#messageconfig" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">MessageConfig</span></tt> section contains messages and message-related
+configuration parameters that apply skool-wide. Each line in this section has
+the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
+</pre></div>
+</div>
+<p>Recognised parameters are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">BoardDirtyConditionId</span></tt> - the ID of the condition used to indicate that a
+blackboard is dirty; this identifier may be used in the <a class="reference internal" href="#lessonmessages"><em>[LessonMessages]</em></a>
+section</li>
+<li><tt class="docutils literal"><span class="pre">GrasseeMacro</span></tt> - the macro that expands to a grassee&#8217;s name in the swot&#8217;s
+speech</li>
+<li><tt class="docutils literal"><span class="pre">HiScoreLabel</span></tt> - the label for the hi-score in the score box</li>
+<li><tt class="docutils literal"><span class="pre">LinesMessageTemplate</span></tt> - the template used for lines messages</li>
+<li><tt class="docutils literal"><span class="pre">LinesRecipientMacro</span></tt> - the macro that will be replaced in
+<tt class="docutils literal"><span class="pre">LinesMessageTemplate</span></tt> (see above) by the lines recipient&#8217;s name</li>
+<li><tt class="docutils literal"><span class="pre">LinesTotalLabel</span></tt> - the label for the lines total in the score box</li>
+<li><tt class="docutils literal"><span class="pre">Newline</span></tt> - the character that will be replaced by a newline character in
+messages written on a blackboard, in a lines bubble, or in the lesson box</li>
+<li><tt class="docutils literal"><span class="pre">NumberOfLinesMacro</span></tt> - the macro that will be replaced in
+<tt class="docutils literal"><span class="pre">LinesMessageTemplate</span></tt> (see above) by the number of lines being given</li>
+<li><tt class="docutils literal"><span class="pre">ScoreLabel</span></tt> - the label for the score in the score box</li>
+<li><tt class="docutils literal"><span class="pre">TitleMacro</span></tt> - the macro that expands to a teacher&#8217;s title in the swot&#8217;s
+speech</li>
+<li><tt class="docutils literal"><span class="pre">UpAYearMessage</span></tt> - the message printed in the lesson box when Eric has
+completed the game and advanced a year</li>
+</ul>
+</div>
+<div class="section" id="mice">
+<span id="id24"></span><h2>[Mice]<a class="headerlink" href="#mice" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">Mice</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>mouseId, spriteGroupId, animatoryState, (x, y), commandListId, spriteXY
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">mouseId</span></tt> is the unique ID of the mouse</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the mouse</li>
+<li><tt class="docutils literal"><span class="pre">animatoryState</span></tt> is the mouse&#8217;s initial animatory state</li>
+<li><tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y)</span></tt> are the mouse&#8217;s initial coordinates</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a> that the
+mouse will use</li>
+<li><tt class="docutils literal"><span class="pre">spriteXY</span></tt> is the coordinates of the mouse within its sprite (used for
+detecting whether Eric has caught it)</li>
+</ul>
+<p>Any mouse defined in this section will be catchable by ERIC, and show up in the
+on-screen mouse inventory when caught.</p>
+</div>
+<div class="section" id="mouselocations">
+<span id="id25"></span><h2>[MouseLocations]<a class="headerlink" href="#mouselocations" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">MouseLocations</span></tt> section defines the locations at which a new immortal
+mouse may appear after Eric catches one. Each line has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>x, y
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y)</span></tt> are the coordinates of the location.</p>
+</div>
+<div class="section" id="nogozones">
+<h2>[NoGoZones]<a class="headerlink" href="#nogozones" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">NoGoZones</span></tt> section corresponds to a region of the skool
+Eric is never supposed to enter. The lines take the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>zoneId, minX, maxX, bottomY, topY
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">zoneId</span></tt> is a descriptive ID for the zone (not used anywhere else)</li>
+<li><tt class="docutils literal"><span class="pre">minX</span></tt> is the lower x-coordinate of the zone</li>
+<li><tt class="docutils literal"><span class="pre">maxX</span></tt> is the upper x-coordinate of the zone</li>
+<li><tt class="docutils literal"><span class="pre">bottomY</span></tt> is the y-coordinate of the bottom of the zone</li>
+<li><tt class="docutils literal"><span class="pre">topY</span></tt> is the y-coordinate of the top of the zone</li>
+</ul>
+<p>Whenever Eric is spotted in one of these zones by a teacher, the <tt class="docutils literal"><span class="pre">GET_OUT</span></tt>
+<a class="reference internal" href="#linesmessages"><em>lines message</em></a> will be delivered in screeching tones.</p>
+</div>
+<div class="section" id="plants">
+<span id="id26"></span><h2>[Plants]<a class="headerlink" href="#plants" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Plants</span></tt> section contains information about plants (of which there are
+four in Back to Skool, and none in Skool Daze). Each line describes a single
+plant, and has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>plantId, spriteGroupId, x, y, commandListId
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">plantId</span></tt> is the unique ID of the plant</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the plant</li>
+<li><tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt> are the coordinates of the plant (when it is growing or has
+grown)</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
+that the plant will use when watered</li>
+</ul>
+</div>
+<div class="section" id="questionsandanswers">
+<span id="id27"></span><h2>[QuestionsAndAnswers ...]<a class="headerlink" href="#questionsandanswers" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">[QuestionsAndAnswers</span> <span class="pre">...]</span></tt> section names take the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>QuestionsAndAnswers characterId
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">characterId</span></tt> is the unique ID of a teacher (see <a class="reference internal" href="#characters"><em>[Characters]</em></a>).</p>
+<p>There are at least three types of entry in a <tt class="docutils literal"><span class="pre">[QuestionsAndAnswers</span> <span class="pre">...]</span></tt>
+section. The first type of entry is the <tt class="docutils literal"><span class="pre">Question</span></tt> entry:</p>
+<div class="highlight-none"><div class="highlight"><pre>Question, questionId, groupId, questionTemplate
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">questionId</span></tt> is a unique (within the section) ID for the question</li>
+<li><tt class="docutils literal"><span class="pre">groupId</span></tt> is the ID of the group of Q&amp;A pairs (see below) the question is
+associated with</li>
+<li><tt class="docutils literal"><span class="pre">questionTemplate</span></tt> is the question template</li>
+</ul>
+<p>There should be at least one <tt class="docutils literal"><span class="pre">Question</span></tt> entry in a
+<tt class="docutils literal"><span class="pre">[QuestionsAndAnswers</span> <span class="pre">...]</span></tt> section.</p>
+<p>The second type of entry is the <tt class="docutils literal"><span class="pre">Answer</span></tt> entry:</p>
+<div class="highlight-none"><div class="highlight"><pre>Answer, questionId, answerTemplate
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">questionId</span></tt> is the ID of the question to which this is the answer</li>
+<li><tt class="docutils literal"><span class="pre">answerTemplate</span></tt> is the answer template</li>
+</ul>
+<p>There should be one <tt class="docutils literal"><span class="pre">Answer</span></tt> entry for each <tt class="docutils literal"><span class="pre">Question</span></tt> entry in a
+<tt class="docutils literal"><span class="pre">[QuestionsAndAnswers</span> <span class="pre">...]</span></tt> section.</p>
+<p>The third type of entry in this section is the Q&amp;A pair entry:</p>
+<div class="highlight-none"><div class="highlight"><pre>groupId, word1, word2
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">groupId</span></tt> is the ID of the group of Q&amp;A pairs to which this particular pair
+belongs; the ID should be something other than <cite>Question</cite>, <cite>Answer</cite>,
+<cite>SpecialGroup</cite>, <cite>SpecialQuestion</cite> or <cite>SpecialAnswer</cite>, which are reserved
+words in a <tt class="docutils literal"><span class="pre">[QuestionsAndAnswers</span> <span class="pre">...]</span></tt> section</li>
+<li><tt class="docutils literal"><span class="pre">word1</span></tt> and <tt class="docutils literal"><span class="pre">word2</span></tt> are the words that will replace the macros in
+<tt class="docutils literal"><span class="pre">questionTemplate</span></tt> and <tt class="docutils literal"><span class="pre">answerTemplate</span></tt></li>
+</ul>
+<p>There should be at least one Q&amp;A pair defined per <tt class="docutils literal"><span class="pre">[QuestionsAndAnswers</span> <span class="pre">...]</span></tt>
+section (and ideally many more than one, to prevent the question-and-answer
+sessions between teachers and the swot from being rather monotonous).</p>
+<p>The optional fourth type of entry in a <tt class="docutils literal"><span class="pre">[QuestionsAndAnswers</span> <span class="pre">...]</span></tt> section
+consists of three lines:</p>
+<div class="highlight-none"><div class="highlight"><pre>SpecialQuestion, question
+SpecialAnswer, answer
+SpecialGroup, groupId, qaPairIndex
+</pre></div>
+</div>
+<p>and is used to define the &#8220;special&#8221; question Eric will need the answer to in
+order to obtain the relevant teacher&#8217;s safe combination letter. The
+<tt class="docutils literal"><span class="pre">SpecialQuestion</span></tt> keyword is followed by the text of the special question
+(which will be posed by the teacher at the start of the lesson). The
+<tt class="docutils literal"><span class="pre">SpecialAnswer</span></tt> keyword is followed by the text of the swot&#8217;s answer to the
+special question (which will contain a macro to be expanded). The
+<tt class="docutils literal"><span class="pre">SpecialGroup</span></tt> keyword is followed by <tt class="docutils literal"><span class="pre">groupId</span></tt> (which specifies the ID of
+the group of Q&amp;A Pairs from which the &#8220;magic word&#8221; will be taken), and
+<tt class="docutils literal"><span class="pre">qaPairIndex</span></tt> (which is 0 or 1, and refers to the element of the Q&amp;A pair
+that will be the magic word). Once Eric has figured out what the magic word is,
+he will need to write it on a blackboard and hope that the teacher sees it
+while all the shields are flashing, whereupon the teacher will reveal his safe
+combination letter.</p>
+<p>If the <tt class="docutils literal"><span class="pre">SpecialQuestion</span></tt>, <tt class="docutils literal"><span class="pre">SpecialAnswer</span></tt> and <tt class="docutils literal"><span class="pre">SpecialGroup</span></tt> lines are
+not present, there will be no magic word associated with the teacher. In that
+case, simply knocking the teacher over with a catapult pellet will make him
+reveal his safe combination letter.</p>
+</div>
+<div class="section" id="randomlocations">
+<span id="id28"></span><h2>[RandomLocations]<a class="headerlink" href="#randomlocations" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">RandomLocations</span></tt> section contains lists of suitable locations for the
+characters to visit when they go on walkabouts (e.g. during playtime). Each
+line has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>characterId, (x1, y1), (x2, y2)...
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is the character&#8217;s unique ID (see <a class="reference internal" href="#characters"><em>[Characters]</em></a>)</li>
+<li><tt class="docutils literal"><span class="pre">(x1,</span> <span class="pre">y1)</span></tt> and so on are the coordinates of locations in the skool</li>
+</ul>
+<p>There must be at least one pair of coordinates per line, and there should be
+one line for each character defined in the <a class="reference internal" href="#characters"><em>[Characters]</em></a> section.</p>
+</div>
+<div class="section" id="rooms">
+<span id="id29"></span><h2>[Rooms]<a class="headerlink" href="#rooms" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Rooms</span></tt> section contains one line for each room or region in the skool
+that Eric will be expected to show up at when the timetable requires it. Each
+line has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>roomId, name, topLeft, bottomRight, getAlong
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">roomId</span></tt> is the room&#8217;s unique ID</li>
+<li><tt class="docutils literal"><span class="pre">name</span></tt> is the room&#8217;s name (as displayed in the lesson box at the bottom of
+the screen)</li>
+<li><tt class="docutils literal"><span class="pre">topLeft</span></tt> is the coordinates of the top-left corner of the room</li>
+<li><tt class="docutils literal"><span class="pre">bottomRight</span></tt> is the coordinates of the bottom-right corner of the room</li>
+<li><tt class="docutils literal"><span class="pre">getAlong</span></tt> is <tt class="docutils literal"><span class="pre">Y</span></tt> if Eric should get lines for being in the room when the
+timetable does not require his presence</li>
+</ul>
+</div>
+<div class="section" id="routes">
+<span id="id30"></span><h2>[Routes]<a class="headerlink" href="#routes" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Routes</span></tt> section is one of the most important sections in the ini file.
+It defines the routes (a route may be considered as a list of staircases) that
+the characters must take to get from where they are to wherever they are going.
+Any errors here will result in the characters wandering aimlessly around the
+skool, unable to find classrooms, the playground, or the toilets. Disaster!</p>
+<p>Anyway, each line in this section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>homeFloorId, *|destFloorId[, destFloorId[, ...]], nextStaircaseId
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">homeFloorId</span></tt> is the unique ID of one floor (see <a class="reference internal" href="#floors"><em>[Floors]</em></a>) - the
+&#8216;home&#8217; floor</li>
+<li><tt class="docutils literal"><span class="pre">destFloorId</span></tt> is the unique ID of another floor (see <a class="reference internal" href="#floors"><em>[Floors]</em></a>) - the
+destination floor</li>
+<li><tt class="docutils literal"><span class="pre">nextStaircaseId</span></tt> is the unique ID of the staircase (see <a class="reference internal" href="#staircases"><em>[Staircases]</em></a>)
+that must be climbed or descended first on a journey from the home floor to
+the destination floor</li>
+</ul>
+<p>How this works is best illustrated by example. Let&#8217;s look at the routes defined
+for the bottom floor in Back to Skool to everywhere else in the skool:</p>
+<div class="highlight-none"><div class="highlight"><pre>Bottom, LeftMiddle, LeftTop, UpToToilets
+Bottom, GirlsMiddle, GirlsTop, GirlsSkoolLower
+Bottom, *, UpToStage
+</pre></div>
+</div>
+<p>The first line says that to get from the bottom floor (<tt class="docutils literal"><span class="pre">Bottom</span></tt>) to the
+floors called <tt class="docutils literal"><span class="pre">LeftMiddle</span></tt> and <tt class="docutils literal"><span class="pre">LeftTop</span></tt> (see <a class="reference internal" href="#floors"><em>[Floors]</em></a>), the first
+staircase you need to navigate is <tt class="docutils literal"><span class="pre">UpToToilets</span></tt> (see <a class="reference internal" href="#staircases"><em>[Staircases]</em></a>). The
+second line says that to get from the bottom floor to the middle floor
+(<tt class="docutils literal"><span class="pre">GirlsMiddle</span></tt>) or top floor (<tt class="docutils literal"><span class="pre">GirlsTop</span></tt>) in the girls&#8217; skool, you need to
+use the <tt class="docutils literal"><span class="pre">GirlsSkoolLower</span></tt> staircase first. The third line says that to get
+anywhere else (<tt class="docutils literal"><span class="pre">*</span></tt>) from the bottom floor, you need to take the stairs up to
+the stage (<tt class="docutils literal"><span class="pre">UpToStage</span></tt>).</p>
+</div>
+<div class="section" id="safe">
+<h2>[Safe]<a class="headerlink" href="#safe" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Safe</span></tt> section contains a single line of the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>topLeft, size, coords
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">topLeft</span></tt> is the coordinates (in <cite>(x, y)</cite> form) of the top left of the
+normal image of the safe</li>
+<li><tt class="docutils literal"><span class="pre">size</span></tt> is the size of the image (in <cite>(width, height)</cite> form)</li>
+<li><tt class="docutils literal"><span class="pre">coords</span></tt> are the coordinates (in <cite>(x, y)</cite> form) of the safe in the play
+area</li>
+</ul>
+<p>The safe images can be found in <cite>mutables.png</cite> (or <cite>mutables_ink.png</cite> and
+<cite>mutables_paper.png</cite> if <tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> is 1 - see <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a>).
+<cite>mutables.png</cite> is arranged so that the inverse image of the safe is at
+<cite>(x + width, y)</cite>, where <cite>(x, y)</cite> are the coordinates of the normal image of the
+safe.</p>
+<p>If the safe will never need to flash (as in Back to Skool), <tt class="docutils literal"><span class="pre">topLeft</span></tt> and
+<tt class="docutils literal"><span class="pre">size</span></tt> will not be used, and so may be set to any value.</p>
+</div>
+<div class="section" id="screenconfig">
+<span id="id31"></span><h2>[ScreenConfig]<a class="headerlink" href="#screenconfig" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">ScreenConfig</span></tt> section contains parameters that determine the appearance
+and layout of the screen. Each line has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
+</pre></div>
+</div>
+<p>Recognised parameters are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Background</span></tt> - the background colour of the screen</li>
+<li><tt class="docutils literal"><span class="pre">EscapeAlarmInk</span></tt> - the ink colour to use for the escape alarm message box
+used by Albert</li>
+<li><tt class="docutils literal"><span class="pre">EscapeAlarmPaper</span></tt> - the paper colour to use for the escape alarm message
+box used by Albert</li>
+<li><tt class="docutils literal"><span class="pre">FlashCycle</span></tt> - length of the cycle in which a flashable object (such as a
+shield) flashes once</li>
+<li><tt class="docutils literal"><span class="pre">FontInk</span></tt> - the ink colour in <cite>font.png</cite> (used to create transparency)</li>
+<li><tt class="docutils literal"><span class="pre">FontPaper</span></tt> - the paper colour in <cite>font.png</cite> (used to create transparency)</li>
+<li><tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> - 0 = hi-res colour; 1 = spectrum mode, meaning just two
+colours (ink and paper) per 8x8-pixel block</li>
+<li><tt class="docutils literal"><span class="pre">Height</span></tt> - the height of the screen (in tiles)</li>
+<li><tt class="docutils literal"><span class="pre">HiScoreOffset</span></tt> - the y-coordinate offset used to position the printing of
+the hi-score</li>
+<li><tt class="docutils literal"><span class="pre">InitialColumn</span></tt> - the x-coordinate of the leftmost column of the screen
+when the game starts</li>
+<li><tt class="docutils literal"><span class="pre">InventoryKey</span></tt> - pixels of this colour in inventory item and captured mouse
+images will be made transparent when the items are drawn</li>
+<li><tt class="docutils literal"><span class="pre">InventoryPos</span></tt> - the x, y coordinates of the inventory on screen</li>
+<li><tt class="docutils literal"><span class="pre">InventorySize</span></tt> - the size of the inventory (width and height in tiles)</li>
+<li><tt class="docutils literal"><span class="pre">LessonBoxInk</span></tt> - the ink colour to use when writing in the lesson box</li>
+<li><tt class="docutils literal"><span class="pre">LessonBoxPos</span></tt> - the x, y coordinates of the lesson box on screen</li>
+<li><tt class="docutils literal"><span class="pre">LinesInk</span></tt> - the ink colour used in a lines message box</li>
+<li><tt class="docutils literal"><span class="pre">LinesOffset</span></tt> - the y-coordinate offset used to position the printing of
+the lines total</li>
+<li><tt class="docutils literal"><span class="pre">LinesPaperEric</span></tt> - the paper colour used in a lines message box when Eric
+is the recipient</li>
+<li><tt class="docutils literal"><span class="pre">LinesPaperOther</span></tt> - the paper colour used in a lines message box when Eric
+is not the recipient</li>
+<li><tt class="docutils literal"><span class="pre">LogoPos</span></tt> - the x, y coordinates of the logo on screen</li>
+<li><tt class="docutils literal"><span class="pre">MessageBoxColour</span></tt> - the colour of the &#8216;inside&#8217; of the message box in the
+<tt class="docutils literal"><span class="pre">MESSAGE_BOX</span></tt> image (see <a class="reference internal" href="#images"><em>[Images]</em></a>); pixels of this colour in the image
+will take on the designated paper colour (e.g. <tt class="docutils literal"><span class="pre">LinesPaperEric</span></tt>) when the
+message box is drawn</li>
+<li><tt class="docutils literal"><span class="pre">MessageBoxKey</span></tt> - pixels of this colour in the message box image will be
+made transparent when the message box is drawn; in the stock Pyskool, this
+feature is not used</li>
+<li><tt class="docutils literal"><span class="pre">MouseInventoryInk</span></tt> - the ink colour to use when writing in the mouse
+inventory</li>
+<li><tt class="docutils literal"><span class="pre">MouseInventoryPos</span></tt> - the x, y coordinates of the mouse inventory on screen</li>
+<li><tt class="docutils literal"><span class="pre">MouseInventorySize</span></tt> - the size of the mouse inventory (width and height in
+tiles)</li>
+<li><tt class="docutils literal"><span class="pre">Scale</span></tt> - the scale factor to use for graphics; 1 = original Spectrum size</li>
+<li><tt class="docutils literal"><span class="pre">ScoreBoxInk</span></tt> - the ink colour to use when writing in the score box</li>
+<li><tt class="docutils literal"><span class="pre">ScoreBoxPos</span></tt> - the x, y coordinates of the score box on screen</li>
+<li><tt class="docutils literal"><span class="pre">ScoreOffset</span></tt> - the y-coordinate offset used to position the printing of
+the score</li>
+<li><tt class="docutils literal"><span class="pre">ScrollFps</span></tt> - the number of frames per second at which the screen should be
+scrolled (when the game starts and during play); raise it to make the screen
+scroll faster, or lower it to scroll more slowly</li>
+<li><tt class="docutils literal"><span class="pre">ScrollColumns</span></tt> - the number of columns to scroll when Eric approaches the
+left or right edge of the screen</li>
+<li><tt class="docutils literal"><span class="pre">ScrollLeftOffset</span></tt> - how close Eric can get to the right edge of the screen
+before it scrolls left</li>
+<li><tt class="docutils literal"><span class="pre">ScrollRightOffset</span></tt> - how close Eric can get to the left edge of the screen
+before it scrolls right</li>
+<li><tt class="docutils literal"><span class="pre">SecretInk</span></tt> - the ink colour of the message box used to display a safe,
+bike or storeroom combination character</li>
+<li><tt class="docutils literal"><span class="pre">SecretPaper</span></tt> - the paper colour of the message box used to display a safe,
+bike or storeroom combination character</li>
+<li><tt class="docutils literal"><span class="pre">SkoolInkKey</span></tt> - the transparent colour used in the skool ink image</li>
+<li><tt class="docutils literal"><span class="pre">SpeechBubbleInk</span></tt> - the ink colour to use when drawing text in a speech
+bubble</li>
+<li><tt class="docutils literal"><span class="pre">SpeechBubbleKey</span></tt> - the transparent colour used in the speech bubble image
+(<cite>bubble.png</cite>)</li>
+<li><tt class="docutils literal"><span class="pre">SpeechBubbleInset</span></tt> - the inset (in pixels at scale 1) of the text window
+from the top-left of a speech bubble</li>
+<li><tt class="docutils literal"><span class="pre">SpeechBubbleLipCoords</span></tt> - the coordinates of the lip within the speech
+bubble image (<cite>bubble.png</cite>)</li>
+<li><tt class="docutils literal"><span class="pre">SpeechBubbleLipSize</span></tt> - the size of the speech bubble lip (width and height
+in tiles)</li>
+<li><tt class="docutils literal"><span class="pre">SpeechBubbleSize</span></tt> - the size of the bounding rectangle of a speech bubble,
+including the lip (width and height in tiles)</li>
+<li><tt class="docutils literal"><span class="pre">SpriteKey</span></tt> - the transparent colour used in the sprite matrix image</li>
+<li><tt class="docutils literal"><span class="pre">SpriteMatrixWidth</span></tt> - the number of sprites in a row of the sprite matrix
+image</li>
+<li><tt class="docutils literal"><span class="pre">Width</span></tt> - the width of the screen (in tiles)</li>
+</ul>
+</div>
+<div class="section" id="sherrydrop">
+<span id="id32"></span><h2>[SherryDrop]<a class="headerlink" href="#sherrydrop" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">SherryDrop</span></tt> section defines a drop of sherry (as knocked out of a cup by
+a catapult pellet). It contains a single line of the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>objectId, spriteGroupId, commandListId, hitXY
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">objectId</span></tt> is a unique ID for the drop of sherry</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the drop of sherry</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
+that the drop of sherry will use when knocked out of a cup</li>
+<li><tt class="docutils literal"><span class="pre">hitXY</span></tt> is the coordinates of the sherry drop within its sprite (used for
+collision detection)</li>
+</ul>
+</div>
+<div class="section" id="shields">
+<h2>[Shields]<a class="headerlink" href="#shields" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Shields</span></tt> section contains information about shields (of which there are
+15 in Skool Daze, and none in Back to Skool). Each line describes a single
+shield, and has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>score, topLeft, size, coords
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">score</span></tt> is the number of points awarded for making the shield flash or
+unflash</li>
+<li><tt class="docutils literal"><span class="pre">topLeft</span></tt> is the coordinates (in <cite>(x, y)</cite> form) of the top left of the
+normal image of the shield</li>
+<li><tt class="docutils literal"><span class="pre">size</span></tt> is the size of the image (in <cite>(width, height)</cite> form)</li>
+<li><tt class="docutils literal"><span class="pre">coords</span></tt> are the coordinates (in <cite>(x, y)</cite> form) of the shield in the play
+area</li>
+</ul>
+<p>The shield images can be found in <cite>mutables.png</cite> (or <cite>mutables_ink.png</cite> and
+<cite>mutables_paper.png</cite> if <tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> is 1 - see <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a>).
+<cite>mutables.png</cite> is arranged so that the inverse image of a shield is at
+<cite>(x + width, y)</cite>, where <cite>(x, y)</cite> are the coordinates of the normal image of the
+shield.</p>
+</div>
+<div class="section" id="sitdownmessages">
+<span id="id33"></span><h2>[SitDownMessages]<a class="headerlink" href="#sitdownmessages" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">SitDownMessages</span></tt> section contains one or more lines for each teacher of
+the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>characterId, sitDownMessage
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is the teacher&#8217;s unique ID (see <a class="reference internal" href="#characters"><em>[Characters]</em></a>)</li>
+<li><tt class="docutils literal"><span class="pre">sitDownMessage</span></tt> is what the teacher may say while standing at the
+classroom doorway at the start of a lesson</li>
+</ul>
+<p>If multiple sit-down messages are defined for a teacher, he will choose one at
+random when the time comes. If no sit-down messages are defined for a teacher,
+he will say nothing at the classroom doorway.</p>
+</div>
+<div class="section" id="skoollocations">
+<span id="id34"></span><h2>[SkoolLocations]<a class="headerlink" href="#skoollocations" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">SkoolLocations</span></tt> section contains a list of descriptive IDs for commonly
+used locations in the skool. These descriptive IDs are used by the <a class="reference internal" href="commands.html#goto"><em>GoTo</em></a>
+command in the <a class="reference internal" href="#commandlist"><em>command lists</em></a> that control the characters.
+Each line in this section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>locationId, x, y
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">locationId</span></tt> is the descriptive ID</li>
+<li><tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt> are the coordinates of the location</li>
+</ul>
+<p>An example of a location ID is <tt class="docutils literal"><span class="pre">BlueRoomDoorway</span></tt>, which means exactly what
+you think it means.</p>
+</div>
+<div class="section" id="sounds">
+<span id="id35"></span><h2>[Sounds]<a class="headerlink" href="#sounds" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">Sounds</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>soundId, path
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">soundId</span></tt> is the unique ID of a sound sample</li>
+<li><tt class="docutils literal"><span class="pre">path</span></tt> is the location of the sound sample on disk (relative to the
+<cite>sounds</cite> directory)</li>
+</ul>
+<p>Recognised sound sample IDs and the samples they refer to are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ALL_SHIELDS</span></tt>: Eric has hit all the shields</li>
+<li><tt class="docutils literal"><span class="pre">BELL</span></tt>: the bell</li>
+<li><tt class="docutils literal"><span class="pre">BIKE</span></tt>: Eric has written the bike combination on a blackboard</li>
+<li><tt class="docutils literal"><span class="pre">CATAPULT</span></tt>: Eric has fired his catapult</li>
+<li><tt class="docutils literal"><span class="pre">CONKER</span></tt>: Eric has knocked out Albert with a conker</li>
+<li><tt class="docutils literal"><span class="pre">DESK</span></tt>: Eric has found the water pistol or stinkbombs in a desk</li>
+<li><tt class="docutils literal"><span class="pre">FROG</span></tt>: Eric has caught the frog or placed it in a cup</li>
+<li><tt class="docutils literal"><span class="pre">JUMP</span></tt>: Eric has jumped into the air</li>
+<li><tt class="docutils literal"><span class="pre">KISS</span></tt>: Eric has kissed someone</li>
+<li><tt class="docutils literal"><span class="pre">KNOCKED_OUT</span></tt>: Eric has been knocked over or out of his chair</li>
+<li><tt class="docutils literal"><span class="pre">LINES1</span></tt>: lines screech 1</li>
+<li><tt class="docutils literal"><span class="pre">LINES2</span></tt>: lines screech 2</li>
+<li><tt class="docutils literal"><span class="pre">MOUSE</span></tt>: Eric has caught a mouse</li>
+<li><tt class="docutils literal"><span class="pre">OPEN_SAFE</span></tt>: Eric has opened the safe (by getting the combination)</li>
+<li><tt class="docutils literal"><span class="pre">SAFE_KEY</span></tt>: Eric has got the safe key</li>
+<li><tt class="docutils literal"><span class="pre">SHERRY</span></tt>: Eric has filled the water pistol with sherry</li>
+<li><tt class="docutils literal"><span class="pre">SHIELD</span></tt>: Eric has hit a shield</li>
+<li><tt class="docutils literal"><span class="pre">STOREROOM_KEY</span></tt>: Eric has written the storeroom combination on a blackboard</li>
+<li><tt class="docutils literal"><span class="pre">TUNE</span></tt>: opening tune</li>
+<li><tt class="docutils literal"><span class="pre">UP_A_YEAR</span></tt>: Eric has gone up a year</li>
+<li><tt class="docutils literal"><span class="pre">WALK0</span></tt>: Eric walking (1)</li>
+<li><tt class="docutils literal"><span class="pre">WALK1</span></tt>: Eric walking (2)</li>
+<li><tt class="docutils literal"><span class="pre">WALK2</span></tt>: Eric walking (3)</li>
+<li><tt class="docutils literal"><span class="pre">WALK3</span></tt>: Eric walking (4)</li>
+<li><tt class="docutils literal"><span class="pre">WATER_PISTOL</span></tt>: Eric has fired his water pistol</li>
+</ul>
+<p>If an entry for a given sound effect is not present in the <tt class="docutils literal"><span class="pre">Sounds</span></tt> section,
+then that sound effect will never play. For example, if there is no
+<tt class="docutils literal"><span class="pre">CATAPULT</span></tt> entry, then Eric&#8217;s firings of that weapon will be completely
+silent.</p>
+</div>
+<div class="section" id="specialplaytimes">
+<span id="id36"></span><h2>[SpecialPlaytimes]<a class="headerlink" href="#specialplaytimes" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">SpecialPlaytimes</span></tt> section is used only by Skool Daze, and contains a
+list of lesson IDs that refer to playtimes which will be considered &#8220;special&#8221;.
+A special playtime does not appear in the timetable proper (though you could
+insert it), but with a given probability (defined by the
+<tt class="docutils literal"><span class="pre">SpecialPlaytimeProbability</span></tt> parameter in the <a class="reference internal" href="#timetableconfig"><em>[TimetableConfig]</em></a> section)
+a special playtime chosen at random is substituted for an actual playtime
+from the main timetable. In Skool Daze the <tt class="docutils literal"><span class="pre">SpecialPlaytimes</span></tt> section looks
+like this:</p>
+<div class="highlight-none"><div class="highlight"><pre>Playtime-Mumps
+Playtime-SwotGrass
+Playtime-HiddenPeaShooter
+</pre></div>
+</div>
+<p>Thus, occasionally in Skool Daze mode a playtime will be one of those where you
+have to steer clear of the pestilential bully, prevent the swot from reaching
+the head&#8217;s study, or fix the race to the fire escape between the tearaway and
+the headmaster.</p>
+</div>
+<div class="section" id="spritegroup">
+<span id="id37"></span><h2>[SpriteGroup ...]<a class="headerlink" href="#spritegroup" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">[SpriteGroup</span> <span class="pre">...]</span></tt> section names take the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>SpriteGroup spriteGroupId
+</pre></div>
+</div>
+<p>where <tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is a unique ID for a group of sprites in <cite>sprites.png</cite>
+(see <a class="reference internal" href="images.html#graphics"><em>Graphics</em></a>) - such as <tt class="docutils literal"><span class="pre">BOY</span></tt> for the little boys, or <tt class="docutils literal"><span class="pre">TEARAWAY</span></tt>
+for the tearaway. The unique ID can be anything you like; it is used only in
+the <a class="reference internal" href="#characters"><em>[Characters]</em></a> section later on to link a character to a specific group
+of sprites.</p>
+<p>Each line in a <tt class="docutils literal"><span class="pre">SpriteGroup</span></tt> section represents a single sprite from
+<cite>sprites.png</cite> and has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>spriteId, index
+</pre></div>
+</div>
+<p>where</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">spriteId</span></tt> is the descriptive ID for the sprite (unique within the section)</li>
+<li><tt class="docutils literal"><span class="pre">index</span></tt> is the index of the sprite as it appears in <cite>sprites.png</cite></li>
+</ul>
+<p>Recognised sprite IDs and their meanings are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ARM_UP</span></tt>: arm up (as if writing or opening door) - Eric, the tearaway, the
+Heroine and teachers</li>
+<li><tt class="docutils literal"><span class="pre">BENDING_OVER</span></tt>: bending over - Eric</li>
+<li><tt class="docutils literal"><span class="pre">BIKE_ON_FLOOR</span></tt>: bike resting on the floor</li>
+<li><tt class="docutils literal"><span class="pre">BIKE_UPRIGHT</span></tt>: bike upright</li>
+<li><tt class="docutils literal"><span class="pre">CATAPULT0</span></tt>: firing catapult (1) - Eric and the tearaway</li>
+<li><tt class="docutils literal"><span class="pre">CATAPULT1</span></tt>: firing catapult (2) - Eric and the tearaway</li>
+<li><tt class="docutils literal"><span class="pre">CONKER</span></tt>: conker</li>
+<li><tt class="docutils literal"><span class="pre">DESK_EMPTY</span></tt>: desk lid (empty desk)</li>
+<li><tt class="docutils literal"><span class="pre">DESK_STINKBOMBS</span></tt>: desk lid (with stinkbombs)</li>
+<li><tt class="docutils literal"><span class="pre">DESK_WATER_PISTOL</span></tt>: desk lid (with water pistol)</li>
+<li><tt class="docutils literal"><span class="pre">FLY</span></tt>: catapult pellet in flight</li>
+<li><tt class="docutils literal"><span class="pre">HITTING0</span></tt>: hitting (1) - Eric and the bully</li>
+<li><tt class="docutils literal"><span class="pre">HITTING1</span></tt>: hitting (2) - Eric and the bully</li>
+<li><tt class="docutils literal"><span class="pre">HOP1</span></tt>: frog hopping (phase 1)</li>
+<li><tt class="docutils literal"><span class="pre">HOP2</span></tt>: frog hopping (phase 2)</li>
+<li><tt class="docutils literal"><span class="pre">KISSING_ERIC</span></tt>: kissing Eric - the Heroine</li>
+<li><tt class="docutils literal"><span class="pre">KNOCKED_OUT</span></tt>: lying flat on back - kids</li>
+<li><tt class="docutils literal"><span class="pre">KNOCKED_OVER</span></tt>: sitting on floor holding head - adults</li>
+<li><tt class="docutils literal"><span class="pre">PLANT_GROWING</span></tt>: plant (half-grown)</li>
+<li><tt class="docutils literal"><span class="pre">PLANT_GROWN</span></tt>: plant (fully grown)</li>
+<li><tt class="docutils literal"><span class="pre">RIDING_BIKE0</span></tt>: riding bike (1) - Eric</li>
+<li><tt class="docutils literal"><span class="pre">RIDING_BIKE1</span></tt>: riding bike (2) - Eric</li>
+<li><tt class="docutils literal"><span class="pre">RUN</span></tt>: mouse</li>
+<li><tt class="docutils literal"><span class="pre">SHERRY_DROP</span></tt>: drop of sherry (knocked from a cup)</li>
+<li><tt class="docutils literal"><span class="pre">SIT</span></tt>: frog sitting</li>
+<li><tt class="docutils literal"><span class="pre">SITTING_ON_CHAIR</span></tt>: sitting on a chair - kids</li>
+<li><tt class="docutils literal"><span class="pre">SITTING_ON_FLOOR</span></tt>: sitting on the floor - kids</li>
+<li><tt class="docutils literal"><span class="pre">STINKBOMB</span></tt>: stinkbomb cloud</li>
+<li><tt class="docutils literal"><span class="pre">WALK0</span></tt>: standing/walking (1) - all characters</li>
+<li><tt class="docutils literal"><span class="pre">WALK1</span></tt>: midstride (1) - all characters</li>
+<li><tt class="docutils literal"><span class="pre">WALK2</span></tt>: standing/walking (2) - all characters</li>
+<li><tt class="docutils literal"><span class="pre">WALK3</span></tt>: midstride (2) - all characters</li>
+<li><tt class="docutils literal"><span class="pre">WATER_DROP</span></tt>: drop of water (knocked from a cup)</li>
+<li><tt class="docutils literal"><span class="pre">WATER0</span></tt>: water fired from a pistol (phase 1)</li>
+<li><tt class="docutils literal"><span class="pre">WATER1</span></tt>: water fired from a pistol (phase 2)</li>
+<li><tt class="docutils literal"><span class="pre">WATER2</span></tt>: water fired from a pistol (phase 3)</li>
+<li><tt class="docutils literal"><span class="pre">WATER3</span></tt>: water fired from a pistol (phase 4)</li>
+<li><tt class="docutils literal"><span class="pre">WATER4</span></tt>: water fired from a pistol (phase 5)</li>
+<li><tt class="docutils literal"><span class="pre">WATERPISTOL</span></tt>: shooting water pistol - Eric</li>
+</ul>
+</div>
+<div class="section" id="staircases">
+<span id="id38"></span><h2>[Staircases]<a class="headerlink" href="#staircases" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Staircases</span></tt> section contains details of the staircases in the skool.
+Each line has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>staircaseId[:alias], bottom, top[, force]
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">staircaseId</span></tt> is the staircase&#8217;s unique ID</li>
+<li><tt class="docutils literal"><span class="pre">alias</span></tt> is an optional alias for the staircase (also unique)</li>
+<li><tt class="docutils literal"><span class="pre">bottom</span></tt> and <tt class="docutils literal"><span class="pre">top</span></tt> are the coordinates of the bottom and top of the
+staircase (in <cite>(x, y)</cite> form)</li>
+<li><tt class="docutils literal"><span class="pre">force</span></tt>, if present, indicates that the staircase must be climbed or
+descended by Eric if he moves to a location between the bottom and the top</li>
+</ul>
+<p>In the stock Pyskool, <tt class="docutils literal"><span class="pre">force</span></tt> is used only for the staircase in Back to Skool
+that leads down to the assembly hall stage; it&#8217;s the only staircase that you
+must go up or down if you approach it.</p>
+<p>An example of a line from the <tt class="docutils literal"><span class="pre">Staircases</span></tt> section is:</p>
+<div class="highlight-none"><div class="highlight"><pre>UpToStudy:DownFromStudy, (91, 10), (84, 3)
+</pre></div>
+</div>
+<p>which defines the staircase that leads up to the head&#8217;s study in Back to Skool.
+This staircase&#8217;s unique ID is <tt class="docutils literal"><span class="pre">UpToStudy</span></tt>, but it can also be referred to as
+<tt class="docutils literal"><span class="pre">DownFromStudy</span></tt>. These unique IDs and aliases are used in the <a class="reference internal" href="#routes"><em>[Routes]</em></a>
+section.</p>
+</div>
+<div class="section" id="stinkbombs">
+<span id="id39"></span><h2>[Stinkbombs]<a class="headerlink" href="#stinkbombs" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">Stinkbombs</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>characterId, stinkbombId, spriteGroupId, commandListId, animationPhases, stinkRange
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is the unique ID of the character to give stinkbomb-dropping
+ability to</li>
+<li><tt class="docutils literal"><span class="pre">stinkbombId</span></tt> is the unique ID of the stinkbomb</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the stinkbomb when dropped</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
+that the stinkbomb will use when dropped</li>
+<li><tt class="docutils literal"><span class="pre">animationPhases</span></tt> is the ID of the sequence of
+<a class="reference internal" href="#animationphases"><em>animation phases</em></a> that the stinkbomb cloud will use</li>
+<li><tt class="docutils literal"><span class="pre">stinkRange</span></tt> - the maximum distance at which the stinkbomb can be smelt</li>
+</ul>
+<p>Each character whose unique ID appears in this section will be given the
+ability to drop a stinkbomb. In the stock Pyskool this will be Eric.</p>
+</div>
+<div class="section" id="timetable">
+<span id="id40"></span><h2>[Timetable]<a class="headerlink" href="#timetable" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Timetable</span></tt> section contains an ordered list of lesson IDs. Lessons
+happen starting with the first in the list, and proceed one by one to the end
+of the list. When the last lesson in the list is finished, the game loops back
+round to the first lesson in the list.</p>
+<p>An example of a lesson ID is <tt class="docutils literal"><span class="pre">Creak-BlueRoom-1</span></tt>, which refers to the first of
+a set of lessons in which Eric and the swot are taught by Mr Creak in the Blue
+Room. The lesson ID could be anything, but it&#8217;s helpful to make it descriptive.</p>
+<p>A lesson can be thought of as a set of entries from the personal timetables
+of the characters. These sets of entries can be found in the <a class="reference internal" href="#lessons"><em>[Lesson ...]</em></a>
+sections.</p>
+</div>
+<div class="section" id="timetableconfig">
+<span id="id41"></span><h2>[TimetableConfig]<a class="headerlink" href="#timetableconfig" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">TimetableConfig</span></tt> section contains configuration parameters in the
+format:</p>
+<div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
+</pre></div>
+</div>
+<p>Recognised parameters are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">AssemblyPrefix</span></tt> - what a <a class="reference internal" href="#lessons"><em>lesson ID</em></a> must start with to be
+regarded as Assembly</li>
+<li><tt class="docutils literal"><span class="pre">GetAlongTime</span></tt> - maximum time allowed to leave a classroom or the
+playground after the bell rings</li>
+<li><tt class="docutils literal"><span class="pre">LessonLength</span></tt> - the length of a lesson period in frames (see <tt class="docutils literal"><span class="pre">GameFps</span></tt>)</li>
+<li><tt class="docutils literal"><span class="pre">LessonStartTime</span></tt> - when a lesson starts (i.e. teacher will tell kids to
+sit down) in frames (see <tt class="docutils literal"><span class="pre">GameFps</span></tt>) from the start of the period</li>
+<li><tt class="docutils literal"><span class="pre">PlaytimePrefix</span></tt> - what a <a class="reference internal" href="#lessons"><em>lesson ID</em></a> must start with to be
+regarded as Playtime</li>
+<li><tt class="docutils literal"><span class="pre">SpecialPlaytimeProbability</span></tt> - the probability that a playtime in the main
+timetable will be replaced by a <a class="reference internal" href="#specialplaytimes"><em>special playtime</em></a></li>
+</ul>
+</div>
+<div class="section" id="timingconfig">
+<span id="id42"></span><h2>[TimingConfig]<a class="headerlink" href="#timingconfig" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">TimingConfig</span></tt> section contains configuration parameters in the format:</p>
+<div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
+</pre></div>
+</div>
+<p>Recognised parameters are:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">BendOverDelay</span></tt> - the delay (in frames) before Eric stands upright after
+bending over (as when releasing mice)</li>
+<li><tt class="docutils literal"><span class="pre">DethronedDelay</span></tt> - the delay before a character rises after being pushed
+out of a seat</li>
+<li><tt class="docutils literal"><span class="pre">EricWalkDelay</span></tt> - the number of frames between successive movements of
+Eric when he&#8217;s walking</li>
+<li><tt class="docutils literal"><span class="pre">JumpDelay</span></tt> - the delay (in frames) before Eric returns to the floor after
+jumping</li>
+<li><tt class="docutils literal"><span class="pre">KnockedOverDelay</span></tt> - the delay before a knocked over teacher rises</li>
+<li><tt class="docutils literal"><span class="pre">KnockoutDelay</span></tt> - the delay before a knocked out kid rises</li>
+<li><tt class="docutils literal"><span class="pre">GoFast</span></tt> - the number of frames between successive movements of a character
+who is moving quickly; this parameter is used when a character is running or
+speaking</li>
+<li><tt class="docutils literal"><span class="pre">GoFaster</span></tt> - the number of frames between successive movements of a
+character who is moving even quicker; this parameter is used when a character
+is throwing a punch or firing a catapult</li>
+<li><tt class="docutils literal"><span class="pre">GoSlow</span></tt> - the number of frames between consecutive movements of a
+character who is moving slowly; this parameter is used when a character is
+walking at a normal pace</li>
+<li><tt class="docutils literal"><span class="pre">ReprimandDelay</span></tt> - the delay before a knocked over teacher gives lines to
+someone for knocking him over</li>
+<li><tt class="docutils literal"><span class="pre">SpeedChangeDelayRange</span></tt> - the minimum and maximum values of the delay
+between a character&#8217;s walking speed changes (used by kids, who walk half the
+time and run the other half)</li>
+<li><tt class="docutils literal"><span class="pre">TellEricDelay</span></tt> - the length of time a character will wait for Eric to
+respond to a message before repeating it</li>
+</ul>
+</div>
+<div class="section" id="walls">
+<span id="id43"></span><h2>[Walls]<a class="headerlink" href="#walls" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Walls</span></tt> section contains details of the impenetrable barriers in the
+skool. Each line has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>wallId, x, bottomY, topY
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">wallId</span></tt> is the wall&#8217;s unique ID</li>
+<li><tt class="docutils literal"><span class="pre">x</span></tt> is the wall&#8217;s x-coordinate</li>
+<li><tt class="docutils literal"><span class="pre">bottomY</span></tt> and <tt class="docutils literal"><span class="pre">topY</span></tt> are the y-coordinates of the bottom and top of the
+wall</li>
+</ul>
+<p>For example:</p>
+<div class="highlight-none"><div class="highlight"><pre>FarLeftWall, 0, 20, 0
+</pre></div>
+</div>
+<p>defines the wall at the far left (x=0) of the skool, which stretches from the
+bottom floor (y=20) to the ceiling of the top floor (y=0).</p>
+</div>
+<div class="section" id="water">
+<span id="id44"></span><h2>[Water]<a class="headerlink" href="#water" title="Permalink to this headline">¶</a></h2>
+<p>Each line in the <tt class="docutils literal"><span class="pre">Water</span></tt> section has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>characterId, waterId, spriteGroupId, commandListId, animationPhases
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">characterId</span></tt> is the unique ID of the character to give water pistol-firing
+ability to</li>
+<li><tt class="docutils literal"><span class="pre">waterId</span></tt> is the unique ID for the water sprite</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the water fired from the pistol</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
+that the water will use when fired from the pistol</li>
+<li><tt class="docutils literal"><span class="pre">animationPhases</span></tt> is the ID of the sequence of
+<a class="reference internal" href="#animationphases"><em>animation phases</em></a> that the water will use after being
+fired from the water pistol</li>
+</ul>
+<p>Each character whose unique ID appears in this section will be given the
+ability to fire a water pistol. In the stock Pyskool this will be Eric alone;
+he is the only character with a water pistol-firing sprite.</p>
+</div>
+<div class="section" id="waterdrop">
+<span id="id45"></span><h2>[WaterDrop]<a class="headerlink" href="#waterdrop" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">WaterDrop</span></tt> section defines a drop of water (as knocked out of a cup by a
+catapult pellet). It contains a single line of the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>objectId, spriteGroupId, commandListId, hitXY
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">objectId</span></tt> is a unique ID for the drop of water</li>
+<li><tt class="docutils literal"><span class="pre">spriteGroupId</span></tt> is the ID of the <a class="reference internal" href="#spritegroup"><em>sprite group</em></a> to use
+for the drop of water</li>
+<li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
+that the drop of water will use when knocked out of a cup</li>
+<li><tt class="docutils literal"><span class="pre">hitXY</span></tt> is the coordinates of the water drop within its sprite (used for
+collision detection)</li>
+</ul>
+</div>
+<div class="section" id="windows">
+<span id="id46"></span><h2>[Windows]<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<p>The <tt class="docutils literal"><span class="pre">Windows</span></tt> section contains details of the windows in the game. Each line
+has the form:</p>
+<div class="highlight-none"><div class="highlight"><pre>windowId, x, bottomY, topY, initiallyShut, openerCoords, shutTopLeft, size, coords, descentPhases[, notABird]
+</pre></div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">windowId</span></tt> is the window&#8217;s unique ID</li>
+<li><tt class="docutils literal"><span class="pre">x</span></tt> is the window&#8217;s x-coordinate</li>
+<li><tt class="docutils literal"><span class="pre">bottomY</span></tt> and <tt class="docutils literal"><span class="pre">topY</span></tt> are the y-coordinates of the bottom and top of the
+window</li>
+<li><tt class="docutils literal"><span class="pre">initiallyShut</span></tt> is <tt class="docutils literal"><span class="pre">Y</span></tt> if the window should be shut when the game starts</li>
+<li><tt class="docutils literal"><span class="pre">openerCoords</span></tt> are the coordinates (in <cite>(x, y)</cite> form) at which a character
+should stand in order to open the window</li>
+<li><tt class="docutils literal"><span class="pre">shutTopLeft</span></tt> is the coordinates (in <cite>(x, y)</cite> form) of the top left of the
+image of the window when shut</li>
+<li><tt class="docutils literal"><span class="pre">size</span></tt> is the size of the image (in <cite>(width, height)</cite> form)</li>
+<li><tt class="docutils literal"><span class="pre">coords</span></tt> are the coordinates (in <cite>(x, y)</cite> form) of the window in the skool</li>
+<li><tt class="docutils literal"><span class="pre">descentPhases</span></tt> is the ID of the sequence of
+<a class="reference internal" href="#animationphases"><em>animation phases</em></a> to use for Eric if he jumps out of
+the window</li>
+<li><tt class="docutils literal"><span class="pre">notABird</span></tt> is the ID of the command list Mr Wacker should switch to when
+Eric hits the ground after falling out of the window; if defined, Eric will
+be paralysed when he hits the ground</li>
+</ul>
+<p>The window images can be found in <cite>mutables.png</cite> (or <cite>mutables_ink.png</cite> and
+<cite>mutables_paper.png</cite> if <tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> is 1 - see <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a>).
+<cite>mutables.png</cite> is arranged so that the image of a window when open is at
+<cite>(x + width, y)</cite>, where <cite>(x, y)</cite> are the coordinates of the image of the same
+window when shut. The open/shut images for any given window are the same size.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Game ini files</a><ul>
+<li><a class="reference internal" href="#animationphases">[AnimationPhases ...]</a></li>
+<li><a class="reference internal" href="#assemblymessages">[AssemblyMessages]</a></li>
+<li><a class="reference internal" href="#bike">[Bike]</a></li>
+<li><a class="reference internal" href="#blackboardmessages">[BlackboardMessages ...]</a></li>
+<li><a class="reference internal" href="#blackboards">[Blackboards]</a></li>
+<li><a class="reference internal" href="#catapultpellets">[CatapultPellets]</a></li>
+<li><a class="reference internal" href="#chairs">[Chairs]</a></li>
+<li><a class="reference internal" href="#characters">[Characters]</a></li>
+<li><a class="reference internal" href="#commandlist">[CommandList ...]</a></li>
+<li><a class="reference internal" href="#conker">[Conker]</a></li>
+<li><a class="reference internal" href="#cups">[Cups]</a></li>
+<li><a class="reference internal" href="#desklid">[DeskLid]</a></li>
+<li><a class="reference internal" href="#desks">[Desks]</a></li>
+<li><a class="reference internal" href="#doors">[Doors]</a></li>
+<li><a class="reference internal" href="#eric">[Eric]</a></li>
+<li><a class="reference internal" href="#font">[Font]</a></li>
+<li><a class="reference internal" href="#floors">[Floors]</a></li>
+<li><a class="reference internal" href="#frogs">[Frogs]</a></li>
+<li><a class="reference internal" href="#gameconfig">[GameConfig]</a></li>
+<li><a class="reference internal" href="#grassmessages">[GrassMessages]</a></li>
+<li><a class="reference internal" href="#images">[Images]</a></li>
+<li><a class="reference internal" href="#inventory">[Inventory]</a></li>
+<li><a class="reference internal" href="#lesson">[Lesson ...]</a></li>
+<li><a class="reference internal" href="#lessonconfig">[LessonConfig]</a></li>
+<li><a class="reference internal" href="#lessonmessages">[LessonMessages]</a></li>
+<li><a class="reference internal" href="#linesmessages">[LinesMessages]</a></li>
+<li><a class="reference internal" href="#messageconfig">[MessageConfig]</a></li>
+<li><a class="reference internal" href="#mice">[Mice]</a></li>
+<li><a class="reference internal" href="#mouselocations">[MouseLocations]</a></li>
+<li><a class="reference internal" href="#nogozones">[NoGoZones]</a></li>
+<li><a class="reference internal" href="#plants">[Plants]</a></li>
+<li><a class="reference internal" href="#questionsandanswers">[QuestionsAndAnswers ...]</a></li>
+<li><a class="reference internal" href="#randomlocations">[RandomLocations]</a></li>
+<li><a class="reference internal" href="#rooms">[Rooms]</a></li>
+<li><a class="reference internal" href="#routes">[Routes]</a></li>
+<li><a class="reference internal" href="#safe">[Safe]</a></li>
+<li><a class="reference internal" href="#screenconfig">[ScreenConfig]</a></li>
+<li><a class="reference internal" href="#sherrydrop">[SherryDrop]</a></li>
+<li><a class="reference internal" href="#shields">[Shields]</a></li>
+<li><a class="reference internal" href="#sitdownmessages">[SitDownMessages]</a></li>
+<li><a class="reference internal" href="#skoollocations">[SkoolLocations]</a></li>
+<li><a class="reference internal" href="#sounds">[Sounds]</a></li>
+<li><a class="reference internal" href="#specialplaytimes">[SpecialPlaytimes]</a></li>
+<li><a class="reference internal" href="#spritegroup">[SpriteGroup ...]</a></li>
+<li><a class="reference internal" href="#staircases">[Staircases]</a></li>
+<li><a class="reference internal" href="#stinkbombs">[Stinkbombs]</a></li>
+<li><a class="reference internal" href="#timetable">[Timetable]</a></li>
+<li><a class="reference internal" href="#timetableconfig">[TimetableConfig]</a></li>
+<li><a class="reference internal" href="#timingconfig">[TimingConfig]</a></li>
+<li><a class="reference internal" href="#walls">[Walls]</a></li>
+<li><a class="reference internal" href="#water">[Water]</a></li>
+<li><a class="reference internal" href="#waterdrop">[WaterDrop]</a></li>
+<li><a class="reference internal" href="#windows">[Windows]</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mainini.html"
+                        title="previous chapter">Main ini file</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="commands.html"
+                        title="next chapter">Commands</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="commands.html" title="Commands"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mainini.html" title="Main ini file"
+             >previous</a> |</li>
+        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Richard Dymond.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
