@@ -21,15 +21,13 @@ mkdir -p $DOCSDIR
 DOCSRC=${ABSDIR}/docs-src
 mkdir -p ${DOCSRC}/build
 
-rsync -aR setup.py COPYING icon.png images.ini pyskool.ini sounds \
+$UTILS/get-images.py . > /dev/null
+rsync -aR setup.py COPYING icon.png images.ini pyskool.ini images sounds \
   pyskool/*.py man/{pyskool.py.rst,create-manpages} $ABSDIR
 for p in skool_daze{,_take_too} back_to_skool{,_daze} ezad_looks; do
   cp -p pyskool.py $ABSDIR/${p}.py
 done
 
-# Images
-$UTILS/get-images.py $ABSDIR > /dev/null
-rm $ABSDIR/*.tzx
 cat > $ABSDIR/images/originalx1/images.txt <<EOF
 The images in these subdirectories were generated from memory snapshots of the
 original Skool Daze and Back to Skool games. The copyright in the original games
