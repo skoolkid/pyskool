@@ -1,5 +1,7 @@
 *.pyc
 *.py.1
+.emacs.desktop
+.emacs.desktop.lock
 back_to_skool.py
 back_to_skool.tzx
 back_to_skool_daze.py
@@ -11,3 +13,4 @@ images
 skool_daze.py
 skool_daze.tzx
 skool_daze_take_too.py
+untracked
