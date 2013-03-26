@@ -10,6 +10,7 @@ usage:
 	@echo "  release    build a Pyskool release tarball and zip archive"
 	@echo "  deb        build a Pyskool Debian package"
 	@echo "  deb-clean  clean up after 'make deb'"
+	@echo "  rpm        build a Pyskool RPM package"
 
 .PHONY: scripts
 scripts:
@@ -51,3 +52,13 @@ deb: clean doc
 .PHONY: deb-clean
 deb-clean:
 	rm -rf ../pyskool_*.build ../pyskool_*.changes build docs debian/pyskool debian/files debian/pyskool.debhelper.log debian/pyskool.postinst.debhelper debian/pyskool.prerm.debhelper debian/pyskool.substvars man/*.6
+
+.PHONY: rpm
+rpm:
+	rm -f dist/pyskool-*.tar.xz
+	utils/mkpstarball
+	cp -p dist/pyskool-*.tar.xz ~/rpmbuild/SOURCES
+	rm -f ~/rpmbuild/RPMS/noarch/pyskool-*.rpm
+	cp -p rpm/pyskool.spec ~/rpmbuild/SPECS
+	rpmbuild -bb ~/rpmbuild/SPECS/pyskool.spec
+	mv ~/rpmbuild/RPMS/noarch/pyskool-*.rpm dist
