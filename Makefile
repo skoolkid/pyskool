@@ -56,7 +56,7 @@ deb-clean:
 .PHONY: rpm
 rpm:
 	rm -f dist/pyskool-*.tar.xz
-	utils/mkpstarball
+	utils/mkpstarball -t
 	cp -p dist/pyskool-*.tar.xz ~/rpmbuild/SOURCES
 	rm -f ~/rpmbuild/RPMS/noarch/pyskool-*.rpm
 	cp -p rpm/pyskool.spec ~/rpmbuild/SPECS

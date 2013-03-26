@@ -1,4 +1,23 @@
 #!/usr/bin/env bash
+
+usage() {
+  cat <<EOF
+Usage: $(basename $0) [options]
+
+  Create a release tarball and zip archive of Pyskool.
+
+Options:
+  -h  Show this help
+  -q  Be quiet
+  -t  Write only the release tarball
+EOF
+  exit 1
+}
+
+info() {
+  [ $VERBOSE -eq 1 ] && echo $*
+}
+
 if [ -z "$PYSKOOL_HOME" ]; then
   echo "Error: PYSKOOL_HOME not defined."
   exit 1
@@ -7,6 +26,17 @@ if [ ! -d "$PYSKOOL_HOME" ]; then
   echo "Error: directory not found: $PYSKOOL_HOME"
   exit 1
 fi
+
+VERBOSE=1
+WRITE_ZIP=1
+
+while getopts ":hqt" opt; do
+  case $opt in
+    h) usage ;;
+    q) VERBOSE=0 ;;
+    t) WRITE_ZIP=0 ;;
+  esac
+done
 
 UTILS=$PYSKOOL_HOME/utils
 cd $PYSKOOL_HOME
@@ -54,8 +84,10 @@ rm create-manpages pyskool.py.rst
 
 cd $DISTDIR
 
-echo Creating ${DISTDIR}/${PKGNAME}.tar.xz
+info Creating ${DISTDIR}/${PKGNAME}.tar.xz
 tar acf ${PKGNAME}.tar.xz $PKGNAME
 
-echo Creating ${DISTDIR}/${PKGNAME}.zip
-zip -9qr ${PKGNAME}.zip $PKGNAME
+if [ $WRITE_ZIP -eq 1 ]; then
+  info Creating ${DISTDIR}/${PKGNAME}.zip
+  zip -9qr ${PKGNAME}.zip $PKGNAME
+fi
