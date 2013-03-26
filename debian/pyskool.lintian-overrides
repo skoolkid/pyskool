@@ -1,0 +1,10 @@
+pyskool binary: html-changelog-without-text-version
+pyskool binary: changelog-file-not-compressed changelog.html
+pyskool binary: new-package-should-close-itp-bug
+pyskool binary: script-with-language-extension usr/games/back_to_skool.py
+pyskool binary: script-with-language-extension usr/games/back_to_skool_daze.py
+pyskool binary: script-with-language-extension usr/games/ezad_looks.py
+pyskool binary: script-with-language-extension usr/games/skool_daze.py
+pyskool binary: script-with-language-extension usr/games/skool_daze_take_too.py
+pyskool binary: embedded-javascript-library usr/share/doc/pyskool/_static/jquery.js
+pyskool binary: embedded-javascript-library usr/share/doc/pyskool/_static/underscore.js

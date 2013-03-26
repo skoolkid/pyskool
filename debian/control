@@ -1,0 +1,17 @@
+Source: pyskool
+Maintainer: Richard Dymond <rjdymond@gmail.com>
+Section: games
+Priority: optional
+Build-Depends: python (>= 2.6.6-3), debhelper (>= 7.4.3)
+Standards-Version: 3.9.1
+
+Package: pyskool
+Architecture: all
+Depends: python2.7 | python2.6, python (>= 2.6), python (<< 2.8), python-pygame (>= 1.7)
+Description: Remake of Skool Daze and Back to Skool in Python and Pygame
+ Pyskool is a re-implementation of the classic ZX Spectrum games, Skool Daze
+ and Back to Skool, in Python and Pygame. Pyskool aims to make the games easy
+ to customise by editing plain-text configuration files or - for more advanced
+ customisation - writing some Python code. In addition to Skool Daze and Back
+ to Skool, Pyskool includes three new 'mods': Skool Daze Take Too, Ezad Looks,
+ and Back to Skool Daze.

@@ -1,13 +1,15 @@
 .PHONY: usage
 usage:
 	@echo "Supported targets:"
-	@echo "  usage    show this help"
-	@echo "  scripts  create the game launcher scripts"
-	@echo "  images   create the stock Pyskool images in ~/.pyskool"
-	@echo "  ini      create the stock Pyskool game ini files in ~/.pyskool"
-	@echo "  doc      build the documentation"
-	@echo "  clean    clean the documentation"
-	@echo "  release  build a Pyskool release tarball and zip archive"
+	@echo "  usage      show this help"
+	@echo "  scripts    create the game launcher scripts"
+	@echo "  images     create the stock Pyskool images in ~/.pyskool"
+	@echo "  ini        create the stock Pyskool game ini files in ~/.pyskool"
+	@echo "  doc        build the documentation"
+	@echo "  clean      clean the documentation"
+	@echo "  release    build a Pyskool release tarball and zip archive"
+	@echo "  deb        build a Pyskool Debian package"
+	@echo "  deb-clean  clean up after 'make deb'"
 
 .PHONY: scripts
 scripts:
@@ -34,3 +36,18 @@ clean:
 .PHONY: release
 release:
 	utils/mkpstarball
+
+.PHONY: deb
+deb: clean doc
+	rsync -a --exclude=.buildinfo --exclude=objects.inv sphinx/build/html/ docs
+	utils/get-images.py . > /dev/null
+	rm -rf ini
+	utils/create-ini.py -q .
+	man/create-manpages man/pyskool.py.rst man
+	debuild -b -us -uc
+	mkdir -p dist
+	mv ../pyskool_*.deb dist
+
+.PHONY: deb-clean
+deb-clean:
+	rm -rf ../pyskool_*.build ../pyskool_*.changes build docs debian/pyskool debian/files debian/pyskool.debhelper.log debian/pyskool.postinst.debhelper debian/pyskool.prerm.debhelper debian/pyskool.substvars man/*.6

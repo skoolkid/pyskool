@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@ --with python2
+
+override_dh_auto_install:
+	python setup.py install --root=debian/pyskool --install-layout=deb --install-scripts=/usr/games
+
+override_dh_auto_build:
+
+override_dh_compress:
+	dh_compress --exclude=changelog.html --exclude=.js
+
+override_dh_installchangelogs:
+	dh_installchangelogs -Xchanges.txt

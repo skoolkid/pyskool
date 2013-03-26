@@ -1,0 +1,11 @@
+pyskool (1.0.1-1) unstable; urgency=low
+
+  * Updated to 1.0.1.
+
+ -- Richard Dymond <rjdymond@gmail.com>  Fri, 07 Dec 2012 10:15:29 -0400
+
+pyskool (1.0-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Richard Dymond <rjdymond@gmail.com>  Mon, 03 Dec 2012 09:30:00 -0400
