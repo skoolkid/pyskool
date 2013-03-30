@@ -6,14 +6,7 @@ back_to_skool.py
 back_to_skool.tzx
 back_to_skool_daze.py
 build
-debian/files
-debian/pyskool.debhelper.log
-debian/pyskool.postinst.debhelper
-debian/pyskool.prerm.debhelper
-debian/pyskool.substvars
-debian/pyskool
 dist
-docs
 ezad_looks.py
 icon.png
 images

@@ -9,7 +9,6 @@ usage:
 	@echo "  clean      clean the documentation"
 	@echo "  release    build a Pyskool release tarball and zip archive"
 	@echo "  deb        build a Pyskool Debian package"
-	@echo "  deb-clean  clean up after 'make deb'"
 	@echo "  rpm        build a Pyskool RPM package"
 
 .PHONY: scripts
@@ -39,26 +38,9 @@ release:
 	utils/mkpstarball
 
 .PHONY: deb
-deb: clean doc
-	rsync -a --exclude=.buildinfo --exclude=objects.inv sphinx/build/html/ docs
-	utils/get-images.py . > /dev/null
-	rm -rf ini
-	utils/create-ini.py -q .
-	man/create-manpages man/pyskool.py.rst man
-	debuild -b -us -uc
-	mkdir -p dist
-	mv ../pyskool_*.deb dist
-
-.PHONY: deb-clean
-deb-clean:
-	rm -rf ../pyskool_*.build ../pyskool_*.changes build docs debian/pyskool debian/files debian/pyskool.debhelper.log debian/pyskool.postinst.debhelper debian/pyskool.prerm.debhelper debian/pyskool.substvars man/*.6
+deb:
+	utils/mkpspkg deb
 
 .PHONY: rpm
 rpm:
-	rm -f dist/pyskool-*.tar.xz
-	utils/mkpstarball -t
-	cp -p dist/pyskool-*.tar.xz ~/rpmbuild/SOURCES
-	rm -f ~/rpmbuild/RPMS/noarch/pyskool-*.rpm
-	cp -p rpm/pyskool.spec ~/rpmbuild/SPECS
-	rpmbuild -bb ~/rpmbuild/SPECS/pyskool.spec
-	mv ~/rpmbuild/RPMS/noarch/pyskool-*.rpm dist
+	utils/mkpspkg rpm
