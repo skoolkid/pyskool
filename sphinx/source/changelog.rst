@@ -3,6 +3,7 @@ Changelog
 
 1.0.2b1
 -------
+* Added a second source for the Skool Daze TZX file to `images.ini`
 
 1.0.1 (2012-12-07)
 ------------------
