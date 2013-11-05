@@ -24,26 +24,25 @@ fi
 
 cd $PYSKOOL_HOME
 VERSION=$(./pyskool.py --version | cut -f1 -d' ')
-PYSKOOL_DIR=pyskool-$VERSION
-PYSKOOL_TAR=$PYSKOOL_DIR.tar.xz
+PYSKOOL_TAR=pyskool-pkg-$VERSION.tar.xz
 if [ -f "dist/$PYSKOOL_TAR" ]; then
   echo "Using existing $PYSKOOL_TAR"
 else
   echo "Building $PYSKOOL_TAR"
-  utils/mkpstarball -q -t
+  utils/mkpstarball -q -t -p
 fi
 
 if [ "$PKGTYPE" = "deb" ]; then
   cd dist
   tar xf $PYSKOOL_TAR
-  cd $PYSKOOL_DIR
+  cd pyskool-$VERSION
   cp -a $PYSKOOL_HOME/debian .
   debuild -b -us -uc
   rm -rf ../pyskool_$VERSION*.build ../pyskool_$VERSION*.changes
   cd $PYSKOOL_HOME
   echo "Created $(ls $PYSKOOL_HOME/dist/pyskool_$VERSION-*.deb)"
 elif [ "$PKGTYPE" = "rpm" ]; then
-  cp -p dist/$PYSKOOL_TAR ~/rpmbuild/SOURCES
+  cp -p dist/$PYSKOOL_TAR ~/rpmbuild/SOURCES/pyskool-$VERSION.tar.xz
   rm -f ~/rpmbuild/RPMS/noarch/pyskool-$VERSION-*.rpm
   rpmbuild -bb rpm/pyskool.spec
   mv ~/rpmbuild/RPMS/noarch/pyskool-$VERSION-*.rpm dist

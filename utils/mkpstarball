@@ -9,6 +9,7 @@ Usage: $(basename $0) [options]
 
 Options:
   -h  Show this help
+  -p  Use setup-pkg.py (for building a DEB or RPM package)
   -q  Be quiet
   -t  Write only the release tarball
 EOF
@@ -30,24 +31,28 @@ if [ ! -d "$PYSKOOL_HOME" ]; then
   exit 1
 fi
 
+cd $PYSKOOL_HOME
+VERSION=$(./pyskool.py --version | cut -f1 -d' ')
+PKGNAME=pyskool-$VERSION
+PKGDIR=$PKGNAME
+
 VERBOSE=1
 WRITE_ZIP=1
+SETUP=setup.py
 
-while getopts ":hqt" opt; do
+while getopts ":hpqt" opt; do
   case $opt in
     h) usage ;;
+    p) SETUP=setup-pkg.py; PKGNAME=pyskool-pkg-$VERSION ;;
     q) VERBOSE=0 ;;
     t) WRITE_ZIP=0 ;;
   esac
 done
 
 UTILS=$PYSKOOL_HOME/utils
-cd $PYSKOOL_HOME
-VERSION=$(./pyskool.py --version | cut -f1 -d' ')
 DISTDIR=${PYSKOOL_HOME}/dist
 mkdir -p $DISTDIR
-PKGNAME=pyskool-$VERSION
-ABSDIR=${DISTDIR}/$PKGNAME
+ABSDIR=${DISTDIR}/$PKGDIR
 rm -rf ${ABSDIR}
 DOCSDIR=${ABSDIR}/docs
 mkdir -p $DOCSDIR
@@ -55,11 +60,12 @@ DOCSRC=${ABSDIR}/docs-src
 mkdir -p ${DOCSRC}/build
 
 $UTILS/get-images.py . > /dev/null
-rsync -aR setup.py COPYING MANIFEST.in icon.png images.ini pyskool.ini images \
-  sounds pyskool/*.py man/{pyskool.py.rst,create-manpages} $ABSDIR
+rsync -aR COPYING MANIFEST.in icon.png images.ini pyskool.ini images sounds \
+  pyskool/*.py man/{pyskool.py.rst,create-manpages} $ABSDIR
 for p in skool_daze{,_take_too} back_to_skool{,_daze} ezad_looks; do
   cp -p pyskool.py $ABSDIR/${p}.py
 done
+cp -a $SETUP $ABSDIR/setup.py
 
 cat > $ABSDIR/images/originalx1/images.txt <<EOF
 The images in these subdirectories were generated from memory snapshots of the
@@ -88,9 +94,9 @@ rm create-manpages pyskool.py.rst
 cd $DISTDIR
 
 info Creating ${DISTDIR}/${PKGNAME}.tar.xz
-tar acf ${PKGNAME}.tar.xz $PKGNAME
+tar acf ${PKGNAME}.tar.xz $PKGDIR
 
 if [ $WRITE_ZIP -eq 1 ]; then
   info Creating ${DISTDIR}/${PKGNAME}.zip
-  zip -9qr ${PKGNAME}.zip $PKGNAME
+  zip -9qr ${PKGNAME}.zip $PKGDIR
 fi
