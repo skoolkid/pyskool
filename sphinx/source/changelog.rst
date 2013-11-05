@@ -1,5 +1,9 @@
 Changelog
 =========
+
+1.0.2b1
+-------
+
 1.0.1 (2012-12-07)
 ------------------
 * Moved the man pages to section 6
