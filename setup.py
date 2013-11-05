@@ -43,5 +43,15 @@ setup(
         'ezad_looks.py',
         'skool_daze.py',
         'skool_daze_take_too.py'
+    ],
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Games/Entertainment',
+        'Topic :: Games/Entertainment :: Arcade',
+        'Topic :: Games/Entertainment :: Side-Scrolling/Arcade Games'
     ]
 )
