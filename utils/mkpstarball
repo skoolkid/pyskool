@@ -55,8 +55,8 @@ DOCSRC=${ABSDIR}/docs-src
 mkdir -p ${DOCSRC}/build
 
 $UTILS/get-images.py . > /dev/null
-rsync -aR setup.py COPYING icon.png images.ini pyskool.ini images sounds \
-  pyskool/*.py man/{pyskool.py.rst,create-manpages} $ABSDIR
+rsync -aR setup.py COPYING MANIFEST.in icon.png images.ini pyskool.ini images \
+  sounds pyskool/*.py man/{pyskool.py.rst,create-manpages} $ABSDIR
 for p in skool_daze{,_take_too} back_to_skool{,_daze} ezad_looks; do
   cp -p pyskool.py $ABSDIR/${p}.py
 done

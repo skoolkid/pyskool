@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Copyright 2008-2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -22,7 +22,7 @@ import os.path
 from optparse import OptionParser
 
 from pyskool.game import Game
-from pyskool import version, images_subdir, sounds_subdir
+from pyskool import version, package_dir, images_subdir, sounds_subdir
 from pyskool.image import get_images, SKOOL_DAZE, BACK_TO_SKOOL
 from pyskool.sdini import SDIniMaker
 from pyskool.btsini import BTSIniMaker
@@ -78,7 +78,11 @@ options, args = parser.parse_args()
 # Set the search path for 'pyskool.ini', the 'images' directory, the 'sounds'
 # directory, and the 'ini' directory
 cwd = os.getcwd()
-SEARCH_DIRS = [cwd, os.path.join(os.sep, 'usr', 'share', 'pyskool')]
+SEARCH_DIRS = [
+    cwd,
+    os.path.join(os.sep, 'usr', 'share', 'pyskool'),
+    os.path.join(package_dir, 'data')
+]
 scripts_dir = os.path.abspath(os.path.dirname(__file__))
 if scripts_dir not in SEARCH_DIRS:
     SEARCH_DIRS.insert(1, scripts_dir)
