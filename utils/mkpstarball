@@ -56,8 +56,6 @@ ABSDIR=${DISTDIR}/$PKGDIR
 rm -rf ${ABSDIR}
 DOCSDIR=${ABSDIR}/docs
 mkdir -p $DOCSDIR
-DOCSRC=${ABSDIR}/docs-src
-mkdir -p ${DOCSRC}/build
 
 $UTILS/get-images.py . > /dev/null
 rsync -aR COPYING MANIFEST.in icon.png images.ini pyskool.ini images sounds \
@@ -84,7 +82,6 @@ if ! make html &> /dev/null; then
   exit 1
 fi
 rsync -a --exclude=.buildinfo --exclude=objects.inv build/html/ $DOCSDIR
-rsync -a Makefile make.bat source $DOCSRC
 
 # Man pages
 cd $ABSDIR/man
