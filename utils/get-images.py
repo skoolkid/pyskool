@@ -15,7 +15,6 @@ sys.path.insert(0, PYSKOOL_HOME)
 from pyskool.image import get_images, SKOOL_DAZE, BACK_TO_SKOOL
 
 def parse_args(args):
-    odir = os.path.expanduser(os.path.join('~', '.pyskool'))
     p_args = []
     i = 0
     while i < len(args):
