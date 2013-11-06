@@ -32,7 +32,7 @@ rm -rf $RPM_BUILD_ROOT
 # --prefix=... is needed on openSUSE, but not Fedora
 %{__python} setup.py install -O1 --prefix=%{_prefix} --skip-build --root $RPM_BUILD_ROOT
 install -d %{buildroot}%{_mandir}/man6
-cp -p man/* %{buildroot}%{_mandir}/man6
+cp -p man/man6/*.6 %{buildroot}%{_mandir}/man6
 install -d %{buildroot}%{_datadir}/%{name}
 cp -a images.ini pyskool.ini icon.png ini images sounds %{buildroot}%{_datadir}/%{name}
 

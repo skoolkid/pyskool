@@ -4,8 +4,4 @@ pyskool.ini /usr/share/pyskool
 images /usr/share/pyskool
 ini /usr/share/pyskool
 sounds /usr/share/pyskool
-man/back_to_skool.py.6 /usr/share/man/man6
-man/back_to_skool_daze.py.6 /usr/share/man/man6
-man/ezad_looks.py.6 /usr/share/man/man6
-man/skool_daze.py.6 /usr/share/man/man6
-man/skool_daze_take_too.py.6 /usr/share/man/man6
+man/man6/*.6 /usr/share/man/man6

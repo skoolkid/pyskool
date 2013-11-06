@@ -85,7 +85,7 @@ rsync -a --exclude=.buildinfo --exclude=objects.inv build/html/ $DOCSDIR
 
 # Man pages
 cd $ABSDIR/man
-./create-manpages
+./create-manpages man6
 rm create-manpages pyskool.py.rst
 
 cd $DISTDIR

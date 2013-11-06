@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
-TEMPLATE=${1:-pyskool.py.rst}
-ODIR=${2:-.}
+if [ -z "$1" ]; then
+  ODIR=.
+else
+  ODIR=$1
+  mkdir -p $ODIR
+fi
 
 write_man() {
   gamedir=$1
@@ -9,7 +13,7 @@ write_man() {
   seealso=$3
   script=${gamedir}.py
 
-  sed ${TEMPLATE} -e "s/%{script}/${script}/g" -e "s/%{game}/${game}/g" -e "s/%{seealso}/${seealso}/g" -e "s/%{gamedir}/${gamedir}/g" | rst2man > ${ODIR}/${script}.6
+  sed pyskool.py.rst -e "s/%{script}/${script}/g" -e "s/%{game}/${game}/g" -e "s/%{seealso}/${seealso}/g" -e "s/%{gamedir}/${gamedir}/g" | rst2man > ${ODIR}/${script}.6
 }
 
 write_man skool_daze "Skool Daze" "back_to_skool.py(6), skool_daze_take_too.py(6), ezad_looks.py(6), back_to_skool_daze.py(6)."
