@@ -13,7 +13,8 @@ PNG files are:
 * `logo.png` - the, er, logo
 * `message_box.png` - the message box background
 * `mutables_ink.png` - doors, windows, shields, safe etc. (ink colours only)
-* `mutables_paper.png` - doors, windows, shields, safe etc. (ink colours only)
+* `mutables_paper.png` - doors, windows, shields, safe etc. (paper colours
+  only)
 * `mutables.png` - doors, windows, shields, safe etc. (full colour)
 * `scorebox.png` - the score/lines/hi-score box background
 * `skool_ink.png` - the skool (ink colours only)
@@ -24,10 +25,8 @@ PNG files are:
 These images were extracted straight from memory snapshots of Skool Daze and
 Back to Skool, and are therefore identical to the graphics in the original
 games (hence the `original` prefix in the directory name), except for minor
-glitches that have been fixed. (See
-`Skool Daze graphic glitches <http://pyskool.ca/disassemblies/skool_daze/graphics/glitches.html>`_
-and
-`Back to Skool graphic glitches <http://pyskool.ca/disassemblies/back_to_skool/graphics/glitches.html>`_.)
+glitches that have been fixed. (See `Skool Daze graphic glitches`_ and
+`Back to Skool graphic glitches`_.)
 
 The `*_ink.png` and `*_paper.png` files are used in ``GraphicsMode`` 1 (see
 :ref:`gameConfig`) in order to emulate the Spectrum display, which was
@@ -61,3 +60,6 @@ and the following parameter values in the :ref:`screenConfig` section::
 
   Scale, 2
   GraphicsMode, 0
+
+.. _Skool Daze graphic glitches: http://pyskool.ca/disassemblies/skool_daze/graphics/glitches.html
+.. _Back to Skool graphic glitches: http://pyskool.ca/disassemblies/back_to_skool/graphics/glitches.html
