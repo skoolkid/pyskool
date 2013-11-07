@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2012, 2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -236,7 +236,7 @@ class Game:
 
     def _save_game(self):
         """Save the game."""
-        fname = 'pyskool-%s-%s.sav' % (self.version, time.strftime('%Y%m%d-%H%M%S'))
+        fname = '%s.sav' % time.strftime('%Y%m%d-%H%M%S')
         self._save(fname)
         return fname
 
