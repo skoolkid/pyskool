@@ -103,15 +103,15 @@ order for Pyskool to find it:
 `C:\\Documents and Settings\\username`.
 
 `$PACKAGE_DIR` refers to the directory in which the `pyskool` package is
-installed.
+installed (as shown by the ``--package-dir`` command line option).
 
 If Pyskool doesn't start, run the game launcher script from the command line
 and read the diagnostic messages that are printed to the console for clues
 about what's going wrong.
 
 When Pyskool is running, it will dump screenshots to, save games to, and load
-games from either `$HOME/.pyskool` (if it exists), or the current working
-directory.
+games from either `$HOME/.pyskool` (if it exists or can be created), or the
+current working directory.
 
 Command line options
 --------------------
@@ -122,11 +122,13 @@ a few command line options:
 * ``-h`` or ``--help`` - show a summary of the available options
 * ``-c`` or ``--cheat`` - enable cheat keys; overrides the `Cheat` setting in
   the :ref:`gameConfig` section
-* ``--create-ini`` - create the ini files required by the game and exit
+* ``--create-ini`` - create the ini files required by the game in
+  `$HOME/.pyskool/ini/<game_name>` and exit
 * ``--get-images`` - get any missing images required by the game and exit
 * ``-i INIDIR`` or ``--inidir=INIDIR`` - use ini files from a specified
   directory
 * ``-l SAVEFILE`` or ``--load=SAVEFILE`` - load a previously saved game
+* ``--package-dir`` - show the path to the pyskool package directory and exit
 * ``-q`` or ``--quick-start`` - start the game quickly by skipping the
   scroll-skool-into-view and theme tune sequence; overrides the `QuickStart`
   setting in the :ref:`gameConfig` section
@@ -134,9 +136,6 @@ a few command line options:
   from the specified directory
 * ``-s SCALE`` or ``--scale=SCALE`` - set the scale of the display; overrides
   the `Scale` setting in the :ref:`screenConfig` section
-
-The ``--create-ini`` option writes the stock ini files required by the game to
-`$HOME/.pyskool/ini/<game_name>`.
 
 The ``--get-images`` option first looks for Skool Daze and Back to Skool tape
 or snapshot files by the following names in `$HOME/.pyskool`:

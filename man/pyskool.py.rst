@@ -45,6 +45,9 @@ OPTIONS
 -l, --load `SAVEFILE`
   Load a saved game from the specified file.
 
+--package-dir
+  Show the path to the pyskool package directory and exit.
+
 -q, --quick-start
   Start the game quickly by skipping the scroll-skool-into-view and theme tune
   sequence.
@@ -76,7 +79,7 @@ order for Pyskool to find it:
 | - ``$PACKAGE_DIR/data``
 
 where ``$PACKAGE_DIR`` is the directory in which the pyskool package is
-installed.
+installed (as shown by ``%{script} --package-dir``).
 
 IMAGES
 ======

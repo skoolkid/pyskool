@@ -54,9 +54,8 @@ names['back_to_skool_daze.py'] = 'Back to Skool Daze'
 prog = os.path.basename(sys.argv[0].lower())
 name = names.get(prog, 'Unknown')
 default_ini_dir = os.path.join('ini', prog[:-3])
-usage = "%prog [options]"
 synopsis = "Start Pyskool in %s mode." % name
-parser = OptionParser(usage=usage, version=version, description=synopsis)
+parser = OptionParser(version=version, description=synopsis)
 parser.add_option("-c", "--cheat", dest="cheat", action="store_true",
     help="enable cheat keys")
 parser.add_option("--create-ini", dest="create_ini", action="store_true",
@@ -67,6 +66,8 @@ parser.add_option("-i", "--inidir", dest="inidir",
     help="read ini files from this directory instead of %s" % default_ini_dir)
 parser.add_option("-l", "--load", dest="savefile",
     help="load a saved game from the specified file")
+parser.add_option("--package-dir", dest="package_dir", action="store_true",
+    help="show path to pyskool package directory and exit")
 parser.add_option("-q", "--quick-start", dest="quick_start", action="store_true",
     help="start the game quickly")
 parser.add_option("-r", "--load-last", dest="savedir",
@@ -98,6 +99,11 @@ if not os.path.isdir(user_dir):
         user_dir = cwd
 if user_dir not in SEARCH_DIRS:
     SEARCH_DIRS.insert(1, user_dir)
+
+# Show package directory if requested
+if options.package_dir:
+    info(package_dir)
+    sys.exit(0)
 
 # Get images if requested
 if options.get_images:
