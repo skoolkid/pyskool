@@ -6,8 +6,10 @@
 run Pyskool in %{game} mode
 ---------------------------------------
 
-:Author: rjdymond@gmail.com
-:Date: 2012-12-07
+:Author: Richard Dymond
+:Copyright: 2013, Richard Dymond
+:Version: 1.0.2
+:Date: 2013-11-07
 :Manual section: 6
 
 SYNOPSIS
@@ -23,14 +25,14 @@ OPTIONS
 =======
 --version  show Pyskool's version number and exit
 -h, --help  show this help message and exit
--s SCALE, --scale=SCALE  scale graphics by this factor (1=original Speccy size)
--i INIDIR, --inidir=INIDIR  read ini files from this directory instead of ini/%{gamedir}
--q, --quick-start  start the game quickly
 -c, --cheat  enable cheat keys
--l SAVEFILE, --load=SAVEFILE  load a saved game from the specified file
--r SAVEDIR, --load-last=SAVEDIR  load the most recently saved game in the specified directory
 --create-ini  create the ini files required by the game and exit
 --get-images  get any missing images required by the game and exit
+-i INIDIR, --inidir=INIDIR  read ini files from this directory instead of ini/%{gamedir}
+-l SAVEFILE, --load=SAVEFILE  load a saved game from the specified file
+-q, --quick-start  start the game quickly
+-r SAVEDIR, --load-last=SAVEDIR  load the most recently saved game in the specified directory
+-s SCALE, --scale=SCALE  scale graphics by this factor (1=original Speccy size)
 
 FILES
 =====

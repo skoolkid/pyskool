@@ -116,20 +116,20 @@ a few command line options:
 
 * ``--version`` - show the version number of Pyskool and exit
 * ``-h`` or ``--help`` - show a summary of the available options
-* ``-s SCALE`` or ``--scale=SCALE`` - set the scale of the display; overrides
-  the `Scale` setting in the :ref:`screenConfig` section
+* ``-c`` or ``--cheat`` - enable cheat keys; overrides the `Cheat` setting in
+  the :ref:`gameConfig` section
+* ``--create-ini`` - create the ini files required by the game and exit
+* ``--get-images`` - get any missing images required by the game and exit
 * ``-i INIDIR`` or ``--inidir=INIDIR`` - use ini files from a specified
   directory
+* ``-l SAVEFILE`` or ``--load=SAVEFILE`` - load a previously saved game
 * ``-q`` or ``--quick-start`` - start the game quickly by skipping the
   scroll-skool-into-view and theme tune sequence; overrides the `QuickStart`
   setting in the :ref:`gameConfig` section
-* ``-c`` or ``--cheat`` - enable cheat keys; overrides the `Cheat` setting in
-  the :ref:`gameConfig` section
-* ``-l SAVEFILE`` or ``--load=SAVEFILE`` - load a previously saved game
 * ``-r SAVEDIR`` or ``--load-last=SAVEDIR`` - load the most recently saved game
   from the specified directory
-* ``--create-ini`` - create the ini files required by the game and exit
-* ``--get-images`` - get any missing images required by the game and exit
+* ``-s SCALE`` or ``--scale=SCALE`` - set the scale of the display; overrides
+  the `Scale` setting in the :ref:`screenConfig` section
 
 The ``--create-ini`` option writes the stock ini files required by the game to
 `$HOME/.pyskool/ini/<game_name>`.

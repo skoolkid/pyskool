@@ -57,22 +57,22 @@ default_ini_dir = os.path.join('ini', prog[:-3])
 usage = "%prog [options]"
 synopsis = "Start Pyskool in %s mode." % name
 parser = OptionParser(usage=usage, version=version, description=synopsis)
-parser.add_option("-s", "--scale", dest="scale", type="int",
-    help="scale graphics by this factor (1=original Speccy size)")
-parser.add_option("-i", "--inidir", dest="inidir",
-    help="read ini files from this directory instead of %s" % default_ini_dir)
-parser.add_option("-q", "--quick-start", dest="quick_start", action="store_true",
-    help="start the game quickly")
 parser.add_option("-c", "--cheat", dest="cheat", action="store_true",
     help="enable cheat keys")
-parser.add_option("-l", "--load", dest="savefile",
-    help="load a saved game from the specified file")
-parser.add_option("-r", "--load-last", dest="savedir",
-    help="load the most recently saved game in the specified directory")
 parser.add_option("--create-ini", dest="create_ini", action="store_true",
     help="create the ini files required by the game and exit")
 parser.add_option("--get-images", dest="get_images", action="store_true",
     help="get any missing images required by the game and exit")
+parser.add_option("-i", "--inidir", dest="inidir",
+    help="read ini files from this directory instead of %s" % default_ini_dir)
+parser.add_option("-l", "--load", dest="savefile",
+    help="load a saved game from the specified file")
+parser.add_option("-q", "--quick-start", dest="quick_start", action="store_true",
+    help="start the game quickly")
+parser.add_option("-r", "--load-last", dest="savedir",
+    help="load the most recently saved game in the specified directory")
+parser.add_option("-s", "--scale", dest="scale", type="int",
+    help="scale graphics by this factor (1=original Speccy size)")
 options, args = parser.parse_args()
 
 # Set the search path for 'pyskool.ini', the 'images' directory, the 'sounds'
