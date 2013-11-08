@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2009-2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2009-2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -263,7 +263,7 @@ def _get_tzx_block(data, i):
         i += data[i] + 1
     elif block_id == 49:
         # Message block
-        i += data[i] + 2
+        i += data[i + 1] + 2
     elif block_id == 50:
         # Archive info
         i += _get_word(data, i) + 2
