@@ -23,16 +23,37 @@ ZX Spectrum games Skool Daze and Back to Skool by Microsphere.
 
 OPTIONS
 =======
---version  show Pyskool's version number and exit
--h, --help  show this help message and exit
--c, --cheat  enable cheat keys
---create-ini  create the ini files required by the game and exit
---get-images  get any missing images required by the game and exit
--i INIDIR, --inidir=INIDIR  read ini files from this directory instead of ini/%{gamedir}
--l SAVEFILE, --load=SAVEFILE  load a saved game from the specified file
--q, --quick-start  start the game quickly
--r SAVEDIR, --load-last=SAVEDIR  load the most recently saved game in the specified directory
--s SCALE, --scale=SCALE  scale graphics by this factor (1=original Speccy size)
+--version
+  Show Pyskool's version number and exit.
+
+-h, --help
+  Show a summary of the available options.
+
+-c, --cheat
+  Enable cheat keys.
+
+--create-ini
+  Create the ini files required by the game in ``~/.pyskool/ini/%{gamedir}``
+  and exit.
+
+--get-images
+  Get any missing images required by the game and exit.
+
+-i, --inidir `INIDIR`
+  Read ini files from this directory instead of ``ini/%{gamedir}``.
+
+-l, --load `SAVEFILE`
+  Load a saved game from the specified file.
+
+-q, --quick-start
+  Start the game quickly by skipping the scroll-skool-into-view and theme tune
+  sequence.
+
+-r, --load-last `SAVEDIR`
+  Load the most recently saved game in the specified directory.
+
+-s, --scale `SCALE`
+  Scale graphics by this factor (1=original Speccy size).
 
 FILES
 =====
