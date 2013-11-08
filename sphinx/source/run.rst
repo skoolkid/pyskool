@@ -105,6 +105,9 @@ order for Pyskool to find it:
 `$PACKAGE_DIR` refers to the directory in which the `pyskool` package is
 installed (as shown by the ``--package-dir`` command line option).
 
+When you need a reminder of the locations that Pyskool searches for data files,
+run one of the game launcher scripts with the ``--search-dirs`` option.
+
 If Pyskool doesn't start, run the game launcher script from the command line
 and read the diagnostic messages that are printed to the console for clues
 about what's going wrong.
@@ -136,6 +139,8 @@ a few command line options:
   from the specified directory
 * ``-s SCALE`` or ``--scale=SCALE`` - set the scale of the display; overrides
   the `Scale` setting in the :ref:`screenConfig` section
+* ``--search-dirs`` - show the locations that Pyskool searches for data files
+  and exit
 
 The ``--get-images`` option first looks for Skool Daze and Back to Skool tape
 or snapshot files by the following names in `$HOME/.pyskool`:

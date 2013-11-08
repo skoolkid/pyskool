@@ -9,7 +9,7 @@ run Pyskool in %{game} mode
 :Author: Richard Dymond
 :Copyright: 2013, Richard Dymond
 :Version: 1.0.2
-:Date: 2013-11-07
+:Date: 2013-11-08
 :Manual section: 6
 
 SYNOPSIS
@@ -58,6 +58,9 @@ OPTIONS
 -s, --scale `SCALE`
   Scale graphics by this factor (1=original Speccy size).
 
+--search-dirs
+  Show the locations that Pyskool searches for data files and exit.
+
 FILES
 =====
 When Pyskool starts in %{game} mode, it looks for the following things:
@@ -79,7 +82,15 @@ order for Pyskool to find it:
 | - ``$PACKAGE_DIR/data``
 
 where ``$PACKAGE_DIR`` is the directory in which the pyskool package is
-installed (as shown by ``%{script} --package-dir``).
+installed, as shown by:
+
+|
+|  ``%{script} --package-dir``
+
+When you need a reminder of these locations, run:
+
+|
+|  ``%{script} --search-dirs``
 
 IMAGES
 ======

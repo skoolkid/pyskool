@@ -6,6 +6,8 @@ Changelog
 * Added a second source for the Skool Daze TZX file to `images.ini`
 * Added the ``--package-dir`` command line option (for showing the path to the
   pyskool package directory)
+* Added the ``--search-dirs`` command line option (for showing the locations
+  that Pyskool searches for data files)
 * Removed the documentation sources from the Pyskool distribution (they can be
   obtained from GitHub_)
 

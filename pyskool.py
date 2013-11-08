@@ -27,6 +27,11 @@ from pyskool.image import get_images, SKOOL_DAZE, BACK_TO_SKOOL
 from pyskool.sdini import SDIniMaker
 from pyskool.btsini import BTSIniMaker
 
+SEARCH_DIRS_MSG = """
+Pyskool will search the following directories for 'pyskool.ini' and the
+'{images}', '{sounds}' and '{ini}' subdirectories:
+""".lstrip()
+
 def info(text):
     sys.stdout.write('%s\n' % text)
 
@@ -74,6 +79,8 @@ parser.add_option("-r", "--load-last", dest="savedir",
     help="load the most recently saved game in the specified directory")
 parser.add_option("-s", "--scale", dest="scale", type="int",
     help="scale graphics by this factor (1=original Speccy size)")
+parser.add_option("--search-dirs", dest="search_dirs", action="store_true",
+    help="show the locations that Pyskool searches for data files and exit")
 options, args = parser.parse_args()
 
 # Set the search path for 'pyskool.ini', the 'images' directory, the 'sounds'
@@ -103,6 +110,13 @@ if user_dir not in SEARCH_DIRS:
 # Show package directory if requested
 if options.package_dir:
     info(package_dir)
+    sys.exit(0)
+
+# Show search directories if requested
+if options.search_dirs:
+    info(SEARCH_DIRS_MSG.format(images=images_subdir, sounds=sounds_subdir, ini=default_ini_dir))
+    for search_dir in SEARCH_DIRS:
+        info('- {0}'.format(search_dir))
     sys.exit(0)
 
 # Get images if requested
