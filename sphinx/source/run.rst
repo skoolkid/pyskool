@@ -94,12 +94,16 @@ Each of these things must be present in one of the following directories in
 order for Pyskool to find it:
 
 * the current working directory
-* `$HOME/.pyskool` (if it exists; Pyskool will try to create it if it doesn't)
+* `$HOME/.pyskool`
 * the directory containing the game launcher script
 * `/usr/share/pyskool`
+* `$PACKAGE_DIR/data`
 
 `$HOME` refers to the user's home directory. On Windows this is typically
 `C:\\Documents and Settings\\username`.
+
+`$PACKAGE_DIR` refers to the directory in which the `pyskool` package is
+installed.
 
 If Pyskool doesn't start, run the game launcher script from the command line
 and read the diagnostic messages that are printed to the console for clues

@@ -73,6 +73,10 @@ order for Pyskool to find it:
 | - ``~/.pyskool``
 | - the directory containing ``%{script}``
 | - ``/usr/share/pyskool``
+| - ``$PACKAGE_DIR/data``
+
+where ``$PACKAGE_DIR`` is the directory in which the pyskool package is
+installed.
 
 IMAGES
 ======
