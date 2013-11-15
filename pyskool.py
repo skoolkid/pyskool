@@ -133,7 +133,6 @@ if options.get_images:
         get_images(images_ini, BACK_TO_SKOOL, 0, user_dir)
     elif prog == 'back_to_skool_daze.py':
         get_images(images_ini, BACK_TO_SKOOL, 1, user_dir)
-    sys.exit(0)
 
 # Create ini files if requested
 if options.create_ini:
@@ -153,6 +152,8 @@ if options.create_ini:
         if not os.path.isdir(odir):
             os.makedirs(odir)
         ini_maker.write_ini_files(odir, True)
+
+if options.get_images or options.create_ini:
     sys.exit(0)
 
 # Look for 'pyskool.ini'

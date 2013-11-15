@@ -53,14 +53,15 @@ Pyskool is actually five separate games:
 * Ezad Looks (`ezad_looks.py`)
 * Back to Skool Daze (`back_to_skool_daze.py`)
 
-Before playing any of these games for the first time, the required images will
-need to be obtained. This can be done by using the ``--get-images`` option; for
-example::
+Before playing any of these games for the first time, the required ini files
+and image files will need to be created. This can be done by using the
+``--create-ini`` and ``--get-images`` options; for example::
 
-  $ skool_daze.py --get-images
+  $ skool_daze.py --create-ini --get-images
 
-This will download a TZX file from one of the sources listed in `images.ini`
-and use it to create the images required by Skool Daze; the images are saved to
+The ``--create-ini`` option writes the required ini files in `~/.pyskool/ini`.
+The ``--get-images`` option downloads TZX files from the sources listed in
+`images.ini` and uses them to create the required images in
 `~/.pyskool/images`. After that, Pyskool can be run in Skool Daze mode::
 
   $ skool_daze.py
@@ -98,7 +99,6 @@ DATA_DIR = '{0}/data'.format(PACKAGE_DIR)
 
 shutil.rmtree(PACKAGE_DIR, True)
 shutil.copytree('pyskool', PACKAGE_DIR, ignore=shutil.ignore_patterns('*.pyc'))
-shutil.copytree('ini', '{0}/ini'.format(DATA_DIR))
 shutil.copytree('sounds', '{0}/sounds'.format(DATA_DIR))
 shutil.copy('images.ini', DATA_DIR)
 shutil.copy('pyskool.ini', DATA_DIR)
@@ -117,11 +117,6 @@ setup(
     package_data={'pyskool': [
         'data/images.ini',
         'data/pyskool.ini',
-        'data/ini/back_to_skool/*.ini',
-        'data/ini/back_to_skool_daze/*.ini',
-        'data/ini/ezad_looks/*.ini',
-        'data/ini/skool_daze/*.ini',
-        'data/ini/skool_daze_take_too/*.ini',
         'data/sounds/back_to_skool/*',
         'data/sounds/common/*',
         'data/sounds/skool_daze/*'

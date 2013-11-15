@@ -1,6 +1,5 @@
 include images.ini pyskool.ini COPYING
 recursive-include pyskool *.py
 graft docs
-graft ini
 graft man
 graft sounds
