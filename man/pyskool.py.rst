@@ -116,15 +116,6 @@ listed in ``images.ini`` and saved to ``~/.pyskool``. Then the required images
 are built from the tape or snapshot files and saved to the appropriate
 subdirectories under ``~/.pyskool/images/originalx1``.
 
-EXAMPLE
-=======
-Get all the images required by %{game}, and then run Pyskool in %{game}
-mode:
-
-|
-|   ``%{script} --get-images``
-|   ``%{script}``
-
 SEE ALSO
 ========
 %{seealso}
