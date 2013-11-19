@@ -58,6 +58,7 @@ DOCSDIR=${ABSDIR}/docs
 mkdir -p $DOCSDIR
 
 $UTILS/get-images.py . > /dev/null
+$UTILS/create-sounds.py . > /dev/null
 rsync -aR COPYING MANIFEST.in icon.png images.ini pyskool.ini images sounds \
   pyskool/*.py man/{pyskool.py.rst,create-manpages} $ABSDIR
 for p in skool_daze{,_take_too} back_to_skool{,_daze} ezad_looks; do
