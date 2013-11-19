@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2012, 2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -32,30 +32,26 @@ BACK_TO_SKOOL = 'back_to_skool'
 def get_tzx(name, odir, sources):
     for source in sources:
         url, sep, member = source.partition('|')
-        if member:
-            if url.lower().endswith('.zip'):
-                archive_type = 'zip'
-            else:
-                sys.stderr.write('Error: Unsupported archive type: {0}\n'.format(os.path.basename(url)))
-                continue
+        if member and not url.lower().endswith('.zip'):
+            sys.stderr.write('Error: Unsupported archive type: {0}\n'.format(os.path.basename(url)))
+            continue
 
         try:
             sys.stdout.write('Downloading {0}\n'.format(url))
             u = urllib2.urlopen(url, timeout=30)
             data = u.read()
         except urllib2.URLError as e:
-            sys.stderr.write('Error: {0}\n'.format(e.msg))
+            sys.stderr.write('Error: {0}\n'.format(e.args[0]))
             continue
 
         if member:
-            if archive_type == 'zip':
+            try:
                 z = zipfile.ZipFile(StringIO(data))
-                try:
-                    tzx = z.open(member)
-                except KeyError as e:
-                    sys.stderr.write('Error: {0}\n'.format(e.args[0]))
-                    continue
-                data = tzx.read()
+                tzx = z.open(member)
+            except (KeyError, zipfile.BadZipfile) as e:
+                sys.stderr.write('Error: {0}\n'.format(e.args[0]))
+                continue
+            data = tzx.read()
 
         fname = os.path.join(odir, '{0}.tzx'.format(name))
         with open(fname, 'wb') as f:
