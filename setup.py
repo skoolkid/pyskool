@@ -99,7 +99,6 @@ DATA_DIR = '{0}/data'.format(PACKAGE_DIR)
 
 shutil.rmtree(PACKAGE_DIR, True)
 shutil.copytree('pyskool', PACKAGE_DIR, ignore=shutil.ignore_patterns('*.pyc'))
-shutil.copytree('sounds', '{0}/sounds'.format(DATA_DIR))
 shutil.copy('images.ini', DATA_DIR)
 shutil.copy('pyskool.ini', DATA_DIR)
 
@@ -114,13 +113,7 @@ setup(
     long_description=LONG_DESCRIPTION,
     packages=['pyskool'],
     package_dir={'pyskool': PACKAGE_DIR},
-    package_data={'pyskool': [
-        'data/images.ini',
-        'data/pyskool.ini',
-        'data/sounds/back_to_skool/*',
-        'data/sounds/common/*',
-        'data/sounds/skool_daze/*'
-    ]},
+    package_data={'pyskool': ['data/images.ini', 'data/pyskool.ini']},
     scripts=[
         'back_to_skool_daze.py',
         'back_to_skool.py',
