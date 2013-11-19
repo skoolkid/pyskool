@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2012, 2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -262,15 +262,8 @@ class SkoolIniMaker:
     def create_sounds(self):
         self.sounds = []
         common_dir = 'common'
-        self.sounds.append((sound.BELL, '%s/bell.ogg' % common_dir))
         self.sounds.append((sound.CATAPULT, '%s/catapult.wav' % common_dir))
-        self.sounds.append((sound.KNOCKED_OUT, '%s/knocked-out.ogg' % common_dir))
-        self.sounds.append((sound.LINES1, '%s/lines1.ogg' % common_dir))
-        self.sounds.append((sound.LINES2, '%s/lines2.ogg' % common_dir))
-        self.sounds.append((sound.WALK_SOUNDS[0], '%s/walk0.wav' % common_dir))
-        self.sounds.append((sound.WALK_SOUNDS[1], '%s/walk1.wav' % common_dir))
-        self.sounds.append((sound.WALK_SOUNDS[2], '%s/walk2.wav' % common_dir))
-        self.sounds.append((sound.WALK_SOUNDS[3], '%s/walk3.wav' % common_dir))
+        self.sounds.append((sound.KNOCKED_OUT, '%s/knocked-out.wav' % common_dir))
 
     def create_sprite_groups(self):
         self.sprite_groups = []

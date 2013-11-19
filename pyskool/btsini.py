@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2012, 2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -195,24 +195,31 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
     def create_sounds(self):
         skoolini.SkoolIniMaker.create_sounds(self)
         sounds_dir = 'back_to_skool'
-        self.sounds.append((sound.MOUSE, '%s/mouse.ogg' % sounds_dir))
-        self.sounds.append((sound.CONKER, '%s/conker.ogg' % sounds_dir))
-        self.sounds.append((sound.SHERRY, '%s/sherry.ogg' % sounds_dir))
-        self.sounds.append((sound.TUNE, '%s/tune.ogg' % sounds_dir))
+        self.sounds.append((sound.BELL, '%s/bell.wav' % sounds_dir))
+        self.sounds.append((sound.LINES1, '%s/lines1.wav' % sounds_dir))
+        self.sounds.append((sound.LINES2, '%s/lines2.wav' % sounds_dir))
+        self.sounds.append((sound.MOUSE, '%s/mouse.wav' % sounds_dir))
+        self.sounds.append((sound.CONKER, '%s/conker.wav' % sounds_dir))
+        self.sounds.append((sound.SHERRY, '%s/sherry.wav' % sounds_dir))
+        self.sounds.append((sound.TUNE, '%s/tune.wav' % sounds_dir))
         self.sounds.append((sound.WATER_PISTOL, 'common/catapult.wav'))
-        self.sounds.append((sound.DESK, '%s/bingo.ogg' % sounds_dir))
-        self.sounds.append((sound.FROG, '%s/bingo.ogg' % sounds_dir))
-        self.sounds.append((sound.BIKE, '%s/bingo.ogg' % sounds_dir))
-        self.sounds.append((sound.STOREROOM_KEY, '%s/bingo.ogg' % sounds_dir))
-        self.sounds.append((sound.KISS, '%s/bingo.ogg' % sounds_dir))
+        self.sounds.append((sound.DESK, '%s/bingo.wav' % sounds_dir))
+        self.sounds.append((sound.FROG, '%s/bingo.wav' % sounds_dir))
+        self.sounds.append((sound.BIKE, '%s/bingo.wav' % sounds_dir))
+        self.sounds.append((sound.STOREROOM_KEY, '%s/bingo.wav' % sounds_dir))
+        self.sounds.append((sound.KISS, '%s/bingo.wav' % sounds_dir))
+        self.sounds.append((sound.WALK_SOUNDS[0], '%s/walk0.wav' % sounds_dir))
+        self.sounds.append((sound.WALK_SOUNDS[1], '%s/walk1.wav' % sounds_dir))
+        self.sounds.append((sound.WALK_SOUNDS[2], '%s/walk2.wav' % sounds_dir))
+        self.sounds.append((sound.WALK_SOUNDS[3], '%s/walk3.wav' % sounds_dir))
         if self.custom == BACK_TO_SKOOL_DAZE:
-            self.sounds.append((sound.SHIELD, '%s/bingo.ogg' % sounds_dir))
-            self.sounds.append((sound.ALL_SHIELDS, '%s/up-a-year.ogg' % sounds_dir))
-            self.sounds.append((sound.OPEN_SAFE, '%s/up-a-year.ogg' % sounds_dir))
-            self.sounds.append((sound.UP_A_YEAR, '%s/tune.ogg' % sounds_dir))
+            self.sounds.append((sound.SHIELD, '%s/bingo.wav' % sounds_dir))
+            self.sounds.append((sound.ALL_SHIELDS, '%s/up-a-year.wav' % sounds_dir))
+            self.sounds.append((sound.OPEN_SAFE, '%s/up-a-year.wav' % sounds_dir))
+            self.sounds.append((sound.UP_A_YEAR, '%s/tune.wav' % sounds_dir))
         else:
-            self.sounds.append((sound.SAFE_KEY, '%s/safe-key.ogg' % sounds_dir))
-            self.sounds.append((sound.UP_A_YEAR, '%s/up-a-year.ogg' % sounds_dir))
+            self.sounds.append((sound.SAFE_KEY, '%s/safe-key.wav' % sounds_dir))
+            self.sounds.append((sound.UP_A_YEAR, '%s/up-a-year.wav' % sounds_dir))
 
     def create_sprite_groups(self):
         skoolini.SkoolIniMaker.create_sprite_groups(self)

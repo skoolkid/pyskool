@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -115,12 +115,19 @@ class SDIniMaker(skoolini.SkoolIniMaker):
     def create_sounds(self):
         skoolini.SkoolIniMaker.create_sounds(self)
         sounds_dir = 'skool_daze'
-        self.sounds.append((sound.JUMP, '%s/jump.ogg' % sounds_dir))
-        self.sounds.append((sound.ALL_SHIELDS, '%s/all-shields.ogg' % sounds_dir))
-        self.sounds.append((sound.OPEN_SAFE, '%s/all-shields.ogg' % sounds_dir))
-        self.sounds.append((sound.SHIELD, '%s/shield.ogg' % sounds_dir))
-        self.sounds.append((sound.TUNE, '%s/tune.ogg' % sounds_dir))
-        self.sounds.append((sound.UP_A_YEAR, '%s/tune.ogg' % sounds_dir))
+        self.sounds.append((sound.BELL, '%s/bell.wav' % sounds_dir))
+        self.sounds.append((sound.LINES1, '%s/lines1.wav' % sounds_dir))
+        self.sounds.append((sound.LINES2, '%s/lines2.wav' % sounds_dir))
+        self.sounds.append((sound.WALK_SOUNDS[0], '%s/walk0.wav' % sounds_dir))
+        self.sounds.append((sound.WALK_SOUNDS[1], '%s/walk0.wav' % sounds_dir))
+        self.sounds.append((sound.WALK_SOUNDS[2], '%s/walk1.wav' % sounds_dir))
+        self.sounds.append((sound.WALK_SOUNDS[3], '%s/walk0.wav' % sounds_dir))
+        self.sounds.append((sound.JUMP, '%s/jump.wav' % sounds_dir))
+        self.sounds.append((sound.ALL_SHIELDS, '%s/all-shields.wav' % sounds_dir))
+        self.sounds.append((sound.OPEN_SAFE, '%s/all-shields.wav' % sounds_dir))
+        self.sounds.append((sound.SHIELD, '%s/shield.wav' % sounds_dir))
+        self.sounds.append((sound.TUNE, '%s/tune.wav' % sounds_dir))
+        self.sounds.append((sound.UP_A_YEAR, '%s/tune.wav' % sounds_dir))
 
     def create_sprite_groups(self):
         skoolini.SkoolIniMaker.create_sprite_groups(self)
