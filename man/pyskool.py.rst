@@ -9,7 +9,7 @@ run Pyskool in %{game} mode
 :Author: Richard Dymond
 :Copyright: 2013, Richard Dymond
 :Version: 1.0.2
-:Date: 2013-11-08
+:Date: 2013-11-19
 :Manual section: 6
 
 SYNOPSIS
@@ -35,6 +35,10 @@ OPTIONS
 --create-ini
   Create the ini files required by the game in ``~/.pyskool/ini/%{gamedir}``
   and exit.
+
+--create-sounds
+  Create the sound files required by the game in ``~/.pyskool/sounds`` and
+  exit.
 
 --get-images
   Get any missing images required by the game and exit.

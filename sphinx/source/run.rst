@@ -127,6 +127,8 @@ a few command line options:
   the :ref:`gameConfig` section
 * ``--create-ini`` - create the ini files required by the game in
   `$HOME/.pyskool/ini/<game_name>` and exit
+* ``--create-sounds`` - create the sound files required by the game in
+  `$HOME/.pyskool/sounds` and exit
 * ``--get-images`` - get any missing images required by the game and exit
 * ``-i INIDIR`` or ``--inidir=INIDIR`` - use ini files from a specified
   directory

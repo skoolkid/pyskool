@@ -26,6 +26,7 @@ from pyskool import version, package_dir, images_subdir, sounds_subdir
 from pyskool.image import get_images, SKOOL_DAZE, BACK_TO_SKOOL
 from pyskool.sdini import SDIniMaker
 from pyskool.btsini import BTSIniMaker
+from pyskool import skoolsound
 
 SEARCH_DIRS_MSG = """
 Pyskool will search the following directories for 'pyskool.ini' and the
@@ -65,6 +66,8 @@ parser.add_option("-c", "--cheat", dest="cheat", action="store_true",
     help="enable cheat keys")
 parser.add_option("--create-ini", dest="create_ini", action="store_true",
     help="create the ini files required by the game and exit")
+parser.add_option("--create-sounds", dest="create_sounds", action="store_true",
+    help="create the sound files required by the game and exit")
 parser.add_option("--get-images", dest="get_images", action="store_true",
     help="get any missing images required by the game and exit")
 parser.add_option("-i", "--inidir", dest="inidir",
@@ -153,7 +156,15 @@ if options.create_ini:
             os.makedirs(odir)
         ini_maker.write_ini_files(odir, True)
 
-if options.get_images or options.create_ini:
+# Create sound files if requested
+if options.create_sounds:
+    odir = os.path.join(user_dir, 'sounds')
+    if prog in ('skool_daze.py', 'skool_daze_take_too.py', 'ezad_looks.py'):
+        skoolsound.create_sounds(skoolsound.SKOOL_DAZE, odir)
+    elif prog in ('back_to_skool.py', 'back_to_skool_daze.py'):
+        skoolsound.create_sounds(skoolsound.BACK_TO_SKOOL, odir)
+
+if options.get_images or options.create_ini or options.create_sounds:
     sys.exit(0)
 
 # Look for 'pyskool.ini'

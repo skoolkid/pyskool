@@ -4,6 +4,8 @@ Changelog
 1.0.2b1
 -------
 * Added a second source for the Skool Daze TZX file to `images.ini`
+* Added the ``--create-sounds`` command line option (to create the sound files
+  required by a game)
 * Added the ``--package-dir`` command line option (for showing the path to the
   pyskool package directory)
 * Added the ``--search-dirs`` command line option (for showing the locations
