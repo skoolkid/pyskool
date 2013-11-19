@@ -95,10 +95,26 @@ class SkoolIniMaker:
         cwd = os.getcwd()
         os.chdir(odir)
 
-        self.open_file('command_lists.ini')
+        for write_ini, fname in (
+            (self.write_command_lists_ini, 'command_lists.ini'),
+            (self.write_config_ini, 'config.ini'),
+            (self.write_font_ini, 'font.ini'),
+            (self.write_lessons_ini, 'lessons.ini'),
+            (self.write_messages_ini, 'messages.ini'),
+            (self.write_skool_ini, 'skool.ini'),
+            (self.write_sprites_ini, 'sprites.ini')
+        ):
+            if self.open_file(fname):
+                write_ini()
+
+        if self.ofile:
+            self.ofile.close()
+        os.chdir(cwd)
+
+    def write_command_lists_ini(self):
         self.write_command_lists()
 
-        self.open_file('config.ini')
+    def write_config_ini(self):
         self.write_config('GameConfig', self.game_config)
         self.write_config('TimetableConfig', self.timetable_config)
         self.write_config('LessonConfig', self.lesson_config)
@@ -112,15 +128,15 @@ class SkoolIniMaker:
         self.write_inventory()
         self.write_animation_phases()
 
-        self.open_file('font.ini')
+    def write_font_ini(self):
         self.write_font()
 
-        self.open_file('lessons.ini')
+    def write_lessons_ini(self):
         self.write_timetable()
         self.write_special_playtimes()
         self.write_lessons()
 
-        self.open_file('messages.ini')
+    def write_messages_ini(self):
         self.write_config('MessageConfig', self.message_config)
         self.write_sit_down_messages()
         self.write_assembly_messages()
@@ -130,7 +146,7 @@ class SkoolIniMaker:
         self.write_lesson_messages()
         self.write_grass_messages()
 
-        self.open_file('skool.ini')
+    def write_skool_ini(self):
         self.write_walls()
         self.write_rooms()
         self.write_blackboards()
@@ -146,7 +162,7 @@ class SkoolIniMaker:
         self.write_shields()
         self.write_cups()
 
-        self.open_file('sprites.ini')
+    def write_sprites_ini(self):
         self.write_sprite_groups()
         self.write_characters()
         self.write_eric()
@@ -162,15 +178,15 @@ class SkoolIniMaker:
         self.write_desk_lid()
         self.write_plants()
 
-        self.ofile.close()
-        os.chdir(cwd)
-
     def open_file(self, fname):
         if self.ofile:
             self.ofile.close()
+        if os.path.isfile(fname):
+            return False
         self.ofile = open(fname, 'w')
         if self.verbose:
             sys.stderr.write('Writing %s\n' % os.path.join(self.odir, fname))
+        return True
 
     def create_game_config(self):
         self.game_config = []
