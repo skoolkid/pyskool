@@ -65,6 +65,11 @@ OPTIONS
 --search-dirs
   Show the locations that Pyskool searches for data files and exit.
 
+--setup
+  Create the images, ini files and sound files required by the game in
+  ``~/.pyskool`` and exit. This option is equivalent to combining the
+  ``--get-images``, ``--create-ini`` and ``--create-sounds`` options.
+
 FILES
 =====
 When Pyskool starts in %{game} mode, it looks for the following things:

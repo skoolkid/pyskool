@@ -53,18 +53,20 @@ Pyskool is actually five separate games:
 * Ezad Looks (`ezad_looks.py`)
 * Back to Skool Daze (`back_to_skool_daze.py`)
 
-Before playing any of these games for the first time, the required ini files,
-sound files and image files will need to be created. This can be done by using
-the ``--create-ini``, ``--create-sounds`` and ``--get-images`` options; for
-example::
+Before playing any of these games for the first time, the required images, ini
+files and sound files will need to be created. This can be done by using the
+``--setup`` option; for example::
 
-  $ skool_daze.py --create-ini --create-sounds --get-images
+  $ skool_daze.py --setup
 
-The ``--create-ini`` option writes the required ini files in `~/.pyskool/ini`.
-The ``--create-sounds`` option writes the required sound files in
-`~/.pyskool/sounds`. The ``--get-images`` option downloads TZX files from the
-sources listed in `images.ini` and uses them to create the required images in
-`~/.pyskool/images`. After that, Pyskool can be run in Skool Daze mode::
+This will:
+
+* download TZX files from the sources listed in `images.ini` and use them to
+  create the required images in `~/.pyskool/images`
+* write the required ini files in `~/.pyskool/ini`
+* write the required sound files in `~/.pyskool/sounds`
+
+After that, Pyskool can be run in Skool Daze mode::
 
   $ skool_daze.py
 

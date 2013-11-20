@@ -84,6 +84,8 @@ parser.add_option("-s", "--scale", dest="scale", type="int",
     help="scale graphics by this factor (1=original Speccy size)")
 parser.add_option("--search-dirs", dest="search_dirs", action="store_true",
     help="show the locations that Pyskool searches for data files and exit")
+parser.add_option("--setup", dest="setup", action="store_true",
+    help="create the images, ini files and sound files required by the game and exit")
 options, args = parser.parse_args()
 
 # Set the search path for 'pyskool.ini', the 'images' directory, the 'sounds'
@@ -123,7 +125,7 @@ if options.search_dirs:
     sys.exit(0)
 
 # Get images if requested
-if options.get_images:
+if options.setup or options.get_images:
     images_ini = find('images.ini')
     info("Using ini file at %s" % images_ini)
     if prog == 'skool_daze.py':
@@ -138,7 +140,7 @@ if options.get_images:
         get_images(images_ini, BACK_TO_SKOOL, 1, user_dir)
 
 # Create ini files if requested
-if options.create_ini:
+if options.setup or options.create_ini:
     ini_maker = None
     if prog == 'skool_daze.py':
         ini_maker = SDIniMaker(0)
@@ -157,14 +159,14 @@ if options.create_ini:
         ini_maker.write_ini_files(odir, True)
 
 # Create sound files if requested
-if options.create_sounds:
+if options.setup or options.create_sounds:
     odir = os.path.join(user_dir, 'sounds')
     if prog in ('skool_daze.py', 'skool_daze_take_too.py', 'ezad_looks.py'):
         skoolsound.create_sounds(skoolsound.SKOOL_DAZE, odir)
     elif prog in ('back_to_skool.py', 'back_to_skool_daze.py'):
         skoolsound.create_sounds(skoolsound.BACK_TO_SKOOL, odir)
 
-if options.get_images or options.create_ini or options.create_sounds:
+if options.setup or options.get_images or options.create_ini or options.create_sounds:
     sys.exit(0)
 
 # Look for 'pyskool.ini'

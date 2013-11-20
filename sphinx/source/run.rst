@@ -119,7 +119,7 @@ current working directory.
 Command line options
 --------------------
 `skool_daze.py`, `back_to_skool.py` and the other game launcher scripts support
-a few command line options:
+the following command line options:
 
 * ``--version`` - show the version number of Pyskool and exit
 * ``-h`` or ``--help`` - show a summary of the available options
@@ -143,6 +143,8 @@ a few command line options:
   the `Scale` setting in the :ref:`screenConfig` section
 * ``--search-dirs`` - show the locations that Pyskool searches for data files
   and exit
+* ``--setup`` - create the images, ini files and sound files required by the
+  game in `$HOME/.pyskool` and exit
 
 The ``--get-images`` option first looks for Skool Daze and Back to Skool tape
 or snapshot files by the following names in `$HOME/.pyskool`:

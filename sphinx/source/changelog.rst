@@ -10,6 +10,8 @@ Changelog
   pyskool package directory)
 * Added the ``--search-dirs`` command line option (for showing the locations
   that Pyskool searches for data files)
+* Added the ``--setup`` command line option (to create the images, ini files
+  and sound files required by a game)
 * Removed the documentation sources from the Pyskool distribution (they can be
   obtained from GitHub_)
 
