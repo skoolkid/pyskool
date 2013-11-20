@@ -195,6 +195,7 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
     def create_sounds(self):
         skoolini.SkoolIniMaker.create_sounds(self)
         sounds_dir = 'back_to_skool'
+        self.sounds.append((sound.ALARM, '%s/lines2.wav' % sounds_dir))
         self.sounds.append((sound.BELL, '%s/bell.wav' % sounds_dir))
         self.sounds.append((sound.LINES1, '%s/lines1.wav' % sounds_dir))
         self.sounds.append((sound.LINES2, '%s/lines2.wav' % sounds_dir))

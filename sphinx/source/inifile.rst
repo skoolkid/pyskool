@@ -1390,12 +1390,13 @@ Each line in the ``Sounds`` section has the form::
 
 where
 
-* ``soundId`` is the unique ID of a sound sample
-* ``path`` is the location of the sound sample on disk (relative to the
-  `sounds` directory)
+* ``soundId`` is the unique ID of a sound effect
+* ``path`` is the location of the sound file on disk (relative to the `sounds`
+  directory)
 
-Recognised sound sample IDs and the samples they refer to are:
+Recognised IDs and the sound effects they refer to are:
 
+* ``ALARM``: Albert is telling Mr Wacker that Eric is escaping
 * ``ALL_SHIELDS``: Eric has hit all the shields
 * ``BELL``: the bell
 * ``BIKE``: Eric has written the bike combination on a blackboard

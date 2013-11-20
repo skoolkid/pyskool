@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2012, 2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -25,7 +25,11 @@ import random
 import re
 from location import Location
 import ai
-from animatorystates import ARM_UP, CATAPULT0, CATAPULT1, HITTING0, HITTING1, KISSING_ERIC, KNOCKED_OUT, KNOCKED_OVER, RIDING_BIKE0, RIDING_BIKE1, SITTING_ON_CHAIR, SITTING_ON_FLOOR, WALK0, WALK1, WALK2, WALK3, WATERPISTOL
+from animatorystates import (
+    ARM_UP, CATAPULT0, CATAPULT1, HITTING0, HITTING1, KISSING_ERIC,
+    KNOCKED_OUT, KNOCKED_OVER, RIDING_BIKE0, RIDING_BIKE1, SITTING_ON_CHAIR,
+    SITTING_ON_FLOOR, WALK0, WALK1, WALK2, WALK3, WATERPISTOL
+)
 import lines
 import items
 from lesson import QAGenerator
@@ -1336,7 +1340,7 @@ class Character:
         :param command_list_id: The ID of the command list that the alerted
                                 character should switch to.
         """
-        self.print_message_box(self.skool.expand_message(message), self.cast.escape_alarm_ink, self.cast.escape_alarm_paper, sound.LINES2)
+        self.print_message_box(self.skool.expand_message(message), self.cast.escape_alarm_ink, self.cast.escape_alarm_paper, sound.ALARM)
         if not self.cast.is_eric_expelled():
             self.cast.change_command_list(alertee_id, command_list_id)
 

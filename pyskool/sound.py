@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -24,6 +24,9 @@ import os
 import random
 import debug
 
+#: ID of the sound effect to play when Albert tells Mr Wacker that Eric is
+#: escaping.
+ALARM = 'ALARM'
 #: ID of the sound effect to play when all the shields have been flashed.
 ALL_SHIELDS = 'ALL_SHIELDS'
 #: ID of the sound effect for the bell.

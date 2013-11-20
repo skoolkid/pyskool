@@ -3,7 +3,8 @@ Changelog
 
 1.1b1
 -----
-* Added a second source for the Skool Daze TZX file to `images.ini`
+* Added the ``ALARM`` sound effect ID (for when Albert is telling Mr Wacker
+  that Eric's escaping)
 * Added the ``--create-sounds`` command line option (to create the sound files
   required by a game)
 * Added the ``--package-dir`` command line option (for showing the path to the
@@ -12,6 +13,7 @@ Changelog
   that Pyskool searches for data files)
 * Added the ``--setup`` command line option (to create the images, ini files
   and sound files required by a game)
+* Added a second source for the Skool Daze TZX file to `images.ini`
 * Removed the documentation sources from the Pyskool distribution (they can be
   obtained from GitHub_)
 
