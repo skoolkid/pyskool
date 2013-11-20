@@ -64,12 +64,12 @@ synopsis = "Start Pyskool in %s mode." % name
 parser = OptionParser(version=version, description=synopsis)
 parser.add_option("-c", "--cheat", dest="cheat", action="store_true",
     help="enable cheat keys")
+parser.add_option("--create-images", "--get-images", dest="create_images", action="store_true",
+    help="create the images required by the game and exit")
 parser.add_option("--create-ini", dest="create_ini", action="store_true",
     help="create the ini files required by the game and exit")
 parser.add_option("--create-sounds", dest="create_sounds", action="store_true",
     help="create the sound files required by the game and exit")
-parser.add_option("--get-images", dest="get_images", action="store_true",
-    help="get any missing images required by the game and exit")
 parser.add_option("-i", "--inidir", dest="inidir",
     help="read ini files from this directory instead of %s" % default_ini_dir)
 parser.add_option("-l", "--load", dest="savefile",
@@ -125,7 +125,7 @@ if options.search_dirs:
     sys.exit(0)
 
 # Get images if requested
-if options.setup or options.get_images:
+if options.setup or options.create_images:
     images_ini = find('images.ini')
     info("Using ini file at %s" % images_ini)
     if prog == 'skool_daze.py':
@@ -166,7 +166,7 @@ if options.setup or options.create_sounds:
     elif prog in ('back_to_skool.py', 'back_to_skool_daze.py'):
         skoolsound.create_sounds(skoolsound.BACK_TO_SKOOL, odir)
 
-if options.setup or options.get_images or options.create_ini or options.create_sounds:
+if options.setup or options.create_images or options.create_ini or options.create_sounds:
     sys.exit(0)
 
 # Look for 'pyskool.ini'

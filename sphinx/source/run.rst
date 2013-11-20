@@ -125,11 +125,12 @@ the following command line options:
 * ``-h`` or ``--help`` - show a summary of the available options
 * ``-c`` or ``--cheat`` - enable cheat keys; overrides the `Cheat` setting in
   the :ref:`gameConfig` section
+* ``--create-images`` or ``--get-images`` - create the images required by the
+  game and exit
 * ``--create-ini`` - create the ini files required by the game in
   `$HOME/.pyskool/ini/<game_name>` and exit
 * ``--create-sounds`` - create the sound files required by the game in
   `$HOME/.pyskool/sounds` and exit
-* ``--get-images`` - get any missing images required by the game and exit
 * ``-i INIDIR`` or ``--inidir=INIDIR`` - use ini files from a specified
   directory
 * ``-l SAVEFILE`` or ``--load=SAVEFILE`` - load a previously saved game
@@ -146,8 +147,8 @@ the following command line options:
 * ``--setup`` - create the images, ini files and sound files required by the
   game in `$HOME/.pyskool` and exit
 
-The ``--get-images`` option first looks for Skool Daze and Back to Skool tape
-or snapshot files by the following names in `$HOME/.pyskool`:
+The ``--create-images`` option first looks for Skool Daze and Back to Skool
+tape or snapshot files by the following names in `$HOME/.pyskool`:
 
 * `skool_daze.tzx`
 * `skool_daze.sna`

@@ -32,6 +32,9 @@ OPTIONS
 -c, --cheat
   Enable cheat keys.
 
+--create-images, --get-images
+  Create the images required by the game in ``~/.pyskool/images`` and exit.
+
 --create-ini
   Create the ini files required by the game in ``~/.pyskool/ini/%{gamedir}``
   and exit.
@@ -39,9 +42,6 @@ OPTIONS
 --create-sounds
   Create the sound files required by the game in ``~/.pyskool/sounds`` and
   exit.
-
---get-images
-  Get any missing images required by the game and exit.
 
 -i, --inidir `INIDIR`
   Read ini files from this directory instead of ``ini/%{gamedir}``.
@@ -68,7 +68,7 @@ OPTIONS
 --setup
   Create the images, ini files and sound files required by the game in
   ``~/.pyskool`` and exit. This option is equivalent to combining the
-  ``--get-images``, ``--create-ini`` and ``--create-sounds`` options.
+  ``--create-images``, ``--create-ini`` and ``--create-sounds`` options.
 
 FILES
 =====
@@ -103,8 +103,8 @@ When you need a reminder of these locations, run:
 
 IMAGES
 ======
-The ``--get-images`` option first looks for Skool Daze and Back to Skool tape
-or snapshot files by the following names in ``~/.pyskool``:
+The ``--create-images`` option first looks for Skool Daze and Back to Skool
+tape or snapshot files by the following names in ``~/.pyskool``:
 
 |
 | ``skool_daze.tzx``
