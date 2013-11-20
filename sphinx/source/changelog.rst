@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.0.2b1
--------
+1.1b1
+-----
 * Added a second source for the Skool Daze TZX file to `images.ini`
 * Added the ``--create-sounds`` command line option (to create the sound files
   required by a game)
