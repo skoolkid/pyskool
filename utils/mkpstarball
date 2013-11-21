@@ -57,8 +57,7 @@ rm -rf ${ABSDIR}
 DOCSDIR=${ABSDIR}/docs
 mkdir -p $DOCSDIR
 
-rsync -aR COPYING MANIFEST.in images.ini pyskool.ini pyskool/*.py \
-  man/pyskool.py.rst $ABSDIR
+rsync -aR COPYING MANIFEST.in images.ini pyskool.ini pyskool/*.py $ABSDIR
 for p in skool_daze{,_take_too} back_to_skool{,_daze} ezad_looks; do
   cp -p pyskool.py $ABSDIR/${p}.py
 done
@@ -88,9 +87,7 @@ fi
 rsync -a --exclude=.buildinfo --exclude=objects.inv build/html/ $DOCSDIR
 
 # Man pages
-cd $ABSDIR/man
-$PYSKOOL_HOME/man/create-manpages man6
-rm pyskool.py.rst
+$PYSKOOL_HOME/man/create-manpages $PYSKOOL_HOME/man/pyskool.py.rst $ABSDIR/man/man6
 
 cd $DISTDIR
 

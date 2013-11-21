@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
 if [ -z "$1" ]; then
+  echo "Usage: $(basename $0) SOURCE [OUTPUTDIR]" 1>&2
+  exit 1
+fi
+SOURCE=$1
+
+if [ -z "$2" ]; then
   ODIR=.
 else
-  ODIR=$1
+  ODIR=$2
   mkdir -p $ODIR
 fi
 
@@ -13,7 +19,7 @@ write_man() {
   seealso=$3
   script=${gamedir}.py
 
-  sed pyskool.py.rst -e "s/%{script}/${script}/g" -e "s/%{game}/${game}/g" -e "s/%{seealso}/${seealso}/g" -e "s/%{gamedir}/${gamedir}/g" | rst2man > ${ODIR}/${script}.6
+  sed $SOURCE -e "s/%{script}/${script}/g" -e "s/%{game}/${game}/g" -e "s/%{seealso}/${seealso}/g" -e "s/%{gamedir}/${gamedir}/g" | rst2man > ${ODIR}/${script}.6
 }
 
 write_man skool_daze "Skool Daze" "back_to_skool.py(6), skool_daze_take_too.py(6), ezad_looks.py(6), back_to_skool_daze.py(6)."
