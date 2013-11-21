@@ -87,7 +87,7 @@ fi
 rsync -a --exclude=.buildinfo --exclude=objects.inv build/html/ $DOCSDIR
 
 # Man pages
-$PYSKOOL_HOME/man/create-manpages $PYSKOOL_HOME/man/pyskool.py.rst $ABSDIR/man/man6
+$UTILS/create-manpages $PYSKOOL_HOME/man/pyskool.py.rst $ABSDIR/man/man6
 
 cd $DISTDIR
 
