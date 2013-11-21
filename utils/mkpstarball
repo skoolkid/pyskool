@@ -32,7 +32,7 @@ if [ ! -d "$PYSKOOL_HOME" ]; then
 fi
 
 cd $PYSKOOL_HOME
-VERSION=$(./pyskool.py --version | cut -f1 -d' ')
+VERSION=$(./pyskool.py --version)
 PKGNAME=pyskool-$VERSION
 PKGDIR=$PKGNAME
 
@@ -57,15 +57,15 @@ rm -rf ${ABSDIR}
 DOCSDIR=${ABSDIR}/docs
 mkdir -p $DOCSDIR
 
-$UTILS/get-images.py . > /dev/null
-$UTILS/create-sounds.py . > /dev/null
-rsync -aR COPYING MANIFEST.in icon.png images.ini pyskool.ini images sounds \
-  pyskool/*.py man/{pyskool.py.rst,create-manpages} $ABSDIR
+rsync -aR COPYING MANIFEST.in images.ini pyskool.ini pyskool/*.py \
+  man/pyskool.py.rst $ABSDIR
 for p in skool_daze{,_take_too} back_to_skool{,_daze} ezad_looks; do
   cp -p pyskool.py $ABSDIR/${p}.py
 done
 cp -a $SETUP $ABSDIR/setup.py
 
+# Images
+$UTILS/get-images.py $ABSDIR > /dev/null
 cat > $ABSDIR/images/originalx1/images.txt <<EOF
 The images in these subdirectories were generated from memory snapshots of the
 original Skool Daze and Back to Skool games. The copyright in the original games
@@ -74,6 +74,9 @@ EOF
 
 # Ini files
 $UTILS/create-ini.py -q $ABSDIR
+
+# Sound files
+$UTILS/create-sounds.py $ABSDIR > /dev/null
 
 # Documentation
 cd $PYSKOOL_HOME/sphinx
@@ -86,8 +89,8 @@ rsync -a --exclude=.buildinfo --exclude=objects.inv build/html/ $DOCSDIR
 
 # Man pages
 cd $ABSDIR/man
-./create-manpages man6
-rm create-manpages pyskool.py.rst
+$PYSKOOL_HOME/man/create-manpages man6
+rm pyskool.py.rst
 
 cd $DISTDIR
 
