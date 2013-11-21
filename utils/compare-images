@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+if [ -z "$DISASSEMBLIES_HOME" ]; then
+  echo "Error: DISASSEMBLIES_HOME not defined."
+  exit 1
+fi
+if [ ! -d "$DISASSEMBLIES_HOME" ]; then
+  echo "Error: directory not found: $DISASSEMBLIES_HOME"
+  exit 1
+fi
+ANALYSE_PNG=$DISASSEMBLIES_HOME/utils/analyse-png.py
+
+if [ $# -ne 2 ]; then
+  echo "Usage: $(basename $0) OLDDIR NEWDIR" 1>&2
+  exit 1
+fi
+
+olddir=$1
+newdir=$2
+for d in "$olddir" "$newdir"; do
+  if [ "$d" != "." ] && [ ! -d "$d" ]; then
+    echo "$d: directory not found" 1>&2
+    exit 1
+  fi
+done
+
+$ANALYSE_PNG -d $olddir/icon.png $newdir/icon.png
+for d in back_to_skool back_to_skool_daze common ezad_looks skool_daze skool_daze_take_too; do
+  for oldimg in $olddir/images/originalx1/$d/*.png; do
+    newimg=$newdir/images/originalx1/$d/$(basename $oldimg)
+    if ! cmp -s $oldimg $newimg; then
+      $ANALYSE_PNG -d $oldimg $newimg
+    fi
+  done
+done
