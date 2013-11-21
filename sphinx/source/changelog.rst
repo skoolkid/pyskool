@@ -3,6 +3,7 @@ Changelog
 
 1.1b1
 -----
+* Added hitting sound effects (``HIT0``, ``HIT1``) to Skool Daze
 * Added the ``ALARM`` sound effect ID (for when Albert is telling Mr Wacker
   that Eric's escaping)
 * Added the ``--create-sounds`` command line option (to create the sound files

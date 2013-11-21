@@ -112,6 +112,19 @@ def shield():
     # SD 58604
     return delays_to_samples(sd65122(64, 0, 254) * 16)
 
+def hit(cycle):
+    # SD 60128
+    delays = [2532] * 15
+    delays[7] = 2589
+    add_contention(delays, contention=False, interrupts=True, cycle=cycle)
+    return delays_to_samples(delays)
+
+def hit0():
+    return hit(17472)
+
+def hit1():
+    return hit(17472 * 3)
+
 def bingo():
     # BTS 62178#62401
     delays = bts62155(255, 255, 255) * 5
@@ -341,6 +354,8 @@ FILES = {
     'knocked-out': (knocked_out, 'common', 'knocked-out'),
     'all-shields': (all_shields, 'skool_daze', 'all-shields'),
     'sd-bell': (sd_bell, 'skool_daze', 'bell'),
+    'hit0': (hit0, 'skool_daze', 'hit0'),
+    'hit1': (hit1, 'skool_daze', 'hit1'),
     'jump': (jump, 'skool_daze', 'jump'),
     'sd-lines1': (sd_lines1, 'skool_daze', 'lines1'),
     'sd-lines2': (sd_lines2, 'skool_daze', 'lines2'),
@@ -366,8 +381,9 @@ FILES = {
 
 SOUNDS = {
     SKOOL_DAZE: (
-        'catapult', 'knocked-out', 'all-shields', 'sd-bell', 'jump',
-        'sd-lines1', 'sd-lines2', 'shield', 'sd-tune', 'sd-walk0', 'sd-walk1'
+        'catapult', 'knocked-out', 'all-shields', 'sd-bell', 'hit0', 'hit1',
+        'jump', 'sd-lines1', 'sd-lines2', 'shield', 'sd-tune', 'sd-walk0',
+        'sd-walk1'
     ),
     BACK_TO_SKOOL: (
         'catapult', 'knocked-out', 'bts-bell', 'bingo', 'conker', 'bts-lines1',
@@ -389,4 +405,4 @@ def create_sounds(game, odir):
             write_wav(samples_f(), wav)
             wrote_wavs = True
     if not wrote_wavs:
-        print("{}: All sound files present".format(game))
+        print("All sound files present")

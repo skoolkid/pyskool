@@ -43,6 +43,8 @@ DESK = 'DESK'
 #: ID of the sound effect to play when Eric catches the frog or places it in a
 #: cup.
 FROG = 'FROG'
+#: Hitting sound effect IDs.
+HIT_SOUNDS = ('HIT0', 'HIT1')
 #: ID of the sound effect to play when Eric kisses someone.
 KISS = 'KISS'
 #: ID of the sound effect to play when Eric jumps.

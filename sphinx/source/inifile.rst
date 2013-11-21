@@ -1404,6 +1404,7 @@ Recognised IDs and the sound effects they refer to are:
 * ``CONKER``: Eric has knocked out Albert with a conker
 * ``DESK``: Eric has found the water pistol or stinkbombs in a desk
 * ``FROG``: Eric has caught the frog or placed it in a cup
+* ``HIT0``, ``HIT1``: Eric has thrown a punch
 * ``JUMP``: Eric has jumped into the air
 * ``KISS``: Eric has kissed someone
 * ``KNOCKED_OUT``: Eric has been knocked over or out of his chair
@@ -1417,10 +1418,7 @@ Recognised IDs and the sound effects they refer to are:
 * ``STOREROOM_KEY``: Eric has written the storeroom combination on a blackboard
 * ``TUNE``: opening tune
 * ``UP_A_YEAR``: Eric has gone up a year
-* ``WALK0``: Eric walking (1)
-* ``WALK1``: Eric walking (2)
-* ``WALK2``: Eric walking (3)
-* ``WALK3``: Eric walking (4)
+* ``WALK0``, ``WALK1``, ``WALK2``, ``WALK3``: Eric walking
 * ``WATER_PISTOL``: Eric has fired his water pistol
 
 If an entry for a given sound effect is not present in the ``Sounds`` section,

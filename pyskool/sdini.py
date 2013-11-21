@@ -116,6 +116,8 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         skoolini.SkoolIniMaker.create_sounds(self)
         sounds_dir = 'skool_daze'
         self.sounds.append((sound.BELL, '%s/bell.wav' % sounds_dir))
+        self.sounds.append((sound.HIT_SOUNDS[0], '%s/hit0.wav' % sounds_dir))
+        self.sounds.append((sound.HIT_SOUNDS[1], '%s/hit1.wav' % sounds_dir))
         self.sounds.append((sound.LINES1, '%s/lines1.wav' % sounds_dir))
         self.sounds.append((sound.LINES2, '%s/lines2.wav' % sounds_dir))
         self.sounds.append((sound.WALK_SOUNDS[0], '%s/walk0.wav' % sounds_dir))

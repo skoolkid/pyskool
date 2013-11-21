@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -18,6 +18,8 @@
 """
 Defines the :class:`Eric` class.
 """
+
+import random
 
 import character
 from animatorystates import ARM_UP, BENDING_OVER, KNOCKED_OUT, RIDING_BIKE0, RIDING_BIKE1, WALK0
@@ -456,6 +458,7 @@ class Eric(character.Character):
         """
         character.Character.punch(self)
         self.alert_lines_givers(lines.NO_HITTING)
+        self.play_sound(random.choice(sound.HIT_SOUNDS))
 
     def jump(self):
         """Make Eric jump. Also alert any lines-givers in the vicinity."""
