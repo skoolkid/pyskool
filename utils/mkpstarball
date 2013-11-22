@@ -76,6 +76,13 @@ $UTILS/create-ini.py -q $ABSDIR
 
 # Sound files
 $UTILS/create-sounds.py $ABSDIR > /dev/null
+find $ABSDIR/sounds -name '*.wav' | while read wav; do
+  size=$(du -b $wav | cut -f1)
+  if [ $size -gt 50000 ]; then
+    oggenc -Q $wav
+    rm $wav
+  fi
+done
 
 # Documentation
 cd $PYSKOOL_HOME/sphinx
