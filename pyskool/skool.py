@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -92,7 +92,7 @@ class Skool:
         self.bike = None
         self.clear_score = True
 
-        self.screenshot_dir = config.get('ScreenshotDir', '.')
+        self.screenshot_dir = config.get('ScreenshotDir', 'screenshots')
         self.save_game_dir = config.get('SaveGameDir', 'save')
         self.save_game_compression = config.get('SaveGameCompression', 9)
         self.flash_cycle = config.get('FlashCycle', 10)

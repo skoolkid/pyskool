@@ -347,8 +347,10 @@ class Game:
         """Take a screenshot."""
         img_format = 'bmp' if pygame.version.vernum < (1, 8) else 'png'
         timestamp = time.strftime('%Y%m%d-%H%M%S')
-        img_fname = 'pyskool-%s-%03i.%s' % (timestamp, self.screenshot, img_format)
+        img_fname = '%s-%03i.%s' % (timestamp, self.screenshot, img_format)
         scrshot_dir = os.path.join(*self.skool.screenshot_dir.split('/'))
+        if not os.path.isdir(scrshot_dir):
+            os.makedirs(scrshot_dir)
         img_path = os.path.join(scrshot_dir, img_fname)
         self.screen.take_screenshot(img_path)
         self.screenshot += 1

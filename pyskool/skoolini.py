@@ -192,7 +192,7 @@ class SkoolIniMaker:
         self.game_config = []
         self.game_config.append(('ImageSet', 'original'))
         self.game_config.append(('Icon', 'icon.png'))
-        self.game_config.append(('ScreenshotDir', '.'))
+        self.game_config.append(('ScreenshotDir', 'screenshots'))
         self.game_config.append(('MaxLines', 10000))
         self.game_config.append(('TooManyLinesCommandList', CL_EXPEL_ERIC_TOO_MANY_LINES))
         self.game_config.append(('ExpellerId', WACKER))
