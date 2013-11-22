@@ -1394,6 +1394,10 @@ where
 * ``path`` is the location of the sound file on disk (relative to the `sounds`
   directory)
 
+``path`` may be the full name of the sound file (e.g. `tune.wav`), or just the
+base name (e.g. `tune`); in the latter case, Pyskool will look for a file with
+the base name and a `.wav` or `.ogg` suffix.
+
 Recognised IDs and the sound effects they refer to are:
 
 * ``ALARM``: Albert is telling Mr Wacker that Eric is escaping

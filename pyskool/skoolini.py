@@ -278,8 +278,8 @@ class SkoolIniMaker:
     def create_sounds(self):
         self.sounds = []
         common_dir = 'common'
-        self.sounds.append((sound.CATAPULT, '%s/catapult.wav' % common_dir))
-        self.sounds.append((sound.KNOCKED_OUT, '%s/knocked-out.wav' % common_dir))
+        self.sounds.append((sound.CATAPULT, '%s/catapult' % common_dir))
+        self.sounds.append((sound.KNOCKED_OUT, '%s/knocked-out' % common_dir))
 
     def create_sprite_groups(self):
         self.sprite_groups = []

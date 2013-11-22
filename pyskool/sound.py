@@ -127,14 +127,16 @@ class Beeper:
         if pygame.mixer.get_init() is None:
             return
         fname = os.path.join(*sound_file.split('/'))
-        path = os.path.join(self.sounds_dir, fname)
-        if os.path.isfile(path):
-            try:
-                self.sounds[sound_id] = pygame.mixer.Sound(path)
-            except pygame.error, e:
-                debug.log("Unable to load sound effect '%s' from %s: %s" % (sound_id, path, e.args[0]))
-        else:
-            debug.log("Unable to load sound effect '%s' from %s: file not found" % (sound_id, path))
+        base_path = os.path.join(self.sounds_dir, fname)
+        for suffix in ('', '.wav', '.ogg'):
+            path = base_path + suffix
+            if os.path.isfile(path):
+                try:
+                    self.sounds[sound_id] = pygame.mixer.Sound(path)
+                except pygame.error, e:
+                    debug.log("Unable to load sound effect '%s' from %s: %s" % (sound_id, path, e.args[0]))
+                return
+        debug.log("Unable to load sound effect '%s' from %s{,.wav,.ogg}: file not found" % (sound_id, base_path))
 
     def add_sound(self, sound_id, sound_file):
         """Add a sound effect to the beeper's collection.
