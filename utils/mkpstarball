@@ -64,7 +64,7 @@ done
 cp -a $SETUP $ABSDIR/setup.py
 
 # Images
-$UTILS/get-images.py $ABSDIR > /dev/null
+$UTILS/create-images.py $ABSDIR > /dev/null
 cat > $ABSDIR/images/originalx1/images.txt <<EOF
 The images in these subdirectories were generated from memory snapshots of the
 original Skool Daze and Back to Skool games. The copyright in the original games
