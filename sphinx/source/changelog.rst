@@ -3,9 +3,11 @@ Changelog
 
 1.1b1
 -----
+* Replaced all the sound files with high-quality (44.1kHz) versions
 * Added hitting sound effects (``HIT0``, ``HIT1``) to Skool Daze
 * Added the ``ALARM`` sound effect ID (for when Albert is telling Mr Wacker
   that Eric's escaping)
+* Screenshots are now saved to the `screenshots` directory by default
 * Added the ``--create-sounds`` command line option (to create the sound files
   required by a game)
 * Added the ``--package-dir`` command line option (for showing the path to the
