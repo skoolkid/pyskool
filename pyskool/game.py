@@ -73,7 +73,7 @@ class Game:
     """
     def __init__(self, ini_file, images_dir, sounds_dir, scale, ini_dir, quick_start, cheat, version, sav_file):
         # Reduce latency in Pygame 1.8+
-        pygame.mixer.pre_init(22050, -16, 2, 1024)
+        pygame.mixer.pre_init(44100, -16, 1, 1024)
         pygame.init()
         if pygame.mixer.get_init() is None:
             sys.stdout.write("WARNING: pygame.mixer failed to initialise; there will be no sound\n")
