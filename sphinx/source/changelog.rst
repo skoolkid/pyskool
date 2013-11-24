@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1b1
+1.1rc
 -----
 * Replaced all the sound files with high-quality (44.1kHz) versions
 * Added hitting sound effects (``HIT0``, ``HIT1``) to Skool Daze
