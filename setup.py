@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from distutils.core import setup
+import os
 import shutil
 
 from pyskool import version
@@ -103,6 +104,7 @@ DATA_DIR = '{0}/data'.format(PACKAGE_DIR)
 
 shutil.rmtree(PACKAGE_DIR, True)
 shutil.copytree('pyskool', PACKAGE_DIR, ignore=shutil.ignore_patterns('*.pyc'))
+os.makedirs(DATA_DIR)
 shutil.copy('images.ini', DATA_DIR)
 shutil.copy('pyskool.ini', DATA_DIR)
 
