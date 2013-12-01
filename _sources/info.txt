@@ -10,8 +10,9 @@ other piece of constructive criticism, contact me (Richard Dymond) at
 *<rjdymond AT gmail.com>*, or leave a comment on the `Pyskool blog
 <http://pyskool.ca/>`_.
 
-To report bugs, please use the
-`bug tracker <https://bugs.launchpad.net/pyskool>`_.
+To report bugs, please use the `bug tracker`_.
+
+.. _bug tracker: https://github.com/skoolkid/pyskool/issues
 
 .. _todo:
 
@@ -33,11 +34,13 @@ things left on my TODO list, the main ones being:
 Bugs
 ----
 No doubt there are bugs in Pyskool - and in this documentation - or ways it
-deviates unacceptably from the original games. Please
-`report any bugs <https://bugs.launchpad.net/pyskool>`_ (reproducible crashes,
-especially) you find, and help to make Pyskool a solid and stable platform for
-developing new Skool-based games. If you can provide a saved game that
-demonstrates the bug shortly after being loaded, all the better.
+deviates unacceptably from the original games. Please `report any bugs`_
+(reproducible crashes, especially) you find, and help to make Pyskool a solid
+and stable platform for developing new Skool-based games. If you can provide a
+saved game that demonstrates the bug shortly after being loaded, all the
+better.
+
+.. _report any bugs: `bug tracker`_
 
 Frequently asked questions
 --------------------------

@@ -1,5 +1,27 @@
 Changelog
 =========
+
+1.1 (2013-12-01)
+----------------
+* Replaced all the sound files with high-quality (44.1kHz) versions
+* Added hitting sound effects (``HIT0``, ``HIT1``) to Skool Daze
+* Added the ``ALARM`` sound effect ID (for when Albert is telling Mr Wacker
+  that Eric's escaping)
+* Screenshots are now saved to the `screenshots` directory by default
+* Added the ``--create-sounds`` command line option (to create the sound files
+  required by a game)
+* Added the ``--package-dir`` command line option (for showing the path to the
+  pyskool package directory)
+* Added the ``--search-dirs`` command line option (for showing the locations
+  that Pyskool searches for data files)
+* Added the ``--setup`` command line option (to create the images, ini files
+  and sound files required by a game)
+* Added a second source for the Skool Daze TZX file to `images.ini`
+* Removed the documentation sources from the Pyskool distribution (they can be
+  obtained from GitHub_)
+
+.. _GitHub: https://github.com/skoolkid/pyskool
+
 1.0.1 (2012-12-07)
 ------------------
 * Moved the man pages to section 6

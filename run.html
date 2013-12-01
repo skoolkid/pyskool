@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installing and running Pyskool &mdash; Pyskool 1.0.1 documentation</title>
+    <title>Installing and running Pyskool &mdash; Pyskool 1.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0.1',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.1 documentation" href="index.html" />
     <link rel="next" title="Playing Pyskool" href="play.html" />
     <link rel="prev" title="What is Pyskool?" href="whatis.html" /> 
   </head>
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="whatis.html" title="What is Pyskool?"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -148,45 +148,57 @@ scripts is executed, it looks for the following things:</p>
 order for Pyskool to find it:</p>
 <ul class="simple">
 <li>the current working directory</li>
-<li><cite>$HOME/.pyskool</cite> (if it exists; Pyskool will try to create it if it doesn&#8217;t)</li>
+<li><cite>$HOME/.pyskool</cite></li>
 <li>the directory containing the game launcher script</li>
 <li><cite>/usr/share/pyskool</cite></li>
+<li><cite>$PACKAGE_DIR/data</cite></li>
 </ul>
 <p><cite>$HOME</cite> refers to the user&#8217;s home directory. On Windows this is typically
 <cite>C:\Documents and Settings\username</cite>.</p>
+<p><cite>$PACKAGE_DIR</cite> refers to the directory in which the <cite>pyskool</cite> package is
+installed (as shown by the <tt class="docutils literal"><span class="pre">--package-dir</span></tt> command line option).</p>
+<p>When you need a reminder of the locations that Pyskool searches for data files,
+run one of the game launcher scripts with the <tt class="docutils literal"><span class="pre">--search-dirs</span></tt> option.</p>
 <p>If Pyskool doesn&#8217;t start, run the game launcher script from the command line
 and read the diagnostic messages that are printed to the console for clues
 about what&#8217;s going wrong.</p>
 <p>When Pyskool is running, it will dump screenshots to, save games to, and load
-games from either <cite>$HOME/.pyskool</cite> (if it exists), or the current working
-directory.</p>
+games from either <cite>$HOME/.pyskool</cite> (if it exists or can be created), or the
+current working directory.</p>
 </div>
 <div class="section" id="command-line-options">
 <h2>Command line options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h2>
 <p><cite>skool_daze.py</cite>, <cite>back_to_skool.py</cite> and the other game launcher scripts support
-a few command line options:</p>
+the following command line options:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">--version</span></tt> - show the version number of Pyskool and exit</li>
 <li><tt class="docutils literal"><span class="pre">-h</span></tt> or <tt class="docutils literal"><span class="pre">--help</span></tt> - show a summary of the available options</li>
-<li><tt class="docutils literal"><span class="pre">-s</span> <span class="pre">SCALE</span></tt> or <tt class="docutils literal"><span class="pre">--scale=SCALE</span></tt> - set the scale of the display; overrides
-the <cite>Scale</cite> setting in the <a class="reference internal" href="inifile.html#screenconfig"><em>[ScreenConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">-c</span></tt> or <tt class="docutils literal"><span class="pre">--cheat</span></tt> - enable cheat keys; overrides the <cite>Cheat</cite> setting in
+the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">--create-images</span></tt> or <tt class="docutils literal"><span class="pre">--get-images</span></tt> - create the images required by the
+game and exit</li>
+<li><tt class="docutils literal"><span class="pre">--create-ini</span></tt> - create the ini files required by the game in
+<cite>$HOME/.pyskool/ini/&lt;game_name&gt;</cite> and exit</li>
+<li><tt class="docutils literal"><span class="pre">--create-sounds</span></tt> - create the sound files required by the game in
+<cite>$HOME/.pyskool/sounds</cite> and exit</li>
 <li><tt class="docutils literal"><span class="pre">-i</span> <span class="pre">INIDIR</span></tt> or <tt class="docutils literal"><span class="pre">--inidir=INIDIR</span></tt> - use ini files from a specified
 directory</li>
+<li><tt class="docutils literal"><span class="pre">-l</span> <span class="pre">SAVEFILE</span></tt> or <tt class="docutils literal"><span class="pre">--load=SAVEFILE</span></tt> - load a previously saved game</li>
+<li><tt class="docutils literal"><span class="pre">--package-dir</span></tt> - show the path to the pyskool package directory and exit</li>
 <li><tt class="docutils literal"><span class="pre">-q</span></tt> or <tt class="docutils literal"><span class="pre">--quick-start</span></tt> - start the game quickly by skipping the
 scroll-skool-into-view and theme tune sequence; overrides the <cite>QuickStart</cite>
 setting in the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a> section</li>
-<li><tt class="docutils literal"><span class="pre">-c</span></tt> or <tt class="docutils literal"><span class="pre">--cheat</span></tt> - enable cheat keys; overrides the <cite>Cheat</cite> setting in
-the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a> section</li>
-<li><tt class="docutils literal"><span class="pre">-l</span> <span class="pre">SAVEFILE</span></tt> or <tt class="docutils literal"><span class="pre">--load=SAVEFILE</span></tt> - load a previously saved game</li>
 <li><tt class="docutils literal"><span class="pre">-r</span> <span class="pre">SAVEDIR</span></tt> or <tt class="docutils literal"><span class="pre">--load-last=SAVEDIR</span></tt> - load the most recently saved game
 from the specified directory</li>
-<li><tt class="docutils literal"><span class="pre">--create-ini</span></tt> - create the ini files required by the game and exit</li>
-<li><tt class="docutils literal"><span class="pre">--get-images</span></tt> - get any missing images required by the game and exit</li>
+<li><tt class="docutils literal"><span class="pre">-s</span> <span class="pre">SCALE</span></tt> or <tt class="docutils literal"><span class="pre">--scale=SCALE</span></tt> - set the scale of the display; overrides
+the <cite>Scale</cite> setting in the <a class="reference internal" href="inifile.html#screenconfig"><em>[ScreenConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">--search-dirs</span></tt> - show the locations that Pyskool searches for data files
+and exit</li>
+<li><tt class="docutils literal"><span class="pre">--setup</span></tt> - create the images, ini files and sound files required by the
+game in <cite>$HOME/.pyskool</cite> and exit</li>
 </ul>
-<p>The <tt class="docutils literal"><span class="pre">--create-ini</span></tt> option writes the stock ini files required by the game to
-<cite>$HOME/.pyskool/ini/&lt;game_name&gt;</cite>.</p>
-<p>The <tt class="docutils literal"><span class="pre">--get-images</span></tt> option first looks for Skool Daze and Back to Skool tape
-or snapshot files by the following names in <cite>$HOME/.pyskool</cite>:</p>
+<p>The <tt class="docutils literal"><span class="pre">--create-images</span></tt> option first looks for Skool Daze and Back to Skool
+tape or snapshot files by the following names in <cite>$HOME/.pyskool</cite>:</p>
 <ul class="simple">
 <li><cite>skool_daze.tzx</cite></li>
 <li><cite>skool_daze.sna</cite></li>
@@ -268,11 +280,11 @@ subdirectories under <cite>$HOME/.pyskool/images/originalx1</cite>.</p>
         <li class="right" >
           <a href="whatis.html" title="What is Pyskool?"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2012, Richard Dymond.
+        &copy; Copyright 2013, Richard Dymond.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>

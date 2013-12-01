@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Game ini files &mdash; Pyskool 1.0.1 documentation</title>
+    <title>Game ini files &mdash; Pyskool 1.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.0.1',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.0.1 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.1 documentation" href="index.html" />
     <link rel="next" title="Commands" href="commands.html" />
     <link rel="prev" title="Main ini file" href="mainini.html" /> 
   </head>
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="mainini.html" title="Main ini file"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -1353,12 +1353,16 @@ you think it means.</p>
 </div>
 <p>where</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">soundId</span></tt> is the unique ID of a sound sample</li>
-<li><tt class="docutils literal"><span class="pre">path</span></tt> is the location of the sound sample on disk (relative to the
-<cite>sounds</cite> directory)</li>
+<li><tt class="docutils literal"><span class="pre">soundId</span></tt> is the unique ID of a sound effect</li>
+<li><tt class="docutils literal"><span class="pre">path</span></tt> is the location of the sound file on disk (relative to the <cite>sounds</cite>
+directory)</li>
 </ul>
-<p>Recognised sound sample IDs and the samples they refer to are:</p>
+<p><tt class="docutils literal"><span class="pre">path</span></tt> may be the full name of the sound file (e.g. <cite>tune.wav</cite>), or just the
+base name (e.g. <cite>tune</cite>); in the latter case, Pyskool will look for a file with
+the base name and a <cite>.wav</cite> or <cite>.ogg</cite> suffix.</p>
+<p>Recognised IDs and the sound effects they refer to are:</p>
 <ul class="simple">
+<li><tt class="docutils literal"><span class="pre">ALARM</span></tt>: Albert is telling Mr Wacker that Eric is escaping</li>
 <li><tt class="docutils literal"><span class="pre">ALL_SHIELDS</span></tt>: Eric has hit all the shields</li>
 <li><tt class="docutils literal"><span class="pre">BELL</span></tt>: the bell</li>
 <li><tt class="docutils literal"><span class="pre">BIKE</span></tt>: Eric has written the bike combination on a blackboard</li>
@@ -1366,6 +1370,7 @@ you think it means.</p>
 <li><tt class="docutils literal"><span class="pre">CONKER</span></tt>: Eric has knocked out Albert with a conker</li>
 <li><tt class="docutils literal"><span class="pre">DESK</span></tt>: Eric has found the water pistol or stinkbombs in a desk</li>
 <li><tt class="docutils literal"><span class="pre">FROG</span></tt>: Eric has caught the frog or placed it in a cup</li>
+<li><tt class="docutils literal"><span class="pre">HIT0</span></tt>, <tt class="docutils literal"><span class="pre">HIT1</span></tt>: Eric has thrown a punch</li>
 <li><tt class="docutils literal"><span class="pre">JUMP</span></tt>: Eric has jumped into the air</li>
 <li><tt class="docutils literal"><span class="pre">KISS</span></tt>: Eric has kissed someone</li>
 <li><tt class="docutils literal"><span class="pre">KNOCKED_OUT</span></tt>: Eric has been knocked over or out of his chair</li>
@@ -1379,10 +1384,7 @@ you think it means.</p>
 <li><tt class="docutils literal"><span class="pre">STOREROOM_KEY</span></tt>: Eric has written the storeroom combination on a blackboard</li>
 <li><tt class="docutils literal"><span class="pre">TUNE</span></tt>: opening tune</li>
 <li><tt class="docutils literal"><span class="pre">UP_A_YEAR</span></tt>: Eric has gone up a year</li>
-<li><tt class="docutils literal"><span class="pre">WALK0</span></tt>: Eric walking (1)</li>
-<li><tt class="docutils literal"><span class="pre">WALK1</span></tt>: Eric walking (2)</li>
-<li><tt class="docutils literal"><span class="pre">WALK2</span></tt>: Eric walking (3)</li>
-<li><tt class="docutils literal"><span class="pre">WALK3</span></tt>: Eric walking (4)</li>
+<li><tt class="docutils literal"><span class="pre">WALK0</span></tt>, <tt class="docutils literal"><span class="pre">WALK1</span></tt>, <tt class="docutils literal"><span class="pre">WALK2</span></tt>, <tt class="docutils literal"><span class="pre">WALK3</span></tt>: Eric walking</li>
 <li><tt class="docutils literal"><span class="pre">WATER_PISTOL</span></tt>: Eric has fired his water pistol</li>
 </ul>
 <p>If an entry for a given sound effect is not present in the <tt class="docutils literal"><span class="pre">Sounds</span></tt> section,
@@ -1797,11 +1799,11 @@ window when shut. The open/shut images for any given window are the same size.</
         <li class="right" >
           <a href="mainini.html" title="Main ini file"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.0.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2012, Richard Dymond.
+        &copy; Copyright 2013, Richard Dymond.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
