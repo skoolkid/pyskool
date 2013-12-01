@@ -1,7 +1,7 @@
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
 Name:           pyskool
-Version:        1.0.1
+Version:        1.1
 Release:        1%{?dist}
 Summary:        Remake of Skool Daze and Back to Skool in Python and Pygame
 
@@ -44,6 +44,9 @@ cp -a images.ini pyskool.ini icon.png ini images sounds %{buildroot}%{_datadir}/
 %{python_sitelib}/*
 
 %changelog
+* Sun Dec  1 2013 Richard Dymond <rjdymond@gmail.com> 1.1-1
+- Updated to 1.1
+
 * Fri Dec  7 2012 Richard Dymond <rjdymond@gmail.com> 1.0.1-1
 - Updated to 1.0.1
 
