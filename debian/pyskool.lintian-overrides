@@ -1,5 +1,4 @@
 pyskool binary: html-changelog-without-text-version
 pyskool binary: changelog-file-not-compressed changelog.html
-pyskool binary: new-package-should-close-itp-bug
 pyskool binary: script-with-language-extension
 pyskool binary: embedded-javascript-library
