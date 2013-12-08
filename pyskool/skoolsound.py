@@ -20,17 +20,15 @@ import sys
 import os
 import math
 
-SAMPLE_RATE = 44100
-SAMPLE_DELAY = 3500000.0 / SAMPLE_RATE
 FRAME_T_STATES = 69888
 INTERRUPT_DELAY = 942
-MAX_AMPLITUDE = 65536
 CONTENTION_FACTOR = 0.34
 
 SKOOL_DAZE = 'skool_daze'
 BACK_TO_SKOOL = 'back_to_skool'
 
-def delays_to_samples(delays):
+def delays_to_samples(delays, sample_rate, max_amplitude):
+    sample_delay = 3500000.0 / sample_rate
     samples = []
     direction = 1
     i = 0
@@ -45,7 +43,7 @@ def delays_to_samples(delays):
             d0 = d1
             d1 += delays[i]
             direction *= -1
-        sample = direction * int(MAX_AMPLITUDE * math.sin(math.pi * (t - d0) / (d1 - d0)))
+        sample = direction * int(max_amplitude * math.sin(math.pi * (t - d0) / (d1 - d0)))
         if sample > 32767:
             sample = 32767
         elif sample < -32768:
@@ -53,7 +51,7 @@ def delays_to_samples(delays):
         elif sample < 0:
             sample += 65536
         samples.append(sample)
-        t += SAMPLE_DELAY
+        t += sample_delay
     return samples
 
 def add_contention(delays, contention=True, interrupts=False, cycle=0):
@@ -100,24 +98,24 @@ def jump():
     # SD 60139
     delays = sd65122(50, 96, 3)
     add_contention(delays, contention=False, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def catapult():
     # SD 65141, BTS 63861
     delays = sd65122(128, 0, 248)
     add_contention(delays, contention=False, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def shield():
     # SD 58604
-    return delays_to_samples(sd65122(64, 0, 254) * 16)
+    return sd65122(64, 0, 254) * 16
 
 def hit(cycle):
     # SD 60128
     delays = [2532] * 15
     delays[7] = 2589
     add_contention(delays, contention=False, interrupts=True, cycle=cycle)
-    return delays_to_samples(delays)
+    return delays
 
 def hit0():
     return hit(17472)
@@ -129,19 +127,19 @@ def bingo():
     # BTS 62178#62401
     delays = bts62155(255, 255, 255) * 5
     add_contention(delays, contention=False, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def sherry():
     # BTS 23907#23988
     delays = bts62155(0, 0, 2)
     add_contention(delays, contention=False, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def knocked_out():
     # SD 65111, BTS 62094#62147
     delays = sd65122(0, 0, 1)
     add_contention(delays, contention=False, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def mouse():
     # BTS 28952#28964
@@ -149,25 +147,13 @@ def mouse():
     pause_delay = 399814 # 0.11s
     delays = squeak + [pause_delay] + squeak + [pause_delay] + squeak
     add_contention(delays, interrupts=True)
-    return delays_to_samples(delays)
-
-def bts_lines1():
-    # BTS 29716#29805
-    delays = bts29836(20, 10240)
-    add_contention(delays, interrupts=True)
-    return delays_to_samples(delays)
-
-def bts_lines2():
-    # BTS 29716#29824
-    delays = bts29836(50, 5120)
-    add_contention(delays, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def conker():
     # BTS 29896#29978
     delays = bts29836(40, 10240)
     add_contention(delays, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def safe_key():
     # BTS 30804#30866
@@ -177,19 +163,19 @@ def safe_key():
         delays.extend(bts29836(b, 256))
         delays.append(13 * b + 62)
     add_contention(delays, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def bts_bell():
     # BTS 32433#32492
     delays = bts29836(128, 4096)
     add_contention(delays, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def sd_bell():
     # SD 26450
     delays = [1718] * 4600
     add_contention(delays)
-    return delays_to_samples(delays)
+    return delays
 
 def sd_lines1():
     # SD 30464#30544
@@ -200,7 +186,7 @@ def sd_lines1():
         delays.append(307)
     delays.extend(inner_delays)
     add_contention(delays, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def sd_lines2():
     # SD 30464#30575
@@ -211,19 +197,19 @@ def sd_lines2():
         delays.append(697)
     delays.extend(inner_delays)
     add_contention(delays, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def bts_lines1():
     # BTS 29716#29790
     delays = bts29836(20, 10240)
     add_contention(delays, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def bts_lines2():
     # BTS 29716#29818
     delays = bts29836(50, 5120)
     add_contention(delays, interrupts=True)
-    return delays_to_samples(delays)
+    return delays
 
 def tune(notes):
     # SD 32279
@@ -254,7 +240,7 @@ def tune(notes):
             delays.extend([13 * pitch + 51] * (duration - 1))
             prev_pitch = pitch
     add_contention(delays)
-    return delays_to_samples(delays)
+    return delays
 
 def sd_tune():
     # SD 32353
@@ -295,7 +281,7 @@ def bts_walk(cycle):
     # BTS 29012
     delays = [2532] * 6
     add_contention(delays, interrupts=True, cycle=cycle)
-    return delays_to_samples(delays)
+    return delays
 
 def bts_walk0():
     return bts_walk(8736)
@@ -313,7 +299,7 @@ def sd_walk(cycle):
     # SD 65088
     delays = [2532] * 7
     add_contention(delays, contention=False, interrupts=True, cycle=cycle)
-    return delays_to_samples(delays)
+    return delays
 
 def sd_walk0():
     return sd_walk(8736)
@@ -330,7 +316,7 @@ def write_text(f, text):
 def write_bytes(f, data):
     f.write(bytearray(data))
 
-def write_wav(samples, fname):
+def write_wav(samples, fname, sample_rate):
     data_length = 2 * len(samples)
     with open(fname, 'wb') as f:
         write_text(f, 'RIFF')
@@ -340,8 +326,8 @@ def write_wav(samples, fname):
         write_bytes(f, (16, 0, 0, 0)) # length of fmt chunk (16)
         write_bytes(f, (1, 0)) # format (1=PCM)
         write_bytes(f, (1, 0)) # channels
-        write_bytes(f, _to_bytes4(SAMPLE_RATE)) # sample rate
-        write_bytes(f, _to_bytes4(SAMPLE_RATE * 2)) # byte rate
+        write_bytes(f, _to_bytes4(sample_rate)) # sample rate
+        write_bytes(f, _to_bytes4(sample_rate * 2)) # byte rate
         write_bytes(f, (2, 0)) # bytes per sample
         write_bytes(f, (16, 0)) # bits per sample
         write_text(f, 'data')
@@ -392,17 +378,18 @@ SOUNDS = {
     )
 }
 
-def create_sounds(game, odir):
+def create_sounds(game, odir, sample_rate=44100, max_amplitude=65536):
     wrote_wavs = False
     for sound in SOUNDS[game]:
-        samples_f, subdir, fname = FILES[sound]
+        delays_f, subdir, fname = FILES[sound]
         sounds_dir = os.path.join(odir, subdir)
         if not os.path.isdir(sounds_dir):
             os.makedirs(sounds_dir)
         wav = os.path.join(sounds_dir, fname + '.wav')
         if not os.path.isfile(wav):
             print('Writing {0}'.format(wav))
-            write_wav(samples_f(), wav)
+            samples = delays_to_samples(delays_f(), sample_rate, max_amplitude)
+            write_wav(samples, wav, sample_rate)
             wrote_wavs = True
     if not wrote_wavs:
         print("All sound files present")
