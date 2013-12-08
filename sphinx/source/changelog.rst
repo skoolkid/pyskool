@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.1.1b1
+-------
+
 1.1 (2013-12-01)
 ----------------
 * Replaced all the sound files with high-quality (44.1kHz) versions

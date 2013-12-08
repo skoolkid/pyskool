@@ -18,7 +18,7 @@
 
 import os
 
-version = '1.1'
+version = '1.1.1b1'
 package_dir = os.path.dirname(__file__)
 images_subdir = 'images'
 sounds_subdir = 'sounds'
