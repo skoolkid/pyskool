@@ -3,6 +3,8 @@ Changelog
 
 1.1.1b1
 -------
+* When Escape is pressed to quit the game, a confirmation screen is displayed
+  (unless the ``ConfirmQuit`` parameter in the :ref:`gameConfig` section is 0)
 
 1.1 (2013-12-01)
 ----------------

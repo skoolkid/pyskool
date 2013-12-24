@@ -208,6 +208,7 @@ class SkoolIniMaker:
         self.game_config.append(('LinesRange', (1, 8)))
         self.game_config.append(('SpriteSize', (3, 4)))
         self.game_config.append(('SaveGameCompression', 9))
+        self.game_config.append(('ConfirmQuit', 1))
 
     def create_timetable_config(self):
         self.timetable_config = []

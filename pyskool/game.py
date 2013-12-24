@@ -79,10 +79,15 @@ class Game:
             sys.stdout.write("WARNING: pygame.mixer failed to initialise; there will be no sound\n")
 
         parser = IniParser(ini_file)
-        menu_name = 'Main'
-        self.menu_config = parser.get_config('Menu %s' % menu_name)
-        self.menu_items = parser.parse_section('MenuItems %s' % menu_name)
         self._create_key_bindings(parser.parse_section('Keys'))
+
+        self.menus = {}
+        self.menu_config = {}
+        for menu_name in ('Main', 'Quit'):
+            self.menu_config[menu_name] = (
+                parser.get_config('Menu {}'.format(menu_name)),
+                parser.parse_section('MenuItems {}'.format(menu_name))
+            )
 
         self.images_dir = images_dir
         self.sounds_dir = sounds_dir
@@ -91,7 +96,7 @@ class Game:
         self.screenshot = 0
         self.version = version
         self.screen = None
-        self.menu_up = False
+        self.menu = None
 
         if sav_file:
             if os.path.isfile(sav_file):
@@ -121,15 +126,17 @@ class Game:
         self.cheat = cheat or config.get('Cheat', 0)
         self.quick_start = quick_start or config.get('QuickStart', 0)
         self.ring_bell = not self.quick_start
+        self.confirm_quit = config.get('ConfirmQuit', 1)
 
-        self._build_menu()
+        self._build_menus()
 
-    def _build_menu(self):
-        """Build the menu."""
-        self.menu = Menu(self.screen, self.menu_config, self.menu_items)
+    def _build_menus(self):
+        """Build the menus."""
+        for menu_name, (menu_config, menu_items) in self.menu_config.items():
+            self.menus[menu_name] = Menu(self.screen, menu_config, menu_items)
 
     def _handle_menu(self):
-        """Handle keypresses while the menu is displayed."""
+        """Handle keypresses while a menu is displayed."""
         draw = False
         refresh = False
         status = ''
@@ -137,7 +144,7 @@ class Game:
         if operation == UPDATE:
             draw = True
         elif operation == RESUME:
-            self.menu_up = False
+            self.menu = None
         elif operation == SAVE:
             sav_file = self._save_game()
             status = 'Saved %s' % sav_file
@@ -230,7 +237,7 @@ class Game:
         self.skool.beeper.restore(self.sounds_dir)
         self.skool.gallery.restore(self.images_dir)
         self.skool.restore()
-        self._build_menu()
+        self._build_menus()
 
         debug.log('Skool loaded from %s in %0.2fs' % (os.path.abspath(fname), time.time() - start))
 
@@ -400,11 +407,8 @@ class Game:
         if self.keyboard.was_pressed(keys.SCREENSHOT):
             self._take_screenshot()
 
-        if self.menu_up:
+        if self.menu:
             return self._handle_menu()
-
-        if self.keyboard.was_pressed(keys.QUIT, force_check=True):
-            return True
 
         self.paused ^= self.keyboard.was_pressed(keys.PAUSE, force_check=True)
         if self.paused:
@@ -446,10 +450,16 @@ class Game:
         self.skool.draw()
         self.skool.scroll(self.scroll, self.clock)
 
-        if self.keyboard.was_pressed(keys.MENU):
+        if self.keyboard.was_pressed(keys.QUIT, force_check=True):
+            if not self.confirm_quit:
+                return True
+            self.menu = self.menus['Quit']
             self.menu.reset()
             self.screen.draw_menu(self.menu)
-            self.menu_up = True
+        elif self.keyboard.was_pressed(keys.MENU):
+            self.menu = self.menus['Main']
+            self.menu.reset()
+            self.screen.draw_menu(self.menu)
         elif self.keyboard.was_pressed(keys.SAVE):
             self._save_game()
         elif self.keyboard.was_pressed(keys.LOAD):

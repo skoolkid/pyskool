@@ -83,8 +83,8 @@ the following configuration parameters:
 * ``TitlePaper`` - the background colour of the title bar
 * ``Width`` - the width of the menu (as a fraction of the screen width)
 
-At the moment, `pyskool.ini` contains the definition for only one menu, whose
-unique ID must be ``Main``.
+`pyskool.ini` contains the definitions for two menus, whose unique IDs must be
+``Main`` and ``Quit``.
 
 .. _menuItems:
 

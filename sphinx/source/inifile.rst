@@ -574,6 +574,8 @@ Recognised parameters are:
   a blackboard
 * ``BikeSecrets`` - valid bike combination characters
 * ``Cheat`` - 0 = disable cheat keys, 1 = enable cheat keys
+* ``ConfirmQuit`` - whether to show a confirmation screen when Escape is
+  pressed to quit (1 = yes, 0 = no)
 * ``ConkerClockTicks`` - the number of ticks by which the skool clock is
   rewound (that is, the number of ticks by which the current period is
   extended) when a character is paralysed by a falling conker
