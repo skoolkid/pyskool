@@ -85,8 +85,8 @@ class Game:
         self.menu_config = {}
         for menu_name in ('Main', 'Quit'):
             self.menu_config[menu_name] = (
-                parser.get_config('Menu {}'.format(menu_name)),
-                parser.parse_section('MenuItems {}'.format(menu_name))
+                parser.get_config('Menu {0}'.format(menu_name)),
+                parser.parse_section('MenuItems {0}'.format(menu_name))
             )
 
         self.images_dir = images_dir
