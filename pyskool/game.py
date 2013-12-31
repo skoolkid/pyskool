@@ -135,6 +135,10 @@ class Game:
         for menu_name, (menu_config, menu_items) in self.menu_config.items():
             self.menus[menu_name] = Menu(self.screen, menu_config, menu_items)
 
+    def _build_menu_images(self):
+        for menu in self.menus.values():
+            menu.build_images(self.screen)
+
     def _handle_menu(self):
         """Handle keypresses while a menu is displayed."""
         draw = False
@@ -159,14 +163,14 @@ class Game:
             self.skool.draw(False)
             refresh = True
             status = 'Scale set to %i' % self.screen.scale
-            self.menu.build_images(self.screen)
+            self._build_menu_images()
         elif operation == SCALE_DOWN:
             if self.screen.scale_down():
                 self.skool.restore()
                 self.skool.draw(False)
                 refresh = True
                 status = 'Scale set to %i' % self.screen.scale
-                self.menu.build_images(self.screen)
+                self._build_menu_images()
         elif operation == QUIT:
             return True
         if draw or status:
