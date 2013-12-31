@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2013 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -586,14 +586,16 @@ class Screen(object):
         title.fill(menu.title_paper)
         text_pos = ((label_width - text.get_width()) // 2, (label_height - text.get_height()) // 2)
         title.blit(text, text_pos)
+        labels_height += padding + label_height
 
-        text = self.get_text(menu.status, menu.ink, menu.paper)
-        status = pygame.Surface((label_width, label_height))
-        status.fill(menu.status_paper)
-        text_pos = ((label_width - text.get_width()) // 2, (label_height - text.get_height()) // 2)
-        status.blit(text, text_pos)
+        if menu.status_bar:
+            text = self.get_text(menu.status, menu.ink, menu.paper)
+            status = pygame.Surface((label_width, label_height))
+            status.fill(menu.status_paper)
+            text_pos = ((label_width - text.get_width()) // 2, (label_height - text.get_height()) // 2)
+            status.blit(text, text_pos)
+            labels_height += padding + label_height
 
-        labels_height += 2 * (padding + label_height)
         menu_height = labels_height + 2 * padding
         menu_surface = pygame.Surface((menu_width, menu_height))
         menu_surface.fill(menu.paper)
@@ -605,7 +607,8 @@ class Screen(object):
             menu_surface.blit(label, (labels_x, labels_y))
             labels_y += label_height
         labels_y += padding
-        menu_surface.blit(status, (labels_x, labels_y))
+        if menu.status_bar:
+            menu_surface.blit(status, (labels_x, labels_y))
         menu_surface.set_alpha(menu.alpha)
 
         menu_pos = ((screen_size[0] - menu_width) // 2, (screen_size[1] - menu_height) // 2)

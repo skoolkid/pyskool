@@ -480,6 +480,7 @@ class Menu:
         self.ink = config.get('Ink', (255, 255, 255))
         self.paper = config.get('Paper', (255, 0, 0))
         self.highlight = config.get('Highlight', (200, 0, 0))
+        self.status_bar = config.get('StatusBar', 1)
         self.status_paper = config.get('StatusPaper', (100, 100, 100))
         self.title_paper = config.get('TitlePaper', (100, 100, 100))
         self.width = config.get('Width', 0.9)
