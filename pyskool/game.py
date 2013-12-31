@@ -149,6 +149,7 @@ class Game:
             draw = True
         elif operation == RESUME:
             self.menu = None
+            self.skool.draw()
         elif operation == SAVE:
             sav_file = self._save_game()
             status = 'Saved %s' % sav_file
@@ -414,6 +415,15 @@ class Game:
         if self.menu:
             return self._handle_menu()
 
+        if self.keyboard.was_pressed(keys.QUIT, force_check=True):
+            if not self.confirm_quit:
+                return True
+            self.menu = self.menus['Quit']
+            self.menu.reset()
+            self.screen.draw_menu(self.menu)
+            self.beeper.pause()
+            return False
+
         self.paused ^= self.keyboard.was_pressed(keys.PAUSE, force_check=True)
         if self.paused:
             self.beeper.pause()
@@ -454,13 +464,7 @@ class Game:
         self.skool.draw()
         self.skool.scroll(self.scroll, self.clock)
 
-        if self.keyboard.was_pressed(keys.QUIT, force_check=True):
-            if not self.confirm_quit:
-                return True
-            self.menu = self.menus['Quit']
-            self.menu.reset()
-            self.screen.draw_menu(self.menu)
-        elif self.keyboard.was_pressed(keys.MENU):
+        if self.keyboard.was_pressed(keys.MENU):
             self.menu = self.menus['Main']
             self.menu.reset()
             self.screen.draw_menu(self.menu)
