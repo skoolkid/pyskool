@@ -78,6 +78,7 @@ the following configuration parameters:
 * ``Highlight`` - the background colour of the selected menu item
 * ``Ink`` - the ink colour to use for the title, menu items and status bar
 * ``Paper`` - the main background colour
+* ``StatusBar`` - whether to show a status bar (0=no, 1=yes)
 * ``StatusPaper`` - the background colour of the status bar
 * ``Title`` - the menu title
 * ``TitlePaper`` - the background colour of the title bar
