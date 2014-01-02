@@ -378,7 +378,7 @@ SOUNDS = {
     )
 }
 
-def create_sounds(game, odir, sample_rate=44100, max_amplitude=65536, force=False):
+def create_sounds(game, odir, verbose=True, force=False, sample_rate=44100, max_amplitude=65536):
     wrote_wavs = False
     for sound in SOUNDS[game]:
         delays_f, subdir, fname = FILES[sound]
@@ -387,9 +387,10 @@ def create_sounds(game, odir, sample_rate=44100, max_amplitude=65536, force=Fals
             os.makedirs(sounds_dir)
         wav = os.path.join(sounds_dir, fname + '.wav')
         if force or not os.path.isfile(wav):
-            print('Writing {0}'.format(wav))
+            if verbose:
+                print('Writing {0}'.format(wav))
             samples = delays_to_samples(delays_f(), sample_rate, max_amplitude)
             write_wav(samples, wav, sample_rate)
             wrote_wavs = True
-    if not wrote_wavs:
+    if verbose and not wrote_wavs:
         print("All sound files present")

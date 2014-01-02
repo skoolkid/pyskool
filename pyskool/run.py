@@ -163,9 +163,9 @@ def main():
     if options.setup or options.create_sounds:
         odir = os.path.join(user_dir, 'sounds')
         if prog in ('skool_daze.py', 'skool_daze_take_too.py', 'ezad_looks.py'):
-            skoolsound.create_sounds(skoolsound.SKOOL_DAZE, odir, force=options.force)
+            skoolsound.create_sounds(skoolsound.SKOOL_DAZE, odir, True, options.force)
         elif prog in ('back_to_skool.py', 'back_to_skool_daze.py'):
-            skoolsound.create_sounds(skoolsound.BACK_TO_SKOOL, odir, force=options.force)
+            skoolsound.create_sounds(skoolsound.BACK_TO_SKOOL, odir, True, options.force)
 
     if options.setup or options.create_images or options.create_ini or options.create_sounds:
         sys.exit(0)

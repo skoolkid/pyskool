@@ -75,7 +75,7 @@ EOF
 $UTILS/create-ini.py -q $ABSDIR
 
 # Sound files
-$UTILS/create-sounds.py $ABSDIR > /dev/null
+$UTILS/create-sounds.py -q $ABSDIR
 find $ABSDIR/sounds -name '*.wav' | while read wav; do
   size=$(du -b $wav | cut -f1)
   if [ $size -gt 50000 ]; then
