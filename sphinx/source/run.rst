@@ -131,6 +131,9 @@ the following command line options:
   `$HOME/.pyskool/ini/<game_name>` and exit
 * ``--create-sounds`` - create the sound files required by the game in
   `$HOME/.pyskool/sounds` and exit
+* ``--force`` - overwrite existing images, ini files and sound files (when
+  using the ``--create-images``, ``--create-ini``, ``--create-sounds`` or
+  ``--setup`` option)
 * ``-i INIDIR`` or ``--inidir=INIDIR`` - use ini files from a specified
   directory
 * ``-l SAVEFILE`` or ``--load=SAVEFILE`` - load a previously saved game

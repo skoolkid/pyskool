@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2008-2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -69,6 +69,8 @@ def main():
         help="create the ini files required by the game and exit")
     parser.add_option("--create-sounds", dest="create_sounds", action="store_true",
         help="create the sound files required by the game and exit")
+    parser.add_option("--force", dest="force", action="store_true",
+        help="overwrite existing images, ini files and sound files")
     parser.add_option("-i", "--inidir", dest="inidir",
         help="read ini files from this directory instead of %s" % default_ini_dir)
     parser.add_option("-l", "--load", dest="savefile",
@@ -128,15 +130,15 @@ def main():
         images_ini = find('images.ini', search_dirs)
         info("Using ini file at %s" % images_ini)
         if prog == 'skool_daze.py':
-            get_images(images_ini, SKOOL_DAZE, 0, user_dir)
+            get_images(images_ini, SKOOL_DAZE, 0, user_dir, options.force)
         elif prog == 'skool_daze_take_too.py':
-            get_images(images_ini, SKOOL_DAZE, 1, user_dir)
+            get_images(images_ini, SKOOL_DAZE, 1, user_dir, options.force)
         elif prog == 'ezad_looks.py':
-            get_images(images_ini, SKOOL_DAZE, 2, user_dir)
+            get_images(images_ini, SKOOL_DAZE, 2, user_dir, options.force)
         elif prog == 'back_to_skool.py':
-            get_images(images_ini, BACK_TO_SKOOL, 0, user_dir)
+            get_images(images_ini, BACK_TO_SKOOL, 0, user_dir, options.force)
         elif prog == 'back_to_skool_daze.py':
-            get_images(images_ini, BACK_TO_SKOOL, 1, user_dir)
+            get_images(images_ini, BACK_TO_SKOOL, 1, user_dir, options.force)
 
     # Create ini files if requested
     if options.setup or options.create_ini:
@@ -155,15 +157,15 @@ def main():
             odir = os.path.join(user_dir, 'ini', prog[:-3])
             if not os.path.isdir(odir):
                 os.makedirs(odir)
-            ini_maker.write_ini_files(odir, True)
+            ini_maker.write_ini_files(odir, True, options.force)
 
     # Create sound files if requested
     if options.setup or options.create_sounds:
         odir = os.path.join(user_dir, 'sounds')
         if prog in ('skool_daze.py', 'skool_daze_take_too.py', 'ezad_looks.py'):
-            skoolsound.create_sounds(skoolsound.SKOOL_DAZE, odir)
+            skoolsound.create_sounds(skoolsound.SKOOL_DAZE, odir, force=options.force)
         elif prog in ('back_to_skool.py', 'back_to_skool_daze.py'):
-            skoolsound.create_sounds(skoolsound.BACK_TO_SKOOL, odir)
+            skoolsound.create_sounds(skoolsound.BACK_TO_SKOOL, odir, force=options.force)
 
     if options.setup or options.create_images or options.create_ini or options.create_sounds:
         sys.exit(0)

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2013, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -378,7 +378,7 @@ SOUNDS = {
     )
 }
 
-def create_sounds(game, odir, sample_rate=44100, max_amplitude=65536):
+def create_sounds(game, odir, sample_rate=44100, max_amplitude=65536, force=False):
     wrote_wavs = False
     for sound in SOUNDS[game]:
         delays_f, subdir, fname = FILES[sound]
@@ -386,7 +386,7 @@ def create_sounds(game, odir, sample_rate=44100, max_amplitude=65536):
         if not os.path.isdir(sounds_dir):
             os.makedirs(sounds_dir)
         wav = os.path.join(sounds_dir, fname + '.wav')
-        if not os.path.isfile(wav):
+        if force or not os.path.isfile(wav):
             print('Writing {0}'.format(wav))
             samples = delays_to_samples(delays_f(), sample_rate, max_amplitude)
             write_wav(samples, wav, sample_rate)

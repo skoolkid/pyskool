@@ -9,7 +9,7 @@ run Pyskool in %{game} mode
 :Author: Richard Dymond
 :Copyright: 2013, Richard Dymond
 :Version: 1.1.1
-:Date: 2013-11-19
+:Date: 2014-01-02
 :Manual section: 6
 
 SYNOPSIS
@@ -42,6 +42,11 @@ OPTIONS
 --create-sounds
   Create the sound files required by the game in ``~/.pyskool/sounds`` and
   exit.
+
+--force
+  Overwrite existing images, ini files and sound files (when using the
+  ``--create-images``, ``--create-ini``, ``--create-sounds`` or ``--setup``
+  option).
 
 -i, --inidir `INIDIR`
   Read ini files from this directory instead of ``ini/%{gamedir}``.

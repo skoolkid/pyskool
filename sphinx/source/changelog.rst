@@ -5,6 +5,8 @@ Changelog
 -------
 * When Escape is pressed to quit the game, a confirmation screen is displayed
   (unless the ``ConfirmQuit`` parameter in the :ref:`gameConfig` section is 0)
+* Added the ``--force`` command line option (to overwrite existing images, ini
+  files and sound files)
 
 1.1 (2013-12-01)
 ----------------

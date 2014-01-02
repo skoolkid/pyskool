@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2012, 2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2012-2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -141,7 +141,7 @@ def write_image(writer, udgs, fname, scale=1, mask=False, width=None, flip=False
     with open(fname, 'wb') as f:
         writer.write_image(udgs, f, scale, mask, width)
 
-def get_images(images_ini, game, custom, odir):
+def get_images(images_ini, game, custom, odir, force=False):
     images_dir = os.path.join(odir, 'images', 'originalx1')
     flip = False
     switch = False
@@ -185,7 +185,7 @@ def get_images(images_ini, game, custom, odir):
     })
     missing_images = set()
     for img_id, img_fname in images.items():
-        if not os.path.isfile(img_fname):
+        if force or not os.path.isfile(img_fname):
             missing_images.add(img_id)
     if not missing_images:
         sys.stdout.write('All images present\n')

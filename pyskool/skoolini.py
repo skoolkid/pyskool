@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2012, 2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2012-2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -86,7 +86,7 @@ class SkoolIniMaker:
         self.create_plants()
         self.create_animation_phases()
 
-    def write_ini_files(self, odir, verbose):
+    def write_ini_files(self, odir, verbose, force=False):
         self.build_ini()
         self.odir = odir
         self.verbose = verbose
@@ -95,6 +95,7 @@ class SkoolIniMaker:
         cwd = os.getcwd()
         os.chdir(odir)
 
+        wrote_inis = False
         for write_ini, fname in (
             (self.write_command_lists_ini, 'command_lists.ini'),
             (self.write_config_ini, 'config.ini'),
@@ -104,8 +105,11 @@ class SkoolIniMaker:
             (self.write_skool_ini, 'skool.ini'),
             (self.write_sprites_ini, 'sprites.ini')
         ):
-            if self.open_file(fname):
+            if self.open_file(fname, force):
                 write_ini()
+                wrote_inis = True
+        if verbose and not wrote_inis:
+            sys.stdout.write("All ini files present\n")
 
         if self.ofile:
             self.ofile.close()
@@ -178,14 +182,14 @@ class SkoolIniMaker:
         self.write_desk_lid()
         self.write_plants()
 
-    def open_file(self, fname):
+    def open_file(self, fname, force):
         if self.ofile:
             self.ofile.close()
-        if os.path.isfile(fname):
+        if not force and os.path.isfile(fname):
             return False
         self.ofile = open(fname, 'w')
         if self.verbose:
-            sys.stderr.write('Writing %s\n' % os.path.join(self.odir, fname))
+            sys.stdout.write('Writing {0}\n'.format(os.path.join(self.odir, fname)))
         return True
 
     def create_game_config(self):
