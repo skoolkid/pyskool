@@ -143,6 +143,8 @@ the following command line options:
   setting in the :ref:`gameConfig` section
 * ``-r SAVEDIR`` or ``--load-last=SAVEDIR`` - load the most recently saved game
   from the specified directory
+* ``--sample-rate=RATE`` - set the sample rate of the sound files created by
+  ``--create-sounds`` (default: 44100)
 * ``-s SCALE`` or ``--scale=SCALE`` - set the scale of the display; overrides
   the `Scale` setting in the :ref:`screenConfig` section
 * ``--search-dirs`` - show the locations that Pyskool searches for data files

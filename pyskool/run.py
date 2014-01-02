@@ -81,6 +81,8 @@ def main():
         help="start the game quickly")
     parser.add_option("-r", "--load-last", dest="savedir",
         help="load the most recently saved game in the specified directory")
+    parser.add_option("--sample-rate", dest="sample_rate", metavar="RATE", type="int", default=44100,
+        help="set the sample rate of the sound files created by --create-sounds (default: 44100)")
     parser.add_option("-s", "--scale", dest="scale", type="int",
         help="scale graphics by this factor (1=original Speccy size)")
     parser.add_option("--search-dirs", dest="search_dirs", action="store_true",
@@ -163,9 +165,9 @@ def main():
     if options.setup or options.create_sounds:
         odir = os.path.join(user_dir, 'sounds')
         if prog in ('skool_daze.py', 'skool_daze_take_too.py', 'ezad_looks.py'):
-            skoolsound.create_sounds(skoolsound.SKOOL_DAZE, odir, True, options.force)
+            skoolsound.create_sounds(skoolsound.SKOOL_DAZE, odir, True, options.force, options.sample_rate)
         elif prog in ('back_to_skool.py', 'back_to_skool_daze.py'):
-            skoolsound.create_sounds(skoolsound.BACK_TO_SKOOL, odir, True, options.force)
+            skoolsound.create_sounds(skoolsound.BACK_TO_SKOOL, odir, True, options.force, options.sample_rate)
 
     if options.setup or options.create_images or options.create_ini or options.create_sounds:
         sys.exit(0)

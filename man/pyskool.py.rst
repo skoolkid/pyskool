@@ -64,6 +64,10 @@ OPTIONS
 -r, --load-last `SAVEDIR`
   Load the most recently saved game in the specified directory.
 
+--sample-rate `RATE`
+  Set the sample rate of the sound files created by ``--create-sounds``. The
+  default sample rate is 44100.
+
 -s, --scale `SCALE`
   Scale graphics by this factor (1=original Speccy size).
 

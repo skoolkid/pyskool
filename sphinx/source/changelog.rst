@@ -7,6 +7,8 @@ Changelog
   (unless the ``ConfirmQuit`` parameter in the :ref:`gameConfig` section is 0)
 * Added the ``--force`` command line option (to overwrite existing images, ini
   files and sound files)
+* Added the ``--sample-rate`` command line option (to set the sample rate of
+  the sound files created by ``--create-sounds``)
 
 1.1 (2013-12-01)
 ----------------
