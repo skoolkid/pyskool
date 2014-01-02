@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -31,8 +31,9 @@ class IniParser:
     """Parses one or more ini files.
 
     :param path: An ini file, or a directory to scan for ini files.
+    :param verbose: Whether to print status information while reading files.
     """
-    def __init__(self, path):
+    def __init__(self, path, verbose=True):
         cwd = os.getcwd()
         if os.path.isdir(path):
             ini_dir = path
@@ -49,7 +50,8 @@ class IniParser:
         self.sections = {}
         for ini_file in ini_files:
             f = open(ini_file, 'r')
-            sys.stdout.write('Reading %s\n' % os.path.join(ini_dir, ini_file))
+            if verbose:
+                sys.stdout.write('Reading %s\n' % os.path.join(ini_dir, ini_file))
             section = None
             for line in f:
                 if line[0] == '[':

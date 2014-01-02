@@ -130,15 +130,15 @@ def main():
         images_ini = find('images.ini', search_dirs)
         info("Using ini file at %s" % images_ini)
         if prog == 'skool_daze.py':
-            get_images(images_ini, SKOOL_DAZE, 0, user_dir, options.force)
+            get_images(images_ini, SKOOL_DAZE, 0, user_dir, True, options.force)
         elif prog == 'skool_daze_take_too.py':
-            get_images(images_ini, SKOOL_DAZE, 1, user_dir, options.force)
+            get_images(images_ini, SKOOL_DAZE, 1, user_dir, True, options.force)
         elif prog == 'ezad_looks.py':
-            get_images(images_ini, SKOOL_DAZE, 2, user_dir, options.force)
+            get_images(images_ini, SKOOL_DAZE, 2, user_dir, True, options.force)
         elif prog == 'back_to_skool.py':
-            get_images(images_ini, BACK_TO_SKOOL, 0, user_dir, options.force)
+            get_images(images_ini, BACK_TO_SKOOL, 0, user_dir, True, options.force)
         elif prog == 'back_to_skool_daze.py':
-            get_images(images_ini, BACK_TO_SKOOL, 1, user_dir, options.force)
+            get_images(images_ini, BACK_TO_SKOOL, 1, user_dir, True, options.force)
 
     # Create ini files if requested
     if options.setup or options.create_ini:
