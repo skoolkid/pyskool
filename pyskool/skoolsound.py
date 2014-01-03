@@ -36,13 +36,15 @@ def delays_to_samples(delays, sample_rate, max_amplitude):
     d1 = delays[i]
     t = 0
     while 1:
-        if t > d1:
+        while t >= d1:
             i += 1
             if i >= len(delays):
                 break
             d0 = d1
             d1 += delays[i]
             direction *= -1
+        if i >= len(delays):
+            break
         sample = direction * int(max_amplitude * math.sin(math.pi * (t - d0) / (d1 - d0)))
         if sample > 32767:
             sample = 32767
