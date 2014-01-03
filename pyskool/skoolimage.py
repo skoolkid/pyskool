@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2012, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -288,7 +288,13 @@ class BTSMemory(SkoolMemory):
         udg_page = 183 if as_norm < 208 else 199
         col = 2 - col if state & 128 else col
         ref_page = 215 + col * 4 + row
-        return self._get_sprite_udg(as_norm, attr, ref_page, udg_page)
+        udg = self._get_sprite_udg(as_norm, attr, ref_page, udg_page)
+        if state == 81 and (row, col) == (3, 2):
+            # Fix MR WACKER's shoe
+            udg.mask[0:2] = [127] * 2
+            udg.data[4:7] = [192] * 3
+            udg.mask[4:7] = [223] * 3
+        return udg
 
     def get_udg(self, address, attr):
         return Udg(attr, self.snapshot[address:address + 8])
