@@ -23,6 +23,20 @@ a `.ini` suffix in the subdirectory regardless of its name or contents. So you
 could, if you wish, concatenate all the ini files into one large ini file, and
 Pyskool will still work.
 
+Pyskool reads ini files in alphabetical order of filename, and if a particular
+section appears in more than one file, the contents of that section in the last
+file read take precedence. So the best way to modify a game is to add
+customised sections to a file named `zzz-custom.ini` (for example), which will
+be read after all the stock ini files.
+
+If you want to customise a section by adding lines to it rather than completely
+replacing the existing contents, you can append a '+' to the section name. For
+example, if `zzz-custom.ini` contains a section named `[SkoolLocations+]`, then
+the contents of that section will be appended to the contents of the
+:ref:`skoolLocations` section defined in `config.ini`. By this method, you can
+customise the `[SkoolLocations]` section in a supplementary ini file without
+copying its original contents first.
+
 What follows is a description of every section of the ini files. Armed with
 this knowledge, and by consulting the :ref:`command reference <command-ref>`
 where necessary, you'll be able to start mucking around with how Pyskool works

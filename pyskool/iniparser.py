@@ -54,18 +54,19 @@ class IniParser:
                 sys.stdout.write('Reading %s\n' % os.path.join(ini_dir, ini_file))
             section = None
             for line in f:
-                if line[0] == '[':
-                    if section:
-                        self.sections[section_name] = section
+                if line.startswith('[') and ']' in line:
                     section_name = line[1:line.index(']')].strip()
-                    section = []
+                    if section_name.endswith('+'):
+                        section_name = section_name[:-1]
+                        section = self.sections.setdefault(section_name, [])
+                    else:
+                        section = self.sections[section_name] = []
                 elif line.isspace():
                     continue
                 elif line.startswith(';'):
                     continue
-                else:
+                elif section is not None:
                     section.append(line.strip())
-            self.sections[section_name] = section
             f.close()
         os.chdir(cwd)
 
