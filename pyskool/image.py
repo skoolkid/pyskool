@@ -206,13 +206,13 @@ def get_images(images_ini, game, custom, odir, verbose=True, force=False):
     if game == SKOOL_DAZE or custom == 1 or 'font' in missing_images:
         sd_sources = ini_parser.parse_section('SkoolDaze', split=False)
         if not sd_sources:
-            error('No SkoolDaze section in {0}'.format(images.ini))
+            error('No SkoolDaze section in {0}'.format(images_ini))
             sys.exit(1)
         skool_daze = SDMemory(find_tzx_or_snapshot(SKOOL_DAZE, odir, sd_sources), custom)
     if game == BACK_TO_SKOOL or missing_images & set(('icon', 'sprites')):
         bts_sources = ini_parser.parse_section('BackToSkool', split=False)
         if not bts_sources:
-            error('No BackToSkool section in {0}'.format(images.ini))
+            error('No BackToSkool section in {0}'.format(images_ini))
             sys.exit(1)
         back_to_skool = BTSMemory(find_tzx_or_snapshot(BACK_TO_SKOOL, odir, bts_sources), custom)
     if game == SKOOL_DAZE:
