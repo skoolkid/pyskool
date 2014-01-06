@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+if [ -z "$PYSKOOL_HOME" ]; then
+  echo "Error: PYSKOOL_HOME not defined."
+  exit 1
+fi
+if [ ! -d "$PYSKOOL_HOME" ]; then
+  echo "Error: directory not found: $PYSKOOL_HOME"
+  exit 1
+fi
+ANALYSE_WAV=$PYSKOOL_HOME/utils/analyse-wav.py
+
+if [ $# -ne 2 ]; then
+  echo "Usage: $(basename $0) OLDDIR NEWDIR" 1>&2
+  exit 1
+fi
+
+olddir=$1
+newdir=$2
+for d in "$olddir" "$newdir"; do
+  if [ "$d" != "." ] && [ ! -d "$d" ]; then
+    echo "$d: directory not found" 1>&2
+    exit 1
+  fi
+done
+
+for d in back_to_skool common skool_daze; do
+  for oldwav in $olddir/sounds/$d/*.wav; do
+    newwav=$newdir/sounds/$d/$(basename $oldwav)
+    if ! cmp -s $oldwav $newwav; then
+      $ANALYSE_WAV -d $oldwav $newwav
+    fi
+  done
+done
