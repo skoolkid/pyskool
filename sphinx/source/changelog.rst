@@ -3,8 +3,9 @@ Changelog
 
 1.1.1b1
 -------
-* When Escape is pressed to quit the game, a confirmation screen is displayed
-  (unless the ``ConfirmQuit`` parameter in the :ref:`gameConfig` section is 0)
+* Added the ``ConfirmClose`` and ``ConfirmQuit`` parameters to the
+  :ref:`gameConfig` section (to control whether a confirmation screen is shown
+  when Escape or the window close button is pressed)
 * Added support for appending content to existing ini file sections by adding a
   '+' suffix to the section name (e.g. `[SkoolLocations+]`)
 * Added a menu item to switch between full-screen and windowed mode

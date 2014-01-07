@@ -128,6 +128,7 @@ class Game:
         self.cheat = cheat or config.get('Cheat', 0)
         self.quick_start = quick_start or config.get('QuickStart', 0)
         self.ring_bell = not self.quick_start
+        self.confirm_close = config.get('ConfirmClose', 0)
         self.confirm_quit = config.get('ConfirmQuit', 1)
 
         self._build_menus()
@@ -402,13 +403,8 @@ class Game:
         * update the screen
         * scroll the screen if necessary
 
-        :return: `True` if the quit key was pressed, 'Quit' was selected in the
-                 menu, or the window close button was clicked; `False`
-                 otherwise.
+        :return: `True` if the game is quitting, `False` otherwise.
         """
-        if self.keyboard.got_quit():
-            return True
-
         if self.keyboard.was_pressed(keys.FULL_SCREEN):
             pygame.display.toggle_fullscreen()
             return False
@@ -419,9 +415,16 @@ class Game:
         if self.menu:
             return self._handle_menu()
 
-        if self.keyboard.was_pressed(keys.QUIT, force_check=True):
+        show_quit_menu = False
+        if self.keyboard.got_quit():
+            if not self.confirm_close:
+                return True
+            show_quit_menu = True
+        elif self.keyboard.was_pressed(keys.QUIT, force_check=True):
             if not self.confirm_quit:
                 return True
+            show_quit_menu = True
+        if show_quit_menu:
             self.menu = self.menus['Quit']
             self.menu.reset()
             self.screen.draw_menu(self.menu)

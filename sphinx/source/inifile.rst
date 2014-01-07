@@ -588,6 +588,8 @@ Recognised parameters are:
   a blackboard
 * ``BikeSecrets`` - valid bike combination characters
 * ``Cheat`` - 0 = disable cheat keys, 1 = enable cheat keys
+* ``ConfirmClose`` - whether to show a confirmation screen when the window
+  close button is pressed (1 = yes, 0 = no)
 * ``ConfirmQuit`` - whether to show a confirmation screen when Escape is
   pressed to quit (1 = yes, 0 = no)
 * ``ConkerClockTicks`` - the number of ticks by which the skool clock is
