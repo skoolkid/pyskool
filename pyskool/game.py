@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2012, 2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2012-2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -50,6 +50,8 @@ QUIT = 'QUIT'
 SCALE_UP = 'SCALE_UP'
 #: Menu operation: Decrease scale.
 SCALE_DOWN = 'SCALE_DOWN'
+#: Menu operation: Toggle fullscreen mode.
+TOGGLE_FULLSCREEN = 'TOGGLE_FULLSCREEN'
 #: Menu operation: Update the screen.
 UPDATE = 'UPDATE'
 
@@ -172,6 +174,8 @@ class Game:
                 refresh = True
                 status = 'Scale set to %i' % self.screen.scale
                 self._build_menu_images()
+        elif operation == TOGGLE_FULLSCREEN:
+            pygame.display.toggle_fullscreen()
         elif operation == QUIT:
             return True
         if draw or status:

@@ -117,3 +117,4 @@ The operation IDs recognised by Pyskool are:
 * ``SAVE`` - save the game
 * ``SCALE_DOWN`` - decrease the scale factor by 1
 * ``SCALE_UP`` - increase the scale factor by 1
+* ``TOGGLE_FULLSCREEN`` - toggle fullscreen mode

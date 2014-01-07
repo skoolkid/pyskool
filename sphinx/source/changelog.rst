@@ -7,6 +7,7 @@ Changelog
   (unless the ``ConfirmQuit`` parameter in the :ref:`gameConfig` section is 0)
 * Added support for appending content to existing ini file sections by adding a
   '+' suffix to the section name (e.g. `[SkoolLocations+]`)
+* Added a menu item to switch between full-screen and windowed mode
 * Added the ``--force`` command line option (to overwrite existing images, ini
   files and sound files)
 * Added the ``--sample-rate`` command line option (to set the sample rate of
