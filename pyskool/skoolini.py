@@ -214,6 +214,7 @@ class SkoolIniMaker:
         self.game_config.append(('SaveGameCompression', 9))
         self.game_config.append(('ConfirmClose', 0))
         self.game_config.append(('ConfirmQuit', 1))
+        self.game_config.append(('Volume', 1.0))
 
     def create_timetable_config(self):
         self.timetable_config = []

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2013, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -95,7 +95,7 @@ class Beeper:
         self.sounds = {}
         self.channel = None
         self.paused = False
-        self.post_play = None
+        self.volume = min(max(0.0, config.get('Volume', 1.0)), 1.0)
 
     def __getstate__(self):
         d = self.__dict__.copy()
@@ -132,7 +132,9 @@ class Beeper:
             path = base_path + suffix
             if os.path.isfile(path):
                 try:
-                    self.sounds[sound_id] = pygame.mixer.Sound(path)
+                    sound = pygame.mixer.Sound(path)
+                    sound.set_volume(self.volume)
+                    self.sounds[sound_id] = sound
                 except pygame.error, e:
                     debug.log("Unable to load sound effect '%s' from %s: %s" % (sound_id, path, e.args[0]))
                 return

@@ -6,6 +6,8 @@ Changelog
 * Added the ``ConfirmClose`` and ``ConfirmQuit`` parameters to the
   :ref:`gameConfig` section (to control whether a confirmation screen is shown
   when Escape or the window close button is pressed)
+* Added the ``Volume`` parameter to the :ref:`gameConfig` section (to set the
+  volume for sound effects)
 * Added support for appending content to existing ini file sections by adding a
   '+' suffix to the section name (e.g. `[SkoolLocations+]`)
 * Added a menu item to switch between full-screen and windowed mode

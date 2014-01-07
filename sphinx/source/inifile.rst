@@ -666,6 +666,7 @@ Recognised parameters are:
 * ``TooManyLinesCommandList`` - the ID of the command list Mr Wacker should use
   to expel Eric after he's exceeded the lines limit
 * ``UpAYearScore`` - points awarded for advancing a year
+* ``Volume`` - the sound effects volume (0.0 = silent, 1.0 = maximum)
 * ``WaterId`` - the ID to use for water fired from a water pistol; liquid with
   this ID will make plants grow (see ``SherryId``)
 * ``WindowProximity`` - maximum distance at which a window is considered nearby
