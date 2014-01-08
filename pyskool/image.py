@@ -22,6 +22,7 @@ import urllib2
 import zipfile
 from StringIO import StringIO
 
+from . import user_dir
 from skoolimage import SDMemory, BTSMemory, Udg
 from pngwriter import PngWriter, WHITE, BLACK
 from iniparser import IniParser
@@ -38,7 +39,7 @@ def info(text):
 def error(text):
     sys.stderr.write('Error: {0}\n'.format(text))
 
-def get_tzx(name, odir, sources):
+def get_tzx(name, sources):
     for source in sources:
         url, sep, member = source.partition('|')
         if member and not url.lower().endswith('.zip'):
@@ -62,7 +63,7 @@ def get_tzx(name, odir, sources):
                 continue
             data = tzx.read()
 
-        fname = os.path.join(odir, '{0}.tzx'.format(name))
+        fname = os.path.join(user_dir, '{0}.tzx'.format(name))
         with open(fname, 'wb') as f:
             f.write(data)
 
@@ -72,13 +73,13 @@ def get_tzx(name, odir, sources):
     error('Unable to retrieve a TZX file')
     sys.exit(1)
 
-def find_tzx_or_snapshot(name, user_dir, sources):
+def find_tzx_or_snapshot(name, sources):
     for suffix in ('tzx', 'sna', 'z80', 'szx'):
         fname = os.path.join(user_dir, '{0}.{1}'.format(name, suffix))
         if os.path.isfile(fname):
             info('Found {0}'.format(fname))
             return fname
-    return get_tzx(name, user_dir, sources)
+    return get_tzx(name, sources)
 
 def flip_udgs(udgs):
     flipped = []
@@ -208,13 +209,13 @@ def get_images(images_ini, game, custom, odir, verbose=True, force=False):
         if not sd_sources:
             error('No SkoolDaze section in {0}'.format(images_ini))
             sys.exit(1)
-        skool_daze = SDMemory(find_tzx_or_snapshot(SKOOL_DAZE, odir, sd_sources), custom)
+        skool_daze = SDMemory(find_tzx_or_snapshot(SKOOL_DAZE, sd_sources), custom)
     if game == BACK_TO_SKOOL or missing_images & set(('icon', 'sprites')):
         bts_sources = ini_parser.parse_section('BackToSkool', split=False)
         if not bts_sources:
             error('No BackToSkool section in {0}'.format(images_ini))
             sys.exit(1)
-        back_to_skool = BTSMemory(find_tzx_or_snapshot(BACK_TO_SKOOL, odir, bts_sources), custom)
+        back_to_skool = BTSMemory(find_tzx_or_snapshot(BACK_TO_SKOOL, bts_sources), custom)
     if game == SKOOL_DAZE:
         skool = skool_daze
     elif game == BACK_TO_SKOOL:

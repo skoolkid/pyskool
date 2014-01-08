@@ -21,7 +21,7 @@ import os.path
 from optparse import OptionParser
 
 from .game import Game
-from . import version, package_dir, images_subdir, sounds_subdir, skoolsound
+from . import version, package_dir, user_dir, images_subdir, sounds_subdir, skoolsound
 from .image import get_images, SKOOL_DAZE, BACK_TO_SKOOL
 from .sdini import SDIniMaker
 from .btsini import BTSIniMaker
@@ -104,16 +104,16 @@ def main():
         search_dirs.insert(1, scripts_dir)
 
     # Attempt to create ~/.pyskool if it doesn't exist
-    user_dir = os.path.expanduser(os.path.join('~', '.pyskool'))
+    pyskool_dir = user_dir
     if not os.path.isdir(user_dir):
         try:
             os.makedirs(user_dir)
             info("Created directory '%s'" % user_dir)
         except OSError as e:
             info("Could not create directory '%s': %s" % (user_dir, e.strerror))
-            user_dir = cwd
-    if user_dir not in search_dirs:
-        search_dirs.insert(1, user_dir)
+            pyskool_dir = cwd
+    if pyskool_dir not in search_dirs:
+        search_dirs.insert(1, pyskool_dir)
 
     # Show package directory if requested
     if options.package_dir:
