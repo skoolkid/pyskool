@@ -100,7 +100,7 @@ order for Pyskool to find it:
 * `$PACKAGE_DIR/data`
 
 `$HOME` refers to the user's home directory. On Windows this is typically
-`C:\\Documents and Settings\\username`.
+`C:\\Users\\username` or `C:\\Documents and Settings\\username`.
 
 `$PACKAGE_DIR` refers to the directory in which the `pyskool` package is
 installed (as shown by the ``--package-dir`` command line option).
