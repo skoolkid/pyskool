@@ -92,6 +92,7 @@ Other useful keys are:
 * Insert - take a screenshot
 * F2 - save the game
 * F6 - load the most recently saved game
+* F11 - switch between full-screen and windowed mode
 * F12 - show/hide the menu
 
 For full instructions, see the `documentation`_.
