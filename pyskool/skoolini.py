@@ -124,7 +124,7 @@ class SkoolIniMaker:
         self.write_config('LessonConfig', self.lesson_config)
         self.write_config('TimingConfig', self.timing_config)
         self.write_config('ScreenConfig', self.screen_config)
-        self.write_config('Images', self.images)
+        self.write_images()
         self.write_sounds()
         self.write_mouse_locations()
         self.write_random_locations()
@@ -494,13 +494,15 @@ class SkoolIniMaker:
     def end_section(self):
         self.write('')
 
-    def write_tuples(self, tuples, separator=SEPARATOR):
+    def write_tuples(self, tuples, separator=SEPARATOR, sort=False):
+        if sort:
+            tuples = sorted(tuples)
         for t in tuples:
             self.write(separator.join([str(e) for e in t]))
 
     def write_config(self, name, config):
         self.write_section_header(name)
-        self.write_tuples(config, CONFIG_SEPARATOR)
+        self.write_tuples(config, CONFIG_SEPARATOR, True)
         self.end_section()
 
     def write_images(self):
