@@ -134,8 +134,9 @@ def hit1():
     return hit(17472 * 3)
 
 def bingo():
-    # BTS 62178#62401
-    delays = bts62155(255, 255, 255) * 5
+    # BTS 62178#62404
+    delays = bts62155(255, 255, 255)
+    delays += ([83] + delays) * 4
     add_contention(delays, contention=False, interrupts=True)
     return delays
 
