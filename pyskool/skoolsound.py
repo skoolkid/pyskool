@@ -169,12 +169,12 @@ def conker():
     return delays
 
 def safe_key():
-    # BTS 30804#30866
-    delays = []
-    for n in range(256, 0, -1):
-        b = (n & 63) + 1
-        delays.extend(bts29836(b, 256))
-        delays.append(13 * b + 62)
+    # BTS 30804#30853
+    delays = bts29836(1, 256)
+    for n in range(255, 0, -1):
+        subdelays = bts29836((n & 63) + 1, 256)
+        delays.append(119 + subdelays[0])
+        delays.extend(subdelays[1:])
     add_contention(delays, interrupts=True)
     return delays
 
