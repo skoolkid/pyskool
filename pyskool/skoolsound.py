@@ -82,7 +82,13 @@ def sd65122(d, e, h):
     return delays
 
 def bts62155(d, e, h):
-    return sd65122(d, e, h)
+    delays = []
+    for n in range(d or 256):
+        delays.append(13 * (e or 256) + 50)
+        e = (e + h) & 255
+    if d & 1:
+        delays.append(13 * (e or 256) + 52)
+    return delays
 
 def bts29836(b, de):
     e, d = de % 256, de // 256
