@@ -157,8 +157,8 @@ def knocked_out():
 def mouse():
     # BTS 28952#28964
     squeak = bts29836(26, 1632)
-    pause_delay = 399814 # 0.11s
-    delays = squeak + [pause_delay] + squeak + [pause_delay] + squeak
+    pause_delay = 399464 + squeak[0]
+    delays = squeak + ([pause_delay] + squeak[1:]) * 2
     add_contention(delays, interrupts=True)
     return delays
 
