@@ -99,6 +99,8 @@ def bts29836(b, de):
 def jump():
     # SD 60139
     delays = sd65122(50, 96, 3)
+    delays.append(3282)
+    delays += [2532] * 7 # Walking sound (SD 65088)
     add_contention(delays, contention=False, interrupts=True)
     return delays
 
