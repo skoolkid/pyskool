@@ -100,6 +100,8 @@ def bts29836(b, de):
         for n in range(d - 1):
             delays.append(outer_delay)
             delays.extend(inner_delays)
+    if de & 1 == 0:
+        delays.append(inner_delay + 13)
     return delays
 
 def jump():
