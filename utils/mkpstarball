@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e # Abort on errors
 
+MAX_WAV_SIZE=8864 # 0.1s @ 44.1kHz
+
 usage() {
   cat <<EOF
 Usage: $(basename $0) [options]
@@ -78,7 +80,7 @@ $UTILS/create-ini.py -q $ABSDIR
 $UTILS/create-sounds.py -q $ABSDIR
 find $ABSDIR/sounds -name '*.wav' | while read wav; do
   size=$(du -b $wav | cut -f1)
-  if [ $size -gt 50000 ]; then
+  if [ $size -gt $MAX_WAV_SIZE ]; then
     oggenc -Q $wav
     rm $wav
   fi
