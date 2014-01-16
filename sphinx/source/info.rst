@@ -42,6 +42,7 @@ In Skool Daze mode:
 * Boys can find the back seat in the Reading Room
 * Eric will not be expelled until he has *more than* 10000 lines (in the
   original game, he could be expelled when he had *exactly* 10000 lines)
+* Eric will get lines if a teacher spots him writing on a blackboard
 * The `broken jumping sound effect`_ has been fixed
 
 .. _broken jumping sound effect: http://pyskool.ca/disassemblies/skool_daze/reference/bugs.html#jumpSound
