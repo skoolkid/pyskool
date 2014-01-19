@@ -118,15 +118,15 @@ def switch_udgs(udgs):
         switched.append(switched_row)
     return switched
 
-def write_images(writer, udgs, image_fnames, prefix, flip=False, switch=False):
+def write_images(writer, udgs, image_fnames, prefix, flip=False, switch=False, force=False):
     # ink and paper
     fname = image_fnames[prefix]
-    if not os.path.isfile(fname):
+    if force or not os.path.isfile(fname):
         write_image(writer, udgs, fname, flip=flip, switch=switch)
 
     # ink
     fname = image_fnames['{0}_ink'.format(prefix)]
-    if not os.path.isfile(fname):
+    if force or not os.path.isfile(fname):
         for row in udgs:
             for udg in row:
                 udg.paper = 15
@@ -134,7 +134,7 @@ def write_images(writer, udgs, image_fnames, prefix, flip=False, switch=False):
 
     # paper
     fname = image_fnames['{0}_paper'.format(prefix)]
-    if not os.path.isfile(fname):
+    if force or not os.path.isfile(fname):
         blank = [0] * 8
         for row in udgs:
             for udg in row:
@@ -272,8 +272,8 @@ def get_images(images_ini, game, custom, odir, verbose=True, force=False):
 
     # Skool
     if missing_images & set(('skool', 'skool_ink', 'skool_paper')):
-        write_images(writer, skool.get_play_area_udgs(), images, 'skool', flip=flip)
+        write_images(writer, skool.get_play_area_udgs(), images, 'skool', flip=flip, force=force)
 
     # Mutables
     if missing_images & set(('mutables', 'mutables_ink', 'mutables_paper')):
-        write_images(writer, skool.get_mutable_udgs(), images, 'mutables', flip=flip, switch=switch)
+        write_images(writer, skool.get_mutable_udgs(), images, 'mutables', flip=flip, switch=switch, force=force)
