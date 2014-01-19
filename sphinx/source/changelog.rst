@@ -15,6 +15,8 @@ Changelog
   files and sound files)
 * Added the ``--sample-rate`` command line option (to set the sample rate of
   the sound files created by ``--create-sounds``)
+* Fixed the bug that freezes the game if Eric's lines total goes over 10000
+  while he's being fetched by the teacher on dinner duty
 
 1.1 (2013-12-01)
 ----------------

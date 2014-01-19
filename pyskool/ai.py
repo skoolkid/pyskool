@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2008-2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2012, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -2076,7 +2076,7 @@ class FindEricIfMissing(Command):
         :return: `self` if Eric is where he should be, or a :class:`FetchEric`
                  command.
         """
-        if self.character.is_eric_absent():
+        if not self.character.is_eric_expelled() and self.character.is_eric_absent():
             return FetchEric()
         return self
 
