@@ -100,17 +100,21 @@ class Game:
         self.screen = None
         self.menu = None
 
+        builder = skoolbuilder.SkoolBuilder(ini_dir)
+        config = builder.get_config('[A-Za-z]+Config')
+        self.cheat = cheat or config.get('Cheat', 0)
+        self.quick_start = quick_start or config.get('QuickStart', 0)
+        self.ring_bell = not self.quick_start
+        self.confirm_close = config.get('ConfirmClose', 0)
+        self.confirm_quit = config.get('ConfirmQuit', 1)
+
         if sav_file:
             if os.path.isfile(sav_file):
                 self.quick_start = True
                 self.ring_bell = True
-                self.cheat = cheat
                 self._load(sav_file)
                 return
             debug.log('Unable to restore from %s: file not found' % sav_file)
-
-        builder = skoolbuilder.SkoolBuilder(ini_dir)
-        config = builder.get_config('[A-Za-z]+Config')
 
         gallery = Gallery(images_dir, config, scale, builder.get_config(skoolbuilder.IMAGES))
         title_prefix = 'Pyskool %s: ' % version
@@ -124,13 +128,6 @@ class Game:
         self.screen.initialise_column(self.skool.get_width(), self.cast.eric.x)
         self.screen.setup()
         self.skool.update_score_box()
-
-        self.cheat = cheat or config.get('Cheat', 0)
-        self.quick_start = quick_start or config.get('QuickStart', 0)
-        self.ring_bell = not self.quick_start
-        self.confirm_close = config.get('ConfirmClose', 0)
-        self.confirm_quit = config.get('ConfirmQuit', 1)
-
         self._build_menus()
 
     def _build_menus(self):
