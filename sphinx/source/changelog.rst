@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.1b1
+1.1.1rc
 -------
 * Added the ``ConfirmClose`` and ``ConfirmQuit`` parameters to the
   :ref:`gameConfig` section (to control whether a confirmation screen is shown
