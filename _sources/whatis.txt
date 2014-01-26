@@ -1,10 +1,7 @@
 What is Pyskool?
 ================
-In 1985, Microsphere published
-`Skool Daze <http://en.wikipedia.org/wiki/Skool_Daze>`_, a game
-for the `Sinclair ZX Spectrum <http://en.wikipedia.org/wiki/ZX_Spectrum>`_. Later
-in the same year, the sequel
-`Back to Skool <http://en.wikipedia.org/wiki/Back_to_Skool>`_ was published.
+In 1984, Microsphere published `Skool Daze`_, a game for the
+`Sinclair ZX Spectrum`_. In 1985, the sequel `Back to Skool`_ was published.
 
 Each game was based in a boys' school (though Back to Skool added a playground
 and a girls' school) and revolved around the antics of Eric, the hero. In Skool
@@ -21,6 +18,10 @@ or - for more advanced customisation - writing some Python code.
 
 The latest version of Pyskool can always be obtained from
 `pyskool.ca <http://pyskool.ca/>`_.
+
+.. _`Skool Daze`: http://en.wikipedia.org/wiki/Skool_Daze
+.. _`Back to Skool`: http://en.wikipedia.org/wiki/Back_to_Skool
+.. _`Sinclair ZX Spectrum`: http://en.wikipedia.org/wiki/ZX_Spectrum
 
 Licence and copyrights
 ----------------------

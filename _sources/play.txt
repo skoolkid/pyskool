@@ -130,6 +130,7 @@ Other useful keys are:
 * Insert - take a screenshot
 * F2 - save the game
 * F6 - load the most recently saved game
+* F11 - switch between full-screen and windowed mode
 * F12 - show/hide the menu
 
 Screenshots are dumped to a BMP file (if using Pygame 1.7) or a PNG file (if

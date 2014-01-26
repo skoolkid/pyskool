@@ -1,6 +1,23 @@
 Changelog
 =========
 
+1.1.1 (2014-01-26)
+------------------
+* Added the ``ConfirmClose`` and ``ConfirmQuit`` parameters to the
+  :ref:`gameConfig` section (to control whether a confirmation screen is shown
+  when Escape or the window close button is pressed)
+* Added the ``Volume`` parameter to the :ref:`gameConfig` section (to set the
+  volume for sound effects)
+* Added support for appending content to existing ini file sections by adding a
+  '+' suffix to the section name (e.g. `[SkoolLocations+]`)
+* Added a menu item to switch between full-screen and windowed mode
+* Added the ``--force`` command line option (to overwrite existing images, ini
+  files and sound files)
+* Added the ``--sample-rate`` command line option (to set the sample rate of
+  the sound files created by ``--create-sounds``)
+* Fixed the bug that freezes the game if Eric's lines total goes over 10000
+  while he's being fetched by the teacher on dinner duty
+
 1.1 (2013-12-01)
 ----------------
 * Replaced all the sound files with high-quality (44.1kHz) versions

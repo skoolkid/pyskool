@@ -78,13 +78,14 @@ the following configuration parameters:
 * ``Highlight`` - the background colour of the selected menu item
 * ``Ink`` - the ink colour to use for the title, menu items and status bar
 * ``Paper`` - the main background colour
+* ``StatusBar`` - whether to show a status bar (0=no, 1=yes)
 * ``StatusPaper`` - the background colour of the status bar
 * ``Title`` - the menu title
 * ``TitlePaper`` - the background colour of the title bar
 * ``Width`` - the width of the menu (as a fraction of the screen width)
 
-At the moment, `pyskool.ini` contains the definition for only one menu, whose
-unique ID must be ``Main``.
+`pyskool.ini` contains the definitions for two menus, whose unique IDs must be
+``Main`` and ``Quit``.
 
 .. _menuItems:
 
@@ -116,3 +117,4 @@ The operation IDs recognised by Pyskool are:
 * ``SAVE`` - save the game
 * ``SCALE_DOWN`` - decrease the scale factor by 1
 * ``SCALE_UP`` - increase the scale factor by 1
+* ``TOGGLE_FULLSCREEN`` - toggle fullscreen mode

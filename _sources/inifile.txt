@@ -23,6 +23,20 @@ a `.ini` suffix in the subdirectory regardless of its name or contents. So you
 could, if you wish, concatenate all the ini files into one large ini file, and
 Pyskool will still work.
 
+Pyskool reads ini files in alphabetical order of filename, and if a particular
+section appears in more than one file, the contents of that section in the last
+file read take precedence. So the best way to modify a game is to add
+customised sections to a file named `zzz-custom.ini` (for example), which will
+be read after all the stock ini files.
+
+If you want to customise a section by adding lines to it rather than completely
+replacing the existing contents, you can append a '+' to the section name. For
+example, if `zzz-custom.ini` contains a section named `[SkoolLocations+]`, then
+the contents of that section will be appended to the contents of the
+:ref:`skoolLocations` section defined in `config.ini`. By this method, you can
+customise the `[SkoolLocations]` section in a supplementary ini file without
+copying its original contents first.
+
 What follows is a description of every section of the ini files. Armed with
 this knowledge, and by consulting the :ref:`command reference <command-ref>`
 where necessary, you'll be able to start mucking around with how Pyskool works
@@ -574,6 +588,10 @@ Recognised parameters are:
   a blackboard
 * ``BikeSecrets`` - valid bike combination characters
 * ``Cheat`` - 0 = disable cheat keys, 1 = enable cheat keys
+* ``ConfirmClose`` - whether to show a confirmation screen when the window
+  close button is pressed (1 = yes, 0 = no)
+* ``ConfirmQuit`` - whether to show a confirmation screen when Escape is
+  pressed to quit (1 = yes, 0 = no)
 * ``ConkerClockTicks`` - the number of ticks by which the skool clock is
   rewound (that is, the number of ticks by which the current period is
   extended) when a character is paralysed by a falling conker
@@ -648,6 +666,7 @@ Recognised parameters are:
 * ``TooManyLinesCommandList`` - the ID of the command list Mr Wacker should use
   to expel Eric after he's exceeded the lines limit
 * ``UpAYearScore`` - points awarded for advancing a year
+* ``Volume`` - the sound effects volume (0.0 = silent, 1.0 = maximum)
 * ``WaterId`` - the ID to use for water fired from a water pistol; liquid with
   this ID will make plants grow (see ``SherryId``)
 * ``WindowProximity`` - maximum distance at which a window is considered nearby

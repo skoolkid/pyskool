@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Game ini files &mdash; Pyskool 1.1 documentation</title>
+    <title>Game ini files &mdash; Pyskool 1.1.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.1',
+        VERSION:     '1.1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.1.1 documentation" href="index.html" />
     <link rel="next" title="Commands" href="commands.html" />
     <link rel="prev" title="Main ini file" href="mainini.html" /> 
   </head>
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="mainini.html" title="Main ini file"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -75,6 +75,18 @@ the skool</li>
 a <cite>.ini</cite> suffix in the subdirectory regardless of its name or contents. So you
 could, if you wish, concatenate all the ini files into one large ini file, and
 Pyskool will still work.</p>
+<p>Pyskool reads ini files in alphabetical order of filename, and if a particular
+section appears in more than one file, the contents of that section in the last
+file read take precedence. So the best way to modify a game is to add
+customised sections to a file named <cite>zzz-custom.ini</cite> (for example), which will
+be read after all the stock ini files.</p>
+<p>If you want to customise a section by adding lines to it rather than completely
+replacing the existing contents, you can append a &#8216;+&#8217; to the section name. For
+example, if <cite>zzz-custom.ini</cite> contains a section named <cite>[SkoolLocations+]</cite>, then
+the contents of that section will be appended to the contents of the
+<a class="reference internal" href="#skoollocations"><em>[SkoolLocations]</em></a> section defined in <cite>config.ini</cite>. By this method, you can
+customise the <cite>[SkoolLocations]</cite> section in a supplementary ini file without
+copying its original contents first.</p>
 <p>What follows is a description of every section of the ini files. Armed with
 this knowledge, and by consulting the <a class="reference internal" href="commands.html#command-ref"><em>command reference</em></a>
 where necessary, you&#8217;ll be able to start mucking around with how Pyskool works
@@ -583,6 +595,10 @@ character can be to be considered beside him</li>
 a blackboard</li>
 <li><tt class="docutils literal"><span class="pre">BikeSecrets</span></tt> - valid bike combination characters</li>
 <li><tt class="docutils literal"><span class="pre">Cheat</span></tt> - 0 = disable cheat keys, 1 = enable cheat keys</li>
+<li><tt class="docutils literal"><span class="pre">ConfirmClose</span></tt> - whether to show a confirmation screen when the window
+close button is pressed (1 = yes, 0 = no)</li>
+<li><tt class="docutils literal"><span class="pre">ConfirmQuit</span></tt> - whether to show a confirmation screen when Escape is
+pressed to quit (1 = yes, 0 = no)</li>
 <li><tt class="docutils literal"><span class="pre">ConkerClockTicks</span></tt> - the number of ticks by which the skool clock is
 rewound (that is, the number of ticks by which the current period is
 extended) when a character is paralysed by a falling conker</li>
@@ -657,6 +673,7 @@ storeroom key</li>
 <li><tt class="docutils literal"><span class="pre">TooManyLinesCommandList</span></tt> - the ID of the command list Mr Wacker should use
 to expel Eric after he&#8217;s exceeded the lines limit</li>
 <li><tt class="docutils literal"><span class="pre">UpAYearScore</span></tt> - points awarded for advancing a year</li>
+<li><tt class="docutils literal"><span class="pre">Volume</span></tt> - the sound effects volume (0.0 = silent, 1.0 = maximum)</li>
 <li><tt class="docutils literal"><span class="pre">WaterId</span></tt> - the ID to use for water fired from a water pistol; liquid with
 this ID will make plants grow (see <tt class="docutils literal"><span class="pre">SherryId</span></tt>)</li>
 <li><tt class="docutils literal"><span class="pre">WindowProximity</span></tt> - maximum distance at which a window is considered nearby
@@ -1799,11 +1816,11 @@ window when shut. The open/shut images for any given window are the same size.</
         <li class="right" >
           <a href="mainini.html" title="Main ini file"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2013, Richard Dymond.
+        &copy; Copyright 2014, Richard Dymond.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>

@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>General info &mdash; Pyskool 1.1 documentation</title>
+    <title>General info &mdash; Pyskool 1.1.1 documentation</title>
     
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -16,7 +16,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.1',
+        VERSION:     '1.1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.1.1 documentation" href="index.html" />
     <link rel="next" title="Changelog" href="changelog.html" />
     <link rel="prev" title="Example customisations" href="examples.html" /> 
   </head>
@@ -45,7 +45,7 @@
         <li class="right" >
           <a href="examples.html" title="Example customisations"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -60,25 +60,10 @@
 <span id="contact"></span><h2>Contact details<a class="headerlink" href="#contact-details" title="Permalink to this headline">¶</a></h2>
 <p>To make complaints about or suggest improvements to Pyskool, or to submit some
 other piece of constructive criticism, contact me (Richard Dymond) at
-<em>&lt;rjdymond AT gmail.com&gt;</em>, or leave a comment on the <a class="reference external" href="http://pyskool.ca/">Pyskool blog</a>.</p>
-<p>To report bugs, please use the <a class="reference external" href="https://github.com/skoolkid/pyskool/issues">bug tracker</a>.</p>
-</div>
-<div class="section" id="todo">
-<span id="id1"></span><h2>TODO<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h2>
-<p>Pyskool is now functionally complete, by which I mean that it does everything
-that the original Skool games do. (Except for a demo mode; if you think there&#8217;s
-something else it should do but doesn&#8217;t, let me know.) However, there are a few
-things left on my TODO list, the main ones being:</p>
-<ul class="simple">
-<li>Tidy up the code</li>
-<li>Optimise the sprite-drawing and screen update code</li>
-<li>Add a demo mode</li>
-<li>Write a <a class="reference internal" href="commands.html#command-ref"><em>Command</em></a>-writing HOWTO (demonstrating how to add
-commands to Pyskool)</li>
-</ul>
+<em>&lt;rjdymond AT gmail.com&gt;</em>.</p>
 </div>
 <div class="section" id="bugs">
-<span id="id2"></span><h2>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Bugs<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h2>
 <p>No doubt there are bugs in Pyskool - and in this documentation - or ways it
 deviates unacceptably from the original games. Please <a class="reference external" href="https://github.com/skoolkid/pyskool/issues">report any bugs</a>
 (reproducible crashes, especially) you find, and help to make Pyskool a solid
@@ -88,9 +73,6 @@ better.</p>
 </div>
 <div class="section" id="frequently-asked-questions">
 <h2>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
-<p>At the time of writing this, there are no frequently asked questions, or even
-any infrequently asked questions. So for now I&#8217;ll fill this section with
-questions made up by me.</p>
 <p><strong>How does Pyskool differ from the original games?</strong></p>
 <p>Though the conversion of the original games to Python/Pygame is pretty faithful
 (I think), there are some differences, noted below.</p>
@@ -104,6 +86,10 @@ screen to reveal a character mid-sentence)</li>
 <p>In Skool Daze mode:</p>
 <ul class="simple">
 <li>Boys can find the back seat in the Reading Room</li>
+<li>Eric will not be expelled until he has <em>more than</em> 10000 lines (in the
+original game, he could be expelled when he had <em>exactly</em> 10000 lines)</li>
+<li>Eric will get lines if a teacher spots him writing on a blackboard</li>
+<li>The <a class="reference external" href="http://pyskool.ca/disassemblies/skool_daze/reference/bugs.html#jumpSound">broken jumping sound effect</a> has been fixed</li>
 </ul>
 <p>In Back to Skool mode:</p>
 <ul class="simple">
@@ -118,9 +104,9 @@ Angelface) is struck by a conker</li>
 </ul>
 <p><strong>Why Python (and Pygame)?</strong></p>
 <p>Because Python is an elegant, expressive, and excellent programming language.
-Plus it enables rapid development, which is good because I&#8217;m writing Pyskool in
-my limited spare time. Pygame&#8217;s pretty good too. I don&#8217;t know how else I&#8217;d do
-graphics with Python.</p>
+Plus it enables rapid development, which is good because I develop Pyskool in
+my limited spare time. Pygame&#8217;s pretty good too. When I started Pyskool back in
+2008, I don&#8217;t know how else I&#8217;d have done graphics with Python.</p>
 <p><strong>Why Skool Daze and Back to Skool?</strong></p>
 <p>If you need to ask, you probably shouldn&#8217;t be here. Actually, what <em>are</em> you
 doing here? Go and play Jet Set Willy, or something.</p>
@@ -137,7 +123,6 @@ doing here? Go and play Jet Set Willy, or something.</p>
   <ul>
 <li><a class="reference internal" href="#">General info</a><ul>
 <li><a class="reference internal" href="#contact-details">Contact details</a></li>
-<li><a class="reference internal" href="#todo">TODO</a></li>
 <li><a class="reference internal" href="#bugs">Bugs</a></li>
 <li><a class="reference internal" href="#frequently-asked-questions">Frequently asked questions</a></li>
 </ul>
@@ -182,11 +167,11 @@ doing here? Go and play Jet Set Willy, or something.</p>
         <li class="right" >
           <a href="examples.html" title="Example customisations"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2013, Richard Dymond.
+        &copy; Copyright 2014, Richard Dymond.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>

@@ -7,27 +7,7 @@ Contact details
 ---------------
 To make complaints about or suggest improvements to Pyskool, or to submit some
 other piece of constructive criticism, contact me (Richard Dymond) at
-*<rjdymond AT gmail.com>*, or leave a comment on the `Pyskool blog
-<http://pyskool.ca/>`_.
-
-To report bugs, please use the `bug tracker`_.
-
-.. _bug tracker: https://github.com/skoolkid/pyskool/issues
-
-.. _todo:
-
-TODO
-----
-Pyskool is now functionally complete, by which I mean that it does everything
-that the original Skool games do. (Except for a demo mode; if you think there's
-something else it should do but doesn't, let me know.) However, there are a few
-things left on my TODO list, the main ones being:
-
-* Tidy up the code
-* Optimise the sprite-drawing and screen update code
-* Add a demo mode
-* Write a :ref:`Command <command-ref>`-writing HOWTO (demonstrating how to add
-  commands to Pyskool)
+*<rjdymond AT gmail.com>*.
 
 .. _bugs:
 
@@ -40,13 +20,10 @@ and stable platform for developing new Skool-based games. If you can provide a
 saved game that demonstrates the bug shortly after being loaded, all the
 better.
 
-.. _report any bugs: `bug tracker`_
+.. _report any bugs: https://github.com/skoolkid/pyskool/issues
 
 Frequently asked questions
 --------------------------
-At the time of writing this, there are no frequently asked questions, or even
-any infrequently asked questions. So for now I'll fill this section with
-questions made up by me.
 
 **How does Pyskool differ from the original games?**
 
@@ -63,6 +40,12 @@ General differences:
 In Skool Daze mode:
 
 * Boys can find the back seat in the Reading Room
+* Eric will not be expelled until he has *more than* 10000 lines (in the
+  original game, he could be expelled when he had *exactly* 10000 lines)
+* Eric will get lines if a teacher spots him writing on a blackboard
+* The `broken jumping sound effect`_ has been fixed
+
+.. _broken jumping sound effect: http://pyskool.ca/disassemblies/skool_daze/reference/bugs.html#jumpSound
 
 In Back to Skool mode:
 
@@ -78,9 +61,9 @@ In Back to Skool mode:
 **Why Python (and Pygame)?**
 
 Because Python is an elegant, expressive, and excellent programming language.
-Plus it enables rapid development, which is good because I'm writing Pyskool in
-my limited spare time. Pygame's pretty good too. I don't know how else I'd do
-graphics with Python.
+Plus it enables rapid development, which is good because I develop Pyskool in
+my limited spare time. Pygame's pretty good too. When I started Pyskool back in
+2008, I don't know how else I'd have done graphics with Python.
 
 **Why Skool Daze and Back to Skool?**
 
