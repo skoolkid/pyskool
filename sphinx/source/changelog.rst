@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.1.1rc
--------
+1.1.1 (2014-01-26)
+------------------
 * Added the ``ConfirmClose`` and ``ConfirmQuit`` parameters to the
   :ref:`gameConfig` section (to control whether a confirmation screen is shown
   when Escape or the window close button is pressed)

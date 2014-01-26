@@ -18,7 +18,7 @@
 
 import os.path
 
-version = '1.1.1rc'
+version = '1.1.1'
 package_dir = os.path.dirname(__file__)
 user_dir = os.path.expanduser(os.path.join('~', '.pyskool'))
 images_subdir = 'images'
