@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.1.2b1
+-------
+
 1.1.1 (2014-01-26)
 ------------------
 * Added the ``ConfirmClose`` and ``ConfirmQuit`` parameters to the
