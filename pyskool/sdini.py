@@ -126,11 +126,11 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         self.sounds.append((sound.WALK_SOUNDS[2], '%s/walk1' % sounds_dir))
         self.sounds.append((sound.WALK_SOUNDS[3], '%s/walk0' % sounds_dir))
         self.sounds.append((sound.JUMP, '%s/jump' % sounds_dir))
-        self.sounds.append((sound.ALL_SHIELDS, '%s/all-shields' % sounds_dir))
-        self.sounds.append((sound.OPEN_SAFE, '%s/all-shields' % sounds_dir))
+        self.sounds.append((sound.ALL_SHIELDS, '%s/all-shields' % tunes_dir))
+        self.sounds.append((sound.OPEN_SAFE, '%s/all-shields' % tunes_dir))
         self.sounds.append((sound.SHIELD, '%s/shield' % sounds_dir))
         self.sounds.append((sound.TUNE, '%s/tune' % tunes_dir))
-        self.sounds.append((sound.UP_A_YEAR, '%s/tune' % sounds_dir))
+        self.sounds.append((sound.UP_A_YEAR, '%s/tune' % tunes_dir))
 
     def create_sprite_groups(self):
         skoolini.SkoolIniMaker.create_sprite_groups(self)

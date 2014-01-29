@@ -330,6 +330,19 @@ def sdtt_tune():
     ))
     return tune(convert_notes(notes, 3))
 
+def sdtt_all_shields():
+    notes = ' '.join((
+        'C2-3 D2-1 C2-2 B2-2',
+        'A2-2 B2-2 C2-4',
+        'G1-2 A2-2 B2-4',
+        'A2-2 B2-2 C2-4',
+        'C2-3 D2-1 C2-2 B2-2',
+        'A2-2 B2-2 C2-4',
+        'G1-4 C2-4',
+        'A2-2 F1-6'
+    ))
+    return tune(convert_notes(notes))
+
 def bts_walk(cycle):
     # BTS 29012
     delays = [2532] * 6
@@ -416,6 +429,7 @@ FILES = {
     'bts-walk1': (bts_walk1, 'back_to_skool', 'walk1'),
     'bts-walk2': (bts_walk2, 'back_to_skool', 'walk2'),
     'bts-walk3': (bts_walk3, 'back_to_skool', 'walk3'),
+    'sdtt-all-shields': (sdtt_all_shields, 'skool_daze_take_too', 'all-shields'),
     'sdtt-tune': (sdtt_tune, 'skool_daze_take_too', 'tune')
 }
 
@@ -431,9 +445,9 @@ SOUNDS = {
         'bts-walk0', 'bts-walk1', 'bts-walk2', 'bts-walk3'
     ),
     SKOOL_DAZE_TAKE_TOO: (
-        'catapult', 'knocked-out', 'all-shields', 'sd-bell', 'hit0', 'hit1',
-        'jump', 'sd-lines1', 'sd-lines2', 'shield', 'sdtt-tune', 'sd-walk0',
-        'sd-walk1'
+        'catapult', 'knocked-out', 'sd-bell', 'hit0', 'hit1', 'jump',
+        'sd-lines1', 'sd-lines2', 'shield', 'sd-walk0', 'sd-walk1',
+        'sdtt-all-shields', 'sdtt-tune'
     ),
     EZAD_LOOKS: (
         'catapult', 'knocked-out', 'all-shields', 'sd-bell', 'hit0', 'hit1',
