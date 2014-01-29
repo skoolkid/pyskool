@@ -26,6 +26,14 @@ from .image import get_images, SKOOL_DAZE, BACK_TO_SKOOL
 from .sdini import SDIniMaker
 from .btsini import BTSIniMaker
 
+SOUNDS = {
+    'skool_daze.py': skoolsound.SKOOL_DAZE,
+    'back_to_skool.py': skoolsound.BACK_TO_SKOOL,
+    'skool_daze_take_too.py': skoolsound.SKOOL_DAZE_TAKE_TOO,
+    'ezad_looks.py': skoolsound.EZAD_LOOKS,
+    'back_to_skool_daze.py': skoolsound.BACK_TO_SKOOL_DAZE
+}
+
 SEARCH_DIRS_MSG = """
 Pyskool will search the following directories for 'pyskool.ini' and the
 '{images}', '{sounds}' and '{ini}' subdirectories:
@@ -163,11 +171,9 @@ def main():
 
     # Create sound files if requested
     if options.setup or options.create_sounds:
-        odir = os.path.join(user_dir, 'sounds')
-        if prog in ('skool_daze.py', 'skool_daze_take_too.py', 'ezad_looks.py'):
-            skoolsound.create_sounds(skoolsound.SKOOL_DAZE, odir, True, options.force, options.sample_rate)
-        elif prog in ('back_to_skool.py', 'back_to_skool_daze.py'):
-            skoolsound.create_sounds(skoolsound.BACK_TO_SKOOL, odir, True, options.force, options.sample_rate)
+        if prog in SOUNDS:
+            odir = os.path.join(user_dir, 'sounds')
+            skoolsound.create_sounds(SOUNDS[prog], odir, True, options.force, options.sample_rate)
 
     if options.setup or options.create_images or options.create_ini or options.create_sounds:
         sys.exit(0)

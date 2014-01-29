@@ -12,7 +12,8 @@ if not os.path.isdir(PYSKOOL_HOME):
     sys.exit(1)
 sys.path.insert(0, PYSKOOL_HOME)
 
-from pyskool.skoolsound import create_sounds, SKOOL_DAZE, BACK_TO_SKOOL
+from pyskool.skoolsound import (create_sounds, SKOOL_DAZE, BACK_TO_SKOOL,
+                                SKOOL_DAZE_TAKE_TOO, EZAD_LOOKS, BACK_TO_SKOOL_DAZE)
 
 def parse_args(args):
     p_args = []
@@ -49,3 +50,6 @@ odir, verbose = parse_args(sys.argv[1:])
 sounds_dir = os.path.join(odir, 'sounds')
 create_sounds(SKOOL_DAZE, sounds_dir, verbose)
 create_sounds(BACK_TO_SKOOL, sounds_dir, verbose)
+create_sounds(SKOOL_DAZE_TAKE_TOO, sounds_dir, verbose)
+create_sounds(EZAD_LOOKS, sounds_dir, verbose)
+create_sounds(BACK_TO_SKOOL_DAZE, sounds_dir, verbose)

@@ -26,6 +26,23 @@ CONTENTION_FACTOR = 0.34
 
 SKOOL_DAZE = 'skool_daze'
 BACK_TO_SKOOL = 'back_to_skool'
+SKOOL_DAZE_TAKE_TOO = 'skool_daze_take_too'
+EZAD_LOOKS = 'ezad_looks'
+BACK_TO_SKOOL_DAZE = 'back_to_skool_daze'
+
+NOTES = {
+    'C1': -3,
+    'D1': -2,
+    'E1': -1,
+    'F1': 0,
+    'G1': 1,
+    'A2': 2,
+    'B2': 3,
+    'C2': 4,
+    'D2': 5,
+    'E2': 6,
+    'F2': 7
+}
 
 def delays_to_samples(delays, sample_rate, max_amplitude):
     sample_delay = 3500000.0 / sample_rate
@@ -224,6 +241,16 @@ def bts_lines2():
     add_contention(delays, interrupts=True)
     return delays
 
+def convert_notes(notes, offset=0):
+    data = []
+    for note_spec in notes.split():
+        elements = note_spec.split('-')
+        note = NOTES[elements[0]] + offset
+        beats = int(elements[1])
+        gap = 1 if len(elements) < 3 else 0
+        data.append(((beats * 4) - gap) * 16 + note * 2 + gap)
+    return data
+
 def tune(notes):
     # SD 32279
     pitch_data = (
@@ -238,11 +265,11 @@ def tune(notes):
     )
     delays = []
     for i, note in enumerate(notes):
-        if note > 255:
+        if note > 511:
             # This is a delay
             delays.append(note)
         else:
-            duration, pitch = pitch_data[(note // 2)  & 7]
+            duration, pitch = pitch_data[(note // 2) & 7]
             duration *= note // 16
             duration //= 2
             if i:
@@ -289,6 +316,19 @@ def up_a_year():
         55,55,55,119,59,127,59,119,55,121,57,121,55,117,51,177,
         55,55,55,119,59,127,59,119,55,121,57,49,66,53,183,183
     ))
+
+def sdtt_tune():
+    notes = ' '.join((
+        'E1-3 D1-1 C1-2 D1-2',
+        'E1-2 E1-2 E1-4',
+        'D1-2 D1-2 D1-4',
+        'E1-2 G1-2 G1-4',
+        'E1-3 D1-1 C1-2 D1-2',
+        'E1-2 E1-2 E1-2 E1-2',
+        'D1-2 D1-2 E1-2 D1-2',
+        'C1-8'
+    ))
+    return tune(convert_notes(notes, 3))
 
 def bts_walk(cycle):
     # BTS 29012
@@ -375,7 +415,8 @@ FILES = {
     'bts-walk0': (bts_walk0, 'back_to_skool', 'walk0'),
     'bts-walk1': (bts_walk1, 'back_to_skool', 'walk1'),
     'bts-walk2': (bts_walk2, 'back_to_skool', 'walk2'),
-    'bts-walk3': (bts_walk3, 'back_to_skool', 'walk3')
+    'bts-walk3': (bts_walk3, 'back_to_skool', 'walk3'),
+    'sdtt-tune': (sdtt_tune, 'skool_daze_take_too', 'tune')
 }
 
 SOUNDS = {
@@ -385,6 +426,21 @@ SOUNDS = {
         'sd-walk1'
     ),
     BACK_TO_SKOOL: (
+        'catapult', 'knocked-out', 'bts-bell', 'bingo', 'conker', 'bts-lines1',
+        'bts-lines2', 'mouse', 'safe-key', 'sherry', 'bts-tune', 'up-a-year',
+        'bts-walk0', 'bts-walk1', 'bts-walk2', 'bts-walk3'
+    ),
+    SKOOL_DAZE_TAKE_TOO: (
+        'catapult', 'knocked-out', 'all-shields', 'sd-bell', 'hit0', 'hit1',
+        'jump', 'sd-lines1', 'sd-lines2', 'shield', 'sdtt-tune', 'sd-walk0',
+        'sd-walk1'
+    ),
+    EZAD_LOOKS: (
+        'catapult', 'knocked-out', 'all-shields', 'sd-bell', 'hit0', 'hit1',
+        'jump', 'sd-lines1', 'sd-lines2', 'shield', 'sd-tune', 'sd-walk0',
+        'sd-walk1'
+    ),
+    BACK_TO_SKOOL_DAZE: (
         'catapult', 'knocked-out', 'bts-bell', 'bingo', 'conker', 'bts-lines1',
         'bts-lines2', 'mouse', 'safe-key', 'sherry', 'bts-tune', 'up-a-year',
         'bts-walk0', 'bts-walk1', 'bts-walk2', 'bts-walk3'

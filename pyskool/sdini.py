@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2013, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -115,6 +115,7 @@ class SDIniMaker(skoolini.SkoolIniMaker):
     def create_sounds(self):
         skoolini.SkoolIniMaker.create_sounds(self)
         sounds_dir = 'skool_daze'
+        tunes_dir = 'skool_daze_take_too' if self.custom == SKOOL_DAZE_TAKE_TOO else sounds_dir
         self.sounds.append((sound.BELL, '%s/bell' % sounds_dir))
         self.sounds.append((sound.HIT_SOUNDS[0], '%s/hit0' % sounds_dir))
         self.sounds.append((sound.HIT_SOUNDS[1], '%s/hit1' % sounds_dir))
@@ -128,7 +129,7 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         self.sounds.append((sound.ALL_SHIELDS, '%s/all-shields' % sounds_dir))
         self.sounds.append((sound.OPEN_SAFE, '%s/all-shields' % sounds_dir))
         self.sounds.append((sound.SHIELD, '%s/shield' % sounds_dir))
-        self.sounds.append((sound.TUNE, '%s/tune' % sounds_dir))
+        self.sounds.append((sound.TUNE, '%s/tune' % tunes_dir))
         self.sounds.append((sound.UP_A_YEAR, '%s/tune' % sounds_dir))
 
     def create_sprite_groups(self):
