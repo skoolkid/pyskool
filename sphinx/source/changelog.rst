@@ -4,6 +4,7 @@ Changelog
 1.1.2b1
 -------
 * Added a theme tune and an 'all shields' tune for Skool Daze Take Too
+* Added a theme tune and an 'all shields' tune for Ezad Looks
 
 1.1.1 (2014-01-26)
 ------------------

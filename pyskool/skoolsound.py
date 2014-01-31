@@ -31,6 +31,9 @@ EZAD_LOOKS = 'ezad_looks'
 BACK_TO_SKOOL_DAZE = 'back_to_skool_daze'
 
 NOTES = {
+    'F0': -7,
+    'G0': -6,
+    'A1': -5,
     'C1': -3,
     'D1': -2,
     'E1': -1,
@@ -241,14 +244,14 @@ def bts_lines2():
     add_contention(delays, interrupts=True)
     return delays
 
-def convert_notes(notes, offset=0):
+def convert_notes(notes, offset=0, tempo=1):
     data = []
     for note_spec in notes.split():
         elements = note_spec.split('-')
         note = NOTES[elements[0]] + offset
-        beats = int(elements[1])
+        beats = int(elements[1]) * tempo
         gap = 1 if len(elements) < 3 else 0
-        data.append(((beats * 4) - gap) * 16 + note * 2 + gap)
+        data.append((int(beats * 4) - gap) * 16 + note * 2 + gap)
     return data
 
 def tune(notes):
@@ -265,7 +268,7 @@ def tune(notes):
     )
     delays = []
     for i, note in enumerate(notes):
-        if note > 511:
+        if note > 1023:
             # This is a delay
             delays.append(note)
         else:
@@ -342,6 +345,38 @@ def sdtt_all_shields():
         'A2-2 F1-6'
     ))
     return tune(convert_notes(notes))
+
+def el_tune():
+    notes = ' '.join((
+        'C1-6',
+        'C1-6',
+        'C1-4 D1-2',
+        'E1-6',
+        'E1-4 D1-2',
+        'E1-4 F1-2',
+        'G1-12',
+        'C2-2 C2-2 C2-2',
+        'G1-2 G1-2 G1-2',
+        'E1-2 E1-2 E1-2',
+        'C1-2 C1-2 C1-2',
+        'G1-4 F1-2',
+        'E1-4 D1-2',
+        'C1-12'
+    ))
+    return tune(convert_notes(notes, 3, 0.75))
+
+def el_all_shields():
+    notes = ' '.join((
+        'C1-2 C1-2 A1-2 C1-2',
+        'D1-2 C1-2 A1-4',
+        'A1-2 G0-6',
+        'A1-2 G0-6',
+        'C1-2 C1-2 A1-2 C1-2',
+        'D1-2 C1-2 A1-4',
+        'G0-4 A1-2 G0-2',
+        'F0-8'
+    ))
+    return tune(convert_notes(notes, 7))
 
 def bts_walk(cycle):
     # BTS 29012
@@ -430,7 +465,9 @@ FILES = {
     'bts-walk2': (bts_walk2, 'back_to_skool', 'walk2'),
     'bts-walk3': (bts_walk3, 'back_to_skool', 'walk3'),
     'sdtt-all-shields': (sdtt_all_shields, 'skool_daze_take_too', 'all-shields'),
-    'sdtt-tune': (sdtt_tune, 'skool_daze_take_too', 'tune')
+    'sdtt-tune': (sdtt_tune, 'skool_daze_take_too', 'tune'),
+    'el-all-shields': (el_all_shields, 'ezad_looks', 'all-shields'),
+    'el-tune': (el_tune, 'ezad_looks', 'tune')
 }
 
 SOUNDS = {
@@ -450,9 +487,9 @@ SOUNDS = {
         'sdtt-all-shields', 'sdtt-tune'
     ),
     EZAD_LOOKS: (
-        'catapult', 'knocked-out', 'all-shields', 'sd-bell', 'hit0', 'hit1',
-        'jump', 'sd-lines1', 'sd-lines2', 'shield', 'sd-tune', 'sd-walk0',
-        'sd-walk1'
+        'catapult', 'knocked-out', 'sd-bell', 'hit0', 'hit1', 'jump',
+        'sd-lines1', 'sd-lines2', 'shield', 'sd-walk0', 'sd-walk1',
+        'el-all-shields', 'el-tune'
     ),
     BACK_TO_SKOOL_DAZE: (
         'catapult', 'knocked-out', 'bts-bell', 'bingo', 'conker', 'bts-lines1',
