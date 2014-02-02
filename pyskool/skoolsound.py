@@ -34,6 +34,7 @@ NOTES = {
     'F0': -7,
     'G0': -6,
     'A1': -5,
+    'B1': -4,
     'C1': -3,
     'D1': -2,
     'E1': -1,
@@ -46,6 +47,18 @@ NOTES = {
     'E2': 6,
     'F2': 7
 }
+
+# SD 32263, BTS 24560
+PITCH_DATA = (
+    (47,196), # F1
+    (53,174), # G1
+    (60,154), # A2
+    (63,145), # B2
+    (71,129), # C2
+    (80,114), # D2
+    (86,107), # E2 ((90,101) in the original games, but unused)
+    (95,96)   # F2
+)
 
 def delays_to_samples(delays, sample_rate, max_amplitude):
     sample_delay = 3500000.0 / sample_rate
@@ -256,23 +269,13 @@ def convert_notes(notes, offset=0, tempo=1):
 
 def tune(notes):
     # SD 32279
-    pitch_data = (
-        (47,196),
-        (53,174),
-        (60,154),
-        (63,145),
-        (71,129),
-        (80,114),
-        (90,101),
-        (95,96)
-    )
     delays = []
     for i, note in enumerate(notes):
         if note > 1023:
             # This is a delay
             delays.append(note)
         else:
-            duration, pitch = pitch_data[(note // 2) & 7]
+            duration, pitch = PITCH_DATA[(note // 2) & 7]
             duration *= note // 16
             duration //= 2
             if i:
@@ -378,6 +381,32 @@ def el_all_shields():
     ))
     return tune(convert_notes(notes, 7))
 
+def btsd_tune():
+    notes = ' '.join((
+        'C1-2 C1-2 C1-2 G0-2',
+        'A1-2 A1-2 G0-4',
+        'E1-2 E1-2 D1-2 D1-2',
+        'C1-6 G0-2',
+        'C1-2 C1-2 C1-2 G0-2',
+        'A1-2 A1-2 G0-4',
+        'E1-2 E1-2 D1-2 D1-2',
+        'C1-8'
+    ))
+    return tune(convert_notes(notes, 6))
+
+def btsd_all_shields():
+    notes = ' '.join((
+        'E1-2 E1-1-0 E1-1 C1-2 C1-2',
+        'E1-2 E1-2 G1-4',
+        'D1-2 D1-1-0 D1-1 B1-2 B1-2',
+        'D1-2 D1-2 F1-4',
+        'E1-2 E1-1-0 E1-1 C1-2 C1-2',
+        'E1-2 E1-2 G1-4',
+        'D1-2 E1-1-0 F1-1 E1-2 D1-2',
+        'C1-4 C1-4'
+    ))
+    return tune(convert_notes(notes, 6))
+
 def bts_walk(cycle):
     # BTS 29012
     delays = [2532] * 6
@@ -467,7 +496,9 @@ FILES = {
     'sdtt-all-shields': (sdtt_all_shields, 'skool_daze_take_too', 'all-shields'),
     'sdtt-tune': (sdtt_tune, 'skool_daze_take_too', 'tune'),
     'el-all-shields': (el_all_shields, 'ezad_looks', 'all-shields'),
-    'el-tune': (el_tune, 'ezad_looks', 'tune')
+    'el-tune': (el_tune, 'ezad_looks', 'tune'),
+    'btsd-tune': (btsd_tune, 'back_to_skool_daze', 'tune'),
+    'btsd-all-shields': (btsd_all_shields, 'back_to_skool_daze', 'all-shields')
 }
 
 SOUNDS = {
@@ -493,8 +524,8 @@ SOUNDS = {
     ),
     BACK_TO_SKOOL_DAZE: (
         'catapult', 'knocked-out', 'bts-bell', 'bingo', 'conker', 'bts-lines1',
-        'bts-lines2', 'mouse', 'safe-key', 'sherry', 'bts-tune', 'up-a-year',
-        'bts-walk0', 'bts-walk1', 'bts-walk2', 'bts-walk3'
+        'bts-lines2', 'mouse', 'safe-key', 'sherry', 'bts-walk0', 'bts-walk1',
+        'bts-walk2', 'bts-walk3', 'btsd-all-shields', 'btsd-tune'
     )
 }
 

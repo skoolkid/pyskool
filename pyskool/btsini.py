@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2012, 2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2012-2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -195,6 +195,7 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
     def create_sounds(self):
         skoolini.SkoolIniMaker.create_sounds(self)
         sounds_dir = 'back_to_skool'
+        tunes_dir = 'back_to_skool_daze' if self.custom == BACK_TO_SKOOL_DAZE else sounds_dir
         self.sounds.append((sound.ALARM, '%s/lines2' % sounds_dir))
         self.sounds.append((sound.BELL, '%s/bell' % sounds_dir))
         self.sounds.append((sound.LINES1, '%s/lines1' % sounds_dir))
@@ -202,7 +203,7 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
         self.sounds.append((sound.MOUSE, '%s/mouse' % sounds_dir))
         self.sounds.append((sound.CONKER, '%s/conker' % sounds_dir))
         self.sounds.append((sound.SHERRY, '%s/sherry' % sounds_dir))
-        self.sounds.append((sound.TUNE, '%s/tune' % sounds_dir))
+        self.sounds.append((sound.TUNE, '%s/tune' % tunes_dir))
         self.sounds.append((sound.WATER_PISTOL, 'common/catapult'))
         self.sounds.append((sound.DESK, '%s/bingo' % sounds_dir))
         self.sounds.append((sound.FROG, '%s/bingo' % sounds_dir))
@@ -215,12 +216,12 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
         self.sounds.append((sound.WALK_SOUNDS[3], '%s/walk3' % sounds_dir))
         if self.custom == BACK_TO_SKOOL_DAZE:
             self.sounds.append((sound.SHIELD, '%s/bingo' % sounds_dir))
-            self.sounds.append((sound.ALL_SHIELDS, '%s/up-a-year' % sounds_dir))
-            self.sounds.append((sound.OPEN_SAFE, '%s/up-a-year' % sounds_dir))
-            self.sounds.append((sound.UP_A_YEAR, '%s/tune' % sounds_dir))
+            self.sounds.append((sound.ALL_SHIELDS, '%s/all-shields' % tunes_dir))
+            self.sounds.append((sound.OPEN_SAFE, '%s/all-shields' % tunes_dir))
+            self.sounds.append((sound.UP_A_YEAR, '%s/tune' % tunes_dir))
         else:
             self.sounds.append((sound.SAFE_KEY, '%s/safe-key' % sounds_dir))
-            self.sounds.append((sound.UP_A_YEAR, '%s/up-a-year' % sounds_dir))
+            self.sounds.append((sound.UP_A_YEAR, '%s/up-a-year' % tunes_dir))
 
     def create_sprite_groups(self):
         skoolini.SkoolIniMaker.create_sprite_groups(self)
