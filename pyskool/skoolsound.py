@@ -421,6 +421,34 @@ def el_all_shields():
     ))
     return tune(convert_notes(notes, 7))
 
+def el_open_safe():
+    notes = ' '.join((
+        'C1-1-0 D1-1',
+        'E1-2 C1-2 G0-2',
+        'A1-2 C1-2 G0-2',
+        'A1-2 C1-2 G0-2',
+        'A1-2 C1-2 C1-1-0 D1-1',
+        'E1-2 C1-2 G0-2',
+        'A1-2 C1-2 G0-2',
+        'A1-2 C1-2 D1-2',
+        'C1-6'
+    ))
+    return tune(convert_notes(notes, 7))
+
+def el_up_a_year():
+    notes = ' '.join((
+        'C1-2 C1-2 D1-2 E1-2',
+        'C1-2 E1-2 D1-2 G0-2',
+        'C1-2 C1-2 D1-2 E1-2',
+        'C1-4 B1-4',
+
+        'C1-2 C1-2 D1-2 E1-2',
+        'F1-2 E1-2 D1-2 C1-2',
+        'B1-2 G0-2 A1-2 B1-2',
+        'C1-4 C1-4'
+    ))
+    return tune(convert_notes(notes, 6))
+
 def btsd_tune():
     notes = ' '.join((
         'C1-2 C1-2 C1-2 G0-2',
@@ -538,7 +566,9 @@ FILES = {
     'sdtt-tune': (sdtt_tune, 'skool_daze_take_too', 'tune'),
     'sdtt-up-a-year': (sdtt_up_a_year, 'skool_daze_take_too', 'up-a-year'),
     'el-all-shields': (el_all_shields, 'ezad_looks', 'all-shields'),
+    'el-open-safe': (el_open_safe, 'ezad_looks', 'open-safe'),
     'el-tune': (el_tune, 'ezad_looks', 'tune'),
+    'el-up-a-year': (el_up_a_year, 'ezad_looks', 'up-a-year'),
     'btsd-tune': (btsd_tune, 'back_to_skool_daze', 'tune'),
     'btsd-all-shields': (btsd_all_shields, 'back_to_skool_daze', 'all-shields')
 }
@@ -562,7 +592,7 @@ SOUNDS = {
     EZAD_LOOKS: (
         'catapult', 'knocked-out', 'sd-bell', 'hit0', 'hit1', 'jump',
         'sd-lines1', 'sd-lines2', 'shield', 'sd-walk0', 'sd-walk1',
-        'el-all-shields', 'el-tune'
+        'el-all-shields', 'el-open-safe', 'el-tune', 'el-up-a-year'
     ),
     BACK_TO_SKOOL_DAZE: (
         'catapult', 'knocked-out', 'bts-bell', 'bingo', 'conker', 'bts-lines1',

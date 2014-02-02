@@ -115,14 +115,15 @@ class SDIniMaker(skoolini.SkoolIniMaker):
     def create_sounds(self):
         skoolini.SkoolIniMaker.create_sounds(self)
         tunes_dir = sounds_dir = 'skool_daze'
-        open_safe = 'all-shields'
-        up_a_year = 'tune'
+        open_safe = 'open-safe'
+        up_a_year = 'up-a-year'
         if self.custom == SKOOL_DAZE_TAKE_TOO:
             tunes_dir = 'skool_daze_take_too'
-            open_safe = 'open-safe'
-            up_a_year = 'up-a-year'
         elif self.custom == EZAD_LOOKS:
             tunes_dir = 'ezad_looks'
+        else:
+            open_safe = 'all-shields'
+            up_a_year = 'tune'
         self.sounds.append((sound.BELL, '%s/bell' % sounds_dir))
         self.sounds.append((sound.HIT_SOUNDS[0], '%s/hit0' % sounds_dir))
         self.sounds.append((sound.HIT_SOUNDS[1], '%s/hit1' % sounds_dir))
