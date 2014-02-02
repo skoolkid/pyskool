@@ -282,7 +282,7 @@ def tune(notes):
             duration *= beats
             duration //= 2
             if i:
-                gap = 207 + 13 * prev_pitch + 24 * (note // 16)
+                gap = 207 + 13 * prev_pitch + 24 * beats
                 if silence:
                     gap += 61617
                 delays.append(gap)
@@ -360,6 +360,34 @@ def sdtt_all_shields():
         'A2-2 F1-6'
     ))
     return tune(convert_notes(notes))
+
+def sdtt_open_safe():
+    notes = ' '.join((
+        'D1-2 D1-2 E1-2 C1-2',
+        'D1-2 E1-1-0 F1-1 E1-2 C1-2',
+        'D1-2 E1-1-0 F1-1 E1-2 D1-2',
+        'C1-2 D1-2 G0-4',
+
+        'E1-2 E1-2 F1-2 G1-2',
+        'G1-2 F1-2 E1-2 D1-2',
+        'C1-2 C1-2 D1-2 E1-2',
+        'D1-2 C1-2 C1-4'
+    ))
+    return tune(convert_notes(notes, 6))
+
+def sdtt_up_a_year():
+    notes = ' '.join((
+        'G1-2',
+        'G1-4 E1-2 F1-2',
+        'G1-4 E1-2 G1-2',
+        'G1-4 E1-2 A2-2',
+        'G1-4 E1-2 E1-2',
+        'F1-2 F1-2 D1-2 D1-2',
+        'F1-2 F1-2 D1-2 D1-2',
+        'G1-2 F1-2 E1-2 D1-2',
+        'E1-4 C1-4'
+    ))
+    return tune(convert_notes(notes, 3))
 
 def el_tune():
     notes = ' '.join((
@@ -506,7 +534,9 @@ FILES = {
     'bts-walk2': (bts_walk2, 'back_to_skool', 'walk2'),
     'bts-walk3': (bts_walk3, 'back_to_skool', 'walk3'),
     'sdtt-all-shields': (sdtt_all_shields, 'skool_daze_take_too', 'all-shields'),
+    'sdtt-open-safe': (sdtt_open_safe, 'skool_daze_take_too', 'open-safe'),
     'sdtt-tune': (sdtt_tune, 'skool_daze_take_too', 'tune'),
+    'sdtt-up-a-year': (sdtt_up_a_year, 'skool_daze_take_too', 'up-a-year'),
     'el-all-shields': (el_all_shields, 'ezad_looks', 'all-shields'),
     'el-tune': (el_tune, 'ezad_looks', 'tune'),
     'btsd-tune': (btsd_tune, 'back_to_skool_daze', 'tune'),
@@ -527,7 +557,7 @@ SOUNDS = {
     SKOOL_DAZE_TAKE_TOO: (
         'catapult', 'knocked-out', 'sd-bell', 'hit0', 'hit1', 'jump',
         'sd-lines1', 'sd-lines2', 'shield', 'sd-walk0', 'sd-walk1',
-        'sdtt-all-shields', 'sdtt-tune'
+        'sdtt-all-shields', 'sdtt-open-safe', 'sdtt-tune', 'sdtt-up-a-year'
     ),
     EZAD_LOOKS: (
         'catapult', 'knocked-out', 'sd-bell', 'hit0', 'hit1', 'jump',

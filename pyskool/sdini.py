@@ -115,8 +115,12 @@ class SDIniMaker(skoolini.SkoolIniMaker):
     def create_sounds(self):
         skoolini.SkoolIniMaker.create_sounds(self)
         tunes_dir = sounds_dir = 'skool_daze'
+        open_safe = 'all-shields'
+        up_a_year = 'tune'
         if self.custom == SKOOL_DAZE_TAKE_TOO:
             tunes_dir = 'skool_daze_take_too'
+            open_safe = 'open-safe'
+            up_a_year = 'up-a-year'
         elif self.custom == EZAD_LOOKS:
             tunes_dir = 'ezad_looks'
         self.sounds.append((sound.BELL, '%s/bell' % sounds_dir))
@@ -129,11 +133,11 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         self.sounds.append((sound.WALK_SOUNDS[2], '%s/walk1' % sounds_dir))
         self.sounds.append((sound.WALK_SOUNDS[3], '%s/walk0' % sounds_dir))
         self.sounds.append((sound.JUMP, '%s/jump' % sounds_dir))
-        self.sounds.append((sound.ALL_SHIELDS, '%s/all-shields' % tunes_dir))
-        self.sounds.append((sound.OPEN_SAFE, '%s/all-shields' % tunes_dir))
         self.sounds.append((sound.SHIELD, '%s/shield' % sounds_dir))
         self.sounds.append((sound.TUNE, '%s/tune' % tunes_dir))
-        self.sounds.append((sound.UP_A_YEAR, '%s/tune' % tunes_dir))
+        self.sounds.append((sound.ALL_SHIELDS, '%s/all-shields' % tunes_dir))
+        self.sounds.append((sound.OPEN_SAFE, '%s/%s' % (tunes_dir, open_safe)))
+        self.sounds.append((sound.UP_A_YEAR, '%s/%s' % (tunes_dir, up_a_year)))
 
     def create_sprite_groups(self):
         skoolini.SkoolIniMaker.create_sprite_groups(self)
