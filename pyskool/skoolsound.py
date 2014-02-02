@@ -261,26 +261,29 @@ def convert_notes(notes, offset=0, tempo=1):
     data = []
     for note_spec in notes.split():
         elements = note_spec.split('-')
-        note = NOTES[elements[0]] + offset
-        beats = int(elements[1]) * tempo
-        gap = 1 if len(elements) < 3 else 0
-        data.append((int(beats * 4) - gap) * 16 + note * 2 + gap)
+        beats = int(elements[1]) / float(tempo)
+        if elements[0] == 'R':
+            datum = (beats, None, None)
+        else:
+            note = NOTES[elements[0]] + offset
+            silence = 1 if len(elements) < 3 else 0
+            datum = (int(beats * 4) - silence, note, silence)
+        data.append(datum)
     return data
 
 def tune(notes):
     # SD 32279
     delays = []
-    for i, note in enumerate(notes):
-        if note > 1023:
-            # This is a delay
-            delays.append(note)
+    for i, (beats, note, silence) in enumerate(notes):
+        if note is None:
+            delays.append(int(beats * 60543.5))
         else:
-            duration, pitch = PITCH_DATA[(note // 2) & 7]
-            duration *= note // 16
+            duration, pitch = PITCH_DATA[note]
+            duration *= beats
             duration //= 2
             if i:
                 gap = 207 + 13 * prev_pitch + 24 * (note // 16)
-                if note & 1:
+                if silence:
                     gap += 61617
                 delays.append(gap)
             delays.extend([13 * pitch + 51] * (duration - 1))
@@ -289,39 +292,48 @@ def tune(notes):
     return delays
 
 def sd_tune():
-    # SD 32353
-    return tune((
-        121,53,119,51,121,53,113,
-        49,115,53,70,53,51,121,53,177,
-        121,53,55,55,51,121,53,177,
-        51,51,53,55,53,51,121,53,177
+    notes = ' '.join((
+        'C2-2 A2-1 B2-2 G1-1',
+        'C2-2 A2-1 F1-2 F1-1',
+        'G1-2 A2-1 B2-1-0 A2-1 G1-1',
+        'C2-2 A2-1 F1-3',
+        'C2-2 A2-1 B2-1 B2-1 G1-1',
+        'C2-2 A2-1 F1-3',
+        'G1-1 G1-1 A2-1 B2-1 A2-1 G1-1',
+        'C2-2 A2-1 F1-3'
     ))
+    return tune(convert_notes(notes))
 
 def all_shields():
-    # SD 32406
-    part1 = (55,55,55,57,123,121,55,59,57,57,183) # 32434
-    part2 = (
-        57,57,57,57,115,115,57,55,53,51,241,
-        55,55,55,57,123,121,55,59,57,57,247
-    ) # 32446
-    delay = (242174,)
-    return tune(part1 + delay + part1 + delay + part2)
+    notes = ' '.join((
+        'B2-1 B2-1 B2-1 C2-1 D2-2 C2-2',
+        'B2-1 D2-1 C2-1 C2-1 B2-3 R-4',
+        'B2-1 B2-1 B2-1 C2-1 D2-2 C2-2',
+        'B2-1 D2-1 C2-1 C2-1 B2-3 R-4',
+        'C2-1 C2-1 C2-1 C2-1 G1-2 G1-2',
+        'C2-1 B2-1 A2-1 G1-1 F1-4',
+        'B2-1 B2-1 B2-1 C2-1 D2-2 C2-2',
+        'B2-1 D2-1 C2-1 C2-1 B2-4'
+    ))
+    return tune(convert_notes(notes))
 
 def bts_tune():
-    # BTS 56385 etc.
-    return tune((
-        59,113,51,183,57,27,91,123,
-        251,49,113,51,119,119,115,241,128,
-        59,113,51,183,57,27,91,123,
-        251,191,59,121,123,119,247,134
+    notes = ' '.join((
+        'D2-2 F1-4 G1-2 B2-6 C2-2 D2-1 D2-3 D2-4 D2-8',
+        'F1-2 F1-4 G1-2 B2-4 B2-4 G1-4 F1-8',
+        'F1-4-0 D2-2 F1-4 G1-2 B2-6 C2-2 D2-1 D2-3 D2-4 D2-8',
+        'F2-6 D2-2 C2-4 D2-4 B2-4 B2-8 B2-4-0'
     ))
+    return tune(convert_notes(notes, tempo=2))
 
 def up_a_year():
-    # BTS 56364 etc.
-    return tune((
-        55,55,55,119,59,127,59,119,55,121,57,121,55,117,51,177,
-        55,55,55,119,59,127,59,119,55,121,57,49,66,53,183,183
+    notes = ' '.join((
+        'B2-1 B2-1 B2-1 B2-2 D2-1 F2-2 D2-1 B2-2',
+        'B2-1 C2-2 C2-1 C2-2 B2-1 A2-2 G1-1 F1-3',
+        'B2-1 B2-1 B2-1 B2-2 D2-1 F2-2 D2-1 B2-2',
+        'B2-1 C2-2 C2-1 F1-1 G1-1-0 A2-1 B2-3 B2-3'
     ))
+    return tune(convert_notes(notes))
 
 def sdtt_tune():
     notes = ' '.join((
@@ -366,7 +378,7 @@ def el_tune():
         'E1-4 D1-2',
         'C1-12'
     ))
-    return tune(convert_notes(notes, 3, 0.75))
+    return tune(convert_notes(notes, 3, 4.0/3))
 
 def el_all_shields():
     notes = ' '.join((
