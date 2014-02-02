@@ -203,7 +203,6 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
         self.sounds.append((sound.MOUSE, '%s/mouse' % sounds_dir))
         self.sounds.append((sound.CONKER, '%s/conker' % sounds_dir))
         self.sounds.append((sound.SHERRY, '%s/sherry' % sounds_dir))
-        self.sounds.append((sound.TUNE, '%s/tune' % tunes_dir))
         self.sounds.append((sound.WATER_PISTOL, 'common/catapult'))
         self.sounds.append((sound.DESK, '%s/bingo' % sounds_dir))
         self.sounds.append((sound.FROG, '%s/bingo' % sounds_dir))
@@ -216,12 +215,13 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
         self.sounds.append((sound.WALK_SOUNDS[3], '%s/walk3' % sounds_dir))
         if self.custom == BACK_TO_SKOOL_DAZE:
             self.sounds.append((sound.SHIELD, '%s/bingo' % sounds_dir))
-            self.sounds.append((sound.ALL_SHIELDS, '%s/all-shields' % tunes_dir))
-            self.sounds.append((sound.OPEN_SAFE, '%s/all-shields' % tunes_dir))
-            self.sounds.append((sound.UP_A_YEAR, '%s/tune' % tunes_dir))
         else:
             self.sounds.append((sound.SAFE_KEY, '%s/safe-key' % sounds_dir))
-            self.sounds.append((sound.UP_A_YEAR, '%s/up-a-year' % tunes_dir))
+        self.sounds.append((sound.TUNE, '%s/tune' % tunes_dir))
+        if self.custom == BACK_TO_SKOOL_DAZE:
+            self.sounds.append((sound.ALL_SHIELDS, '%s/all-shields' % tunes_dir))
+            self.sounds.append((sound.OPEN_SAFE, '%s/open-safe' % tunes_dir))
+        self.sounds.append((sound.UP_A_YEAR, '%s/up-a-year' % tunes_dir))
 
     def create_sprite_groups(self):
         skoolini.SkoolIniMaker.create_sprite_groups(self)

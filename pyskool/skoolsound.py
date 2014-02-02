@@ -57,7 +57,8 @@ PITCH_DATA = (
     (71,129), # C2
     (80,114), # D2
     (86,107), # E2 ((90,101) in the original games, but unused)
-    (95,96)   # F2
+    (95,96),  # F2
+    (107,86), # G2 (not in the original games)
 )
 
 def delays_to_samples(delays, sample_rate, max_amplitude):
@@ -475,6 +476,32 @@ def btsd_all_shields():
     ))
     return tune(convert_notes(notes, 6))
 
+def btsd_open_safe():
+    notes = ' '.join((
+        'C1-2 C1-1-0 C1-1 C1-2 C1-1-0 C1-1',
+        'E1-2 G1-1-0 G1-1 E1-2 C1-2',
+        'D1-2 D1-1-0 D1-1 D1-2 D1-1-0 D1-1',
+        'B1-2 D1-1-0 D1-1 B1-2 G0-2',
+        'C1-2 C1-1-0 C1-1 C1-2 C1-1-0 C1-1',
+        'E1-2 G1-1-0 G1-1 E1-2 C1-2',
+        'G1-2 F1-1-0 F1-1 E1-2 D1-2',
+        'C1-4 C1-4'
+    ))
+    return tune(convert_notes(notes, 6))
+
+def btsd_up_a_year():
+    notes = ' '.join((
+        'A2-2 C1-1-0 C1-1 C1-2 A2-2',
+        'A2-2 G1-2 G1-4',
+        'G1-2 C1-2 C1-1-0 C1-1 G1-2',
+        'G1-2 F1-2 F1-4',
+        'A2-2 C1-1-0 C1-1 C1-2 A2-2',
+        'A2-2 G1-2 G1-4',
+        'C2-2 C2-1-0 C2-1 C2-1-0 D2-1-0 C2-1-0 B2-1',
+        'A2-2 F1-2 F1-4'
+    ))
+    return tune(convert_notes(notes, 3))
+
 def bts_walk(cycle):
     # BTS 29012
     delays = [2532] * 6
@@ -569,8 +596,10 @@ FILES = {
     'el-open-safe': (el_open_safe, 'ezad_looks', 'open-safe'),
     'el-tune': (el_tune, 'ezad_looks', 'tune'),
     'el-up-a-year': (el_up_a_year, 'ezad_looks', 'up-a-year'),
+    'btsd-all-shields': (btsd_all_shields, 'back_to_skool_daze', 'all-shields'),
+    'btsd-open-safe': (btsd_open_safe, 'back_to_skool_daze', 'open-safe'),
     'btsd-tune': (btsd_tune, 'back_to_skool_daze', 'tune'),
-    'btsd-all-shields': (btsd_all_shields, 'back_to_skool_daze', 'all-shields')
+    'btsd-up-a-year': (btsd_up_a_year, 'back_to_skool_daze', 'up-a-year')
 }
 
 SOUNDS = {
@@ -597,7 +626,8 @@ SOUNDS = {
     BACK_TO_SKOOL_DAZE: (
         'catapult', 'knocked-out', 'bts-bell', 'bingo', 'conker', 'bts-lines1',
         'bts-lines2', 'mouse', 'safe-key', 'sherry', 'bts-walk0', 'bts-walk1',
-        'bts-walk2', 'bts-walk3', 'btsd-all-shields', 'btsd-tune'
+        'bts-walk2', 'bts-walk3', 'btsd-all-shields', 'btsd-open-safe',
+        'btsd-tune', 'btsd-up-a-year'
     )
 }
 
