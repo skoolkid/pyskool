@@ -716,40 +716,76 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         creak_qa_pairs.append((creak_qa_group, '1854', 'Balaclava'))
 
         # WITHIT
-        withit_questions = []
-        withit_qa_group = 'CapitalCities'
-        withit_questions.append(('Q1', withit_qa_group, "WHAT'S THE CAPITAL OF $2?"))
-        withit_questions.append(('Q2', withit_qa_group, "WHICH COUNTRY'S CAPITAL IS $1?"))
-        withit_answers = []
-        withit_answers.append(('Q1', 'Please %s I cannot tell a lie . . it is $1' % TITLE_MACRO))
-        withit_answers.append(('Q2', 'Please %s I cannot tell a lie . . it is $2' % TITLE_MACRO))
-        withit_qa_pairs = []
-        withit_qa_pairs.append((withit_qa_group, 'Berne', 'Switzerland'))
-        withit_qa_pairs.append((withit_qa_group, 'Helsinki', 'Finland'))
-        withit_qa_pairs.append((withit_qa_group, 'Reykjavik', 'Iceland'))
-        withit_qa_pairs.append((withit_qa_group, 'Budapest', 'Hungary'))
-        withit_qa_pairs.append((withit_qa_group, 'Bucharest', 'Romania'))
-        withit_qa_pairs.append((withit_qa_group, 'Tirana', 'Albania'))
-        withit_qa_pairs.append((withit_qa_group, 'Jakarta', 'Indonesia'))
-        withit_qa_pairs.append((withit_qa_group, 'Pyongyang', 'North Korea'))
-        withit_qa_pairs.append((withit_qa_group, 'Vientiane', 'Laos'))
-        withit_qa_pairs.append((withit_qa_group, 'Islamabad', 'Pakistan'))
-        withit_qa_pairs.append((withit_qa_group, 'Rangoon', 'Burma'))
-        withit_qa_pairs.append((withit_qa_group, 'Ankara', 'Turkey'))
-        withit_qa_pairs.append((withit_qa_group, 'Amman', 'Jordan'))
-        withit_qa_pairs.append((withit_qa_group, 'Gabarone', 'Botswana'))
-        withit_qa_pairs.append((withit_qa_group, 'Lusaka', 'Zambia'))
-        withit_qa_pairs.append((withit_qa_group, 'Monrovia', 'Liberia'))
-        withit_qa_pairs.append((withit_qa_group, 'La Paz', 'Bolivia'))
-        withit_qa_pairs.append((withit_qa_group, 'Caracas', 'Venezuela'))
-        withit_qa_pairs.append((withit_qa_group, 'Quito', 'Ecuador'))
-        withit_qa_pairs.append((withit_qa_group, 'Paramaribo', 'Surinam'))
-        withit_qa_pairs.append((withit_qa_group, 'Santiago', 'Chile'))
+        answers = (
+            ('Q1', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO)),
+            ('Q2', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO))
+        )
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
+            qa_group = 'LargestCities'
+            questions = (
+                ('Q1', "WHAT'S THE LARGEST CITY IN $2?"),
+                ('Q2', "WHICH COUNTRY'S LARGEST CITY IS $1?")
+            )
+            qa_pairs = (
+                ('Sydney', 'Australia'),
+                ('Sao Paulo', 'Brazil'),
+                ('Douala', 'Cameroon'),
+                ('Toronto', 'Canada'),
+                ('Shanghai', 'China'),
+                ('Guayaquil', 'Ecuador'),
+                ('Nasinu', 'Fiji'),
+                ('Almaty', 'Kazakhstan'),
+                ('Schaan', 'Liechtenstein'),
+                ('Monte Carlo', 'Monaco'),
+                ('Casablanca', 'Morocco'),
+                ('Auckland', 'New Zealand'),
+                ('Lagos', 'Nigeria'),
+                ('Karachi', 'Pakistan'),
+                ('Dogana', 'San Marino'),
+                ('Colombo', 'Sri Lanka'),
+                ('Manzini', 'Swaziland'),
+                ('Zurich', 'Switzerland'),
+                ('Aleppo', 'Syria'),
+                ('Istanbul', 'Turkey'),
+                ('Ho Chi Minh City', 'Vietnam')
+            )
+        else:
+            qa_group = 'CapitalCities'
+            questions = (
+                ('Q1', "WHAT'S THE CAPITAL OF $2?"),
+                ('Q2', "WHICH COUNTRY'S CAPITAL IS $1?")
+            )
+            qa_pairs = (
+                ('Berne', 'Switzerland'),
+                ('Helsinki', 'Finland'),
+                ('Reykjavik', 'Iceland'),
+                ('Budapest', 'Hungary'),
+                ('Bucharest', 'Romania'),
+                ('Tirana', 'Albania'),
+                ('Jakarta', 'Indonesia'),
+                ('Pyongyang', 'North Korea'),
+                ('Vientiane', 'Laos'),
+                ('Islamabad', 'Pakistan'),
+                ('Rangoon', 'Burma'),
+                ('Ankara', 'Turkey'),
+                ('Amman', 'Jordan'),
+                ('Gabarone', 'Botswana'),
+                ('Lusaka', 'Zambia'),
+                ('Monrovia', 'Liberia'),
+                ('La Paz', 'Bolivia'),
+                ('Caracas', 'Venezuela'),
+                ('Quito', 'Ecuador'),
+                ('Paramaribo', 'Surinam'),
+                ('Santiago', 'Chile')
+            )
+        withit_questions = [(q_id, qa_group, q_template) for q_id, q_template in questions]
+        withit_answers = [(q_id, a_template) for q_id, a_template in answers]
+        withit_qa_pairs = [(qa_group, word1, word2) for word1, word2 in qa_pairs]
 
         # ROCKITT
         answers = (
-            ('Q1', 'Please {} I cannot tell a lie . . it is $2'.format(TITLE_MACRO)),
-            ('Q2', 'Please {} I cannot tell a lie . . it is $1'.format(TITLE_MACRO))
+            ('Q1', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO)),
+            ('Q2', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO))
         )
         qa_group = 'Elements'
         if self.custom == SKOOL_DAZE_TAKE_TOO:
