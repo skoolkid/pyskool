@@ -680,6 +680,7 @@ class SDIniMaker(skoolini.SkoolIniMaker):
     def create_questions_and_answers(self):
         self.questions_and_answers = {}
 
+        # CREAK
         creak_specials = []
         creak_qa_group = 'Battles'
         creak_specials.append((creak_qa_group, 0))
@@ -714,6 +715,7 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         creak_qa_pairs.append((creak_qa_group, '1863', 'Gettysburg'))
         creak_qa_pairs.append((creak_qa_group, '1854', 'Balaclava'))
 
+        # WITHIT
         withit_questions = []
         withit_qa_group = 'CapitalCities'
         withit_questions.append(('Q1', withit_qa_group, "WHAT'S THE CAPITAL OF $2?"))
@@ -744,36 +746,73 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         withit_qa_pairs.append((withit_qa_group, 'Paramaribo', 'Surinam'))
         withit_qa_pairs.append((withit_qa_group, 'Santiago', 'Chile'))
 
-        rockitt_questions = []
-        rockitt_qa_group = 'Elements'
-        rockitt_questions.append(('Q1', rockitt_qa_group, 'WHAT ELEMENT HAS THE SYMBOL $1?'))
-        rockitt_questions.append(('Q2', rockitt_qa_group, 'WHAT IS THE CHEMICAL SYMBOL FOR $2?'))
-        rockitt_answers = []
-        rockitt_answers.append(('Q1', 'Please %s I cannot tell a lie . . it is $2' % TITLE_MACRO))
-        rockitt_answers.append(('Q2', 'Please %s I cannot tell a lie . . it is $1' % TITLE_MACRO))
-        rockitt_qa_pairs = []
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Sn', 'Tin'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Hg', 'Mercury'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Au', 'Gold'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Ag', 'Silver'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Pt', 'Platinum'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Cu', 'Copper'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Mg', 'Magnesium'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Pb', 'Lead'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Mn', 'Manganese'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Sb', 'Antimony'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'As', 'Arsenic'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'K', 'Potassium'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Na', 'Sodium'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Cl', 'Chlorine'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Zn', 'Zinc'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'W', 'Tungsten'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Cs', 'Caesium'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Si', 'Silicon'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'P', 'Phosphorus'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'Br', 'Bromine'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'H', 'Hydrogen'))
+        # ROCKITT
+        answers = (
+            ('Q1', 'Please {} I cannot tell a lie . . it is $2'.format(TITLE_MACRO)),
+            ('Q2', 'Please {} I cannot tell a lie . . it is $1'.format(TITLE_MACRO))
+        )
+        qa_group = 'Elements'
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
+            questions = (
+                ('Q1', 'WHAT ELEMENT HAS THE ATOMIC NUMBER $1?'),
+                ('Q2', 'WHAT IS THE ATOMIC NUMBER OF $2?')
+            )
+            qa_pairs = (
+                (9, 'Fluorine'),
+                (13, 'Aluminium'),
+                (14, 'Silicon'),
+                (21, 'Scandium'),
+                (22, 'Titanium'),
+                (23, 'Vanadium'),
+                (27, 'Cobalt'),
+                (32, 'Germanium'),
+                (34, 'Selenium'),
+                (36, 'Krypton'),
+                (40, 'Zirconium'),
+                (43, 'Technetium'),
+                (46, 'Palladium'),
+                (53, 'Iodine'),
+                (59, 'Praseodymium'),
+                (66, 'Dysprosium'),
+                (70, 'Ytterbium'),
+                (76, 'Osmium'),
+                (83, 'Bismuth'),
+                (94, 'Plutonium'),
+                (99, 'Einsteinium')
+            )
+        else:
+            questions = (
+                ('Q1', 'WHAT ELEMENT HAS THE SYMBOL $1?'),
+                ('Q2', 'WHAT IS THE CHEMICAL SYMBOL FOR $2?')
+            )
+            qa_pairs = (
+                ('Sn', 'Tin'),
+                ('Hg', 'Mercury'),
+                ('Au', 'Gold'),
+                ('Ag', 'Silver'),
+                ('Pt', 'Platinum'),
+                ('Cu', 'Copper'),
+                ('Mg', 'Magnesium'),
+                ('Pb', 'Lead'),
+                ('Mn', 'Manganese'),
+                ('Sb', 'Antimony'),
+                ('As', 'Arsenic'),
+                ('K', 'Potassium'),
+                ('Na', 'Sodium'),
+                ('Cl', 'Chlorine'),
+                ('Zn', 'Zinc'),
+                ('W', 'Tungsten'),
+                ('Cs', 'Caesium'),
+                ('Si', 'Silicon'),
+                ('P', 'Phosphorus'),
+                ('Br', 'Bromine'),
+                ('H', 'Hydrogen'),
+            )
+        rockitt_questions = [(q_id, qa_group, q_template) for q_id, q_template in questions]
+        rockitt_answers = [(q_id, a_template) for q_id, a_template in answers]
+        rockitt_qa_pairs = [(qa_group, word1, word2) for word1, word2 in qa_pairs]
 
+        # WACKER
         wacker_questions = []
         wacker_qa_group = 'Sums'
         wacker_questions.append(('Q1', wacker_qa_group, 'WHAT IS $1?'))
