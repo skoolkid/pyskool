@@ -42,6 +42,268 @@ SC_UP_TO_STUDY = ('UpToStudy', 'DownFromStudy')
 SC_UP_TO_EXAM_ROOM = ('UpToExamRoom', 'DownFromExamRoom')
 SC_UP_TO_MAP_ROOM = ('UpToMapRoom', 'DownFromMapRoom')
 
+# Questions and answers (MR ROCKITT)
+ROCKITT_QA = {
+    SKOOL_DAZE: (
+        (),
+        (
+            (
+                'Elements',
+                (
+                    ('Q1', 'WHAT ELEMENT HAS THE SYMBOL $1?'),
+                    ('Q2', 'WHAT IS THE CHEMICAL SYMBOL FOR $2?')
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO))
+                ),
+                (
+                    ('Sn', 'Tin'),
+                    ('Hg', 'Mercury'),
+                    ('Au', 'Gold'),
+                    ('Ag', 'Silver'),
+                    ('Pt', 'Platinum'),
+                    ('Cu', 'Copper'),
+                    ('Mg', 'Magnesium'),
+                    ('Pb', 'Lead'),
+                    ('Mn', 'Manganese'),
+                    ('Sb', 'Antimony'),
+                    ('As', 'Arsenic'),
+                    ('K', 'Potassium'),
+                    ('Na', 'Sodium'),
+                    ('Cl', 'Chlorine'),
+                    ('Zn', 'Zinc'),
+                    ('W', 'Tungsten'),
+                    ('Cs', 'Caesium'),
+                    ('Si', 'Silicon'),
+                    ('P', 'Phosphorus'),
+                    ('Br', 'Bromine'),
+                    ('H', 'Hydrogen'),
+                ),
+            ),
+        )
+    ),
+    SKOOL_DAZE_TAKE_TOO: (
+        (),
+        (
+            (
+                'AtomicNumbers',
+                (
+                    ('Q1', 'WHAT ELEMENT HAS THE ATOMIC NUMBER $1?'),
+                    ('Q2', 'WHAT IS THE ATOMIC NUMBER OF $2?')
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO))
+                ),
+                (
+                    (9, 'Fluorine'),
+                    (13, 'Aluminium'),
+                    (18, 'Argon'),
+                    (21, 'Scandium'),
+                    (22, 'Titanium'),
+                    (23, 'Vanadium'),
+                    (27, 'Cobalt'),
+                    (32, 'Germanium'),
+                    (34, 'Selenium'),
+                    (36, 'Krypton'),
+                    (40, 'Zirconium'),
+                    (43, 'Technetium'),
+                    (46, 'Palladium'),
+                    (53, 'Iodine'),
+                    (59, 'Praseodymium'),
+                    (66, 'Dysprosium'),
+                    (70, 'Ytterbium'),
+                    (76, 'Osmium'),
+                    (83, 'Bismuth'),
+                    (94, 'Plutonium'),
+                    (99, 'Einsteinium')
+                )
+            ),
+        )
+    )
+}
+ROCKITT_QA[EZAD_LOOKS] = ROCKITT_QA[SKOOL_DAZE]
+
+# Questions and answers (MR WACKER)
+WACKER_QA = {
+    SKOOL_DAZE: (
+        (),
+        (
+            (
+                'Sums',
+                (
+                    ('Q1', 'WHAT IS $1?'),
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO)),
+                ),
+                (
+                    ('12x34', 408),
+                    ('89x49', 4361),
+                    ('30x46', 1380),
+                    ('87x89', 7743),
+                    ('51x38', 1938),
+                    ('38x28', 1064),
+                    ('35x48', 1680),
+                    ('23x81', 1863),
+                    ('62x40', 2480),
+                    ('39x58', 2262),
+                    ('49x48', 2352),
+                    ('86x59', 5074),
+                    ('94x93', 8742),
+                    ('64x58', 3712),
+                    ('52x74', 3848),
+                    ('33x68', 2244),
+                    ('49x11', 539),
+                    ('64x10', 640),
+                    ('43x82', 3526),
+                    ('40x95', 3800),
+                    ('72x83', 5976),
+                    ('23x54', 1242)
+                ),
+            ),
+        )
+    ),
+    SKOOL_DAZE_TAKE_TOO: (
+        (),
+        (
+            (
+                'Squares',
+                (
+                    ('Q1', 'WHAT IS THE SQUARE ROOT OF $2?'),
+                    ('Q2', 'WHAT IS $1 SQUARED?')
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO))
+                ),
+                (
+                    (12, 144),
+                    (16, 256),
+                    (23, 529),
+                    (27, 729),
+                    (34, 1156),
+                    (48, 2304),
+                    (55, 3025),
+                    (67, 4489),
+                    (74, 5476),
+                    (79, 6241),
+                    (92, 8464)
+                )
+            ),
+            (
+                'Cubes',
+                (
+                    ('Q3', 'WHAT IS THE CUBE ROOT OF $2?'),
+                    ('Q4', 'WHAT IS $1 CUBED?')
+                ),
+                (
+                    ('Q3', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO)),
+                    ('Q4', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO))
+                ),
+                (
+                    (5, 125),
+                    (11, 1331),
+                    (13, 2197),
+                    (17, 4913),
+                    (29, 24389),
+                    (31, 29791),
+                    (47, 103823),
+                    (53, 148877),
+                    (62, 238328),
+                    (68, 314432),
+                    (71, 357911)
+                )
+            )
+        )
+    )
+}
+WACKER_QA[EZAD_LOOKS] = WACKER_QA[SKOOL_DAZE]
+
+# Questions and answers (MR WITHIT)
+WITHIT_QA = {
+    SKOOL_DAZE: (
+        (),
+        (
+            (
+                'CapitalCities',
+                (
+                    ('Q1', "WHAT'S THE CAPITAL OF $2?"),
+                    ('Q2', "WHICH COUNTRY'S CAPITAL IS $1?")
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO))
+                ),
+                (
+                    ('Berne', 'Switzerland'),
+                    ('Helsinki', 'Finland'),
+                    ('Reykjavik', 'Iceland'),
+                    ('Budapest', 'Hungary'),
+                    ('Bucharest', 'Romania'),
+                    ('Tirana', 'Albania'),
+                    ('Jakarta', 'Indonesia'),
+                    ('Pyongyang', 'North Korea'),
+                    ('Vientiane', 'Laos'),
+                    ('Islamabad', 'Pakistan'),
+                    ('Rangoon', 'Burma'),
+                    ('Ankara', 'Turkey'),
+                    ('Amman', 'Jordan'),
+                    ('Gabarone', 'Botswana'),
+                    ('Lusaka', 'Zambia'),
+                    ('Monrovia', 'Liberia'),
+                    ('La Paz', 'Bolivia'),
+                    ('Caracas', 'Venezuela'),
+                    ('Quito', 'Ecuador'),
+                    ('Paramaribo', 'Surinam'),
+                    ('Santiago', 'Chile')
+                ),
+            ),
+        )
+    ),
+    SKOOL_DAZE_TAKE_TOO: (
+        (),
+        (
+            (
+                'LargestCities',
+                (
+                    ('Q1', "WHAT'S THE LARGEST CITY IN $2?"),
+                    ('Q2', "WHICH COUNTRY'S LARGEST CITY IS $1?")
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO))
+                ),
+                (
+                    ('Sydney', 'Australia'),
+                    ('Sao Paulo', 'Brazil'),
+                    ('Douala', 'Cameroon'),
+                    ('Toronto', 'Canada'),
+                    ('Shanghai', 'China'),
+                    ('Guayaquil', 'Ecuador'),
+                    ('Nasinu', 'Fiji'),
+                    ('Almaty', 'Kazakhstan'),
+                    ('Schaan', 'Liechtenstein'),
+                    ('Monte Carlo', 'Monaco'),
+                    ('Casablanca', 'Morocco'),
+                    ('Auckland', 'New Zealand'),
+                    ('Lagos', 'Nigeria'),
+                    ('Karachi', 'Pakistan'),
+                    ('Dogana', 'San Marino'),
+                    ('Colombo', 'Sri Lanka'),
+                    ('Manzini', 'Swaziland'),
+                    ('Zurich', 'Switzerland'),
+                    ('Aleppo', 'Syria'),
+                    ('Istanbul', 'Turkey'),
+                    ('Ho Chi Minh City', 'Vietnam')
+                )
+            ),
+        )
+    )
+}
+WITHIT_QA[EZAD_LOOKS] = WITHIT_QA[SKOOL_DAZE]
+
 class SDIniMaker(skoolini.SkoolIniMaker):
     def __init__(self, custom):
         skoolini.SkoolIniMaker.__init__(self, custom)
@@ -715,168 +977,35 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         creak_qa_pairs.append((creak_qa_group, '1863', 'Gettysburg'))
         creak_qa_pairs.append((creak_qa_group, '1854', 'Balaclava'))
 
-        # WITHIT
-        answers = (
-            ('Q1', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO)),
-            ('Q2', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO))
-        )
-        if self.custom == SKOOL_DAZE_TAKE_TOO:
-            qa_group = 'LargestCities'
-            questions = (
-                ('Q1', "WHAT'S THE LARGEST CITY IN $2?"),
-                ('Q2', "WHICH COUNTRY'S LARGEST CITY IS $1?")
-            )
-            qa_pairs = (
-                ('Sydney', 'Australia'),
-                ('Sao Paulo', 'Brazil'),
-                ('Douala', 'Cameroon'),
-                ('Toronto', 'Canada'),
-                ('Shanghai', 'China'),
-                ('Guayaquil', 'Ecuador'),
-                ('Nasinu', 'Fiji'),
-                ('Almaty', 'Kazakhstan'),
-                ('Schaan', 'Liechtenstein'),
-                ('Monte Carlo', 'Monaco'),
-                ('Casablanca', 'Morocco'),
-                ('Auckland', 'New Zealand'),
-                ('Lagos', 'Nigeria'),
-                ('Karachi', 'Pakistan'),
-                ('Dogana', 'San Marino'),
-                ('Colombo', 'Sri Lanka'),
-                ('Manzini', 'Swaziland'),
-                ('Zurich', 'Switzerland'),
-                ('Aleppo', 'Syria'),
-                ('Istanbul', 'Turkey'),
-                ('Ho Chi Minh City', 'Vietnam')
-            )
-        else:
-            qa_group = 'CapitalCities'
-            questions = (
-                ('Q1', "WHAT'S THE CAPITAL OF $2?"),
-                ('Q2', "WHICH COUNTRY'S CAPITAL IS $1?")
-            )
-            qa_pairs = (
-                ('Berne', 'Switzerland'),
-                ('Helsinki', 'Finland'),
-                ('Reykjavik', 'Iceland'),
-                ('Budapest', 'Hungary'),
-                ('Bucharest', 'Romania'),
-                ('Tirana', 'Albania'),
-                ('Jakarta', 'Indonesia'),
-                ('Pyongyang', 'North Korea'),
-                ('Vientiane', 'Laos'),
-                ('Islamabad', 'Pakistan'),
-                ('Rangoon', 'Burma'),
-                ('Ankara', 'Turkey'),
-                ('Amman', 'Jordan'),
-                ('Gabarone', 'Botswana'),
-                ('Lusaka', 'Zambia'),
-                ('Monrovia', 'Liberia'),
-                ('La Paz', 'Bolivia'),
-                ('Caracas', 'Venezuela'),
-                ('Quito', 'Ecuador'),
-                ('Paramaribo', 'Surinam'),
-                ('Santiago', 'Chile')
-            )
-        withit_questions = [(q_id, qa_group, q_template) for q_id, q_template in questions]
-        withit_answers = [(q_id, a_template) for q_id, a_template in answers]
-        withit_qa_pairs = [(qa_group, word1, word2) for word1, word2 in qa_pairs]
-
         # ROCKITT
-        answers = (
-            ('Q1', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO)),
-            ('Q2', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO))
-        )
-        qa_group = 'Elements'
-        if self.custom == SKOOL_DAZE_TAKE_TOO:
-            questions = (
-                ('Q1', 'WHAT ELEMENT HAS THE ATOMIC NUMBER $1?'),
-                ('Q2', 'WHAT IS THE ATOMIC NUMBER OF $2?')
-            )
-            qa_pairs = (
-                (9, 'Fluorine'),
-                (13, 'Aluminium'),
-                (14, 'Silicon'),
-                (21, 'Scandium'),
-                (22, 'Titanium'),
-                (23, 'Vanadium'),
-                (27, 'Cobalt'),
-                (32, 'Germanium'),
-                (34, 'Selenium'),
-                (36, 'Krypton'),
-                (40, 'Zirconium'),
-                (43, 'Technetium'),
-                (46, 'Palladium'),
-                (53, 'Iodine'),
-                (59, 'Praseodymium'),
-                (66, 'Dysprosium'),
-                (70, 'Ytterbium'),
-                (76, 'Osmium'),
-                (83, 'Bismuth'),
-                (94, 'Plutonium'),
-                (99, 'Einsteinium')
-            )
-        else:
-            questions = (
-                ('Q1', 'WHAT ELEMENT HAS THE SYMBOL $1?'),
-                ('Q2', 'WHAT IS THE CHEMICAL SYMBOL FOR $2?')
-            )
-            qa_pairs = (
-                ('Sn', 'Tin'),
-                ('Hg', 'Mercury'),
-                ('Au', 'Gold'),
-                ('Ag', 'Silver'),
-                ('Pt', 'Platinum'),
-                ('Cu', 'Copper'),
-                ('Mg', 'Magnesium'),
-                ('Pb', 'Lead'),
-                ('Mn', 'Manganese'),
-                ('Sb', 'Antimony'),
-                ('As', 'Arsenic'),
-                ('K', 'Potassium'),
-                ('Na', 'Sodium'),
-                ('Cl', 'Chlorine'),
-                ('Zn', 'Zinc'),
-                ('W', 'Tungsten'),
-                ('Cs', 'Caesium'),
-                ('Si', 'Silicon'),
-                ('P', 'Phosphorus'),
-                ('Br', 'Bromine'),
-                ('H', 'Hydrogen'),
-            )
-        rockitt_questions = [(q_id, qa_group, q_template) for q_id, q_template in questions]
-        rockitt_answers = [(q_id, a_template) for q_id, a_template in answers]
-        rockitt_qa_pairs = [(qa_group, word1, word2) for word1, word2 in qa_pairs]
+        rockitt_questions = []
+        rockitt_answers = []
+        rockitt_qa_pairs = []
+        rockitt_specials, groups = ROCKITT_QA[self.custom]
+        for group, questions, answers, qa_pairs in groups:
+            rockitt_questions += [(q_id, group, q_template) for q_id, q_template in questions]
+            rockitt_answers += [(q_id, a_template) for q_id, a_template in answers]
+            rockitt_qa_pairs += [(group, word1, word2) for word1, word2 in qa_pairs]
 
         # WACKER
         wacker_questions = []
-        wacker_qa_group = 'Sums'
-        wacker_questions.append(('Q1', wacker_qa_group, 'WHAT IS $1?'))
         wacker_answers = []
-        wacker_answers.append(('Q1', 'Please %s I cannot tell a lie . . it is $2' % TITLE_MACRO))
         wacker_qa_pairs = []
-        wacker_qa_pairs.append((wacker_qa_group, '12x34', '408'))
-        wacker_qa_pairs.append((wacker_qa_group, '89x49', '4361'))
-        wacker_qa_pairs.append((wacker_qa_group, '30x46', '1380'))
-        wacker_qa_pairs.append((wacker_qa_group, '87x89', '7743'))
-        wacker_qa_pairs.append((wacker_qa_group, '51x38', '1938'))
-        wacker_qa_pairs.append((wacker_qa_group, '38x28', '1064'))
-        wacker_qa_pairs.append((wacker_qa_group, '35x48', '1680'))
-        wacker_qa_pairs.append((wacker_qa_group, '23x81', '1863'))
-        wacker_qa_pairs.append((wacker_qa_group, '62x40', '2480'))
-        wacker_qa_pairs.append((wacker_qa_group, '39x58', '2262'))
-        wacker_qa_pairs.append((wacker_qa_group, '49x48', '2352'))
-        wacker_qa_pairs.append((wacker_qa_group, '86x59', '5074'))
-        wacker_qa_pairs.append((wacker_qa_group, '94x93', '8742'))
-        wacker_qa_pairs.append((wacker_qa_group, '64x58', '3712'))
-        wacker_qa_pairs.append((wacker_qa_group, '52x74', '3848'))
-        wacker_qa_pairs.append((wacker_qa_group, '33x68', '2244'))
-        wacker_qa_pairs.append((wacker_qa_group, '49x11', '539'))
-        wacker_qa_pairs.append((wacker_qa_group, '64x10', '640'))
-        wacker_qa_pairs.append((wacker_qa_group, '43x82', '3526'))
-        wacker_qa_pairs.append((wacker_qa_group, '40x95', '3800'))
-        wacker_qa_pairs.append((wacker_qa_group, '72x83', '5976'))
-        wacker_qa_pairs.append((wacker_qa_group, '23x54', '1242'))
+        wacker_specials, groups = WACKER_QA[self.custom]
+        for group, questions, answers, qa_pairs in groups:
+            wacker_questions += [(q_id, group, q_template) for q_id, q_template in questions]
+            wacker_answers += [(q_id, a_template) for q_id, a_template in answers]
+            wacker_qa_pairs += [(group, word1, word2) for word1, word2 in qa_pairs]
+
+        # WITHIT
+        withit_questions = []
+        withit_answers = []
+        withit_qa_pairs = []
+        withit_specials, groups = WITHIT_QA[self.custom]
+        for group, questions, answers, qa_pairs in groups:
+            withit_questions += [(q_id, group, q_template) for q_id, q_template in questions]
+            withit_answers += [(q_id, a_template) for q_id, a_template in answers]
+            withit_qa_pairs += [(group, word1, word2) for word1, word2 in qa_pairs]
 
         if self.custom == SKOOL_DAZE_TAKE_TOO:
             take_questions = []
