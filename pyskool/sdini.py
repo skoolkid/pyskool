@@ -42,6 +42,97 @@ SC_UP_TO_STUDY = ('UpToStudy', 'DownFromStudy')
 SC_UP_TO_EXAM_ROOM = ('UpToExamRoom', 'DownFromExamRoom')
 SC_UP_TO_MAP_ROOM = ('UpToMapRoom', 'DownFromMapRoom')
 
+# Questions and answers (MR CREAK)
+CREAK_QA = {
+    SKOOL_DAZE: (
+        (
+            ('Battles', 0),
+            'WHAT HAPPENED IN THE YEAR THAT I WAS BORN?',
+            'Please {0} I cannot tell a lie . . it was the battle of $2'.format(TITLE_MACRO)
+        ),
+        (
+            (
+                'Battles',
+                (
+                    ('Q1', 'WHEN WAS THE BATTLE OF $2?'),
+                    ('Q2', 'WHICH BATTLE OCCURRED IN $1?')
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it was in $1'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it was the battle of $2'.format(TITLE_MACRO))
+                ),
+                (
+                    ('1066', 'Hastings'),
+                    ('1265', 'Evesham'),
+                    ('1314', 'Bannockburn'),
+                    ('1346', 'Crecy'),
+                    ('1356', 'Poitiers'),
+                    ('1403', 'Shrewsbury'),
+                    ('1415', 'Agincourt'),
+                    ('1485', 'Bosworth'),
+                    ('1513', 'Flodden'),
+                    ('1571', 'Lepanto'),
+                    ('1014', 'Clontarf'),
+                    ('1685', 'Sedgemoor'),
+                    ('1746', 'Culloden'),
+                    ('1775', 'Lexington'),
+                    ('1781', 'Yorktown'),
+                    ('1805', 'Trafalgar'),
+                    ('1815', 'Waterloo'),
+                    ('1812', 'Borodino'),
+                    ('1836', 'San Jacinto'),
+                    ('1863', 'Gettysburg'),
+                    ('1854', 'Balaclava')
+                ),
+            ),
+        )
+    ),
+    SKOOL_DAZE_TAKE_TOO: (
+        (
+            ('Treaties', 1),
+            'WHAT HAPPENED IN THE YEAR THAT I WAS BORN?',
+            'Please {0} I cannot tell a lie . . the treaty of $1 was signed'.format(TITLE_MACRO)
+        ),
+        (
+            (
+                'Treaties',
+                (
+                    ('Q1', 'WHEN WAS THE TREATY OF $1 SIGNED?'),
+                    ('Q2', 'WHICH TREATY WAS SIGNED IN $2?')
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it was in $2'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it was the treaty of $1'.format(TITLE_MACRO))
+                ),
+                (
+                    ('Kremmen', 1236),
+                    ('Pipton', 1265),
+                    ('Perth', 1266),
+                    ('Templin', 1317),
+                    ('Zadar', 1358),
+                    ('Kalmar', 1397),
+                    ('Melno', 1422),
+                    ('Delft', 1428),
+                    ('Leipzig', 1485),
+                    ('Trente', 1501),
+                    ('Weissenburg', 1551),
+                    ('Plussa', 1583),
+                    ('Xanten', 1614),
+                    ('Wismar', 1636),
+                    ('Ripon', 1640),
+                    ('Nystad', 1721),
+                    ('Kerden', 1746),
+                    ('Lochaber', 1770),
+                    ('Desmichels', 1834),
+                    ('Waitangi', 1840),
+                    ('Simulambuco', 1885)
+                )
+            ),
+        )
+    )
+}
+CREAK_QA[EZAD_LOOKS] = CREAK_QA[SKOOL_DAZE]
+
 # Questions and answers (MR ROCKITT)
 ROCKITT_QA = {
     SKOOL_DAZE: (
@@ -78,7 +169,7 @@ ROCKITT_QA = {
                     ('Si', 'Silicon'),
                     ('P', 'Phosphorus'),
                     ('Br', 'Bromine'),
-                    ('H', 'Hydrogen'),
+                    ('H', 'Hydrogen')
                 ),
             ),
         )
@@ -124,6 +215,35 @@ ROCKITT_QA = {
     )
 }
 ROCKITT_QA[EZAD_LOOKS] = ROCKITT_QA[SKOOL_DAZE]
+
+# Questions and answers (MISS TAKE)
+TAKE_QA = {
+    SKOOL_DAZE_TAKE_TOO: (
+        (),
+        (
+            (
+                'Misc',
+                (
+                    ('Q1', '$1'),
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . $2'.format(TITLE_MACRO)),
+                ),
+                (
+                    ('"What is the answer to the ultimate question of life, the universe and everything?"', 'it is 42'),
+                    ('"If a tree falls in the woods, and no one is around to hear it, does it make a sound?"', 'yes it does'),
+                    ('This statement is false. Is that true?', "I'm not sure"),
+                    ('What is 5 + 7?', 'I thought this was a philosophy lesson'),
+                    ('Describe the nature of free will', 'I cannot do that in one sentence'),
+                    ("Is Schrodinger's cat dead or alive?", 'yes it is'),
+                    ('"If the barber shaves every man who does not shave himself, who shaves the barber?"', '"no one does, because the barber is a woman"'),
+                    ('"If the forecast says there is a 40% chance of rain and it does rain, was the forecast correct?"', 'the laws of probability do not apply to single events'),
+                    ('What would the world be like without any hypothetical situations?', 'I cannot begin to imagine')
+                )
+            ),
+        )
+    )
+}
 
 # Questions and answers (MR WACKER)
 WACKER_QA = {
@@ -941,95 +1061,19 @@ class SDIniMaker(skoolini.SkoolIniMaker):
 
     def create_questions_and_answers(self):
         self.questions_and_answers = {}
-
-        # CREAK
-        creak_specials = []
-        creak_qa_group = 'Battles'
-        creak_specials.append((creak_qa_group, 0))
-        creak_specials.append('WHAT HAPPENED IN THE YEAR THAT I WAS BORN?')
-        creak_specials.append('Please %s I cannot tell a lie . . it was the battle of $2' % TITLE_MACRO)
-        creak_questions = []
-        creak_questions.append(('Q1', creak_qa_group, 'WHEN WAS THE BATTLE OF $2?'))
-        creak_questions.append(('Q2', creak_qa_group, 'WHICH BATTLE OCCURRED IN $1?'))
-        creak_answers = []
-        creak_answers.append(('Q1', 'Please %s I cannot tell a lie . . it was in $1' % TITLE_MACRO))
-        creak_answers.append(('Q2', 'Please %s I cannot tell a lie . . it was the battle of $2' % TITLE_MACRO))
-        creak_qa_pairs = []
-        creak_qa_pairs.append((creak_qa_group, '1066', 'Hastings'))
-        creak_qa_pairs.append((creak_qa_group, '1265', 'Evesham'))
-        creak_qa_pairs.append((creak_qa_group, '1314', 'Bannockburn'))
-        creak_qa_pairs.append((creak_qa_group, '1346', 'Crecy'))
-        creak_qa_pairs.append((creak_qa_group, '1356', 'Poitiers'))
-        creak_qa_pairs.append((creak_qa_group, '1403', 'Shrewsbury'))
-        creak_qa_pairs.append((creak_qa_group, '1415', 'Agincourt'))
-        creak_qa_pairs.append((creak_qa_group, '1485', 'Bosworth'))
-        creak_qa_pairs.append((creak_qa_group, '1513', 'Flodden'))
-        creak_qa_pairs.append((creak_qa_group, '1571', 'Lepanto'))
-        creak_qa_pairs.append((creak_qa_group, '1014', 'Clontarf'))
-        creak_qa_pairs.append((creak_qa_group, '1685', 'Sedgemoor'))
-        creak_qa_pairs.append((creak_qa_group, '1746', 'Culloden'))
-        creak_qa_pairs.append((creak_qa_group, '1775', 'Lexington'))
-        creak_qa_pairs.append((creak_qa_group, '1781', 'Yorktown'))
-        creak_qa_pairs.append((creak_qa_group, '1805', 'Trafalgar'))
-        creak_qa_pairs.append((creak_qa_group, '1815', 'Waterloo'))
-        creak_qa_pairs.append((creak_qa_group, '1812', 'Borodino'))
-        creak_qa_pairs.append((creak_qa_group, '1836', 'San Jacinto'))
-        creak_qa_pairs.append((creak_qa_group, '1863', 'Gettysburg'))
-        creak_qa_pairs.append((creak_qa_group, '1854', 'Balaclava'))
-
-        # ROCKITT
-        rockitt_questions = []
-        rockitt_answers = []
-        rockitt_qa_pairs = []
-        rockitt_specials, groups = ROCKITT_QA[self.custom]
-        for group, questions, answers, qa_pairs in groups:
-            rockitt_questions += [(q_id, group, q_template) for q_id, q_template in questions]
-            rockitt_answers += [(q_id, a_template) for q_id, a_template in answers]
-            rockitt_qa_pairs += [(group, word1, word2) for word1, word2 in qa_pairs]
-
-        # WACKER
-        wacker_questions = []
-        wacker_answers = []
-        wacker_qa_pairs = []
-        wacker_specials, groups = WACKER_QA[self.custom]
-        for group, questions, answers, qa_pairs in groups:
-            wacker_questions += [(q_id, group, q_template) for q_id, q_template in questions]
-            wacker_answers += [(q_id, a_template) for q_id, a_template in answers]
-            wacker_qa_pairs += [(group, word1, word2) for word1, word2 in qa_pairs]
-
-        # WITHIT
-        withit_questions = []
-        withit_answers = []
-        withit_qa_pairs = []
-        withit_specials, groups = WITHIT_QA[self.custom]
-        for group, questions, answers, qa_pairs in groups:
-            withit_questions += [(q_id, group, q_template) for q_id, q_template in questions]
-            withit_answers += [(q_id, a_template) for q_id, a_template in answers]
-            withit_qa_pairs += [(group, word1, word2) for word1, word2 in qa_pairs]
-
+        teachers = [(CREAK, CREAK_QA), (WITHIT, WITHIT_QA), (WACKER, WACKER_QA), (ROCKITT, ROCKITT_QA)]
         if self.custom == SKOOL_DAZE_TAKE_TOO:
-            take_questions = []
-            take_qa_group = 'Misc'
-            take_questions.append(('Q1', take_qa_group, '$1'))
-            take_answers = []
-            take_answers.append(('Q1', 'Please %s I cannot tell a lie . . $2' % TITLE_MACRO))
-            take_qa_pairs = []
-            take_qa_pairs.append((take_qa_group, '"What is the answer to the ultimate question of life, the universe and everything?"', 'it is 42'))
-            take_qa_pairs.append((take_qa_group, '"If a tree falls in the woods, and no one is around to hear it, does it make a sound?"', 'yes it does'))
-            take_qa_pairs.append((take_qa_group, 'This statement is false. Is that true?', "I'm not sure"))
-            take_qa_pairs.append((take_qa_group, 'What is 5 + 7?', 'I thought this was a philosophy lesson'))
-            take_qa_pairs.append((take_qa_group, 'Describe the nature of free will', 'I cannot do that in one sentence'))
-            take_qa_pairs.append((take_qa_group, "Is Schrodinger's cat dead or alive?", 'yes it is'))
-            take_qa_pairs.append((take_qa_group, '"If the barber shaves every man who does not shave himself, who shaves the barber?"', '"no one does, because the barber is a woman"'))
-            take_qa_pairs.append((take_qa_group, '"If the forecast says there is a 40% chance of rain and it does rain, was the forecast correct?"', 'the laws of probability do not apply to single events'))
-            take_qa_pairs.append((take_qa_group, 'What would the world be like without any hypothetical situations?', 'I cannot begin to imagine'))
-
-        self.questions_and_answers[CREAK] = [creak_specials, creak_questions, creak_answers, creak_qa_pairs]
-        self.questions_and_answers[WITHIT] = [[], withit_questions, withit_answers, withit_qa_pairs]
-        self.questions_and_answers[ROCKITT] = [[], rockitt_questions, rockitt_answers, rockitt_qa_pairs]
-        self.questions_and_answers[WACKER] = [[], wacker_questions, wacker_answers, wacker_qa_pairs]
-        if self.custom == SKOOL_DAZE_TAKE_TOO:
-            self.questions_and_answers[TAKE] = [[], take_questions, take_answers, take_qa_pairs]
+            teachers.append((TAKE, TAKE_QA))
+        for teacher, teacher_qa in teachers:
+            teacher_questions = []
+            teacher_answers = []
+            teacher_qa_pairs = []
+            specials, groups = teacher_qa[self.custom]
+            for group, questions, answers, qa_pairs in groups:
+                teacher_questions += [(q_id, group, q_template) for q_id, q_template in questions]
+                teacher_answers += [(q_id, a_template) for q_id, a_template in answers]
+                teacher_qa_pairs += [(group, word1, word2) for word1, word2 in qa_pairs]
+            self.questions_and_answers[teacher] = [specials, teacher_questions, teacher_answers, teacher_qa_pairs]
 
     def create_lines_messages(self):
         self.lines_messages = []
