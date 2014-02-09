@@ -429,6 +429,9 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         skoolini.SkoolIniMaker.__init__(self, custom)
         self.tap_maker = SDTapMaker(custom)
         self.hit_zone = 7
+        self.teachers = [(CREAK, CREAK_QA), (WITHIT, WITHIT_QA), (WACKER, WACKER_QA), (ROCKITT, ROCKITT_QA)]
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
+            self.teachers.append((TAKE, TAKE_QA))
 
     def get_random_locations(self, character_id):
         if self.custom == EZAD_LOOKS:
@@ -1058,22 +1061,6 @@ class SDIniMaker(skoolini.SkoolIniMaker):
             take_messages.append('METAPHYSICS^FOR DUMMIES')
             take_messages.append('BLUE PILL^OR RED PILL?')
             take_messages.append('HOW TO SPELL^SCHOPENHAUER')
-
-    def create_questions_and_answers(self):
-        self.questions_and_answers = {}
-        teachers = [(CREAK, CREAK_QA), (WITHIT, WITHIT_QA), (WACKER, WACKER_QA), (ROCKITT, ROCKITT_QA)]
-        if self.custom == SKOOL_DAZE_TAKE_TOO:
-            teachers.append((TAKE, TAKE_QA))
-        for teacher, teacher_qa in teachers:
-            teacher_questions = []
-            teacher_answers = []
-            teacher_qa_pairs = []
-            specials, groups = teacher_qa[self.custom]
-            for group, questions, answers, qa_pairs in groups:
-                teacher_questions += [(q_id, group, q_template) for q_id, q_template in questions]
-                teacher_answers += [(q_id, a_template) for q_id, a_template in answers]
-                teacher_qa_pairs += [(group, word1, word2) for word1, word2 in qa_pairs]
-            self.questions_and_answers[teacher] = [specials, teacher_questions, teacher_answers, teacher_qa_pairs]
 
     def create_lines_messages(self):
         self.lines_messages = []

@@ -474,6 +474,19 @@ class SkoolIniMaker:
     def create_assembly_messages(self):
         self.assembly_messages = []
 
+    def create_questions_and_answers(self):
+        self.questions_and_answers = {}
+        for teacher, teacher_qa in self.teachers:
+            teacher_questions = []
+            teacher_answers = []
+            teacher_qa_pairs = []
+            specials, groups = teacher_qa[self.custom]
+            for group, questions, answers, qa_pairs in groups:
+                teacher_questions += [(q_id, group, q_template) for q_id, q_template in questions]
+                teacher_answers += [(q_id, a_template) for q_id, a_template in answers]
+                teacher_qa_pairs += [(group, word1, word2) for word1, word2 in qa_pairs]
+            self.questions_and_answers[teacher] = [specials, teacher_questions, teacher_answers, teacher_qa_pairs]
+
     def create_grass_messages(self):
         self.grass_messages = []
         self.grass_messages.append((skoolbuilder.GM_WRITERS, HERO, TEARAWAY))

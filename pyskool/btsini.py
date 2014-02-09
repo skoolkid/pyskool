@@ -59,12 +59,137 @@ SC_UP_FROM_STAGE = ('UpFromStage', 'DownToStage')
 SC_UP_TO_LIBRARY = ('UpToLibrary', 'DownFromLibrary')
 SC_UP_TO_STUDY = ('UpToStudy', 'DownFromStudy')
 
+# Questions and answers (MR CREAK)
+CREAK_QA = {
+    BACK_TO_SKOOL: (
+        (),
+        (
+            (
+                'Kings',
+                (
+                    ('Q1', 'WHEN DID $1 BECOME KING?'),
+                    ('Q2', 'WHO BECAME KING IN $2?')
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it was in $2'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it was KING $1'.format(TITLE_MACRO))
+                ),
+                (
+                    ('JOHN', '1199'),
+                    ('STEPHEN', '1135'),
+                    ('JAMES I', '1603'),
+                    ('GEORGE V', '1910'),
+                    ('HENRY V', '1413'),
+                    ('HENRY VII', '1485'),
+                    ('GEORGE I', '1714'),
+                    ('CHARLES I', '1625')
+                ),
+            ),
+        )
+    ),
+    BACK_TO_SKOOL_DAZE: (
+        (
+            ('PrimeMinisters', 1),
+            'WHO BECAME PRIME MINISTER IN THE YEAR THAT I WAS BORN?',
+            'Please {0} I cannot tell a lie . . it was $1'.format(TITLE_MACRO)
+        ),
+        (
+            (
+                'PrimeMinisters',
+                (
+                    ('Q1', 'WHEN DID $1 BECOME PRIME MINISTER?'),
+                    ('Q2', 'WHO BECAME PRIME MINISTER IN $2?')
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it was in $2'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it was $1'.format(TITLE_MACRO))
+                ),
+                (
+                    ('SPENCER COMPTON', 1742),
+                    ('WILLIAM CAVENDISH', 1756),
+                    ('JOHN STUART', 1762),
+                    ('WILLIAM PITT THE ELDER', 1766),
+                    ('FREDERICK NORTH', 1770),
+                    ('HENRY ADDINGTON', 1801),
+                    ('CHARLES GREY', 1830),
+                    ('ARCHIBALD PRIMROSE', 1894),
+                    ('ARTHUR BALFOUR', 1902),
+                    ('HERBERT HENRY ASQUITH', 1908)
+                ),
+            ),
+        )
+    )
+}
+
+# Questions and answers (MR ROCKITT)
+ROCKITT_QA = {
+    BACK_TO_SKOOL: (
+        (),
+        (
+            (
+                'AnimalHomes',
+                (
+                    ('Q1', 'WHERE DOES A$1 LIVE?'),
+                    ('Q2', 'WHAT LIVES IN A$2?')
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is A$2'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it is A$1'.format(TITLE_MACRO))
+                ),
+                (
+                    ('" BADGER"', '" SET"'),
+                    ('" SQUIRREL"', '" DREY"'),
+                    ('" BEAVER"', '" LODGE"'),
+                    ('" HARE"', '" FORM"'),
+                    ('N EAGLE', 'N EYRIE'),
+                    ('N OTTER', '" HOLT"'),
+                    ('" BEE"', '" HIVE"'),
+                    ('" BUG"', '" BAD PROGRAM"')
+                ),
+            ),
+        )
+    )
+}
+ROCKITT_QA[BACK_TO_SKOOL_DAZE] = ROCKITT_QA[BACK_TO_SKOOL]
+
+# Questions and answers (MR WITHIT)
+WITHIT_QA = {
+    BACK_TO_SKOOL: (
+        (),
+        (
+            (
+                'Mountains',
+                (
+                    ('Q1', 'WHERE IS MT. $1?'),
+                    ('Q2', 'WHAT IS THE HIGHEST MOUNTAIN IN $2?')
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is in $2'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it is MT. $1'.format(TITLE_MACRO))
+                ),
+                (
+                    ('KILIMANJARO', 'TANZANIA'),
+                    ('KOSCIUSKO', 'AUSTRALIA'),
+                    ('McKINLEY', 'ALASKA'),
+                    ('KOMMUNISMA', 'THE USSR'),
+                    ('HUASCARAN', 'PERU'),
+                    ('SAJAMA', 'BOLIVIA'),
+                    ('COOK', 'NEW ZEALAND'),
+                    ('SNOWDON', 'WALES')
+                ),
+            ),
+        )
+    )
+}
+WITHIT_QA[BACK_TO_SKOOL_DAZE] = WITHIT_QA[BACK_TO_SKOOL]
+
 class BTSIniMaker(skoolini.SkoolIniMaker):
     def __init__(self, custom):
         skoolini.SkoolIniMaker.__init__(self, custom)
         self.tap_maker = BTSTapMaker(custom)
         self.create_random_locations()
         self.hit_zone = 5
+        self.teachers = ((CREAK, CREAK_QA), (WITHIT, WITHIT_QA), (ROCKITT, ROCKITT_QA))
 
     def get_random_locations(self, character_id):
         return self.random_locations[character_id]
@@ -725,69 +850,6 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
             tearaway_messages.append('i hate^$%s' % WACKER)
             tearaway_messages.append('i hate^groan-ups')
             tearaway_messages.append("who's Sam^Cruise?")
-
-    def create_questions_and_answers(self):
-        self.questions_and_answers = {}
-
-        creak_specials = []
-        creak_qa_group = 'Kings'
-        if self.custom == BACK_TO_SKOOL_DAZE:
-            creak_specials.append((creak_qa_group, 1))
-            creak_specials.append('WHO BECAME KING IN THE YEAR THAT I WAS BORN?')
-            creak_specials.append('Please %s I cannot tell a lie . . it was KING $1' % TITLE_MACRO)
-        creak_questions = []
-        creak_questions.append(('Q1', creak_qa_group, 'WHEN DID $1 BECOME KING?'))
-        creak_questions.append(('Q2', creak_qa_group, 'WHO BECAME KING IN $2?'))
-        creak_answers = []
-        creak_answers.append(('Q1', 'Please %s I cannot tell a lie . . it was in $2' % TITLE_MACRO))
-        creak_answers.append(('Q2', 'Please %s I cannot tell a lie . . it was KING $1' % TITLE_MACRO))
-        creak_qa_pairs = []
-        creak_qa_pairs.append((creak_qa_group, 'JOHN', '1199'))
-        creak_qa_pairs.append((creak_qa_group, 'STEPHEN', '1135'))
-        creak_qa_pairs.append((creak_qa_group, 'JAMES I', '1603'))
-        creak_qa_pairs.append((creak_qa_group, 'GEORGE V', '1910'))
-        creak_qa_pairs.append((creak_qa_group, 'HENRY V', '1413'))
-        creak_qa_pairs.append((creak_qa_group, 'HENRY VII', '1485'))
-        creak_qa_pairs.append((creak_qa_group, 'GEORGE I', '1714'))
-        creak_qa_pairs.append((creak_qa_group, 'CHARLES I', '1625'))
-
-        withit_questions = []
-        withit_qa_group = 'Mountains'
-        withit_questions.append(('Q1', withit_qa_group, 'WHERE IS MT. $1?'))
-        withit_questions.append(('Q2', withit_qa_group, 'WHAT IS THE HIGHEST MOUNTAIN IN $2?'))
-        withit_answers = []
-        withit_answers.append(('Q1', 'Please %s I cannot tell a lie . . it is in $2' % TITLE_MACRO))
-        withit_answers.append(('Q2', 'Please %s I cannot tell a lie . . it is MT. $1' % TITLE_MACRO))
-        withit_qa_pairs = []
-        withit_qa_pairs.append((withit_qa_group, 'KILIMANJARO', 'TANZANIA'))
-        withit_qa_pairs.append((withit_qa_group, 'KOSCIUSKO', 'AUSTRALIA'))
-        withit_qa_pairs.append((withit_qa_group, 'McKINLEY', 'ALASKA'))
-        withit_qa_pairs.append((withit_qa_group, 'KOMMUNISMA', 'THE USSR'))
-        withit_qa_pairs.append((withit_qa_group, 'HUASCARAN', 'PERU'))
-        withit_qa_pairs.append((withit_qa_group, 'SAJAMA', 'BOLIVIA'))
-        withit_qa_pairs.append((withit_qa_group, 'COOK', 'NEW ZEALAND'))
-        withit_qa_pairs.append((withit_qa_group, 'SNOWDON', 'WALES'))
-
-        rockitt_questions = []
-        rockitt_qa_group = 'AnimalHomes'
-        rockitt_questions.append(('Q1', rockitt_qa_group, 'WHERE DOES A$1 LIVE?'))
-        rockitt_questions.append(('Q2', rockitt_qa_group, 'WHAT LIVES IN A$2?'))
-        rockitt_answers = []
-        rockitt_answers.append(('Q1', 'Please %s I cannot tell a lie . . it is A$2' % TITLE_MACRO))
-        rockitt_answers.append(('Q2', 'Please %s I cannot tell a lie . . it is A$1' % TITLE_MACRO))
-        rockitt_qa_pairs = []
-        rockitt_qa_pairs.append((rockitt_qa_group, '" BADGER"', '" SET"'))
-        rockitt_qa_pairs.append((rockitt_qa_group, '" SQUIRREL"', '" DREY"'))
-        rockitt_qa_pairs.append((rockitt_qa_group, '" BEAVER"', '" LODGE"'))
-        rockitt_qa_pairs.append((rockitt_qa_group, '" HARE"', '" FORM"'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'N EAGLE', 'N EYRIE'))
-        rockitt_qa_pairs.append((rockitt_qa_group, 'N OTTER', '" HOLT"'))
-        rockitt_qa_pairs.append((rockitt_qa_group, '" BEE"', '" HIVE"'))
-        rockitt_qa_pairs.append((rockitt_qa_group, '" BUG"', '" BAD PROGRAM"'))
-
-        self.questions_and_answers[CREAK] = [creak_specials, creak_questions, creak_answers, creak_qa_pairs]
-        self.questions_and_answers[WITHIT] = [[], withit_questions, withit_answers, withit_qa_pairs]
-        self.questions_and_answers[ROCKITT] = [[], rockitt_questions, rockitt_answers, rockitt_qa_pairs]
 
     def create_lines_messages(self):
         self.lines_messages = []
