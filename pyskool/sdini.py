@@ -337,9 +337,56 @@ WACKER_QA = {
                 )
             )
         )
+    ),
+    EZAD_LOOKS: (
+        (),
+        (
+            (
+                'Polygons',
+                (
+                    ('Q1', 'HOW MANY SIDES DOES A$1 HAVE?'),
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it has $2'.format(TITLE_MACRO)),
+                ),
+                (
+                    ('" TRIANGLE"', 3),
+                    ('" PENTAGON"', 5),
+                    ('" HEPTAGON"', 7),
+                    ('" DECAGON"', 10),
+                    ('" HENDECAGON"', 11),
+                    ('" TRIDECAGON"', 13),
+                    ('" HEXADECAGON"', 16),
+                    ('N ENNEADECAGON', 19),
+                    ('" HEXATRIACONTAGON"', 36),
+                    ('" TRITETRACONTAGON"', 43),
+                    ('" DOHEXACONTAGON"', 62),
+                    ('" MEGAGON"', 1000000)
+                )
+            ),
+            (
+                'Polyhedra',
+                (
+                    ('Q2', 'HOW MANY FACES DOES A$1 HAVE?'),
+                ),
+                (
+                    ('Q2', 'Please {0} I cannot tell a lie . . it has $2'.format(TITLE_MACRO)),
+                ),
+                (
+                    ('" TETRAHEDRON"', 4),
+                    ('" CUBE"', 6),
+                    ('N OCTAHEDRON', 8),
+                    ('" DODECAHEDRON"', 12),
+                    ('" CUBOCTAHEDRON"', 14),
+                    ('N ICOSAHEDRON', 20),
+                    ('" DODECADODECAHEDRON"', 24),
+                    ('" TRIACONTAHEDRON"', 30),
+                    ('N ICOSIDODECAHEDRON', 32)
+                )
+            )
+        )
     )
 }
-WACKER_QA[EZAD_LOOKS] = WACKER_QA[SKOOL_DAZE]
 
 # Questions and answers (MR WITHIT)
 WITHIT_QA = {
