@@ -254,9 +254,55 @@ ROCKITT_QA = {
                 )
             ),
         )
+    ),
+    EZAD_LOOKS: (
+        (),
+        (
+            (
+                'BoilingPoints',
+                (
+                    ('Q1', 'WHAT IS THE BOILING POINT OF $1?'),
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it $2 K'.format(TITLE_MACRO)),
+                ),
+                (
+                    ('Hydrogen', 20.271),
+                    ('Lithium', 1615),
+                    ('Nitrogen', 77.355),
+                    ('Oxygen', 90.188),
+                    ('Magnesium', 1363),
+                    ('Aluminium', 2792),
+                    ('Argon', 87.302),
+                    ('Calcium', 1757),
+                    ('Chromium', 2944),
+                    ('Iron', 3134)
+                )
+            ),
+            (
+                'MeltingPoints',
+                (
+                    ('Q2', 'WHAT IS THE MELTING POINT OF $1?'),
+                ),
+                (
+                    ('Q2', 'Please {0} I cannot tell a lie . . it $2 K'.format(TITLE_MACRO)),
+                ),
+                (
+                    ('Beryllium', 1560),
+                    ('Boron', 2349),
+                    ('Fluorine', 53.48),
+                    ('Sodium', 370.944),
+                    ('Silicon', 1687),
+                    ('Chlorine', 171.6),
+                    ('Potassium', 336.7),
+                    ('Vanadium', 2183),
+                    ('Manganese', 1519),
+                    ('Arsenic', 1090)
+                )
+            )
+        )
     )
 }
-ROCKITT_QA[EZAD_LOOKS] = ROCKITT_QA[SKOOL_DAZE]
 
 # Questions and answers (MISS TAKE)
 TAKE_QA = {
