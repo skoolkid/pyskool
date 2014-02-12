@@ -555,9 +555,45 @@ WITHIT_QA = {
                 )
             ),
         )
+    ),
+    EZAD_LOOKS: (
+        (),
+        (
+            (
+                'Landmarks',
+                (
+                    ('Q1', "WHERE IS $1?"),
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is in $2'.format(TITLE_MACRO)),
+                ),
+                (
+                    ('THE STATUE OF LIBERTY', 'New York'),
+                    ('THE EIFFEL TOWER', 'Paris'),
+                    ('THE TAJ MAHAL', 'India'),
+                    ('MACHU PICCHU', 'Peru'),
+                    ('THE LEANING TOWER OF PISA', 'Italy'),
+                    ('MOUNT RUSHMORE', 'South Dakota'),
+                    ('THE GRAND CANYON', 'Arizona'),
+                    ('THE WAILING WALL', 'Jerusalem'),
+                    ('THE POTALA PALACE', 'Tibet'),
+                    ('THE MINARET OF JAM', 'Afghanistan'),
+                    ('THE CN TOWER', 'Toronto'),
+                    ("SAINT BASIL'S CATHEDRAL", 'Moscow'),
+                    ('THE BRANDENBURG GATE', 'Berlin'),
+                    ('MOUNT FUJI', 'Japan'),
+                    ('STONEHENGE', 'Wiltshire'),
+                    ("SAINT PETER'S BASILICA", 'Vatican City'),
+                    ('AYERS ROCK', 'Australia'),
+                    ('MOUNT ARARAT', 'Turkey'),
+                    ('THE SISTINE CHAPEL', 'Rome'),
+                    ('THE GOLDEN GATE BRIDGE', 'San Francisco'),
+                    ('TABLE MOUNTAIN', 'Cape Town')
+                )
+            ),
+        )
     )
 }
-WITHIT_QA[EZAD_LOOKS] = WITHIT_QA[SKOOL_DAZE]
 
 class SDIniMaker(skoolini.SkoolIniMaker):
     def __init__(self, custom):
