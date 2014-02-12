@@ -129,9 +129,51 @@ CREAK_QA = {
                 )
             ),
         )
+    ),
+    EZAD_LOOKS: (
+        (
+            ('Popes', 1),
+            'WHAT HAPPENED IN THE YEAR THAT I WAS BORN?',
+            'Please {0} I cannot tell a lie . . $1 became pope'.format(TITLE_MACRO)
+        ),
+        (
+            (
+                'Popes',
+                (
+                    ('Q1', 'WHEN DID $1 BECOME POPE?'),
+                    ('Q2', 'WHO BECAME POPE IN $2?')
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it was in $2'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it was $1'.format(TITLE_MACRO))
+                ),
+                (
+                    ('Benedict VIII', 1012),
+                    ('Alexander II', 1061),
+                    ('Innocent II', 1130),
+                    ('Adrian IV', 1154),
+                    ('Lucius III', 1181),
+                    ('Honorius III', 1216),
+                    ('Urban IV', 1261),
+                    ('Nicholas III', 1277),
+                    ('John XXII', 1316),
+                    ('Boniface IX', 1389),
+                    ('Martin V', 1417),
+                    ('Eugene IV', 1431),
+                    ('Pius II', 1458),
+                    ('Leo X', 1513),
+                    ('Sixtus V', 1585),
+                    ('Gregory XV', 1621),
+                    ('Innocent XII', 1691),
+                    ('Clement XI', 1700),
+                    ('Pius VI', 1775),
+                    ('Leo XII', 1823),
+                    ('Gregory XVI', 1831)
+                )
+            ),
+        )
     )
 }
-CREAK_QA[EZAD_LOOKS] = CREAK_QA[SKOOL_DAZE]
 
 # Questions and answers (MR ROCKITT)
 ROCKITT_QA = {
