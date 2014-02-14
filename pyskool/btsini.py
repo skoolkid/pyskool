@@ -148,9 +148,45 @@ ROCKITT_QA = {
                 ),
             ),
         )
+    ),
+    BACK_TO_SKOOL_DAZE: (
+        (),
+        (
+            (
+                'Bones',
+                (
+                    ('Q1', 'WHERE IN THE HUMAN BODY WOULD YOU FIND THE $1?'),
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO)),
+                ),
+                (
+                    ('OCCIPITAL BONE', 'at the back of the head'),
+                    ('MALLEUS', 'in the ear'),
+                    ('ULNA', 'in the forearm'),
+                    ('PATELLA', 'in the knee'),
+                    ('NAVICULAR BONE', 'in the foot')
+                ),
+            ),
+            (
+                'Muscles',
+                (
+                    ('Q2', 'WHERE IN THE HUMAN BODY WOULD YOU FIND THE $1?'),
+                ),
+                (
+                    ('Q2', 'Please {0} I cannot tell a lie . . it is in the $2'.format(TITLE_MACRO)),
+                ),
+                (
+                    ('BICEPS', 'upper arm'),
+                    ('GLUTEUS MAXIMUS', 'buttocks'),
+                    ('QUADRICEPS', 'thigh'),
+                    ('PECTORALIS MAJOR', 'chest'),
+                    ('TIBIALIS ANTERIOR', 'lower leg')
+                ),
+            )
+        )
     )
 }
-ROCKITT_QA[BACK_TO_SKOOL_DAZE] = ROCKITT_QA[BACK_TO_SKOOL]
 
 # Questions and answers (MR WITHIT)
 WITHIT_QA = {
