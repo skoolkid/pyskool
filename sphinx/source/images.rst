@@ -29,7 +29,7 @@ glitches that have been fixed. (See `Skool Daze graphic glitches`_ and
 `Back to Skool graphic glitches`_.)
 
 The `*_ink.png` and `*_paper.png` files are used in ``GraphicsMode`` 1 (see
-:ref:`gameConfig`) in order to emulate the Spectrum display, which was
+:ref:`screenConfig`) in order to emulate the Spectrum display, which was
 restricted to two colours ('ink' and 'paper') per 8x8-pixel block.
 
 `sprites.png` is an 8x16 array of sprites for the characters in the game. These
