@@ -3,12 +3,10 @@ Changelog
 
 1.1.2b1
 -------
-* Added a theme tune, an 'all shields' tune, an 'open safe' tune and an 'up a
-  year' tune for Skool Daze Take Too
-* Added a theme tune, an 'all shields' tune, an 'open safe' tune and an 'up a
-  year' tune for Ezad Looks
-* Added a theme tune, an 'all shields' tune, an 'open safe' tune and an 'up a
-  year' tune for Back to Skool Daze
+* Customised the theme tunes, 'all shields' tunes, 'open safe' tunes and 'up a
+  year' tunes in Skool Daze Take Too, Ezad Looks and Back to Skool Daze
+* Customised the lesson questions and answers in Skool Daze Take Too, Ezad
+  Looks and Back to Skool Daze
 
 1.1.1 (2014-01-26)
 ------------------

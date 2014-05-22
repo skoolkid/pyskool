@@ -215,9 +215,34 @@ WITHIT_QA = {
                 ),
             ),
         )
+    ),
+    BACK_TO_SKOOL_DAZE: (
+        (),
+        (
+            (
+                'Languages',
+                (
+                    ('Q1', 'WHAT IS THE OFFICIAL LANGUAGE OF $1?'),
+                ),
+                (
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO)),
+                ),
+                (
+                    ('BRAZIL', 'Portuguese'),
+                    ('GUYANA', 'English'),
+                    ('ISRAEL', 'Hebrew'),
+                    ('QATAR', 'Arabic'),
+                    ('MONACO', 'French'),
+                    ('COSTA RICA', 'Spanish'),
+                    ('SAN MARINO', 'Italian'),
+                    ('BRUNEI', 'Malay'),
+                    ('IRAN', 'Persian'),
+                    ('SURINAME', 'Dutch')
+                ),
+            ),
+        )
     )
 }
-WITHIT_QA[BACK_TO_SKOOL_DAZE] = WITHIT_QA[BACK_TO_SKOOL]
 
 class BTSIniMaker(skoolini.SkoolIniMaker):
     def __init__(self, custom):
