@@ -939,9 +939,9 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
     def create_lesson_messages(self):
         self.lesson_messages = []
         if self.custom == BACK_TO_SKOOL_DAZE:
-            self.lesson_messages.append(('*', '"TURN TO PAGE $(100, 999) OF YOUR BOOKS, BE SILENT AND START READING"'))
-            self.lesson_messages.append(('*', '"ANSWER THE QUESTIONS ON PAGE $(100, 999) OF YOUR LOVELY TEXTBOOK"'))
-            self.lesson_messages.append(('*', 'WRITE AN ESSAY WITH THIS TITLE', BOARD_DIRTY))
+            self.lesson_messages.append(('*', '"START READING AT CHAPTER $(3, 9) IN YOUR BOOKS"'))
+            self.lesson_messages.append(('*', '"DO THE EXERCISES ON PAGES $(15, 25) TO $(30, 40) OF YOUR LOVELY TEXTBOOK"'))
+            self.lesson_messages.append(('*', "WRITE AN ESSAY TITLED 'WHY MY TEACHER IS GREAT'"))
         else:
             self.lesson_messages.append(('*', 'START REVISING FOR YOUR EXAMS'))
             self.lesson_messages.append(('*', 'START READING AT THE NEXT CHAPTER IN YOUR BOOKS'))

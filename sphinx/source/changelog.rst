@@ -7,7 +7,8 @@ Changelog
   year' tunes in Skool Daze Take Too, Ezad Looks and Back to Skool Daze
 * Customised the lesson questions and answers in Skool Daze Take Too, Ezad
   Looks and Back to Skool Daze
-* Customised the 'sit down' messages in Back to Skool Daze
+* Customised the 'sit down' messages and 'lesson' messages in Back to Skool
+  Daze
 
 1.1.1 (2014-01-26)
 ------------------
