@@ -773,9 +773,9 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
     def create_sit_down_messages(self):
         self.sit_down_messages = []
         if self.custom == BACK_TO_SKOOL_DAZE:
-            self.sit_down_messages.append((WITHIT, "COME ON CHAPS - SETTLE DOWN"))
-            self.sit_down_messages.append((ROCKITT, "RIGHT! SIT DOWN MY LITTLE CHERUBS"))
-            self.sit_down_messages.append((CREAK, "BE QUIET AND SEATED YOU NASTY LITTLE BOYS"))
+            self.sit_down_messages.append((WITHIT, "SETTLE DOWN NOW LADS"))
+            self.sit_down_messages.append((ROCKITT, "RIGHT! SIT DOWN MY LITTLE SERAPHS"))
+            self.sit_down_messages.append((CREAK, "BE QUIET AND SEATED YOU ROTTEN LITTLE SCOUNDRELS"))
             self.sit_down_messages.append((TAKE, "COME ON GIRLS - TAKE YOUR SEATS PLEASE"))
         else:
             self.sit_down_messages.append((WITHIT, 'SIT DOWN CHAPS'))
