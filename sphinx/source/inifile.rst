@@ -1119,9 +1119,8 @@ special question (which will contain a macro to be expanded). The
 the group of Q&A Pairs from which the "magic word" will be taken), and
 ``qaPairIndex`` (which is 0 or 1, and refers to the element of the Q&A pair
 that will be the magic word). Once Eric has figured out what the magic word is,
-he will need to write it on a blackboard and hope that the teacher sees it
-while all the shields are flashing, whereupon the teacher will reveal his safe
-combination letter.
+he will need to write it on a blackboard and hope that the teacher sees it,
+whereupon the teacher will reveal his safe combination letter.
 
 If the ``SpecialQuestion``, ``SpecialAnswer`` and ``SpecialGroup`` lines are
 not present, there will be no magic word associated with the teacher. In that
