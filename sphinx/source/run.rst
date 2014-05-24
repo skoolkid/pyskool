@@ -17,13 +17,25 @@ matches the version of Python that is installed.
 
 Installing Pyskool
 ------------------
-Pyskool can be run from wherever the zip archive or tarball was unpacked - it
-does not need to be installed in any particular location. However, if you would
-like to install Pyskool as a Python package, you can do so by using the
-supplied ``setup.py`` script. After installation, the game launcher scripts
-(`skool_daze.py`, `back_to_skool.py` and the others) can be run from anywhere,
-instead of just the directory in which the Pyskool zip archive or tarball was
-unpacked.
+There are various ways to install the latest stable release of Pyskool:
+
+* from the zip archive or tarball available at
+  `pyskool.ca <http://pyskool.ca/?page_id=44>`_
+* from the DEB package or RPM package available at `pyskool.ca`_
+* from `PyPI <https://pypi.python.org/pypi/pyskool>`_ by using
+  `easy_install <https://pythonhosted.org/setuptools/easy_install.html>`_ or
+  `pip <http://www.pip-installer.org/>`_
+
+If you choose the zip archive or tarball, note that Pyskool can be used
+wherever it is unpacked: it does not need to be installed in any particular
+location.
+
+However, if you would like to install Pyskool as a Python package, you can do
+so by using the supplied ``setup.py`` script. After installation, the required
+images, ini files and sound files for each game will need to be created. This
+can be done by using the ``--setup`` option; for example::
+
+  $ skool_daze.py --setup
 
 Windows
 ^^^^^^^
