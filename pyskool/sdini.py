@@ -226,8 +226,8 @@ ROCKITT_QA = {
                     ('Q2', 'WHAT IS THE ATOMIC NUMBER OF $2?')
                 ),
                 (
-                    ('Q1', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO)),
-                    ('Q2', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO))
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is $2'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it is $1'.format(TITLE_MACRO))
                 ),
                 (
                     (9, 'Fluorine'),
