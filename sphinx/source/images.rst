@@ -2,13 +2,12 @@
 
 Graphics
 ========
-The stock Pyskool graphics are stored in PNG files in subdirectories named
-`back_to_skool`, `common` and `skool_daze` under `images/originalx1`. The
-PNG files are:
+The stock Pyskool graphics are stored in PNG files in subdirectories under
+`images/originalx1`. The PNG files are:
 
 * `bubble.png` - speech bubble and lip
 * `font.png` - the skool font
-* `inventory.png` - mouse, frog, water pistol etc. (Back to Skool only)
+* `inventory.png` - mouse, frog, water pistol etc.
 * `lesson_box.png` - the lesson box background
 * `logo.png` - the, er, logo
 * `message_box.png` - the message box background

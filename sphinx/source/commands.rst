@@ -3,9 +3,7 @@
 Commands
 ========
 The :ref:`commandList` sections contain commands and parameters that control
-the characters. Brief descriptions of the commands used in these command lists
-follow. Unless specified otherwise, commands are used in both Back to Skool and
-Skool Daze.
+the characters. These commands are described in the following sections.
 
 AddLines
 --------
@@ -123,7 +121,7 @@ These signals are raised by Mr Wacker.
 DropStinkbomb
 -------------
 The :class:`~ai.DropStinkbomb` command is used internally to make a
-stinkbomb-carrying character (i.e. Eric) drop a stinkbomb (Back to Skool only).
+stinkbomb-carrying character (i.e. Eric) drop a stinkbomb.
 
 .. _dumpWaterPistol:
 
@@ -232,8 +230,7 @@ whizzing through the air, it passes control to the :ref:`fireCatapult` command.
 FireWaterPistol
 ---------------
 The :class:`~ai.FireWaterPistol` command is used internally to make a water
-pistol-carrying character (i.e. Eric) fire his water pistol (Back to Skool
-only).
+pistol-carrying character (i.e. Eric) fire his water pistol.
 
 .. _flight:
 
@@ -566,8 +563,8 @@ command list.
 RideBike
 --------
 The :class:`~ai.RideBike` command is used internally to control Eric while he's
-on the bike (Back to Skool only). It may hand over control to another command
-depending on what happens while Eric is on the bike:
+on the bike. It may hand over control to another command depending on what
+happens while Eric is on the bike:
 
 * :ref:`fallToFloor` (if the bike runs out of momentum)
 * :ref:`jumpOffSaddle` (if Eric jumps off the saddle)
