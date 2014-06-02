@@ -39,6 +39,8 @@ Pyskool will search the following directories for 'pyskool.ini' and the
 '{images}', '{sounds}' and '{ini}' subdirectories:
 """.lstrip()
 
+prog = os.path.basename(sys.argv[0].lower())
+
 def info(text):
     sys.stdout.write('%s\n' % text)
 
@@ -52,6 +54,8 @@ def find(name, search_dirs, directory=False):
             return f
     msg = ["Cannot find %s '%s' in any of these locations:" % ('directory' if directory else 'file', name)]
     msg += ["  %s" % d for d in search_dirs]
+    if directory:
+        msg.append("Have you run '{0} --setup' yet?".format(prog))
     error('\n'.join(msg))
 
 def find_dir(dname, search_dirs):
@@ -64,7 +68,6 @@ def main():
     names['skool_daze_take_too.py'] = 'Skool Daze Take Too'
     names['ezad_looks.py'] = 'Ezad Looks'
     names['back_to_skool_daze.py'] = 'Back to Skool Daze'
-    prog = os.path.basename(sys.argv[0].lower())
     name = names.get(prog, 'Unknown')
     default_ini_dir = os.path.join('ini', prog[:-3])
     synopsis = "Start Pyskool in %s mode." % name
