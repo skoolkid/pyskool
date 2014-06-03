@@ -48,6 +48,7 @@ class IniParser:
             sys.stderr.write('%s: file or directory not found\n' % path)
             sys.exit(1)
         self.sections = {}
+        self.section_names = []
         for ini_file in ini_files:
             f = open(ini_file, 'r')
             if verbose:
@@ -59,8 +60,11 @@ class IniParser:
                     if section_name.endswith('+'):
                         section_name = section_name[:-1]
                         section = self.sections.setdefault(section_name, [])
+                        if section_name not in self.section_names:
+                            self.section_names.append(section_name)
                     else:
                         section = self.sections[section_name] = []
+                        self.section_names.append(section_name)
                 elif line.isspace():
                     continue
                 elif line.startswith(';'):
@@ -218,7 +222,7 @@ class IniParser:
                           a line.
         """
         sections = {}
-        for name in self.sections:
+        for name in self.section_names:
             if name.startswith(prefix):
                 sections[name[len(prefix):].strip()] = self.parse_section(name, parse_numbers, num_elements, split, separator)
         return sections
@@ -228,7 +232,7 @@ class IniParser:
         matches `pattern`.
         """
         config = {}
-        for section_name in self.sections:
+        for section_name in self.section_names:
             match = re.match(pattern, section_name)
             if match and match.group() == section_name:
                 for key, value in self.parse_section(section_name, separator=CONFIG_SEPARATOR):

@@ -135,8 +135,11 @@ the following command line options:
 
 * ``--version`` - show the version number of Pyskool and exit
 * ``-h`` or ``--help`` - show a summary of the available options
-* ``-c`` or ``--cheat`` - enable cheat keys; overrides the `Cheat` setting in
-  the :ref:`gameConfig` section
+* ``-c`` or ``--cheat`` - enable cheat keys; equivalent to
+  ``--config=Cheat,1``, this option overrides the `Cheat` parameter in the
+  :ref:`gameConfig` section
+* ``--config=P,V`` - set the value of the configuration parameter ``P`` to
+  ``V``; this option may be used multiple times
 * ``--create-images`` or ``--get-images`` - create the images required by the
   game and exit
 * ``--create-ini`` - create the ini files required by the game in
@@ -151,14 +154,16 @@ the following command line options:
 * ``-l SAVEFILE`` or ``--load=SAVEFILE`` - load a previously saved game
 * ``--package-dir`` - show the path to the pyskool package directory and exit
 * ``-q`` or ``--quick-start`` - start the game quickly by skipping the
-  scroll-skool-into-view and theme tune sequence; overrides the `QuickStart`
-  setting in the :ref:`gameConfig` section
+  scroll-skool-into-view and theme tune sequence; equivalent to
+  ``--config=QuickStart,1``, this option overrides the `QuickStart` parameter
+  in the :ref:`gameConfig` section
 * ``-r SAVEDIR`` or ``--load-last=SAVEDIR`` - load the most recently saved game
   from the specified directory
 * ``--sample-rate=RATE`` - set the sample rate of the sound files created by
   ``--create-sounds`` (default: 44100)
-* ``-s SCALE`` or ``--scale=SCALE`` - set the scale of the display; overrides
-  the `Scale` setting in the :ref:`screenConfig` section
+* ``-s SCALE`` or ``--scale=SCALE`` - set the scale of the display; equivalent
+  to ``--config=Scale,SCALE``, this option overrides the `Scale` parameter in
+  the :ref:`screenConfig` section
 * ``--search-dirs`` - show the locations that Pyskool searches for data files
   and exit
 * ``--setup`` - create the images, ini files and sound files required by the

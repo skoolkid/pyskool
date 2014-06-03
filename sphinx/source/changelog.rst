@@ -9,6 +9,8 @@ Changelog
   Looks and Back to Skool Daze
 * Customised the 'sit down' messages and 'lesson' messages in Back to Skool
   Daze
+* Added the ``--config`` command line option (to set the value of a
+  configuration parameter)
 
 1.1.1 (2014-01-26)
 ------------------

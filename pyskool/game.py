@@ -63,17 +63,13 @@ class Game:
     :param images_dir: The path to the `images` directory.
     :param sounds_dir: The path to the `sounds` directory.
     :type scale: number
-    :param scale: The desired scale at which to run the game.
     :param ini_dir: The directory to scan for game ini files.
-    :param quick_start: `True` to force the game to start quickly, `None` to
-                        use the `QuickStart` ini file parameter.
-    :param cheat: `True` to force cheat keys to be enabled, `None` to use the
-                  `Cheat` ini file parameter.
+    :param options: Options passed from the command line.
     :type version: string
     :param version: The version number of Pyskool.
     :param sav_file: A file from which to restore a saved game.
     """
-    def __init__(self, ini_file, images_dir, sounds_dir, scale, ini_dir, quick_start, cheat, version, sav_file):
+    def __init__(self, ini_file, images_dir, sounds_dir, ini_dir, options, version, sav_file):
         # Reduce latency in Pygame 1.8+
         pygame.mixer.pre_init(44100, -16, 1, 1024)
         pygame.init()
@@ -93,7 +89,6 @@ class Game:
 
         self.images_dir = images_dir
         self.sounds_dir = sounds_dir
-        self.scale = scale
         self.speed = 1
         self.screenshot = 0
         self.version = version
@@ -101,9 +96,12 @@ class Game:
         self.menu = None
 
         builder = skoolbuilder.SkoolBuilder(ini_dir)
+        builder.sections['ExtraConfig'] = options.config or []
+        builder.section_names.append('ExtraConfig')
         config = builder.get_config('[A-Za-z]+Config')
-        self.cheat = cheat or config.get('Cheat', 0)
-        self.quick_start = quick_start or config.get('QuickStart', 0)
+        self.scale = options.scale or config.get('Scale', 2)
+        self.cheat = options.cheat or config.get('Cheat', 0)
+        self.quick_start = options.quick_start or config.get('QuickStart', 0)
         self.ring_bell = not self.quick_start
         self.confirm_close = config.get('ConfirmClose', 0)
         self.confirm_quit = config.get('ConfirmQuit', 1)
@@ -116,7 +114,7 @@ class Game:
                 return
             debug.log('Unable to restore from %s: file not found' % sav_file)
 
-        gallery = Gallery(images_dir, config, scale, builder.get_config(skoolbuilder.IMAGES))
+        gallery = Gallery(images_dir, config, self.scale, builder.get_config(skoolbuilder.IMAGES))
         title_prefix = 'Pyskool %s: ' % version
         self.screen = Screen(config, gallery, title_prefix)
         self.beeper = Beeper(sounds_dir, config)

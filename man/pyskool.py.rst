@@ -9,7 +9,7 @@ run Pyskool in %{game} mode
 :Author: Richard Dymond
 :Copyright: 2014, Richard Dymond
 :Version: 1.1.2
-:Date: 2014-01-02
+:Date: 2014-06-03
 :Manual section: 6
 
 SYNOPSIS
@@ -30,7 +30,11 @@ OPTIONS
   Show a summary of the available options.
 
 -c, --cheat
-  Enable cheat keys.
+  Enable cheat keys. This option is equivalent to '``--config`` Cheat,1'.
+
+--config `P,V`
+  Set the value of the configuration parameter `P` to `V`; this option may be
+  used multiple times.
 
 --create-images, --get-images
   Create the images required by the game in ``~/.pyskool/images`` and exit.
@@ -59,7 +63,7 @@ OPTIONS
 
 -q, --quick-start
   Start the game quickly by skipping the scroll-skool-into-view and theme tune
-  sequence.
+  sequence. This option is equivalent to '``--config`` QuickStart,1'.
 
 -r, --load-last `SAVEDIR`
   Load the most recently saved game in the specified directory.
@@ -69,7 +73,8 @@ OPTIONS
   default sample rate is 44100.
 
 -s, --scale `SCALE`
-  Scale graphics by this factor (1=original Speccy size).
+  Scale graphics by this factor (1=original Speccy size). This option is
+  equivalent to '``--config`` Scale,SCALE'.
 
 --search-dirs
   Show the locations that Pyskool searches for data files and exit.

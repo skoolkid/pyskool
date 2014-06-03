@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2013, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -628,8 +628,7 @@ class Gallery:
     :param images_dir: The path to the `images` directory.
     :type config: dict
     :param config: Configuration parameters from the ini file.
-    :param scale: The desired scale of the images; if `None`, the `Scale`
-                  configuration parameter will be used to set the scale.
+    :param scale: The desired scale of the images.
     :type images: dict
     :param images: Key-value pairs (image ID, path) from the `Images` section.
     """
@@ -637,7 +636,7 @@ class Gallery:
         self.images_dir = images_dir
         self.image_set = config.get('ImageSet', 'original')
         self.images = images
-        self.reset(scale or config.get('Scale', 2))
+        self.reset(scale)
 
     def __getstate__(self):
         d = self.__dict__.copy()

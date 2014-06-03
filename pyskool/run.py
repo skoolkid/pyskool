@@ -74,6 +74,8 @@ def main():
     parser = OptionParser(version=version, description=synopsis)
     parser.add_option("-c", "--cheat", dest="cheat", action="store_true",
         help="enable cheat keys")
+    parser.add_option("--config", dest="config", metavar="P,V", action="append",
+        help="set the value of the configuration parameter P to V; this option may be used multiple times")
     parser.add_option("--create-images", "--get-images", dest="create_images", action="store_true",
         help="create the images required by the game and exit")
     parser.add_option("--create-ini", dest="create_ini", action="store_true",
@@ -223,5 +225,5 @@ def main():
     os.chdir(user_dir)
     info("Using %s to save/load games" % os.getcwd())
 
-    game = Game(pyskool_ini, images_dir, sounds_dir, options.scale, ini_dir, options.quick_start, options.cheat, version, sav_file)
+    game = Game(pyskool_ini, images_dir, sounds_dir, ini_dir, options, version, sav_file)
     game.play()
