@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.1.2b1
+1.1.2rc
 -------
 * Customised the theme tunes, 'all shields' tunes, 'open safe' tunes and 'up a
   year' tunes in Skool Daze Take Too, Ezad Looks and Back to Skool Daze
