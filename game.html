@@ -8,15 +8,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>game &mdash; Pyskool 1.1.1 documentation</title>
+    <title>game &mdash; Pyskool 1.1.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.1.1',
+        VERSION:     '1.1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.1 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
     <link rel="next" title="graphics" href="graphics.html" />
     <link rel="prev" title="floor" href="floor.html" /> 
   </head>
@@ -45,9 +45,32 @@
         <li class="right" >
           <a href="floor.html" title="floor"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="floor.html"
+                        title="previous chapter">floor</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="graphics.html"
+                        title="next chapter">graphics</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
@@ -59,7 +82,7 @@
 <p>Defines the <a class="reference internal" href="#game.Game" title="game.Game"><tt class="xref py py-class docutils literal"><span class="pre">Game</span></tt></a> class.</p>
 <dl class="class">
 <dt id="game.Game">
-<em class="property">class </em><tt class="descclassname">game.</tt><tt class="descname">Game</tt><big>(</big><em>ini_file</em>, <em>images_dir</em>, <em>sounds_dir</em>, <em>scale</em>, <em>ini_dir</em>, <em>quick_start</em>, <em>cheat</em>, <em>version</em>, <em>sav_file</em><big>)</big><a class="headerlink" href="#game.Game" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">game.</tt><tt class="descname">Game</tt><big>(</big><em>ini_file</em>, <em>images_dir</em>, <em>sounds_dir</em>, <em>ini_dir</em>, <em>options</em>, <em>version</em>, <em>sav_file</em><big>)</big><a class="headerlink" href="#game.Game" title="Permalink to this definition">¶</a></dt>
 <dd><p>Builds the skool and the cast, and executes the main loop of the
 game.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -70,12 +93,8 @@ game.</p>
 <li><strong>ini_file</strong> &#8211; The main Pyskool ini file.</li>
 <li><strong>images_dir</strong> &#8211; The path to the <cite>images</cite> directory.</li>
 <li><strong>sounds_dir</strong> &#8211; The path to the <cite>sounds</cite> directory.</li>
-<li><strong>scale</strong> (<em>number</em>) &#8211; The desired scale at which to run the game.</li>
 <li><strong>ini_dir</strong> &#8211; The directory to scan for game ini files.</li>
-<li><strong>quick_start</strong> &#8211; <cite>True</cite> to force the game to start quickly, <cite>None</cite> to
-use the <cite>QuickStart</cite> ini file parameter.</li>
-<li><strong>cheat</strong> &#8211; <cite>True</cite> to force cheat keys to be enabled, <cite>None</cite> to use the
-<cite>Cheat</cite> ini file parameter.</li>
+<li><strong>options</strong> &#8211; Options passed from the command line.</li>
 <li><strong>version</strong> (<em>string</em>) &#8211; The version number of Pyskool.</li>
 <li><strong>sav_file</strong> &#8211; A file from which to restore a saved game.</li>
 </ul>
@@ -187,29 +206,6 @@ use the <cite>QuickStart</cite> ini file parameter.</li>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="floor.html"
-                        title="previous chapter">floor</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics.html"
-                        title="next chapter">graphics</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
       <div class="clearer"></div>
     </div>
     <div class="related">
@@ -227,7 +223,7 @@ use the <cite>QuickStart</cite> ini file parameter.</li>
         <li class="right" >
           <a href="floor.html" title="floor"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

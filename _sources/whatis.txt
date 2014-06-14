@@ -3,8 +3,8 @@ What is Pyskool?
 In 1984, Microsphere published `Skool Daze`_, a game for the
 `Sinclair ZX Spectrum`_. In 1985, the sequel `Back to Skool`_ was published.
 
-Each game was based in a boys' school (though Back to Skool added a playground
-and a girls' school) and revolved around the antics of Eric, the hero. In Skool
+Each game is based in a boys' school (though Back to Skool adds a playground
+and a girls' school) and revolves around the antics of Eric, the hero. In Skool
 Daze, Eric must steal his report card from the school safe - the combination of
 which must be extracted from the teachers' brains using flashing shields or, in
 the case of the history teacher, post-hypnotic suggestion. In Back to Skool,

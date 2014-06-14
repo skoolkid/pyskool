@@ -8,15 +8,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installing and running Pyskool &mdash; Pyskool 1.1.1 documentation</title>
+    <title>Installing and running Pyskool &mdash; Pyskool 1.1.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.1.1',
+        VERSION:     '1.1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.1 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
     <link rel="next" title="Playing Pyskool" href="play.html" />
     <link rel="prev" title="What is Pyskool?" href="whatis.html" /> 
   </head>
@@ -45,9 +45,52 @@
         <li class="right" >
           <a href="whatis.html" title="What is Pyskool?"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Installing and running Pyskool</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#installing-pyskool">Installing Pyskool</a><ul>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+<li><a class="reference internal" href="#linux-bsd-mac-os-x">Linux/*BSD/Mac OS X</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#running-pyskool">Running Pyskool</a><ul>
+<li><a class="reference internal" href="#id1">Windows</a></li>
+<li><a class="reference internal" href="#id2">Linux/*BSD/Mac OS X</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool-data-files">Pyskool data files</a></li>
+<li><a class="reference internal" href="#command-line-options">Command line options</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="whatis.html"
+                        title="previous chapter">What is Pyskool?</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="play.html"
+                        title="next chapter">Playing Pyskool</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
@@ -70,13 +113,25 @@ matches the version of Python that is installed.</p>
 </div>
 <div class="section" id="installing-pyskool">
 <h2>Installing Pyskool<a class="headerlink" href="#installing-pyskool" title="Permalink to this headline">¶</a></h2>
-<p>Pyskool can be run from wherever the zip archive or tarball was unpacked - it
-does not need to be installed in any particular location. However, if you would
-like to install Pyskool as a Python package, you can do so by using the
-supplied <tt class="docutils literal"><span class="pre">setup.py</span></tt> script. After installation, the game launcher scripts
-(<cite>skool_daze.py</cite>, <cite>back_to_skool.py</cite> and the others) can be run from anywhere,
-instead of just the directory in which the Pyskool zip archive or tarball was
-unpacked.</p>
+<p>There are various ways to install the latest stable release of Pyskool:</p>
+<ul class="simple">
+<li>from the zip archive or tarball available at
+<a class="reference external" href="http://pyskool.ca/?page_id=44">pyskool.ca</a></li>
+<li>from the DEB package or RPM package available at <a class="reference external" href="http://pyskool.ca/?page_id=44">pyskool.ca</a></li>
+<li>from <a class="reference external" href="https://pypi.python.org/pypi/pyskool">PyPI</a> by using
+<a class="reference external" href="https://pythonhosted.org/setuptools/easy_install.html">easy_install</a> or
+<a class="reference external" href="http://www.pip-installer.org/">pip</a></li>
+</ul>
+<p>If you choose the zip archive or tarball, note that Pyskool can be used
+wherever it is unpacked: it does not need to be installed in any particular
+location.</p>
+<p>However, if you would like to install Pyskool as a Python package, you can do
+so by using the supplied <tt class="docutils literal"><span class="pre">setup.py</span></tt> script. After installation, the required
+images, ini files and sound files for each game will need to be created. This
+can be done by using the <tt class="docutils literal"><span class="pre">--setup</span></tt> option; for example:</p>
+<div class="highlight-none"><div class="highlight"><pre>$ skool_daze.py --setup
+</pre></div>
+</div>
 <div class="section" id="windows">
 <h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
 <p>To install Pyskool as a Python package on Windows, open a command prompt,
@@ -173,8 +228,11 @@ the following command line options:</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">--version</span></tt> - show the version number of Pyskool and exit</li>
 <li><tt class="docutils literal"><span class="pre">-h</span></tt> or <tt class="docutils literal"><span class="pre">--help</span></tt> - show a summary of the available options</li>
-<li><tt class="docutils literal"><span class="pre">-c</span></tt> or <tt class="docutils literal"><span class="pre">--cheat</span></tt> - enable cheat keys; overrides the <cite>Cheat</cite> setting in
-the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">-c</span></tt> or <tt class="docutils literal"><span class="pre">--cheat</span></tt> - enable cheat keys; equivalent to
+<tt class="docutils literal"><span class="pre">--config=Cheat,1</span></tt>, this option overrides the <cite>Cheat</cite> parameter in the
+<a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">--config=P,V</span></tt> - set the value of the configuration parameter <tt class="docutils literal"><span class="pre">P</span></tt> to
+<tt class="docutils literal"><span class="pre">V</span></tt>; this option may be used multiple times</li>
 <li><tt class="docutils literal"><span class="pre">--create-images</span></tt> or <tt class="docutils literal"><span class="pre">--get-images</span></tt> - create the images required by the
 game and exit</li>
 <li><tt class="docutils literal"><span class="pre">--create-ini</span></tt> - create the ini files required by the game in
@@ -189,14 +247,16 @@ directory</li>
 <li><tt class="docutils literal"><span class="pre">-l</span> <span class="pre">SAVEFILE</span></tt> or <tt class="docutils literal"><span class="pre">--load=SAVEFILE</span></tt> - load a previously saved game</li>
 <li><tt class="docutils literal"><span class="pre">--package-dir</span></tt> - show the path to the pyskool package directory and exit</li>
 <li><tt class="docutils literal"><span class="pre">-q</span></tt> or <tt class="docutils literal"><span class="pre">--quick-start</span></tt> - start the game quickly by skipping the
-scroll-skool-into-view and theme tune sequence; overrides the <cite>QuickStart</cite>
-setting in the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a> section</li>
+scroll-skool-into-view and theme tune sequence; equivalent to
+<tt class="docutils literal"><span class="pre">--config=QuickStart,1</span></tt>, this option overrides the <cite>QuickStart</cite> parameter
+in the <a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a> section</li>
 <li><tt class="docutils literal"><span class="pre">-r</span> <span class="pre">SAVEDIR</span></tt> or <tt class="docutils literal"><span class="pre">--load-last=SAVEDIR</span></tt> - load the most recently saved game
 from the specified directory</li>
 <li><tt class="docutils literal"><span class="pre">--sample-rate=RATE</span></tt> - set the sample rate of the sound files created by
 <tt class="docutils literal"><span class="pre">--create-sounds</span></tt> (default: 44100)</li>
-<li><tt class="docutils literal"><span class="pre">-s</span> <span class="pre">SCALE</span></tt> or <tt class="docutils literal"><span class="pre">--scale=SCALE</span></tt> - set the scale of the display; overrides
-the <cite>Scale</cite> setting in the <a class="reference internal" href="inifile.html#screenconfig"><em>[ScreenConfig]</em></a> section</li>
+<li><tt class="docutils literal"><span class="pre">-s</span> <span class="pre">SCALE</span></tt> or <tt class="docutils literal"><span class="pre">--scale=SCALE</span></tt> - set the scale of the display; equivalent
+to <tt class="docutils literal"><span class="pre">--config=Scale,SCALE</span></tt>, this option overrides the <cite>Scale</cite> parameter in
+the <a class="reference internal" href="inifile.html#screenconfig"><em>[ScreenConfig]</em></a> section</li>
 <li><tt class="docutils literal"><span class="pre">--search-dirs</span></tt> - show the locations that Pyskool searches for data files
 and exit</li>
 <li><tt class="docutils literal"><span class="pre">--setup</span></tt> - create the images, ini files and sound files required by the
@@ -225,49 +285,6 @@ subdirectories under <cite>$HOME/.pyskool/images/originalx1</cite>.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Installing and running Pyskool</a><ul>
-<li><a class="reference internal" href="#requirements">Requirements</a></li>
-<li><a class="reference internal" href="#installing-pyskool">Installing Pyskool</a><ul>
-<li><a class="reference internal" href="#windows">Windows</a></li>
-<li><a class="reference internal" href="#linux-bsd-mac-os-x">Linux/*BSD/Mac OS X</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#running-pyskool">Running Pyskool</a><ul>
-<li><a class="reference internal" href="#id1">Windows</a></li>
-<li><a class="reference internal" href="#id2">Linux/*BSD/Mac OS X</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#pyskool-data-files">Pyskool data files</a></li>
-<li><a class="reference internal" href="#command-line-options">Command line options</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="whatis.html"
-                        title="previous chapter">What is Pyskool?</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="play.html"
-                        title="next chapter">Playing Pyskool</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
       <div class="clearer"></div>
     </div>
     <div class="related">
@@ -285,7 +302,7 @@ subdirectories under <cite>$HOME/.pyskool/images/originalx1</cite>.</p>
         <li class="right" >
           <a href="whatis.html" title="What is Pyskool?"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

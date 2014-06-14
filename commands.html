@@ -8,15 +8,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Commands &mdash; Pyskool 1.1.1 documentation</title>
+    <title>Commands &mdash; Pyskool 1.1.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.1.1',
+        VERSION:     '1.1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.1 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
     <link rel="next" title="ai" href="ai.html" />
     <link rel="prev" title="Game ini files" href="inifile.html" /> 
   </head>
@@ -45,9 +45,125 @@
         <li class="right" >
           <a href="inifile.html" title="Game ini files"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Commands</a><ul>
+<li><a class="reference internal" href="#addlines">AddLines</a></li>
+<li><a class="reference internal" href="#catch">Catch</a></li>
+<li><a class="reference internal" href="#chaseericout">ChaseEricOut</a></li>
+<li><a class="reference internal" href="#checkiftouchingeric">CheckIfTouchingEric</a></li>
+<li><a class="reference internal" href="#conductassembly">ConductAssembly</a></li>
+<li><a class="reference internal" href="#conductclass">ConductClass</a></li>
+<li><a class="reference internal" href="#conductclasswitheric">ConductClassWithEric</a></li>
+<li><a class="reference internal" href="#conductclasswithouteric">ConductClassWithoutEric</a></li>
+<li><a class="reference internal" href="#doassemblyduty">DoAssemblyDuty</a></li>
+<li><a class="reference internal" href="#dropstinkbomb">DropStinkbomb</a></li>
+<li><a class="reference internal" href="#dumpwaterpistol">DumpWaterPistol</a></li>
+<li><a class="reference internal" href="#endgame">EndGame</a></li>
+<li><a class="reference internal" href="#evademouse">EvadeMouse</a></li>
+<li><a class="reference internal" href="#fall">Fall</a></li>
+<li><a class="reference internal" href="#falltofloor">FallToFloor</a></li>
+<li><a class="reference internal" href="#fetcheric">FetchEric</a></li>
+<li><a class="reference internal" href="#finderic">FindEric</a></li>
+<li><a class="reference internal" href="#findericifmissing">FindEricIfMissing</a></li>
+<li><a class="reference internal" href="#findseat">FindSeat</a></li>
+<li><a class="reference internal" href="#firecatapult">FireCatapult</a></li>
+<li><a class="reference internal" href="#firenowandthen">FireNowAndThen</a></li>
+<li><a class="reference internal" href="#firewaterpistol">FireWaterPistol</a></li>
+<li><a class="reference internal" href="#flight">Flight</a></li>
+<li><a class="reference internal" href="#floored">Floored</a></li>
+<li><a class="reference internal" href="#follow">Follow</a></li>
+<li><a class="reference internal" href="#freeze">Freeze</a></li>
+<li><a class="reference internal" href="#goto">GoTo</a></li>
+<li><a class="reference internal" href="#gotorandomlocation">GoToRandomLocation</a></li>
+<li><a class="reference internal" href="#gotowardsxy">GoTowardsXY</a></li>
+<li><a class="reference internal" href="#gotoxy">GoToXY</a></li>
+<li><a class="reference internal" href="#grassandanswerquestions">GrassAndAnswerQuestions</a></li>
+<li><a class="reference internal" href="#grow">Grow</a></li>
+<li><a class="reference internal" href="#hit">Hit</a></li>
+<li><a class="reference internal" href="#hitnowandthen">HitNowAndThen</a></li>
+<li><a class="reference internal" href="#hop">Hop</a></li>
+<li><a class="reference internal" href="#jump">Jump</a></li>
+<li><a class="reference internal" href="#jumpifopen">JumpIfOpen</a></li>
+<li><a class="reference internal" href="#jumpifshut">JumpIfShut</a></li>
+<li><a class="reference internal" href="#jumpoffsaddle">JumpOffSaddle</a></li>
+<li><a class="reference internal" href="#kiss">Kiss</a></li>
+<li><a class="reference internal" href="#knockedover">KnockedOver</a></li>
+<li><a class="reference internal" href="#monitoreric">MonitorEric</a></li>
+<li><a class="reference internal" href="#moveaboutuntil">MoveAboutUntil</a></li>
+<li><a class="reference internal" href="#movebike">MoveBike</a></li>
+<li><a class="reference internal" href="#movedesklid">MoveDeskLid</a></li>
+<li><a class="reference internal" href="#movefrog">MoveFrog</a></li>
+<li><a class="reference internal" href="#movemouse">MoveMouse</a></li>
+<li><a class="reference internal" href="#movepellet">MovePellet</a></li>
+<li><a class="reference internal" href="#movewater">MoveWater</a></li>
+<li><a class="reference internal" href="#opendoor">OpenDoor</a></li>
+<li><a class="reference internal" href="#pause">Pause</a></li>
+<li><a class="reference internal" href="#releasemice">ReleaseMice</a></li>
+<li><a class="reference internal" href="#restart">Restart</a></li>
+<li><a class="reference internal" href="#ridebike">RideBike</a></li>
+<li><a class="reference internal" href="#say">Say</a></li>
+<li><a class="reference internal" href="#setclock">SetClock</a></li>
+<li><a class="reference internal" href="#setcontrollingcommand">SetControllingCommand</a></li>
+<li><a class="reference internal" href="#setrestartpoint">SetRestartPoint</a></li>
+<li><a class="reference internal" href="#setsubcommand">SetSubcommand</a></li>
+<li><a class="reference internal" href="#shadoweric">ShadowEric</a></li>
+<li><a class="reference internal" href="#shutdoor">ShutDoor</a></li>
+<li><a class="reference internal" href="#signal">Signal</a></li>
+<li><a class="reference internal" href="#sitforassembly">SitForAssembly</a></li>
+<li><a class="reference internal" href="#sitstill">SitStill</a></li>
+<li><a class="reference internal" href="#stalkandhit">StalkAndHit</a></li>
+<li><a class="reference internal" href="#startassemblyifready">StartAssemblyIfReady</a></li>
+<li><a class="reference internal" href="#startdinnerifready">StartDinnerIfReady</a></li>
+<li><a class="reference internal" href="#startlessonifready">StartLessonIfReady</a></li>
+<li><a class="reference internal" href="#stink">Stink</a></li>
+<li><a class="reference internal" href="#stoperic">StopEric</a></li>
+<li><a class="reference internal" href="#tellclasswhattodo">TellClassWhatToDo</a></li>
+<li><a class="reference internal" href="#telleric">TellEric</a></li>
+<li><a class="reference internal" href="#tellericandwait">TellEricAndWait</a></li>
+<li><a class="reference internal" href="#tellkidstositdown">TellKidsToSitDown</a></li>
+<li><a class="reference internal" href="#trippeopleup">TripPeopleUp</a></li>
+<li><a class="reference internal" href="#unsignal">Unsignal</a></li>
+<li><a class="reference internal" href="#waitatdoor">WaitAtDoor</a></li>
+<li><a class="reference internal" href="#waituntil">WaitUntil</a></li>
+<li><a class="reference internal" href="#walkaround">WalkAround</a></li>
+<li><a class="reference internal" href="#walkfast">WalkFast</a></li>
+<li><a class="reference internal" href="#walkupordown">WalkUpOrDown</a></li>
+<li><a class="reference internal" href="#watchforeric">WatchForEric</a></li>
+<li><a class="reference internal" href="#wipeboard">WipeBoard</a></li>
+<li><a class="reference internal" href="#write">Write</a></li>
+<li><a class="reference internal" href="#writeonboard">WriteOnBoard</a></li>
+<li><a class="reference internal" href="#writeonboardunless">WriteOnBoardUnless</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="inifile.html"
+                        title="previous chapter">Game ini files</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ai.html"
+                        title="next chapter">ai</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
@@ -57,9 +173,7 @@
   <div class="section" id="commands">
 <span id="command-ref"></span><h1>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h1>
 <p>The <a class="reference internal" href="inifile.html#commandlist"><em>[CommandList ...]</em></a> sections contain commands and parameters that control
-the characters. Brief descriptions of the commands used in these command lists
-follow. Unless specified otherwise, commands are used in both Back to Skool and
-Skool Daze.</p>
+the characters. These commands are described in the following sections.</p>
 <div class="section" id="addlines">
 <h2>AddLines<a class="headerlink" href="#addlines" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="ai.html#ai.AddLines" title="ai.AddLines"><tt class="xref py py-class docutils literal"><span class="pre">AddLines</span></tt></a> command is used to add to Eric&#8217;s lines total after he
@@ -162,7 +276,7 @@ stop assembly duty:</p>
 <div class="section" id="dropstinkbomb">
 <span id="id7"></span><h2>DropStinkbomb<a class="headerlink" href="#dropstinkbomb" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="ai.html#ai.DropStinkbomb" title="ai.DropStinkbomb"><tt class="xref py py-class docutils literal"><span class="pre">DropStinkbomb</span></tt></a> command is used internally to make a
-stinkbomb-carrying character (i.e. Eric) drop a stinkbomb (Back to Skool only).</p>
+stinkbomb-carrying character (i.e. Eric) drop a stinkbomb.</p>
 </div>
 <div class="section" id="dumpwaterpistol">
 <span id="id8"></span><h2>DumpWaterPistol<a class="headerlink" href="#dumpwaterpistol" title="Permalink to this headline">¶</a></h2>
@@ -249,8 +363,7 @@ whizzing through the air, it passes control to the <a class="reference internal"
 <div class="section" id="firewaterpistol">
 <span id="id18"></span><h2>FireWaterPistol<a class="headerlink" href="#firewaterpistol" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="ai.html#ai.FireWaterPistol" title="ai.FireWaterPistol"><tt class="xref py py-class docutils literal"><span class="pre">FireWaterPistol</span></tt></a> command is used internally to make a water
-pistol-carrying character (i.e. Eric) fire his water pistol (Back to Skool
-only).</p>
+pistol-carrying character (i.e. Eric) fire his water pistol.</p>
 </div>
 <div class="section" id="flight">
 <span id="id19"></span><h2>Flight<a class="headerlink" href="#flight" title="Permalink to this headline">¶</a></h2>
@@ -535,8 +648,8 @@ command list.</p>
 <div class="section" id="ridebike">
 <span id="id43"></span><h2>RideBike<a class="headerlink" href="#ridebike" title="Permalink to this headline">¶</a></h2>
 <p>The <a class="reference internal" href="ai.html#ai.RideBike" title="ai.RideBike"><tt class="xref py py-class docutils literal"><span class="pre">RideBike</span></tt></a> command is used internally to control Eric while he&#8217;s
-on the bike (Back to Skool only). It may hand over control to another command
-depending on what happens while Eric is on the bike:</p>
+on the bike. It may hand over control to another command depending on what
+happens while Eric is on the bike:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#falltofloor"><em>FallToFloor</em></a> (if the bike runs out of momentum)</li>
 <li><a class="reference internal" href="#jumpoffsaddle"><em>JumpOffSaddle</em></a> (if Eric jumps off the saddle)</li>
@@ -835,122 +948,6 @@ signal named in the command&#8217;s sole argument has been raised.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Commands</a><ul>
-<li><a class="reference internal" href="#addlines">AddLines</a></li>
-<li><a class="reference internal" href="#catch">Catch</a></li>
-<li><a class="reference internal" href="#chaseericout">ChaseEricOut</a></li>
-<li><a class="reference internal" href="#checkiftouchingeric">CheckIfTouchingEric</a></li>
-<li><a class="reference internal" href="#conductassembly">ConductAssembly</a></li>
-<li><a class="reference internal" href="#conductclass">ConductClass</a></li>
-<li><a class="reference internal" href="#conductclasswitheric">ConductClassWithEric</a></li>
-<li><a class="reference internal" href="#conductclasswithouteric">ConductClassWithoutEric</a></li>
-<li><a class="reference internal" href="#doassemblyduty">DoAssemblyDuty</a></li>
-<li><a class="reference internal" href="#dropstinkbomb">DropStinkbomb</a></li>
-<li><a class="reference internal" href="#dumpwaterpistol">DumpWaterPistol</a></li>
-<li><a class="reference internal" href="#endgame">EndGame</a></li>
-<li><a class="reference internal" href="#evademouse">EvadeMouse</a></li>
-<li><a class="reference internal" href="#fall">Fall</a></li>
-<li><a class="reference internal" href="#falltofloor">FallToFloor</a></li>
-<li><a class="reference internal" href="#fetcheric">FetchEric</a></li>
-<li><a class="reference internal" href="#finderic">FindEric</a></li>
-<li><a class="reference internal" href="#findericifmissing">FindEricIfMissing</a></li>
-<li><a class="reference internal" href="#findseat">FindSeat</a></li>
-<li><a class="reference internal" href="#firecatapult">FireCatapult</a></li>
-<li><a class="reference internal" href="#firenowandthen">FireNowAndThen</a></li>
-<li><a class="reference internal" href="#firewaterpistol">FireWaterPistol</a></li>
-<li><a class="reference internal" href="#flight">Flight</a></li>
-<li><a class="reference internal" href="#floored">Floored</a></li>
-<li><a class="reference internal" href="#follow">Follow</a></li>
-<li><a class="reference internal" href="#freeze">Freeze</a></li>
-<li><a class="reference internal" href="#goto">GoTo</a></li>
-<li><a class="reference internal" href="#gotorandomlocation">GoToRandomLocation</a></li>
-<li><a class="reference internal" href="#gotowardsxy">GoTowardsXY</a></li>
-<li><a class="reference internal" href="#gotoxy">GoToXY</a></li>
-<li><a class="reference internal" href="#grassandanswerquestions">GrassAndAnswerQuestions</a></li>
-<li><a class="reference internal" href="#grow">Grow</a></li>
-<li><a class="reference internal" href="#hit">Hit</a></li>
-<li><a class="reference internal" href="#hitnowandthen">HitNowAndThen</a></li>
-<li><a class="reference internal" href="#hop">Hop</a></li>
-<li><a class="reference internal" href="#jump">Jump</a></li>
-<li><a class="reference internal" href="#jumpifopen">JumpIfOpen</a></li>
-<li><a class="reference internal" href="#jumpifshut">JumpIfShut</a></li>
-<li><a class="reference internal" href="#jumpoffsaddle">JumpOffSaddle</a></li>
-<li><a class="reference internal" href="#kiss">Kiss</a></li>
-<li><a class="reference internal" href="#knockedover">KnockedOver</a></li>
-<li><a class="reference internal" href="#monitoreric">MonitorEric</a></li>
-<li><a class="reference internal" href="#moveaboutuntil">MoveAboutUntil</a></li>
-<li><a class="reference internal" href="#movebike">MoveBike</a></li>
-<li><a class="reference internal" href="#movedesklid">MoveDeskLid</a></li>
-<li><a class="reference internal" href="#movefrog">MoveFrog</a></li>
-<li><a class="reference internal" href="#movemouse">MoveMouse</a></li>
-<li><a class="reference internal" href="#movepellet">MovePellet</a></li>
-<li><a class="reference internal" href="#movewater">MoveWater</a></li>
-<li><a class="reference internal" href="#opendoor">OpenDoor</a></li>
-<li><a class="reference internal" href="#pause">Pause</a></li>
-<li><a class="reference internal" href="#releasemice">ReleaseMice</a></li>
-<li><a class="reference internal" href="#restart">Restart</a></li>
-<li><a class="reference internal" href="#ridebike">RideBike</a></li>
-<li><a class="reference internal" href="#say">Say</a></li>
-<li><a class="reference internal" href="#setclock">SetClock</a></li>
-<li><a class="reference internal" href="#setcontrollingcommand">SetControllingCommand</a></li>
-<li><a class="reference internal" href="#setrestartpoint">SetRestartPoint</a></li>
-<li><a class="reference internal" href="#setsubcommand">SetSubcommand</a></li>
-<li><a class="reference internal" href="#shadoweric">ShadowEric</a></li>
-<li><a class="reference internal" href="#shutdoor">ShutDoor</a></li>
-<li><a class="reference internal" href="#signal">Signal</a></li>
-<li><a class="reference internal" href="#sitforassembly">SitForAssembly</a></li>
-<li><a class="reference internal" href="#sitstill">SitStill</a></li>
-<li><a class="reference internal" href="#stalkandhit">StalkAndHit</a></li>
-<li><a class="reference internal" href="#startassemblyifready">StartAssemblyIfReady</a></li>
-<li><a class="reference internal" href="#startdinnerifready">StartDinnerIfReady</a></li>
-<li><a class="reference internal" href="#startlessonifready">StartLessonIfReady</a></li>
-<li><a class="reference internal" href="#stink">Stink</a></li>
-<li><a class="reference internal" href="#stoperic">StopEric</a></li>
-<li><a class="reference internal" href="#tellclasswhattodo">TellClassWhatToDo</a></li>
-<li><a class="reference internal" href="#telleric">TellEric</a></li>
-<li><a class="reference internal" href="#tellericandwait">TellEricAndWait</a></li>
-<li><a class="reference internal" href="#tellkidstositdown">TellKidsToSitDown</a></li>
-<li><a class="reference internal" href="#trippeopleup">TripPeopleUp</a></li>
-<li><a class="reference internal" href="#unsignal">Unsignal</a></li>
-<li><a class="reference internal" href="#waitatdoor">WaitAtDoor</a></li>
-<li><a class="reference internal" href="#waituntil">WaitUntil</a></li>
-<li><a class="reference internal" href="#walkaround">WalkAround</a></li>
-<li><a class="reference internal" href="#walkfast">WalkFast</a></li>
-<li><a class="reference internal" href="#walkupordown">WalkUpOrDown</a></li>
-<li><a class="reference internal" href="#watchforeric">WatchForEric</a></li>
-<li><a class="reference internal" href="#wipeboard">WipeBoard</a></li>
-<li><a class="reference internal" href="#write">Write</a></li>
-<li><a class="reference internal" href="#writeonboard">WriteOnBoard</a></li>
-<li><a class="reference internal" href="#writeonboardunless">WriteOnBoardUnless</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="inifile.html"
-                        title="previous chapter">Game ini files</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="ai.html"
-                        title="next chapter">ai</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
       <div class="clearer"></div>
     </div>
     <div class="related">
@@ -968,7 +965,7 @@ signal named in the command&#8217;s sole argument has been raised.</p>
         <li class="right" >
           <a href="inifile.html" title="Game ini files"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">

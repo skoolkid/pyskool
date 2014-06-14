@@ -112,7 +112,7 @@ where:
 [AssemblyMessages]
 ------------------
 The ``AssemblyMessages`` section contains all the information required to build
-a message used by the headmaster during assembly in Back to Skool.
+a message used by the headmaster during assembly.
 
 There are two types of entry in this section. The first type of entry is the
 message template entry::
@@ -132,8 +132,8 @@ Multiple macro replacement entries may be defined for any given macro. When an
 assembly message is created, the message template is chosen at random, and the
 macro replacements are chosen at random.
 
-In the stock Back to Skool ini files in Pyskool, there is only one assembly
-message template, which contains two macros (``$VERB`` and ``$NOUN``).
+In the stock Pyskool ini files, there is only one assembly message template,
+which contains two macros (``$VERB`` and ``$NOUN``).
 
 .. _bike:
 
@@ -371,9 +371,8 @@ where:
 
 [Cups]
 ------
-The ``Cups`` section contains information about cups (of which there are four
-in Back to Skool, and none in Skool Daze). Each line describes a single cup,
-and has the form::
+The ``Cups`` section contains information about cups. Each line describes a
+single cup, and has the form::
 
   cupId, emptyTopLeft, size, coords
 
@@ -725,19 +724,19 @@ where
 Recognised image IDs and the images they refer to are:
 
 * ``FONT``: the skool font
-* ``INVENTORY``: mouse, frog, water pistol etc. (Back to Skool only)
+* ``INVENTORY``: mouse, frog, water pistol etc.
 * ``LESSON_BOX``: the lesson box background
 * ``LOGO``: the logo
 * ``MESSAGE_BOX``: the message box used to display messages above a character's
   head (lines messages, escape alarm messages, and safe, bike, and storeroom
   combination characters)
-* ``MUTABLES``: doors, windows etc. (Back to Skool) or shields and safe (Skool
-  Daze) - full colour
-* ``MUTABLES_INK``: doors, windows etc. (Back to Skool) or shields and safe
-  (Skool Daze) - ink only
-* ``MUTABLES_PAPER``: doors, windows etc. (Back to Skool) or shields and safe
-  (Skool Daze) - paper only
-* ``SCOREBOX``: , the score/lines/hi-score box background
+* ``MUTABLES``: mutable objects (e.g. doors, windows, cups, shields, safe) -
+  full colour
+* ``MUTABLES_INK``: mutable objects (e.g. doors, windows, cups, shields, safe)
+  - ink colours only
+* ``MUTABLES_PAPER``: mutable objects (e.g. doors, windows, cups, shields,
+  safe) - paper colours only
+* ``SCOREBOX``: the score/lines/hi-score box background
 * ``SKOOL``: the skool - full colour
 * ``SKOOL_INK``: the skool - ink colours only
 * ``SKOOL_PAPER``: the skool - paper colours only
@@ -907,36 +906,30 @@ A lines message always spans two lines on-screen. A caret (``^``) is used by
 default to indicate where the words should be wrapped; to change this, set the
 ``Newline`` configuration parameter in the :ref:`messageConfig` section.
 
-Lines message IDs used in both Skool Daze and Back to Skool are:
+The recognised lines message IDs are:
 
+* ``BACK_TO_SKOOL`` - Eric should be back in the boys' skool by now
 * ``BE_PUNCTUAL`` - Eric was late for class
 * ``COME_ALONG_1`` - the truant Eric is being guided to the classroom
 * ``COME_ALONG_2`` - the truant Eric is still being guided to the classroom
-* ``GET_ALONG`` - Eric is not in class when he should be
-* ``GET_OUT`` - Eric's somewhere that only staff are allowed to be
-* ``GET_UP`` - Eric is sitting on the floor
-* ``NEVER_AGAIN`` - teacher thinks Eric knocked him down
-* ``NO_CATAPULTS`` - catapults are forbidden
-* ``NO_HITTING`` - Eric must not throw punches
-* ``NO_TALES`` - the swot gets his just deserts
-* ``NO_WRITING`` - Eric mustn't write on blackboards
-* ``SIT_DOWN`` - Eric is not sitting down in class
-* ``STAY_IN_CLASS`` - Eric popped out of class and then returned
-
-Lines message IDs used only in Skool Daze are:
-
 * ``COME_ALONG_3`` - the truant Eric still hasn't made it to the classroom
-* ``NO_JUMPING`` - jumping is not allowed in Skool Daze
-* ``NO_SITTING_ON_STAIRS`` - sitting on stairs is not allowed in Skool Daze
-
-Lines message IDs used only in Back to Skool are:
-
-* ``BACK_TO_SKOOL`` - Eric should be back in the boys' skool by now
-* ``GET_OFF_PLANT`` - standing on plants is not good
-* ``NO_BIKES`` - riding bikes inside the skool is also not good
-* ``NO_STINKBOMBS`` - stinkbombs are prohibited
-* ``NO_WATERPISTOLS`` - as are water pistols
-* ``SIT_FACING_STAGE`` - Eric needs to face the headmaster during assembly
+* ``GET_ALONG`` - Eric is not in class when he should be
+* ``GET_OFF_PLANT`` - Eric is standing on a plant
+* ``GET_OUT`` - Eric is somewhere that only staff are allowed to be
+* ``GET_UP`` - Eric is sitting on the floor
+* ``NEVER_AGAIN`` - a teacher thinks Eric knocked him down
+* ``NO_BIKES`` - Eric is riding a bike inside the skool
+* ``NO_CATAPULTS`` - Eric is firing a catapult
+* ``NO_HITTING`` - Eric is throwing a punch
+* ``NO_JUMPING`` - Eric is jumping
+* ``NO_SITTING_ON_STAIRS`` - Eric is sitting on the stairs
+* ``NO_STINKBOMBS`` - Eric has dropped a stinkbomb
+* ``NO_TALES`` - the swot gets his just deserts
+* ``NO_WATERPISTOLS`` - Eric is firing a water pistol
+* ``NO_WRITING`` - Eric is writing on a blackboard
+* ``SIT_DOWN`` - Eric is standing up in class
+* ``SIT_FACING_STAGE`` - Eric is not facing the headmaster during assembly
+* ``STAY_IN_CLASS`` - Eric popped out of class and then returned
 
 The lines message IDs are used internally, and should not be changed. If a
 particular lines message ID is missing from the list, then lines will not be
@@ -1032,9 +1025,8 @@ Whenever Eric is spotted in one of these zones by a teacher, the ``GET_OUT``
 
 [Plants]
 --------
-The ``Plants`` section contains information about plants (of which there are
-four in Back to Skool, and none in Skool Daze). Each line describes a single
-plant, and has the form::
+The ``Plants`` section contains information about plants. Each line describes a
+single plant, and has the form::
 
   plantId, spriteGroupId, x, y, commandListId
 
@@ -1119,9 +1111,8 @@ special question (which will contain a macro to be expanded). The
 the group of Q&A Pairs from which the "magic word" will be taken), and
 ``qaPairIndex`` (which is 0 or 1, and refers to the element of the Q&A pair
 that will be the magic word). Once Eric has figured out what the magic word is,
-he will need to write it on a blackboard and hope that the teacher sees it
-while all the shields are flashing, whereupon the teacher will reveal his safe
-combination letter.
+he will need to write it on a blackboard and hope that the teacher sees it,
+whereupon the teacher will reveal his safe combination letter.
 
 If the ``SpecialQuestion``, ``SpecialAnswer`` and ``SpecialGroup`` lines are
 not present, there will be no magic word associated with the teacher. In that
@@ -1339,9 +1330,8 @@ where:
 
 [Shields]
 ---------
-The ``Shields`` section contains information about shields (of which there are
-15 in Skool Daze, and none in Back to Skool). Each line describes a single
-shield, and has the form::
+The ``Shields`` section contains information about shields. Each line describes
+a single shield, and has the form::
 
   score, topLeft, size, coords
 
@@ -1453,14 +1443,13 @@ silent.
 
 [SpecialPlaytimes]
 ------------------
-The ``SpecialPlaytimes`` section is used only by Skool Daze, and contains a
-list of lesson IDs that refer to playtimes which will be considered "special".
-A special playtime does not appear in the timetable proper (though you could
-insert it), but with a given probability (defined by the
-``SpecialPlaytimeProbability`` parameter in the :ref:`timetableConfig` section)
-a special playtime chosen at random is substituted for an actual playtime
-from the main timetable. In Skool Daze the ``SpecialPlaytimes`` section looks
-like this::
+The ``SpecialPlaytimes`` section contains a list of lesson IDs that refer to
+playtimes which will be considered "special". A special playtime does not
+appear in the timetable proper (though you could insert it), but with a given
+probability (defined by the ``SpecialPlaytimeProbability`` parameter in the
+:ref:`timetableConfig` section) a special playtime chosen at random is
+substituted for an actual playtime from the main timetable. In Skool Daze the
+``SpecialPlaytimes`` section looks like this::
 
   Playtime-Mumps
   Playtime-SwotGrass
@@ -1556,9 +1545,9 @@ where:
 * ``force``, if present, indicates that the staircase must be climbed or
   descended by Eric if he moves to a location between the bottom and the top
 
-In the stock Pyskool, ``force`` is used only for the staircase in Back to Skool
-that leads down to the assembly hall stage; it's the only staircase that you
-must go up or down if you approach it.
+In the stock Pyskool, ``force`` is used for the staircase in Back to Skool that
+leads down to the assembly hall stage; it's the only staircase in the game that
+you must go up or down if you approach it.
 
 An example of a line from the ``Staircases`` section is::
 

@@ -8,15 +8,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Graphics &mdash; Pyskool 1.1.1 documentation</title>
+    <title>Graphics &mdash; Pyskool 1.1.2 documentation</title>
     
-    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '1.1.1',
+        VERSION:     '1.1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +25,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.1 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
     <link rel="next" title="Main ini file" href="mainini.html" />
     <link rel="prev" title="Changelog" href="changelog.html" /> 
   </head>
@@ -45,9 +45,32 @@
         <li class="right" >
           <a href="changelog.html" title="Changelog"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="changelog.html"
+                        title="previous chapter">Changelog</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mainini.html"
+                        title="next chapter">Main ini file</a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
@@ -56,13 +79,12 @@
             
   <div class="section" id="graphics">
 <span id="id1"></span><h1>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h1>
-<p>The stock Pyskool graphics are stored in PNG files in subdirectories named
-<cite>back_to_skool</cite>, <cite>common</cite> and <cite>skool_daze</cite> under <cite>images/originalx1</cite>. The
-PNG files are:</p>
+<p>The stock Pyskool graphics are stored in PNG files in subdirectories under
+<cite>images/originalx1</cite>. The PNG files are:</p>
 <ul class="simple">
 <li><cite>bubble.png</cite> - speech bubble and lip</li>
 <li><cite>font.png</cite> - the skool font</li>
-<li><cite>inventory.png</cite> - mouse, frog, water pistol etc. (Back to Skool only)</li>
+<li><cite>inventory.png</cite> - mouse, frog, water pistol etc.</li>
 <li><cite>lesson_box.png</cite> - the lesson box background</li>
 <li><cite>logo.png</cite> - the, er, logo</li>
 <li><cite>message_box.png</cite> - the message box background</li>
@@ -82,7 +104,7 @@ games (hence the <cite>original</cite> prefix in the directory name), except for
 glitches that have been fixed. (See <a class="reference external" href="http://pyskool.ca/disassemblies/skool_daze/graphics/glitches.html">Skool Daze graphic glitches</a> and
 <a class="reference external" href="http://pyskool.ca/disassemblies/back_to_skool/graphics/glitches.html">Back to Skool graphic glitches</a>.)</p>
 <p>The <cite>*_ink.png</cite> and <cite>*_paper.png</cite> files are used in <tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> 1 (see
-<a class="reference internal" href="inifile.html#gameconfig"><em>[GameConfig]</em></a>) in order to emulate the Spectrum display, which was
+<a class="reference internal" href="inifile.html#screenconfig"><em>[ScreenConfig]</em></a>) in order to emulate the Spectrum display, which was
 restricted to two colours (&#8216;ink&#8217; and &#8216;paper&#8217;) per 8x8-pixel block.</p>
 <p><cite>sprites.png</cite> is an 8x16 array of sprites for the characters in the game. These
 sprites are all facing left, and are flipped to obtain the corresponding
@@ -116,29 +138,6 @@ GraphicsMode, 0
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="changelog.html"
-                        title="previous chapter">Changelog</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="mainini.html"
-                        title="next chapter">Main ini file</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
       <div class="clearer"></div>
     </div>
     <div class="related">
@@ -156,7 +155,7 @@ GraphicsMode, 0
         <li class="right" >
           <a href="changelog.html" title="Changelog"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.1 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
