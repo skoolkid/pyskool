@@ -8,7 +8,7 @@ run Pyskool in %{game} mode
 
 :Author: Richard Dymond
 :Copyright: 2014, Richard Dymond
-:Version: 1.1.2
+:Version: 1.2
 :Date: 2014-06-03
 :Manual section: 6
 

@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.2b1
+-----
+
 1.1.2 (2014-06-14)
 ------------------
 * Customised the theme tunes, 'all shields' tunes, 'open safe' tunes and 'up a
