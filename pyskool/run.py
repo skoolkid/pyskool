@@ -18,7 +18,7 @@
 
 import sys
 import os.path
-from optparse import OptionParser
+from argparse import ArgumentParser
 
 from .game import Game
 from . import version, package_dir, user_dir, images_subdir, sounds_subdir, skoolsound
@@ -70,42 +70,52 @@ def main():
     names['back_to_skool_daze.py'] = 'Back to Skool Daze'
     name = names.get(prog, 'Unknown')
     default_ini_dir = os.path.join('ini', prog[:-3])
-    synopsis = "Start Pyskool in %s mode." % name
-    parser = OptionParser(version=version, description=synopsis)
-    parser.add_option("-c", "--cheat", dest="cheat", action="store_true",
+    parser = ArgumentParser(
+        usage='%(prog)s [options]',
+        description="Start Pyskool in {} mode.".format(name),
+        add_help=False
+    )
+    group = parser.add_argument_group('Options')
+    group.add_argument("--version", action="version", version=version,
+        help="show Pyskool's version number and exit")
+    group.add_argument("-h", "--help", action="help",
+        help="show this help message and exit")
+    group.add_argument("-c", "--cheat", dest="cheat", action="store_true",
         help="enable cheat keys")
-    parser.add_option("--config", dest="config", metavar="P,V", action="append",
+    group.add_argument("--config", dest="config", metavar="P,V", action="append",
         help="set the value of the configuration parameter P to V; this option may be used multiple times")
-    parser.add_option("--create-images", "--get-images", dest="create_images", action="store_true",
+    group.add_argument("--create-images", "--get-images", dest="create_images", action="store_true",
         help="create the images required by the game and exit")
-    parser.add_option("--create-ini", dest="create_ini", action="store_true",
+    group.add_argument("--create-ini", dest="create_ini", action="store_true",
         help="create the ini files required by the game and exit")
-    parser.add_option("--create-sounds", dest="create_sounds", action="store_true",
+    group.add_argument("--create-sounds", dest="create_sounds", action="store_true",
         help="create the sound files required by the game and exit")
-    parser.add_option("--force", dest="force", action="store_true",
+    group.add_argument("--force", dest="force", action="store_true",
         help="overwrite existing images, ini files and sound files")
-    parser.add_option("-i", "--inidir", dest="inidir",
+    group.add_argument("-i", "--inidir", dest="inidir",
         help="read ini files from this directory instead of %s" % default_ini_dir)
-    parser.add_option("-l", "--load", dest="savefile",
+    group.add_argument("-l", "--load", dest="savefile",
         help="load a saved game from the specified file")
-    parser.add_option("--package-dir", dest="package_dir", action="store_true",
+    group.add_argument("--package-dir", dest="package_dir", action="store_true",
         help="show path to pyskool package directory and exit")
-    parser.add_option("-q", "--quick-start", dest="quick_start", action="store_true",
+    group.add_argument("-q", "--quick-start", dest="quick_start", action="store_true",
         help="start the game quickly")
-    parser.add_option("-r", "--load-last", dest="savedir",
+    group.add_argument("-r", "--load-last", dest="savedir",
         help="load the most recently saved game in the specified directory")
-    parser.add_option("--sample-rate", dest="sample_rate", metavar="RATE", type="int", default=44100,
+    group.add_argument("--sample-rate", dest="sample_rate", metavar="RATE", type=int, default=44100,
         help="set the sample rate of the sound files created by --create-sounds (default: 44100)")
-    parser.add_option("-s", "--scale", dest="scale", type="int",
+    group.add_argument("-s", "--scale", dest="scale", type=int,
         help="scale graphics by this factor (1=original Speccy size)")
-    parser.add_option("--search-dirs", dest="search_dirs", action="store_true",
+    group.add_argument("--search-dirs", dest="search_dirs", action="store_true",
         help="show the locations that Pyskool searches for data files and exit")
-    parser.add_option("--setup", dest="setup", action="store_true",
+    group.add_argument("--setup", dest="setup", action="store_true",
         help="create the images, ini files and sound files required by the game and exit")
-    options, args = parser.parse_args()
+    options, unknown_args = parser.parse_known_args()
+    if unknown_args:
+        parser.exit(2, parser.format_help())
 
-    # Set the search path for 'pyskool.ini', the 'images' directory, the 'sounds'
-    # directory, and the 'ini' directory
+    # Set the search path for 'pyskool.ini', the 'images' directory, the
+    # 'sounds' directory, and the 'ini' directory
     cwd = os.getcwd()
     search_dirs = [
         cwd,
@@ -220,8 +230,8 @@ def main():
         else:
             info("No saved games found in %s" % options.savedir)
 
-    # Change to the directory where games will be saved/loaded and screenshots will
-    # be dumped
+    # Change to the directory where games will be saved/loaded and screenshots
+    # will be dumped
     os.chdir(user_dir)
     info("Using %s to save/load games" % os.getcwd())
 
