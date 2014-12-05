@@ -19,8 +19,6 @@
 Defines the :class:`Skool` class.
 """
 
-import os.path
-import pygame
 import random
 
 from .barrier import Door, Wall, Window
@@ -28,7 +26,7 @@ from .floor import Floor
 from .plant import PlantPot
 from .lesson import AssemblyMessageGenerator
 from .mutable import Shield, Safe, Cup, Bike
-from .room import Room, Chair, Desk, Blackboard, NoGoZone
+from .room import Room, NoGoZone
 from .staircase import Staircase
 from .scoreboard import Scoreboard
 from .location import Location

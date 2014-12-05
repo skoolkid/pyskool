@@ -18,8 +18,6 @@
 
 import zlib
 
-from .skoolimage import Udg
-
 TRANSPARENT = 'TRANSPARENT'
 BLACK = 'BLACK'
 BLUE = 'BLUE'

@@ -20,7 +20,6 @@ Defines the :class:`Character` class, which determines how characters are
 animated and how they behave.
 """
 
-import sys
 import random
 import re
 
@@ -32,7 +31,6 @@ from .animatorystates import (
     SITTING_ON_FLOOR, WALK0, WALK1, WALK2, WALK3, WATERPISTOL
 )
 from . import lines
-from . import items
 from .lesson import QAGenerator
 from . import sound
 from . import debug

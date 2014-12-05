@@ -22,7 +22,7 @@ Defines the :class:`Eric` class.
 import random
 
 from . import character
-from .animatorystates import ARM_UP, BENDING_OVER, KNOCKED_OUT, RIDING_BIKE0, RIDING_BIKE1, WALK0
+from .animatorystates import ARM_UP, BENDING_OVER, RIDING_BIKE0, RIDING_BIKE1, WALK0
 from . import ai
 from . import lines
 from . import items

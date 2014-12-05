@@ -20,7 +20,6 @@ Defines the :class:`~cast.Cast` class.
 """
 
 import random
-import pygame
 
 from .character import Character
 from .desklid import DeskLid
@@ -33,7 +32,6 @@ from .pellet import Pellet
 from .water import Water
 from .stinkbomb import Stinkbomb
 from . import ai
-from .location import Location
 from .lesson import Lesson
 from . import graphics
 
