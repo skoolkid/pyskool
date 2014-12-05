@@ -1,5 +1,5 @@
 pellet
 ======
 
-.. automodule:: pellet
+.. automodule:: pyskool.pellet
    :members:

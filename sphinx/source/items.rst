@@ -1,5 +1,5 @@
 items
 =====
 
-.. automodule:: items
+.. automodule:: pyskool.items
    :members:

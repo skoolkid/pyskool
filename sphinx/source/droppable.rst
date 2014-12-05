@@ -1,5 +1,5 @@
 droppable
 =========
 
-.. automodule:: droppable
+.. automodule:: pyskool.droppable
    :members:

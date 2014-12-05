@@ -1,5 +1,5 @@
 animal
 ======
 
-.. automodule:: animal
+.. automodule:: pyskool.animal
    :members:

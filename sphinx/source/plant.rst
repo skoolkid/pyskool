@@ -1,5 +1,5 @@
 plant
 =====
 
-.. automodule:: plant
+.. automodule:: pyskool.plant
    :members:

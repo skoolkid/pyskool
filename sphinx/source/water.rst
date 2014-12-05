@@ -1,5 +1,5 @@
 water
 =====
 
-.. automodule:: water
+.. automodule:: pyskool.water
    :members:

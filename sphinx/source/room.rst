@@ -1,5 +1,5 @@
 room
 ====
 
-.. automodule:: room
+.. automodule:: pyskool.room
    :members:

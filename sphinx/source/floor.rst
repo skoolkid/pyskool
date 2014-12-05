@@ -1,5 +1,5 @@
 floor
 =====
 
-.. automodule:: floor
+.. automodule:: pyskool.floor
    :members:

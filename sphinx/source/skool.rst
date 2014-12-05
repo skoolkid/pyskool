@@ -1,5 +1,5 @@
 skool
 =====
 
-.. automodule:: skool
+.. automodule:: pyskool.skool
    :members:

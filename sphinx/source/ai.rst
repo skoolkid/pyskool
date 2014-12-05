@@ -1,5 +1,5 @@
 ai
 ==
 
-.. automodule:: ai
+.. automodule:: pyskool.ai
    :members:

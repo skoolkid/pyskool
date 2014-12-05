@@ -1,5 +1,5 @@
 barrier
 =======
 
-.. automodule:: barrier
+.. automodule:: pyskool.barrier
    :members:

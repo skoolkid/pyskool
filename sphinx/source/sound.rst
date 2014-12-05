@@ -1,5 +1,5 @@
 sound
 =====
 
-.. automodule:: sound
+.. automodule:: pyskool.sound
    :members:

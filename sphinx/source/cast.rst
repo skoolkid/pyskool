@@ -1,5 +1,5 @@
 cast
 ====
 
-.. automodule:: cast
+.. automodule:: pyskool.cast
    :members:

@@ -1,5 +1,5 @@
 character
 =========
 
-.. automodule:: character
+.. automodule:: pyskool.character
    :members:

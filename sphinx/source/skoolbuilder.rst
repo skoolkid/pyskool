@@ -1,5 +1,5 @@
 skoolbuilder
 ============
 
-.. automodule:: skoolbuilder
+.. automodule:: pyskool.skoolbuilder
    :members:

@@ -1,5 +1,5 @@
 scoreboard
 ==========
 
-.. automodule:: scoreboard
+.. automodule:: pyskool.scoreboard
    :members:

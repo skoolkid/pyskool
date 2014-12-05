@@ -1,5 +1,5 @@
 game
 ====
 
-.. automodule:: game
+.. automodule:: pyskool.game
    :members:
