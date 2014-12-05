@@ -22,7 +22,8 @@ Play sound effects.
 import pygame
 import os
 import random
-import debug
+
+from . import debug
 
 #: ID of the sound effect to play when Albert tells Mr Wacker that Eric is
 #: escaping.
@@ -135,7 +136,7 @@ class Beeper:
                     sound = pygame.mixer.Sound(path)
                     sound.set_volume(self.volume)
                     self.sounds[sound_id] = sound
-                except pygame.error, e:
+                except pygame.error as e:
                     debug.log("Unable to load sound effect '%s' from %s: %s" % (sound_id, path, e.args[0]))
                 return
         debug.log("Unable to load sound effect '%s' from %s{,.wav,.ogg}: file not found" % (sound_id, base_path))

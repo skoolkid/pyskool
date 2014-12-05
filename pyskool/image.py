@@ -18,14 +18,17 @@
 
 import sys
 import os
-import urllib2
+try:
+    from urllib2 import urlopen, URLError
+except ImportError:
+    from urllib.request import urlopen, URLError
 import zipfile
-from StringIO import StringIO
+from io import BytesIO
 
 from . import user_dir
-from skoolimage import SDMemory, BTSMemory, Udg
-from pngwriter import PngWriter, WHITE, BLACK
-from iniparser import IniParser
+from .skoolimage import SDMemory, BTSMemory, Udg
+from .pngwriter import PngWriter, WHITE, BLACK
+from .iniparser import IniParser
 
 show_info = True
 
@@ -48,15 +51,15 @@ def get_tzx(name, sources):
 
         try:
             info('Downloading {0}'.format(url))
-            u = urllib2.urlopen(url, timeout=30)
+            u = urlopen(url, timeout=30)
             data = u.read()
-        except urllib2.URLError as e:
+        except URLError as e:
             error(e.args[0])
             continue
 
         if member:
             try:
-                z = zipfile.ZipFile(StringIO(data))
+                z = zipfile.ZipFile(BytesIO(data))
                 tzx = z.open(member)
             except (KeyError, zipfile.BadZipfile) as e:
                 error(e.args[0])

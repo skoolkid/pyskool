@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -19,9 +19,9 @@
 Defines the :class:`Pellet` class.
 """
 
-from character import Character
-import animatorystates
-from location import Location
+from .character import Character
+from . import animatorystates
+from .location import Location
 
 class Pellet(Character):
     """A catapult pellet.

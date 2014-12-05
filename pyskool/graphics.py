@@ -21,7 +21,8 @@ Classes concerned with the screen and drawing things on it.
 
 import os
 import pygame
-import debug
+
+from . import debug
 
 #: ID of the speech bubble image.
 SPEECH_BUBBLE = 'SPEECH_BUBBLE'

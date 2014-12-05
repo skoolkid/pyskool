@@ -16,18 +16,14 @@
 # You should have received a copy of the GNU General Public License along with
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
-import skoolini
-from sdtaps import SDTapMaker
-from skoolids import *
-import animatorystates as states
-import graphics
-import lines
-import skoolbuilder
-import sound
-
-SKOOL_DAZE = 0
-SKOOL_DAZE_TAKE_TOO = 1
-EZAD_LOOKS = 2
+from .skoolini import SkoolIniMaker, SKOOL_DAZE, SKOOL_DAZE_TAKE_TOO, EZAD_LOOKS
+from .sdtaps import SDTapMaker
+from .skoolids import *
+from . import animatorystates as states
+from . import graphics
+from . import lines
+from . import skoolbuilder
+from . import sound
 
 # Floor IDs
 FLR_BOTTOM = 'Bottom'
@@ -595,9 +591,9 @@ WITHIT_QA = {
     )
 }
 
-class SDIniMaker(skoolini.SkoolIniMaker):
+class SDIniMaker(SkoolIniMaker):
     def __init__(self, custom):
-        skoolini.SkoolIniMaker.__init__(self, custom)
+        SkoolIniMaker.__init__(self, custom)
         self.tap_maker = SDTapMaker(custom)
         self.hit_zone = 7
         self.teachers = [(CREAK, CREAK_QA), (WITHIT, WITHIT_QA), (WACKER, WACKER_QA), (ROCKITT, ROCKITT_QA)]
@@ -610,7 +606,7 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         return [(36, 3), (93, 3), (93, 17), (8, 17)]
 
     def create_game_config(self):
-        skoolini.SkoolIniMaker.create_game_config(self)
+        SkoolIniMaker.create_game_config(self)
         save_game_dirs = {}
         save_game_dirs[SKOOL_DAZE] = 'skool_daze'
         save_game_dirs[SKOOL_DAZE_TAKE_TOO] = 'skool_daze_take_too'
@@ -628,18 +624,18 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         self.game_config.append(('RestartOnYearEnd', 0))
 
     def create_timetable_config(self):
-        skoolini.SkoolIniMaker.create_timetable_config(self)
+        SkoolIniMaker.create_timetable_config(self)
         self.timetable_config.append(('SpecialPlaytimeProbability', 0.375))
 
     def create_lesson_config(self):
-        skoolini.SkoolIniMaker.create_lesson_config(self)
+        SkoolIniMaker.create_lesson_config(self)
         self.lesson_config.append(('EricsTeacherWriteOnBoardProbability', 0.296875))
         self.lesson_config.append(('QASessionProbability', 0.9375))
         self.lesson_config.append(('GrassForHittingProbability', 0.1171875))
         self.lesson_config.append(('LinesForTalesProbability', 0.09375))
 
     def create_screen_config(self):
-        skoolini.SkoolIniMaker.create_screen_config(self)
+        SkoolIniMaker.create_screen_config(self)
         initial_column = 0 if self.custom == SKOOL_DAZE_TAKE_TOO else 32
         self.screen_config.append(('InitialColumn', initial_column))
         self.screen_config.append(('Background', (197, 0, 0)))
@@ -652,7 +648,7 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         self.screen_config.append(('ScoreBoxPos', (score_box_x, 21)))
 
     def create_images(self):
-        skoolini.SkoolIniMaker.create_images(self)
+        SkoolIniMaker.create_images(self)
         base_dir = 'skool_daze'
         img_dir = 'ezad_looks' if self.custom == EZAD_LOOKS else base_dir
         logo_dir = 'skool_daze_take_too' if self.custom == SKOOL_DAZE_TAKE_TOO else img_dir
@@ -669,7 +665,7 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         self.images.append((graphics.MESSAGE_BOX, '%s/message_box.png' % base_dir))
 
     def create_sounds(self):
-        skoolini.SkoolIniMaker.create_sounds(self)
+        SkoolIniMaker.create_sounds(self)
         tunes_dir = sounds_dir = 'skool_daze'
         open_safe = 'open-safe'
         up_a_year = 'up-a-year'
@@ -697,7 +693,7 @@ class SDIniMaker(skoolini.SkoolIniMaker):
         self.sounds.append((sound.UP_A_YEAR, '%s/%s' % (tunes_dir, up_a_year)))
 
     def create_sprite_groups(self):
-        skoolini.SkoolIniMaker.create_sprite_groups(self)
+        SkoolIniMaker.create_sprite_groups(self)
         self.sprite_groups.append((SG_ERIC, (states.WALK0, 0), (states.WALK1, 1), (states.WALK2, 2), (states.WALK3, 3), (states.SITTING_ON_CHAIR, 4), (states.SITTING_ON_FLOOR, 5), (states.KNOCKED_OUT, 6), (states.ARM_UP, 7), (states.HITTING0, 8), (states.HITTING1, 9), (states.CATAPULT0, 10), (states.CATAPULT1, 11)))
         if self.custom == SKOOL_DAZE_TAKE_TOO:
             self.sprite_groups.append((SG_TAKE, (states.WALK0, 112), (states.WALK1, 113), (states.WALK2, 114), (states.WALK3, 115), (states.KNOCKED_OVER, 118), (states.ARM_UP, 119)))
@@ -1039,7 +1035,7 @@ class SDIniMaker(skoolini.SkoolIniMaker):
             self.no_go_zones.append(('StaffRoom', 0, 10, 10, 4))
 
     def create_message_config(self):
-        skoolini.SkoolIniMaker.create_message_config(self)
+        SkoolIniMaker.create_message_config(self)
         self.message_config.append(('LinesMessageTemplate', '%s lines^%s' % (NUMBER_OF_LINES_MACRO, LINES_RECIPIENT_MACRO)))
         self.message_config.append(('BoardDirtyConditionId', BOARD_DIRTY))
         self.message_config.append(('UpAYearMessage', 'WELL DONE! GO^UP A YEAR'))

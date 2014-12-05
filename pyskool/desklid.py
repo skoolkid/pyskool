@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -19,10 +19,10 @@
 Defines the :class:`DeskLid` class.
 """
 
-import animatorystates
-from character import Character
-from location import Location
-import items
+from . import animatorystates
+from .character import Character
+from .location import Location
+from . import items
 
 class DeskLid(Character):
     """A desk lid.

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2012, 2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2012-2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -23,18 +23,19 @@ animated and how they behave.
 import sys
 import random
 import re
-from location import Location
-import ai
-from animatorystates import (
+
+from .location import Location
+from . import ai
+from .animatorystates import (
     ARM_UP, CATAPULT0, CATAPULT1, HITTING0, HITTING1, KISSING_ERIC,
     KNOCKED_OUT, KNOCKED_OVER, RIDING_BIKE0, RIDING_BIKE1, SITTING_ON_CHAIR,
     SITTING_ON_FLOOR, WALK0, WALK1, WALK2, WALK3, WATERPISTOL
 )
-import lines
-import items
-from lesson import QAGenerator
-import sound
-import debug
+from . import lines
+from . import items
+from .lesson import QAGenerator
+from . import sound
+from . import debug
 
 class Character:
     """Base class for anything in the game that moves.

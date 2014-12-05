@@ -26,17 +26,18 @@ import pickle
 import pygame
 import random
 import time
-from cast import Cast
-from character import Character
-from skool import Skool
-from graphics import Screen, Gallery
-from sound import Beeper
-from input import Keyboard
-from iniparser import IniParser
-import skoolbuilder
-import keys
-import items
-import debug
+
+from .cast import Cast
+from .character import Character
+from .skool import Skool
+from .graphics import Screen, Gallery
+from .sound import Beeper
+from .input import Keyboard
+from .iniparser import IniParser
+from . import skoolbuilder
+from . import keys
+from . import items
+from . import debug
 
 #: Menu operation: Resume.
 RESUME = 'RESUME'

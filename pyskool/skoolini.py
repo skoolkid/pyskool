@@ -18,11 +18,19 @@
 
 import sys
 import os
-from skoolids import *
-import animatorystates as states
-import graphics
-import skoolbuilder
-import sound
+
+from .skoolids import *
+from . import animatorystates as states
+from . import graphics
+from . import skoolbuilder
+from . import sound
+
+SKOOL_DAZE = 0
+SKOOL_DAZE_TAKE_TOO = 1
+EZAD_LOOKS = 2
+
+BACK_TO_SKOOL = 0
+BACK_TO_SKOOL_DAZE = 1
 
 CONFIG_SEPARATOR = ', '
 SEPARATOR = ', '

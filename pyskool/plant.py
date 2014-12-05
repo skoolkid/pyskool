@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -19,9 +19,9 @@
 Defines the :class:`Plant` and :class:`PlantPot` classes.
 """
 
-from character import Character
-import animatorystates
-from location import Location
+from .character import Character
+from . import animatorystates
+from .location import Location
 
 class Plant(Character):
     """A plant that grows when watered.

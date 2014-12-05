@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010, 2012 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2012, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -19,7 +19,7 @@
 Defines the :class:`Staircase` class.
 """
 
-from location import Location
+from .location import Location
 
 class Staircase:
     """A staircase.

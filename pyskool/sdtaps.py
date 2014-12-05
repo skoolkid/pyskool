@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -16,10 +16,10 @@
 # You should have received a copy of the GNU General Public License along with
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
-import sdini
-import skoolbuilder
-from skooltaps import *
-from skoolids import *
+from .skoolini import SKOOL_DAZE_TAKE_TOO
+from . import skoolbuilder
+from .skooltaps import *
+from .skoolids import *
 
 SIG_MAP_ROOM_READY = 'MapRoomReady'
 SIG_READING_ROOM_READY = 'ReadingRoomReady'
@@ -538,7 +538,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_STAFF_ROOM)
         lesson.add_entry(WITHIT, CL_DINNER_DUTY)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_DINNER_TEARAWAY)
         lesson.add_entry(BULLY, CL_DINNER_BULLY)
@@ -561,14 +561,14 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_STAFF_ROOM)
         lesson.add_entry(WITHIT, CL_FIRE_ESCAPE)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_DINNER_TEARAWAY)
         lesson.add_entry(BULLY, CL_DINNER_BULLY)
         lesson.add_entry(SWOT, CL_DINNER_BOY)
         lessons.append(lesson)
 
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson = Lesson(LSN_TAKE_WHITE_ROOM, TAKE, WHITE_ROOM)
             lesson.add_entry(BOY01, CL_READING_ROOM_BOY)
             lesson.add_entry(BOY02, CL_READING_ROOM_BOY)
@@ -673,7 +673,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(WITHIT, CL_READING_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_EXAM_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_EXAM_ROOM_BULLY)
@@ -696,7 +696,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_EXAM_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_WALKABOUT_TEACHER)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_EXAM_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_EXAM_ROOM_BULLY)
@@ -719,7 +719,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_EXAM_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_BIG_WINDOW)
         lesson.add_entry(CREAK, CL_WHITE_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_REVISION_LIBRARY_TEARAWAY)
         lesson.add_entry(BULLY, CL_WHITE_ROOM_BULLY)
@@ -742,7 +742,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_STAFF_ROOM)
         lesson.add_entry(WITHIT, CL_MAP_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_READING_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_MAP_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_REVISION_LIBRARY_BULLY)
@@ -765,7 +765,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_WHITE_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_EXAM_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_REVISION_LIBRARY_TEARAWAY)
         lesson.add_entry(BULLY, CL_REVISION_LIBRARY_BULLY)
@@ -788,7 +788,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_WHITE_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_MAP_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_READING_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_EXAM_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_MAP_ROOM_BULLY)
@@ -811,7 +811,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_EXAM_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_MAP_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_WHITE_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_READING_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_WHITE_ROOM_BULLY)
@@ -834,7 +834,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_READING_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_MAP_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_WHITE_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_READING_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_READING_ROOM_BULLY)
@@ -857,7 +857,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_EXAM_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_MAP_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_READING_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_READING_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_READING_ROOM_BULLY)
@@ -880,7 +880,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_EXAM_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_MAP_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_WHITE_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WHITE_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_WHITE_ROOM_BULLY)
@@ -903,7 +903,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_EXAM_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_MAP_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_READING_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_REVISION_LIBRARY_TEARAWAY)
         lesson.add_entry(BULLY, CL_WHITE_ROOM_BULLY)
@@ -926,7 +926,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_EXAM_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_WHITE_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_READING_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_REVISION_LIBRARY_TEARAWAY)
         lesson.add_entry(BULLY, CL_REVISION_LIBRARY_BULLY)
@@ -949,7 +949,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_WHITE_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_MAP_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_READING_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WHITE_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_REVISION_LIBRARY_BULLY)
@@ -972,7 +972,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_READING_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_EXAM_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_WHITE_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_EXAM_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_MAP_ROOM_BULLY)
@@ -995,7 +995,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_READING_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_MAP_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_WHITE_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_MAP_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_MAP_ROOM_BULLY)
@@ -1018,7 +1018,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_WHITE_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WHITE_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_WHITE_ROOM_BULLY)
@@ -1041,7 +1041,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_WHITE_ROOM_TEACHER)
         lesson.add_entry(WITHIT, CL_MAP_ROOM_TEACHER)
         lesson.add_entry(CREAK, CL_READING_ROOM_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_READING_ROOM_TEARAWAY)
         lesson.add_entry(BULLY, CL_READING_ROOM_BULLY)
@@ -1064,7 +1064,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_BULLY_HAS_MUMPS_TEACHER)
         lesson.add_entry(WITHIT, CL_WALKABOUT_TEACHER)
         lesson.add_entry(CREAK, CL_WALKABOUT_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_RANDOM_WALKABOUT)
         lesson.add_entry(BULLY, CL_BULLY_HAS_MUMPS_BULLY)
@@ -1087,7 +1087,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_WALKABOUT_TEACHER)
         lesson.add_entry(WITHIT, CL_WALKABOUT_TEACHER)
         lesson.add_entry(CREAK, CL_WALKABOUT_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_RANDOM_WALKABOUT)
         lesson.add_entry(BULLY, CL_RANDOM_WALKABOUT)
@@ -1110,7 +1110,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_WALKABOUT_TEACHER)
         lesson.add_entry(WITHIT, CL_WALKABOUT_TEACHER)
         lesson.add_entry(CREAK, CL_WALKABOUT_TEACHER)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_PEA_SHOOTER_TEARAWAY)
         lesson.add_entry(BULLY, CL_RANDOM_WALKABOUT)
@@ -1133,7 +1133,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_WALKABOUT_TEACHER)
         lesson.add_entry(WITHIT, CL_WALKABOUT_TEACHER)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WRITE_ON_BOARDS)
         lesson.add_entry(BULLY, CL_WALKABOUT_BULLY)
@@ -1156,7 +1156,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_STAFF_ROOM)
         lesson.add_entry(WITHIT, CL_STAFF_ROOM)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WALKABOUT_TEARAWAY)
         lesson.add_entry(BULLY, CL_WALKABOUT_BULLY)
@@ -1179,7 +1179,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(WITHIT, CL_STAFF_ROOM)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WRITE_ON_BOARDS)
         lesson.add_entry(BULLY, CL_WALKABOUT_BULLY)
@@ -1202,7 +1202,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_STAFF_ROOM)
         lesson.add_entry(WITHIT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WRITE_ON_BOARDS)
         lesson.add_entry(BULLY, CL_WALKABOUT_BULLY)
@@ -1225,7 +1225,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(WITHIT, CL_STAFF_ROOM)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WRITE_ON_BOARDS)
         lesson.add_entry(BULLY, CL_WALKABOUT_BULLY)
@@ -1248,7 +1248,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(WITHIT, CL_STAFF_ROOM)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WALKABOUT_TEARAWAY)
         lesson.add_entry(BULLY, CL_WALKABOUT_BULLY)
@@ -1271,7 +1271,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(WITHIT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(CREAK, CL_RANDOM_WALKABOUT)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WALKABOUT_TEARAWAY)
         lesson.add_entry(BULLY, CL_WALKABOUT_BULLY)
@@ -1294,7 +1294,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(WITHIT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(CREAK, CL_RANDOM_WALKABOUT)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WALKABOUT_TEARAWAY)
         lesson.add_entry(BULLY, CL_WALKABOUT_BULLY)
@@ -1317,7 +1317,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_STAFF_ROOM)
         lesson.add_entry(WITHIT, CL_STAFF_ROOM)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WRITE_ON_BOARDS)
         lesson.add_entry(BULLY, CL_WALKABOUT_BULLY)
@@ -1340,7 +1340,7 @@ class SDTapMaker:
         lesson.add_entry(ROCKITT, CL_RANDOM_WALKABOUT)
         lesson.add_entry(WITHIT, CL_STAFF_ROOM)
         lesson.add_entry(CREAK, CL_STAFF_ROOM)
-        if self.custom == sdini.SKOOL_DAZE_TAKE_TOO:
+        if self.custom == SKOOL_DAZE_TAKE_TOO:
             lesson.add_entry(TAKE, CL_STAFF_ROOM)
         lesson.add_entry(TEARAWAY, CL_WALKABOUT_TEARAWAY)
         lesson.add_entry(BULLY, CL_WALKABOUT_BULLY)

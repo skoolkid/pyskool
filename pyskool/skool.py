@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010, 2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2013, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -22,20 +22,21 @@ Defines the :class:`Skool` class.
 import os.path
 import pygame
 import random
-from barrier import Door, Wall, Window
-from floor import Floor
-from plant import PlantPot
-from lesson import AssemblyMessageGenerator
-from mutable import Shield, Safe, Cup, Bike
-from room import Room, Chair, Desk, Blackboard, NoGoZone
-from staircase import Staircase
-from scoreboard import Scoreboard
-from location import Location
-from timetable import Timetable
-import items
-import sound
-import graphics
-import debug
+
+from .barrier import Door, Wall, Window
+from .floor import Floor
+from .plant import PlantPot
+from .lesson import AssemblyMessageGenerator
+from .mutable import Shield, Safe, Cup, Bike
+from .room import Room, Chair, Desk, Blackboard, NoGoZone
+from .staircase import Staircase
+from .scoreboard import Scoreboard
+from .location import Location
+from .timetable import Timetable
+from . import items
+from . import sound
+from . import graphics
+from . import debug
 
 class Skool:
     """Represents the play area and its features and fixtures.

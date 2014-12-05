@@ -16,7 +16,7 @@
 # You should have received a copy of the GNU General Public License along with
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
-from snapshot import get_snapshot
+from .snapshot import get_snapshot
 
 class Udg:
     def __init__(self, attr, data, mask=None):
@@ -230,7 +230,7 @@ class SDMemory(SkoolMemory):
             udg = udg_array[udg_index]
             for b in range(8):
                 udg[7 - b] |= bit * (col_byte & 1)
-                col_byte /= 2
+                col_byte //= 2
         return [[Udg(56, udg) for udg in udg_array]]
 
 class BTSMemory(SkoolMemory):

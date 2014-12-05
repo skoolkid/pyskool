@@ -16,18 +16,15 @@
 # You should have received a copy of the GNU General Public License along with
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
-import skoolini
-from btstaps import BTSTapMaker
-from skoolids import *
-import animatorystates as states
-import graphics
-import items
-import lines
-import skoolbuilder
-import sound
-
-BACK_TO_SKOOL = 0
-BACK_TO_SKOOL_DAZE = 1
+from .skoolini import SkoolIniMaker, BACK_TO_SKOOL, BACK_TO_SKOOL_DAZE
+from .btstaps import BTSTapMaker
+from .skoolids import *
+from . import animatorystates as states
+from . import graphics
+from . import items
+from . import lines
+from . import skoolbuilder
+from . import sound
 
 # Animation phases
 AP_FROG_TURN_ROUND = 'FrogTurnRound'
@@ -244,9 +241,9 @@ WITHIT_QA = {
     )
 }
 
-class BTSIniMaker(skoolini.SkoolIniMaker):
+class BTSIniMaker(SkoolIniMaker):
     def __init__(self, custom):
-        skoolini.SkoolIniMaker.__init__(self, custom)
+        SkoolIniMaker.__init__(self, custom)
         self.tap_maker = BTSTapMaker(custom)
         self.create_random_locations()
         self.hit_zone = 5
@@ -286,7 +283,7 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
         self.random_locations[HEROINE] = ((129, 17), (144, 17), (136, 17), (189, 17))
 
     def create_game_config(self):
-        skoolini.SkoolIniMaker.create_game_config(self)
+        SkoolIniMaker.create_game_config(self)
         save_game_dirs = {}
         save_game_dirs[BACK_TO_SKOOL] = 'back_to_skool'
         save_game_dirs[BACK_TO_SKOOL_DAZE] = 'back_to_skool_daze'
@@ -328,22 +325,22 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
         self.game_config.append(('SherryId', 'SHERRY'))
 
     def create_timetable_config(self):
-        skoolini.SkoolIniMaker.create_timetable_config(self)
+        SkoolIniMaker.create_timetable_config(self)
         self.timetable_config.append(('AssemblyPrefix', ASSEMBLY_PREFIX))
 
     def create_lesson_config(self):
-        skoolini.SkoolIniMaker.create_lesson_config(self)
+        SkoolIniMaker.create_lesson_config(self)
         self.lesson_config.append(('EricsTeacherWriteOnBoardProbability', 0.28125))
         self.lesson_config.append(('QASessionProbability', 0.90625))
         self.lesson_config.append(('GrassForHittingProbability', 0.140625))
         self.lesson_config.append(('LinesForTalesProbability', 0.328125))
 
     def create_timing_config(self):
-        skoolini.SkoolIniMaker.create_timing_config(self)
+        SkoolIniMaker.create_timing_config(self)
         self.timing_config.append(('BendOverDelay', 4))
 
     def create_screen_config(self):
-        skoolini.SkoolIniMaker.create_screen_config(self)
+        SkoolIniMaker.create_screen_config(self)
         self.screen_config.append(('InitialColumn', 120))
         self.screen_config.append(('EscapeAlarmInk', (197, 0, 0)))
         self.screen_config.append(('EscapeAlarmPaper', (197, 198, 0)))
@@ -361,7 +358,7 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
         self.screen_config.append(('InventorySize', (6, 1)))
 
     def create_images(self):
-        skoolini.SkoolIniMaker.create_images(self)
+        SkoolIniMaker.create_images(self)
         base_dir = 'back_to_skool'
         img_dir = 'back_to_skool_daze' if self.custom == BACK_TO_SKOOL_DAZE else base_dir
         self.images.append((graphics.LOGO, '%s/logo.png' % img_dir))
@@ -379,7 +376,7 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
         self.images.append((graphics.MESSAGE_BOX, '%s/message_box.png' % message_box_dir))
 
     def create_sounds(self):
-        skoolini.SkoolIniMaker.create_sounds(self)
+        SkoolIniMaker.create_sounds(self)
         sounds_dir = 'back_to_skool'
         tunes_dir = 'back_to_skool_daze' if self.custom == BACK_TO_SKOOL_DAZE else sounds_dir
         self.sounds.append((sound.ALARM, '%s/lines2' % sounds_dir))
@@ -410,7 +407,7 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
         self.sounds.append((sound.UP_A_YEAR, '%s/up-a-year' % tunes_dir))
 
     def create_sprite_groups(self):
-        skoolini.SkoolIniMaker.create_sprite_groups(self)
+        SkoolIniMaker.create_sprite_groups(self)
         self.sprite_groups.append((SG_ERIC, (states.WALK0, 0), (states.WALK1, 1), (states.WALK2, 2), (states.WALK3, 3), (states.SITTING_ON_CHAIR, 4), (states.SITTING_ON_FLOOR, 5), (states.KNOCKED_OUT, 6), (states.ARM_UP, 7), (states.HITTING0, 8), (states.HITTING1, 9), (states.CATAPULT0, 10), (states.CATAPULT1, 11), (states.RIDING_BIKE0, 12), (states.RIDING_BIKE1, 13), (states.WATERPISTOL, 14), (states.BENDING_OVER, 39)))
         self.sprite_groups.append((SG_GIRL, (states.WALK0, 72), (states.WALK1, 73), (states.WALK2, 74), (states.WALK3, 75), (states.SITTING_ON_CHAIR, 76), (states.SITTING_ON_FLOOR, 77), (states.KNOCKED_OUT, 78)))
         self.sprite_groups.append((SG_ALBERT, (states.WALK0, 120), (states.WALK1, 121), (states.WALK2, 122), (states.WALK3, 123), (states.KNOCKED_OVER, 126), (states.ARM_UP, 127)))
@@ -764,7 +761,7 @@ class BTSIniMaker(skoolini.SkoolIniMaker):
         self.no_go_zones.append(('ScienceLabStoreroom', 54, 63, 10, 4))
 
     def create_message_config(self):
-        skoolini.SkoolIniMaker.create_message_config(self)
+        SkoolIniMaker.create_message_config(self)
         self.message_config.append(('LinesMessageTemplate', '%s LINES^%s' % (NUMBER_OF_LINES_MACRO, LINES_RECIPIENT_MACRO)))
         if self.custom == BACK_TO_SKOOL_DAZE:
             self.message_config.append(('BoardDirtyConditionId', BOARD_DIRTY))

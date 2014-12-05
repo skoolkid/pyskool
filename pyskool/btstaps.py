@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -16,10 +16,10 @@
 # You should have received a copy of the GNU General Public License along with
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
-import btsini
-import skoolbuilder
-from skooltaps import *
-from skoolids import *
+from .skoolini import BACK_TO_SKOOL_DAZE
+from . import skoolbuilder
+from .skooltaps import *
+from .skoolids import *
 
 #: The `chase_x` argument for the MonitorEric command.
 CHASE_X = 160
@@ -523,7 +523,7 @@ class BTSTapMaker:
         tap.add_command(RESTART)
         taps.append(tap)
 
-        if self.custom == btsini.BACK_TO_SKOOL_DAZE:
+        if self.custom == BACK_TO_SKOOL_DAZE:
             tap = CommandList(CL_BOYS_SKOOL_STAMPEDE_LEADER)
             tap.add_command(SET_CONTROLLING_COMMAND, WALK_FAST)
             tap.add_command(GO_TO, LOC_BOYS_PLAYGROUND_0)
@@ -594,7 +594,7 @@ class BTSTapMaker:
         tap.add_command(MOVE_MOUSE, (5, 20), (2, 5), (2, 5), (10, 41))
         taps.append(tap)
 
-        if self.custom != btsini.BACK_TO_SKOOL_DAZE:
+        if self.custom != BACK_TO_SKOOL_DAZE:
             tap = CommandList(CL_FROG)
             tap.add_command(MOVE_FROG, 0.75, 0.25, 0.5)
             taps.append(tap)
@@ -1346,7 +1346,7 @@ class BTSTapMaker:
         lesson.add_entry(HEROINE, CL_PLAYTIME_WALKABOUT_BOY_GIRL)
         lessons.append(lesson)
 
-        if self.custom == btsini.BACK_TO_SKOOL_DAZE:
+        if self.custom == BACK_TO_SKOOL_DAZE:
             lesson = Lesson(LSN_PLAYTIME_BOYS_SKOOL_STAMPEDE, PLAYTIME)
             lesson.add_entry(GIRL01, CL_BOYS_SKOOL_STAMPEDE_FOLLOWER)
             lesson.add_entry(GIRL02, CL_BOYS_SKOOL_STAMPEDE_FOLLOWER)

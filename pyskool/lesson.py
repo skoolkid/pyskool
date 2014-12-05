@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -21,8 +21,9 @@ Classes concerned with controlling what goes on during a lesson.
 
 import random
 import re
-import lines
-import ai
+
+from . import lines
+from . import ai
 
 class Lesson:
     """Controls the interaction between the teacher, the swot and Eric during a

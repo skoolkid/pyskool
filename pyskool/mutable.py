@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -19,8 +19,6 @@
 Classes for things in the skool that change appearance depending on their
 state. For example, a cup that may be empty or contain water or sherry.
 """
-
-import character
 
 class Flashable:
     """Abstract superclass for objects that flash (shields and the safe).

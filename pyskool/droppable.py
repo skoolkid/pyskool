@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -20,9 +20,9 @@ Classes for things in the skool that fall from a height onto the floor or
 someone's head.
 """
 
-import character
-import animatorystates
-from location import Location
+from . import character
+from . import animatorystates
+from .location import Location
 
 class Droppable(character.Character):
     """Abstract superclass for objects that fall from a height.

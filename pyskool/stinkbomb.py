@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -19,8 +19,8 @@
 Defines the :class:`~stinkbomb.Stinkbomb` class.
 """
 
-from character import Character
-from location import Location
+from .character import Character
+from .location import Location
 
 class Stinkbomb(Character):
     """A stinkbomb.

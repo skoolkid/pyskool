@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2013 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -21,13 +21,13 @@ Defines the :class:`Eric` class.
 
 import random
 
-import character
-from animatorystates import ARM_UP, BENDING_OVER, KNOCKED_OUT, RIDING_BIKE0, RIDING_BIKE1, WALK0
-import ai
-import lines
-import items
-import keys
-import sound
+from . import character
+from .animatorystates import ARM_UP, BENDING_OVER, KNOCKED_OUT, RIDING_BIKE0, RIDING_BIKE1, WALK0
+from . import ai
+from . import lines
+from . import items
+from . import keys
+from . import sound
 
 class Eric(character.Character):
     """This class represents our hero.

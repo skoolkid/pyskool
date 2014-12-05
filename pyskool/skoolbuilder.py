@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -19,7 +19,7 @@
 Build the skool and its cast of characters.
 """
 
-from iniparser import IniParser
+from .iniparser import IniParser
 
 # Section names
 ANIMATION_PHASES = 'AnimationPhases'

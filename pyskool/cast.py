@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -21,20 +21,21 @@ Defines the :class:`~cast.Cast` class.
 
 import random
 import pygame
-from character import Character
-from desklid import DeskLid
-import animal
-from bike import Bike
-import droppable
-from plant import Plant
-from eric import Eric
-from pellet import Pellet
-from water import Water
-from stinkbomb import Stinkbomb
-import ai
-from location import Location
-from lesson import Lesson
-import graphics
+
+from .character import Character
+from .desklid import DeskLid
+from . import animal
+from .bike import Bike
+from . import droppable
+from .plant import Plant
+from .eric import Eric
+from .pellet import Pellet
+from .water import Water
+from .stinkbomb import Stinkbomb
+from . import ai
+from .location import Location
+from .lesson import Lesson
+from . import graphics
 
 class Cast:
     """The control centre from which the entire cast of characters is

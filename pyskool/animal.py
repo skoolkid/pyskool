@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -19,9 +19,9 @@
 Classes that represent the animals in the game.
 """
 
-from character import Character
-import animatorystates
-from location import Location
+from .character import Character
+from . import animatorystates
+from .location import Location
 
 class Animal(Character):
     """Abstract superclass for any animals in the game.
