@@ -31,7 +31,7 @@ advanced customisation - writing some Python code.
 
 Requirements
 ------------
-Pyskool requires Python 2.7 and `Pygame`_ (version 1.7+).
+Pyskool requires Python 2.7 and `Pygame`_ (version 1.8+).
 
 On Linux/\*BSD, Pygame is available via the package management system: the
 `python-pygame` package on Debian-based distros and openSUSE, the `pygame`

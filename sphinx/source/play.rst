@@ -133,9 +133,6 @@ Other useful keys are:
 * F11 - switch between full-screen and windowed mode
 * F12 - show/hide the menu
 
-Screenshots are dumped to a BMP file (if using Pygame 1.7) or a PNG file (if
-using Pygame 1.8+).
-
 Use the up and down arrow keys to move between items in the menu, and press
 Enter or the space bar to execute a menu item.
 
