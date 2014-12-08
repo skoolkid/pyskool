@@ -140,8 +140,7 @@ the following command line options:
   :ref:`gameConfig` section
 * ``--config=P,V`` - set the value of the configuration parameter ``P`` to
   ``V``; this option may be used multiple times
-* ``--create-images`` or ``--get-images`` - create the images required by the
-  game and exit
+* ``--create-images`` - create the images required by the game and exit
 * ``--create-ini`` - create the ini files required by the game in
   `$HOME/.pyskool/ini/<game_name>` and exit
 * ``--create-sounds`` - create the sound files required by the game in

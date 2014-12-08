@@ -84,7 +84,7 @@ def main():
         help="enable cheat keys")
     group.add_argument("--config", dest="config", metavar="P,V", action="append",
         help="set the value of the configuration parameter P to V; this option may be used multiple times")
-    group.add_argument("--create-images", "--get-images", dest="create_images", action="store_true",
+    group.add_argument("--create-images", dest="create_images", action="store_true",
         help="create the images required by the game and exit")
     group.add_argument("--create-ini", dest="create_ini", action="store_true",
         help="create the ini files required by the game and exit")
