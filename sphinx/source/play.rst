@@ -92,18 +92,27 @@ in invisible ink. Holding the paper over a bonfire made from the swot's cap,
 you can just make out the following:
 
 * Key to safe round nek of gurls hedmistris. She hates frogs.
-* Put frog in cup in gurls kitchin so you can nock it down onto her hed. Remmember the bike.
-* Frogs ar kept in loked siense lab stor room. Combernasion letters held by masters - get them drunk.
-* Sherry in hedmistris's cubord - only unloked wen sheez shure all the boys ar back in skool.
-* Fill water pistle by jumping up to botel. Put sherry in skool cups and use catopult to nock cups onto masters.
+* Put frog in cup in gurls kitchin so you can nock it down onto her hed.
+  Remmember the bike.
+* Frogs ar kept in loked siense lab stor room. Combernasion letters held by
+  masters - get them drunk.
+* Sherry in hedmistris's cubord - only unloked wen sheez shure all the boys ar
+  back in skool.
+* Fill water pistle by jumping up to botel. Put sherry in skool cups and use
+  catopult to nock cups onto masters.
 * Stink boms - Hed will open window if you drop one wen heez near.
-* Cairtaker - if you nock him out with a conker by firing catopult from top window of skool, yool be able to get passed him.
-* Bike - chaned to conker tree - 4 number combernasion has to be ritten on blackbord to relees it. Each master nose 1 number - soke them with water by nocking water-filled cups with catopult wilst they ar under.
-* Water pistle and stink boms - hidden in desks. Remmember there ar desks in the gurls skool too.
+* Cairtaker - if you nock him out with a conker by firing catopult from top
+  window of skool, yool be able to get passed him.
+* Bike - chaned to conker tree - 4 number combernasion has to be ritten on
+  blackbord to relees it. Each master nose 1 number - soke them with water by
+  nocking water-filled cups with catopult wilst they ar under.
+* Water pistle and stink boms - hidden in desks. Remmember there ar desks in
+  the gurls skool too.
 * Water makes flours grow.
 * Catching mice is fun. Letting them go in the gurls skool is even funier.
 * If you get lots of lines to do, try being ekstra nice to your gurlfrend!
-* Only the Hed can open the study dore - yool have to jump up to reech the safe.
+* Only the Hed can open the study dore - yool have to jump up to reech the
+  safe.
 
 Keys
 ----
