@@ -34,7 +34,7 @@ if [ ! -d "$PYSKOOL_HOME" ]; then
 fi
 
 cd $PYSKOOL_HOME
-VERSION=$(./pyskool.py --version)
+VERSION=$(./pyskool.py --version 2>&1)
 PKGNAME=pyskool-$VERSION
 PKGDIR=$PKGNAME
 
