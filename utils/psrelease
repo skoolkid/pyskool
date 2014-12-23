@@ -1,0 +1,180 @@
+#!/usr/bin/env bash
+set -e # Abort on errors
+
+PSTMPDIR=$HOME/tmp
+
+###############################################################################
+# Check PYSKOOL_HOME environment variable
+###############################################################################
+_require_pyskool() {
+  if [ -z "$PYSKOOL_HOME" ]; then
+    echo "Error: PYSKOOL_HOME not defined."
+    exit 1
+  fi
+  if [ ! -d "$PYSKOOL_HOME" ]; then
+    echo "Error: directory not found: $PYSKOOL_HOME"
+    exit 1
+  fi
+  TOOLS=$PYSKOOL_HOME/utils
+  VERSION=$($PYSKOOL_HOME/pyskool.py --version 2>&1)
+  TARBALL=$PYSKOOL_HOME/dist/pyskool-$VERSION.tar.xz
+}
+
+###############################################################################
+# Utility functions
+###############################################################################
+_exec() {
+  message=$1
+  command=$2
+  logfile=$3
+
+  echo -n "${message}: "
+  if ! $command &> $logfile; then
+    echo "FAILED (see $logfile)"
+    return 1
+  fi
+  echo "OK"
+}
+
+_cd_tmpdir() {
+  mkdir -p $PSTMPDIR
+  cd $(mktemp -d --tmpdir=$PSTMPDIR)
+}
+
+_create_venv() {
+  venvdir=${1:-venv}
+
+  _exec "Creating virtual environment" "virtualenv --quiet --system-site-packages $venvdir" $(pwd)/venv.log
+}
+
+_build_tarball() {
+  echo -n "Building tarball for version $VERSION of Pyskool: "
+  $TOOLS/mkpstarball -q -t
+  echo "OK"
+}
+
+_check_commands() {
+  path=$1
+  logdir=$2
+
+  for cmdname in {skool_daze{,_take_too},back_to_skool{,_daze},ezad_looks}.py; do
+    echo -n "Running $cmdname: "
+    cmd=$path/$cmdname
+    if [[ ! -f $cmd ]]; then
+      echo "FAILED ($cmd not found)"
+      return 1
+    fi
+    logfile=$logdir/$cmdname.log
+    $cmd --help &> $logfile || :
+    firstword=$(head -n 1 $logfile | cut -f1 -d' ')
+    if [[ "$firstword" != "usage:" ]]; then
+      echo "FAILED (see $logfile)"
+      return 1
+    fi
+    echo "OK"
+  done
+}
+
+_check_files() {
+  filetype=$1
+  expdir=$2
+  logdir=$3
+  shift 3
+  expfiles=$*
+
+  echo -n "Checking $filetype: "
+  if [[ ! -d $expdir ]]; then
+    echo "FAILED ($expdir does not exist)"
+    return 1
+  fi
+  rcount=0
+  for f in $expfiles; do
+    resource=$expdir/$f
+    if [[ ! -f $resource ]]; then
+      echo "FAILED ($f not found in $expdir)"
+      return 1
+    fi
+    let rcount+=1
+  done
+  rlist=$logdir/$filetype.txt
+  ls -1 $expdir > $rlist
+  numresources=$(cat $rlist | grep -v examples | wc -l)
+  if [[ $numresources -ne $rcount ]]; then
+    echo "FAILED (unexpected files found; see $rlist)"
+    return 1
+  fi
+  echo "OK"
+}
+
+_check_data() {
+  rootdir=$1
+  logdir=$2
+
+  _check_files data $rootdir $logdir {images,pyskool}.ini
+}
+
+###############################################################################
+# Verify that 'setup.py install' works
+###############################################################################
+_install_pyskool() {
+  method=$1
+
+  tar xf $TARBALL -C $topdir
+  mv $topdir/pyskool-$VERSION{,-release}
+  cd $topdir/pyskool-$VERSION-release
+
+  if [[ "$method" = "2" ]]; then
+    _exec "Building source distribution" "./setup.py sdist" $topdir/sdist.log
+    tar xf dist/pyskool-$VERSION.tar.gz -C $topdir
+    cd $topdir/pyskool-$VERSION
+  fi
+
+  _exec "Installing Pyskool" "$venv/bin/python setup.py install" $topdir/install.log
+}
+
+verify_setup() {
+  method=$1
+
+  _require_pyskool
+
+  _cd_tmpdir
+  topdir=$(pwd)
+  venv=$topdir/venv
+  _create_venv $venv
+  _build_tarball
+  _install_pyskool $method
+  _check_commands $venv/bin $topdir
+  packagedir=$($venv/bin/skool_daze.py --package-dir)
+  _check_data $packagedir/data $topdir
+}
+
+###############################################################################
+# Print usage information
+###############################################################################
+usage() {
+  cat >&2 <<EOM
+Usage: $(basename $0) COMMAND [COMMAND...]
+
+Pyskool testing and release tool.
+
+Pre-release commands:
+  setup1 - verify that 'setup.py install' works from a release tarball
+  setup2 - verify that 'setup.py install' works from an sdist tarball
+EOM
+}
+
+###############################################################################
+# Parse command line
+###############################################################################
+[[ -z "$1" ]] && usage
+numcommands=$#
+
+while [[ -n "$1" ]]; do
+  [[ $numcommands -ge 2 ]] && echo "*** Running command '$1' ***"
+  case "$1" in
+    setup1) verify_setup 1 ;;
+    setup2) verify_setup 2 ;;
+         *) echo "*** Unknown command '$1' ***"; usage ;;
+  esac
+  shift
+done
