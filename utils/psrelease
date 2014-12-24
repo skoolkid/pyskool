@@ -210,6 +210,31 @@ EOM
 }
 
 ###############################################################################
+# Build a documentation zip archive for PyPI
+###############################################################################
+build_doczip() {
+  _require_pyskool
+
+  mkdir -p $PYSKOOL_HOME/dist
+  zipfile=$PYSKOOL_HOME/dist/pyskool-$VERSION-docs.zip
+
+  _cd_tmpdir
+  echo -n "Cloning local git repository: "
+  git clone -ql $PYSKOOL_HOME
+  echo "OK"
+  logfile=$(pwd)/sphinx.log
+  cd pyskool/sphinx
+  sed -i 's/^\(SPHINXOPTS.*=\)$/\1 -D html_theme=nature/' Makefile
+  _exec "Building documentation" "make html" $logfile
+  cd build/html
+  rm -f .buildinfo objects.inv $zipfile
+  echo -n "Building zip archive: "
+  zip -9qr $zipfile .
+  echo "OK"
+  echo "Now upload $zipfile to PyPI"
+}
+
+###############################################################################
 # Print usage information
 ###############################################################################
 usage() {
@@ -224,6 +249,7 @@ Pre-release commands:
 
 Post-release commands:
   ghdocs - prepare documentation on the gh-pages branch
+  doczip - build a documentation zip archive for PyPI
 EOM
 }
 
@@ -239,6 +265,7 @@ while [[ -n "$1" ]]; do
     setup1) verify_setup 1 ;;
     setup2) verify_setup 2 ;;
     ghdocs) prepare_gh_pages ;;
+    doczip) build_doczip ;;
          *) echo "*** Unknown command '$1' ***"; usage ;;
   esac
   shift
