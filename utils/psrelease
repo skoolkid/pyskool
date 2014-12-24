@@ -178,6 +178,38 @@ verify_setup() {
 }
 
 ###############################################################################
+# Prepare documentation on the gh-pages branch
+###############################################################################
+prepare_gh_pages() {
+  _require_pyskool
+
+  _cd_tmpdir
+  logfile=$(pwd)/sphinx.log
+  echo -n "Cloning pyskool repository: "
+  git clone -q https://github.com/skoolkid/pyskool
+  echo "OK"
+  cd pyskool
+  sed -i 's/^\(SPHINXOPTS.*=\)$/\1 -D html_theme=sphinxdoc/' sphinx/Makefile
+  _exec "Building documentation" "make -C sphinx html" $logfile
+  git checkout -- sphinx/Makefile
+  rm -rf sphinx/build/html/{.buildinfo,objects.inv}
+  git checkout -q gh-pages
+  rsync -a sphinx/build/html/ .
+  rm -rf pyskool sphinx
+  echo
+  git status -bs
+  cat <<EOM
+
+Now:
+  \$ cd $(pwd)
+  # Remove any pages that are no longer used
+  # Add any new pages or files
+  \$ git commit -am "Update Pyskool documentation to $VERSION"
+  \$ git push origin gh-pages
+EOM
+}
+
+###############################################################################
 # Print usage information
 ###############################################################################
 usage() {
@@ -189,6 +221,9 @@ Pyskool testing and release tool.
 Pre-release commands:
   setup1 - verify that 'setup.py install' works from a release tarball
   setup2 - verify that 'setup.py install' works from an sdist tarball
+
+Post-release commands:
+  ghdocs - prepare documentation on the gh-pages branch
 EOM
 }
 
@@ -203,6 +238,7 @@ while [[ -n "$1" ]]; do
   case "$1" in
     setup1) verify_setup 1 ;;
     setup2) verify_setup 2 ;;
+    ghdocs) prepare_gh_pages ;;
          *) echo "*** Unknown command '$1' ***"; usage ;;
   esac
   shift
