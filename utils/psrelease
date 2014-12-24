@@ -2,6 +2,7 @@
 set -e # Abort on errors
 
 PSTMPDIR=$HOME/tmp
+COMMANDS=$(echo {skool_daze{,_take_too},back_to_skool{,_daze},ezad_looks}.py)
 
 ###############################################################################
 # Check PYSKOOL_HOME environment variable
@@ -44,11 +45,11 @@ _cd_tmpdir() {
 _create_venv() {
   venvdir=${1:-venv}
 
-  _exec "Creating virtual environment" "virtualenv --quiet --system-site-packages $venvdir" $(pwd)/venv.log
+  _exec "Creating virtual environment" "virtualenv --system-site-packages $venvdir" $(pwd)/venv.log
 }
 
 _build_tarball() {
-  echo -n "Building tarball for version $VERSION of Pyskool: "
+  echo -n "Building $(basename $TARBALL): "
   $TOOLS/mkpstarball -q -t
   echo "OK"
 }
@@ -57,14 +58,14 @@ _check_commands() {
   path=$1
   logdir=$2
 
-  for cmdname in {skool_daze{,_take_too},back_to_skool{,_daze},ezad_looks}.py; do
-    echo -n "Running $cmdname: "
+  for cmdname in $COMMANDS; do
+    echo -n "Running '$cmdname --help': "
     cmd=$path/$cmdname
     if [[ ! -f $cmd ]]; then
       echo "FAILED ($cmd not found)"
       return 1
     fi
-    logfile=$logdir/$cmdname.log
+    logfile=$logdir/$(basename $cmdname .py)-help.log
     $cmd --help &> $logfile || :
     firstword=$(head -n 1 $logfile | cut -f1 -d' ')
     if [[ "$firstword" != "usage:" ]]; then
@@ -113,6 +114,26 @@ _check_data() {
   _check_files data $rootdir $logdir {images,pyskool}.ini
 }
 
+_check_setup() {
+  path=$1
+  logdir=$2
+
+  for cmdname in $COMMANDS; do
+    logfile=$logdir/$(basename $cmdname .py)-setup.log
+    _exec "Running '$cmdname --setup'" "$path/$cmdname --setup" $logfile
+  done
+}
+
+_run_commands() {
+  path=$1
+  logdir=$2
+
+  for cmdname in $COMMANDS; do
+    logfile=$logdir/$(basename $cmdname .py).log
+    _exec "Running $cmdname" "$path/$cmdname" $logfile
+  done
+}
+
 ###############################################################################
 # Verify that 'setup.py install' works
 ###############################################################################
@@ -137,15 +158,23 @@ verify_setup() {
 
   _require_pyskool
 
+  _build_tarball
   _cd_tmpdir
   topdir=$(pwd)
   venv=$topdir/venv
   _create_venv $venv
-  _build_tarball
   _install_pyskool $method
   _check_commands $venv/bin $topdir
   packagedir=$($venv/bin/skool_daze.py --package-dir)
   _check_data $packagedir/data $topdir
+
+  [[ -d $HOME/.pyskool ]] && mv $HOME/.pyskool{,-backup}
+
+  _check_setup $venv/bin $topdir
+  _run_commands $venv/bin $topdir
+
+  rm -rf $HOME/.pyskool
+  [[ -d $HOME/.pyskool-backup ]] && mv $HOME/.pyskool{-backup,}
 }
 
 ###############################################################################
