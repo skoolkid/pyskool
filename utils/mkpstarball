@@ -11,7 +11,6 @@ Usage: $(basename $0) [options]
 
 Options:
   -h  Show this help
-  -p  Use setup-pkg.py (for building a DEB or RPM package)
   -q  Be quiet
   -t  Write only the release tarball
 EOF
@@ -40,12 +39,10 @@ PKGDIR=$PKGNAME
 
 VERBOSE=1
 WRITE_ZIP=1
-SETUP=setup.py
 
 while getopts ":hpqt" opt; do
   case $opt in
     h) usage ;;
-    p) SETUP=setup-pkg.py; PKGNAME=pyskool-pkg-$VERSION ;;
     q) VERBOSE=0 ;;
     t) WRITE_ZIP=0 ;;
   esac
@@ -59,11 +56,10 @@ rm -rf ${ABSDIR}
 DOCSDIR=${ABSDIR}/docs
 mkdir -p $DOCSDIR
 
-rsync -aR COPYING MANIFEST.in images.ini pyskool.ini pyskool/*.py $ABSDIR
+rsync -aR COPYING MANIFEST.in setup.py pyskool/data/{images,pyskool}.ini pyskool/*.py $ABSDIR
 for p in skool_daze{,_take_too} back_to_skool{,_daze} ezad_looks; do
   cp -p pyskool.py $ABSDIR/${p}.py
 done
-cp -a $SETUP $ABSDIR/setup.py
 
 # Images
 $UTILS/create-images.py -q $ABSDIR

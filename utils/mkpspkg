@@ -23,13 +23,13 @@ if [ ! -d "$PYSKOOL_HOME" ]; then
 fi
 
 cd $PYSKOOL_HOME
-VERSION=$(./pyskool.py --version | cut -f1 -d' ')
-PYSKOOL_TAR=pyskool-pkg-$VERSION.tar.xz
+VERSION=$(./pyskool.py --version 2>&1)
+PYSKOOL_TAR=pyskool-$VERSION.tar.xz
 if [ -f "dist/$PYSKOOL_TAR" ]; then
   echo "Using existing $PYSKOOL_TAR"
 else
   echo "Building $PYSKOOL_TAR"
-  utils/mkpstarball -q -t -p
+  utils/mkpstarball -q -t
 fi
 
 if [ "$PKGTYPE" = "deb" ]; then

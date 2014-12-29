@@ -46,7 +46,7 @@ Options:
 # Begin
 ###############################################################################
 odir, verbose = parse_args(sys.argv[1:])
-images_ini = os.path.join(PYSKOOL_HOME, 'images.ini')
+images_ini = '{}/pyskool/data/images.ini'.format(PYSKOOL_HOME)
 get_images(images_ini, SKOOL_DAZE, 0, odir, verbose)
 get_images(images_ini, SKOOL_DAZE, 1, odir, verbose)
 get_images(images_ini, SKOOL_DAZE, 2, odir, verbose)
