@@ -297,6 +297,21 @@ build_sdist() {
 }
 
 ###############################################################################
+# Verify that Pyskool can be installed from PyPI
+###############################################################################
+check_pypi() {
+  _cd_tmpdir
+  _create_venv
+  _exec "Installing Pyskool from PyPI" "venv/bin/pip install pyskool" $(pwd)/install.log
+
+  [[ -d $HOME/.pyskool ]] && mv $HOME/.pyskool{,-backup}
+  _check_setup venv/bin $(pwd)
+  _run_commands venv/bin $(pwd)
+  rm -rf $HOME/.pyskool
+  [[ -d $HOME/.pyskool-backup ]] && mv $HOME/.pyskool{-backup,}
+}
+
+###############################################################################
 # Build a documentation zip archive for PyPI
 ###############################################################################
 build_doczip() {
@@ -339,6 +354,7 @@ Post-release commands:
   rpmpkg - build, install, verify and uninstall an RPM package
   ghdocs - prepare documentation on the gh-pages branch
   bsdist - build a source package for uploading to PyPI
+  ifpypi - verify that Pyskool can be installed from PyPI
   doczip - build a documentation zip archive for PyPI
 EOM
 }
@@ -358,6 +374,7 @@ while [[ -n "$1" ]]; do
     rpmpkg) build_rpm ;;
     ghdocs) prepare_gh_pages ;;
     bsdist) build_sdist ;;
+    ifpypi) check_pypi ;;
     doczip) build_doczip ;;
          *) echo "*** Unknown command '$1' ***"; usage ;;
   esac
