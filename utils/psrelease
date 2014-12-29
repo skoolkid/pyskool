@@ -219,6 +219,35 @@ build_deb() {
 }
 
 ###############################################################################
+# Build, install, verify and uninstall an RPM package
+###############################################################################
+build_rpm() {
+  _require_pyskool
+
+  rpmname=pyskool-$VERSION-1.noarch.rpm
+  rpm=$PYSKOOL_HOME/dist/$rpmname
+  logdir=$PYSKOOL_HOME/dist
+  mkdir -p $logdir
+
+  sudo rpm -e pyskool &> /dev/null || true
+
+  _exec "Building $rpmname" "make -C $PYSKOOL_HOME rpm" $logdir/rpmbuild.log
+  _exec "Installing $rpmname" "sudo rpm -i $rpm" $logdir/rpm-i.log
+  _check_commands /usr/bin $logdir
+  _check_man_pages
+  _check_data $(/usr/bin/skool_daze.py --package-dir)/data $logdir
+
+  [[ -d $HOME/.pyskool ]] && mv $HOME/.pyskool{,-backup}
+  _run_commands /usr/bin $logdir
+  rm -rf $HOME/.pyskool
+  [[ -d $HOME/.pyskool-backup ]] && mv $HOME/.pyskool{-backup,}
+
+  _exec "Uninstalling pyskool" "sudo rpm -e pyskool" $logdir/rpm-e.log
+
+  echo "Now upload $rpm to pyskool.ca"
+}
+
+###############################################################################
 # Prepare documentation on the gh-pages branch
 ###############################################################################
 prepare_gh_pages() {
@@ -290,6 +319,7 @@ Pre-release commands:
 
 Post-release commands:
   debpkg - build, install, verify and uninstall a DEB package
+  rpmpkg - build, install, verify and uninstall an RPM package
   ghdocs - prepare documentation on the gh-pages branch
   doczip - build a documentation zip archive for PyPI
 EOM
@@ -307,6 +337,7 @@ while [[ -n "$1" ]]; do
     setup1) verify_setup 1 ;;
     setup2) verify_setup 2 ;;
     debpkg) build_deb ;;
+    rpmpkg) build_rpm ;;
     ghdocs) prepare_gh_pages ;;
     doczip) build_doczip ;;
          *) echo "*** Unknown command '$1' ***"; usage ;;
