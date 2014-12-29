@@ -76,6 +76,18 @@ _check_commands() {
   done
 }
 
+_check_man_pages() {
+  echo -n "Checking man pages: "
+  for cmdname in $COMMANDS; do
+    manpage=/usr/share/man/man6/$cmdname.6.gz
+    if [[ ! -f $manpage ]]; then
+      echo "FAILED ($manpage not found)"
+      return 1
+    fi
+  done
+  echo "OK"
+}
+
 _check_files() {
   filetype=$1
   expdir=$2
@@ -178,6 +190,35 @@ verify_setup() {
 }
 
 ###############################################################################
+# Build, install, verify and uninstall a DEB package
+###############################################################################
+build_deb() {
+  _require_pyskool
+
+  debname=pyskool_$VERSION-1_all.deb
+  deb=$PYSKOOL_HOME/dist/$debname
+  logdir=$PYSKOOL_HOME/dist
+  mkdir -p $logdir
+
+  sudo dpkg -r pyskool &> /dev/null
+
+  _exec "Building $debname" "make -C $PYSKOOL_HOME deb" $logdir/debuild.log
+  _exec "Installing $debname" "sudo dpkg -i $deb" $logdir/dpkg-i.log
+  _check_commands /usr/games $logdir
+  _check_man_pages
+  _check_data $(/usr/games/skool_daze.py --package-dir)/data $logdir
+
+  [[ -d $HOME/.pyskool ]] && mv $HOME/.pyskool{,-backup}
+  _run_commands /usr/games $logdir
+  rm -rf $HOME/.pyskool
+  [[ -d $HOME/.pyskool-backup ]] && mv $HOME/.pyskool{-backup,}
+
+  _exec "Uninstalling pyskool" "sudo dpkg -r pyskool" $logdir/dpkg-r.log
+
+  echo "Now upload $deb to pyskool.ca"
+}
+
+###############################################################################
 # Prepare documentation on the gh-pages branch
 ###############################################################################
 prepare_gh_pages() {
@@ -248,6 +289,7 @@ Pre-release commands:
   setup2 - verify that 'setup.py install' works from an sdist tarball
 
 Post-release commands:
+  debpkg - build, install, verify and uninstall a DEB package
   ghdocs - prepare documentation on the gh-pages branch
   doczip - build a documentation zip archive for PyPI
 EOM
@@ -264,6 +306,7 @@ while [[ -n "$1" ]]; do
   case "$1" in
     setup1) verify_setup 1 ;;
     setup2) verify_setup 2 ;;
+    debpkg) build_deb ;;
     ghdocs) prepare_gh_pages ;;
     doczip) build_doczip ;;
          *) echo "*** Unknown command '$1' ***"; usage ;;
