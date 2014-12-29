@@ -280,6 +280,23 @@ EOM
 }
 
 ###############################################################################
+# Build a source package for uploading to PyPI
+###############################################################################
+build_sdist() {
+  _require_pyskool
+
+  [[ -f $TARBALL ]] && echo "Found $TARBALL" || _build_tarball
+  _cd_tmpdir
+  logfile=$(pwd)/sdist.log
+  tar xf $TARBALL
+  cd pyskool-$VERSION
+  _exec "Building source package" "./setup.py sdist" $logfile
+  sdist=pyskool-$VERSION.tar.gz
+  mv dist/$sdist $PYSKOOL_HOME/dist
+  echo "Now upload $PYSKOOL_HOME/dist/$sdist to PyPI"
+}
+
+###############################################################################
 # Build a documentation zip archive for PyPI
 ###############################################################################
 build_doczip() {
@@ -321,6 +338,7 @@ Post-release commands:
   debpkg - build, install, verify and uninstall a DEB package
   rpmpkg - build, install, verify and uninstall an RPM package
   ghdocs - prepare documentation on the gh-pages branch
+  bsdist - build a source package for uploading to PyPI
   doczip - build a documentation zip archive for PyPI
 EOM
 }
@@ -339,6 +357,7 @@ while [[ -n "$1" ]]; do
     debpkg) build_deb ;;
     rpmpkg) build_rpm ;;
     ghdocs) prepare_gh_pages ;;
+    bsdist) build_sdist ;;
     doczip) build_doczip ;;
          *) echo "*** Unknown command '$1' ***"; usage ;;
   esac
