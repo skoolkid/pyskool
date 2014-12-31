@@ -19,6 +19,8 @@ _require_pyskool() {
   TOOLS=$PYSKOOL_HOME/utils
   VERSION=$($PYSKOOL_HOME/pyskool.py --version 2>&1)
   TARBALL=$PYSKOOL_HOME/dist/pyskool-$VERSION.tar.xz
+  cd $PYSKOOL_HOME
+  PREV_VERSION=$(git tag | tail -n 1 | cut -c2-)
 }
 
 _require_pyskool_archive() {
@@ -176,15 +178,46 @@ compare_images() {
   _require_pyskool_archive
   _require_skoolkit
 
-  cd $PYSKOOL_HOME
-  prev_version=$(git tag | tail -n 1 | cut -c2-)
   _build_tarball
   _cd_tmpdir
-  tar xf $PYSKOOL_ARCHIVE/pyskool-$prev_version.tar.xz
+  tar xf $PYSKOOL_ARCHIVE/pyskool-$PREV_VERSION.tar.xz
   tar xf $TARBALL
-  cmd="$TOOLS/compare-images pyskool-$prev_version pyskool-$VERSION"
+  cmd="$TOOLS/compare-images pyskool-$PREV_VERSION pyskool-$VERSION"
   logfile=$(pwd)/images.txt
-  _exec "Comparing images with those in version $prev_version" "$cmd" $logfile
+  _exec "Comparing images with those in version $PREV_VERSION" "$cmd" $logfile
+  [[ -s $logfile ]] && echo "Differences found (see $logfile)" || echo "No differences found"
+}
+
+###############################################################################
+# Compare sounds with those in the previous version
+###############################################################################
+_create_sounds() {
+  rootdir=$1
+  version=$2
+
+  for cmdname in $COMMANDS; do
+    cmd="$rootdir/$cmdname --create-sounds"
+    logfile=$(pwd)/$(basename $cmdname .py)-sounds-$version.txt
+    _exec "Running '$cmdname --create-sounds' ($version)" "$cmd" $logfile
+  done
+  mv ~/.pyskool/sounds sounds-$version
+}
+
+compare_sounds() {
+  _require_pyskool
+  _require_pyskool_archive
+
+  _cd_tmpdir
+
+  [[ -d $HOME/.pyskool/sounds ]] && mv $HOME/.pyskool/sounds{,-backup}
+  _create_sounds $PYSKOOL_HOME $VERSION
+  tar xf $PYSKOOL_ARCHIVE/pyskool-$PREV_VERSION.tar.xz
+  _create_sounds pyskool-$PREV_VERSION $PREV_VERSION
+  [[ -d $HOME/.pyskool/sounds-backup ]] && mv $HOME/.pyskool/sounds{-backup,}
+
+  cmd="$PYSKOOL_HOME/utils/compare-sounds sounds-$PREV_VERSION sounds-$VERSION"
+  logfile=$(pwd)/sounds.txt
+  _exec "Comparing sounds" "$cmd" $logfile
   [[ -s $logfile ]] && echo "Differences found (see $logfile)" || echo "No differences found"
 }
 
@@ -389,6 +422,7 @@ Pyskool testing and release tool.
 
 Pre-release commands:
   cmpimg - compare images with those in the previous version
+  cmpsnd - compare sounds with those in the previous version
   setup1 - verify that 'setup.py install' works from a release tarball
   setup2 - verify that 'setup.py install' works from an sdist tarball
 
@@ -412,6 +446,7 @@ while [[ -n "$1" ]]; do
   [[ $numcommands -ge 2 ]] && echo "*** Running command '$1' ***"
   case "$1" in
     cmpimg) compare_images ;;
+    cmpsnd) compare_sounds ;;
     setup1) verify_setup 1 ;;
     setup2) verify_setup 2 ;;
     debpkg) build_deb ;;

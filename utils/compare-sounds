@@ -24,9 +24,9 @@ for d in "$olddir" "$newdir"; do
   fi
 done
 
-for d in back_to_skool common skool_daze; do
-  for oldwav in $olddir/sounds/$d/*.wav; do
-    newwav=$newdir/sounds/$d/$(basename $oldwav)
+for d in back_to_skool{,_daze} common ezad_looks skool_daze{,_take_too}; do
+  for oldwav in $olddir/$d/*.wav; do
+    newwav=$newdir/$d/$(basename $oldwav)
     if ! cmp -s $oldwav $newwav; then
       $ANALYSE_WAV -d $oldwav $newwav
     fi
