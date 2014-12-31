@@ -5,7 +5,7 @@ PSTMPDIR=$HOME/tmp
 COMMANDS=$(echo {skool_daze{,_take_too},back_to_skool{,_daze},ezad_looks}.py)
 
 ###############################################################################
-# Check PYSKOOL_HOME environment variable
+# Check required environment variables
 ###############################################################################
 _require_pyskool() {
   if [ -z "$PYSKOOL_HOME" ]; then
@@ -19,6 +19,28 @@ _require_pyskool() {
   TOOLS=$PYSKOOL_HOME/utils
   VERSION=$($PYSKOOL_HOME/pyskool.py --version 2>&1)
   TARBALL=$PYSKOOL_HOME/dist/pyskool-$VERSION.tar.xz
+}
+
+_require_pyskool_archive() {
+  if [ -z "$PYSKOOL_ARCHIVE" ]; then
+    echo 'PYSKOOL_ARCHIVE is not set; aborting'
+    exit 1
+  fi
+  if [ ! -d "$PYSKOOL_ARCHIVE" ]; then
+    echo "PYSKOOL_ARCHIVE=$PYSKOOL_ARCHIVE: directory not found"
+    exit 1
+  fi
+}
+
+_require_skoolkit() {
+  if [ -z "$SKOOLKIT_HOME" ]; then
+    echo "Error: SKOOLKIT_HOME not defined."
+    exit 1
+  fi
+  if [ ! -d "$SKOOLKIT_HOME" ]; then
+    echo "Error: directory not found: $SKOOLKIT_HOME"
+    exit 1
+  fi
 }
 
 ###############################################################################
@@ -144,6 +166,26 @@ _run_commands() {
     logfile=$logdir/$(basename $cmdname .py).log
     _exec "Running $cmdname" "$path/$cmdname" $logfile
   done
+}
+
+###############################################################################
+# Compare images with those in the previous version
+###############################################################################
+compare_images() {
+  _require_pyskool
+  _require_pyskool_archive
+  _require_skoolkit
+
+  cd $PYSKOOL_HOME
+  prev_version=$(git tag | tail -n 1 | cut -c2-)
+  _build_tarball
+  _cd_tmpdir
+  tar xf $PYSKOOL_ARCHIVE/pyskool-$prev_version.tar.xz
+  tar xf $TARBALL
+  cmd="$TOOLS/compare-images pyskool-$prev_version pyskool-$VERSION"
+  logfile=$(pwd)/images.txt
+  _exec "Comparing images with those in version $prev_version" "$cmd" $logfile
+  [[ -s $logfile ]] && echo "Differences found (see $logfile)" || echo "No differences found"
 }
 
 ###############################################################################
@@ -346,6 +388,7 @@ Usage: $(basename $0) COMMAND [COMMAND...]
 Pyskool testing and release tool.
 
 Pre-release commands:
+  cmpimg - compare images with those in the previous version
   setup1 - verify that 'setup.py install' works from a release tarball
   setup2 - verify that 'setup.py install' works from an sdist tarball
 
@@ -368,6 +411,7 @@ numcommands=$#
 while [[ -n "$1" ]]; do
   [[ $numcommands -ge 2 ]] && echo "*** Running command '$1' ***"
   case "$1" in
+    cmpimg) compare_images ;;
     setup1) verify_setup 1 ;;
     setup2) verify_setup 2 ;;
     debpkg) build_deb ;;

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-if [ -z "$DISASSEMBLIES_HOME" ]; then
-  echo "Error: DISASSEMBLIES_HOME not defined."
+if [ -z "$SKOOLKIT_HOME" ]; then
+  echo "Error: SKOOLKIT_HOME not defined"
   exit 1
 fi
-if [ ! -d "$DISASSEMBLIES_HOME" ]; then
-  echo "Error: directory not found: $DISASSEMBLIES_HOME"
+if [ ! -d "$SKOOLKIT_HOME" ]; then
+  echo "Error: directory not found: $SKOOLKIT_HOME"
   exit 1
 fi
-ANALYSE_PNG=$DISASSEMBLIES_HOME/utils/analyse-png.py
+ANALYSE_PNG=$SKOOLKIT_HOME/tools/analyse-png.py
 
 if [ $# -ne 2 ]; then
   echo "Usage: $(basename $0) OLDDIR NEWDIR" 1>&2
