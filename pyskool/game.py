@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2012-2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2012-2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -98,7 +98,6 @@ class Game:
 
         builder = skoolbuilder.SkoolBuilder(ini_dir)
         builder.sections['ExtraConfig'] = options.config or []
-        builder.section_names.append('ExtraConfig')
         config = builder.get_config('[A-Za-z]+Config')
         self.scale = options.scale or config.get('Scale', 2)
         self.cheat = options.cheat or config.get('Cheat', 0)
