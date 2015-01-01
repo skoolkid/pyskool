@@ -1,4 +1,3 @@
 include COPYING
-recursive-include pyskool *.py
 graft docs
 graft man
