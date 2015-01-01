@@ -52,11 +52,14 @@ _exec() {
   message=$1
   command=$2
   logfile=$3
+  failcode=$4
 
   echo -n "${message}: "
   if ! $command &> $logfile; then
-    echo "FAILED (see $logfile)"
-    return 1
+    if [[ -z "$failcode" ]] || [[ $? -eq "$failcode" ]]; then
+      echo "FAILED (see $logfile)"
+      return 1
+    fi
   fi
   echo "OK"
 }
@@ -218,6 +221,39 @@ compare_sounds() {
   cmd="$PYSKOOL_HOME/utils/compare-sounds sounds-$PREV_VERSION sounds-$VERSION"
   logfile=$(pwd)/sounds.txt
   _exec "Comparing sounds" "$cmd" $logfile
+  [[ -s $logfile ]] && echo "Differences found (see $logfile)" || echo "No differences found"
+}
+
+###############################################################################
+# Compare ini files with those in the previous version
+###############################################################################
+_create_ini() {
+  rootdir=$1
+  version=$2
+
+  for cmdname in $COMMANDS; do
+    cmd="$rootdir/$cmdname --create-ini"
+    logfile=$(pwd)/$(basename $cmdname .py)-ini-$version.txt
+    _exec "Running '$cmdname --create-ini' ($version)" "$cmd" $logfile
+  done
+  mv ~/.pyskool/ini ini-$version
+}
+
+compare_ini() {
+  _require_pyskool
+  _require_pyskool_archive
+
+  _cd_tmpdir
+
+  [[ -d $HOME/.pyskool/ini ]] && mv $HOME/.pyskool/ini{,-backup}
+  _create_ini $PYSKOOL_HOME $VERSION
+  tar xf $PYSKOOL_ARCHIVE/pyskool-$PREV_VERSION.tar.xz
+  _create_ini pyskool-$PREV_VERSION $PREV_VERSION
+  [[ -d $HOME/.pyskool/ini-backup ]] && mv $HOME/.pyskool/ini{-backup,}
+
+  cmd="diff -ur ini-$PREV_VERSION ini-$VERSION"
+  logfile=$(pwd)/ini.diff
+  _exec "Comparing ini files" "$cmd" $logfile 2
   [[ -s $logfile ]] && echo "Differences found (see $logfile)" || echo "No differences found"
 }
 
@@ -423,6 +459,7 @@ Pyskool testing and release tool.
 Pre-release commands:
   cmpimg - compare images with those in the previous version
   cmpsnd - compare sounds with those in the previous version
+  cmpini - compare ini files with those in the previous version
   setup1 - verify that 'setup.py install' works from a release tarball
   setup2 - verify that 'setup.py install' works from an sdist tarball
 
@@ -447,6 +484,7 @@ while [[ -n "$1" ]]; do
   case "$1" in
     cmpimg) compare_images ;;
     cmpsnd) compare_sounds ;;
+    cmpini) compare_ini ;;
     setup1) verify_setup 1 ;;
     setup2) verify_setup 2 ;;
     debpkg) build_deb ;;
