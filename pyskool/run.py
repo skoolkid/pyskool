@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2008-2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -61,7 +61,7 @@ def find(name, search_dirs, directory=False):
 def find_dir(dname, search_dirs):
     return find(dname, search_dirs, True)
 
-def main():
+def main(scripts_dir):
     names = {}
     names['skool_daze.py'] = 'Skool Daze'
     names['back_to_skool.py'] = 'Back to Skool'
@@ -122,7 +122,6 @@ def main():
         os.path.join(os.sep, 'usr', 'share', 'pyskool'),
         os.path.join(package_dir, 'data')
     ]
-    scripts_dir = os.path.abspath(os.path.dirname(__file__))
     if scripts_dir not in search_dirs:
         search_dirs.insert(1, scripts_dir)
 
