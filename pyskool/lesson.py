@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -466,7 +466,7 @@ class QAGenerator:
         :return: A 2-tuple containing the question and the answer.
         """
         if not qa_group:
-            qa_group = random.choice(self.questions.keys())
+            qa_group = random.choice(list(self.questions.keys()))
         question_id, question = random.choice(self.questions.get(qa_group, [(None, None)]))
         answer = self.answers.get(question_id)
         if not self.remaining[qa_group]:
