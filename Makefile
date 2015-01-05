@@ -21,7 +21,7 @@ scripts:
 .PHONY: images
 images:
 	mkdir -p ~/.pyskool
-	PYSKOOL_HOME=. utils/create-images.py ~/.pyskool
+	PYSKOOL_HOME=$$(pwd) utils/create-images.py ~/.pyskool
 
 .PHONY: ini
 ini:
