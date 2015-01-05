@@ -56,7 +56,8 @@ rm -rf ${ABSDIR}
 DOCSDIR=${ABSDIR}/docs
 mkdir -p $DOCSDIR
 
-rsync -aR COPYING MANIFEST.in setup.py pyskool/data/{images,pyskool}.ini pyskool/*.py $ABSDIR
+rsync -aR COPYING MANIFEST.in setup.py pyskool/data/{images,pyskool}.ini \
+  pyskool/*.py xdg/pyskool.appdata.xml $ABSDIR
 for p in skool_daze{,_take_too} back_to_skool{,_daze} ezad_looks; do
   cp -p pyskool.py $ABSDIR/${p}.py
 done

@@ -3,3 +3,4 @@ images /usr/share/pyskool
 ini /usr/share/pyskool
 sounds /usr/share/pyskool
 man/man6/*.6 /usr/share/man/man6
+xdg/pyskool.appdata.xml /usr/share/appdata

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>pyskool.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <name>Pyskool</name>
+  <summary>Remake of Skool Daze and Back to Skool</summary>
+  <description>
+    <p>
+      Pyskool is a faithful re-implementation of the classic ZX Spectrum games
+      Skool Daze and Back to Skool.  
+    </p>
+    <p>
+      Each game revolves around the antics of Eric, the hero. In Skool Daze,
+      Eric must steal his report card from the school safe - the combination of
+      which must be extracted from the teachers' brains using flashing shields
+      or, in the case of the history teacher, post-hypnotic suggestion. In Back
+      to Skool, Eric must get his report card back into the school safe, this
+      time with the extra help provided by a water pistol, stinkbombs, a bike,
+      mice, a frog and a girlfriend.
+    </p>
+  </description>
+  <screenshots>
+    <screenshot type="default">
+      <image>http://pyskool.ca/xdg/pyskool.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">http://pyskool.ca/</url>
+  <updatecontact>rjdymond@gmail.com</updatecontact>
+</component>

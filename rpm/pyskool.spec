@@ -35,12 +35,15 @@ install -d %{buildroot}%{_mandir}/man6
 cp -p man/man6/*.6 %{buildroot}%{_mandir}/man6
 install -d %{buildroot}%{_datadir}/%{name}
 cp -a icon.png ini images sounds %{buildroot}%{_datadir}/%{name}
+install -d %{buildroot}%{_datadir}/appdata
+cp -p xdg/pyskool.appdata.xml %{buildroot}%{_datadir}/appdata
 
 %files
 %doc COPYING docs/*
 %{_bindir}/*
 %{_mandir}/man6/*
 %{_datadir}/%{name}/*
+%{_datadir}/appdata/*
 %{python_sitelib}/*
 
 %changelog
