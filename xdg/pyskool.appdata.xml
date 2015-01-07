@@ -21,7 +21,13 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>http://pyskool.ca/xdg/pyskool.png</image>
+      <image>http://pyskool.ca/xdg/pyskool-1.png</image>
+    </screenshot>
+    <screenshot>
+      <image>http://pyskool.ca/xdg/pyskool-2.png</image>
+    </screenshot>
+    <screenshot>
+      <image>http://pyskool.ca/xdg/pyskool-3.png</image>
     </screenshot>
   </screenshots>
   <url type="homepage">http://pyskool.ca/</url>
