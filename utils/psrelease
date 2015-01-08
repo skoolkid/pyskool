@@ -3,6 +3,23 @@ set -e # Abort on errors
 
 PSTMPDIR=$HOME/tmp
 COMMANDS=$(echo {skool_daze{,_take_too},back_to_skool{,_daze},ezad_looks}.py)
+SHARE=/usr/share/pyskool
+
+COMMON_IMAGES=$(echo {font,sprites}.png)
+SKOOL_DAZE_IMAGES=$(echo {bubble,logo,{message_,lesson_,score}box,{mutables,skool}{,_ink,_paper}}.png)
+BACK_TO_SKOOL_IMAGES=$(echo {bubble,inventory,logo,{message_,lesson_,score}box,{mutables,skool}{,_ink,_paper}}.png)
+SKOOL_DAZE_TAKE_TOO_IMAGES=logo.png
+BACK_TO_SKOOL_DAZE_IMAGES=$(echo {logo,{mutables,skool}{,_ink,_paper}}.png)
+EZAD_LOOKS_IMAGES=$(echo {logo,{mutables,skool}{,_ink,_paper}}.png)
+
+COMMON_SOUNDS="catapult.wav knocked-out.ogg"
+SKOOL_DAZE_SOUNDS=$(echo {all-shields,bell,lines{1,2},shield,tune}.ogg {{hit,walk}{0,1},jump}.wav)
+BACK_TO_SKOOL_SOUNDS=$(echo {bell,bingo,conker,lines{1,2},mouse,safe-key,sherry,tune,up-a-year}.ogg walk{0,1,2,3}.wav)
+SKOOL_DAZE_TAKE_TOO_SOUNDS=$(echo {all-shields,open-safe,tune,up-a-year}.ogg)
+BACK_TO_SKOOL_DAZE_SOUNDS=$(echo {all-shields,open-safe,tune,up-a-year}.ogg)
+EZAD_LOOKS_SOUNDS=$(echo {all-shields,open-safe,tune,up-a-year}.ogg)
+
+INI_FILES=$(echo {command_lists,config,font,lessons,messages,skool,sprites}.ini)
 
 ###############################################################################
 # Check required environment variables
@@ -137,9 +154,9 @@ _check_files() {
     fi
     let rcount+=1
   done
-  rlist=$logdir/$filetype.txt
+  rlist=$logdir/$(echo $filetype | tr ' ' _).txt
   ls -1 $expdir > $rlist
-  numresources=$(cat $rlist | grep -v examples | wc -l)
+  numresources=$(cat $rlist | grep -Ev '^(images|ini|sounds)$' | wc -l)
   if [[ $numresources -ne $rcount ]]; then
     echo "FAILED (unexpected files found; see $rlist)"
     return 1
@@ -152,6 +169,53 @@ _check_data() {
   logdir=$2
 
   _check_files data $rootdir $logdir {images,pyskool}.ini
+}
+
+_check_images() {
+  logdir=$1
+
+  imagesdir=$SHARE/images/originalx1
+
+  _check_files "icon" $SHARE $logdir icon.png
+  _check_files "common images" $imagesdir/common $logdir $COMMON_IMAGES
+  _check_files "Skool Daze images" $imagesdir/skool_daze $logdir $SKOOL_DAZE_IMAGES
+  _check_files "Back to Skool images" $imagesdir/back_to_skool $logdir $BACK_TO_SKOOL_IMAGES
+  _check_files "Skool Daze Take Too images" $imagesdir/skool_daze_take_too $logdir $SKOOL_DAZE_TAKE_TOO_IMAGES
+  _check_files "Back to Skool Daze images" $imagesdir/back_to_skool_daze $logdir $BACK_TO_SKOOL_DAZE_IMAGES
+  _check_files "Ezad Looks images" $imagesdir/ezad_looks $logdir $EZAD_LOOKS_IMAGES
+}
+
+_check_sounds() {
+  logdir=$1
+
+  soundsdir=$SHARE/sounds
+
+  _check_files "common sounds" $soundsdir/common $logdir $COMMON_SOUNDS
+  _check_files "Skool Daze sounds" $soundsdir/skool_daze $logdir $SKOOL_DAZE_SOUNDS
+  _check_files "Back to Skool sounds" $soundsdir/back_to_skool $logdir $BACK_TO_SKOOL_SOUNDS
+  _check_files "Skool Daze Take Too sounds" $soundsdir/skool_daze_take_too $logdir $SKOOL_DAZE_TAKE_TOO_SOUNDS
+  _check_files "Back to Skool Daze sounds" $soundsdir/back_to_skool_daze $logdir $BACK_TO_SKOOL_DAZE_SOUNDS
+  _check_files "Ezad Looks sounds" $soundsdir/ezad_looks $logdir $EZAD_LOOKS_SOUNDS
+}
+
+_check_ini_files() {
+  logdir=$1
+
+  inidir=$SHARE/ini
+
+  _check_files "Skool Daze ini files" $inidir/skool_daze $logdir $INI_FILES
+  _check_files "Back to Skool ini files" $inidir/back_to_skool $logdir $INI_FILES
+  _check_files "Skool Daze Take Too ini files" $inidir/skool_daze_take_too $logdir $INI_FILES
+  _check_files "Back to Skool Daze ini files" $inidir/back_to_skool_daze $logdir $INI_FILES
+  _check_files "Ezad Looks ini files" $inidir/ezad_looks $logdir $INI_FILES
+}
+
+_check_assets() {
+  logdir=$1
+
+  _check_images $logdir
+  _check_sounds $logdir
+  _check_ini_files $logdir
 }
 
 _check_setup() {
@@ -319,8 +383,9 @@ build_deb() {
   _check_commands /usr/games $logdir
   _check_man_pages
   _check_data $(/usr/games/skool_daze.py --package-dir)/data $logdir
+  _check_assets $logdir
 
-  [[ -d $HOME/.pyskool ]] && mv $HOME/.pyskool{,-backup}
+  [[ -d $HOME/.pyskool ]] && rm -rf $HOME/.pyskool-backup && mv $HOME/.pyskool{,-backup}
   _run_commands /usr/games $logdir
   rm -rf $HOME/.pyskool
   [[ -d $HOME/.pyskool-backup ]] && mv $HOME/.pyskool{-backup,}
@@ -348,8 +413,9 @@ build_rpm() {
   _check_commands /usr/bin $logdir
   _check_man_pages
   _check_data $(/usr/bin/skool_daze.py --package-dir)/data $logdir
+  _check_assets $logdir
 
-  [[ -d $HOME/.pyskool ]] && mv $HOME/.pyskool{,-backup}
+  [[ -d $HOME/.pyskool ]] && rm -rf $HOME/.pyskool-backup && mv $HOME/.pyskool{,-backup}
   _run_commands /usr/bin $logdir
   rm -rf $HOME/.pyskool
   [[ -d $HOME/.pyskool-backup ]] && mv $HOME/.pyskool{-backup,}
