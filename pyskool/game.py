@@ -521,15 +521,15 @@ class Menu:
     def get_operation(self, keyboard):
         """Return the operation to perform (which may be `None`)."""
         operation = None
-        if keyboard.was_pressed(keys.MENU_EXIT):
+        if keyboard.was_pressed(keys.MENU_EXIT, force_check=True):
             return RESUME
-        if keyboard.was_pressed(keys.MENU_PREV):
+        if keyboard.was_pressed(keys.MENU_PREV, force_check=True):
             self.selected_index -= 1
             operation = UPDATE
-        elif keyboard.was_pressed(keys.MENU_NEXT):
+        elif keyboard.was_pressed(keys.MENU_NEXT, force_check=True):
             self.selected_index += 1
             operation = UPDATE
-        elif keyboard.was_pressed(keys.MENU_EXEC):
+        elif keyboard.was_pressed(keys.MENU_EXEC, force_check=True):
             operation = self.items[self.selected_index][0]
         self.selected_index = self.selected_index % len(self.items)
         return operation
