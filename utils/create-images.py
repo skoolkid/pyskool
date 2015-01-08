@@ -12,6 +12,7 @@ if not os.path.isdir(PYSKOOL_HOME):
     sys.exit(1)
 sys.path.insert(0, PYSKOOL_HOME)
 
+from pyskool import user_dir
 from pyskool.image import get_images, SKOOL_DAZE, BACK_TO_SKOOL
 
 def parse_args(args):
@@ -47,6 +48,8 @@ Options:
 ###############################################################################
 odir, verbose = parse_args(sys.argv[1:])
 images_ini = '{}/pyskool/data/images.ini'.format(PYSKOOL_HOME)
+if not os.path.isdir(user_dir):
+    os.makedirs(user_dir)
 get_images(images_ini, SKOOL_DAZE, 0, odir, verbose)
 get_images(images_ini, SKOOL_DAZE, 1, odir, verbose)
 get_images(images_ini, SKOOL_DAZE, 2, odir, verbose)
