@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2013, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2013-2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -627,15 +627,14 @@ class Gallery:
     """A container for all the images used in a game.
 
     :param images_dir: The path to the `images` directory.
-    :type config: dict
-    :param config: Configuration parameters from the ini file.
+    :param image_set: The name of the set of images to use.
     :param scale: The desired scale of the images.
     :type images: dict
     :param images: Key-value pairs (image ID, path) from the `Images` section.
     """
-    def __init__(self, images_dir, config, scale, images):
+    def __init__(self, images_dir, image_set, scale, images):
         self.images_dir = images_dir
-        self.image_set = config.get('ImageSet', 'original')
+        self.image_set = image_set
         self.images = images
         self.reset(scale)
 

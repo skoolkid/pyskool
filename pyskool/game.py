@@ -114,7 +114,8 @@ class Game:
                 return
             debug.log('Unable to restore from %s: file not found' % sav_file)
 
-        gallery = Gallery(images_dir, config, self.scale, builder.get_config(skoolbuilder.IMAGES))
+        image_set = config.get('ImageSet', 'original')
+        gallery = Gallery(images_dir, image_set, self.scale, builder.get_config(skoolbuilder.IMAGES))
         title_prefix = 'Pyskool %s: ' % version
         self.screen = Screen(config, gallery, title_prefix)
         self.beeper = Beeper(sounds_dir, config)
