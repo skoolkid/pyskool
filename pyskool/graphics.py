@@ -885,9 +885,9 @@ class Font:
         the skool font.
 
         :param words: The message.
-        :param ink: RGB triplet
+        :type ink: RGB triplet
         :param ink: The desired ink colour.
-        :param paper: RGB triplet
+        :type paper: RGB triplet
         :param paper: The desired paper colour.
         """
         character_images = []
