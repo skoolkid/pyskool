@@ -400,11 +400,11 @@ class Game:
 
         :return: `True` if the game is quitting, `False` otherwise.
         """
-        if self.keyboard.was_pressed(keys.FULL_SCREEN):
+        if self.keyboard.was_pressed(keys.FULL_SCREEN, force_check=True):
             pygame.display.toggle_fullscreen()
             return False
 
-        if self.keyboard.was_pressed(keys.SCREENSHOT):
+        if self.keyboard.was_pressed(keys.SCREENSHOT, force_check=True):
             self._take_screenshot()
 
         if self.menu:
@@ -466,13 +466,13 @@ class Game:
         self.skool.draw()
         self.skool.scroll(self.scroll, self.clock)
 
-        if self.keyboard.was_pressed(keys.MENU):
+        if self.keyboard.was_pressed(keys.MENU, force_check=True):
             self.menu = self.menus['Main']
             self.menu.reset()
             self.screen.draw_menu(self.menu)
-        elif self.keyboard.was_pressed(keys.SAVE):
+        elif self.keyboard.was_pressed(keys.SAVE, force_check=True):
             self._save_game()
-        elif self.keyboard.was_pressed(keys.LOAD):
+        elif self.keyboard.was_pressed(keys.LOAD, force_check=True):
             self._load_last()
 
         return False

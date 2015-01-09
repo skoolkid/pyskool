@@ -4,6 +4,8 @@ Changelog
 1.2b1
 -----
 * Dropped support for Python 2.6 and Pygame 1.7
+* The Insert (screenshot), F2 (save), F6 (load), F11 (toggle full-screen mode)
+  and F12 (menu) keys now work when Eric is writing on a blackboard
 * Fixed the quit menu so that it works when Eric is writing on a blackboard
 
 1.1.2 (2014-06-14)
