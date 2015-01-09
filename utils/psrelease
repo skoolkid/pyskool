@@ -4,6 +4,7 @@ set -e # Abort on errors
 PSTMPDIR=$HOME/tmp
 COMMANDS=$(echo {skool_daze{,_take_too},back_to_skool{,_daze},ezad_looks}.py)
 SHARE=/usr/share/pyskool
+APPDATA=/usr/share/appdata/pyskool.appdata.xml
 
 COMMON_IMAGES=$(echo {font,sprites}.png)
 SKOOL_DAZE_IMAGES=$(echo {bubble,logo,{message_,lesson_,score}box,{mutables,skool}{,_ink,_paper}}.png)
@@ -218,6 +219,15 @@ _check_assets() {
   _check_ini_files $logdir
 }
 
+_check_appdata() {
+  echo -n "Checking $(basename $APPDATA): "
+  if [[ ! -f $APPDATA ]]; then
+    echo "FAILED ($APPDATA not found)"
+    return 1
+  fi
+  echo "OK"
+}
+
 _check_setup() {
   path=$1
   logdir=$2
@@ -373,7 +383,7 @@ build_deb() {
 
   debname=pyskool_$VERSION-1_all.deb
   deb=$PYSKOOL_HOME/dist/$debname
-  logdir=$PYSKOOL_HOME/dist
+  logdir=$PYSKOOL_HOME/dist/log
   mkdir -p $logdir
 
   sudo dpkg -r pyskool &> /dev/null
@@ -384,6 +394,7 @@ build_deb() {
   _check_man_pages
   _check_data $(/usr/games/skool_daze.py --package-dir)/data $logdir
   _check_assets $logdir
+  _check_appdata
 
   [[ -d $HOME/.pyskool ]] && rm -rf $HOME/.pyskool-backup && mv $HOME/.pyskool{,-backup}
   _run_commands /usr/games $logdir
@@ -403,7 +414,7 @@ build_rpm() {
 
   rpmname=pyskool-$VERSION-1.noarch.rpm
   rpm=$PYSKOOL_HOME/dist/$rpmname
-  logdir=$PYSKOOL_HOME/dist
+  logdir=$PYSKOOL_HOME/dist/log
   mkdir -p $logdir
 
   sudo rpm -e pyskool &> /dev/null || true
@@ -414,6 +425,7 @@ build_rpm() {
   _check_man_pages
   _check_data $(/usr/bin/skool_daze.py --package-dir)/data $logdir
   _check_assets $logdir
+  _check_appdata
 
   [[ -d $HOME/.pyskool ]] && rm -rf $HOME/.pyskool-backup && mv $HOME/.pyskool{,-backup}
   _run_commands /usr/bin $logdir
