@@ -1,7 +1,7 @@
 %{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
 
 Name:           pyskool
-Version:        1.1.2
+Version:        %($PYSKOOL_HOME/pyskool.py --version 2>&1)
 Release:        1
 Summary:        Remake of Skool Daze and Back to Skool in Python and Pygame
 
