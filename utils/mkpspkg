@@ -44,7 +44,7 @@ if [ "$PKGTYPE" = "deb" ]; then
 elif [ "$PKGTYPE" = "rpm" ]; then
   cp -p dist/$PYSKOOL_TAR ~/rpmbuild/SOURCES/pyskool-$VERSION.tar.xz
   rm -f ~/rpmbuild/RPMS/noarch/pyskool-$VERSION-*.rpm
-  rpmbuild -bb rpm/pyskool.spec
+  rpmbuild -bb --define='_binary_payload w6.xzdio' rpm/pyskool.spec
   mv ~/rpmbuild/RPMS/noarch/pyskool-$VERSION-*.rpm dist
   echo "Created $(ls $PYSKOOL_HOME/dist/pyskool-$VERSION-*.rpm)"
 fi
