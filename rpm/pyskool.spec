@@ -2,7 +2,7 @@
 
 Name:           pyskool
 Version:        1.1.2
-Release:        1%{?dist}
+Release:        1
 Summary:        Remake of Skool Daze and Back to Skool in Python and Pygame
 
 License:        GPLv3+
