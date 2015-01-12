@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2011-2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2011-2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -18,7 +18,7 @@
 
 import os.path
 
-version = '1.2b1'
+version = '1.2rc'
 package_dir = os.path.dirname(__file__)
 user_dir = os.path.expanduser(os.path.join('~', '.pyskool'))
 images_subdir = 'images'

@@ -1,7 +1,7 @@
 Changelog
 =========
 
-1.2b1
+1.2rc
 -----
 * Dropped support for Python 2.6 and Pygame 1.7
 * Added support for Python 3.4
