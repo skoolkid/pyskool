@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.2rc
------
+1.2 (2015-01-14)
+----------------
 * Dropped support for Python 2.6 and Pygame 1.7
 * Added support for Python 3.4
 * The Insert (screenshot), F2 (save), F6 (load), F11 (toggle full-screen mode)
