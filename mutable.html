@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>mutable &mdash; Pyskool 1.1.2 documentation</title>
+    <title>mutable &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="next" title="pellet" href="pellet.html" />
     <link rel="prev" title="location" href="location.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="location.html" title="location"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -77,13 +75,13 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-mutable">
-<span id="mutable"></span><h1>mutable<a class="headerlink" href="#module-mutable" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-pyskool.mutable">
+<span id="mutable"></span><h1>mutable<a class="headerlink" href="#module-pyskool.mutable" title="Permalink to this headline">¶</a></h1>
 <p>Classes for things in the skool that change appearance depending on their
 state. For example, a cup that may be empty or contain water or sherry.</p>
 <dl class="class">
-<dt id="mutable.Bike">
-<em class="property">class </em><tt class="descclassname">mutable.</tt><tt class="descname">Bike</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#mutable.Bike" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Bike">
+<em class="property">class </em><tt class="descclassname">pyskool.mutable.</tt><tt class="descname">Bike</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Bike" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents the portion of the tree that may or may not have a bike
 chained to it.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -99,29 +97,29 @@ chained to it.</p>
 </tbody>
 </table>
 <dl class="method">
-<dt id="mutable.Bike.build_images">
-<tt class="descname">build_images</tt><big>(</big><big>)</big><a class="headerlink" href="#mutable.Bike.build_images" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Bike.build_images">
+<tt class="descname">build_images</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.mutable.Bike.build_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the images for the bike. This method is called after rescaling
 the screen or loading a saved game.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Bike.chain">
-<tt class="descname">chain</tt><big>(</big><big>)</big><a class="headerlink" href="#mutable.Bike.chain" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Bike.chain">
+<tt class="descname">chain</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.mutable.Bike.chain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a 2-tuple containing a list of the images to use when the
 bike is chained to the tree, and the coordinates of the images.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Bike.get_images">
-<tt class="descname">get_images</tt><big>(</big><big>)</big><a class="headerlink" href="#mutable.Bike.get_images" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Bike.get_images">
+<tt class="descname">get_images</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.mutable.Bike.get_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a 2-tuple containing a list of images of the current state of
 the bike, and the coordinates at which to draw the bike.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Bike.set_images">
-<tt class="descname">set_images</tt><big>(</big><em>unchained_images</em>, <em>chained_images</em><big>)</big><a class="headerlink" href="#mutable.Bike.set_images" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Bike.set_images">
+<tt class="descname">set_images</tt><big>(</big><em>unchained_images</em>, <em>chained_images</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Bike.set_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the images to use for the bike-on-a-tree.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -140,8 +138,8 @@ to the tree.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Bike.unchain">
-<tt class="descname">unchain</tt><big>(</big><big>)</big><a class="headerlink" href="#mutable.Bike.unchain" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Bike.unchain">
+<tt class="descname">unchain</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.mutable.Bike.unchain" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a 3-tuple containing a list of the images to use when the
 bike is not chained to the tree, and the coordinates of the images.</p>
 </dd></dl>
@@ -149,8 +147,8 @@ bike is not chained to the tree, and the coordinates of the images.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="mutable.Cup">
-<em class="property">class </em><tt class="descclassname">mutable.</tt><tt class="descname">Cup</tt><big>(</big><em>cup_id</em>, <em>coords</em>, <em>water_id</em>, <em>sherry_id</em><big>)</big><a class="headerlink" href="#mutable.Cup" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Cup">
+<em class="property">class </em><tt class="descclassname">pyskool.mutable.</tt><tt class="descname">Cup</tt><big>(</big><em>cup_id</em>, <em>coords</em>, <em>water_id</em>, <em>sherry_id</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Cup" title="Permalink to this definition">¶</a></dt>
 <dd><p>A cup that may be empty or filled with water or sherry.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -169,15 +167,15 @@ should be used.</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="mutable.Cup.build_images">
-<tt class="descname">build_images</tt><big>(</big><big>)</big><a class="headerlink" href="#mutable.Cup.build_images" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Cup.build_images">
+<tt class="descname">build_images</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.mutable.Cup.build_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the images for the cup. This method is called after rescaling
 the screen or loading a saved game.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Cup.fill">
-<tt class="descname">fill</tt><big>(</big><em>contents</em><big>)</big><a class="headerlink" href="#mutable.Cup.fill" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Cup.fill">
+<tt class="descname">fill</tt><big>(</big><em>contents</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Cup.fill" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fill the cup with a liquid, or empty it.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -193,49 +191,49 @@ it.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Cup.get_images">
-<tt class="descname">get_images</tt><big>(</big><big>)</big><a class="headerlink" href="#mutable.Cup.get_images" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Cup.get_images">
+<tt class="descname">get_images</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.mutable.Cup.get_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a 2-tuple containing a list of images of the current state of
 the cup, and the coordinates at which to draw the cup.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Cup.insert_frog">
-<tt class="descname">insert_frog</tt><big>(</big><em>frog</em><big>)</big><a class="headerlink" href="#mutable.Cup.insert_frog" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Cup.insert_frog">
+<tt class="descname">insert_frog</tt><big>(</big><em>frog</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Cup.insert_frog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert a frog into the cup.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frog</strong> (<a class="reference internal" href="animal.html#animal.Frog" title="animal.Frog"><tt class="xref py py-class docutils literal"><span class="pre">Frog</span></tt></a>) &#8211; The frog.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frog</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Frog</span></tt>) &#8211; The frog.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Cup.is_empty">
-<tt class="descname">is_empty</tt><big>(</big><big>)</big><a class="headerlink" href="#mutable.Cup.is_empty" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Cup.is_empty">
+<tt class="descname">is_empty</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.mutable.Cup.is_empty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the cup is empty (contains no liquid or frogs).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Cup.remove_frog">
-<tt class="descname">remove_frog</tt><big>(</big><em>frog</em><big>)</big><a class="headerlink" href="#mutable.Cup.remove_frog" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Cup.remove_frog">
+<tt class="descname">remove_frog</tt><big>(</big><em>frog</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Cup.remove_frog" title="Permalink to this definition">¶</a></dt>
 <dd><p>Remove a frog from the cup.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frog</strong> (<a class="reference internal" href="animal.html#animal.Frog" title="animal.Frog"><tt class="xref py py-class docutils literal"><span class="pre">Frog</span></tt></a>) &#8211; The frog.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>frog</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Frog</span></tt>) &#8211; The frog.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Cup.set_images">
-<tt class="descname">set_images</tt><big>(</big><em>empty_images</em>, <em>water_images</em>, <em>sherry_images</em><big>)</big><a class="headerlink" href="#mutable.Cup.set_images" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Cup.set_images">
+<tt class="descname">set_images</tt><big>(</big><em>empty_images</em>, <em>water_images</em>, <em>sherry_images</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Cup.set_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the images to use for the cup.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -257,8 +255,8 @@ sherry.</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="mutable.Flashable">
-<em class="property">class </em><tt class="descclassname">mutable.</tt><tt class="descname">Flashable</tt><big>(</big><em>x</em>, <em>y</em>, <em>images</em>, <em>inverse_images</em>, <em>score=0</em><big>)</big><a class="headerlink" href="#mutable.Flashable" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Flashable">
+<em class="property">class </em><tt class="descclassname">pyskool.mutable.</tt><tt class="descname">Flashable</tt><big>(</big><em>x</em>, <em>y</em>, <em>images</em>, <em>inverse_images</em>, <em>score=0</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Flashable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract superclass for objects that flash (shields and the safe).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -276,21 +274,21 @@ sherry.</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="mutable.Flashable.build_images">
-<tt class="descname">build_images</tt><big>(</big><big>)</big><a class="headerlink" href="#mutable.Flashable.build_images" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Flashable.build_images">
+<tt class="descname">build_images</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.mutable.Flashable.build_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the images for this object. This method is called after
 rescaling the screen or loading a saved game.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Flashable.flash">
-<tt class="descname">flash</tt><big>(</big><big>)</big><a class="headerlink" href="#mutable.Flashable.flash" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Flashable.flash">
+<tt class="descname">flash</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.mutable.Flashable.flash" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mark the object as flashing.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Flashable.get_images">
-<tt class="descname">get_images</tt><big>(</big><em>inverse</em><big>)</big><a class="headerlink" href="#mutable.Flashable.get_images" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Flashable.get_images">
+<tt class="descname">get_images</tt><big>(</big><em>inverse</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Flashable.get_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a 2-tuple containing a list of images of the object, and the
 coordinates at which it should be drawn.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -305,22 +303,22 @@ the normal images.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="mutable.Flashable.unflash">
-<tt class="descname">unflash</tt><big>(</big><big>)</big><a class="headerlink" href="#mutable.Flashable.unflash" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Flashable.unflash">
+<tt class="descname">unflash</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.mutable.Flashable.unflash" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mark the object as not flashing.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="class">
-<dt id="mutable.Safe">
-<em class="property">class </em><tt class="descclassname">mutable.</tt><tt class="descname">Safe</tt><big>(</big><em>x</em>, <em>y</em>, <em>images</em>, <em>inverse_images</em>, <em>score=0</em><big>)</big><a class="headerlink" href="#mutable.Safe" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Safe">
+<em class="property">class </em><tt class="descclassname">pyskool.mutable.</tt><tt class="descname">Safe</tt><big>(</big><em>x</em>, <em>y</em>, <em>images</em>, <em>inverse_images</em>, <em>score=0</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Safe" title="Permalink to this definition">¶</a></dt>
 <dd><p>A safe that will flash or unflash when hit.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="mutable.Shield">
-<em class="property">class </em><tt class="descclassname">mutable.</tt><tt class="descname">Shield</tt><big>(</big><em>x</em>, <em>y</em>, <em>images</em>, <em>inverse_images</em>, <em>score=0</em><big>)</big><a class="headerlink" href="#mutable.Shield" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.mutable.Shield">
+<em class="property">class </em><tt class="descclassname">pyskool.mutable.</tt><tt class="descname">Shield</tt><big>(</big><em>x</em>, <em>y</em>, <em>images</em>, <em>inverse_images</em>, <em>score=0</em><big>)</big><a class="headerlink" href="#pyskool.mutable.Shield" title="Permalink to this definition">¶</a></dt>
 <dd><p>A shield that will flash or unflash when hit.</p>
 </dd></dl>
 
@@ -347,12 +345,12 @@ the normal images.</td>
         <li class="right" >
           <a href="location.html" title="location"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

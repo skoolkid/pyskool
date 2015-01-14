@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>desklid &mdash; Pyskool 1.1.2 documentation</title>
+    <title>desklid &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="next" title="droppable" href="droppable.html" />
     <link rel="prev" title="debug" href="debug.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="debug.html" title="debug"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -77,12 +75,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-desklid">
-<span id="desklid"></span><h1>desklid<a class="headerlink" href="#module-desklid" title="Permalink to this headline">¶</a></h1>
-<p>Defines the <a class="reference internal" href="#desklid.DeskLid" title="desklid.DeskLid"><tt class="xref py py-class docutils literal"><span class="pre">DeskLid</span></tt></a> class.</p>
+  <div class="section" id="module-pyskool.desklid">
+<span id="desklid"></span><h1>desklid<a class="headerlink" href="#module-pyskool.desklid" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#pyskool.desklid.DeskLid" title="pyskool.desklid.DeskLid"><tt class="xref py py-class docutils literal"><span class="pre">DeskLid</span></tt></a> class.</p>
 <dl class="class">
-<dt id="desklid.DeskLid">
-<em class="property">class </em><tt class="descclassname">desklid.</tt><tt class="descname">DeskLid</tt><big>(</big><em>desk_lid_id</em>, <em>command_list_id</em>, <em>x_offset</em><big>)</big><a class="headerlink" href="#desklid.DeskLid" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.desklid.DeskLid">
+<em class="property">class </em><tt class="descclassname">pyskool.desklid.</tt><tt class="descname">DeskLid</tt><big>(</big><em>desk_lid_id</em>, <em>command_list_id</em>, <em>x_offset</em><big>)</big><a class="headerlink" href="#pyskool.desklid.DeskLid" title="Permalink to this definition">¶</a></dt>
 <dd><p>A desk lid.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -99,14 +97,14 @@ the desk lid should be displayed.</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="desklid.DeskLid.deliver_contents">
-<tt class="descname">deliver_contents</tt><big>(</big><big>)</big><a class="headerlink" href="#desklid.DeskLid.deliver_contents" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.desklid.DeskLid.deliver_contents">
+<tt class="descname">deliver_contents</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.desklid.DeskLid.deliver_contents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deliver the contents of the desk to whoever raised the lid.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="desklid.DeskLid.get_command_list_id">
-<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#desklid.DeskLid.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.desklid.DeskLid.get_command_list_id">
+<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pyskool.desklid.DeskLid.get_command_list_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the ID of the command list used by the desk lid.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -120,16 +118,16 @@ not follow a timetable).</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="desklid.DeskLid.raise_lid">
-<tt class="descname">raise_lid</tt><big>(</big><em>desk</em>, <em>character</em><big>)</big><a class="headerlink" href="#desklid.DeskLid.raise_lid" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.desklid.DeskLid.raise_lid">
+<tt class="descname">raise_lid</tt><big>(</big><em>desk</em>, <em>character</em><big>)</big><a class="headerlink" href="#pyskool.desklid.DeskLid.raise_lid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raise the lid of a desk.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>desk</strong> (<a class="reference internal" href="room.html#room.Desk" title="room.Desk"><tt class="xref py py-class docutils literal"><span class="pre">Desk</span></tt></a>) &#8211; The desk.</li>
-<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character raising the lid.</li>
+<li><strong>desk</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Desk</span></tt>) &#8211; The desk.</li>
+<li><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character raising the lid.</li>
 </ul>
 </td>
 </tr>
@@ -162,12 +160,12 @@ not follow a timetable).</td>
         <li class="right" >
           <a href="debug.html" title="debug"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

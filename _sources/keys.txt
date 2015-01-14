@@ -1,5 +1,5 @@
 keys
 ====
 
-.. automodule:: keys
+.. automodule:: pyskool.keys
    :members:

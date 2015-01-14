@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>sound &mdash; Pyskool 1.1.2 documentation</title>
+    <title>sound &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="next" title="staircase" href="staircase.html" />
     <link rel="prev" title="skool" href="skool.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="skool.html" title="skool"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -77,12 +75,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-sound">
-<span id="sound"></span><h1>sound<a class="headerlink" href="#module-sound" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-pyskool.sound">
+<span id="sound"></span><h1>sound<a class="headerlink" href="#module-pyskool.sound" title="Permalink to this headline">¶</a></h1>
 <p>Play sound effects.</p>
 <dl class="class">
-<dt id="sound.Beeper">
-<em class="property">class </em><tt class="descclassname">sound.</tt><tt class="descname">Beeper</tt><big>(</big><em>sounds_dir</em>, <em>config</em><big>)</big><a class="headerlink" href="#sound.Beeper" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.Beeper">
+<em class="property">class </em><tt class="descclassname">pyskool.sound.</tt><tt class="descname">Beeper</tt><big>(</big><em>sounds_dir</em>, <em>config</em><big>)</big><a class="headerlink" href="#pyskool.sound.Beeper" title="Permalink to this definition">¶</a></dt>
 <dd><p>The maker of sound effects.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -97,8 +95,8 @@
 </tbody>
 </table>
 <dl class="method">
-<dt id="sound.Beeper.add_sound">
-<tt class="descname">add_sound</tt><big>(</big><em>sound_id</em>, <em>sound_file</em><big>)</big><a class="headerlink" href="#sound.Beeper.add_sound" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.Beeper.add_sound">
+<tt class="descname">add_sound</tt><big>(</big><em>sound_id</em>, <em>sound_file</em><big>)</big><a class="headerlink" href="#pyskool.sound.Beeper.add_sound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a sound effect to the beeper&#8217;s collection.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -116,15 +114,15 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="sound.Beeper.is_busy">
-<tt class="descname">is_busy</tt><big>(</big><big>)</big><a class="headerlink" href="#sound.Beeper.is_busy" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.Beeper.is_busy">
+<tt class="descname">is_busy</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.sound.Beeper.is_busy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a sound effect is being played at the moment in
-<a class="reference internal" href="#sound.SUSPEND" title="sound.SUSPEND"><tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt></a> mode.</p>
+<a class="reference internal" href="#pyskool.sound.SUSPEND" title="pyskool.sound.SUSPEND"><tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt></a> mode.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sound.Beeper.make_sitting_sound">
-<tt class="descname">make_sitting_sound</tt><big>(</big><em>mode</em><big>)</big><a class="headerlink" href="#sound.Beeper.make_sitting_sound" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.Beeper.make_sitting_sound">
+<tt class="descname">make_sitting_sound</tt><big>(</big><em>mode</em><big>)</big><a class="headerlink" href="#pyskool.sound.Beeper.make_sitting_sound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sitting sound effect. This will be a walking sound effect,
 chosen at random from those available.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -132,15 +130,15 @@ chosen at random from those available.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mode</strong> &#8211; The mode in which to play the sound effect (see
-<a class="reference internal" href="#sound.Beeper.play" title="sound.Beeper.play"><tt class="xref py py-meth docutils literal"><span class="pre">play()</span></tt></a>).</td>
+<a class="reference internal" href="#pyskool.sound.Beeper.play" title="pyskool.sound.Beeper.play"><tt class="xref py py-meth docutils literal"><span class="pre">play()</span></tt></a>).</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="sound.Beeper.make_walking_sound">
-<tt class="descname">make_walking_sound</tt><big>(</big><em>index</em>, <em>mode</em><big>)</big><a class="headerlink" href="#sound.Beeper.make_walking_sound" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.Beeper.make_walking_sound">
+<tt class="descname">make_walking_sound</tt><big>(</big><em>index</em>, <em>mode</em><big>)</big><a class="headerlink" href="#pyskool.sound.Beeper.make_walking_sound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a walking sound effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -149,7 +147,7 @@ chosen at random from those available.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>index</strong> &#8211; The index of the walking sound effect.</li>
 <li><strong>mode</strong> &#8211; The mode in which to play the sound effect (see
-<a class="reference internal" href="#sound.Beeper.play" title="sound.Beeper.play"><tt class="xref py py-meth docutils literal"><span class="pre">play()</span></tt></a>).</li>
+<a class="reference internal" href="#pyskool.sound.Beeper.play" title="pyskool.sound.Beeper.play"><tt class="xref py py-meth docutils literal"><span class="pre">play()</span></tt></a>).</li>
 </ul>
 </td>
 </tr>
@@ -158,14 +156,14 @@ chosen at random from those available.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sound.Beeper.pause">
-<tt class="descname">pause</tt><big>(</big><big>)</big><a class="headerlink" href="#sound.Beeper.pause" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.Beeper.pause">
+<tt class="descname">pause</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.sound.Beeper.pause" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pause the playing of any sound effect.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sound.Beeper.play">
-<tt class="descname">play</tt><big>(</big><em>sound_id</em>, <em>mode=1</em><big>)</big><a class="headerlink" href="#sound.Beeper.play" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.Beeper.play">
+<tt class="descname">play</tt><big>(</big><em>sound_id</em>, <em>mode=1</em><big>)</big><a class="headerlink" href="#pyskool.sound.Beeper.play" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sound effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -173,10 +171,10 @@ chosen at random from those available.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sound_id</strong> &#8211; The ID of the sound effect.</li>
-<li><strong>mode</strong> &#8211; If <a class="reference internal" href="#sound.SUSPEND" title="sound.SUSPEND"><tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt></a>, movement of characters and screen
+<li><strong>mode</strong> &#8211; If <a class="reference internal" href="#pyskool.sound.SUSPEND" title="pyskool.sound.SUSPEND"><tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt></a>, movement of characters and screen
 updates are suspended until the sound effect has finished
 playing, but the quit and pause keys will be checked in
-the meantime; if <a class="reference internal" href="#sound.ASYNC" title="sound.ASYNC"><tt class="xref py py-data docutils literal"><span class="pre">ASYNC</span></tt></a> (or anything else), the
+the meantime; if <a class="reference internal" href="#pyskool.sound.ASYNC" title="pyskool.sound.ASYNC"><tt class="xref py py-data docutils literal"><span class="pre">ASYNC</span></tt></a> (or anything else), the
 sound effect will play asynchronously.</li>
 </ul>
 </td>
@@ -186,8 +184,8 @@ sound effect will play asynchronously.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="sound.Beeper.restore">
-<tt class="descname">restore</tt><big>(</big><em>sounds_dir</em><big>)</big><a class="headerlink" href="#sound.Beeper.restore" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.Beeper.restore">
+<tt class="descname">restore</tt><big>(</big><em>sounds_dir</em><big>)</big><a class="headerlink" href="#pyskool.sound.Beeper.restore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform tasks required immediately after loading a saved game.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -200,170 +198,170 @@ sound effect will play asynchronously.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="sound.Beeper.unpause">
-<tt class="descname">unpause</tt><big>(</big><big>)</big><a class="headerlink" href="#sound.Beeper.unpause" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.Beeper.unpause">
+<tt class="descname">unpause</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.sound.Beeper.unpause" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resume the playing of any sound effect.</p>
 </dd></dl>
 
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.ALARM">
-<tt class="descclassname">sound.</tt><tt class="descname">ALARM</tt><em class="property"> = 'ALARM'</em><a class="headerlink" href="#sound.ALARM" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.ALARM">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">ALARM</tt><em class="property"> = 'ALARM'</em><a class="headerlink" href="#pyskool.sound.ALARM" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Albert tells Mr Wacker that Eric is
 escaping.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.ALL_SHIELDS">
-<tt class="descclassname">sound.</tt><tt class="descname">ALL_SHIELDS</tt><em class="property"> = 'ALL_SHIELDS'</em><a class="headerlink" href="#sound.ALL_SHIELDS" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.ALL_SHIELDS">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">ALL_SHIELDS</tt><em class="property"> = 'ALL_SHIELDS'</em><a class="headerlink" href="#pyskool.sound.ALL_SHIELDS" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when all the shields have been flashed.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.ASYNC">
-<tt class="descclassname">sound.</tt><tt class="descname">ASYNC</tt><em class="property"> = 2</em><a class="headerlink" href="#sound.ASYNC" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.ASYNC">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">ASYNC</tt><em class="property"> = 2</em><a class="headerlink" href="#pyskool.sound.ASYNC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sound effect play mode: asynchronous.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.BELL">
-<tt class="descclassname">sound.</tt><tt class="descname">BELL</tt><em class="property"> = 'BELL'</em><a class="headerlink" href="#sound.BELL" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.BELL">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">BELL</tt><em class="property"> = 'BELL'</em><a class="headerlink" href="#pyskool.sound.BELL" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect for the bell.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.BIKE">
-<tt class="descclassname">sound.</tt><tt class="descname">BIKE</tt><em class="property"> = 'BIKE'</em><a class="headerlink" href="#sound.BIKE" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.BIKE">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">BIKE</tt><em class="property"> = 'BIKE'</em><a class="headerlink" href="#pyskool.sound.BIKE" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when the bike is unchained.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.CATAPULT">
-<tt class="descclassname">sound.</tt><tt class="descname">CATAPULT</tt><em class="property"> = 'CATAPULT'</em><a class="headerlink" href="#sound.CATAPULT" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.CATAPULT">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">CATAPULT</tt><em class="property"> = 'CATAPULT'</em><a class="headerlink" href="#pyskool.sound.CATAPULT" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric&#8217;s catapult is fired.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.CONKER">
-<tt class="descclassname">sound.</tt><tt class="descname">CONKER</tt><em class="property"> = 'CONKER'</em><a class="headerlink" href="#sound.CONKER" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.CONKER">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">CONKER</tt><em class="property"> = 'CONKER'</em><a class="headerlink" href="#pyskool.sound.CONKER" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Albert is knocked unconscious by the
 conker.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.DESK">
-<tt class="descclassname">sound.</tt><tt class="descname">DESK</tt><em class="property"> = 'DESK'</em><a class="headerlink" href="#sound.DESK" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.DESK">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">DESK</tt><em class="property"> = 'DESK'</em><a class="headerlink" href="#pyskool.sound.DESK" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric finds something in a desk.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.FROG">
-<tt class="descclassname">sound.</tt><tt class="descname">FROG</tt><em class="property"> = 'FROG'</em><a class="headerlink" href="#sound.FROG" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.FROG">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">FROG</tt><em class="property"> = 'FROG'</em><a class="headerlink" href="#pyskool.sound.FROG" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric catches the frog or places it in a
 cup.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.HIT_SOUNDS">
-<tt class="descclassname">sound.</tt><tt class="descname">HIT_SOUNDS</tt><em class="property"> = ('HIT0', 'HIT1')</em><a class="headerlink" href="#sound.HIT_SOUNDS" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.HIT_SOUNDS">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">HIT_SOUNDS</tt><em class="property"> = ('HIT0', 'HIT1')</em><a class="headerlink" href="#pyskool.sound.HIT_SOUNDS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hitting sound effect IDs.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.JUMP">
-<tt class="descclassname">sound.</tt><tt class="descname">JUMP</tt><em class="property"> = 'JUMP'</em><a class="headerlink" href="#sound.JUMP" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.JUMP">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">JUMP</tt><em class="property"> = 'JUMP'</em><a class="headerlink" href="#pyskool.sound.JUMP" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric jumps.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.KISS">
-<tt class="descclassname">sound.</tt><tt class="descname">KISS</tt><em class="property"> = 'KISS'</em><a class="headerlink" href="#sound.KISS" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.KISS">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">KISS</tt><em class="property"> = 'KISS'</em><a class="headerlink" href="#pyskool.sound.KISS" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric kisses someone.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.KNOCKED_OUT">
-<tt class="descclassname">sound.</tt><tt class="descname">KNOCKED_OUT</tt><em class="property"> = 'KNOCKED_OUT'</em><a class="headerlink" href="#sound.KNOCKED_OUT" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.KNOCKED_OUT">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">KNOCKED_OUT</tt><em class="property"> = 'KNOCKED_OUT'</em><a class="headerlink" href="#pyskool.sound.KNOCKED_OUT" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric is knocked over.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.LINES1">
-<tt class="descclassname">sound.</tt><tt class="descname">LINES1</tt><em class="property"> = 'LINES1'</em><a class="headerlink" href="#sound.LINES1" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.LINES1">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">LINES1</tt><em class="property"> = 'LINES1'</em><a class="headerlink" href="#pyskool.sound.LINES1" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of lines sound effect 1.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.LINES2">
-<tt class="descclassname">sound.</tt><tt class="descname">LINES2</tt><em class="property"> = 'LINES2'</em><a class="headerlink" href="#sound.LINES2" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.LINES2">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">LINES2</tt><em class="property"> = 'LINES2'</em><a class="headerlink" href="#pyskool.sound.LINES2" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of lines sound effect 2.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.MOUSE">
-<tt class="descclassname">sound.</tt><tt class="descname">MOUSE</tt><em class="property"> = 'MOUSE'</em><a class="headerlink" href="#sound.MOUSE" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.MOUSE">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">MOUSE</tt><em class="property"> = 'MOUSE'</em><a class="headerlink" href="#pyskool.sound.MOUSE" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when a mouse is caught.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.OPEN_SAFE">
-<tt class="descclassname">sound.</tt><tt class="descname">OPEN_SAFE</tt><em class="property"> = 'OPEN_SAFE'</em><a class="headerlink" href="#sound.OPEN_SAFE" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.OPEN_SAFE">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">OPEN_SAFE</tt><em class="property"> = 'OPEN_SAFE'</em><a class="headerlink" href="#pyskool.sound.OPEN_SAFE" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when the safe is opened (with the
 combination).</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.SAFE_KEY">
-<tt class="descclassname">sound.</tt><tt class="descname">SAFE_KEY</tt><em class="property"> = 'SAFE_KEY'</em><a class="headerlink" href="#sound.SAFE_KEY" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.SAFE_KEY">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">SAFE_KEY</tt><em class="property"> = 'SAFE_KEY'</em><a class="headerlink" href="#pyskool.sound.SAFE_KEY" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric gets the safe key.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.SHERRY">
-<tt class="descclassname">sound.</tt><tt class="descname">SHERRY</tt><em class="property"> = 'SHERRY'</em><a class="headerlink" href="#sound.SHERRY" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.SHERRY">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">SHERRY</tt><em class="property"> = 'SHERRY'</em><a class="headerlink" href="#pyskool.sound.SHERRY" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric fills the water pistol with sherry.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.SHIELD">
-<tt class="descclassname">sound.</tt><tt class="descname">SHIELD</tt><em class="property"> = 'SHIELD'</em><a class="headerlink" href="#sound.SHIELD" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.SHIELD">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">SHIELD</tt><em class="property"> = 'SHIELD'</em><a class="headerlink" href="#pyskool.sound.SHIELD" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when a shield is hit.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.STOREROOM_KEY">
-<tt class="descclassname">sound.</tt><tt class="descname">STOREROOM_KEY</tt><em class="property"> = 'STOREROOM_KEY'</em><a class="headerlink" href="#sound.STOREROOM_KEY" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.STOREROOM_KEY">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">STOREROOM_KEY</tt><em class="property"> = 'STOREROOM_KEY'</em><a class="headerlink" href="#pyskool.sound.STOREROOM_KEY" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric gets the storeroom key.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.SUSPEND">
-<tt class="descclassname">sound.</tt><tt class="descname">SUSPEND</tt><em class="property"> = 1</em><a class="headerlink" href="#sound.SUSPEND" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.SUSPEND">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">SUSPEND</tt><em class="property"> = 1</em><a class="headerlink" href="#pyskool.sound.SUSPEND" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sound effect play mode: suspend character movement and screen updates.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.TUNE">
-<tt class="descclassname">sound.</tt><tt class="descname">TUNE</tt><em class="property"> = 'TUNE'</em><a class="headerlink" href="#sound.TUNE" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.TUNE">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">TUNE</tt><em class="property"> = 'TUNE'</em><a class="headerlink" href="#pyskool.sound.TUNE" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the opening tune.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.UP_A_YEAR">
-<tt class="descclassname">sound.</tt><tt class="descname">UP_A_YEAR</tt><em class="property"> = 'UP_A_YEAR'</em><a class="headerlink" href="#sound.UP_A_YEAR" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.UP_A_YEAR">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">UP_A_YEAR</tt><em class="property"> = 'UP_A_YEAR'</em><a class="headerlink" href="#pyskool.sound.UP_A_YEAR" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric goes up a year.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.WALK_SOUNDS">
-<tt class="descclassname">sound.</tt><tt class="descname">WALK_SOUNDS</tt><em class="property"> = ('WALK0', 'WALK1', 'WALK2', 'WALK3')</em><a class="headerlink" href="#sound.WALK_SOUNDS" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.WALK_SOUNDS">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">WALK_SOUNDS</tt><em class="property"> = ('WALK0', 'WALK1', 'WALK2', 'WALK3')</em><a class="headerlink" href="#pyskool.sound.WALK_SOUNDS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Walking sound effect IDs.</p>
 </dd></dl>
 
 <dl class="data">
-<dt id="sound.WATER_PISTOL">
-<tt class="descclassname">sound.</tt><tt class="descname">WATER_PISTOL</tt><em class="property"> = 'WATER_PISTOL'</em><a class="headerlink" href="#sound.WATER_PISTOL" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.sound.WATER_PISTOL">
+<tt class="descclassname">pyskool.sound.</tt><tt class="descname">WATER_PISTOL</tt><em class="property"> = 'WATER_PISTOL'</em><a class="headerlink" href="#pyskool.sound.WATER_PISTOL" title="Permalink to this definition">¶</a></dt>
 <dd><p>ID of the sound effect to play when Eric&#8217;s water pistol is fired.</p>
 </dd></dl>
 
@@ -390,12 +388,12 @@ combination).</p>
         <li class="right" >
           <a href="skool.html" title="skool"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

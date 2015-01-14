@@ -1,5 +1,5 @@
 debug
 =====
 
-.. automodule:: debug
+.. automodule:: pyskool.debug
    :members:

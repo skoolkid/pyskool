@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>water &mdash; Pyskool 1.1.2 documentation</title>
+    <title>water &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="prev" title="timetable" href="timetable.html" /> 
   </head>
   <body>
@@ -41,7 +39,7 @@
         <li class="right" >
           <a href="timetable.html" title="timetable"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -70,12 +68,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-water">
-<span id="water"></span><h1>water<a class="headerlink" href="#module-water" title="Permalink to this headline">¶</a></h1>
-<p>Defines the <a class="reference internal" href="#water.Water" title="water.Water"><tt class="xref py py-class docutils literal"><span class="pre">Water</span></tt></a> class.</p>
+  <div class="section" id="module-pyskool.water">
+<span id="water"></span><h1>water<a class="headerlink" href="#module-pyskool.water" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#pyskool.water.Water" title="pyskool.water.Water"><tt class="xref py py-class docutils literal"><span class="pre">Water</span></tt></a> class.</p>
 <dl class="class">
-<dt id="water.Water">
-<em class="property">class </em><tt class="descclassname">water.</tt><tt class="descname">Water</tt><big>(</big><em>water_id</em>, <em>command_list_id</em>, <em>phases</em><big>)</big><a class="headerlink" href="#water.Water" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.water.Water">
+<em class="property">class </em><tt class="descclassname">pyskool.water.</tt><tt class="descname">Water</tt><big>(</big><em>water_id</em>, <em>command_list_id</em>, <em>phases</em><big>)</big><a class="headerlink" href="#pyskool.water.Water" title="Permalink to this definition">¶</a></dt>
 <dd><p>A jet of water or sherry (as fired from a water pistol).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -93,8 +91,8 @@ from a water pistol.</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="water.Water.get_command_list_id">
-<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#water.Water.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.water.Water.get_command_list_id">
+<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pyskool.water.Water.get_command_list_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the ID of the command list used by the jet of liquid.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -108,8 +106,8 @@ sherry do not follow a timetable).</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="water.Water.hit_cup">
-<tt class="descname">hit_cup</tt><big>(</big><big>)</big><a class="headerlink" href="#water.Water.hit_cup" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.water.Water.hit_cup">
+<tt class="descname">hit_cup</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.water.Water.hit_cup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether the jet of liquid hit a cup, and fill the cup if so.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -122,14 +120,14 @@ sherry do not follow a timetable).</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="water.Water.hit_floor">
-<tt class="descname">hit_floor</tt><big>(</big><big>)</big><a class="headerlink" href="#water.Water.hit_floor" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.water.Water.hit_floor">
+<tt class="descname">hit_floor</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.water.Water.hit_floor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the jet of liquid hit the floor.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="water.Water.hit_plant">
-<tt class="descname">hit_plant</tt><big>(</big><big>)</big><a class="headerlink" href="#water.Water.hit_plant" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.water.Water.hit_plant">
+<tt class="descname">hit_plant</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.water.Water.hit_plant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether the jet of liquid hit a plant, and if so, make the
 plant start growing if the liquid is water.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -143,8 +141,8 @@ plant start growing if the liquid is water.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="water.Water.launch">
-<tt class="descname">launch</tt><big>(</big><em>x</em>, <em>y</em>, <em>direction</em>, <em>liquid</em><big>)</big><a class="headerlink" href="#water.Water.launch" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.water.Water.launch">
+<tt class="descname">launch</tt><big>(</big><em>x</em>, <em>y</em>, <em>direction</em>, <em>liquid</em><big>)</big><a class="headerlink" href="#pyskool.water.Water.launch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch this jet of water or sherry from a starting point.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -184,12 +182,12 @@ plant start growing if the liquid is water.</p>
         <li class="right" >
           <a href="timetable.html" title="timetable"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

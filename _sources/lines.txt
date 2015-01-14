@@ -1,5 +1,5 @@
 lines
 =====
 
-.. automodule:: lines
+.. automodule:: pyskool.lines
    :members:

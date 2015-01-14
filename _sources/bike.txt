@@ -1,5 +1,5 @@
 bike
 ====
 
-.. automodule:: bike
+.. automodule:: pyskool.bike
    :members:

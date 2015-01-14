@@ -1,5 +1,5 @@
 staircase
 =========
 
-.. automodule:: staircase
+.. automodule:: pyskool.staircase
    :members:

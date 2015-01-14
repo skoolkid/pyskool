@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>eric &mdash; Pyskool 1.1.2 documentation</title>
+    <title>eric &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="next" title="floor" href="floor.html" />
     <link rel="prev" title="droppable" href="droppable.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="droppable.html" title="droppable"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -77,12 +75,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-eric">
-<span id="eric"></span><h1>eric<a class="headerlink" href="#module-eric" title="Permalink to this headline">¶</a></h1>
-<p>Defines the <a class="reference internal" href="#eric.Eric" title="eric.Eric"><tt class="xref py py-class docutils literal"><span class="pre">Eric</span></tt></a> class.</p>
+  <div class="section" id="module-pyskool.eric">
+<span id="eric"></span><h1>eric<a class="headerlink" href="#module-pyskool.eric" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#pyskool.eric.Eric" title="pyskool.eric.Eric"><tt class="xref py py-class docutils literal"><span class="pre">Eric</span></tt></a> class.</p>
 <dl class="class">
-<dt id="eric.Eric">
-<em class="property">class </em><tt class="descclassname">eric.</tt><tt class="descname">Eric</tt><big>(</big><em>character_id</em>, <em>config</em>, <em>name</em>, <em>head_xy</em>, <em>flags</em>, <em>bend_over_hand_xy</em><big>)</big><a class="headerlink" href="#eric.Eric" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric">
+<em class="property">class </em><tt class="descclassname">pyskool.eric.</tt><tt class="descname">Eric</tt><big>(</big><em>character_id</em>, <em>config</em>, <em>name</em>, <em>head_xy</em>, <em>flags</em>, <em>bend_over_hand_xy</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric" title="Permalink to this definition">¶</a></dt>
 <dd><p>This class represents our hero.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -105,15 +103,15 @@ caught or released).</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="eric.Eric.aim_catapult">
-<tt class="descname">aim_catapult</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.aim_catapult" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.aim_catapult">
+<tt class="descname">aim_catapult</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.aim_catapult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric aim his catapult (raise it to eye level). Also alert any
 lines-givers in the vicinity, and play a sound effect.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.alert_lines_givers">
-<tt class="descname">alert_lines_givers</tt><big>(</big><em>message_id</em>, <em>reset_delay=False</em><big>)</big><a class="headerlink" href="#eric.Eric.alert_lines_givers" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.alert_lines_givers">
+<tt class="descname">alert_lines_givers</tt><big>(</big><em>message_id</em>, <em>reset_delay=False</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.alert_lines_givers" title="Permalink to this definition">¶</a></dt>
 <dd><p>Look for a lines-giver in the vicinity of Eric; if one is found,
 make him give lines to Eric.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -131,69 +129,69 @@ make him give lines to Eric.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.bend_over">
-<tt class="descname">bend_over</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.bend_over" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.bend_over">
+<tt class="descname">bend_over</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.bend_over" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric bend over (as when catching or releasing mice).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.can_bend_over">
-<tt class="descname">can_bend_over</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.can_bend_over" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.can_bend_over">
+<tt class="descname">can_bend_over</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_bend_over" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can bend over. This will be <cite>True</cite> if and only
-if he has a <a class="reference internal" href="animatorystates.html#animatorystates.BENDING_OVER" title="animatorystates.BENDING_OVER"><tt class="xref py py-data docutils literal"><span class="pre">BENDING_OVER</span></tt></a> sprite defined.</p>
+if he has a <tt class="xref py py-data docutils literal"><span class="pre">BENDING_OVER</span></tt> sprite defined.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.can_drop_stinkbomb">
-<tt class="descname">can_drop_stinkbomb</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.can_drop_stinkbomb" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.can_drop_stinkbomb">
+<tt class="descname">can_drop_stinkbomb</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_drop_stinkbomb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can drop a stinkbomb. This will be <cite>True</cite> if
-<a class="reference internal" href="character.html#character.Character.can_drop_stinkbomb" title="character.Character.can_drop_stinkbomb"><tt class="xref py py-meth docutils literal"><span class="pre">can_drop_stinkbomb()</span></tt></a> (on
-<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) returns <cite>True</cite> and Eric has a stinkbomb
+<tt class="xref py py-meth docutils literal"><span class="pre">can_drop_stinkbomb()</span></tt> (on
+<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) returns <cite>True</cite> and Eric has a stinkbomb
 and is standing on a floor (as opposed to a staircase).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.can_dump_water_pistol">
-<tt class="descname">can_dump_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.can_dump_water_pistol" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.can_dump_water_pistol">
+<tt class="descname">can_dump_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_dump_water_pistol" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can throw away the water pistol. This will be
 <cite>True</cite> if Eric has the water pistol and has a
-<a class="reference internal" href="animatorystates.html#animatorystates.BENDING_OVER" title="animatorystates.BENDING_OVER"><tt class="xref py py-data docutils literal"><span class="pre">BENDING_OVER</span></tt></a> sprite defined.</p>
+<tt class="xref py py-data docutils literal"><span class="pre">BENDING_OVER</span></tt> sprite defined.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.can_fire_catapult">
-<tt class="descname">can_fire_catapult</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.can_fire_catapult" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.can_fire_catapult">
+<tt class="descname">can_fire_catapult</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_fire_catapult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can fire a catapult. This will be <cite>True</cite> if and
-only if <a class="reference internal" href="character.html#character.Character.can_fire_catapult" title="character.Character.can_fire_catapult"><tt class="xref py py-meth docutils literal"><span class="pre">can_fire_catapult()</span></tt></a> (on
-<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) returns <cite>True</cite> and the conker is not
+only if <tt class="xref py py-meth docutils literal"><span class="pre">can_fire_catapult()</span></tt> (on
+<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) returns <cite>True</cite> and the conker is not
 falling from the tree.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.can_fire_water_pistol">
-<tt class="descname">can_fire_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.can_fire_water_pistol" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.can_fire_water_pistol">
+<tt class="descname">can_fire_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_fire_water_pistol" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can fire a water pistol. This will be <cite>True</cite> if
 Character.can_fire_water_pistol returns <cite>True</cite> and Eric actually has
 the water pistol.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.can_kiss">
-<tt class="descname">can_kiss</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.can_kiss" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.can_kiss">
+<tt class="descname">can_kiss</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_kiss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether anyone in the cast can kiss Eric.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.can_mount_bike">
-<tt class="descname">can_mount_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.can_mount_bike" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.can_mount_bike">
+<tt class="descname">can_mount_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_mount_bike" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can mount the bike at the moment. This will be
-<cite>True</cite> if Eric has the <a class="reference internal" href="animatorystates.html#animatorystates.RIDING_BIKE0" title="animatorystates.RIDING_BIKE0"><tt class="xref py py-data docutils literal"><span class="pre">RIDING_BIKE0</span></tt></a> sprite
+<cite>True</cite> if Eric has the <tt class="xref py py-data docutils literal"><span class="pre">RIDING_BIKE0</span></tt> sprite
 defined and is standing next to the bike.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.can_open_door">
-<tt class="descname">can_open_door</tt><big>(</big><em>door</em><big>)</big><a class="headerlink" href="#eric.Eric.can_open_door" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.can_open_door">
+<tt class="descname">can_open_door</tt><big>(</big><em>door</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_open_door" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can open a specific door. This will be <cite>False</cite>
 unless the door in question is the storeroom door and Eric has the key
 to it.</p>
@@ -208,38 +206,38 @@ to it.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.can_release_mice">
-<tt class="descname">can_release_mice</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.can_release_mice" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.can_release_mice">
+<tt class="descname">can_release_mice</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_release_mice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can release mice at the moment. This will be
 <cite>True</cite> if Eric is standing on a floor (as opposed to a staircase), has
 at least one mouse, and can bend over.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.can_sit_on_stairs">
-<tt class="descname">can_sit_on_stairs</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.can_sit_on_stairs" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.can_sit_on_stairs">
+<tt class="descname">can_sit_on_stairs</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_sit_on_stairs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can sit on the stairs. This will be <cite>True</cite> if
 and only if the relevant lines message is defined.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.catch_animal">
-<tt class="descname">catch_animal</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.catch_animal" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.catch_animal">
+<tt class="descname">catch_animal</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.catch_animal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric catch any animal that is close at hand. If Eric catches
 something, a sound effect is played.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.check_bike_keys">
-<tt class="descname">check_bike_keys</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.check_bike_keys" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.check_bike_keys">
+<tt class="descname">check_bike_keys</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.check_bike_keys" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether any key related to bike movement has been pressed. Any
 bike key pressed is stored and acted upon later by another bike-related
 method.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.check_combinations">
-<tt class="descname">check_combinations</tt><big>(</big><em>blackboard</em><big>)</big><a class="headerlink" href="#eric.Eric.check_combinations" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.check_combinations">
+<tt class="descname">check_combinations</tt><big>(</big><em>blackboard</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.check_combinations" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether the bike or storeroom combination has been written on
 any of the blackboards. If the bike combination has been written on a
 blackboard, unchain the bike and play a sound effect. If the storeroom
@@ -248,36 +246,36 @@ room and play a sound effect.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.check_cup">
-<tt class="descname">check_cup</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.check_cup" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.check_cup">
+<tt class="descname">check_cup</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.check_cup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether Eric managed to reach a cup while in possession of the
 frog. If so, the frog is placed in the cup and a sound effect is
 played.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.check_understanding">
-<tt class="descname">check_understanding</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.check_understanding" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.check_understanding">
+<tt class="descname">check_understanding</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.check_understanding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether Eric indicated understanding of the message just
 delivered to him.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.collect_desk_contents">
-<tt class="descname">collect_desk_contents</tt><big>(</big><em>desk</em><big>)</big><a class="headerlink" href="#eric.Eric.collect_desk_contents" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.collect_desk_contents">
+<tt class="descname">collect_desk_contents</tt><big>(</big><em>desk</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.collect_desk_contents" title="Permalink to this definition">¶</a></dt>
 <dd><p>Place the contents (if any) of a desk in Eric&#8217;s inventory. Also play
 a sound effect if the desk is not empty.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.deck">
-<tt class="descname">deck</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.deck" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.deck">
+<tt class="descname">deck</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.deck" title="Permalink to this definition">¶</a></dt>
 <dd><p>Knock Eric out and play a suitable sound effect.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.descend">
-<tt class="descname">descend</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.descend" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.descend">
+<tt class="descname">descend</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.descend" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric finish a jump. If Eric jumped up to the safe, or a shield,
 or an open drinks cabinet while carrying a water pistol, appropriate
 action is taken. Eric will descend to the floor unless the jump placed
@@ -285,68 +283,68 @@ him on a knocked out kid or a plant pot.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.dethrone">
-<tt class="descname">dethrone</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.dethrone" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.dethrone">
+<tt class="descname">dethrone</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.dethrone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Push Eric out of his seat and play a suitable sound effect.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.dismount">
-<tt class="descname">dismount</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.dismount" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.dismount">
+<tt class="descname">dismount</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.dismount" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric dismount from the bike.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.dismounted">
-<tt class="descname">dismounted</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.dismounted" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.dismounted">
+<tt class="descname">dismounted</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.dismounted" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric dismounted from the bike. This will be <cite>True</cite>
 if Eric was sitting on the saddle and &#8216;down&#8217; was pressed.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.drop_stinkbomb">
-<tt class="descname">drop_stinkbomb</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.drop_stinkbomb" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.drop_stinkbomb">
+<tt class="descname">drop_stinkbomb</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.drop_stinkbomb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric drop a stinkbomb. Also alert any lines-givers in the
 vicinity.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.dump_water_pistol">
-<tt class="descname">dump_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.dump_water_pistol" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.dump_water_pistol">
+<tt class="descname">dump_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.dump_water_pistol" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric throw away the water pistol. The water pistol will be
 filled with water and placed in a desk chosen at random.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.end_flight">
-<tt class="descname">end_flight</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.end_flight" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.end_flight">
+<tt class="descname">end_flight</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.end_flight" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sound effect if Eric did not land on his feet after flying
 out of a window or over the skool gate.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.fall_off_plant">
-<tt class="descname">fall_off_plant</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.fall_off_plant" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.fall_off_plant">
+<tt class="descname">fall_off_plant</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.fall_off_plant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric fall off a plant that has just died.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.fall_to_floor">
-<tt class="descname">fall_to_floor</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.fall_to_floor" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.fall_to_floor">
+<tt class="descname">fall_to_floor</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.fall_to_floor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric land on the floor in the sitting position, and play a
 sound effect.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.fire_water_pistol">
-<tt class="descname">fire_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.fire_water_pistol" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.fire_water_pistol">
+<tt class="descname">fire_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.fire_water_pistol" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric fire the water pistol. Also alert any lines-givers in the
 vicinity, and play a sound effect.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.fly">
-<tt class="descname">fly</tt><big>(</big><em>x_inc</em>, <em>y_inc</em><big>)</big><a class="headerlink" href="#eric.Eric.fly" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.fly">
+<tt class="descname">fly</tt><big>(</big><em>x_inc</em>, <em>y_inc</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.fly" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move Eric to the next spot in his flight out of a window or over the
 skool gate.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -364,8 +362,8 @@ skool gate.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.freeze">
-<tt class="descname">freeze</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.freeze" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.freeze">
+<tt class="descname">freeze</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.freeze" title="Permalink to this definition">¶</a></dt>
 <dd><p>Attempt to freeze Eric. The attempt will fail if Eric is writing on
 a blackboard, or is already frozen.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -379,61 +377,61 @@ a blackboard, or is already frozen.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.get_back_on_saddle">
-<tt class="descname">get_back_on_saddle</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.get_back_on_saddle" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.get_back_on_saddle">
+<tt class="descname">get_back_on_saddle</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.get_back_on_saddle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric get back on the saddle of the bike.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.get_lines">
-<tt class="descname">get_lines</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.get_lines" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.get_lines">
+<tt class="descname">get_lines</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.get_lines" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether Eric is up to anything that merits being given lines,
 and make any nearby teacher who can see him give the lines.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.get_location">
-<tt class="descname">get_location</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.get_location" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.get_location">
+<tt class="descname">get_location</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.get_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the on-floor location that is closest to Eric.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.get_location_above_hand">
-<tt class="descname">get_location_above_hand</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.get_location_above_hand" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.get_location_above_hand">
+<tt class="descname">get_location_above_hand</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.get_location_above_hand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the location above Eric&#8217;s hand. This location will be used to
 check for the presence of a shield, the safe, or a cup.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.got_back_on_saddle">
-<tt class="descname">got_back_on_saddle</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.got_back_on_saddle" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.got_back_on_saddle">
+<tt class="descname">got_back_on_saddle</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.got_back_on_saddle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric got back on the saddle of the bike. This will be
 <cite>True</cite> if Eric was standing on the saddle and &#8216;down&#8217; was pressed.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.has_stinkbomb">
-<tt class="descname">has_stinkbomb</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.has_stinkbomb" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.has_stinkbomb">
+<tt class="descname">has_stinkbomb</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.has_stinkbomb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric has at least one stinkbomb.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.has_water_pistol">
-<tt class="descname">has_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.has_water_pistol" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.has_water_pistol">
+<tt class="descname">has_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.has_water_pistol" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric has a water pistol (containing either water or
 sherry).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.hide">
-<tt class="descname">hide</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.hide" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.hide">
+<tt class="descname">hide</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.hide" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hide Eric. This is used when Eric is kissing someone, and two
 sprites become one.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.hit_barrier">
-<tt class="descname">hit_barrier</tt><big>(</big><em>bike</em><big>)</big><a class="headerlink" href="#eric.Eric.hit_barrier" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.hit_barrier">
+<tt class="descname">hit_barrier</tt><big>(</big><em>bike</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.hit_barrier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the wall, door or Eric-stopping character that Eric rode the
 bike into (if any).</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -449,14 +447,14 @@ bike into (if any).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.is_absent">
-<tt class="descname">is_absent</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.is_absent" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.is_absent">
+<tt class="descname">is_absent</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.is_absent" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric is playing truant.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.is_eric">
-<tt class="descname">is_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.is_eric" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.is_eric">
+<tt class="descname">is_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.is_eric" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether this character is Eric.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -469,8 +467,8 @@ bike into (if any).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.is_supported">
-<tt class="descname">is_supported</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.is_supported" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.is_supported">
+<tt class="descname">is_supported</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.is_supported" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric is standing on something that prevents him from
 falling. The things that can prevent Eric from falling are:</p>
 <ul class="simple">
@@ -483,49 +481,49 @@ falling. The things that can prevent Eric from falling are:</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.jump">
-<tt class="descname">jump</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.jump" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.jump">
+<tt class="descname">jump</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.jump" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric jump. Also alert any lines-givers in the vicinity.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.jumped_off_saddle">
-<tt class="descname">jumped_off_saddle</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.jumped_off_saddle" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.jumped_off_saddle">
+<tt class="descname">jumped_off_saddle</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.jumped_off_saddle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric jumped off the saddle of the bike. This will be
 <cite>True</cite> if Eric was standing on the saddle and &#8216;up&#8217; or &#8216;jump&#8217; was
 pressed.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.kiss">
-<tt class="descname">kiss</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.kiss" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.kiss">
+<tt class="descname">kiss</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.kiss" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decrease Eric&#8217;s lines total and play the kissing sound effect.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.kissee">
-<tt class="descname">kissee</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.kissee" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.kissee">
+<tt class="descname">kissee</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.kissee" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the first kissable candidate in front of Eric, or <cite>None</cite> if
 there is none.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.landed">
-<tt class="descname">landed</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.landed" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.landed">
+<tt class="descname">landed</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.landed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric has landed after jumping from the saddle of the
 bike.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.make_sitting_sound">
-<tt class="descname">make_sitting_sound</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.make_sitting_sound" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.make_sitting_sound">
+<tt class="descname">make_sitting_sound</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.make_sitting_sound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sitting sound effect. This will be a walking sound effect,
 chosen at random from those available.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.make_walking_sound">
-<tt class="descname">make_walking_sound</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#eric.Eric.make_walking_sound" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.make_walking_sound">
+<tt class="descname">make_walking_sound</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.make_walking_sound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a walking sound effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -538,14 +536,14 @@ chosen at random from those available.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.mount_bike">
-<tt class="descname">mount_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.mount_bike" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.mount_bike">
+<tt class="descname">mount_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.mount_bike" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric mount the bike.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.move">
-<tt class="descname">move</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.move" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.move">
+<tt class="descname">move</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.move" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move Eric. This entails checking the keyboard for relevant
 keypresses and moving Eric accordingly, and dealing with Eric if he&#8217;s
 currently engaged in an action such as firing the catapult or water
@@ -562,14 +560,14 @@ left, or 0 if it should not scroll (after moving Eric).</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.move_bike">
-<tt class="descname">move_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.move_bike" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.move_bike">
+<tt class="descname">move_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.move_bike" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move the bike (while Eric&#8217;s on it).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.open_desk">
-<tt class="descname">open_desk</tt><big>(</big><em>desk</em><big>)</big><a class="headerlink" href="#eric.Eric.open_desk" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.open_desk">
+<tt class="descname">open_desk</tt><big>(</big><em>desk</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.open_desk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric raise a desk lid.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -582,8 +580,8 @@ left, or 0 if it should not scroll (after moving Eric).</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.open_door">
-<tt class="descname">open_door</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.open_door" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.open_door">
+<tt class="descname">open_door</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.open_door" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open the door that Eric is facing.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -596,8 +594,8 @@ left, or 0 if it should not scroll (after moving Eric).</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.paralyse">
-<tt class="descname">paralyse</tt><big>(</big><em>command_list_id</em><big>)</big><a class="headerlink" href="#eric.Eric.paralyse" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.paralyse">
+<tt class="descname">paralyse</tt><big>(</big><em>command_list_id</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.paralyse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Signal that Eric is paralysed (as after falling from the top-floor
 window). Mr Wacker will be alerted.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -612,15 +610,15 @@ switch to.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.pedal">
-<tt class="descname">pedal</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.pedal" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.pedal">
+<tt class="descname">pedal</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.pedal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric pedal the bike. The Eric-on-a-bike sprite is moved to the
 next phase of animation.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.pedalled">
-<tt class="descname">pedalled</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.pedalled" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.pedalled">
+<tt class="descname">pedalled</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.pedalled" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric pedalled the bike since the last time he was
 moved. This will be <cite>True</cite> if and only if:</p>
 <ul class="simple">
@@ -632,8 +630,8 @@ pressed on this call</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.play_sound">
-<tt class="descname">play_sound</tt><big>(</big><em>sound_id</em>, <em>mode=1</em><big>)</big><a class="headerlink" href="#eric.Eric.play_sound" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.play_sound">
+<tt class="descname">play_sound</tt><big>(</big><em>sound_id</em>, <em>mode=1</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.play_sound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sound effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -641,7 +639,7 @@ pressed on this call</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sound_id</strong> &#8211; The ID of the sound effect.</li>
-<li><strong>mode</strong> &#8211; See <a class="reference internal" href="sound.html#sound.Beeper.play" title="sound.Beeper.play"><tt class="xref py py-meth docutils literal"><span class="pre">sound.Beeper.play()</span></tt></a>.</li>
+<li><strong>mode</strong> &#8211; See <tt class="xref py py-meth docutils literal"><span class="pre">sound.Beeper.play()</span></tt>.</li>
 </ul>
 </td>
 </tr>
@@ -650,96 +648,96 @@ pressed on this call</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.print_inventory">
-<tt class="descname">print_inventory</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.print_inventory" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.print_inventory">
+<tt class="descname">print_inventory</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.print_inventory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print Eric&#8217;s inventory.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.print_mouse_inventory">
-<tt class="descname">print_mouse_inventory</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.print_mouse_inventory" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.print_mouse_inventory">
+<tt class="descname">print_mouse_inventory</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.print_mouse_inventory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print Eric&#8217;s mouse inventory.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.punch">
-<tt class="descname">punch</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.punch" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.punch">
+<tt class="descname">punch</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.punch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric throw a punch. Also alert any lines-givers in the
 vicinity.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.reinitialise">
-<tt class="descname">reinitialise</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.reinitialise" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.reinitialise">
+<tt class="descname">reinitialise</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.reinitialise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform generic reinitialisation of Eric.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.release_mice">
-<tt class="descname">release_mice</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.release_mice" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.release_mice">
+<tt class="descname">release_mice</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.release_mice" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric release some mice.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.should_get_along">
-<tt class="descname">should_get_along</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.should_get_along" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.should_get_along">
+<tt class="descname">should_get_along</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.should_get_along" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric is somewhere other than he should be.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.stand_on_saddle">
-<tt class="descname">stand_on_saddle</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.stand_on_saddle" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.stand_on_saddle">
+<tt class="descname">stand_on_saddle</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.stand_on_saddle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric stand on the saddle of the bike.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.stand_up">
-<tt class="descname">stand_up</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.stand_up" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.stand_up">
+<tt class="descname">stand_up</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.stand_up" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric stand up (after sitting down or bending over).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.stood_on_saddle">
-<tt class="descname">stood_on_saddle</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.stood_on_saddle" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.stood_on_saddle">
+<tt class="descname">stood_on_saddle</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.stood_on_saddle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric stood on the saddle of the bike. This will be
 <cite>True</cite> if Eric was sitting on the saddle and &#8216;up&#8217; was pressed.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.take_safe_key">
-<tt class="descname">take_safe_key</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.take_safe_key" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.take_safe_key">
+<tt class="descname">take_safe_key</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.take_safe_key" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make Eric collect the safe key. A celebratory sound effect will be
 played.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.understood_message">
-<tt class="descname">understood_message</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.understood_message" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.understood_message">
+<tt class="descname">understood_message</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.understood_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric understood the message just delivered to him.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.unfreeze">
-<tt class="descname">unfreeze</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.unfreeze" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.unfreeze">
+<tt class="descname">unfreeze</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.unfreeze" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unfreeze Eric.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.unhide">
-<tt class="descname">unhide</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.unhide" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.unhide">
+<tt class="descname">unhide</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.unhide" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unhide Eric. Eric&#8217;s pre-kiss coordinates are restored.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.walk">
-<tt class="descname">walk</tt><big>(</big><em>on_stairs=False</em><big>)</big><a class="headerlink" href="#eric.Eric.walk" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.walk">
+<tt class="descname">walk</tt><big>(</big><em>on_stairs=False</em><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.walk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move Eric one step in the direction he is facing. If Eric moves
 close enough to the left or right edge of the screen, it will scroll.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="eric.Eric.write">
-<tt class="descname">write</tt><big>(</big><big>)</big><a class="headerlink" href="#eric.Eric.write" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.eric.Eric.write">
+<tt class="descname">write</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Control Eric when he&#8217;s writing on a blackboard.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -776,12 +774,12 @@ close enough to the left or right edge of the screen, it will scroll.</p>
         <li class="right" >
           <a href="droppable.html" title="droppable"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

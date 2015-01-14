@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>skool &mdash; Pyskool 1.1.2 documentation</title>
+    <title>skool &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="next" title="sound" href="sound.html" />
     <link rel="prev" title="skoolbuilder" href="skoolbuilder.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="skoolbuilder.html" title="skoolbuilder"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -77,12 +75,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-skool">
-<span id="skool"></span><h1>skool<a class="headerlink" href="#module-skool" title="Permalink to this headline">¶</a></h1>
-<p>Defines the <a class="reference internal" href="#skool.Skool" title="skool.Skool"><tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt></a> class.</p>
+  <div class="section" id="module-pyskool.skool">
+<span id="skool"></span><h1>skool<a class="headerlink" href="#module-pyskool.skool" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#pyskool.skool.Skool" title="pyskool.skool.Skool"><tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt></a> class.</p>
 <dl class="class">
-<dt id="skool.Skool">
-<em class="property">class </em><tt class="descclassname">skool.</tt><tt class="descname">Skool</tt><big>(</big><em>config</em>, <em>screen</em>, <em>beeper</em>, <em>cast</em>, <em>gallery</em><big>)</big><a class="headerlink" href="#skool.Skool" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool">
+<em class="property">class </em><tt class="descclassname">pyskool.skool.</tt><tt class="descname">Skool</tt><big>(</big><em>config</em>, <em>screen</em>, <em>beeper</em>, <em>cast</em>, <em>gallery</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents the play area and its features and fixtures.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -90,18 +88,18 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters from the ini file.</li>
-<li><strong>screen</strong> (<a class="reference internal" href="graphics.html#graphics.Screen" title="graphics.Screen"><tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt></a>) &#8211; The screen to draw on.</li>
-<li><strong>beeper</strong> (<a class="reference internal" href="sound.html#sound.Beeper" title="sound.Beeper"><tt class="xref py py-class docutils literal"><span class="pre">Beeper</span></tt></a>) &#8211; The beeper to use.</li>
-<li><strong>cast</strong> (<a class="reference internal" href="cast.html#cast.Cast" title="cast.Cast"><tt class="xref py py-class docutils literal"><span class="pre">Cast</span></tt></a>) &#8211; The cast of characters.</li>
-<li><strong>gallery</strong> (<a class="reference internal" href="graphics.html#graphics.Gallery" title="graphics.Gallery"><tt class="xref py py-class docutils literal"><span class="pre">Gallery</span></tt></a>) &#8211; The gallery to obtain skool images from.</li>
+<li><strong>screen</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt>) &#8211; The screen to draw on.</li>
+<li><strong>beeper</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Beeper</span></tt>) &#8211; The beeper to use.</li>
+<li><strong>cast</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Cast</span></tt>) &#8211; The cast of characters.</li>
+<li><strong>gallery</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Gallery</span></tt>) &#8211; The gallery to obtain skool images from.</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="skool.Skool.add_bike">
-<tt class="descname">add_bike</tt><big>(</big><em>bike_id</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>location</em>, <em>command_list_id</em>, <em>top_left</em>, <em>size</em>, <em>coords</em>, <em>move_delay</em>, <em>pedal_momentum</em>, <em>max_momentum</em><big>)</big><a class="headerlink" href="#skool.Skool.add_bike" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_bike">
+<tt class="descname">add_bike</tt><big>(</big><em>bike_id</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>location</em>, <em>command_list_id</em>, <em>top_left</em>, <em>size</em>, <em>coords</em>, <em>move_delay</em>, <em>pedal_momentum</em>, <em>max_momentum</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_bike" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a bike to the skool and the cast.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -130,8 +128,8 @@ pedalled.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_blackboard">
-<tt class="descname">add_blackboard</tt><big>(</big><em>room_id</em>, <em>top_left</em>, <em>size</em>, <em>chalk</em><big>)</big><a class="headerlink" href="#skool.Skool.add_blackboard" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_blackboard">
+<tt class="descname">add_blackboard</tt><big>(</big><em>room_id</em>, <em>top_left</em>, <em>size</em>, <em>chalk</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_blackboard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a blackboard to a room in the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -150,8 +148,8 @@ pedalled.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_chair">
-<tt class="descname">add_chair</tt><big>(</big><em>room_id</em>, <em>x</em><big>)</big><a class="headerlink" href="#skool.Skool.add_chair" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_chair">
+<tt class="descname">add_chair</tt><big>(</big><em>room_id</em>, <em>x</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_chair" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a chair to a classroom in the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -168,8 +166,8 @@ pedalled.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_cup">
-<tt class="descname">add_cup</tt><big>(</big><em>cup_id</em>, <em>empty_top_left</em>, <em>size</em>, <em>coords</em><big>)</big><a class="headerlink" href="#skool.Skool.add_cup" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_cup">
+<tt class="descname">add_cup</tt><big>(</big><em>cup_id</em>, <em>empty_top_left</em>, <em>size</em>, <em>coords</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_cup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a cup to the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -189,8 +187,8 @@ the cup when empty.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_desk">
-<tt class="descname">add_desk</tt><big>(</big><em>room_id</em>, <em>x</em><big>)</big><a class="headerlink" href="#skool.Skool.add_desk" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_desk">
+<tt class="descname">add_desk</tt><big>(</big><em>room_id</em>, <em>x</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_desk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a desk to a classroom in the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -207,8 +205,8 @@ the cup when empty.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_door">
-<tt class="descname">add_door</tt><big>(</big><em>door_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em>, <em>initially_shut</em>, <em>auto_shut_delay</em>, <em>shut_top_left</em>, <em>size</em>, <em>coords</em>, <em>climb_phases</em>, <em>fly_phases</em><big>)</big><a class="headerlink" href="#skool.Skool.add_door" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_door">
+<tt class="descname">add_door</tt><big>(</big><em>door_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em>, <em>initially_shut</em>, <em>auto_shut_delay</em>, <em>shut_top_left</em>, <em>size</em>, <em>coords</em>, <em>climb_phases</em>, <em>fly_phases</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_door" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a door to the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -243,8 +241,8 @@ will not be able to fly over the door.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_floor">
-<tt class="descname">add_floor</tt><big>(</big><em>floor_id</em>, <em>min_x</em>, <em>max_x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.add_floor" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_floor">
+<tt class="descname">add_floor</tt><big>(</big><em>floor_id</em>, <em>min_x</em>, <em>max_x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_floor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a floor to the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -263,8 +261,8 @@ will not be able to fly over the door.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_font_character">
-<tt class="descname">add_font_character</tt><big>(</big><em>char</em>, <em>offset</em>, <em>width</em><big>)</big><a class="headerlink" href="#skool.Skool.add_font_character" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_font_character">
+<tt class="descname">add_font_character</tt><big>(</big><em>char</em>, <em>offset</em>, <em>width</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_font_character" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define the location and width of a font character bitmap in the font
 image.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -284,8 +282,8 @@ the left edge of the font image.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_inventory_item">
-<tt class="descname">add_inventory_item</tt><big>(</big><em>item_id</em>, <em>top_left</em>, <em>size</em><big>)</big><a class="headerlink" href="#skool.Skool.add_inventory_item" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_inventory_item">
+<tt class="descname">add_inventory_item</tt><big>(</big><em>item_id</em>, <em>top_left</em>, <em>size</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_inventory_item" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add an inventory item.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -304,8 +302,8 @@ inventory item.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_lines">
-<tt class="descname">add_lines</tt><big>(</big><em>addend</em><big>)</big><a class="headerlink" href="#skool.Skool.add_lines" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_lines">
+<tt class="descname">add_lines</tt><big>(</big><em>addend</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_lines" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add some lines to Eric&#8217;s total. If, as a result, Eric has exceeded
 the lines limit, appropriate action is taken.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -319,9 +317,9 @@ the lines limit, appropriate action is taken.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_location">
-<tt class="descname">add_location</tt><big>(</big><em>location_id</em>, <em>coords</em><big>)</big><a class="headerlink" href="#skool.Skool.add_location" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a named location. Named locations can be used by the <a class="reference internal" href="ai.html#ai.GoTo" title="ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a>
+<dt id="pyskool.skool.Skool.add_location">
+<tt class="descname">add_location</tt><big>(</big><em>location_id</em>, <em>coords</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a named location. Named locations can be used by the <tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt>
 command.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -338,8 +336,8 @@ command.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_no_go_zone">
-<tt class="descname">add_no_go_zone</tt><big>(</big><em>zone_id</em>, <em>min_x</em>, <em>max_x</em>, <em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#skool.Skool.add_no_go_zone" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_no_go_zone">
+<tt class="descname">add_no_go_zone</tt><big>(</big><em>zone_id</em>, <em>min_x</em>, <em>max_x</em>, <em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_no_go_zone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a no-go zone to the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -359,8 +357,8 @@ command.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_plant">
-<tt class="descname">add_plant</tt><big>(</big><em>plant_id</em>, <em>sprite_group_id</em>, <em>x</em>, <em>y</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#skool.Skool.add_plant" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_plant">
+<tt class="descname">add_plant</tt><big>(</big><em>plant_id</em>, <em>sprite_group_id</em>, <em>x</em>, <em>y</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_plant" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a plant pot to the skool, and a plant to the cast.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -380,8 +378,8 @@ command.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_room">
-<tt class="descname">add_room</tt><big>(</big><em>room_id</em>, <em>name</em>, <em>top_left</em>, <em>bottom_right</em>, <em>get_along</em><big>)</big><a class="headerlink" href="#skool.Skool.add_room" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_room">
+<tt class="descname">add_room</tt><big>(</big><em>room_id</em>, <em>name</em>, <em>top_left</em>, <em>bottom_right</em>, <em>get_along</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_room" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a room to the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -404,8 +402,8 @@ should be somewhere else.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_routes">
-<tt class="descname">add_routes</tt><big>(</big><em>home_floor_id</em>, <em>dest_floor_ids</em>, <em>staircase_id</em><big>)</big><a class="headerlink" href="#skool.Skool.add_routes" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_routes">
+<tt class="descname">add_routes</tt><big>(</big><em>home_floor_id</em>, <em>dest_floor_ids</em>, <em>staircase_id</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_routes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add routes from one floor (the home floor) to other floors.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -425,8 +423,8 @@ floors.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_safe">
-<tt class="descname">add_safe</tt><big>(</big><em>top_left</em>, <em>size</em>, <em>coords</em><big>)</big><a class="headerlink" href="#skool.Skool.add_safe" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_safe">
+<tt class="descname">add_safe</tt><big>(</big><em>top_left</em>, <em>size</em>, <em>coords</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_safe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a safe to the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -445,8 +443,8 @@ safe.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_shield">
-<tt class="descname">add_shield</tt><big>(</big><em>score</em>, <em>top_left</em>, <em>size</em>, <em>coords</em><big>)</big><a class="headerlink" href="#skool.Skool.add_shield" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_shield">
+<tt class="descname">add_shield</tt><big>(</big><em>score</em>, <em>top_left</em>, <em>size</em>, <em>coords</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_shield" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a shield to the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -466,8 +464,8 @@ shield.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_staircase">
-<tt class="descname">add_staircase</tt><big>(</big><em>staircase_id</em>, <em>bottom</em>, <em>top</em>, <em>force</em>, <em>alias</em><big>)</big><a class="headerlink" href="#skool.Skool.add_staircase" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_staircase">
+<tt class="descname">add_staircase</tt><big>(</big><em>staircase_id</em>, <em>bottom</em>, <em>top</em>, <em>force</em>, <em>alias</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_staircase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a staircase to the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -488,8 +486,8 @@ when approached.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_to_score">
-<tt class="descname">add_to_score</tt><big>(</big><em>addend</em><big>)</big><a class="headerlink" href="#skool.Skool.add_to_score" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_to_score">
+<tt class="descname">add_to_score</tt><big>(</big><em>addend</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_to_score" title="Permalink to this definition">¶</a></dt>
 <dd><p>Award some points.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -502,8 +500,8 @@ when approached.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_wall">
-<tt class="descname">add_wall</tt><big>(</big><em>wall_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#skool.Skool.add_wall" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_wall">
+<tt class="descname">add_wall</tt><big>(</big><em>wall_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_wall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a wall to the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -522,8 +520,8 @@ when approached.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.add_window">
-<tt class="descname">add_window</tt><big>(</big><em>window_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em>, <em>initially_shut</em>, <em>opener_coords</em>, <em>shut_top_left</em>, <em>size</em>, <em>coords</em>, <em>descent_phases</em>, <em>not_a_bird</em><big>)</big><a class="headerlink" href="#skool.Skool.add_window" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.add_window">
+<tt class="descname">add_window</tt><big>(</big><em>window_id</em>, <em>x</em>, <em>bottom_y</em>, <em>top_y</em>, <em>initially_shut</em>, <em>opener_coords</em>, <em>shut_top_left</em>, <em>size</em>, <em>coords</em>, <em>descent_phases</em>, <em>not_a_bird</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.add_window" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a window to the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -556,15 +554,15 @@ when he hits the ground.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.auto_shut_doors">
-<tt class="descname">auto_shut_doors</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.auto_shut_doors" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.auto_shut_doors">
+<tt class="descname">auto_shut_doors</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.auto_shut_doors" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shut any automatically shutting doors that are due to be and can be
 shut.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.barrier">
-<tt class="descname">barrier</tt><big>(</big><em>character</em>, <em>distance=0</em><big>)</big><a class="headerlink" href="#skool.Skool.barrier" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.barrier">
+<tt class="descname">barrier</tt><big>(</big><em>character</em>, <em>distance=0</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.barrier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the barrier (wall, window or door) that is in front of a
 character.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -572,7 +570,7 @@ character.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</li>
+<li><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character.</li>
 <li><strong>distance</strong> &#8211; The maximum distance to check in front of the
 character.</li>
 </ul>
@@ -587,46 +585,48 @@ if there is none.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.beside_blackboard">
-<tt class="descname">beside_blackboard</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.beside_blackboard" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.beside_blackboard">
+<tt class="descname">beside_blackboard</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.beside_blackboard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a character is beside a blackboard.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.can_reveal_safe_secret">
-<tt class="descname">can_reveal_safe_secret</tt><big>(</big><em>flashing</em><big>)</big><a class="headerlink" href="#skool.Skool.can_reveal_safe_secret" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.can_reveal_safe_secret">
+<tt class="descname">can_reveal_safe_secret</tt><big>(</big><em>flashing</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.can_reveal_safe_secret" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether safe combination letters can be revealed now. This
 will be <cite>True</cite> only if the following conditions are met:</p>
-<ul class="simple">
+<blockquote>
+<div><ul class="simple">
 <li>the safe has not been opened yet</li>
 <li>all the shields are flashing, or <cite>flashing</cite> is <cite>False</cite></li>
 </ul>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.chain_bike">
-<tt class="descname">chain_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.chain_bike" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.chain_bike">
+<tt class="descname">chain_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.chain_bike" title="Permalink to this definition">¶</a></dt>
 <dd><p>Chain the bike to the tree.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.chair">
-<tt class="descname">chair</tt><big>(</big><em>character</em>, <em>check_dir=True</em><big>)</big><a class="headerlink" href="#skool.Skool.chair" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.chair">
+<tt class="descname">chair</tt><big>(</big><em>character</em>, <em>check_dir=True</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.chair" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the chair that is beside a character.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</li>
+<li><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</li>
 <li><strong>check_dir</strong> &#8211; If <cite>True</cite>, return the chair only if the character is
 facing the correct way to sit in it; otherwise,
 return the chair whichever way the character is
@@ -642,8 +642,8 @@ facing.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.check_drinks_cabinet">
-<tt class="descname">check_drinks_cabinet</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.check_drinks_cabinet" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.check_drinks_cabinet">
+<tt class="descname">check_drinks_cabinet</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.check_drinks_cabinet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the drinks cabinet is at a given location and is
 open.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -661,8 +661,8 @@ open.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.check_safe">
-<tt class="descname">check_safe</tt><big>(</big><em>x</em>, <em>y</em>, <em>got_key</em><big>)</big><a class="headerlink" href="#skool.Skool.check_safe" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.check_safe">
+<tt class="descname">check_safe</tt><big>(</big><em>x</em>, <em>y</em>, <em>got_key</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.check_safe" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether there is a safe that can be opened at a given
 location. The safe will be opened if Eric either has the safe key, or
 has written the safe combination on a blackboard while all the shields
@@ -683,8 +683,8 @@ are flashing.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.cup">
-<tt class="descname">cup</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.cup" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.cup">
+<tt class="descname">cup</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.cup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the cup at a given location.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -704,14 +704,14 @@ are flashing.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.desk">
-<tt class="descname">desk</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.desk" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.desk">
+<tt class="descname">desk</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.desk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the desk that a character is sitting at.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The desk, or <cite>None</cite> if the character is not sitting at a
 desk.</td>
@@ -721,8 +721,8 @@ desk.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.draw">
-<tt class="descname">draw</tt><big>(</big><em>update=True</em><big>)</big><a class="headerlink" href="#skool.Skool.draw" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.draw">
+<tt class="descname">draw</tt><big>(</big><em>update=True</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.draw" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -735,8 +735,8 @@ desk.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.draw_mutable">
-<tt class="descname">draw_mutable</tt><big>(</big><em>images</em>, <em>coords</em><big>)</big><a class="headerlink" href="#skool.Skool.draw_mutable" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.draw_mutable">
+<tt class="descname">draw_mutable</tt><big>(</big><em>images</em>, <em>coords</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.draw_mutable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Draw a mutable object (a door, window, cup, or bike-on-a-tree).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -753,8 +753,8 @@ desk.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.end_game">
-<tt class="descname">end_game</tt><big>(</big><em>up_a_year=False</em><big>)</big><a class="headerlink" href="#skool.Skool.end_game" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.end_game">
+<tt class="descname">end_game</tt><big>(</big><em>up_a_year=False</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.end_game" title="Permalink to this definition">¶</a></dt>
 <dd><p>Indicate that the game should restart. The score will be cleared if
 Eric was expelled, or retained if he went up a year.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -768,8 +768,8 @@ Eric was expelled, or retained if he went up a year.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.expand_message">
-<tt class="descname">expand_message</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#skool.Skool.expand_message" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.expand_message">
+<tt class="descname">expand_message</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.expand_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a message with character name and newline macros expanded. A
 character name macro takes the form <cite>$WACKER</cite> (for example), which
 expands to the name of the character whose ID is <cite>WACKER</cite>.</p>
@@ -786,8 +786,8 @@ expands to the name of the character whose ID is <cite>WACKER</cite>.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.expel_eric">
-<tt class="descname">expel_eric</tt><big>(</big><em>command_list_id</em><big>)</big><a class="headerlink" href="#skool.Skool.expel_eric" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.expel_eric">
+<tt class="descname">expel_eric</tt><big>(</big><em>command_list_id</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.expel_eric" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set whoever is responsible for expelling Eric on his way.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -801,8 +801,8 @@ switch to.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.fill_cup">
-<tt class="descname">fill_cup</tt><big>(</big><em>cup_id</em>, <em>contents</em><big>)</big><a class="headerlink" href="#skool.Skool.fill_cup" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.fill_cup">
+<tt class="descname">fill_cup</tt><big>(</big><em>cup_id</em>, <em>contents</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.fill_cup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fill a cup with water, sherry, or nothing.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -819,14 +819,14 @@ switch to.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.fill_desks">
-<tt class="descname">fill_desks</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.fill_desks" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.fill_desks">
+<tt class="descname">fill_desks</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.fill_desks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hide the water pistol and stinkbombs in randomly chosen desks.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.floor">
-<tt class="descname">floor</tt><big>(</big><em>thing</em><big>)</big><a class="headerlink" href="#skool.Skool.floor" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.floor">
+<tt class="descname">floor</tt><big>(</big><em>thing</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.floor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the floor that a character or thing is in direct contact
 with.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -842,8 +842,8 @@ with.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.floor_at">
-<tt class="descname">floor_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.floor_at" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.floor_at">
+<tt class="descname">floor_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.floor_at" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the floor at a given location.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -860,29 +860,29 @@ with.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.floor_below">
-<tt class="descname">floor_below</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.floor_below" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.floor_below">
+<tt class="descname">floor_below</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.floor_below" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the highest floor that is below a character.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_assembly_message">
-<tt class="descname">get_assembly_message</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_assembly_message" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_assembly_message">
+<tt class="descname">get_assembly_message</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_assembly_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a message to deliver during assembly (with verb and noun
 randomly chosen).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_door">
-<tt class="descname">get_door</tt><big>(</big><em>door_id</em><big>)</big><a class="headerlink" href="#skool.Skool.get_door" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_door">
+<tt class="descname">get_door</tt><big>(</big><em>door_id</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_door" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the door or window with a given ID.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -895,14 +895,14 @@ randomly chosen).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_height">
-<tt class="descname">get_height</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_height" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_height">
+<tt class="descname">get_height</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_height" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the height of the play area (in pixels).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_home_room">
-<tt class="descname">get_home_room</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_home_room" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_home_room">
+<tt class="descname">get_home_room</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_home_room" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the room Eric&#8217;s supposed to be in at the moment.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -917,8 +917,8 @@ taking place.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_inventory_images">
-<tt class="descname">get_inventory_images</tt><big>(</big><em>item_ids</em><big>)</big><a class="headerlink" href="#skool.Skool.get_inventory_images" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_inventory_images">
+<tt class="descname">get_inventory_images</tt><big>(</big><em>item_ids</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_inventory_images" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a list of images of inventory items.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -931,16 +931,16 @@ taking place.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_lesson_desc">
-<tt class="descname">get_lesson_desc</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_lesson_desc" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_lesson_desc">
+<tt class="descname">get_lesson_desc</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_lesson_desc" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the name of the teacher and the room for this period (for
 display in the lesson box). The name of the teacher will be blank if
 it&#8217;s Playtime or Revision Library.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_lines_message">
-<tt class="descname">get_lines_message</tt><big>(</big><em>num_lines</em>, <em>name</em><big>)</big><a class="headerlink" href="#skool.Skool.get_lines_message" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_lines_message">
+<tt class="descname">get_lines_message</tt><big>(</big><em>num_lines</em>, <em>name</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_lines_message" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a lines message containing the number of lines being given
 and the recipient&#8217;s name.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -958,15 +958,15 @@ and the recipient&#8217;s name.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_mouse_image">
-<tt class="descname">get_mouse_image</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_mouse_image" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_mouse_image">
+<tt class="descname">get_mouse_image</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_mouse_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an image of a captured mouse (as it appears in the mouse
 inventory).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_room">
-<tt class="descname">get_room</tt><big>(</big><em>room_id</em><big>)</big><a class="headerlink" href="#skool.Skool.get_room" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_room">
+<tt class="descname">get_room</tt><big>(</big><em>room_id</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_room" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the room with a given ID.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -979,8 +979,8 @@ inventory).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_teacher">
-<tt class="descname">get_teacher</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_teacher" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_teacher">
+<tt class="descname">get_teacher</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_teacher" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return Eric&#8217;s teacher for this period.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -993,35 +993,35 @@ inventory).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.get_width">
-<tt class="descname">get_width</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.get_width" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.get_width">
+<tt class="descname">get_width</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.get_width" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the width of the play area (in pixels).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.got_bike_combination">
-<tt class="descname">got_bike_combination</tt><big>(</big><em>blackboard</em><big>)</big><a class="headerlink" href="#skool.Skool.got_bike_combination" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.got_bike_combination">
+<tt class="descname">got_bike_combination</tt><big>(</big><em>blackboard</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.got_bike_combination" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the bike combination is written on a blackboard.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blackboard</strong> (<a class="reference internal" href="room.html#room.Blackboard" title="room.Blackboard"><tt class="xref py py-class docutils literal"><span class="pre">Blackboard</span></tt></a>) &#8211; The blackboard to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blackboard</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Blackboard</span></tt>) &#8211; The blackboard to check.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.got_safe_combination">
-<tt class="descname">got_safe_combination</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.got_safe_combination" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.got_safe_combination">
+<tt class="descname">got_safe_combination</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.got_safe_combination" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the safe combination is written on any of the
 blackboards in the skool.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.got_signal">
-<tt class="descname">got_signal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#skool.Skool.got_signal" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.got_signal">
+<tt class="descname">got_signal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.got_signal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a signal has been raised.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1034,22 +1034,22 @@ blackboards in the skool.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.got_storeroom_combination">
-<tt class="descname">got_storeroom_combination</tt><big>(</big><em>blackboard</em><big>)</big><a class="headerlink" href="#skool.Skool.got_storeroom_combination" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.got_storeroom_combination">
+<tt class="descname">got_storeroom_combination</tt><big>(</big><em>blackboard</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.got_storeroom_combination" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the storeroom combination is written on a blackboard.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blackboard</strong> (<a class="reference internal" href="room.html#room.Blackboard" title="room.Blackboard"><tt class="xref py py-class docutils literal"><span class="pre">Blackboard</span></tt></a>) &#8211; The blackboard to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blackboard</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Blackboard</span></tt>) &#8211; The blackboard to check.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.hide_in_desk">
-<tt class="descname">hide_in_desk</tt><big>(</big><em>item</em><big>)</big><a class="headerlink" href="#skool.Skool.hide_in_desk" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.hide_in_desk">
+<tt class="descname">hide_in_desk</tt><big>(</big><em>item</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.hide_in_desk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Hide an item (stinkbombs or a water pistol) in a desk.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1062,8 +1062,8 @@ blackboards in the skool.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.hit_shield">
-<tt class="descname">hit_shield</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.hit_shield" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.hit_shield">
+<tt class="descname">hit_shield</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.hit_shield" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether there is a shield that can be hit at a given location,
 and make it flash or unflash if required. If the last shield was made
 to flash or unflash, appropriate sound effects are played, points are
@@ -1086,8 +1086,8 @@ awarded, and other required actions are taken.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.in_no_go_zone">
-<tt class="descname">in_no_go_zone</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.in_no_go_zone" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.in_no_go_zone">
+<tt class="descname">in_no_go_zone</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.in_no_go_zone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a given location is in a no-go zone.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1104,61 +1104,61 @@ awarded, and other required actions are taken.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.in_playground">
-<tt class="descname">in_playground</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.in_playground" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.in_playground">
+<tt class="descname">in_playground</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.in_playground" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a character is in the playground.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.initialise_bike_combo">
-<tt class="descname">initialise_bike_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.initialise_bike_combo" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.initialise_bike_combo">
+<tt class="descname">initialise_bike_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.initialise_bike_combo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialise the bike combination.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.initialise_cast">
-<tt class="descname">initialise_cast</tt><big>(</big><em>keyboard</em><big>)</big><a class="headerlink" href="#skool.Skool.initialise_cast" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.initialise_cast">
+<tt class="descname">initialise_cast</tt><big>(</big><em>keyboard</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.initialise_cast" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialise the cast and the safe, bike and storeroom
 combinations.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyboard</strong> (<a class="reference internal" href="input.html#input.Keyboard" title="input.Keyboard"><tt class="xref py py-class docutils literal"><span class="pre">Keyboard</span></tt></a>) &#8211; The keyboard for Eric to use.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>keyboard</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Keyboard</span></tt>) &#8211; The keyboard for Eric to use.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.initialise_safe_combo">
-<tt class="descname">initialise_safe_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.initialise_safe_combo" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.initialise_safe_combo">
+<tt class="descname">initialise_safe_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.initialise_safe_combo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialise the safe combination.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.initialise_storeroom_combo">
-<tt class="descname">initialise_storeroom_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.initialise_storeroom_combo" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.initialise_storeroom_combo">
+<tt class="descname">initialise_storeroom_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.initialise_storeroom_combo" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialise the storeroom combination.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.is_assembly">
-<tt class="descname">is_assembly</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.is_assembly" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.is_assembly">
+<tt class="descname">is_assembly</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.is_assembly" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether it&#8217;s Assembly.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.is_door_shut">
-<tt class="descname">is_door_shut</tt><big>(</big><em>barrier_id</em><big>)</big><a class="headerlink" href="#skool.Skool.is_door_shut" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.is_door_shut">
+<tt class="descname">is_door_shut</tt><big>(</big><em>barrier_id</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.is_door_shut" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a door or window is shut.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1171,28 +1171,28 @@ combinations.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.is_playtime">
-<tt class="descname">is_playtime</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.is_playtime" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.is_playtime">
+<tt class="descname">is_playtime</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.is_playtime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether it&#8217;s Playtime.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.is_teaching_eric">
-<tt class="descname">is_teaching_eric</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.is_teaching_eric" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.is_teaching_eric">
+<tt class="descname">is_teaching_eric</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.is_teaching_eric" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a character is teaching Eric&#8217;s class this period.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.is_time_remaining">
-<tt class="descname">is_time_remaining</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#skool.Skool.is_time_remaining" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.is_time_remaining">
+<tt class="descname">is_time_remaining</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.is_time_remaining" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether there is no more than a certain number of skool clock
 ticks remaining before the bell rings.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1206,30 +1206,30 @@ ticks remaining before the bell rings.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.is_time_to_start_lesson">
-<tt class="descname">is_time_to_start_lesson</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.is_time_to_start_lesson" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.is_time_to_start_lesson">
+<tt class="descname">is_time_to_start_lesson</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.is_time_to_start_lesson" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether enough time has passed to start the lesson. This is
 used, for example, to check whether a teacher should tell the kids to
 sit down, or continue pacing up and down outside the classroom doorway.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.line_of_sight_between">
-<tt class="descname">line_of_sight_between</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#skool.Skool.line_of_sight_between" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.line_of_sight_between">
+<tt class="descname">line_of_sight_between</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.line_of_sight_between" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether there is a clear line of sight between two points
 (that is, there are no walls between them).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.make_sitting_sound">
-<tt class="descname">make_sitting_sound</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.make_sitting_sound" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.make_sitting_sound">
+<tt class="descname">make_sitting_sound</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.make_sitting_sound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sitting sound effect. This will be a walking sound effect,
 chosen at random from those available.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.make_walking_sound">
-<tt class="descname">make_walking_sound</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#skool.Skool.make_walking_sound" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.make_walking_sound">
+<tt class="descname">make_walking_sound</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.make_walking_sound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a walking sound effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1242,8 +1242,8 @@ chosen at random from those available.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.move_bike_away">
-<tt class="descname">move_bike_away</tt><big>(</big><em>barrier_id</em><big>)</big><a class="headerlink" href="#skool.Skool.move_bike_away" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.move_bike_away">
+<tt class="descname">move_bike_away</tt><big>(</big><em>barrier_id</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.move_bike_away" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move the bike away from a door if necessary (so that it may be
 closed).</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1257,8 +1257,8 @@ closed).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.move_characters">
-<tt class="descname">move_characters</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.move_characters" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.move_characters">
+<tt class="descname">move_characters</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.move_characters" title="Permalink to this definition">¶</a></dt>
 <dd><p>Move the characters.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1272,8 +1272,8 @@ left, or 0 if it should not scroll (after moving Eric).</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.move_door">
-<tt class="descname">move_door</tt><big>(</big><em>barrier_id</em>, <em>shut</em><big>)</big><a class="headerlink" href="#skool.Skool.move_door" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.move_door">
+<tt class="descname">move_door</tt><big>(</big><em>barrier_id</em>, <em>shut</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.move_door" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open or close a door or window.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1291,14 +1291,14 @@ if it should be opened.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.nearby_window">
-<tt class="descname">nearby_window</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.nearby_window" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.nearby_window">
+<tt class="descname">nearby_window</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.nearby_window" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a window that is close to a character.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The window, or <cite>None</cite> if there is no window nearby.</td>
 </tr>
@@ -1307,8 +1307,8 @@ if it should be opened.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.next_lesson">
-<tt class="descname">next_lesson</tt><big>(</big><em>ring_bell</em><big>)</big><a class="headerlink" href="#skool.Skool.next_lesson" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.next_lesson">
+<tt class="descname">next_lesson</tt><big>(</big><em>ring_bell</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.next_lesson" title="Permalink to this definition">¶</a></dt>
 <dd><p>Proceed to the next lesson in the timetable.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1321,8 +1321,8 @@ if it should be opened.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.next_staircase">
-<tt class="descname">next_staircase</tt><big>(</big><em>home_floor</em>, <em>dest_floor</em><big>)</big><a class="headerlink" href="#skool.Skool.next_staircase" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.next_staircase">
+<tt class="descname">next_staircase</tt><big>(</big><em>home_floor</em>, <em>dest_floor</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.next_staircase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the next staircase that any character on one floor (the home
 floor) should ascend or descend next to reach another floor (the
 destination floor).</p>
@@ -1341,37 +1341,37 @@ destination floor).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.on_floor">
-<tt class="descname">on_floor</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.on_floor" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.on_floor">
+<tt class="descname">on_floor</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.on_floor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a character is in direct contact with a floor.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.on_staircase">
-<tt class="descname">on_staircase</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.on_staircase" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.on_staircase">
+<tt class="descname">on_staircase</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.on_staircase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a character is on a step of any of the staircases in
 the skool.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.plant_pot">
-<tt class="descname">plant_pot</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#skool.Skool.plant_pot" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.plant_pot">
+<tt class="descname">plant_pot</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.plant_pot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the plant pot at a given location.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1392,8 +1392,8 @@ given location.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.play_sound">
-<tt class="descname">play_sound</tt><big>(</big><em>sound_id</em>, <em>mode=1</em>, <em>pre_resume=None</em>, <em>pre_resume_args=()</em><big>)</big><a class="headerlink" href="#skool.Skool.play_sound" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.play_sound">
+<tt class="descname">play_sound</tt><big>(</big><em>sound_id</em>, <em>mode=1</em>, <em>pre_resume=None</em>, <em>pre_resume_args=()</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.play_sound" title="Permalink to this definition">¶</a></dt>
 <dd><p>Play a sound effect.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1401,9 +1401,9 @@ given location.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sound_id</strong> &#8211; The ID of the sound effect.</li>
-<li><strong>mode</strong> &#8211; See <a class="reference internal" href="sound.html#sound.Beeper.play" title="sound.Beeper.play"><tt class="xref py py-meth docutils literal"><span class="pre">sound.Beeper.play()</span></tt></a>.</li>
+<li><strong>mode</strong> &#8211; See <tt class="xref py py-meth docutils literal"><span class="pre">sound.Beeper.play()</span></tt>.</li>
 <li><strong>pre_resume</strong> &#8211; A method to execute after a sound effect played in
-<a class="reference internal" href="sound.html#sound.SUSPEND" title="sound.SUSPEND"><tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt></a> mode has finished.</li>
+<tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt> mode has finished.</li>
 <li><strong>pre_resume_args</strong> &#8211; The arguments for the <cite>pre_resume</cite> method.</li>
 </ul>
 </td>
@@ -1413,20 +1413,20 @@ given location.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.print_lesson">
-<tt class="descname">print_lesson</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.print_lesson" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.print_lesson">
+<tt class="descname">print_lesson</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.print_lesson" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print the lesson description in the lesson box.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.reinitialise">
-<tt class="descname">reinitialise</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.reinitialise" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.reinitialise">
+<tt class="descname">reinitialise</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.reinitialise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reinitialise the skool in preparation for a new game.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.resolve_location_id">
-<tt class="descname">resolve_location_id</tt><big>(</big><em>location_id</em><big>)</big><a class="headerlink" href="#skool.Skool.resolve_location_id" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.resolve_location_id">
+<tt class="descname">resolve_location_id</tt><big>(</big><em>location_id</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.resolve_location_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resolve a location ID into a pair of coordinates.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1441,29 +1441,31 @@ given location.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.restore">
-<tt class="descname">restore</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.restore" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.restore">
+<tt class="descname">restore</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.restore" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform tasks required immediately after rescaling or loading a
 saved game. The tasks are:</p>
-<ul class="simple">
+<blockquote>
+<div><ul class="simple">
 <li>set the screen size and background colour</li>
 <li>set the window icon and title</li>
 <li>print the logo, score box, lesson box and inventories</li>
 <li>restore the blackboard images</li>
 <li>redraw the bike, cups, doors, and windows</li>
 </ul>
+</div></blockquote>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.resume">
-<tt class="descname">resume</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.resume" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.resume">
+<tt class="descname">resume</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.resume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run any method that was queued up before playing a sound effect in
-<a class="reference internal" href="sound.html#sound.SUSPEND" title="sound.SUSPEND"><tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt></a> mode.</p>
+<tt class="xref py py-data docutils literal"><span class="pre">SUSPEND</span></tt> mode.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.rewind_clock">
-<tt class="descname">rewind_clock</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#skool.Skool.rewind_clock" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.rewind_clock">
+<tt class="descname">rewind_clock</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.rewind_clock" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rewind the skool clock by a number of ticks.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1476,23 +1478,23 @@ saved game. The tasks are:</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.room">
-<tt class="descname">room</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.room" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.room">
+<tt class="descname">room</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.room" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the room a character is in (or <cite>None</cite> if he is not in a
 room).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.scroll">
-<tt class="descname">scroll</tt><big>(</big><em>inc</em>, <em>clock</em><big>)</big><a class="headerlink" href="#skool.Skool.scroll" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.scroll">
+<tt class="descname">scroll</tt><big>(</big><em>inc</em>, <em>clock</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.scroll" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scroll the skool left or right across the screen.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1510,8 +1512,8 @@ scroll), or 1 (scroll left).</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.scroll_on">
-<tt class="descname">scroll_on</tt><big>(</big><em>clock</em><big>)</big><a class="headerlink" href="#skool.Skool.scroll_on" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.scroll_on">
+<tt class="descname">scroll_on</tt><big>(</big><em>clock</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.scroll_on" title="Permalink to this definition">¶</a></dt>
 <dd><p>Scroll the skool into view across the screen.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1524,22 +1526,22 @@ scroll), or 1 (scroll left).</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.set_home_room">
-<tt class="descname">set_home_room</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.set_home_room" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.set_home_room">
+<tt class="descname">set_home_room</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.set_home_room" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set Eric&#8217;s home room for the current period. The home room is the
 place Eric should be in by now; if he&#8217;s not, and he&#8217;s spotted by a
 teacher, he will be given lines.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.should_get_along">
-<tt class="descname">should_get_along</tt><big>(</big><em>eric</em><big>)</big><a class="headerlink" href="#skool.Skool.should_get_along" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.should_get_along">
+<tt class="descname">should_get_along</tt><big>(</big><em>eric</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.should_get_along" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric is somewhere other than he should be.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.signal">
-<tt class="descname">signal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#skool.Skool.signal" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.signal">
+<tt class="descname">signal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.signal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raise a signal.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1552,15 +1554,15 @@ teacher, he will be given lines.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.staircase">
-<tt class="descname">staircase</tt><big>(</big><em>character</em>, <em>distance=0</em><big>)</big><a class="headerlink" href="#skool.Skool.staircase" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.staircase">
+<tt class="descname">staircase</tt><big>(</big><em>character</em>, <em>distance=0</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.staircase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the staircase that a character is on or close to.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</li>
+<li><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</li>
 <li><strong>distance</strong> &#8211; The maximum distance in front of the character to
 check for a staircase.</li>
 </ul>
@@ -1574,8 +1576,8 @@ check for a staircase.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.start_clock">
-<tt class="descname">start_clock</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#skool.Skool.start_clock" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.start_clock">
+<tt class="descname">start_clock</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.start_clock" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start the skool clock with a certain number of ticks remaining till
 the bell rings.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -1589,26 +1591,26 @@ the bell rings.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.stop_clock">
-<tt class="descname">stop_clock</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.stop_clock" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.stop_clock">
+<tt class="descname">stop_clock</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.stop_clock" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stop the skool clock.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.tick">
-<tt class="descname">tick</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.tick" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.tick">
+<tt class="descname">tick</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.tick" title="Permalink to this definition">¶</a></dt>
 <dd><p>Advance the skool clock by one tick.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.unchain_bike">
-<tt class="descname">unchain_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.unchain_bike" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.unchain_bike">
+<tt class="descname">unchain_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.unchain_bike" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unchain the bike from the tree.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.unflash">
-<tt class="descname">unflash</tt><big>(</big><em>flashable</em><big>)</big><a class="headerlink" href="#skool.Skool.unflash" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.unflash">
+<tt class="descname">unflash</tt><big>(</big><em>flashable</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.unflash" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make a flashing object stop flashing.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1621,16 +1623,16 @@ the bell rings.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.unset_home_room">
-<tt class="descname">unset_home_room</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.unset_home_room" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.unset_home_room">
+<tt class="descname">unset_home_room</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.unset_home_room" title="Permalink to this definition">¶</a></dt>
 <dd><p>Unset Eric&#8217;s home room for the current period. This is used when
 assembly is finished (so that Eric is not told off for being outside
 the assembly hall after Mr Wacker has finished speaking).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.unsignal">
-<tt class="descname">unsignal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#skool.Skool.unsignal" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.unsignal">
+<tt class="descname">unsignal</tt><big>(</big><em>signal</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.unsignal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Lower a signal.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1643,35 +1645,35 @@ the assembly hall after Mr Wacker has finished speaking).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.update_score_box">
-<tt class="descname">update_score_box</tt><big>(</big><big>)</big><a class="headerlink" href="#skool.Skool.update_score_box" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.update_score_box">
+<tt class="descname">update_score_box</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.update_score_box" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print the score, lines total and hi-score.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.visible_blackboard">
-<tt class="descname">visible_blackboard</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.visible_blackboard" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.visible_blackboard">
+<tt class="descname">visible_blackboard</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.visible_blackboard" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the blackboard that is in a character&#8217;s line of sight, or
 <cite>None</cite> if there is none.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.window">
-<tt class="descname">window</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#skool.Skool.window" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.window">
+<tt class="descname">window</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.window" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the window that is in front of a character.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The window, or <cite>None</cite> if there is no window.</td>
 </tr>
@@ -1680,8 +1682,8 @@ the assembly hall after Mr Wacker has finished speaking).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.wipe_board">
-<tt class="descname">wipe_board</tt><big>(</big><em>blackboard</em>, <em>column</em><big>)</big><a class="headerlink" href="#skool.Skool.wipe_board" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.wipe_board">
+<tt class="descname">wipe_board</tt><big>(</big><em>blackboard</em>, <em>column</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.wipe_board" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wipe a bit of a blackboard clean.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1698,15 +1700,15 @@ the assembly hall after Mr Wacker has finished speaking).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="skool.Skool.write_on_board">
-<tt class="descname">write_on_board</tt><big>(</big><em>character</em>, <em>blackboard</em>, <em>message</em>, <em>index=1</em><big>)</big><a class="headerlink" href="#skool.Skool.write_on_board" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.skool.Skool.write_on_board">
+<tt class="descname">write_on_board</tt><big>(</big><em>character</em>, <em>blackboard</em>, <em>message</em>, <em>index=1</em><big>)</big><a class="headerlink" href="#pyskool.skool.Skool.write_on_board" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write the next character of a message on a blackboard.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character writing on the blackboard.</li>
+<li><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character writing on the blackboard.</li>
 <li><strong>blackboard</strong> &#8211; The blackboard.</li>
 <li><strong>message</strong> &#8211; The message being written.</li>
 <li><strong>index</strong> &#8211; The index of the next character in the message to write.</li>
@@ -1746,12 +1748,12 @@ otherwise.</p>
         <li class="right" >
           <a href="skoolbuilder.html" title="skoolbuilder"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

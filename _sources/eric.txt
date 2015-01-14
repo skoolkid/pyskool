@@ -1,5 +1,5 @@
 eric
 ====
 
-.. automodule:: eric
+.. automodule:: pyskool.eric
    :members:

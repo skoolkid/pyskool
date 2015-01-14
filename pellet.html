@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>pellet &mdash; Pyskool 1.1.2 documentation</title>
+    <title>pellet &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="next" title="plant" href="plant.html" />
     <link rel="prev" title="mutable" href="mutable.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="mutable.html" title="mutable"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -77,12 +75,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-pellet">
-<span id="pellet"></span><h1>pellet<a class="headerlink" href="#module-pellet" title="Permalink to this headline">¶</a></h1>
-<p>Defines the <a class="reference internal" href="#pellet.Pellet" title="pellet.Pellet"><tt class="xref py py-class docutils literal"><span class="pre">Pellet</span></tt></a> class.</p>
+  <div class="section" id="module-pyskool.pellet">
+<span id="pellet"></span><h1>pellet<a class="headerlink" href="#module-pyskool.pellet" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#pyskool.pellet.Pellet" title="pyskool.pellet.Pellet"><tt class="xref py py-class docutils literal"><span class="pre">Pellet</span></tt></a> class.</p>
 <dl class="class">
-<dt id="pellet.Pellet">
-<em class="property">class </em><tt class="descclassname">pellet.</tt><tt class="descname">Pellet</tt><big>(</big><em>pellet_id</em>, <em>command_list_id</em>, <em>pellet_range</em>, <em>hit_zone</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#pellet.Pellet" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.pellet.Pellet">
+<em class="property">class </em><tt class="descclassname">pyskool.pellet.</tt><tt class="descname">Pellet</tt><big>(</big><em>pellet_id</em>, <em>command_list_id</em>, <em>pellet_range</em>, <em>hit_zone</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#pyskool.pellet.Pellet" title="Permalink to this definition">¶</a></dt>
 <dd><p>A catapult pellet.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -103,8 +101,8 @@ collision detection).</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="pellet.Pellet.get_command_list_id">
-<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pellet.Pellet.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.pellet.Pellet.get_command_list_id">
+<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pyskool.pellet.Pellet.get_command_list_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the ID of the command list used by the pellet.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -118,22 +116,22 @@ not follow a timetable).</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="pellet.Pellet.get_hit_coords">
-<tt class="descname">get_hit_coords</tt><big>(</big><big>)</big><a class="headerlink" href="#pellet.Pellet.get_hit_coords" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.pellet.Pellet.get_hit_coords">
+<tt class="descname">get_hit_coords</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.pellet.Pellet.get_hit_coords" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the coordinates of the pellet adjusted for comparison with
 the coordinates of a cup, shield or conker.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pellet.Pellet.get_victim">
-<tt class="descname">get_victim</tt><big>(</big><big>)</big><a class="headerlink" href="#pellet.Pellet.get_victim" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.pellet.Pellet.get_victim">
+<tt class="descname">get_victim</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.pellet.Pellet.get_victim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whoever has been hit by this pellet, or <cite>None</cite> if no one was
 hit.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pellet.Pellet.hit_conker">
-<tt class="descname">hit_conker</tt><big>(</big><big>)</big><a class="headerlink" href="#pellet.Pellet.hit_conker" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.pellet.Pellet.hit_conker">
+<tt class="descname">hit_conker</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.pellet.Pellet.hit_conker" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether the pellet hit a conker in the tree, and make the
 conker fall if so.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -147,8 +145,8 @@ conker fall if so.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pellet.Pellet.hit_cup">
-<tt class="descname">hit_cup</tt><big>(</big><big>)</big><a class="headerlink" href="#pellet.Pellet.hit_cup" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.pellet.Pellet.hit_cup">
+<tt class="descname">hit_cup</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.pellet.Pellet.hit_cup" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether the pellet hit a cup, and spill its contents if so.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -162,8 +160,8 @@ frog, <cite>False</cite> otherwise.</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="pellet.Pellet.hit_shield">
-<tt class="descname">hit_shield</tt><big>(</big><big>)</big><a class="headerlink" href="#pellet.Pellet.hit_shield" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.pellet.Pellet.hit_shield">
+<tt class="descname">hit_shield</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.pellet.Pellet.hit_shield" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check whether the pellet hit a shield, and make the shield flash or
 unflash as appropriate if so.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -177,8 +175,8 @@ unflash as appropriate if so.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pellet.Pellet.impeded">
-<tt class="descname">impeded</tt><big>(</big><em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#pellet.Pellet.impeded" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.pellet.Pellet.impeded">
+<tt class="descname">impeded</tt><big>(</big><em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#pyskool.pellet.Pellet.impeded" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the pellet is blocked by an object (such as a wall).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -195,8 +193,8 @@ unflash as appropriate if so.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="pellet.Pellet.launch">
-<tt class="descname">launch</tt><big>(</big><em>x</em>, <em>y</em>, <em>direction</em><big>)</big><a class="headerlink" href="#pellet.Pellet.launch" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.pellet.Pellet.launch">
+<tt class="descname">launch</tt><big>(</big><em>x</em>, <em>y</em>, <em>direction</em><big>)</big><a class="headerlink" href="#pyskool.pellet.Pellet.launch" title="Permalink to this definition">¶</a></dt>
 <dd><p>Launch the pellet from a starting point.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -238,12 +236,12 @@ unflash as appropriate if so.</p>
         <li class="right" >
           <a href="mutable.html" title="mutable"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

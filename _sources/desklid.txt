@@ -1,5 +1,5 @@
 desklid
 =======
 
-.. automodule:: desklid
+.. automodule:: pyskool.desklid
    :members:

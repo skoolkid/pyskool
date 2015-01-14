@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>floor &mdash; Pyskool 1.1.2 documentation</title>
+    <title>floor &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="next" title="game" href="game.html" />
     <link rel="prev" title="eric" href="eric.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="eric.html" title="eric"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -77,12 +75,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-floor">
-<span id="floor"></span><h1>floor<a class="headerlink" href="#module-floor" title="Permalink to this headline">¶</a></h1>
-<p>Defines the <a class="reference internal" href="#floor.Floor" title="floor.Floor"><tt class="xref py py-class docutils literal"><span class="pre">Floor</span></tt></a> class.</p>
+  <div class="section" id="module-pyskool.floor">
+<span id="floor"></span><h1>floor<a class="headerlink" href="#module-pyskool.floor" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#pyskool.floor.Floor" title="pyskool.floor.Floor"><tt class="xref py py-class docutils literal"><span class="pre">Floor</span></tt></a> class.</p>
 <dl class="class">
-<dt id="floor.Floor">
-<em class="property">class </em><tt class="descclassname">floor.</tt><tt class="descname">Floor</tt><big>(</big><em>floor_id</em>, <em>left_x</em>, <em>right_x</em>, <em>y</em><big>)</big><a class="headerlink" href="#floor.Floor" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.floor.Floor">
+<em class="property">class </em><tt class="descclassname">pyskool.floor.</tt><tt class="descname">Floor</tt><big>(</big><em>floor_id</em>, <em>left_x</em>, <em>right_x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.floor.Floor" title="Permalink to this definition">¶</a></dt>
 <dd><p>A region of the skool regarded as a starting point from which to reach a
 destination (which will be on the same or another floor).</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -100,34 +98,34 @@ destination (which will be on the same or another floor).</p>
 </tbody>
 </table>
 <dl class="method">
-<dt id="floor.Floor.below">
-<tt class="descname">below</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#floor.Floor.below" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.floor.Floor.below">
+<tt class="descname">below</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.floor.Floor.below" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether this floor is below a character&#8217;s current location.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="floor.Floor.contains_location">
-<tt class="descname">contains_location</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#floor.Floor.contains_location" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.floor.Floor.contains_location">
+<tt class="descname">contains_location</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.floor.Floor.contains_location" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the location <cite>(x, y)</cite> is on this floor.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="floor.Floor.supports">
-<tt class="descname">supports</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#floor.Floor.supports" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.floor.Floor.supports">
+<tt class="descname">supports</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.floor.Floor.supports" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a character is on this floor.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</td>
 </tr>
 </tbody>
 </table>
@@ -158,12 +156,12 @@ destination (which will be on the same or another floor).</p>
         <li class="right" >
           <a href="eric.html" title="eric"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>stinkbomb &mdash; Pyskool 1.1.2 documentation</title>
+    <title>stinkbomb &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="next" title="timetable" href="timetable.html" />
     <link rel="prev" title="staircase" href="staircase.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="staircase.html" title="staircase"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -77,12 +75,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-stinkbomb">
-<span id="stinkbomb"></span><h1>stinkbomb<a class="headerlink" href="#module-stinkbomb" title="Permalink to this headline">¶</a></h1>
-<p>Defines the <a class="reference internal" href="#stinkbomb.Stinkbomb" title="stinkbomb.Stinkbomb"><tt class="xref py py-class docutils literal"><span class="pre">Stinkbomb</span></tt></a> class.</p>
+  <div class="section" id="module-pyskool.stinkbomb">
+<span id="stinkbomb"></span><h1>stinkbomb<a class="headerlink" href="#module-pyskool.stinkbomb" title="Permalink to this headline">¶</a></h1>
+<p>Defines the <tt class="xref py py-class docutils literal"><span class="pre">Stinkbomb</span></tt> class.</p>
 <dl class="class">
-<dt id="stinkbomb.Stinkbomb">
-<em class="property">class </em><tt class="descclassname">stinkbomb.</tt><tt class="descname">Stinkbomb</tt><big>(</big><em>stinkbomb_id</em>, <em>command_list_id</em>, <em>phases</em>, <em>stink_range</em><big>)</big><a class="headerlink" href="#stinkbomb.Stinkbomb" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.stinkbomb.Stinkbomb">
+<em class="property">class </em><tt class="descclassname">pyskool.stinkbomb.</tt><tt class="descname">Stinkbomb</tt><big>(</big><em>stinkbomb_id</em>, <em>command_list_id</em>, <em>phases</em>, <em>stink_range</em><big>)</big><a class="headerlink" href="#pyskool.stinkbomb.Stinkbomb" title="Permalink to this definition">¶</a></dt>
 <dd><p>A stinkbomb.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -100,8 +98,8 @@ smelt.</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="stinkbomb.Stinkbomb.drop">
-<tt class="descname">drop</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#stinkbomb.Stinkbomb.drop" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.stinkbomb.Stinkbomb.drop">
+<tt class="descname">drop</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.stinkbomb.Stinkbomb.drop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Drop the stinkbomb at a given location.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -118,8 +116,8 @@ smelt.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="stinkbomb.Stinkbomb.get_command_list_id">
-<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#stinkbomb.Stinkbomb.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.stinkbomb.Stinkbomb.get_command_list_id">
+<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pyskool.stinkbomb.Stinkbomb.get_command_list_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the ID of the command list used by the stinkbomb.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -133,8 +131,8 @@ not follow a timetable).</td>
 </dd></dl>
 
 <dl class="method">
-<dt id="stinkbomb.Stinkbomb.move_cloud">
-<tt class="descname">move_cloud</tt><big>(</big><big>)</big><a class="headerlink" href="#stinkbomb.Stinkbomb.move_cloud" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.stinkbomb.Stinkbomb.move_cloud">
+<tt class="descname">move_cloud</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.stinkbomb.Stinkbomb.move_cloud" title="Permalink to this definition">¶</a></dt>
 <dd><p>Animate the stinkbomb cloud. Any stinkbomb smeller in the vicinity
 of the stinkbomb will be alerted and open a nearby window if
 possible.</p>
@@ -165,12 +163,12 @@ possible.</p>
         <li class="right" >
           <a href="staircase.html" title="staircase"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

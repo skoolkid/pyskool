@@ -1,5 +1,5 @@
 timetable
 =========
 
-.. automodule:: timetable
+.. automodule:: pyskool.timetable
    :members:

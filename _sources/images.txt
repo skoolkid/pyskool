@@ -60,5 +60,5 @@ and the following parameter values in the :ref:`screenConfig` section::
   Scale, 2
   GraphicsMode, 0
 
-.. _Skool Daze graphic glitches: http://pyskool.ca/disassemblies/skool_daze/graphics/glitches.html
-.. _Back to Skool graphic glitches: http://pyskool.ca/disassemblies/back_to_skool/graphics/glitches.html
+.. _Skool Daze graphic glitches: http://skoolkit.ca/disassemblies/skool_daze/graphics/glitches.html
+.. _Back to Skool graphic glitches: http://skoolkit.ca/disassemblies/back_to_skool/graphics/glitches.html

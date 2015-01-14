@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>droppable &mdash; Pyskool 1.1.2 documentation</title>
+    <title>droppable &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="next" title="eric" href="eric.html" />
     <link rel="prev" title="desklid" href="desklid.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="desklid.html" title="desklid"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -77,13 +75,13 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-droppable">
-<span id="droppable"></span><h1>droppable<a class="headerlink" href="#module-droppable" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-pyskool.droppable">
+<span id="droppable"></span><h1>droppable<a class="headerlink" href="#module-pyskool.droppable" title="Permalink to this headline">¶</a></h1>
 <p>Classes for things in the skool that fall from a height onto the floor or
 someone&#8217;s head.</p>
 <dl class="class">
-<dt id="droppable.Conker">
-<em class="property">class </em><tt class="descclassname">droppable.</tt><tt class="descname">Conker</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>min_x</em>, <em>max_x</em>, <em>min_y</em>, <em>max_y</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#droppable.Conker" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.droppable.Conker">
+<em class="property">class </em><tt class="descclassname">pyskool.droppable.</tt><tt class="descname">Conker</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>min_x</em>, <em>max_x</em>, <em>min_y</em>, <em>max_y</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#pyskool.droppable.Conker" title="Permalink to this definition">¶</a></dt>
 <dd><p>A conker (as knocked out of a tree by a catapult pellet).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -108,22 +106,22 @@ collision detection).</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="droppable.Conker.hit_by">
-<tt class="descname">hit_by</tt><big>(</big><em>pellet</em><big>)</big><a class="headerlink" href="#droppable.Conker.hit_by" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.droppable.Conker.hit_by">
+<tt class="descname">hit_by</tt><big>(</big><em>pellet</em><big>)</big><a class="headerlink" href="#pyskool.droppable.Conker.hit_by" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the conker was hit by a catapult pellet.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pellet</strong> (<a class="reference internal" href="pellet.html#pellet.Pellet" title="pellet.Pellet"><tt class="xref py py-class docutils literal"><span class="pre">Pellet</span></tt></a>) &#8211; The catapult pellet to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pellet</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Pellet</span></tt>) &#8211; The catapult pellet to check.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="droppable.Conker.hit_victim">
-<tt class="descname">hit_victim</tt><big>(</big><big>)</big><a class="headerlink" href="#droppable.Conker.hit_victim" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.droppable.Conker.hit_victim">
+<tt class="descname">hit_victim</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.droppable.Conker.hit_victim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Knock anyone over or out who was unfortunate enough to be struck by
 the conker.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -139,12 +137,12 @@ the conker.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="droppable.Drop">
-<em class="property">class </em><tt class="descclassname">droppable.</tt><tt class="descname">Drop</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em>, <em>animatory_state</em>, <em>direction</em><big>)</big><a class="headerlink" href="#droppable.Drop" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.droppable.Drop">
+<em class="property">class </em><tt class="descclassname">pyskool.droppable.</tt><tt class="descname">Drop</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em>, <em>animatory_state</em>, <em>direction</em><big>)</big><a class="headerlink" href="#pyskool.droppable.Drop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract superclass for a drop of liquid (water or sherry).</p>
 <dl class="method">
-<dt id="droppable.Drop.hit_victim">
-<tt class="descname">hit_victim</tt><big>(</big><big>)</big><a class="headerlink" href="#droppable.Drop.hit_victim" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.droppable.Drop.hit_victim">
+<tt class="descname">hit_victim</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.droppable.Drop.hit_victim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Knock anyone over who was unfortunate enough to be struck by the
 drop of liquid, and make them reveal a secret.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -160,8 +158,8 @@ drop of liquid, and make them reveal a secret.</p>
 </dd></dl>
 
 <dl class="class">
-<dt id="droppable.Droppable">
-<em class="property">class </em><tt class="descclassname">droppable.</tt><tt class="descname">Droppable</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em>, <em>animatory_state</em>, <em>direction</em><big>)</big><a class="headerlink" href="#droppable.Droppable" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.droppable.Droppable">
+<em class="property">class </em><tt class="descclassname">pyskool.droppable.</tt><tt class="descname">Droppable</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em>, <em>animatory_state</em>, <em>direction</em><big>)</big><a class="headerlink" href="#pyskool.droppable.Droppable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract superclass for objects that fall from a height.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -181,8 +179,8 @@ the object&#8217;s animatory state).</li>
 </tbody>
 </table>
 <dl class="method">
-<dt id="droppable.Droppable.fall">
-<tt class="descname">fall</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#droppable.Droppable.fall" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.droppable.Droppable.fall">
+<tt class="descname">fall</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.droppable.Droppable.fall" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make the object begin its descent from a specified location.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -199,8 +197,8 @@ the object&#8217;s animatory state).</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="droppable.Droppable.get_command_list_id">
-<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#droppable.Droppable.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.droppable.Droppable.get_command_list_id">
+<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pyskool.droppable.Droppable.get_command_list_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the ID of the command list used by this object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -216,8 +214,8 @@ does not follow a timetable).</td>
 </dd></dl>
 
 <dl class="class">
-<dt id="droppable.SherryDrop">
-<em class="property">class </em><tt class="descclassname">droppable.</tt><tt class="descname">SherryDrop</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#droppable.SherryDrop" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.droppable.SherryDrop">
+<em class="property">class </em><tt class="descclassname">pyskool.droppable.</tt><tt class="descname">SherryDrop</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#pyskool.droppable.SherryDrop" title="Permalink to this definition">¶</a></dt>
 <dd><p>A drop of sherry (as knocked from a cup by a catapult pellet).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -236,8 +234,8 @@ for collision detection).</li>
 </dd></dl>
 
 <dl class="class">
-<dt id="droppable.WaterDrop">
-<em class="property">class </em><tt class="descclassname">droppable.</tt><tt class="descname">WaterDrop</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#droppable.WaterDrop" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.droppable.WaterDrop">
+<em class="property">class </em><tt class="descclassname">pyskool.droppable.</tt><tt class="descname">WaterDrop</tt><big>(</big><em>object_id</em>, <em>command_list_id</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#pyskool.droppable.WaterDrop" title="Permalink to this definition">¶</a></dt>
 <dd><p>A drop of water (as knocked from a cup by a catapult pellet).</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -278,12 +276,12 @@ for collision detection).</li>
         <li class="right" >
           <a href="desklid.html" title="desklid"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

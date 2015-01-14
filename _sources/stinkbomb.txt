@@ -1,5 +1,5 @@
 stinkbomb
 =========
 
-.. automodule:: stinkbomb
+.. automodule:: pyskool.stinkbomb
    :members:

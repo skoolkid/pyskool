@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -8,15 +6,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>timetable &mdash; Pyskool 1.1.2 documentation</title>
+    <title>timetable &mdash; Pyskool 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
-        VERSION:     '1.1.2',
+        URL_ROOT:    './',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -25,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
     <link rel="next" title="water" href="water.html" />
     <link rel="prev" title="stinkbomb" href="stinkbomb.html" /> 
   </head>
@@ -45,7 +43,7 @@
         <li class="right" >
           <a href="stinkbomb.html" title="stinkbomb"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -77,12 +75,12 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-timetable">
-<span id="timetable"></span><h1>timetable<a class="headerlink" href="#module-timetable" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-pyskool.timetable">
+<span id="timetable"></span><h1>timetable<a class="headerlink" href="#module-pyskool.timetable" title="Permalink to this headline">¶</a></h1>
 <p>The main timetable and the skool clock.</p>
 <dl class="class">
-<dt id="timetable.Timetable">
-<em class="property">class </em><tt class="descclassname">timetable.</tt><tt class="descname">Timetable</tt><big>(</big><em>config</em><big>)</big><a class="headerlink" href="#timetable.Timetable" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable">
+<em class="property">class </em><tt class="descclassname">pyskool.timetable.</tt><tt class="descname">Timetable</tt><big>(</big><em>config</em><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Represents the timetable of lessons, and the skool clock that ticks down
 until the bell rings.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -94,8 +92,8 @@ until the bell rings.</p>
 </tbody>
 </table>
 <dl class="method">
-<dt id="timetable.Timetable.add_lesson">
-<tt class="descname">add_lesson</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#timetable.Timetable.add_lesson" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.add_lesson">
+<tt class="descname">add_lesson</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.add_lesson" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a lesson to the timetable.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -108,8 +106,8 @@ until the bell rings.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.add_lesson_details">
-<tt class="descname">add_lesson_details</tt><big>(</big><em>lesson_id</em>, <em>hide_teacher</em>, <em>teacher_id</em>, <em>room_id</em><big>)</big><a class="headerlink" href="#timetable.Timetable.add_lesson_details" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.add_lesson_details">
+<tt class="descname">add_lesson_details</tt><big>(</big><em>lesson_id</em>, <em>hide_teacher</em>, <em>teacher_id</em>, <em>room_id</em><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.add_lesson_details" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add the details of a lesson to the timetable.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -132,8 +130,8 @@ unsupervised.</li>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.add_special_playtime">
-<tt class="descname">add_special_playtime</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#timetable.Timetable.add_special_playtime" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.add_special_playtime">
+<tt class="descname">add_special_playtime</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.add_special_playtime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a special playtime. Special playtimes do not appear in the main
 timetable (though they could be inserted); occasionally a normal
 playtime in the main timetable will be replaced by a special playtime.</p>
@@ -148,23 +146,23 @@ playtime in the main timetable will be replaced by a special playtime.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.get_room_id">
-<tt class="descname">get_room_id</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.get_room_id" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.get_room_id">
+<tt class="descname">get_room_id</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.get_room_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the ID of the room Eric&#8217;s will be expected to show up in at
 some point during the current period, or else the name of the period
 (such as PLAYTIME).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.get_teacher_id">
-<tt class="descname">get_teacher_id</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.get_teacher_id" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.get_teacher_id">
+<tt class="descname">get_teacher_id</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.get_teacher_id" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the ID of the teacher supervising Eric for the current
 period, or an empty string if it is an unsupervised period.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.hide_teacher">
-<tt class="descname">hide_teacher</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.hide_teacher" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.hide_teacher">
+<tt class="descname">hide_teacher</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.hide_teacher" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the teacher&#8217;s name (if any) should be displayed in
 the lesson box for the current period. This is generally <cite>True</cite> for
 classroom periods, and <cite>False</cite> for any other period (supervised or
@@ -172,35 +170,35 @@ otherwise).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.is_assembly">
-<tt class="descname">is_assembly</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.is_assembly" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.is_assembly">
+<tt class="descname">is_assembly</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.is_assembly" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether it&#8217;s Assembly.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.is_playtime">
-<tt class="descname">is_playtime</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.is_playtime" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.is_playtime">
+<tt class="descname">is_playtime</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.is_playtime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether it&#8217;s Playtime.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.is_teaching_eric">
-<tt class="descname">is_teaching_eric</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#timetable.Timetable.is_teaching_eric" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.is_teaching_eric">
+<tt class="descname">is_teaching_eric</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.is_teaching_eric" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether a character is supervising Eric during the current
 period.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#character.Character" title="character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.is_time_remaining">
-<tt class="descname">is_time_remaining</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#timetable.Timetable.is_time_remaining" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.is_time_remaining">
+<tt class="descname">is_time_remaining</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.is_time_remaining" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether there is no more than a certain number of skool clock
 ticks remaining before the bell rings.</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -214,39 +212,39 @@ ticks remaining before the bell rings.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.is_time_to_get_along">
-<tt class="descname">is_time_to_get_along</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.is_time_to_get_along" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.is_time_to_get_along">
+<tt class="descname">is_time_to_get_along</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.is_time_to_get_along" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric should have left the classroom he was in last
 period by now.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.is_time_to_start_lesson">
-<tt class="descname">is_time_to_start_lesson</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.is_time_to_start_lesson" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.is_time_to_start_lesson">
+<tt class="descname">is_time_to_start_lesson</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.is_time_to_start_lesson" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether it&#8217;s time to start a lesson. When the answer is
 <cite>True</cite>, teachers will stop pacing up and down outside classroom
 doorways.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.next_lesson">
-<tt class="descname">next_lesson</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.next_lesson" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.next_lesson">
+<tt class="descname">next_lesson</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.next_lesson" title="Permalink to this definition">¶</a></dt>
 <dd><p>Proceed to the next lesson in the timetable. If the next lesson is
 playtime and there are any special playtimes defined, one of those may
 be chosen as the next lesson.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.reinitialise">
-<tt class="descname">reinitialise</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.reinitialise" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.reinitialise">
+<tt class="descname">reinitialise</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.reinitialise" title="Permalink to this definition">¶</a></dt>
 <dd><p>Reinitialise the timetable after a game has ended.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.resume">
-<tt class="descname">resume</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#timetable.Timetable.resume" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.resume">
+<tt class="descname">resume</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.resume" title="Permalink to this definition">¶</a></dt>
 <dd><p>Start the skool clock with a certain number of ticks remaining till
-the bell rings. If the clock was previously stopped (see <a class="reference internal" href="#timetable.Timetable.stop" title="timetable.Timetable.stop"><tt class="xref py py-meth docutils literal"><span class="pre">stop()</span></tt></a>),
+the bell rings. If the clock was previously stopped (see <a class="reference internal" href="#pyskool.timetable.Timetable.stop" title="pyskool.timetable.Timetable.stop"><tt class="xref py py-meth docutils literal"><span class="pre">stop()</span></tt></a>),
 it will start ticking again.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -259,8 +257,8 @@ it will start ticking again.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.rewind">
-<tt class="descname">rewind</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#timetable.Timetable.rewind" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.rewind">
+<tt class="descname">rewind</tt><big>(</big><em>ticks</em><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.rewind" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rewind the skool clock by a number of ticks.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -273,15 +271,15 @@ it will start ticking again.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.stop">
-<tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.stop" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.stop">
+<tt class="descname">stop</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.stop" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stop the skool clock. Any further attempts to make it tick will be
-futile until <a class="reference internal" href="#timetable.Timetable.resume" title="timetable.Timetable.resume"><tt class="xref py py-meth docutils literal"><span class="pre">resume()</span></tt></a> is called.</p>
+futile until <a class="reference internal" href="#pyskool.timetable.Timetable.resume" title="pyskool.timetable.Timetable.resume"><tt class="xref py py-meth docutils literal"><span class="pre">resume()</span></tt></a> is called.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.tick">
-<tt class="descname">tick</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.tick" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.tick">
+<tt class="descname">tick</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.tick" title="Permalink to this definition">¶</a></dt>
 <dd><p>Advance the skool clock by one tick (unless the clock has been
 stopped).</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -295,8 +293,8 @@ stopped).</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="timetable.Timetable.up_a_year">
-<tt class="descname">up_a_year</tt><big>(</big><big>)</big><a class="headerlink" href="#timetable.Timetable.up_a_year" title="Permalink to this definition">¶</a></dt>
+<dt id="pyskool.timetable.Timetable.up_a_year">
+<tt class="descname">up_a_year</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.timetable.Timetable.up_a_year" title="Permalink to this definition">¶</a></dt>
 <dd><p>Take appropriate action when Eric has gone up a year. This entails
 setting the skool clock so that half a normal lesson length remains
 before the bell will ring.</p>
@@ -327,12 +325,12 @@ before the bell will ring.</p>
         <li class="right" >
           <a href="stinkbomb.html" title="stinkbomb"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2014, Richard Dymond.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+        &copy; Copyright 2015, Richard Dymond.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>

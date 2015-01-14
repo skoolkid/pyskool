@@ -1,5 +1,5 @@
 input
 =====
 
-.. automodule:: input
+.. automodule:: pyskool.input
    :members:

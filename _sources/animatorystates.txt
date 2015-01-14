@@ -1,5 +1,5 @@
 animatorystates
 ===============
 
-.. automodule:: animatorystates
+.. automodule:: pyskool.animatorystates
    :members:

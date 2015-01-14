@@ -1,5 +1,5 @@
 lesson
 ======
 
-.. automodule:: lesson
+.. automodule:: pyskool.lesson
    :members:

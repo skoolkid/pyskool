@@ -1,5 +1,5 @@
 mutable
 =======
 
-.. automodule:: mutable
+.. automodule:: pyskool.mutable
    :members:
