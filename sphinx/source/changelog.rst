@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.2.1b1
+-------
+
 1.2 (2015-01-14)
 ----------------
 * Dropped support for Python 2.6 and Pygame 1.7
