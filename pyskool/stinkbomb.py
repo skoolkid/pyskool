@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -16,7 +16,7 @@
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
 """
-Defines the :class:`~stinkbomb.Stinkbomb` class.
+Defines the :class:`Stinkbomb` class.
 """
 
 from .character import Character

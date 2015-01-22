@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010, 2013, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2013-2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -41,13 +41,13 @@ class Skool:
 
     :type config: dict
     :param config: Configuration parameters from the ini file.
-    :type screen: :class:`~graphics.Screen`
+    :type screen: :class:`~pyskool.graphics.Screen`
     :param screen: The screen to draw on.
-    :type beeper: :class:`~sound.Beeper`
+    :type beeper: :class:`~pyskool.sound.Beeper`
     :param beeper: The beeper to use.
-    :type cast: :class:`~cast.Cast`
+    :type cast: :class:`~pyskool.cast.Cast`
     :param cast: The cast of characters.
-    :type gallery: :class:`~graphics.Gallery`
+    :type gallery: :class:`~pyskool.graphics.Gallery`
     :param gallery: The gallery to obtain skool images from.
     """
     def __init__(self, config, screen, beeper, cast, gallery):
@@ -168,7 +168,7 @@ class Skool:
     def got_bike_combination(self, blackboard):
         """Return whether the bike combination is written on a blackboard.
 
-        :type blackboard: :class:`~room.Blackboard`
+        :type blackboard: :class:`~pyskool.room.Blackboard`
         :param blackboard: The blackboard to check.
         """
         return self.bike_combination and blackboard.shows(self.bike_combination, False)
@@ -176,7 +176,7 @@ class Skool:
     def got_storeroom_combination(self, blackboard):
         """Return whether the storeroom combination is written on a blackboard.
 
-        :type blackboard: :class:`~room.Blackboard`
+        :type blackboard: :class:`~pyskool.room.Blackboard`
         :param blackboard: The blackboard to check.
         """
         return self.storeroom_combination and blackboard.shows(self.storeroom_combination, False)
@@ -313,7 +313,7 @@ class Skool:
         """Initialise the cast and the safe, bike and storeroom
         combinations.
 
-        :type keyboard: :class:`~input.Keyboard`
+        :type keyboard: :class:`~pyskool.input.Keyboard`
         :param keyboard: The keyboard for Eric to use.
         """
         self.cast.initialise(self, keyboard)
@@ -371,8 +371,8 @@ class Skool:
     # Skool construction
     #//////////////////////////////////////////////////////////////////////////
     def add_location(self, location_id, coords):
-        """Add a named location. Named locations can be used by the :class:`~ai.GoTo`
-        command.
+        """Add a named location. Named locations can be used by the
+        :class:`~pyskool.ai.GoTo` command.
 
         :param location_id: The name of the location.
         :param coords: The coordinates of the location (as a 2-tuple).
@@ -574,8 +574,9 @@ class Skool:
     def _get_flashable(self, subclass, top_left, size, coords, score=0):
         """Return an instance of a flashable object (safe or shield).
 
-        :param subclass: The class of the object (:class:`~mutable.Safe` or
-                         :class:`~mutable.Shield`).
+        :param subclass: The class of the object
+                         (:class:`~pyskool.mutable.Safe` or
+                         :class:`~pyskool.mutable.Shield`).
         :param top_left: The coordinates of the top left of the image of the
                          object.
         :param size: The size of the image.
@@ -822,7 +823,7 @@ class Skool:
     def write_on_board(self, character, blackboard, message, index=1):
         """Write the next character of a message on a blackboard.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character writing on the blackboard.
         :param blackboard: The blackboard.
         :param message: The message being written.
@@ -1000,7 +1001,7 @@ class Skool:
         """Return the blackboard that is in a character's line of sight, or
         `None` if there is none.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         for room in self.rooms.values():
@@ -1011,7 +1012,7 @@ class Skool:
     def beside_blackboard(self, character):
         """Return whether a character is beside a blackboard.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         for room in self.rooms.values():
@@ -1022,7 +1023,7 @@ class Skool:
         """Return the room a character is in (or `None` if he is not in a
         room).
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         for room in self.rooms.values():
@@ -1032,7 +1033,7 @@ class Skool:
     def staircase(self, character, distance=0):
         """Return the staircase that a character is on or close to.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         :param distance: The maximum distance in front of the character to
                          check for a staircase.
@@ -1046,7 +1047,7 @@ class Skool:
         """Return whether a character is on a step of any of the staircases in
         the skool.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character.
         """
         return any(staircase.supports(character) for staircase in self.staircases.values())
@@ -1065,7 +1066,7 @@ class Skool:
     def floor_below(self, character):
         """Return the highest floor that is below a character.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character.
         """
         floor = None
@@ -1078,7 +1079,7 @@ class Skool:
     def on_floor(self, character):
         """Return whether a character is in direct contact with a floor.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character.
         """
         return any(floor.supports(character) for floor in self.floors.values())
@@ -1104,7 +1105,7 @@ class Skool:
     def in_playground(self, character):
         """Return whether a character is in the playground.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         if self.playground:
@@ -1115,7 +1116,7 @@ class Skool:
         """Return the barrier (wall, window or door) that is in front of a
         character.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character.
         :param distance: The maximum distance to check in front of the
                          character.
@@ -1129,7 +1130,7 @@ class Skool:
     def chair(self, character, check_dir=True):
         """Return the chair that is beside a character.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         :param check_dir: If `True`, return the chair only if the character is
                           facing the correct way to sit in it; otherwise,
@@ -1144,7 +1145,7 @@ class Skool:
     def desk(self, character):
         """Return the desk that a character is sitting at.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character.
         :return: The desk, or `None` if the character is not sitting at a
                  desk.
@@ -1179,7 +1180,7 @@ class Skool:
     def window(self, character):
         """Return the window that is in front of a character.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character.
         :return: The window, or `None` if there is no window.
         """
@@ -1190,7 +1191,7 @@ class Skool:
     def nearby_window(self, character):
         """Return a window that is close to a character.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character.
         :return: The window, or `None` if there is no window nearby.
         """
@@ -1239,9 +1240,9 @@ class Skool:
         """Play a sound effect.
 
         :param sound_id: The ID of the sound effect.
-        :param mode: See :meth:`sound.Beeper.play`.
+        :param mode: See :meth:`pyskool.sound.Beeper.play`.
         :param pre_resume: A method to execute after a sound effect played in
-                           :data:`~sound.SUSPEND` mode has finished.
+                           :data:`~pyskool.sound.SUSPEND` mode has finished.
         :param pre_resume_args: The arguments for the `pre_resume` method.
         """
         if mode == sound.SUSPEND:
@@ -1265,7 +1266,7 @@ class Skool:
 
     def resume(self):
         """Run any method that was queued up before playing a sound effect in
-        :data:`~sound.SUSPEND` mode.
+        :data:`~pyskool.sound.SUSPEND` mode.
         """
         self.suspended = False
         if self.pre_resume:
@@ -1372,7 +1373,7 @@ class Skool:
     def is_teaching_eric(self, character):
         """Return whether a character is teaching Eric's class this period.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         return self.timetable.is_teaching_eric(character)

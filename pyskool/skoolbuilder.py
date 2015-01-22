@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -100,7 +100,7 @@ class SkoolBuilder(IniParser):
     def build_skool(self, skool):
         """Build a skool from the contents of the ini files.
 
-        :type skool: :class:`~skool.Skool`
+        :type skool: :class:`~pyskool.skool.Skool`
         :param skool: The skool to build.
         """
         self.skool = skool

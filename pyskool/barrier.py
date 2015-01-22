@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -39,7 +39,7 @@ class Barrier:
     def impedes(self, character, distance=0, force_shut=False):
         """Return whether a character is impeded by this barrier.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         :param distance: The maximum distance in front of the character at
                          which the barrier should be considered an obstruction.
@@ -78,9 +78,9 @@ class Wall(Barrier):
         """Return whether this wall blocks the view from one location to
         another.
 
-        :type a: :class:`~location.Location`
+        :type a: :class:`~pyskool.location.Location`
         :param a: The first location.
-        :type b: :class:`~location.Location`
+        :type b: :class:`~pyskool.location.Location`
         :param b: The other location.
         """
         min_x = min(a.x, b.x)

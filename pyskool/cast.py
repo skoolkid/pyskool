@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -16,7 +16,7 @@
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
 """
-Defines the :class:`~cast.Cast` class.
+Defines the :class:`Cast` class.
 """
 
 import random
@@ -41,9 +41,9 @@ class Cast:
 
     :type config: dict
     :param config: Configuration parameters from the ini file.
-    :type screen: :class:`~graphics.Screen`
+    :type screen: :class:`~pyskool.graphics.Screen`
     :param screen: The screen to draw on.
-    :type gallery: :class:`~graphics.Gallery`
+    :type gallery: :class:`~pyskool.graphics.Gallery`
     :param gallery: The gallery of images to use for drawing.
     """
     def __init__(self, config, screen, gallery):
@@ -163,11 +163,11 @@ class Cast:
         self.eric.unfreeze()
 
     def create_lesson(self, swot, room):
-        """Return a new :class:`~lesson.Lesson` instance for the swot.
+        """Return a new :class:`~pyskool.lesson.Lesson` instance for the swot.
 
-        :type swot: :class:`~character.Character`
+        :type swot: :class:`~pyskool.character.Character`
         :param swot: The swot.
-        :type room: :class:`~room.Room`
+        :type room: :class:`~pyskool.room.Room`
         :param room: The room in which the lesson will take place.
         """
         return Lesson(self, swot, room, self.config)
@@ -176,7 +176,7 @@ class Cast:
         """Return a list of characters who are facing a target character at a
         given distance.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The target character.
         :param offset: The distance in front of the target character to look
                        for facing characters.
@@ -194,7 +194,7 @@ class Cast:
         """Return the first punchable character who is facing a target
         character at a given distance.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The target character.
         :param offset: The distance in front of the target character to look
                        for facing characters.
@@ -256,7 +256,7 @@ class Cast:
         """Return whether a character is standing on a kid who's been knocked
         out.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         for c in self.character_list:
@@ -275,7 +275,7 @@ class Cast:
     def open_desk(self, character, desk):
         """Make a character open a desk. The desk lid will be raised.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character.
         :param desk: The desk.
         """
@@ -284,7 +284,7 @@ class Cast:
     def trip_people_up_at(self, character, x, y):
         """Make a character trip people up at a given location.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character trying to trip people up.
         :param x: The x-coordinate of the location.
         :param y: The y-coordinate of the location.
@@ -721,10 +721,11 @@ class Cast:
     # Initialisation
     #//////////////////////////////////////////////////////////////////////////
     def _initialise_character(self, character):
-        """Set up a member of the cast with access to the :class:`~skool.Skool` and
-        :class:`~graphics.Screen` objects.
+        """Set up a member of the cast with access to the
+        :class:`~pyskool.skool.Skool` and :class:`~pyskool.graphics.Screen`
+        objects.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The member to initialise.
         """
         character.set_components(self, self.skool, self.screen, self.config)
@@ -732,9 +733,9 @@ class Cast:
     def initialise(self, skool, keyboard):
         """Initialise every member of the cast.
 
-        :type skool: :class:`~skool.Skool`
+        :type skool: :class:`~pyskool.skool.Skool`
         :param skool: The skool.
-        :type keyboard: :class:`~input.Keyboard`
+        :type keyboard: :class:`~pyskool.input.Keyboard`
         :param keyboard: The keyboard for Eric to use.
         """
         self.skool = skool
@@ -886,7 +887,7 @@ class Cast:
     def is_beside_bike(self, character):
         """Return whether a character is next to the bike.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         return self.bike and (self.bike.x, self.bike.y) == (character.x, character.y)
@@ -972,7 +973,7 @@ class Cast:
         """Return whether a character is beside Eric (and so need go no further
         to find him).
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         eric_x, eric_y = self.get_location_of_eric()
@@ -1026,7 +1027,7 @@ class Cast:
     def is_touching_eric(self, character):
         """Return whether a character is in the same location as Eric.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         return (character.x, character.y) == (self.eric.x, self.eric.y)
@@ -1054,7 +1055,7 @@ class Cast:
         """Return a list of characters chosen from a list of candidates who are
         close enough to a target character to be visible to him.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The target character.
         :param candidates: The list of candidates.
         :param witness: If `True`, only choose characters that are facing the
@@ -1075,7 +1076,7 @@ class Cast:
         """Return a list of adults who are close to and facing a target
         character.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The target character.
         """
         adults = [c for c in self.character_list if c.is_adult()]
@@ -1085,7 +1086,7 @@ class Cast:
         """Return a list of lines-givers who are close to and facing a target
         character, and are able to give lines now.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The target character.
         """
         nearby_lines_givers = []
@@ -1098,7 +1099,7 @@ class Cast:
         """Return the potential lines recipient who is nearest to a target
         character, or `None` if there is none.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The target character.
         """
         lines_recipients = [c for c in self.character_list if c.can_receive_lines()]
@@ -1125,7 +1126,7 @@ class Cast:
         """Replace any title macros in a message with the title of a character.
 
         :param message: The message that may contain title macros.
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character whose title should be substituted.
         """
         if self.title_macro:
@@ -1214,7 +1215,7 @@ class Cast:
         """Return the plant that a character is standing on, or `None` if he's
         not standing on one.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         for plant in self.plants:

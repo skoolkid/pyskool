@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -62,7 +62,7 @@ class Plant(Character):
     def supports(self, character):
         """Return whether a character is standing on the head of the plant.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         return (character.x, character.y) == self.head_coords()

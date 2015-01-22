@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -54,9 +54,9 @@ class DeskLid(Character):
     def raise_lid(self, desk, character):
         """Raise the lid of a desk.
 
-        :type desk: :class:`~room.Desk`
+        :type desk: :class:`~pyskool.room.Desk`
         :param desk: The desk.
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character raising the lid.
         """
         if self.is_visible():

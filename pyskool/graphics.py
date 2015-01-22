@@ -250,7 +250,7 @@ class Screen(object):
         """Scroll the skool across the entire width of the screen from right to
         left.
 
-        :type skool: :class:`~skool.Skool`
+        :type skool: :class:`~pyskool.skool.Skool`
         :param skool: The skool.
         :type clock: `pygame.time.Clock`
         :param clock: The clock to use to time the scrolling.
@@ -269,7 +269,7 @@ class Screen(object):
 
         :param inc: The scroll increment (-1 to scroll one column at a time
                     rightwards, 1 to scroll one column at a time leftwards).
-        :type skool: :class:`~skool.Skool`
+        :type skool: :class:`~pyskool.skool.Skool`
         :param skool: The skool.
         :type clock: `pygame.time.Clock`
         :param clock: The clock to use to time the scrolling.
@@ -401,7 +401,7 @@ class Screen(object):
     def contains(self, character, full=True):
         """Return whether a character is on-screen.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         :param full: If `True`, return whether the character's entire sprite
                      is on-screen; if `False`, return whether any part of the
@@ -559,7 +559,7 @@ class Screen(object):
     def draw_menu(self, menu, refresh=False):
         """Draw the menu and update the screen.
 
-        :type menu: :class:`~game.Menu`
+        :type menu: :class:`~pyskool.game.Menu`
         :param menu: The menu.
         :param refresh: If `True`, the entire screen will be updated; if
                         `False`, only the part of the screen occupied by the

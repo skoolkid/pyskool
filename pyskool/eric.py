@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -188,9 +188,9 @@ class Eric(character.Character):
 
     def can_fire_catapult(self):
         """Return whether Eric can fire a catapult. This will be `True` if and
-        only if :meth:`~character.Character.can_fire_catapult` (on
-        :class:`~character.Character`) returns `True` and the conker is not
-        falling from the tree.
+        only if :meth:`~pyskool.character.Character.can_fire_catapult` (on
+        :class:`~pyskool.character.Character`) returns `True` and the conker is
+        not falling from the tree.
         """
         return character.Character.can_fire_catapult(self) and not self.cast.conker_falling()
 
@@ -374,7 +374,7 @@ class Eric(character.Character):
     def can_dump_water_pistol(self):
         """Return whether Eric can throw away the water pistol. This will be
         `True` if Eric has the water pistol and has a
-        :data:`~animatorystates.BENDING_OVER` sprite defined.
+        :data:`~pyskool.animatorystates.BENDING_OVER` sprite defined.
         """
         return self.has_water_pistol() and self.can_bend_over()
 
@@ -404,9 +404,9 @@ class Eric(character.Character):
 
     def can_drop_stinkbomb(self):
         """Return whether Eric can drop a stinkbomb. This will be `True` if
-        :meth:`~character.Character.can_drop_stinkbomb` (on
-        :class:`~character.Character`) returns `True` and Eric has a stinkbomb
-        and is standing on a floor (as opposed to a staircase).
+        :meth:`~pyskool.character.Character.can_drop_stinkbomb` (on
+        :class:`~pyskool.character.Character`) returns `True` and Eric has a
+        stinkbomb and is standing on a floor (as opposed to a staircase).
         """
         return self.floor and self.has_stinkbomb() and character.Character.can_drop_stinkbomb(self)
 
@@ -492,7 +492,8 @@ class Eric(character.Character):
 
     def can_bend_over(self):
         """Return whether Eric can bend over. This will be `True` if and only
-        if he has a :data:`~animatorystates.BENDING_OVER` sprite defined.
+        if he has a :data:`~pyskool.animatorystates.BENDING_OVER` sprite
+        defined.
         """
         return BENDING_OVER in self.as_dict_L
 
@@ -771,8 +772,8 @@ class Eric(character.Character):
     #//////////////////////////////////////////////////////////////////////////
     def can_mount_bike(self):
         """Return whether Eric can mount the bike at the moment. This will be
-        `True` if Eric has the :data:`~animatorystates.RIDING_BIKE0` sprite
-        defined and is standing next to the bike.
+        `True` if Eric has the :data:`~pyskool.animatorystates.RIDING_BIKE0`
+        sprite defined and is standing next to the bike.
         """
         return RIDING_BIKE0 in self.as_dict_L and self.cast.is_beside_bike(self)
 
@@ -921,7 +922,7 @@ class Eric(character.Character):
         """Play a sound effect.
 
         :param sound_id: The ID of the sound effect.
-        :param mode: See :meth:`sound.Beeper.play`.
+        :param mode: See :meth:`pyskool.sound.Beeper.play`.
         """
         self.skool.play_sound(sound_id, mode)
 

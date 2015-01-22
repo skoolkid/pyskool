@@ -409,8 +409,8 @@ class Character:
         """Return whether the character can fire a catapult. The answer will be
         `True` if and only if all of the following conditions are met:
 
-        * the character has :data:`~animatorystates.CATAPULT0` and
-          :data:`~animatorystates.CATAPULT1` sprites
+        * the character has :data:`~pyskool.animatorystates.CATAPULT0` and
+          :data:`~pyskool.animatorystates.CATAPULT1` sprites
         * the character has a catapult pellet
         * the catapult pellet is not currently airborne
         """
@@ -429,7 +429,8 @@ class Character:
         """Return whether the character can fire a water pistol. The answer
         will be `True` if and only if all of the following conditions are met:
 
-        * the character has a :data:`~animatorystates.WATERPISTOL` sprite
+        * the character has a :data:`~pyskool.animatorystates.WATERPISTOL`
+          sprite
         * the character has a water pistol
         * the character's water/sherry sprite is not currently visible
         """
@@ -447,7 +448,7 @@ class Character:
         """Return whether the character can drop a stinkbomb. The answer will
         be `True` if and only if all of the following conditions are met:
 
-        * the character has an :data:`~animatorystates.ARM_UP` sprite
+        * the character has an :data:`~pyskool.animatorystates.ARM_UP` sprite
         * the character can drop stinkbombs
         * the character's stinkbomb cloud sprite is not currently visible
         """
@@ -678,7 +679,7 @@ class Character:
     def set_animatory_states(self, as_dict_L, as_dict_R):
         """Set the character's animatory states (sprite collection). These are
         organised into a collection of left-facing sprites keyed by animatory
-        state name (such as :data:`~animatorystates.WALK0`), and a
+        state name (such as :data:`~pyskool.animatorystates.WALK0`), and a
         corresponding collection of right-facing sprites.
 
         :type as_dict_L: dict
@@ -1099,13 +1100,14 @@ class Character:
     #//////////////////////////////////////////////////////////////////////////
     def set_subcommand(self, command_name, args):
         """Set a subcommand on the character's command list. See
-        :meth:`ai.CommandList.set_subcommand` for details.
+        :meth:`pyskool.ai.CommandList.set_subcommand` for details.
         """
         self.command_list.set_subcommand(command_name, args)
 
     def set_controlling_command(self, command):
         """Set the controlling command on the character's command list. See
-        :meth:`ai.CommandList.set_controlling_command` for more details.
+        :meth:`pyskool.ai.CommandList.set_controlling_command` for more
+        details.
 
         :type command: :class:`~ai.Command`
         :param command: The controlling command.
@@ -1215,8 +1217,8 @@ class Character:
 
     def can_kiss_eric(self):
         """Return whether the character can kiss Eric. The answer is `True`
-        if the character has a :data:`~animatorystates.KISSING_ERIC` sprite
-        defined.
+        if the character has a :data:`~pyskool.animatorystates.KISSING_ERIC`
+        sprite defined.
         """
         return KISSING_ERIC in self.as_dict_L
 

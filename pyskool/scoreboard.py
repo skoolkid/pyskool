@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -22,7 +22,7 @@ Keep track of the score, lines total and high score.
 class Scoreboard:
     """The scoreboard.
 
-    :type screen: :class:`~graphics.Screen`
+    :type screen: :class:`~pyskool.graphics.Screen`
     :param screen: The screen on which the scoreboard is displayed.
     """
     def __init__(self, screen):

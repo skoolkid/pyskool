@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -37,7 +37,7 @@ class Floor:
     def supports(self, character):
         """Return whether a character is on this floor.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         return self.y == character.y and self.left_x <= character.x <= self.right_x
@@ -45,7 +45,7 @@ class Floor:
     def below(self, character):
         """Return whether this floor is below a character's current location.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         return self.y >= character.y and self.left_x <= character.x <= self.right_x

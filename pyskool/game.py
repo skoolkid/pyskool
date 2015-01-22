@@ -199,8 +199,9 @@ class Game:
                 setattr(keys, action, bindings)
 
     def _no_lines(self, *args):
-        """Method used to replace :meth:`character.Character.give_lines` when
-        the :data:`~keys.NO_LINES` cheat key is pressed. The method does
+        """Method used to replace
+        :meth:`~pyskool.character.Character.give_lines` when the
+        :data:`~pyskool.keys.NO_LINES` cheat key is pressed. The method does
         nothing.
         """
         return
@@ -480,7 +481,7 @@ class Game:
 class Menu:
     """The in-game menu.
 
-    :type screen: :class:`~graphics.Screen`
+    :type screen: :class:`~pyskool.graphics.Screen`
     :param screen: The screen (to draw the menu on).
     :type config: dict
     :param config: Configuration parameters.

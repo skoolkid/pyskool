@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010, 2012, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2012, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -41,7 +41,7 @@ class Staircase:
         (b) at the bottom of this staircase facing the top, or (c) at the top
         of this staircase facing the bottom.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         :param distance: The maximum distance to check in front of the
                          character.
@@ -69,7 +69,7 @@ class Staircase:
     def supports(self, character):
         """Return whether a character is on a step of this staircase.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         if not self.contains_location(character.x, character.y):

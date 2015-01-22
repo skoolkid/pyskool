@@ -35,11 +35,11 @@ class Lesson:
     A new lesson is created by the swot when he sits down after being told to
     by the teacher at the classroom doorway.
 
-    :type cast: :class:`~cast.Cast`
+    :type cast: :class:`~pyskool.cast.Cast`
     :param cast: The cast.
-    :type swot: :class:`~character.Character`
+    :type swot: :class:`~pyskool.character.Character`
     :param swot: The swot.
-    :type room: :class:`~room.Room`
+    :type room: :class:`~pyskool.room.Room`
     :param room: The classroom in which the lesson is taking place.
     :type config: dict
     :param config: Configuration parameters from the ini file.
@@ -73,9 +73,9 @@ class Lesson:
         """Make a teacher join the lesson. This method is called by the teacher
         when he notices that the swot has sat down.
 
-        :type teacher: :class:`~character.Character`
+        :type teacher: :class:`~pyskool.character.Character`
         :param teacher: The teacher.
-        :type qa_generator: :class:`~lesson.QAGenerator`
+        :type qa_generator: :class:`~pyskool.lesson.QAGenerator`
         :param qa_generator: The question-and-answer generator to use.
         :param qa_group: The Q&A group from which to choose questions and
                          answers for the teacher and the swot; if `None`, the
@@ -109,7 +109,8 @@ class Lesson:
         absent, the teacher's next action will be :meth:`fetch_eric`. The
         swot's next action is set to :meth:`grass_for_hitting`.
 
-        :return: A :class:`~ai.Say` command if Eric is absent, otherwise `None`.
+        :return: A :class:`~pyskool.ai.Say` command if Eric is absent,
+                 otherwise `None`.
         """
         self.teacher.set_home_room()
         self.swot_action = 'grass_for_hitting'
@@ -123,8 +124,8 @@ class Lesson:
         next action is set to :meth:`give_lines_for_hitting`. The swot's next
         action is set to :meth:`grass_for_writing`.
 
-        :return: A :class:`~ai.Say` command, or `None` if the swot decides not
-                 to tell a tale.
+        :return: A :class:`~pyskool.ai.Say` command, or `None` if the swot
+                 decides not to tell a tale.
         """
         self.swot_action = 'grass_for_writing'
         self.teacher_action = 'give_lines_for_hitting'
@@ -139,8 +140,8 @@ class Lesson:
         swot's third action during a lesson. The teacher's next action is set
         to :meth:`give_lines_for_writing`.
 
-        :return: A :class:`~ai.Say` command, or `None` if the swot decides not to tell a
-                 tale.
+        :return: A :class:`~pyskool.ai.Say` command, or `None` if the swot
+                 decides not to tell a tale.
         """
         self.grassed = True
         self.teacher_action = 'give_lines_for_writing'
@@ -155,7 +156,8 @@ class Lesson:
         """Make the swot tell the teacher that Eric is absent (if he is). If
         Eric is absent, the teacher's next action will be :meth:`fetch_eric`.
 
-        :return: A :class:`~ai.Say` command if Eric is absent, otherwise `None`.
+        :return: A :class:`~pyskool.ai.Say` command if Eric is absent,
+                 otherwise `None`.
         """
         if self.is_eric_absent():
             self.teacher_action = 'fetch_eric'
@@ -186,8 +188,8 @@ class Lesson:
         teacher that Eric is not in class), the teacher will give lines to Eric
         for being late (or for leaving early).
 
-        :return: A :class:`~ai.FetchEric` command if Eric is still absent after the swot
-                 has finished speaking, otherwise `None`.
+        :return: A :class:`~pyskool.ai.FetchEric` command if Eric is still
+                 absent after the swot has finished speaking, otherwise `None`.
         """
         if random.random() < self.p_lines_for_tales:
             self.teacher.give_lines(self.swot.character_id, lines.NO_TALES, True)
@@ -207,7 +209,7 @@ class Lesson:
         question-and-answer session was interrupted) or
         :meth:`walk_up_or_down`.
 
-        :return: A :class:`~ai.GoToXY` command.
+        :return: A :class:`~pyskool.ai.GoToXY` command.
         """
         if (self.teacher.x, self.teacher.y) != self.base_location:
             return ai.GoToXY(*self.base_location)
@@ -268,8 +270,8 @@ class Lesson:
         """Make the teacher wipe the board (if there is one). The teacher's
         next action will be :meth:`walk_to_board`.
 
-        :return: A :class:`~ai.WipeBoard` command if there is a blackboard, `None`
-                 otherwise.
+        :return: A :class:`~pyskool.ai.WipeBoard` command if there is a
+                 blackboard, `None` otherwise.
         """
         self.absence_index = 1
         if self.room.has_blackboard():
@@ -281,7 +283,7 @@ class Lesson:
         """Make the teacher walk to the middle of the blackboard (after having
         wiped it). The teacher's next action will be :meth:`write_on_board`.
 
-        :return: A :class:`~ai.GoToXY` command.
+        :return: A :class:`~pyskool.ai.GoToXY` command.
         """
         self.teacher_action = 'write_on_board'
         return ai.GoToXY(self.teacher.x - self.teacher.get_blackboard_backtrack() * self.teacher.direction, self.teacher.y)
@@ -291,8 +293,8 @@ class Lesson:
         next action will be the base action for this lesson (either
         :meth:`tell_class_what_to_do` or :meth:`ask_question`).
 
-        :return: A :class:`~ai.WriteOnBoard` command if the teacher chooses to write,
-                 otherwise `None`.
+        :return: A :class:`~pyskool.ai.WriteOnBoard` command if the teacher
+                 chooses to write, otherwise `None`.
         """
         self.base_location = (self.teacher.x, self.teacher.y)
         self.base_direction = self.teacher.direction
@@ -304,7 +306,7 @@ class Lesson:
         """Make the teacher ask a question. The swot's next action is set to
         :meth:`answer_question`.
 
-        :return: A :class:`~ai.Say` command.
+        :return: A :class:`~pyskool.ai.Say` command.
         """
         self.swot_action = 'answer_question'
         return ai.Say(self.get_question(), True)
@@ -315,7 +317,7 @@ class Lesson:
         (and base action for the remainder of the lesson) will be
         :meth:`walk_up_or_down`.
 
-        :return: A :class:`~ai.TellClassWhatToDo` command.
+        :return: A :class:`~pyskool.ai.TellClassWhatToDo` command.
         """
         self.base_action = 'walk_up_or_down'
         self.teacher_action = 'walk_up_or_down'
@@ -326,7 +328,7 @@ class Lesson:
         action is used during a lesson with no question-and-answer session.
         The swot's next action is set to :meth:`check_eric`.
 
-        :return: A :class:`~ai.WalkUpOrDown` command.
+        :return: A :class:`~pyskool.ai.WalkUpOrDown` command.
         """
         self.switch('check_eric')
         return ai.WalkUpOrDown()

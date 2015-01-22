@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2008-2012, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2012, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -66,7 +66,7 @@ class CommandList:
     a command stack from which commands are popped after they have finished
     executing.
 
-    :type character: :class:`~character.Character`
+    :type character: :class:`~pyskool.character.Character`
     :param character: The character to be controlled (the command list owner).
     """
     def __init__(self, character):
@@ -210,7 +210,7 @@ class CommandList:
         """Set the destination of the character if he is under the control of a
         :class:`GoTo` command.
 
-        :type destination: :class:`~location.Location`
+        :type destination: :class:`~pyskool.location.Location`
         :param destination: The destination to set.
         """
         if destination and self.is_GoToing():
@@ -526,7 +526,7 @@ class GoTo(Command):
     """Command that makes a character go to a location.
 
     :param location_id: The ID of the location to go to (may be `None`).
-    :type destination: :class:`~location.Location`
+    :type destination: :class:`~pyskool.location.Location`
     :param destination: The location to go to (required if `location_id`
                         is `None`).
     :param go_one_step: `True` if this command should terminate after

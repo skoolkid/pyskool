@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -168,7 +168,7 @@ class Timetable:
         """Return whether a character is supervising Eric during the current
         period.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         return self.get_teacher_id() == character.character_id

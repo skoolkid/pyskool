@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -172,7 +172,7 @@ class Conker(Droppable):
     def hit_by(self, pellet):
         """Return whether the conker was hit by a catapult pellet.
 
-        :type pellet: :class:`~pellet.Pellet`
+        :type pellet: :class:`~pyskool.pellet.Pellet`
         :param pellet: The catapult pellet to check.
         """
         return self.min_x <= pellet.x <= self.max_x and self.min_y <= pellet.y <= self.max_y

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -143,7 +143,7 @@ class Cup:
     def insert_frog(self, frog):
         """Insert a frog into the cup.
 
-        :type frog: :class:`~animal.Frog`
+        :type frog: :class:`~pyskool.animal.Frog`
         :param frog: The frog.
         """
         self.frogs.append(frog)
@@ -152,7 +152,7 @@ class Cup:
     def remove_frog(self, frog):
         """Remove a frog from the cup.
 
-        :type frog: :class:`~animal.Frog`
+        :type frog: :class:`~pyskool.animal.Frog`
         :param frog: The frog.
         """
         if frog in self.frogs:

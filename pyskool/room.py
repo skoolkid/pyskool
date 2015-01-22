@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -59,12 +59,12 @@ class Room:
     def add_blackboard(self, screen, top_left, size, chalk, skool_image):
         """Add a blackboard to the room.
 
-        :type screen: :class:`~graphics.Screen`
+        :type screen: :class:`~pyskool.graphics.Screen`
         :param screen: The screen.
         :param top_left: The coordinates of the top-left of the blackboard.
         :param size: The size (width, height) of the blackboard.
         :param chalk: The chalk colour to use when writing on the blackboard.
-        :type skool_image: :class:`~graphics.Image`
+        :type skool_image: :class:`~pyskool.graphics.Image`
         :param skool_image: An image of the skool.
         """
         self.blackboard = Blackboard(screen, top_left, size, chalk, skool_image)
@@ -114,7 +114,7 @@ class Room:
         """Return whether a character is standing beside the blackboard in this
         room.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         if self.blackboard:
@@ -124,7 +124,7 @@ class Room:
     def contains(self, character):
         """Return whether a character is in this room.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         if self.min_y <= character.y <= self.max_y - character.height + 1:
@@ -144,7 +144,7 @@ class Room:
         """Return the chair in this room that a character is next to, or
         `None` if the character is not next to a chair.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         :param check_dir: If `True`, return a chair only if the character is
                           beside one and facing the right way to sit in it;
@@ -161,7 +161,7 @@ class Room:
         """Return the desk in this room that a character is sitting at, or
         `None` if the character is not sitting at a desk.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         if character.is_sitting_on_chair():
@@ -173,7 +173,7 @@ class Room:
     def get_next_chair(self, character, move_along, go_to_back):
         """Return the chair that a character should find and sit in.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character looking for a chair.
         :param move_along: If `True` (and `go_to_back` is False), return the
                            next seat along if the character is currently beside
@@ -215,7 +215,7 @@ class Chair:
     def seat(self, character):
         """Mark the chair as being occupied by a character.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character sitting in the chair.
         """
         self.occupant = character
@@ -250,12 +250,12 @@ class Desk:
 class Blackboard:
     """A blackboard in a classroom.
 
-    :type screen: :class:`~graphics.Screen`
+    :type screen: :class:`~pyskool.graphics.Screen`
     :param screen: The screen.
     :param top_left: The coordinates of the top-left of the blackboard.
     :param size: The size (width, height) of the blackboard.
     :param chalk: The chalk colour to use when writing on the blackboard.
-    :type skool_image: :class:`~graphics.Image`
+    :type skool_image: :class:`~pyskool.graphics.Image`
     :param skool_image: An image of the skool.
     """
     def __init__(self, screen, top_left, size, chalk, skool_image):
@@ -348,7 +348,7 @@ class Blackboard:
     def beside(self, character):
         """Return whether a character is standing beside the blackboard.
 
-        :type character: :class:`~character.Character`
+        :type character: :class:`~pyskool.character.Character`
         :param character: The character to check.
         """
         arm_x = character.x + character.direction + 1

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014, 2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -16,7 +16,7 @@
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
 """
-Defines the :class:`~bike.Bike` class.
+Defines the :class:`Bike` class.
 """
 
 from .character import Character
@@ -80,7 +80,7 @@ class Bike(Character):
         """Start wheeling the bike along after the rider has dismounted or
         stood on the saddle.
 
-        :type rider: :class:`~character.Character`
+        :type rider: :class:`~pyskool.character.Character`
         :param rider: The rider.
         """
         self.walk_delay = self.move_delay
@@ -111,7 +111,7 @@ class Bike(Character):
     def fall(self, rider=None):
         """Make the bike fall over (as when it has lost momentum).
 
-        :type rider: :class:`~character.Character`
+        :type rider: :class:`~pyskool.character.Character`
         :param rider: Whoever was riding the bike (if anybody).
         """
         if rider:
