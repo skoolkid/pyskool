@@ -402,8 +402,6 @@ build_deb() {
   [[ -d $HOME/.pyskool-backup ]] && mv $HOME/.pyskool{-backup,}
 
   _exec "Uninstalling pyskool" "sudo dpkg -r pyskool" $logdir/dpkg-r.log
-
-  echo "Now upload $deb to pyskool.ca"
 }
 
 ###############################################################################
@@ -433,8 +431,6 @@ build_rpm() {
   [[ -d $HOME/.pyskool-backup ]] && mv $HOME/.pyskool{-backup,}
 
   _exec "Uninstalling pyskool" "sudo rpm -e pyskool" $logdir/rpm-e.log
-
-  echo "Now upload $rpm to pyskool.ca"
 }
 
 ###############################################################################
