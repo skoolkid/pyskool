@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2012-2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2012-2015 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -801,6 +801,8 @@ class BTSIniMaker(SkoolIniMaker):
             self.assembly_messages.append((noun, "LATIN MASTER'S AUNT"))
             self.assembly_messages.append((noun, "MUSIC TEACHER'S PIANO"))
         else:
+            self.assembly_messages.append((verb, "KIDNAPPED"))
+            self.assembly_messages.append((verb, "ATE"))
             self.assembly_messages.append((verb, "SET FIRE TO"))
             self.assembly_messages.append((verb, "BLEW UP"))
             self.assembly_messages.append((verb, "IS MAKING RUDE PHONE CALLS TO"))
