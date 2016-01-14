@@ -61,7 +61,6 @@ _require_skoolkit() {
     echo "Error: directory not found: $SKOOLKIT_HOME"
     exit 1
   fi
-  SKOOLKIT_TOOLS=$SKOOLKIT_HOME/tools
 }
 
 ###############################################################################
@@ -523,27 +522,6 @@ build_doczip() {
 }
 
 ###############################################################################
-# Update the Pyskool project on launchpad.net
-###############################################################################
-update_launchpad() {
-  _require_pyskool
-  _require_skoolkit
-
-  files=$(echo pyskool{-$VERSION{.tar.xz,.zip,-1.noarch.rpm},_$VERSION-1_all.deb})
-  echo -n "Checking files to upload: "
-  for f in $files; do
-    fname=$PYSKOOL_HOME/dist/$f
-    if [[ ! -f $fname ]]; then
-      echo "FAILED ($fname not found)"
-      exit 1
-    fi
-  done
-  echo "OK"
-
-  $SKOOLKIT_TOOLS/lputil.py --production --pyskool $VERSION
-}
-
-###############################################################################
 # Print usage information
 ###############################################################################
 usage() {
@@ -566,7 +544,6 @@ Post-release commands:
   bsdist - build a source package for uploading to PyPI
   ifpypi - verify that Pyskool can be installed from PyPI
   doczip - build a documentation zip archive for PyPI
-  pslpad - update the Pyskool project on launchpad.net
 EOM
 }
 
@@ -590,7 +567,6 @@ while [[ -n "$1" ]]; do
     bsdist) build_sdist ;;
     ifpypi) check_pypi ;;
     doczip) build_doczip ;;
-    pslpad) update_launchpad ;;
          *) echo "*** Unknown command '$1' ***"; usage ;;
   esac
   shift
