@@ -449,7 +449,7 @@ prepare_gh_pages() {
   git checkout -- sphinx/Makefile
   rm -rf sphinx/build/html/{.buildinfo,objects.inv}
   git checkout -q gh-pages
-  rsync -a sphinx/build/html/ .
+  rsync -ac sphinx/build/html/ . # compare files by checksum - important!
   rm -rf pyskool sphinx
   echo
   git status -bs
