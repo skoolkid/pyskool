@@ -20,7 +20,7 @@ with the aim of making them easy to customise by editing a configuration file
 or - for more advanced customisation - writing some Python code.
 
 See the [documentation](http://skoolkid.github.io/pyskool/) for more details
-(mirror [here](https://skoolkid.gitlab.io/pyskool/)).
+(mirror [here](http://skoolkid.gitlab.io/pyskool/)).
 
 Playing Pyskool
 ---------------
