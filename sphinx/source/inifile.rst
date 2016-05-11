@@ -109,6 +109,8 @@ where:
 * ``animatoryState`` is the ID of the animatory state
 * ``direction`` is the direction (-1 for left, 1 for right)
 
+.. _assemblyMessages:
+
 [AssemblyMessages]
 ------------------
 The ``AssemblyMessages`` section contains all the information required to build

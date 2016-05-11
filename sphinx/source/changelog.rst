@@ -3,6 +3,9 @@ Changelog
 
 1.2.1b1
 -------
+* Added missing verbs to the :ref:`assemblyMessages` section for Back to Skool
+* Updated the worldofspectrum.org URLs in `images.ini`
+* Fixed links to classes, methods and variables in the API documentation
 
 1.2 (2015-01-14)
 ----------------
