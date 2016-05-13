@@ -109,6 +109,12 @@ where:
 * ``animatoryState`` is the ID of the animatory state
 * ``direction`` is the direction (-1 for left, 1 for right)
 
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.3     | New     |
++---------+---------+
+
 .. _assemblyMessages:
 
 [AssemblyMessages]
@@ -173,6 +179,15 @@ of the tree is at `(x + width, y)`, where `(x, y)` are the coordinates of the
 image of the base of the tree with no bike attached. These two images are the
 same size.
 
++---------+----------------------------------------------------------------+
+| Version | Changes                                                        |
++=========+================================================================+
+| 0.3     | Added the ``moveDelay``, ``pedalMomentum`` and ``maxMomentum`` |
+|         | parameters                                                     |
++---------+----------------------------------------------------------------+
+| 0.2.1   | New                                                            |
++---------+----------------------------------------------------------------+
+
 .. _blackboardMessages:
 
 [BlackboardMessages ...]
@@ -192,13 +207,19 @@ There are two special characters used in blackboard messages: ``^`` and ``$``.
 configuration parameter in the :ref:`messageConfig` section). ``$`` is used to
 prefix the unique ID of a character, as in::
 
-  TEARAWAY, i hate^$WACKER
+  i hate^$WACKER
 
 where ``$WACKER`` will be replaced by whatever name has been given to the
 character whose unique ID is ``WACKER``.
 
 If no blackboard messages are defined for a particular character, that
 character will never write on a blackboard.
+
++---------+------------------------------------------------------------+
+| Version | Changes                                                    |
++=========+============================================================+
+| 0.3     | Each character gets his own ``BlackboardMessages`` section |
++---------+------------------------------------------------------------+
 
 .. _blackboards:
 
@@ -223,6 +244,12 @@ white - which coincides with the transparent colour used in the skool ink image
 graphics mode 1 (see ``GraphicsMode`` in the :ref:`screenConfig` section),
 anything written on the board will take on the background (paper) colour, which
 is how blackboards worked in the original games.
+
++---------+---------------------------------------------+
+| Version | Changes                                     |
++=========+=============================================+
+| 0.3     | Added the ``size`` and ``chalk`` parameters |
++---------+---------------------------------------------+
 
 .. _catapultPellets:
 
@@ -249,6 +276,18 @@ where:
 Each character whose unique ID appears in this section will be fitted out with
 a catapult. In the stock Pyskool this will be Eric and the tearaway - the only
 characters with catapult-firing sprites.
+
++---------+------------------------------------------------+
+| Version | Changes                                        |
++=========+================================================+
+| 0.3     | Added the ``hitXY`` parameter                  |
++---------+------------------------------------------------+
+| 0.2.3   | Added the ``pelletId`` parameter               |
++---------+------------------------------------------------+
+| 0.0.3   | Added the ``range`` and ``hitZone`` parameters |
++---------+------------------------------------------------+
+| 0.0.2   | New                                            |
++---------+------------------------------------------------+
 
 .. _chairs:
 
@@ -318,6 +357,18 @@ Recognised flags and their meanings are:
 * ``Z`` - will be temporarily paralysed if struck by a falling conker (see also
   ``C``)
 
++---------+--------------------------------------------------------------+
+| Version | Changes                                                      |
++=========+==============================================================+
+| 0.3     | Added the ``headXY`` parameter and the ``U`` and ``V`` flags |
++---------+--------------------------------------------------------------+
+| 0.2.1   | Added the ``K``, ``N``, ``X``, ``Y`` and ``Z`` flags         |
++---------+--------------------------------------------------------------+
+| 0.0.4   | Added the ``S`` flag                                         |
++---------+--------------------------------------------------------------+
+| 0.0.3   | Added the ``R`` and ``T`` flags                              |
++---------+--------------------------------------------------------------+
+
 .. _commandList:
 
 [CommandList ...]
@@ -369,6 +420,14 @@ where:
 * ``hitXY`` is the coordinates of the conker within its sprite (used for
   collision detection)
 
++---------+-------------------------------+
+| Version | Changes                       |
++=========+===============================+
+| 0.3     | Added the ``hitXY`` parameter |
++---------+-------------------------------+
+| 0.2.1   | New                           |
++---------+-------------------------------+
+
 .. _cups:
 
 [Cups]
@@ -393,6 +452,12 @@ at `(x + width, y)`, and the image of a cup when it contains sherry is at
 `(x + 2 * width, y)` (where `(x, y)` are the coordinates of the image of the
 cup when empty). The three images for any given cup are the same size.
 
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.2.1   | New     |
++---------+---------+
+
 .. _deskLid:
 
 [DeskLid]
@@ -410,6 +475,16 @@ where:
   that the desk lid will use
 * ``xOffset`` - the offset (relative to the desk being opened) at which the
   desk lid should be displayed
+
++---------+-----------------------------------+
+| Version | Changes                           |
++=========+===================================+
+| 0.3     | Added the ``xOffset`` parameter   |
++---------+-----------------------------------+
+| 0.2.3   | Added the ``deskLidId`` parameter |
++---------+-----------------------------------+
+| 0.2.1   | New                               |
++---------+-----------------------------------+
 
 .. _desks:
 
@@ -429,6 +504,12 @@ where
 Any chair that is in a room and at an x-coordinate that appears in the
 ``Desks`` section will be fitted out with a desk lid that can be raised (see
 :ref:`deskLid`).
+
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.2.1   | New     |
++---------+---------+
 
 .. _doors:
 
@@ -468,6 +549,12 @@ The door images can be found in `mutables.png` (or `mutables_ink.png` and
 door/window when shut. The open/shut images for any given door are the same
 size.
 
++---------+---------------------------------------------------------------+
+| Version | Changes                                                       |
++=========+===============================================================+
+| 0.3     | Added the ``autoShutDelay``, ``climb`` and ``fly`` parameters |
++---------+---------------------------------------------------------------+
+
 [Eric]
 ------
 The ``Eric`` section describes our hero, Eric. It contains a single line in the
@@ -493,6 +580,15 @@ where:
 
 For a description of the available flags, see :ref:`characters`.
 
++---------+------------------------------------------------------------+
+| Version | Changes                                                    |
++=========+============================================================+
+| 0.3     | Added the ``direction``, ``headXY`` and ``bendOverHandXY`` |
+|         | parameters                                                 |
++---------+------------------------------------------------------------+
+| 0.0.2   | Added the ``animatoryState`` and ``flags`` parameters      |
++---------+------------------------------------------------------------+
+
 .. _font:
 
 [Font]
@@ -508,6 +604,14 @@ where:
 * ``offset`` is the font character's distance in pixels from the left of the
   image
 * ``width`` is its width in pixels
+
++---------+------------------------------------+
+| Version | Changes                            |
++=========+====================================+
+| 0.3     | Renamed from ``[CharacterWidths]`` |
++---------+------------------------------------+
+| 0.0.2   | Added the ``offset`` parameter     |
++---------+------------------------------------+
 
 .. _floors:
 
@@ -566,6 +670,15 @@ where:
 
 Any frog defined in this section will be catchable by ERIC, and show up in the
 on-screen inventory when caught.
+
++---------+-------------------------------------------------------------------+
+| Version | Changes                                                           |
++=========+===================================================================+
+| 0.3     | Added the ``turnRound``, ``shortHop``, ``longHop``, ``sitXY`` and |
+|         | ``ericProximity`` parameters                                      |
++---------+-------------------------------------------------------------------+
+| 0.2.1   | New                                                               |
++---------+-------------------------------------------------------------------+
 
 .. _gameConfig:
 
@@ -673,6 +786,20 @@ Recognised parameters are:
 * ``WindowProximity`` - maximum distance at which a window is considered nearby
   (i.e. worth opening if a stinkbomb is smelt)
 
++---------+------------------------------------------------------------------+
+| Version | Changes                                                          |
++=========+==================================================================+
+| 1.1.1   | Added the ``ConfirmClose``, ``ConfirmQuit`` and ``Volume``       |
+|         | parameters                                                       |
++---------+------------------------------------------------------------------+
+| 0.5     | Added the ``MouseCatchScore`` parameter                          |
++---------+------------------------------------------------------------------+
+| 0.4     | Added the ``Icon``, ``SaveGameDir``, ``SaveGameCompression`` and |
+|         | ``ScreenshotDir`` parameters                                     |
++---------+------------------------------------------------------------------+
+| 0.3     | New                                                              |
++---------+------------------------------------------------------------------+
+
 [GrassMessages]
 ---------------
 The ``GrassMessages`` section contains five lines of the form::
@@ -708,6 +835,14 @@ The text of a tale may contain any of the following macros:
   ``GrasseeMacro`` configuration parameter in the :ref:`messageConfig` section
 * ``$characterId`` (where ``characterId`` is the unique ID of any character) -
   which will be replaced by the name of that character
+
++---------+--------------------------+
+| Version | Changes                  |
++=========+==========================+
+| 0.3     | Renamed from ``[Grass]`` |
++---------+--------------------------+
+| 0.1     | New (as ``[Grass]``)     |
++---------+--------------------------+
 
 .. _images:
 
@@ -745,6 +880,14 @@ Recognised image IDs and the images they refer to are:
 * ``SPEECH_BUBBLE``: speech bubble and lip
 * ``SPRITES``: the characters in various 'animatory states'
 
++---------+--------------------------------------------------------+
+| Version | Changes                                                |
++=========+========================================================+
+| 0.4     | Added the ``LESSON_BOX`` and ``MESSAGE_BOX`` image IDs |
++---------+--------------------------------------------------------+
+| 0.0.4   | New                                                    |
++---------+--------------------------------------------------------+
+
 .. _inventory:
 
 [Inventory]
@@ -778,6 +921,12 @@ order in which they will be printed in the on-screen inventory.
 See also the :ref:`mice` and :ref:`frogs` sections (for details on those
 animals), and the ``InventoryPos`` and ``MouseInventoryPos`` configuration
 parameters in the :ref:`screenConfig` section.
+
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.2     | New     |
++---------+---------+
 
 .. _lessons:
 
@@ -844,6 +993,12 @@ Recognised parameters are:
 * ``WriteOnBoardProbability`` - the probability that a teacher will write on
   the blackboard during a lesson without Eric and the swot
 
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.3     | New     |
++---------+---------+
+
 .. _lessonMessages:
 
 [LessonMessages]
@@ -877,6 +1032,12 @@ The only recognised condition identifier is:
 :ref:`messageConfig` section) which, if specified, means the message will be
 used only if the blackboard (if there is one) has been written on. Any other
 condition identifier will evaluate to true.
+
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.0.3   | New     |
++---------+---------+
 
 .. _linesMessages:
 
@@ -939,6 +1100,12 @@ given for the infraction it refers to. So if there were no entry in the
 ``LinesMessages`` section with the lines message ID ``NO_HITTING``, no lines
 would ever be dished out for hitting.
 
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.0.3   | New     |
++---------+---------+
+
 .. _messageConfig:
 
 [MessageConfig]
@@ -971,6 +1138,15 @@ Recognised parameters are:
 * ``UpAYearMessage`` - the message printed in the lesson box when Eric has
   completed the game and advanced a year
 
++---------+-----------------------------------------------------+
+| Version | Changes                                             |
++=========+=====================================================+
+| 0.4     | Added the ``HiScoreLabel``, ``LinesTotalLabel`` and |
+|         | ``ScoreLabel`` parameters                           |
++---------+-----------------------------------------------------+
+| 0.3     | New                                                 |
++---------+-----------------------------------------------------+
+
 .. _mice:
 
 [Mice]
@@ -994,6 +1170,14 @@ where:
 Any mouse defined in this section will be catchable by ERIC, and show up in the
 on-screen mouse inventory when caught.
 
++---------+----------------------------------+
+| Version | Changes                          |
++=========+==================================+
+| 0.3     | Added the ``spriteXY`` parameter |
++---------+----------------------------------+
+| 0.2.1   | New                              |
++---------+----------------------------------+
+
 .. _mouseLocations:
 
 [MouseLocations]
@@ -1004,6 +1188,12 @@ mouse may appear after Eric catches one. Each line has the form::
   x, y
 
 where ``(x, y)`` are the coordinates of the location.
+
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.3     | New     |
++---------+---------+
 
 [NoGoZones]
 -----------
@@ -1023,6 +1213,12 @@ where:
 Whenever Eric is spotted in one of these zones by a teacher, the ``GET_OUT``
 :ref:`lines message <linesMessages>` will be delivered in screeching tones.
 
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.0.4   | New     |
++---------+---------+
+
 .. _plants:
 
 [Plants]
@@ -1041,6 +1237,12 @@ where:
   grown)
 * ``commandListId`` is the unique ID of the :ref:`command list <commandList>`
   that the plant will use when watered
+
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.2.1   | New     |
++---------+---------+
 
 .. _questionsAndAnswers:
 
@@ -1159,6 +1361,12 @@ where:
 * ``getAlong`` is ``Y`` if Eric should get lines for being in the room when the
   timetable does not require his presence
 
++---------+----------------------------------+
+| Version | Changes                          |
++=========+==================================+
+| 0.2.1   | Added the ``getAlong`` parameter |
++---------+----------------------------------+
+
 .. _routes:
 
 [Routes]
@@ -1221,6 +1429,12 @@ safe.
 
 If the safe will never need to flash (as in Back to Skool), ``topLeft`` and
 ``size`` will not be used, and so may be set to any value.
+
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.0.4   | New     |
++---------+---------+
 
 .. _screenConfig:
 
@@ -1311,6 +1525,19 @@ Recognised parameters are:
   image
 * ``Width`` - the width of the screen (in tiles)
 
++---------+-------------------------------------------------------------------+
+| Version | Changes                                                           |
++=========+===================================================================+
+| 0.5     | Added the ``SpriteMatrixWidth`` parameter                         |
++---------+-------------------------------------------------------------------+
+| 0.4     | Added the ``InventoryKey``, ``MessageBoxColour``,                 |
+|         | ``MessageBoxKey``, ``MouseInventoryInk``, ``MouseInventorySize``, |
+|         | ``SpeechBubbleKey``, ``SpeechBubbleLipCoords`` and                |
+|         | ``SpeechBubbleLipSize`` parameters                                |
++---------+-------------------------------------------------------------------+
+| 0.3     | New                                                               |
++---------+-------------------------------------------------------------------+
+
 .. _sherryDrop:
 
 [SherryDrop]
@@ -1329,6 +1556,14 @@ where:
   that the drop of sherry will use when knocked out of a cup
 * ``hitXY`` is the coordinates of the sherry drop within its sprite (used for
   collision detection)
+
++---------+-------------------------------+
+| Version | Changes                       |
++=========+===============================+
+| 0.3     | Added the ``hitXY`` parameter |
++---------+-------------------------------+
+| 0.2.1   | New                           |
++---------+-------------------------------+
 
 [Shields]
 ---------
@@ -1352,6 +1587,14 @@ The shield images can be found in `mutables.png` (or `mutables_ink.png` and
 `mutables.png` is arranged so that the inverse image of a shield is at
 `(x + width, y)`, where `(x, y)` are the coordinates of the normal image of the
 shield.
+
++---------+-------------------------------+
+| Version | Changes                       |
++=========+===============================+
+| 0.0.4   | Added the ``score`` parameter |
++---------+-------------------------------+
+| 0.0.3   | New                           |
++---------+-------------------------------+
 
 .. _sitDownMessages:
 
@@ -1441,6 +1684,21 @@ then that sound effect will never play. For example, if there is no
 ``CATAPULT`` entry, then Eric's firings of that weapon will be completely
 silent.
 
++---------+--------------------------------------------------------+
+| Version | Changes                                                |
++=========+========================================================+
+| 1.1     | Added the ``ALARM``, ``HIT0`` and ``HIT1`` sound IDs   |
++---------+--------------------------------------------------------+
+| 0.5.2   | Added the ``JUMP`` sound ID                            |
++---------+--------------------------------------------------------+
+| 0.2.4   | Added the ``BIKE``, ``DESK``, ``KISS``, ``OPEN_SAFE``, |
+|         | ``STOREROOM_KEY`` and ``WATER_PISTOL`` sound IDs       |
++---------+--------------------------------------------------------+
+| 0.2     | Added the ``FROG``, ``MOUSE`` and ``SHERRY`` sound IDs |
++---------+--------------------------------------------------------+
+| 0.0.3   | New                                                    |
++---------+--------------------------------------------------------+
+
 .. _specialPlaytimes:
 
 [SpecialPlaytimes]
@@ -1461,6 +1719,12 @@ Thus, occasionally in Skool Daze mode a playtime will be one of those where you
 have to steer clear of the pestilential bully, prevent the swot from reaching
 the head's study, or fix the race to the fire escape between the tearaway and
 the headmaster.
+
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.1     | New     |
++---------+---------+
 
 .. _spriteGroup:
 
@@ -1529,6 +1793,20 @@ Recognised sprite IDs and their meanings are:
 * ``WATER4``: water fired from a pistol (phase 5)
 * ``WATERPISTOL``: shooting water pistol - Eric
 
++---------+----------------------------------------------------------------+
+| Version | Changes                                                        |
++=========+================================================================+
+| 0.2.1   | Added the ``BIKE_ON_FLOOR``, ``BIKE_UPRIGHT``, ``DESK_EMPTY``, |
+|         | ``DESK_STINKBOMBS``, ``DESK_WATER_PISTOL``, ``KISSING_ERIC``,  |
+|         | ``PLANT_GROWING``, ``PLANT_GROWN``, ``SHERRY_DROP``,           |
+|         | ``WATER_DROP``, ``WATER0``, ``WATER1``, ``WATER2``, ``WATER3`` |
+|         | and ``WATER4`` sprite IDs                                      |
++---------+----------------------------------------------------------------+
+| 0.2     | Added the ``HOP1``, ``HOP2``, ``RUN`` and ``SIT`` sprite IDs   |
++---------+----------------------------------------------------------------+
+| 0.0.3   | New                                                            |
++---------+----------------------------------------------------------------+
+
 .. _staircases:
 
 [Staircases]
@@ -1584,6 +1862,16 @@ where:
 Each character whose unique ID appears in this section will be given the
 ability to drop a stinkbomb. In the stock Pyskool this will be Eric.
 
++---------+-------------------------------------------------------------+
+| Version | Changes                                                     |
++=========+=============================================================+
+| 0.3     | Added the ``animationPhases`` and ``stinkRange`` parameters |
++---------+-------------------------------------------------------------+
+| 0.2.3   | Added the ``stinkbombId`` parameter                         |
++---------+-------------------------------------------------------------+
+| 0.2.1   | New                                                         |
++---------+-------------------------------------------------------------+
+
 .. _timetable:
 
 [Timetable]
@@ -1624,6 +1912,12 @@ Recognised parameters are:
 * ``SpecialPlaytimeProbability`` - the probability that a playtime in the main
   timetable will be replaced by a :ref:`special playtime <specialPlaytimes>`
 
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.3     | New     |
++---------+---------+
+
 .. _timingConfig:
 
 [TimingConfig]
@@ -1661,6 +1955,12 @@ Recognised parameters are:
 * ``TellEricDelay`` - the length of time a character will wait for Eric to
   respond to a message before repeating it
 
++---------+---------+
+| Version | Changes |
++=========+=========+
+| 0.3     | New     |
++---------+---------+
+
 .. _walls:
 
 [Walls]
@@ -1683,6 +1983,12 @@ For example::
 
 defines the wall at the far left (x=0) of the skool, which stretches from the
 bottom floor (y=20) to the ceiling of the top floor (y=0).
+
++---------+--------------------------------+
+| Version | Changes                        |
++=========+================================+
+| 0.2.1   | Added the ``wallId`` parameter |
++---------+--------------------------------+
 
 .. _water:
 
@@ -1709,6 +2015,16 @@ Each character whose unique ID appears in this section will be given the
 ability to fire a water pistol. In the stock Pyskool this will be Eric alone;
 he is the only character with a water pistol-firing sprite.
 
++---------+-----------------------------------------+
+| Version | Changes                                 |
++=========+=========================================+
+| 0.3     | Added the ``animationPhases`` parameter |
++---------+-----------------------------------------+
+| 0.2.3   | Added the ``waterId`` parameter         |
++---------+-----------------------------------------+
+| 0.2.1   | New                                     |
++---------+-----------------------------------------+
+
 .. _waterDrop:
 
 [WaterDrop]
@@ -1727,6 +2043,14 @@ where:
   that the drop of water will use when knocked out of a cup
 * ``hitXY`` is the coordinates of the water drop within its sprite (used for
   collision detection)
+
++---------+-------------------------------+
+| Version | Changes                       |
++=========+===============================+
+| 0.3     | Added the ``hitXY`` parameter |
++---------+-------------------------------+
+| 0.2.1   | New                           |
++---------+-------------------------------+
 
 .. _windows:
 
@@ -1762,3 +2086,11 @@ The window images can be found in `mutables.png` (or `mutables_ink.png` and
 `mutables.png` is arranged so that the image of a window when open is at
 `(x + width, y)`, where `(x, y)` are the coordinates of the image of the same
 window when shut. The open/shut images for any given window are the same size.
+
++---------+---------------------------------------------------------+
+| Version | Changes                                                 |
++=========+=========================================================+
+| 0.3     | Added the ``descentPhases`` and ``notABird`` parameters |
++---------+---------------------------------------------------------+
+| 0.2.1   | New                                                     |
++---------+---------------------------------------------------------+
