@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2013-2015 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008, 2010, 2013-2016 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -300,6 +300,10 @@ class Screen(object):
         if transparent:
             surface.set_colorkey(paper)
         return surface
+
+    def get_text_width(self, text):
+        """Return the width (in pixels) of `text` when rendered at scale 1."""
+        return self.font.get_width(text)
 
     def print_lesson(self, *text_lines):
         """Print some text in the lesson box.
@@ -920,3 +924,7 @@ class Font:
         :param char: The character to look for.
         """
         return char in self.characters
+
+    def get_width(self, text):
+        """Return the width (in pixels) of `text` when rendered at scale 1."""
+        return sum([self.characters[char][1] for char in text])

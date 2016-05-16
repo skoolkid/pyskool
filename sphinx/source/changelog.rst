@@ -4,6 +4,8 @@ Changelog
 1.2.1b1
 -------
 * Added missing verbs to the :ref:`assemblyMessages` section for Back to Skool
+* When Eric is writing on a blackboard, the text now automatically wraps to the
+  second line when the end of the first line is reached
 * Updated the worldofspectrum.org URLs in `images.ini`
 * Fixed links to classes, methods and variables in the API documentation
 

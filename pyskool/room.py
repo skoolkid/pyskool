@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2008-2010, 2015 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2008-2010, 2015, 2016 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -299,6 +299,10 @@ class Blackboard:
         :param char: The character to write.
         """
         if self.lines:
+            if len(self.lines) == 1:
+                line_width = self.screen.get_text_width(self.lines[0] + char)
+                if line_width > self.width * 8:
+                    self.newline()
             self.lines[-1] += char
         else:
             self.lines.append(char)
