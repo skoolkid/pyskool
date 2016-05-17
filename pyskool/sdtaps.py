@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2010, 2014 Richard Dymond (rjdymond@gmail.com)
+# Copyright 2010, 2014, 2016 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -445,7 +445,6 @@ class SDTapMaker:
         tap.add_command(GO_TO, LOC_HEADS_STUDY_0)
         tap.add_command(SIGNAL, SIG_WACKER_READY)
         tap.add_command(MOVE_ABOUT_UNTIL, SIG_SWOT_GRASSED)
-        tap.add_command(SET_CONTROLLING_COMMAND, WALK_FAST)
         tap.add_command(FIND_ERIC)
         tap.add_command(TELL_ERIC, 'TAKE 2000 LINES YOU NASTY BOY')
         tap.add_command(ADD_LINES, 2000)
@@ -472,7 +471,6 @@ class SDTapMaker:
         tap.add_command(SET_CONTROLLING_COMMAND, WALK_FAST)
         tap.add_command(GO_TO, LOC_FIRE_ESCAPE_0)
         tap.add_command(MOVE_ABOUT_UNTIL, SIG_TEARAWAY_READY)
-        tap.add_command(SET_CONTROLLING_COMMAND, WALK_FAST)
         tap.add_command(FIND_ERIC)
         tap.add_command(TELL_ERIC, 'TAKE 2000 LINES YOU NASTY BOY')
         tap.add_command(ADD_LINES, 2000)
