@@ -1,3 +1,9 @@
+pyskool (1.2.1-1) unstable; urgency=medium
+
+  * Updated to 1.2.1.
+
+ -- Richard Dymond <rjdymond@gmail.com>  Sat, 21 May 2016 08:19:19 -0300
+
 pyskool (1.2-1) unstable; urgency=low
 
   * Updated to 1.2.
