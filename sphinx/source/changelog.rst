@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.2.1b1
--------
+1.2.1 (2016-05-21)
+------------------
 * Added missing verbs to the :ref:`assemblyMessages` section for Back to Skool
 * When Eric is writing on a blackboard, the text now automatically wraps to the
   second line when the end of the first line is reached
