@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Commands &mdash; Pyskool 1.2 documentation</title>
+    <title>Commands &mdash; Pyskool 1.2.1 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.2',
+        VERSION:     '1.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
     <link rel="next" title="ai" href="ai.html" />
     <link rel="prev" title="Game ini files" href="inifile.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="inifile.html" title="Game ini files"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -174,43 +174,43 @@
 the characters. These commands are described in the following sections.</p>
 <div class="section" id="addlines">
 <h2>AddLines<a class="headerlink" href="#addlines" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">AddLines</span></tt> command is used to add to Eric&#8217;s lines total after he
-has been found guilty of misdeeds. The number of lines to be added to the total
-is specified by the command&#8217;s sole argument.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.AddLines" title="pyskool.ai.AddLines"><tt class="xref py py-class docutils literal"><span class="pre">AddLines</span></tt></a> command is used to add to Eric&#8217;s lines total
+after he has been found guilty of misdeeds. The number of lines to be added to
+the total is specified by the command&#8217;s sole argument.</p>
 </div>
 <div class="section" id="catch">
 <h2>Catch<a class="headerlink" href="#catch" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Catch</span></tt> command is used internally to control Eric while he&#8217;s
-trying to catch a mouse or frog. It makes Eric bend over, checks to see whether
-an animal is present (and if it is, adds it to the appropriate inventory), and
-then makes Eric stand up.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Catch" title="pyskool.ai.Catch"><tt class="xref py py-class docutils literal"><span class="pre">Catch</span></tt></a> command is used internally to control Eric while
+he&#8217;s trying to catch a mouse or frog. It makes Eric bend over, checks to see
+whether an animal is present (and if it is, adds it to the appropriate
+inventory), and then makes Eric stand up.</p>
 </div>
 <div class="section" id="chaseericout">
 <span id="id1"></span><h2>ChaseEricOut<a class="headerlink" href="#chaseericout" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">ChaseEricOut</span></tt> command controls Miss Take as she chases Eric,
-with the intent of making him leave the girls&#8217; skool and return to the boys&#8217;.
-It is very similar to the <a class="reference internal" href="#shadoweric"><em>ShadowEric</em></a> command, except that it makes the
-headmistress go no further than the skool gate (the x-coordinate of which is
-supplied as the command&#8217;s sole argument).</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.ChaseEricOut" title="pyskool.ai.ChaseEricOut"><tt class="xref py py-class docutils literal"><span class="pre">ChaseEricOut</span></tt></a> command controls Miss Take as she chases
+Eric, with the intent of making him leave the girls&#8217; skool and return to the
+boys&#8217;.  It is very similar to the <a class="reference internal" href="#shadoweric"><em>ShadowEric</em></a> command, except that it
+makes the headmistress go no further than the skool gate (the x-coordinate of
+which is supplied as the command&#8217;s sole argument).</p>
 </div>
 <div class="section" id="checkiftouchingeric">
 <span id="id2"></span><h2>CheckIfTouchingEric<a class="headerlink" href="#checkiftouchingeric" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">CheckIfTouchingEric</span></tt> command is used by the bully when he has
-mumps. It checks whether the bully is touching Eric, and if he is, raises the
-signal that is being watched by whoever is on mumps duty (Mr Rockitt by
-default).</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.CheckIfTouchingEric" title="pyskool.ai.CheckIfTouchingEric"><tt class="xref py py-class docutils literal"><span class="pre">CheckIfTouchingEric</span></tt></a> command is used by the bully when
+he has mumps. It checks whether the bully is touching Eric, and if he is,
+raises the signal that is being watched by whoever is on mumps duty (Mr Rockitt
+by default).</p>
 </div>
 <div class="section" id="conductassembly">
 <h2>ConductAssembly<a class="headerlink" href="#conductassembly" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">ConductAssembly</span></tt> command makes the headmaster tell the kids
-they&#8217;re in detention.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.ConductAssembly" title="pyskool.ai.ConductAssembly"><tt class="xref py py-class docutils literal"><span class="pre">ConductAssembly</span></tt></a> command makes the headmaster tell the
+kids they&#8217;re in detention.</p>
 </div>
 <div class="section" id="conductclass">
 <span id="id3"></span><h2>ConductClass<a class="headerlink" href="#conductclass" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">ConductClass</span></tt> command is used by teachers to make them conduct
-lessons. The command controls a teacher from the point where he reaches the
-edge of the blackboard. If the teacher is teaching Eric, it makes the teacher
-wait until the swot shows up, and then hands over control to the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.ConductClass" title="pyskool.ai.ConductClass"><tt class="xref py py-class docutils literal"><span class="pre">ConductClass</span></tt></a> command is used by teachers to make them
+conduct lessons. The command controls a teacher from the point where he reaches
+the edge of the blackboard. If the teacher is teaching Eric, it makes the
+teacher wait until the swot shows up, and then hands over control to the
 <a class="reference internal" href="#conductclasswitheric"><em>ConductClassWithEric</em></a> command. Otherwise it immediately hands over
 control to the <a class="reference internal" href="#conductclasswithouteric"><em>ConductClassWithoutEric</em></a> command.</p>
 <p>The command takes two optional arguments:</p>
@@ -223,10 +223,10 @@ be chosen at random</li>
 </div>
 <div class="section" id="conductclasswitheric">
 <span id="id4"></span><h2>ConductClassWithEric<a class="headerlink" href="#conductclasswitheric" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">ConductClassWithEric</span></tt> command is used internally to control a
-teacher who is teaching Eric and the swot. It takes over control from the
-<a class="reference internal" href="#conductclass"><em>ConductClass</em></a> command as soon as the swot shows up and sits down. It&#8217;s
-responsible for making the teacher:</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.ConductClassWithEric" title="pyskool.ai.ConductClassWithEric"><tt class="xref py py-class docutils literal"><span class="pre">ConductClassWithEric</span></tt></a> command is used internally to
+control a teacher who is teaching Eric and the swot. It takes over control from
+the <a class="reference internal" href="#conductclass"><em>ConductClass</em></a> command as soon as the swot shows up and sits
+down. It&#8217;s responsible for making the teacher:</p>
 <ul class="simple">
 <li>listen to the swot&#8217;s tales (if any)</li>
 <li>dish out lines after the swot has told tales</li>
@@ -243,11 +243,11 @@ if not specified, the questions and answers will be chosen at random.</p>
 </div>
 <div class="section" id="conductclasswithouteric">
 <span id="id5"></span><h2>ConductClassWithoutEric<a class="headerlink" href="#conductclasswithouteric" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">ConductClassWithoutEric</span></tt> command is used internally to control
-a teacher who is teaching a class that does not contain Eric and the swot. It
-takes over control from the <a class="reference internal" href="#conductclass"><em>ConductClass</em></a> command immediately. It
-controls a teacher from the point where he reaches the edge of the blackboard
-and is responsible for making him:</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.ConductClassWithoutEric" title="pyskool.ai.ConductClassWithoutEric"><tt class="xref py py-class docutils literal"><span class="pre">ConductClassWithoutEric</span></tt></a> command is used internally to
+control a teacher who is teaching a class that does not contain Eric and the
+swot. It takes over control from the <a class="reference internal" href="#conductclass"><em>ConductClass</em></a> command
+immediately. It controls a teacher from the point where he reaches the edge of
+the blackboard and is responsible for making him:</p>
 <ul class="simple">
 <li>wipe the blackboard</li>
 <li>walk to the middle of the blackboard</li>
@@ -257,10 +257,10 @@ and is responsible for making him:</p>
 </div>
 <div class="section" id="doassemblyduty">
 <span id="id6"></span><h2>DoAssemblyDuty<a class="headerlink" href="#doassemblyduty" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">DoAssemblyDuty</span></tt> command is used to control Mr Withit as he does
-assembly duty. It makes Mr Withit do nothing (i.e. stand still) unless Eric is
-absent from the assembly hall, in which case it hands over control to the
-<a class="reference internal" href="#fetcheric"><em>FetchEric</em></a> command; when that command exits, the command list is
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.DoAssemblyDuty" title="pyskool.ai.DoAssemblyDuty"><tt class="xref py py-class docutils literal"><span class="pre">DoAssemblyDuty</span></tt></a> command is used to control Mr Withit as
+he does assembly duty. It makes Mr Withit do nothing (i.e. stand still) unless
+Eric is absent from the assembly hall, in which case it hands over control to
+the <a class="reference internal" href="#fetcheric"><em>FetchEric</em></a> command; when that command exits, the command list is
 restarted. The <tt class="docutils literal"><span class="pre">DoAssemblyDuty</span></tt> command itself exits when assembly is over
 (i.e. Mr Wacker has finished speaking).</p>
 <p>The command takes two arguments that inform Mr Withit when to start and when to
@@ -273,39 +273,39 @@ stop assembly duty:</p>
 </div>
 <div class="section" id="dropstinkbomb">
 <span id="id7"></span><h2>DropStinkbomb<a class="headerlink" href="#dropstinkbomb" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">DropStinkbomb</span></tt> command is used internally to make a
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.DropStinkbomb" title="pyskool.ai.DropStinkbomb"><tt class="xref py py-class docutils literal"><span class="pre">DropStinkbomb</span></tt></a> command is used internally to make a
 stinkbomb-carrying character (i.e. Eric) drop a stinkbomb.</p>
 </div>
 <div class="section" id="dumpwaterpistol">
 <span id="id8"></span><h2>DumpWaterPistol<a class="headerlink" href="#dumpwaterpistol" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">DumpWaterPistol</span></tt> command is used internally to make Eric throw
-away the water pistol. The water pistol will be relocated in a random desk, and
-will contain water (as opposed to sherry).</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.DumpWaterPistol" title="pyskool.ai.DumpWaterPistol"><tt class="xref py py-class docutils literal"><span class="pre">DumpWaterPistol</span></tt></a> command is used internally to make
+Eric throw away the water pistol. The water pistol will be relocated in a
+random desk, and will contain water (as opposed to sherry).</p>
 </div>
 <div class="section" id="endgame">
 <span id="id9"></span><h2>EndGame<a class="headerlink" href="#endgame" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">EndGame</span></tt> command is used to end the game (when Eric has
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.EndGame" title="pyskool.ai.EndGame"><tt class="xref py py-class docutils literal"><span class="pre">EndGame</span></tt></a> command is used to end the game (when Eric has
 exceeded the lines limit, for example).</p>
 </div>
 <div class="section" id="evademouse">
 <span id="id10"></span><h2>EvadeMouse<a class="headerlink" href="#evademouse" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">EvadeMouse</span></tt> command is used internally to control a character
-who is scared of mice and has spotted one nearby. It makes the character either
-jump up and down or stand on a chair.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.EvadeMouse" title="pyskool.ai.EvadeMouse"><tt class="xref py py-class docutils literal"><span class="pre">EvadeMouse</span></tt></a> command is used internally to control a
+character who is scared of mice and has spotted one nearby. It makes the
+character either jump up and down or stand on a chair.</p>
 </div>
 <div class="section" id="fall">
 <span id="id11"></span><h2>Fall<a class="headerlink" href="#fall" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Fall</span></tt> command is used to control the descent of a drop of water
-or sherry from a cup, or the descent of a conker from a tree. Until the object
-has been knocked out of its resting place, the command does nothing. Otherwise,
-it guides the object to the floor, and interacts appropriately with any
-character it hits. After the object has hit somebody or the floor, it is hidden
-from view.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Fall" title="pyskool.ai.Fall"><tt class="xref py py-class docutils literal"><span class="pre">Fall</span></tt></a> command is used to control the descent of a drop
+of water or sherry from a cup, or the descent of a conker from a tree. Until
+the object has been knocked out of its resting place, the command does
+nothing. Otherwise, it guides the object to the floor, and interacts
+appropriately with any character it hits. After the object has hit somebody or
+the floor, it is hidden from view.</p>
 </div>
 <div class="section" id="falltofloor">
 <span id="id12"></span><h2>FallToFloor<a class="headerlink" href="#falltofloor" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">FallToFloor</span></tt> command is used internally to control Eric&#8217;s
-descent to the floor. It is invoked in the following situations:</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.FallToFloor" title="pyskool.ai.FallToFloor"><tt class="xref py py-class docutils literal"><span class="pre">FallToFloor</span></tt></a> command is used internally to control
+Eric&#8217;s descent to the floor. It is invoked in the following situations:</p>
 <ul class="simple">
 <li>by the <a class="reference internal" href="#ridebike"><em>RideBike</em></a> command when Eric falls off a bike that has lost
 momentum</li>
@@ -314,29 +314,30 @@ momentum</li>
 </div>
 <div class="section" id="fetcheric">
 <span id="id13"></span><h2>FetchEric<a class="headerlink" href="#fetcheric" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">FetchEric</span></tt> command is used internally by the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.FetchEric" title="pyskool.ai.FetchEric"><tt class="xref py py-class docutils literal"><span class="pre">FetchEric</span></tt></a> command is used internally by the
 <a class="reference internal" href="#conductclasswitheric"><em>ConductClassWithEric</em></a> command to make a teacher track down the truant
 Eric and shepherd him back to the classroom.</p>
 </div>
 <div class="section" id="finderic">
 <span id="id14"></span><h2>FindEric<a class="headerlink" href="#finderic" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">FindEric</span></tt> command is used to make a character look for Eric (to
-give him a message); it also stops the skool clock (which can be restarted
-later on with a <a class="reference internal" href="#setclock"><em>SetClock</em></a> command) to allow Eric to be found before the
-bell rings. When Eric has been found, he is frozen so that he has no choice but
-to listen to the message.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.FindEric" title="pyskool.ai.FindEric"><tt class="xref py py-class docutils literal"><span class="pre">FindEric</span></tt></a> command is used to make a character look for
+Eric (to give him a message); it also stops the skool clock (which can be
+restarted later on with a <a class="reference internal" href="#setclock"><em>SetClock</em></a> command) to allow Eric to be found
+before the bell rings. When Eric has been found, he is frozen so that he has no
+choice but to listen to the message.</p>
 </div>
 <div class="section" id="findericifmissing">
 <h2>FindEricIfMissing<a class="headerlink" href="#findericifmissing" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">FindEricIfMissing</span></tt> command is used by whichever teacher is on
-dinner duty to make him go and look for Eric if he&#8217;s not in the dinner hall.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.FindEricIfMissing" title="pyskool.ai.FindEricIfMissing"><tt class="xref py py-class docutils literal"><span class="pre">FindEricIfMissing</span></tt></a> command is used by whichever teacher
+is on dinner duty to make him go and look for Eric if he&#8217;s not in the dinner
+hall.</p>
 </div>
 <div class="section" id="findseat">
 <span id="id15"></span><h2>FindSeat<a class="headerlink" href="#findseat" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">FindSeat</span></tt> command is used to make a boy or girl find a seat in
-a classroom and sit down; it also makes the character find another seat if he&#8217;s
-knocked out of one (unless the character is the swot, who must return to the
-same seat to avoid having to move his speech bubble during lessons).</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.FindSeat" title="pyskool.ai.FindSeat"><tt class="xref py py-class docutils literal"><span class="pre">FindSeat</span></tt></a> command is used to make a boy or girl find a
+seat in a classroom and sit down; it also makes the character find another seat
+if he&#8217;s knocked out of one (unless the character is the swot, who must return
+to the same seat to avoid having to move his speech bubble during lessons).</p>
 <p>The command takes two optional True (1) or False (0) arguments (which are both
 True by default). When the first argument is True, the character will seek out
 the back seat in the classroom first. Otherwise, when the second argument is
@@ -348,33 +349,33 @@ decked while seated).</p>
 </div>
 <div class="section" id="firecatapult">
 <span id="id16"></span><h2>FireCatapult<a class="headerlink" href="#firecatapult" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">FireCatapult</span></tt> command is used internally to make a
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.FireCatapult" title="pyskool.ai.FireCatapult"><tt class="xref py py-class docutils literal"><span class="pre">FireCatapult</span></tt></a> command is used internally to make a
 catapult-carrying character (i.e. Eric or the tearaway) fire his catapult.</p>
 </div>
 <div class="section" id="firenowandthen">
 <span id="id17"></span><h2>FireNowAndThen<a class="headerlink" href="#firenowandthen" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">FireNowAndThen</span></tt> command is used as an argument to the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.FireNowAndThen" title="pyskool.ai.FireNowAndThen"><tt class="xref py py-class docutils literal"><span class="pre">FireNowAndThen</span></tt></a> command is used as an argument to the
 <a class="reference internal" href="#setcontrollingcommand"><em>SetControllingCommand</em></a> command to make the tearaway fire his catapult
 occasionally. If the command decides that the time is ripe to send a projectile
 whizzing through the air, it passes control to the <a class="reference internal" href="#firecatapult"><em>FireCatapult</em></a> command.</p>
 </div>
 <div class="section" id="firewaterpistol">
 <span id="id18"></span><h2>FireWaterPistol<a class="headerlink" href="#firewaterpistol" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">FireWaterPistol</span></tt> command is used internally to make a water
-pistol-carrying character (i.e. Eric) fire his water pistol.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.FireWaterPistol" title="pyskool.ai.FireWaterPistol"><tt class="xref py py-class docutils literal"><span class="pre">FireWaterPistol</span></tt></a> command is used internally to make a
+water pistol-carrying character (i.e. Eric) fire his water pistol.</p>
 </div>
 <div class="section" id="flight">
 <span id="id19"></span><h2>Flight<a class="headerlink" href="#flight" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Flight</span></tt> command is used internally to control Eric when he is
-either stepping off a fully grown plant through an open window or over the
-closed skool gate, or flying over the closed skool gate (after hitting it while
-standing on the saddle of the bike - see the <a class="reference internal" href="#ridebike"><em>RideBike</em></a> command). The
-command guides Eric through his trajectory to the ground, upon which he may
-land with his feet, his backside, or his back.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Flight" title="pyskool.ai.Flight"><tt class="xref py py-class docutils literal"><span class="pre">Flight</span></tt></a> command is used internally to control Eric when
+he is either stepping off a fully grown plant through an open window or over
+the closed skool gate, or flying over the closed skool gate (after hitting it
+while standing on the saddle of the bike - see the <a class="reference internal" href="#ridebike"><em>RideBike</em></a>
+command). The command guides Eric through his trajectory to the ground, upon
+which he may land with his feet, his backside, or his back.</p>
 </div>
 <div class="section" id="floored">
 <span id="id20"></span><h2>Floored<a class="headerlink" href="#floored" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Floored</span></tt> command is used internally to control a child
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Floored" title="pyskool.ai.Floored"><tt class="xref py py-class docutils literal"><span class="pre">Floored</span></tt></a> command is used internally to control a child
 character who has been pushed out of his seat or knocked out cold (by Eric, the
 bully, or the tearaway). The command keeps the character on the floor for a
 brief period and then makes him stand up; after that, the character will
@@ -383,25 +384,25 @@ either resume whatever he was doing before, or look for another seat (see
 </div>
 <div class="section" id="follow">
 <h2>Follow<a class="headerlink" href="#follow" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Follow</span></tt> command is used by little boys 2-11 to sync their
-movements with those of the stampede leader, little boy 1. (Internally it syncs
-destinations, and hands over control to the <a class="reference internal" href="#goto"><em>GoTo</em></a> command.) The command
-takes a single argument: the unique ID of the character to follow.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Follow" title="pyskool.ai.Follow"><tt class="xref py py-class docutils literal"><span class="pre">Follow</span></tt></a> command is used by little boys 2-11 to sync
+their movements with those of the stampede leader, little boy 1. (Internally it
+syncs destinations, and hands over control to the <a class="reference internal" href="#goto"><em>GoTo</em></a> command.) The
+command takes a single argument: the unique ID of the character to follow.</p>
 </div>
 <div class="section" id="freeze">
 <h2>Freeze<a class="headerlink" href="#freeze" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Freeze</span></tt> command is used internally by the <a class="reference internal" href="#finderic"><em>FindEric</em></a>
-command to freeze Eric once he has been found. It continually monitors the
-keyboard to check whether Eric has acknowledged delivery of a message (by
-pressing &#8216;U&#8217;). It is then up to the <a class="reference internal" href="#telleric"><em>TellEric</em></a> or <a class="reference internal" href="#tellericandwait"><em>TellEricAndWait</em></a>
-command to unfreeze Eric as appropriate.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Freeze" title="pyskool.ai.Freeze"><tt class="xref py py-class docutils literal"><span class="pre">Freeze</span></tt></a> command is used internally by the
+<a class="reference internal" href="#finderic"><em>FindEric</em></a> command to freeze Eric once he has been found. It continually
+monitors the keyboard to check whether Eric has acknowledged delivery of a
+message (by pressing &#8216;U&#8217;). It is then up to the <a class="reference internal" href="#telleric"><em>TellEric</em></a> or
+<a class="reference internal" href="#tellericandwait"><em>TellEricAndWait</em></a> command to unfreeze Eric as appropriate.</p>
 </div>
 <div class="section" id="goto">
 <span id="id21"></span><h2>GoTo<a class="headerlink" href="#goto" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt> command is arguably the most important command ever in
-the history of Pyskool. Without it, the characters would stay rooted to the
-spot, Pyskool would be boring, and you wouldn&#8217;t be reading this. Sad. Anyway,
-<tt class="docutils literal"><span class="pre">GoTo</span></tt> takes a single argument, which must be one of the following:</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.GoTo" title="pyskool.ai.GoTo"><tt class="xref py py-class docutils literal"><span class="pre">GoTo</span></tt></a> command is arguably the most important command
+ever in the history of Pyskool. Without it, the characters would stay rooted to
+the spot, Pyskool would be boring, and you wouldn&#8217;t be reading this. Sad.
+Anyway, <tt class="docutils literal"><span class="pre">GoTo</span></tt> takes a single argument, which must be one of the following:</p>
 <ul class="simple">
 <li>a skool location identifier (as found in the <a class="reference internal" href="inifile.html#skoollocations"><em>[SkoolLocations]</em></a> section)</li>
 <li>an identifier of the form <tt class="docutils literal"><span class="pre">Location:characterId</span></tt>, where <tt class="docutils literal"><span class="pre">characterId</span></tt> is
@@ -415,25 +416,25 @@ identifiers, set the <tt class="docutils literal"><span class="pre">LocationMark
 </div>
 <div class="section" id="gotorandomlocation">
 <h2>GoToRandomLocation<a class="headerlink" href="#gotorandomlocation" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">GoToRandomLocation</span></tt> command is used in many command lists to
-make a character go to one of his <a class="reference internal" href="inifile.html#randomlocations"><em>random locations</em></a>.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.GoToRandomLocation" title="pyskool.ai.GoToRandomLocation"><tt class="xref py py-class docutils literal"><span class="pre">GoToRandomLocation</span></tt></a> command is used in many command
+lists to make a character go to one of his <a class="reference internal" href="inifile.html#randomlocations"><em>random locations</em></a>.</p>
 </div>
 <div class="section" id="gotowardsxy">
 <h2>GoTowardsXY<a class="headerlink" href="#gotowardsxy" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">GoTowardsXY</span></tt> command is used internally to make a character
-turn round or take one step in the direction of the destination <tt class="docutils literal"><span class="pre">x</span></tt> and <tt class="docutils literal"><span class="pre">y</span></tt>
-coordinates specified in the two arguments, instead of continuing all the way
-to the destination. The command is used primarily by the <a class="reference internal" href="#finderic"><em>FindEric</em></a> and
-<a class="reference internal" href="#fetcheric"><em>FetchEric</em></a> commands, which require tracking of a moving target (our hero)
-rather than a fixed destination.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.GoTowardsXY" title="pyskool.ai.GoTowardsXY"><tt class="xref py py-class docutils literal"><span class="pre">GoTowardsXY</span></tt></a> command is used internally to make a
+character turn round or take one step in the direction of the destination <tt class="docutils literal"><span class="pre">x</span></tt>
+and <tt class="docutils literal"><span class="pre">y</span></tt> coordinates specified in the two arguments, instead of continuing all
+the way to the destination. The command is used primarily by the
+<a class="reference internal" href="#finderic"><em>FindEric</em></a> and <a class="reference internal" href="#fetcheric"><em>FetchEric</em></a> commands, which require tracking of a
+moving target (our hero) rather than a fixed destination.</p>
 </div>
 <div class="section" id="gotoxy">
 <h2>GoToXY<a class="headerlink" href="#gotoxy" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt> command is used internally to make a character go to a
-location specified by an <cite>(x, y)</cite> pair of coordinates. In fact, the <a class="reference internal" href="#goto"><em>GoTo</em></a>
-command resolves its location ID parameter into an <cite>(x, y)</cite> pair of coordinates
-and then hands over control to <tt class="docutils literal"><span class="pre">GoToXY</span></tt>. Unsurprisingly, <tt class="docutils literal"><span class="pre">GoToXY</span></tt> takes two
-arguments: <cite>x</cite> and <cite>y</cite>, as in:</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.GoToXY" title="pyskool.ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command is used internally to make a character
+go to a location specified by an <cite>(x, y)</cite> pair of coordinates. In fact, the
+<a class="reference internal" href="#goto"><em>GoTo</em></a> command resolves its location ID parameter into an <cite>(x, y)</cite> pair of
+coordinates and then hands over control to <tt class="docutils literal"><span class="pre">GoToXY</span></tt>. Unsurprisingly,
+<tt class="docutils literal"><span class="pre">GoToXY</span></tt> takes two arguments: <cite>x</cite> and <cite>y</cite>, as in:</p>
 <div class="highlight-none"><div class="highlight"><pre>GoToXY, 23, 17
 </pre></div>
 </div>
@@ -442,17 +443,17 @@ there is nothing to stop you using it in a command list if you wish.</p>
 </div>
 <div class="section" id="grassandanswerquestions">
 <span id="id22"></span><h2>GrassAndAnswerQuestions<a class="headerlink" href="#grassandanswerquestions" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">GrassAndAnswerQuestions</span></tt> command is used by the swot to make
-him tell tales to the teacher just before class starts, and answer the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.GrassAndAnswerQuestions" title="pyskool.ai.GrassAndAnswerQuestions"><tt class="xref py py-class docutils literal"><span class="pre">GrassAndAnswerQuestions</span></tt></a> command is used by the swot to
+make him tell tales to the teacher just before class starts, and answer the
 teacher&#8217;s questions later.</p>
 </div>
 <div class="section" id="grow">
 <span id="id23"></span><h2>Grow<a class="headerlink" href="#grow" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Grow</span></tt> command is used to control the growth of a plant after it
-has been watered. If the plant is not growing, the command does nothing.
-Otherwise, it animates the plant growth, and lifts any characters who are
-standing on the plant. When the plant dies, it drops any characters who were
-standing on the plant, and hides it from view.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Grow" title="pyskool.ai.Grow"><tt class="xref py py-class docutils literal"><span class="pre">Grow</span></tt></a> command is used to control the growth of a plant
+after it has been watered. If the plant is not growing, the command does
+nothing.  Otherwise, it animates the plant growth, and lifts any characters who
+are standing on the plant. When the plant dies, it drops any characters who
+were standing on the plant, and hides it from view.</p>
 <p>The <tt class="docutils literal"><span class="pre">Grow</span></tt> command takes three arguments, which specify the delay between the
 plant being watered and:</p>
 <ul class="simple">
@@ -463,33 +464,33 @@ plant being watered and:</p>
 </div>
 <div class="section" id="hit">
 <span id="id24"></span><h2>Hit<a class="headerlink" href="#hit" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Hit</span></tt> command is used internally to make a fist-wielding
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Hit" title="pyskool.ai.Hit"><tt class="xref py py-class docutils literal"><span class="pre">Hit</span></tt></a> command is used internally to make a fist-wielding
 character (i.e. Eric or the bully) throw a punch.</p>
 </div>
 <div class="section" id="hitnowandthen">
 <span id="id25"></span><h2>HitNowAndThen<a class="headerlink" href="#hitnowandthen" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">HitNowAndThen</span></tt> command is used as an argument to the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.HitNowAndThen" title="pyskool.ai.HitNowAndThen"><tt class="xref py py-class docutils literal"><span class="pre">HitNowAndThen</span></tt></a> command is used as an argument to the
 <a class="reference internal" href="#setcontrollingcommand"><em>SetControllingCommand</em></a> command to make the bully throw a punch
 occasionally. If the command decides that the time is ripe to send a fist
 whizzing through the air, it passes control to the <a class="reference internal" href="#hit"><em>Hit</em></a> command.</p>
 </div>
 <div class="section" id="hop">
 <span id="id26"></span><h2>Hop<a class="headerlink" href="#hop" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Hop</span></tt> command is used internally by the <a class="reference internal" href="#movefrog"><em>MoveFrog</em></a> command
-to control the movements of a frog as it embarks on a long hop or a short hop,
-or turns round.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Hop" title="pyskool.ai.Hop"><tt class="xref py py-class docutils literal"><span class="pre">Hop</span></tt></a> command is used internally by the <a class="reference internal" href="#movefrog"><em>MoveFrog</em></a>
+command to control the movements of a frog as it embarks on a long hop or a
+short hop, or turns round.</p>
 </div>
 <div class="section" id="jump">
 <span id="id27"></span><h2>Jump<a class="headerlink" href="#jump" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Jump</span></tt> command is used internally to control Eric while he&#8217;s
-jumping. It lifts him into the air, checks to see whether he has reached a
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Jump" title="pyskool.ai.Jump"><tt class="xref py py-class docutils literal"><span class="pre">Jump</span></tt></a> command is used internally to control Eric while
+he&#8217;s jumping. It lifts him into the air, checks to see whether he has reached a
 shield, a cup, or the safe, and then lets him drop (unless there is an
 unconscious kid or a plant pot below).</p>
 </div>
 <div class="section" id="jumpifopen">
 <span id="id28"></span><h2>JumpIfOpen<a class="headerlink" href="#jumpifopen" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">JumpIfOpen</span></tt> command is used to jump back or forward in the
-command list if a door is open. The command takes two arguments: the door&#8217;s
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.JumpIfOpen" title="pyskool.ai.JumpIfOpen"><tt class="xref py py-class docutils literal"><span class="pre">JumpIfOpen</span></tt></a> command is used to jump back or forward in
+the command list if a door is open. The command takes two arguments: the door&#8217;s
 unique ID (see <a class="reference internal" href="inifile.html#doors"><em>[Doors]</em></a>), and the number of commands to jump back or
 forward, as in:</p>
 <div class="highlight-none"><div class="highlight"><pre>JumpIfOpen, SkoolDoor, -5
@@ -498,8 +499,8 @@ forward, as in:</p>
 </div>
 <div class="section" id="jumpifshut">
 <span id="id29"></span><h2>JumpIfShut<a class="headerlink" href="#jumpifshut" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">JumpIfShut</span></tt> command is used to jump back or forward in the
-command list if a door is shut. The command takes two arguments: the door&#8217;s
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.JumpIfShut" title="pyskool.ai.JumpIfShut"><tt class="xref py py-class docutils literal"><span class="pre">JumpIfShut</span></tt></a> command is used to jump back or forward in
+the command list if a door is shut. The command takes two arguments: the door&#8217;s
 unique ID (see <a class="reference internal" href="inifile.html#doors"><em>[Doors]</em></a>), and the number of commands to jump back or
 forward, as in:</p>
 <div class="highlight-none"><div class="highlight"><pre>JumpIfShut, SkoolGate, 3
@@ -508,26 +509,26 @@ forward, as in:</p>
 </div>
 <div class="section" id="jumpoffsaddle">
 <span id="id30"></span><h2>JumpOffSaddle<a class="headerlink" href="#jumpoffsaddle" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">JumpOffSaddle</span></tt> command is used internally to control Eric when
-he is jumping off the saddle of the bike (see the <a class="reference internal" href="#ridebike"><em>RideBike</em></a> command). It
-lifts him into the air, checks to see whether he has reached a cup (into which
-a frog may be placed), and then lets him drop to the floor.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.JumpOffSaddle" title="pyskool.ai.JumpOffSaddle"><tt class="xref py py-class docutils literal"><span class="pre">JumpOffSaddle</span></tt></a> command is used internally to control
+Eric when he is jumping off the saddle of the bike (see the <a class="reference internal" href="#ridebike"><em>RideBike</em></a>
+command). It lifts him into the air, checks to see whether he has reached a cup
+(into which a frog may be placed), and then lets him drop to the floor.</p>
 </div>
 <div class="section" id="kiss">
 <span id="id31"></span><h2>Kiss<a class="headerlink" href="#kiss" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Kiss</span></tt> command is used internally to control Eric while he&#8217;s
-kissing (or trying to kiss) Hayley. If Hayley is neither facing Eric nor in
-front of him at the time of the attempted kiss, Eric will take a step forward
-and then back again, with no kiss scored. If Hayley is in front of Eric and
-facing him, one of two things will happen: (a) Eric will score a kiss, or (b)
-Hayley will smack Eric in the face (if she feels he&#8217;s tried to grab one kiss
-too many already). If Eric does land a kiss, his lines total will be reduced by
-1000 (or to zero if he has less than 1000 lines).</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Kiss" title="pyskool.ai.Kiss"><tt class="xref py py-class docutils literal"><span class="pre">Kiss</span></tt></a> command is used internally to control Eric while
+he&#8217;s kissing (or trying to kiss) Hayley. If Hayley is neither facing Eric nor
+in front of him at the time of the attempted kiss, Eric will take a step
+forward and then back again, with no kiss scored. If Hayley is in front of Eric
+and facing him, one of two things will happen: (a) Eric will score a kiss,
+or (b) Hayley will smack Eric in the face (if she feels he&#8217;s tried to grab one
+kiss too many already). If Eric does land a kiss, his lines total will be
+reduced by 1000 (or to zero if he has less than 1000 lines).</p>
 </div>
 <div class="section" id="knockedover">
 <h2>KnockedOver<a class="headerlink" href="#knockedover" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">KnockedOver</span></tt> command is used internally to control an adult
-character who has been downed by a catapult pellet or a stampeding boy.
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.KnockedOver" title="pyskool.ai.KnockedOver"><tt class="xref py py-class docutils literal"><span class="pre">KnockedOver</span></tt></a> command is used internally to control an
+adult character who has been downed by a catapult pellet or a stampeding boy.
 <tt class="docutils literal"><span class="pre">KnockedOver</span></tt> stuns the character, makes him reveal his safe combination
 letter (if appropriate), also makes him give lines to the nearest main child
 character (if any), and then helps him up off the floor; after that, the
@@ -535,9 +536,9 @@ character will resume whatever he was doing before.</p>
 </div>
 <div class="section" id="monitoreric">
 <span id="id32"></span><h2>MonitorEric<a class="headerlink" href="#monitoreric" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">MonitorEric</span></tt> command is used as a subcommand (set by the
-<a class="reference internal" href="#setsubcommand"><em>SetSubcommand</em></a> command) by Miss Take; it makes her keep an eye out for
-Eric in the girls&#8217; skool when it&#8217;s not playtime. It takes two arguments:</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.MonitorEric" title="pyskool.ai.MonitorEric"><tt class="xref py py-class docutils literal"><span class="pre">MonitorEric</span></tt></a> command is used as a subcommand (set by
+the <a class="reference internal" href="#setsubcommand"><em>SetSubcommand</em></a> command) by Miss Take; it makes her keep an eye out
+for Eric in the girls&#8217; skool when it&#8217;s not playtime. It takes two arguments:</p>
 <ul class="simple">
 <li>the ID of the command list to switch to in order to chase Eric</li>
 <li>the x-coordinate beyond which Eric must be to be regarded as worth chasing</li>
@@ -545,10 +546,10 @@ Eric in the girls&#8217; skool when it&#8217;s not playtime. It takes two argume
 </div>
 <div class="section" id="moveaboutuntil">
 <span id="id33"></span><h2>MoveAboutUntil<a class="headerlink" href="#moveaboutuntil" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">MoveAboutUntil</span></tt> command is used to make a character repeatedly
-walk a random number of paces away from a fixed point (the walkabout origin)
-and back again. The walkabout origin is the point the character reached before
-<tt class="docutils literal"><span class="pre">MoveAboutUntil</span></tt> was invoked.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.MoveAboutUntil" title="pyskool.ai.MoveAboutUntil"><tt class="xref py py-class docutils literal"><span class="pre">MoveAboutUntil</span></tt></a> command is used to make a character
+repeatedly walk a random number of paces away from a fixed point (the walkabout
+origin) and back again. The walkabout origin is the point the character reached
+before <tt class="docutils literal"><span class="pre">MoveAboutUntil</span></tt> was invoked.</p>
 <p>The command takes two arguments:</p>
 <ul class="simple">
 <li>a signal to listen for; when it is raised, the character will proceed to the
@@ -559,25 +560,25 @@ origin; the default is <tt class="docutils literal"><span class="pre">(1,</span>
 </div>
 <div class="section" id="movebike">
 <span id="id34"></span><h2>MoveBike<a class="headerlink" href="#movebike" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">MoveBike</span></tt> command is used to control the bike when Eric is not
-sitting on the saddle. If the bike has not been unchained yet, or is resting on
-the ground, the command does nothing. Otherwise, it moves the bike along until
-it runs out of momentum, at which point it will fall over.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.MoveBike" title="pyskool.ai.MoveBike"><tt class="xref py py-class docutils literal"><span class="pre">MoveBike</span></tt></a> command is used to control the bike when Eric
+is not sitting on the saddle. If the bike has not been unchained yet, or is
+resting on the ground, the command does nothing. Otherwise, it moves the bike
+along until it runs out of momentum, at which point it will fall over.</p>
 </div>
 <div class="section" id="movedesklid">
 <span id="id35"></span><h2>MoveDeskLid<a class="headerlink" href="#movedesklid" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">MoveDeskLid</span></tt> command is used to control a desk lid when it has
-been raised (by Eric). When the desk lid is not raised, the command does
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.MoveDeskLid" title="pyskool.ai.MoveDeskLid"><tt class="xref py py-class docutils literal"><span class="pre">MoveDeskLid</span></tt></a> command is used to control a desk lid when
+it has been raised (by Eric). When the desk lid is not raised, the command does
 nothing. Otherwise, it transfers the contents of the desk (if any) to Eric&#8217;s
 pocket. When the desk lid is ready to drop - after the delay specified by the
 command&#8217;s sole argument - it is hidden from view.</p>
 </div>
 <div class="section" id="movefrog">
 <span id="id36"></span><h2>MoveFrog<a class="headerlink" href="#movefrog" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">MoveFrog</span></tt> command is used to control the movements of a frog.
-When a frog decides to move, it chooses from three options: turn round, short
-hop, and long hop. Each of these movements is controlled by the <a class="reference internal" href="#hop"><em>Hop</em></a>
-command.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.MoveFrog" title="pyskool.ai.MoveFrog"><tt class="xref py py-class docutils literal"><span class="pre">MoveFrog</span></tt></a> command is used to control the movements of a
+frog.  When a frog decides to move, it chooses from three options: turn round,
+short hop, and long hop. Each of these movements is controlled by the
+<a class="reference internal" href="#hop"><em>Hop</em></a> command.</p>
 <p>The <tt class="docutils literal"><span class="pre">MoveFrog</span></tt> command takes three arguments, which specify the probability
 that the frog will:</p>
 <ul class="simple">
@@ -588,8 +589,8 @@ that the frog will:</p>
 </div>
 <div class="section" id="movemouse">
 <span id="id37"></span><h2>MoveMouse<a class="headerlink" href="#movemouse" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">MoveMouse</span></tt> command is used to control the movements of a mouse:
-sprint up and down a few times, hide for a brief period, repeat.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.MoveMouse" title="pyskool.ai.MoveMouse"><tt class="xref py py-class docutils literal"><span class="pre">MoveMouse</span></tt></a> command is used to control the movements of
+a mouse: sprint up and down a few times, hide for a brief period, repeat.</p>
 <p>The <tt class="docutils literal"><span class="pre">MoveMouse</span></tt> command takes four arguments:</p>
 <ul class="simple">
 <li>the minimum and maximum delays before the mouse comes out of hiding (e.g.
@@ -603,51 +604,51 @@ before dying (if released by Eric; e.g. <tt class="docutils literal"><span class
 </div>
 <div class="section" id="movepellet">
 <span id="id38"></span><h2>MovePellet<a class="headerlink" href="#movepellet" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">MovePellet</span></tt> command is used to control a catapult pellet. If
-the pellet has not been launched, the command does nothing. Otherwise, it moves
-the pellet through the air, checking whether any shields or unfortunate
-characters lie in its path. When a pellet has finished its flight, it is hidden
-from view.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.MovePellet" title="pyskool.ai.MovePellet"><tt class="xref py py-class docutils literal"><span class="pre">MovePellet</span></tt></a> command is used to control a catapult
+pellet. If the pellet has not been launched, the command does nothing.
+Otherwise, it moves the pellet through the air, checking whether any shields or
+unfortunate characters lie in its path. When a pellet has finished its flight,
+it is hidden from view.</p>
 </div>
 <div class="section" id="movewater">
 <span id="id39"></span><h2>MoveWater<a class="headerlink" href="#movewater" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">MoveWater</span></tt> command is used to control a jet of water fired from
-a water pistol. If the water has not been fired, the command does nothing.
-Otherwise, it moves the water through the air, checking whether any cups or
-plant pots lie in its path. When the water has finished its flight, it is
-hidden from view.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.MoveWater" title="pyskool.ai.MoveWater"><tt class="xref py py-class docutils literal"><span class="pre">MoveWater</span></tt></a> command is used to control a jet of water
+fired from a water pistol. If the water has not been fired, the command does
+nothing.  Otherwise, it moves the water through the air, checking whether any
+cups or plant pots lie in its path. When the water has finished its flight, it
+is hidden from view.</p>
 </div>
 <div class="section" id="opendoor">
 <h2>OpenDoor<a class="headerlink" href="#opendoor" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">OpenDoor</span></tt> command makes a character open a door. It takes one
-argument: the unique ID of the door (see <a class="reference internal" href="inifile.html#doors"><em>[Doors]</em></a>) to open. If the door is
-already open, the command does nothing.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.OpenDoor" title="pyskool.ai.OpenDoor"><tt class="xref py py-class docutils literal"><span class="pre">OpenDoor</span></tt></a> command makes a character open a door. It
+takes one argument: the unique ID of the door (see <a class="reference internal" href="inifile.html#doors"><em>[Doors]</em></a>) to open. If
+the door is already open, the command does nothing.</p>
 </div>
 <div class="section" id="pause">
 <span id="id40"></span><h2>Pause<a class="headerlink" href="#pause" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Pause</span></tt> command is used internally by the <a class="reference internal" href="#kiss"><em>Kiss</em></a> command to
-occupy Hayley (i.e. prevent her from executing her current command list) while
-she is responding to an attempted kiss from Eric. The command exits (and Hayley
-will resume her current command list) after the response (a kiss or slap in the
-face) has been made.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Pause" title="pyskool.ai.Pause"><tt class="xref py py-class docutils literal"><span class="pre">Pause</span></tt></a> command is used internally by the <a class="reference internal" href="#kiss"><em>Kiss</em></a>
+command to occupy Hayley (i.e. prevent her from executing her current command
+list) while she is responding to an attempted kiss from Eric. The command exits
+(and Hayley will resume her current command list) after the response (a kiss or
+slap in the face) has been made.</p>
 </div>
 <div class="section" id="releasemice">
 <span id="id41"></span><h2>ReleaseMice<a class="headerlink" href="#releasemice" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">ReleaseMice</span></tt> command is used internally to control Eric when
-he&#8217;s releasing mice. It makes Eric bend over, releases up to five mice
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.ReleaseMice" title="pyskool.ai.ReleaseMice"><tt class="xref py py-class docutils literal"><span class="pre">ReleaseMice</span></tt></a> command is used internally to control Eric
+when he&#8217;s releasing mice. It makes Eric bend over, releases up to five mice
 (depending on how many Eric has caught) at the spot in front of Eric, and then
 makes Eric stand up.</p>
 </div>
 <div class="section" id="restart">
 <span id="id42"></span><h2>Restart<a class="headerlink" href="#restart" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Restart</span></tt> command is used to return to the first command in the
-command list.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Restart" title="pyskool.ai.Restart"><tt class="xref py py-class docutils literal"><span class="pre">Restart</span></tt></a> command is used to return to the first command
+in the command list.</p>
 </div>
 <div class="section" id="ridebike">
 <span id="id43"></span><h2>RideBike<a class="headerlink" href="#ridebike" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">RideBike</span></tt> command is used internally to control Eric while he&#8217;s
-on the bike. It may hand over control to another command depending on what
-happens while Eric is on the bike:</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.RideBike" title="pyskool.ai.RideBike"><tt class="xref py py-class docutils literal"><span class="pre">RideBike</span></tt></a> command is used internally to control Eric
+while he&#8217;s on the bike. It may hand over control to another command depending
+on what happens while Eric is on the bike:</p>
 <ul class="simple">
 <li><a class="reference internal" href="#falltofloor"><em>FallToFloor</em></a> (if the bike runs out of momentum)</li>
 <li><a class="reference internal" href="#jumpoffsaddle"><em>JumpOffSaddle</em></a> (if Eric jumps off the saddle)</li>
@@ -657,7 +658,7 @@ on the saddle)</li>
 </div>
 <div class="section" id="say">
 <h2>Say<a class="headerlink" href="#say" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt> command is used internally to make a character say
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command is used internally to make a character say
 something. It takes two arguments: the thing to say, and an optional second
 argument specifying whether to notify listeners when done (which defaults to
 <cite>False</cite>, and is set to <cite>True</cite> only during lessons so that the teacher and the
@@ -671,16 +672,16 @@ there is nothing to stop you using it in a command list if you wish.</p>
 </div>
 <div class="section" id="setclock">
 <span id="id44"></span><h2>SetClock<a class="headerlink" href="#setclock" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">SetClock</span></tt> command restarts the skool clock with a certain
-amount of time remaining until the bell rings, specified by the sole parameter.
-It is used (for example) to ensure that the bell rings shortly after Mr Wacker
-has finished delivering the detention message in assembly.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.SetClock" title="pyskool.ai.SetClock"><tt class="xref py py-class docutils literal"><span class="pre">SetClock</span></tt></a> command restarts the skool clock with a
+certain amount of time remaining until the bell rings, specified by the sole
+parameter.  It is used (for example) to ensure that the bell rings shortly
+after Mr Wacker has finished delivering the detention message in assembly.</p>
 </div>
 <div class="section" id="setcontrollingcommand">
 <span id="id45"></span><h2>SetControllingCommand<a class="headerlink" href="#setcontrollingcommand" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">SetControllingCommand</span></tt> command is an awkwardly named command
-that takes another command - and that command&#8217;s parameters - as its arguments,
-as in:</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.SetControllingCommand" title="pyskool.ai.SetControllingCommand"><tt class="xref py py-class docutils literal"><span class="pre">SetControllingCommand</span></tt></a> command is an awkwardly named
+command that takes another command - and that command&#8217;s parameters - as its
+arguments, as in:</p>
 <div class="highlight-none"><div class="highlight"><pre>SetControllingCommand, OtherCommand, SomeParameter
 </pre></div>
 </div>
@@ -694,19 +695,19 @@ command list has completed.</p>
 </div>
 <div class="section" id="setrestartpoint">
 <h2>SetRestartPoint<a class="headerlink" href="#setrestartpoint" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">SetRestartPoint</span></tt> command has the effect of discarding itself
-and all previous commands in the command list, so that any <a class="reference internal" href="#restart"><em>Restart</em></a> or
-<a class="reference internal" href="#startlessonifready"><em>StartLessonIfReady</em></a> command appearing further down the command list will
-bring control back up the list to the command following <tt class="docutils literal"><span class="pre">SetRestartPoint</span></tt>
-instead of the top of the list.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.SetRestartPoint" title="pyskool.ai.SetRestartPoint"><tt class="xref py py-class docutils literal"><span class="pre">SetRestartPoint</span></tt></a> command has the effect of discarding
+itself and all previous commands in the command list, so that any
+<a class="reference internal" href="#restart"><em>Restart</em></a> or <a class="reference internal" href="#startlessonifready"><em>StartLessonIfReady</em></a> command appearing further down the
+command list will bring control back up the list to the command following
+<tt class="docutils literal"><span class="pre">SetRestartPoint</span></tt> instead of the top of the list.</p>
 </div>
 <div class="section" id="setsubcommand">
 <span id="id46"></span><h2>SetSubcommand<a class="headerlink" href="#setsubcommand" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">SetSubcommand</span></tt> command places a subcommand in the character&#8217;s
-current command list. This subcommand is then executed on each pass through the
-main loop, before and in addition to the current command in the character&#8217;s
-command list. The parameters of <tt class="docutils literal"><span class="pre">SetSubcommand</span></tt> are the subcommand name and
-the subcommand&#8217;s parameters, as in:</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.SetSubcommand" title="pyskool.ai.SetSubcommand"><tt class="xref py py-class docutils literal"><span class="pre">SetSubcommand</span></tt></a> command places a subcommand in the
+character&#8217;s current command list. This subcommand is then executed on each pass
+through the main loop, before and in addition to the current command in the
+character&#8217;s command list. The parameters of <tt class="docutils literal"><span class="pre">SetSubcommand</span></tt> are the
+subcommand name and the subcommand&#8217;s parameters, as in:</p>
 <div class="highlight-none"><div class="highlight"><pre>SetSubcommand, SomeSubcommand, SomeParameter1, SomeParameter2
 </pre></div>
 </div>
@@ -718,31 +719,32 @@ until the end of the lesson).</p>
 </div>
 <div class="section" id="shadoweric">
 <span id="id47"></span><h2>ShadowEric<a class="headerlink" href="#shadoweric" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">ShadowEric</span></tt> command is used by Mr Wacker when he&#8217;s been alerted
-that Eric is trying to escape (see the <a class="reference internal" href="#watchforeric"><em>WatchForEric</em></a> command). The
-command makes Mr Wacker track down Eric and shadow him until the bell rings.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.ShadowEric" title="pyskool.ai.ShadowEric"><tt class="xref py py-class docutils literal"><span class="pre">ShadowEric</span></tt></a> command is used by Mr Wacker when he&#8217;s been
+alerted that Eric is trying to escape (see the <a class="reference internal" href="#watchforeric"><em>WatchForEric</em></a>
+command). The command makes Mr Wacker track down Eric and shadow him until the
+bell rings.</p>
 </div>
 <div class="section" id="shutdoor">
 <h2>ShutDoor<a class="headerlink" href="#shutdoor" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">ShutDoor</span></tt> command makes a character shut a door. It takes one
-argument: unique ID of the door (see <a class="reference internal" href="inifile.html#doors"><em>[Doors]</em></a>) to shut. If the door is
-already shut, the command does nothing.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.ShutDoor" title="pyskool.ai.ShutDoor"><tt class="xref py py-class docutils literal"><span class="pre">ShutDoor</span></tt></a> command makes a character shut a door. It
+takes one argument: unique ID of the door (see <a class="reference internal" href="inifile.html#doors"><em>[Doors]</em></a>) to shut. If the
+door is already shut, the command does nothing.</p>
 </div>
 <div class="section" id="signal">
 <span id="id48"></span><h2>Signal<a class="headerlink" href="#signal" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Signal</span></tt> command is used to raise a signal. Signals are used,
-for example, by the <a class="reference internal" href="#moveaboutuntil"><em>MoveAboutUntil</em></a> command to make a character pace up
-and down until the time is right to proceed to the next command in the command
-list. This scheme allows characters&#8217; movements to be coordinated.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Signal" title="pyskool.ai.Signal"><tt class="xref py py-class docutils literal"><span class="pre">Signal</span></tt></a> command is used to raise a signal. Signals are
+used, for example, by the <a class="reference internal" href="#moveaboutuntil"><em>MoveAboutUntil</em></a> command to make a character
+pace up and down until the time is right to proceed to the next command in the
+command list. This scheme allows characters&#8217; movements to be coordinated.</p>
 <p>The <tt class="docutils literal"><span class="pre">Signal</span></tt> command takes a single argument: the name of the signal to
 raise.</p>
 <p>See also the <a class="reference internal" href="#unsignal"><em>Unsignal</em></a> command.</p>
 </div>
 <div class="section" id="sitforassembly">
 <span id="id49"></span><h2>SitForAssembly<a class="headerlink" href="#sitforassembly" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">SitForAssembly</span></tt> command makes a character find a spot to sit
-down in the assembly hall until the headmaster has finished speaking. The
-command takes three arguments:</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.SitForAssembly" title="pyskool.ai.SitForAssembly"><tt class="xref py py-class docutils literal"><span class="pre">SitForAssembly</span></tt></a> command makes a character find a spot
+to sit down in the assembly hall until the headmaster has finished speaking.
+The command takes three arguments:</p>
 <ul class="simple">
 <li>the signal to wait for before standing up (see <a class="reference internal" href="#startassemblyifready"><em>StartAssemblyIfReady</em></a>)</li>
 <li>the direction to face when sitting down (<tt class="docutils literal"><span class="pre">-1</span></tt> for left, <tt class="docutils literal"><span class="pre">1</span></tt> for right)</li>
@@ -752,7 +754,7 @@ to find a spot to sit; the default is <tt class="docutils literal"><span class="
 </div>
 <div class="section" id="sitstill">
 <span id="id50"></span><h2>SitStill<a class="headerlink" href="#sitstill" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">SitStill</span></tt> command is always found immediately after the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.SitStill" title="pyskool.ai.SitStill"><tt class="xref py py-class docutils literal"><span class="pre">SitStill</span></tt></a> command is always found immediately after the
 <tt class="docutils literal"><span class="pre">FindSeat</span></tt> command when it appears in a command list. It makes the character
 stay seated (in other words, do nothing).</p>
 </div>
@@ -761,8 +763,8 @@ stay seated (in other words, do nothing).</p>
 <p>It sounds brutal, but there really was a command list in Back to Skool that
 contained instructions to make the bully track down Eric&#8217;s girlfriend in order
 to knock her about. In Pyskool, the equivalent (but more flexible) command is
-<tt class="xref py py-class docutils literal"><span class="pre">StalkAndHit</span></tt>, which takes a single argument: the unique ID of the
-character to track down.</p>
+<a class="reference internal" href="ai.html#pyskool.ai.StalkAndHit" title="pyskool.ai.StalkAndHit"><tt class="xref py py-class docutils literal"><span class="pre">StalkAndHit</span></tt></a>, which takes a single argument: the unique ID
+of the character to track down.</p>
 <p><tt class="docutils literal"><span class="pre">StalkAndHit</span></tt> should be used as an argument to the
 <a class="reference internal" href="#setcontrollingcommand"><em>SetControllingCommand</em></a> command, as in:</p>
 <div class="highlight-none"><div class="highlight"><pre>SetControllingCommand, StalkAndHit, HEROINE
@@ -774,99 +776,99 @@ then along the way.</p>
 </div>
 <div class="section" id="startassemblyifready">
 <span id="id52"></span><h2>StartAssemblyIfReady<a class="headerlink" href="#startassemblyifready" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">StartAssemblyIfReady</span></tt> command makes Mr Wacker return to the
-start of the command list unless it&#8217;s time to go down to the stage for
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.StartAssemblyIfReady" title="pyskool.ai.StartAssemblyIfReady"><tt class="xref py py-class docutils literal"><span class="pre">StartAssemblyIfReady</span></tt></a> command makes Mr Wacker return to
+the start of the command list unless it&#8217;s time to go down to the stage for
 assembly, at which point the signal named by the command&#8217;s sole argument will
 be raised (so that the kids know when to sit down; see <a class="reference internal" href="#sitforassembly"><em>SitForAssembly</em></a>).</p>
 </div>
 <div class="section" id="startdinnerifready">
 <h2>StartDinnerIfReady<a class="headerlink" href="#startdinnerifready" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">StartDinnerIfReady</span></tt> command is used by teachers on dinner duty.
-It restarts the command list unless it&#8217;s time to start looking out for Eric
-during dinner.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.StartDinnerIfReady" title="pyskool.ai.StartDinnerIfReady"><tt class="xref py py-class docutils literal"><span class="pre">StartDinnerIfReady</span></tt></a> command is used by teachers on
+dinner duty.  It restarts the command list unless it&#8217;s time to start looking
+out for Eric during dinner.</p>
 </div>
 <div class="section" id="startlessonifready">
 <span id="id53"></span><h2>StartLessonIfReady<a class="headerlink" href="#startlessonifready" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">StartLessonIfReady</span></tt> command is used by teachers to get a lesson
-under way (if enough time has passed since the bell rang). The command takes a
-single argument: the name of the signal that indicates which room the teacher
-will teach in (which is listened for by the kids in the classroom so that they
-know when to sit down). If it&#8217;s not time to start the lesson yet, the command
-list is restarted.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.StartLessonIfReady" title="pyskool.ai.StartLessonIfReady"><tt class="xref py py-class docutils literal"><span class="pre">StartLessonIfReady</span></tt></a> command is used by teachers to get
+a lesson under way (if enough time has passed since the bell rang). The command
+takes a single argument: the name of the signal that indicates which room the
+teacher will teach in (which is listened for by the kids in the classroom so
+that they know when to sit down). If it&#8217;s not time to start the lesson yet, the
+command list is restarted.</p>
 </div>
 <div class="section" id="stink">
 <h2>Stink<a class="headerlink" href="#stink" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Stink</span></tt> command is used to control a stinkbomb after it&#8217;s been
-dropped. If the stinkbomb has not been dropped, the command does nothing.
-Otherwise, it animates the stinkbomb cloud, checking whether any characters
-with a sensitive nose are nearby, and compelling them to open the nearest
-window. When the stench has dissipated - after a period specified by the
-command&#8217;s sole argument - the cloud is hidden from view.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Stink" title="pyskool.ai.Stink"><tt class="xref py py-class docutils literal"><span class="pre">Stink</span></tt></a> command is used to control a stinkbomb after
+it&#8217;s been dropped. If the stinkbomb has not been dropped, the command does
+nothing.  Otherwise, it animates the stinkbomb cloud, checking whether any
+characters with a sensitive nose are nearby, and compelling them to open the
+nearest window. When the stench has dissipated - after a period specified by
+the command&#8217;s sole argument - the cloud is hidden from view.</p>
 </div>
 <div class="section" id="stoperic">
 <span id="id54"></span><h2>StopEric<a class="headerlink" href="#stoperic" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">StopEric</span></tt> command is used internally by the <a class="reference internal" href="#watchforeric"><em>WatchForEric</em></a>
-command to make Albert raise his arm and alert Mr Wacker when he has spotted
-Eric trying to escape. The command exits when Eric leaves the &#8216;danger zone&#8217;
-near Albert.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.StopEric" title="pyskool.ai.StopEric"><tt class="xref py py-class docutils literal"><span class="pre">StopEric</span></tt></a> command is used internally by the
+<a class="reference internal" href="#watchforeric"><em>WatchForEric</em></a> command to make Albert raise his arm and alert Mr Wacker
+when he has spotted Eric trying to escape. The command exits when Eric leaves
+the &#8216;danger zone&#8217; near Albert.</p>
 </div>
 <div class="section" id="tellclasswhattodo">
 <h2>TellClassWhatToDo<a class="headerlink" href="#tellclasswhattodo" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">TellClassWhatToDo</span></tt> command is used internally by the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.TellClassWhatToDo" title="pyskool.ai.TellClassWhatToDo"><tt class="xref py py-class docutils literal"><span class="pre">TellClassWhatToDo</span></tt></a> command is used internally by the
 <a class="reference internal" href="#conductclasswitheric"><em>ConductClassWithEric</em></a> and <a class="reference internal" href="#conductclasswithouteric"><em>ConductClassWithoutEric</em></a> commands to make
 a teacher tell the class what to do (which usually involves writing an essay,
 turning to a certain page in their books, or revising for their exams).</p>
 </div>
 <div class="section" id="telleric">
 <span id="id55"></span><h2>TellEric<a class="headerlink" href="#telleric" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">TellEric</span></tt> command is used to make a character deliver the
-message specified in the command&#8217;s sole argument, and then unfreeze Eric (if he
-was frozen, as by the <a class="reference internal" href="#finderic"><em>FindEric</em></a> command).</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.TellEric" title="pyskool.ai.TellEric"><tt class="xref py py-class docutils literal"><span class="pre">TellEric</span></tt></a> command is used to make a character deliver
+the message specified in the command&#8217;s sole argument, and then unfreeze Eric
+(if he was frozen, as by the <a class="reference internal" href="#finderic"><em>FindEric</em></a> command).</p>
 </div>
 <div class="section" id="tellericandwait">
 <span id="id56"></span><h2>TellEricAndWait<a class="headerlink" href="#tellericandwait" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">TellEricAndWait</span></tt> command is used to make a character deliver
-the message specified in the command&#8217;s sole argument, and then unfreeze Eric
-(if he was frozen, as by the <a class="reference internal" href="#finderic"><em>FindEric</em></a> command) as soon as he has
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.TellEricAndWait" title="pyskool.ai.TellEricAndWait"><tt class="xref py py-class docutils literal"><span class="pre">TellEricAndWait</span></tt></a> command is used to make a character
+deliver the message specified in the command&#8217;s sole argument, and then unfreeze
+Eric (if he was frozen, as by the <a class="reference internal" href="#finderic"><em>FindEric</em></a> command) as soon as he has
 registered understanding of the message so delivered. If Eric is slow to
 respond, the message will be repeated periodically.</p>
 </div>
 <div class="section" id="tellkidstositdown">
 <h2>TellKidsToSitDown<a class="headerlink" href="#tellkidstositdown" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">TellKidsToSitDown</span></tt> command is used internally by the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.TellKidsToSitDown" title="pyskool.ai.TellKidsToSitDown"><tt class="xref py py-class docutils literal"><span class="pre">TellKidsToSitDown</span></tt></a> command is used internally by the
 <a class="reference internal" href="#startlessonifready"><em>StartLessonIfReady</em></a> command to make a character (a teacher, normally)
 tell the kids to sit down when it&#8217;s time to start class.</p>
 </div>
 <div class="section" id="trippeopleup">
 <span id="id57"></span><h2>TripPeopleUp<a class="headerlink" href="#trippeopleup" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">TripPeopleUp</span></tt> command is used as an argument to the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.TripPeopleUp" title="pyskool.ai.TripPeopleUp"><tt class="xref py py-class docutils literal"><span class="pre">TripPeopleUp</span></tt></a> command is used as an argument to the
 <a class="reference internal" href="#setcontrollingcommand"><em>SetControllingCommand</em></a> command to make a character trip up anyone in his
 path as he proceeds to his destination.</p>
 </div>
 <div class="section" id="unsignal">
 <span id="id58"></span><h2>Unsignal<a class="headerlink" href="#unsignal" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Unsignal</span></tt> command is used to lower a signal previously raised.
-It takes a signal name as its sole argument.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Unsignal" title="pyskool.ai.Unsignal"><tt class="xref py py-class docutils literal"><span class="pre">Unsignal</span></tt></a> command is used to lower a signal previously
+raised.  It takes a signal name as its sole argument.</p>
 </div>
 <div class="section" id="waitatdoor">
 <h2>WaitAtDoor<a class="headerlink" href="#waitatdoor" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">WaitAtDoor</span></tt> command is used to make Albert wait at the skool
-door or the skool gate until all the characters are on the correct side and
-it&#8217;s therefore safe to shut the door or gate. The character flags <cite>B</cite> and <cite>G</cite>
-(see <a class="reference internal" href="inifile.html#characters"><em>[Characters]</em></a>) are used to determine which skool (and hence which side
-of the door) a character belongs to. The <tt class="docutils literal"><span class="pre">WaitAtDoor</span></tt> command takes a single
-argument: the unique ID of the door or gate (see <a class="reference internal" href="inifile.html#doors"><em>[Doors]</em></a>).</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.WaitAtDoor" title="pyskool.ai.WaitAtDoor"><tt class="xref py py-class docutils literal"><span class="pre">WaitAtDoor</span></tt></a> command is used to make Albert wait at the
+skool door or the skool gate until all the characters are on the correct side
+and it&#8217;s therefore safe to shut the door or gate. The character flags <cite>B</cite> and
+<cite>G</cite> (see <a class="reference internal" href="inifile.html#characters"><em>[Characters]</em></a>) are used to determine which skool (and hence which
+side of the door) a character belongs to. The <tt class="docutils literal"><span class="pre">WaitAtDoor</span></tt> command takes a
+single argument: the unique ID of the door or gate (see <a class="reference internal" href="inifile.html#doors"><em>[Doors]</em></a>).</p>
 </div>
 <div class="section" id="waituntil">
 <span id="id59"></span><h2>WaitUntil<a class="headerlink" href="#waituntil" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">WaitUntil</span></tt> command is used to make a character do nothing (i.e.
-stand still) until a signal is raised. The command takes a single argument: the
-name of the signal to wait for.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.WaitUntil" title="pyskool.ai.WaitUntil"><tt class="xref py py-class docutils literal"><span class="pre">WaitUntil</span></tt></a> command is used to make a character do
+nothing (i.e.  stand still) until a signal is raised. The command takes a
+single argument: the name of the signal to wait for.</p>
 </div>
 <div class="section" id="walkaround">
 <span id="id60"></span><h2>WalkAround<a class="headerlink" href="#walkaround" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">WalkAround</span></tt> command makes a character walk up and down about a
-fixed point (the walkabout origin).</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.WalkAround" title="pyskool.ai.WalkAround"><tt class="xref py py-class docutils literal"><span class="pre">WalkAround</span></tt></a> command makes a character walk up and down
+about a fixed point (the walkabout origin).</p>
 <p>The command takes two arguments:</p>
 <ul class="simple">
 <li>the number of walkarounds to do - a &#8220;walkaround&#8221; being a short trip away from
@@ -880,19 +882,19 @@ command.</p>
 </div>
 <div class="section" id="walkfast">
 <span id="id61"></span><h2>WalkFast<a class="headerlink" href="#walkfast" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">WalkFast</span></tt> command is used as an argument to
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.WalkFast" title="pyskool.ai.WalkFast"><tt class="xref py py-class docutils literal"><span class="pre">WalkFast</span></tt></a> command is used as an argument to
 <a class="reference internal" href="#setcontrollingcommand"><em>SetControllingCommand</em></a> to make a character walk fast.</p>
 </div>
 <div class="section" id="walkupordown">
 <h2>WalkUpOrDown<a class="headerlink" href="#walkupordown" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">WalkUpOrDown</span></tt> command is used internally by the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.WalkUpOrDown" title="pyskool.ai.WalkUpOrDown"><tt class="xref py py-class docutils literal"><span class="pre">WalkUpOrDown</span></tt></a> command is used internally by the
 <a class="reference internal" href="#conductclasswitheric"><em>ConductClassWithEric</em></a> and <a class="reference internal" href="#conductclasswithouteric"><em>ConductClassWithoutEric</em></a> commands to make
 a teacher turn round and walk three paces. Called repeatedly, it makes the
 teacher walk up and down.</p>
 </div>
 <div class="section" id="watchforeric">
 <span id="id62"></span><h2>WatchForEric<a class="headerlink" href="#watchforeric" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">WatchForEric</span></tt> command is used as an argument to
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.WatchForEric" title="pyskool.ai.WatchForEric"><tt class="xref py py-class docutils literal"><span class="pre">WatchForEric</span></tt></a> command is used as an argument to
 <a class="reference internal" href="#setcontrollingcommand"><em>SetControllingCommand</em></a> to make Albert keep his eyes peeled for our hero
 jumping out of skool windows. If Albert does spot Eric trying to escape,
 control is handed over to the <a class="reference internal" href="#stoperic"><em>StopEric</em></a> command.</p>
@@ -910,18 +912,18 @@ to be between for Albert to raise the alarm</li>
 </div>
 <div class="section" id="wipeboard">
 <h2>WipeBoard<a class="headerlink" href="#wipeboard" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">WipeBoard</span></tt> command is used internally by the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.WipeBoard" title="pyskool.ai.WipeBoard"><tt class="xref py py-class docutils literal"><span class="pre">WipeBoard</span></tt></a> command is used internally by the
 <a class="reference internal" href="#conductclasswitheric"><em>ConductClassWithEric</em></a> and <a class="reference internal" href="#conductclasswithouteric"><em>ConductClassWithoutEric</em></a> commands to make
 a character wipe a blackboard clean.</p>
 </div>
 <div class="section" id="write">
 <h2>Write<a class="headerlink" href="#write" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">Write</span></tt> command is used internally to control Eric while he&#8217;s
-writing on a blackboard. It would be of no use in a command list.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.Write" title="pyskool.ai.Write"><tt class="xref py py-class docutils literal"><span class="pre">Write</span></tt></a> command is used internally to control Eric while
+he&#8217;s writing on a blackboard. It would be of no use in a command list.</p>
 </div>
 <div class="section" id="writeonboard">
 <h2>WriteOnBoard<a class="headerlink" href="#writeonboard" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">WriteOnBoard</span></tt> command is used internally by the
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.WriteOnBoard" title="pyskool.ai.WriteOnBoard"><tt class="xref py py-class docutils literal"><span class="pre">WriteOnBoard</span></tt></a> command is used internally by the
 <a class="reference internal" href="#conductclasswitheric"><em>ConductClassWithEric</em></a>, <a class="reference internal" href="#conductclasswithouteric"><em>ConductClassWithoutEric</em></a> and
 <a class="reference internal" href="#writeonboardunless"><em>WriteOnBoardUnless</em></a> commands to make a character write on a blackboard.
 The character should (ideally) be standing at the target blackboard before this
@@ -936,9 +938,9 @@ WriteOnBoard, &#39;Pyskool rox!&#39;
 </div>
 <div class="section" id="writeonboardunless">
 <span id="id63"></span><h2>WriteOnBoardUnless<a class="headerlink" href="#writeonboardunless" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="xref py py-class docutils literal"><span class="pre">WriteOnBoardUnless</span></tt> command is used by the tearaway to make him
-write on a blackboard unless the board has already been written on or the
-signal named in the command&#8217;s sole argument has been raised.</p>
+<p>The <a class="reference internal" href="ai.html#pyskool.ai.WriteOnBoardUnless" title="pyskool.ai.WriteOnBoardUnless"><tt class="xref py py-class docutils literal"><span class="pre">WriteOnBoardUnless</span></tt></a> command is used by the tearaway to
+make him write on a blackboard unless the board has already been written on or
+the signal named in the command&#8217;s sole argument has been raised.</p>
 </div>
 </div>
 
@@ -963,11 +965,11 @@ signal named in the command&#8217;s sole argument has been raised.</p>
         <li class="right" >
           <a href="inifile.html" title="Game ini files"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2015, Richard Dymond.
+        &copy; Copyright 2016, Richard Dymond.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>

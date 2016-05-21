@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>character &mdash; Pyskool 1.2 documentation</title>
+    <title>character &mdash; Pyskool 1.2.1 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.2',
+        VERSION:     '1.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
     <link rel="next" title="debug" href="debug.html" />
     <link rel="prev" title="cast" href="cast.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="cast.html" title="cast"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -257,7 +257,7 @@ called after rescaling the screen or loading a saved game.</p>
 <dd><p>Return whether the character can drop a stinkbomb. The answer will
 be <cite>True</cite> if and only if all of the following conditions are met:</p>
 <ul class="simple">
-<li>the character has an <tt class="xref py py-data docutils literal"><span class="pre">ARM_UP</span></tt> sprite</li>
+<li>the character has an <a class="reference internal" href="animatorystates.html#pyskool.animatorystates.ARM_UP" title="pyskool.animatorystates.ARM_UP"><tt class="xref py py-data docutils literal"><span class="pre">ARM_UP</span></tt></a> sprite</li>
 <li>the character can drop stinkbombs</li>
 <li>the character&#8217;s stinkbomb cloud sprite is not currently visible</li>
 </ul>
@@ -269,8 +269,8 @@ be <cite>True</cite> if and only if all of the following conditions are met:</p>
 <dd><p>Return whether the character can fire a catapult. The answer will be
 <cite>True</cite> if and only if all of the following conditions are met:</p>
 <ul class="simple">
-<li>the character has <tt class="xref py py-data docutils literal"><span class="pre">CATAPULT0</span></tt> and
-<tt class="xref py py-data docutils literal"><span class="pre">CATAPULT1</span></tt> sprites</li>
+<li>the character has <a class="reference internal" href="animatorystates.html#pyskool.animatorystates.CATAPULT0" title="pyskool.animatorystates.CATAPULT0"><tt class="xref py py-data docutils literal"><span class="pre">CATAPULT0</span></tt></a> and
+<a class="reference internal" href="animatorystates.html#pyskool.animatorystates.CATAPULT1" title="pyskool.animatorystates.CATAPULT1"><tt class="xref py py-data docutils literal"><span class="pre">CATAPULT1</span></tt></a> sprites</li>
 <li>the character has a catapult pellet</li>
 <li>the catapult pellet is not currently airborne</li>
 </ul>
@@ -282,7 +282,8 @@ be <cite>True</cite> if and only if all of the following conditions are met:</p>
 <dd><p>Return whether the character can fire a water pistol. The answer
 will be <cite>True</cite> if and only if all of the following conditions are met:</p>
 <ul class="simple">
-<li>the character has a <tt class="xref py py-data docutils literal"><span class="pre">WATERPISTOL</span></tt> sprite</li>
+<li>the character has a <a class="reference internal" href="animatorystates.html#pyskool.animatorystates.WATERPISTOL" title="pyskool.animatorystates.WATERPISTOL"><tt class="xref py py-data docutils literal"><span class="pre">WATERPISTOL</span></tt></a>
+sprite</li>
 <li>the character has a water pistol</li>
 <li>the character&#8217;s water/sherry sprite is not currently visible</li>
 </ul>
@@ -320,8 +321,8 @@ that are amenable to him giving lines.</p>
 <dt id="pyskool.character.Character.can_kiss_eric">
 <tt class="descname">can_kiss_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.character.Character.can_kiss_eric" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether the character can kiss Eric. The answer is <cite>True</cite>
-if the character has a <tt class="xref py py-data docutils literal"><span class="pre">KISSING_ERIC</span></tt> sprite
-defined.</p>
+if the character has a <a class="reference internal" href="animatorystates.html#pyskool.animatorystates.KISSING_ERIC" title="pyskool.animatorystates.KISSING_ERIC"><tt class="xref py py-data docutils literal"><span class="pre">KISSING_ERIC</span></tt></a>
+sprite defined.</p>
 </dd></dl>
 
 <dl class="method">
@@ -1780,7 +1781,7 @@ otherwise.</p>
 <tt class="descname">set_animatory_states</tt><big>(</big><em>as_dict_L</em>, <em>as_dict_R</em><big>)</big><a class="headerlink" href="#pyskool.character.Character.set_animatory_states" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the character&#8217;s animatory states (sprite collection). These are
 organised into a collection of left-facing sprites keyed by animatory
-state name (such as <tt class="xref py py-data docutils literal"><span class="pre">WALK0</span></tt>), and a
+state name (such as <a class="reference internal" href="animatorystates.html#pyskool.animatorystates.WALK0" title="pyskool.animatorystates.WALK0"><tt class="xref py py-data docutils literal"><span class="pre">WALK0</span></tt></a>), and a
 corresponding collection of right-facing sprites.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -1827,7 +1828,8 @@ change a character&#8217;s command list (for example, after the bell rings).</p>
 <dt id="pyskool.character.Character.set_controlling_command">
 <tt class="descname">set_controlling_command</tt><big>(</big><em>command</em><big>)</big><a class="headerlink" href="#pyskool.character.Character.set_controlling_command" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set the controlling command on the character&#8217;s command list. See
-<tt class="xref py py-meth docutils literal"><span class="pre">ai.CommandList.set_controlling_command()</span></tt> for more details.</p>
+<a class="reference internal" href="ai.html#pyskool.ai.CommandList.set_controlling_command" title="pyskool.ai.CommandList.set_controlling_command"><tt class="xref py py-meth docutils literal"><span class="pre">pyskool.ai.CommandList.set_controlling_command()</span></tt></a> for more
+details.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -1890,7 +1892,7 @@ will see the next command as the first.</p>
 <dt id="pyskool.character.Character.set_subcommand">
 <tt class="descname">set_subcommand</tt><big>(</big><em>command_name</em>, <em>args</em><big>)</big><a class="headerlink" href="#pyskool.character.Character.set_subcommand" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set a subcommand on the character&#8217;s command list. See
-<tt class="xref py py-meth docutils literal"><span class="pre">ai.CommandList.set_subcommand()</span></tt> for details.</p>
+<a class="reference internal" href="ai.html#pyskool.ai.CommandList.set_subcommand" title="pyskool.ai.CommandList.set_subcommand"><tt class="xref py py-meth docutils literal"><span class="pre">pyskool.ai.CommandList.set_subcommand()</span></tt></a> for details.</p>
 </dd></dl>
 
 <dl class="method">
@@ -2170,11 +2172,11 @@ is used by teachers who are conducting a class without Eric.</p>
         <li class="right" >
           <a href="cast.html" title="cast"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2015, Richard Dymond.
+        &copy; Copyright 2016, Richard Dymond.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>

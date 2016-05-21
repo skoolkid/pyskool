@@ -1,6 +1,14 @@
 Changelog
 =========
 
+1.2.1 (2016-05-21)
+------------------
+* Added missing verbs to the :ref:`assemblyMessages` section for Back to Skool
+* When Eric is writing on a blackboard, the text now automatically wraps to the
+  second line when the end of the first line is reached
+* Updated the worldofspectrum.org URLs in `images.ini`
+* Fixed links to classes, methods and variables in the API documentation
+
 1.2 (2015-01-14)
 ----------------
 * Dropped support for Python 2.6 and Pygame 1.7

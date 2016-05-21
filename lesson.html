@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>lesson &mdash; Pyskool 1.2 documentation</title>
+    <title>lesson &mdash; Pyskool 1.2.1 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.2',
+        VERSION:     '1.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
     <link rel="next" title="lines" href="lines.html" />
     <link rel="prev" title="keys" href="keys.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="keys.html" title="keys"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -131,9 +131,9 @@ by the teacher at the classroom doorway.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cast</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Cast</span></tt>) &#8211; The cast.</li>
-<li><strong>swot</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The swot.</li>
-<li><strong>room</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Room</span></tt>) &#8211; The classroom in which the lesson is taking place.</li>
+<li><strong>cast</strong> (<a class="reference internal" href="cast.html#pyskool.cast.Cast" title="pyskool.cast.Cast"><tt class="xref py py-class docutils literal"><span class="pre">Cast</span></tt></a>) &#8211; The cast.</li>
+<li><strong>swot</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The swot.</li>
+<li><strong>room</strong> (<a class="reference internal" href="room.html#pyskool.room.Room" title="pyskool.room.Room"><tt class="xref py py-class docutils literal"><span class="pre">Room</span></tt></a>) &#8211; The classroom in which the lesson is taking place.</li>
 <li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters from the ini file.</li>
 </ul>
 </td>
@@ -156,7 +156,7 @@ will be <a class="reference internal" href="#pyskool.lesson.Lesson.check_eric" t
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt> command.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command.</td>
 </tr>
 </tbody>
 </table>
@@ -171,7 +171,8 @@ Eric is absent, the teacher&#8217;s next action will be <a class="reference inte
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt> command if Eric is absent, otherwise <cite>None</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command if Eric is absent,
+otherwise <cite>None</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -188,7 +189,8 @@ swot&#8217;s next action is set to <a class="reference internal" href="#pyskool.
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt> command if Eric is absent, otherwise <cite>None</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command if Eric is absent,
+otherwise <cite>None</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -206,8 +208,8 @@ for being late (or for leaving early).</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">FetchEric</span></tt> command if Eric is still absent after the swot
-has finished speaking, otherwise <cite>None</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.FetchEric" title="pyskool.ai.FetchEric"><tt class="xref py py-class docutils literal"><span class="pre">FetchEric</span></tt></a> command if Eric is still
+absent after the swot has finished speaking, otherwise <cite>None</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -275,8 +277,8 @@ action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.gras
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt> command, or <cite>None</cite> if the swot decides not
-to tell a tale.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command, or <cite>None</cite> if the swot
+decides not to tell a tale.</td>
 </tr>
 </tbody>
 </table>
@@ -293,8 +295,8 @@ to <a class="reference internal" href="#pyskool.lesson.Lesson.give_lines_for_wri
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt> command, or <cite>None</cite> if the swot decides not to tell a
-tale.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command, or <cite>None</cite> if the swot
+decides not to tell a tale.</td>
 </tr>
 </tbody>
 </table>
@@ -317,8 +319,8 @@ when he notices that the swot has sat down.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>teacher</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The teacher.</li>
-<li><strong>qa_generator</strong> (<tt class="xref py py-class docutils literal"><span class="pre">QAGenerator</span></tt>) &#8211; The question-and-answer generator to use.</li>
+<li><strong>teacher</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The teacher.</li>
+<li><strong>qa_generator</strong> (<a class="reference internal" href="#pyskool.lesson.QAGenerator" title="pyskool.lesson.QAGenerator"><tt class="xref py py-class docutils literal"><span class="pre">QAGenerator</span></tt></a>) &#8211; The question-and-answer generator to use.</li>
 <li><strong>qa_group</strong> &#8211; The Q&amp;A group from which to choose questions and
 answers for the teacher and the swot; if <cite>None</cite>, the
 Q&amp;A group will be chosen at random from those
@@ -356,7 +358,7 @@ question-and-answer session was interrupted) or
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt> command.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.GoToXY" title="pyskool.ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command.</td>
 </tr>
 </tbody>
 </table>
@@ -390,7 +392,7 @@ question-and-answer session with the swot). The teacher&#8217;s next action
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">TellClassWhatToDo</span></tt> command.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.TellClassWhatToDo" title="pyskool.ai.TellClassWhatToDo"><tt class="xref py py-class docutils literal"><span class="pre">TellClassWhatToDo</span></tt></a> command.</td>
 </tr>
 </tbody>
 </table>
@@ -405,7 +407,7 @@ wiped it). The teacher&#8217;s next action will be <a class="reference internal"
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt> command.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.GoToXY" title="pyskool.ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command.</td>
 </tr>
 </tbody>
 </table>
@@ -421,7 +423,7 @@ The swot&#8217;s next action is set to <a class="reference internal" href="#pysk
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">WalkUpOrDown</span></tt> command.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.WalkUpOrDown" title="pyskool.ai.WalkUpOrDown"><tt class="xref py py-class docutils literal"><span class="pre">WalkUpOrDown</span></tt></a> command.</td>
 </tr>
 </tbody>
 </table>
@@ -436,8 +438,8 @@ next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.w
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">WipeBoard</span></tt> command if there is a blackboard, <cite>None</cite>
-otherwise.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.WipeBoard" title="pyskool.ai.WipeBoard"><tt class="xref py py-class docutils literal"><span class="pre">WipeBoard</span></tt></a> command if there is a
+blackboard, <cite>None</cite> otherwise.</td>
 </tr>
 </tbody>
 </table>
@@ -453,8 +455,8 @@ next action will be the base action for this lesson (either
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <tt class="xref py py-class docutils literal"><span class="pre">WriteOnBoard</span></tt> command if the teacher chooses to write,
-otherwise <cite>None</cite>.</td>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.WriteOnBoard" title="pyskool.ai.WriteOnBoard"><tt class="xref py py-class docutils literal"><span class="pre">WriteOnBoard</span></tt></a> command if the teacher
+chooses to write, otherwise <cite>None</cite>.</td>
 </tr>
 </tbody>
 </table>
@@ -617,11 +619,11 @@ there is one).</p>
         <li class="right" >
           <a href="keys.html" title="keys"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2015, Richard Dymond.
+        &copy; Copyright 2016, Richard Dymond.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>

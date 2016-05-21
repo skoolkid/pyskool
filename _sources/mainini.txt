@@ -61,6 +61,14 @@ can be found in the
 match the names of the Pygame keyboard constants, but with the ``K_`` prefix
 removed.
 
++---------+---------------------------------------------+
+| Version | Changes                                     |
++=========+=============================================+
+| 1.0     | Added the ``FULL_SCREEN`` action identifier |
++---------+---------------------------------------------+
+| 0.5     | New                                         |
++---------+---------------------------------------------+
+
 .. _menu:
 
 [Menu ...]
@@ -86,6 +94,14 @@ the following configuration parameters:
 
 `pyskool.ini` contains the definitions for two menus, whose unique IDs must be
 ``Main`` and ``Quit``.
+
++---------+-----------------------------------+
+| Version | Changes                           |
++=========+===================================+
+| 1.1.1   | Added the ``StatusBar`` parameter |
++---------+-----------------------------------+
+| 0.5     | New                               |
++---------+-----------------------------------+
 
 .. _menuItems:
 
@@ -118,3 +134,11 @@ The operation IDs recognised by Pyskool are:
 * ``SCALE_DOWN`` - decrease the scale factor by 1
 * ``SCALE_UP`` - increase the scale factor by 1
 * ``TOGGLE_FULLSCREEN`` - toggle fullscreen mode
+
++---------+-------------------------------------------+
+| Version | Changes                                   |
++=========+===========================================+
+| 1.1.1   | Added the ``TOGGLE_FULLSCREEN`` operation |
++---------+-------------------------------------------+
+| 0.5     | New                                       |
++---------+-------------------------------------------+

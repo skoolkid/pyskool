@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Game ini files &mdash; Pyskool 1.2 documentation</title>
+    <title>Game ini files &mdash; Pyskool 1.2.1 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.2',
+        VERSION:     '1.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
     <link rel="next" title="Commands" href="commands.html" />
     <link rel="prev" title="Main ini file" href="mainini.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="mainini.html" title="Main ini file"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -233,9 +233,25 @@ looks like this:</p>
 <li><tt class="docutils literal"><span class="pre">animatoryState</span></tt> is the ID of the animatory state</li>
 <li><tt class="docutils literal"><span class="pre">direction</span></tt> is the direction (-1 for left, 1 for right)</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="assemblymessages">
-<h2>[AssemblyMessages]<a class="headerlink" href="#assemblymessages" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2>[AssemblyMessages]<a class="headerlink" href="#assemblymessages" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">AssemblyMessages</span></tt> section contains all the information required to build
 a message used by the headmaster during assembly.</p>
 <p>There are two types of entry in this section. The first type of entry is the
@@ -258,7 +274,7 @@ macro replacements are chosen at random.</p>
 which contains two macros (<tt class="docutils literal"><span class="pre">$VERB</span></tt> and <tt class="docutils literal"><span class="pre">$NOUN</span></tt>).</p>
 </div>
 <div class="section" id="bike">
-<span id="id2"></span><h2>[Bike]<a class="headerlink" href="#bike" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>[Bike]<a class="headerlink" href="#bike" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Bike</span></tt> section contains a single line of the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>bikeId, spriteGroupId, animatoryState, unchainXY, commandListId, topLeft, size, coords, moveDelay, pedalMomentum, maxMomentum
 </pre></div>
@@ -290,9 +306,29 @@ will go)</li>
 of the tree is at <cite>(x + width, y)</cite>, where <cite>(x, y)</cite> are the coordinates of the
 image of the base of the tree with no bike attached. These two images are the
 same size.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">moveDelay</span></tt>, <tt class="docutils literal"><span class="pre">pedalMomentum</span></tt> and <tt class="docutils literal"><span class="pre">maxMomentum</span></tt>
+parameters</td>
+</tr>
+<tr class="row-odd"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="blackboardmessages">
-<span id="id3"></span><h2>[BlackboardMessages ...]<a class="headerlink" href="#blackboardmessages" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>[BlackboardMessages ...]<a class="headerlink" href="#blackboardmessages" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">[BlackboardMessages</span> <span class="pre">...]</span></tt> section names take the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>BlackboardMessages characterId
 </pre></div>
@@ -305,16 +341,32 @@ that may be written on a blackboard by the character whose ID is
 <tt class="docutils literal"><span class="pre">^</span></tt> represents the newline character (as defined by the <tt class="docutils literal"><span class="pre">Newline</span></tt>
 configuration parameter in the <a class="reference internal" href="#messageconfig"><em>[MessageConfig]</em></a> section). <tt class="docutils literal"><span class="pre">$</span></tt> is used to
 prefix the unique ID of a character, as in:</p>
-<div class="highlight-none"><div class="highlight"><pre>TEARAWAY, i hate^$WACKER
+<div class="highlight-none"><div class="highlight"><pre>i hate^$WACKER
 </pre></div>
 </div>
 <p>where <tt class="docutils literal"><span class="pre">$WACKER</span></tt> will be replaced by whatever name has been given to the
 character whose unique ID is <tt class="docutils literal"><span class="pre">WACKER</span></tt>.</p>
 <p>If no blackboard messages are defined for a particular character, that
 character will never write on a blackboard.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Each character gets his own <tt class="docutils literal"><span class="pre">BlackboardMessages</span></tt> section</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="blackboards">
-<span id="id4"></span><h2>[Blackboards]<a class="headerlink" href="#blackboards" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>[Blackboards]<a class="headerlink" href="#blackboards" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Blackboards</span></tt> section defines the blackboards in the classrooms. Each
 line has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>roomId, topLeft, size, chalk
@@ -334,9 +386,25 @@ white - which coincides with the transparent colour used in the skool ink image
 graphics mode 1 (see <tt class="docutils literal"><span class="pre">GraphicsMode</span></tt> in the <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a> section),
 anything written on the board will take on the background (paper) colour, which
 is how blackboards worked in the original games.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">size</span></tt> and <tt class="docutils literal"><span class="pre">chalk</span></tt> parameters</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="catapultpellets">
-<span id="id5"></span><h2>[CatapultPellets]<a class="headerlink" href="#catapultpellets" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>[CatapultPellets]<a class="headerlink" href="#catapultpellets" title="Permalink to this headline">¶</a></h2>
 <p>Each line in the <tt class="docutils literal"><span class="pre">CatapultPellets</span></tt> section has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>characterId, pelletId, spriteGroupId, commandListId, range, hitZone, hitXY
 </pre></div>
@@ -358,9 +426,34 @@ collision detection)</li>
 <p>Each character whose unique ID appears in this section will be fitted out with
 a catapult. In the stock Pyskool this will be Eric and the tearaway - the only
 characters with catapult-firing sprites.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">hitXY</span></tt> parameter</td>
+</tr>
+<tr class="row-odd"><td>0.2.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">pelletId</span></tt> parameter</td>
+</tr>
+<tr class="row-even"><td>0.0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">range</span></tt> and <tt class="docutils literal"><span class="pre">hitZone</span></tt> parameters</td>
+</tr>
+<tr class="row-odd"><td>0.0.2</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="chairs">
-<span id="id6"></span><h2>[Chairs]<a class="headerlink" href="#chairs" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>[Chairs]<a class="headerlink" href="#chairs" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Chairs</span></tt> section contains one line for each classroom in the skool. Each
 line has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>roomId, x1, x2, x3..., xN
@@ -378,7 +471,7 @@ So if <tt class="docutils literal"><span class="pre">x1</span></tt> &lt; <tt cla
 <tt class="docutils literal"><span class="pre">x1</span></tt> &gt; <tt class="docutils literal"><span class="pre">xN</span></tt>, characters will sit down facing right.</p>
 </div>
 <div class="section" id="characters">
-<span id="id7"></span><h2>[Characters]<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h2>
+<span id="id8"></span><h2>[Characters]<a class="headerlink" href="#characters" title="Permalink to this headline">¶</a></h2>
 <p>Each line in the <tt class="docutils literal"><span class="pre">Characters</span></tt> section has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>characterId, name[/title], spriteGroupId, animatoryState, direction, (x, y), headXY, flags
 </pre></div>
@@ -423,9 +516,34 @@ vulnerabilities</li>
 <li><tt class="docutils literal"><span class="pre">Z</span></tt> - will be temporarily paralysed if struck by a falling conker (see also
 <tt class="docutils literal"><span class="pre">C</span></tt>)</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">headXY</span></tt> parameter and the <tt class="docutils literal"><span class="pre">U</span></tt> and <tt class="docutils literal"><span class="pre">V</span></tt> flags</td>
+</tr>
+<tr class="row-odd"><td>0.2.1</td>
+<td>Added the <tt class="docutils literal"><span class="pre">K</span></tt>, <tt class="docutils literal"><span class="pre">N</span></tt>, <tt class="docutils literal"><span class="pre">X</span></tt>, <tt class="docutils literal"><span class="pre">Y</span></tt> and <tt class="docutils literal"><span class="pre">Z</span></tt> flags</td>
+</tr>
+<tr class="row-even"><td>0.0.4</td>
+<td>Added the <tt class="docutils literal"><span class="pre">S</span></tt> flag</td>
+</tr>
+<tr class="row-odd"><td>0.0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">R</span></tt> and <tt class="docutils literal"><span class="pre">T</span></tt> flags</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="commandlist">
-<span id="id8"></span><h2>[CommandList ...]<a class="headerlink" href="#commandlist" title="Permalink to this headline">¶</a></h2>
+<span id="id9"></span><h2>[CommandList ...]<a class="headerlink" href="#commandlist" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">[CommandList</span> <span class="pre">...]</span></tt> section names take the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>CommandList commandListId
 </pre></div>
@@ -450,7 +568,7 @@ comma-separated list of arguments. See the
 be used to control a character.</p>
 </div>
 <div class="section" id="conker">
-<span id="id9"></span><h2>[Conker]<a class="headerlink" href="#conker" title="Permalink to this headline">¶</a></h2>
+<span id="id10"></span><h2>[Conker]<a class="headerlink" href="#conker" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Conker</span></tt> section defines a conker (as knocked out of the tree by a
 catapult pellet). It contains a single line of the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>objectId, spriteGroupId, commandListId, minX, maxX, minY, maxY, hitXY
@@ -469,9 +587,28 @@ will cause a conker to fall</li>
 <li><tt class="docutils literal"><span class="pre">hitXY</span></tt> is the coordinates of the conker within its sprite (used for
 collision detection)</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">hitXY</span></tt> parameter</td>
+</tr>
+<tr class="row-odd"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="cups">
-<span id="id10"></span><h2>[Cups]<a class="headerlink" href="#cups" title="Permalink to this headline">¶</a></h2>
+<span id="id11"></span><h2>[Cups]<a class="headerlink" href="#cups" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Cups</span></tt> section contains information about cups. Each line describes a
 single cup, and has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>cupId, emptyTopLeft, size, coords
@@ -491,9 +628,25 @@ image of the cup when empty</li>
 at <cite>(x + width, y)</cite>, and the image of a cup when it contains sherry is at
 <cite>(x + 2 * width, y)</cite> (where <cite>(x, y)</cite> are the coordinates of the image of the
 cup when empty). The three images for any given cup are the same size.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="desklid">
-<span id="id11"></span><h2>[DeskLid]<a class="headerlink" href="#desklid" title="Permalink to this headline">¶</a></h2>
+<span id="id12"></span><h2>[DeskLid]<a class="headerlink" href="#desklid" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">DeskLid</span></tt> section contains a single line of the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>deskLidId, spriteGroupId, commandListId, xOffset
 </pre></div>
@@ -508,9 +661,31 @@ that the desk lid will use</li>
 <li><tt class="docutils literal"><span class="pre">xOffset</span></tt> - the offset (relative to the desk being opened) at which the
 desk lid should be displayed</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">xOffset</span></tt> parameter</td>
+</tr>
+<tr class="row-odd"><td>0.2.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">deskLidId</span></tt> parameter</td>
+</tr>
+<tr class="row-even"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="desks">
-<span id="id12"></span><h2>[Desks]<a class="headerlink" href="#desks" title="Permalink to this headline">¶</a></h2>
+<span id="id13"></span><h2>[Desks]<a class="headerlink" href="#desks" title="Permalink to this headline">¶</a></h2>
 <p>Each line in the <tt class="docutils literal"><span class="pre">Desks</span></tt> section has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>roomId, x1, x2...
 </pre></div>
@@ -525,9 +700,25 @@ desk lid should be displayed</li>
 <p>Any chair that is in a room and at an x-coordinate that appears in the
 <tt class="docutils literal"><span class="pre">Desks</span></tt> section will be fitted out with a desk lid that can be raised (see
 <a class="reference internal" href="#desklid"><em>[DeskLid]</em></a>).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="doors">
-<span id="id13"></span><h2>[Doors]<a class="headerlink" href="#doors" title="Permalink to this headline">¶</a></h2>
+<span id="id14"></span><h2>[Doors]<a class="headerlink" href="#doors" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Doors</span></tt> section contains details of the doors in the game. Each line
 has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>doorId, x, bottomY, topY, initiallyShut, autoShutDelay, shutTopLeft, size, coords[, climb[, fly]]
@@ -561,6 +752,22 @@ defined, Eric will not be able to fly over the door</li>
 <cite>(x + width, y)</cite>, where <cite>(x, y)</cite> are the coordinates of the image of the same
 door/window when shut. The open/shut images for any given door are the same
 size.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">autoShutDelay</span></tt>, <tt class="docutils literal"><span class="pre">climb</span></tt> and <tt class="docutils literal"><span class="pre">fly</span></tt> parameters</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="eric">
 <h2>[Eric]<a class="headerlink" href="#eric" title="Permalink to this headline">¶</a></h2>
@@ -586,9 +793,29 @@ standing upright (used for collision detection)</li>
 caught or released)</li>
 </ul>
 <p>For a description of the available flags, see <a class="reference internal" href="#characters"><em>[Characters]</em></a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">direction</span></tt>, <tt class="docutils literal"><span class="pre">headXY</span></tt> and <tt class="docutils literal"><span class="pre">bendOverHandXY</span></tt>
+parameters</td>
+</tr>
+<tr class="row-odd"><td>0.0.2</td>
+<td>Added the <tt class="docutils literal"><span class="pre">animatoryState</span></tt> and <tt class="docutils literal"><span class="pre">flags</span></tt> parameters</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="font">
-<span id="id14"></span><h2>[Font]<a class="headerlink" href="#font" title="Permalink to this headline">¶</a></h2>
+<span id="id15"></span><h2>[Font]<a class="headerlink" href="#font" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Font</span></tt> section is used to determine the location and size of the font
 character bitmaps in the <cite>font.png</cite> graphic. Each line has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>&quot;char&quot;, offset, width
@@ -601,9 +828,28 @@ character bitmaps in the <cite>font.png</cite> graphic. Each line has the form:<
 image</li>
 <li><tt class="docutils literal"><span class="pre">width</span></tt> is its width in pixels</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Renamed from <tt class="docutils literal"><span class="pre">[CharacterWidths]</span></tt></td>
+</tr>
+<tr class="row-odd"><td>0.0.2</td>
+<td>Added the <tt class="docutils literal"><span class="pre">offset</span></tt> parameter</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="floors">
-<span id="id15"></span><h2>[Floors]<a class="headerlink" href="#floors" title="Permalink to this headline">¶</a></h2>
+<span id="id16"></span><h2>[Floors]<a class="headerlink" href="#floors" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Floors</span></tt> section contains details of the &#8220;floors&#8221; in the skool. A &#8220;floor&#8221;
 (note the quotes) is a region of the skool that cannot be reached from another
 region of the skool without navigating a staircase. For example, in Skool Daze,
@@ -625,7 +871,7 @@ the floor</li>
 <p>The unique IDs are used in the <a class="reference internal" href="#routes"><em>[Routes]</em></a> section.</p>
 </div>
 <div class="section" id="frogs">
-<span id="id16"></span><h2>[Frogs]<a class="headerlink" href="#frogs" title="Permalink to this headline">¶</a></h2>
+<span id="id17"></span><h2>[Frogs]<a class="headerlink" href="#frogs" title="Permalink to this headline">¶</a></h2>
 <p>Each line in the <tt class="docutils literal"><span class="pre">Frogs</span></tt> section has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>frogId, spriteGroupId, animatoryState, (x, y), commandListId, turnRound, shortHop, longHop, sitXY, ericProximity
 </pre></div>
@@ -654,9 +900,29 @@ before it will try to hop away</li>
 </ul>
 <p>Any frog defined in this section will be catchable by ERIC, and show up in the
 on-screen inventory when caught.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">turnRound</span></tt>, <tt class="docutils literal"><span class="pre">shortHop</span></tt>, <tt class="docutils literal"><span class="pre">longHop</span></tt>, <tt class="docutils literal"><span class="pre">sitXY</span></tt> and
+<tt class="docutils literal"><span class="pre">ericProximity</span></tt> parameters</td>
+</tr>
+<tr class="row-odd"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="gameconfig">
-<span id="id17"></span><h2>[GameConfig]<a class="headerlink" href="#gameconfig" title="Permalink to this headline">¶</a></h2>
+<span id="id18"></span><h2>[GameConfig]<a class="headerlink" href="#gameconfig" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">GameConfig</span></tt> section contains configuration parameters in the format:</p>
 <div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
 </pre></div>
@@ -759,6 +1025,33 @@ this ID will make plants grow (see <tt class="docutils literal"><span class="pre
 <li><tt class="docutils literal"><span class="pre">WindowProximity</span></tt> - maximum distance at which a window is considered nearby
 (i.e. worth opening if a stinkbomb is smelt)</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1.1.1</td>
+<td>Added the <tt class="docutils literal"><span class="pre">ConfirmClose</span></tt>, <tt class="docutils literal"><span class="pre">ConfirmQuit</span></tt> and <tt class="docutils literal"><span class="pre">Volume</span></tt>
+parameters</td>
+</tr>
+<tr class="row-odd"><td>0.5</td>
+<td>Added the <tt class="docutils literal"><span class="pre">MouseCatchScore</span></tt> parameter</td>
+</tr>
+<tr class="row-even"><td>0.4</td>
+<td>Added the <tt class="docutils literal"><span class="pre">Icon</span></tt>, <tt class="docutils literal"><span class="pre">SaveGameDir</span></tt>, <tt class="docutils literal"><span class="pre">SaveGameCompression</span></tt> and
+<tt class="docutils literal"><span class="pre">ScreenshotDir</span></tt> parameters</td>
+</tr>
+<tr class="row-odd"><td>0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="grassmessages">
 <h2>[GrassMessages]<a class="headerlink" href="#grassmessages" title="Permalink to this headline">¶</a></h2>
@@ -792,9 +1085,28 @@ from the <tt class="docutils literal"><span class="pre">Hitters</span></tt> or <
 <li><tt class="docutils literal"><span class="pre">$characterId</span></tt> (where <tt class="docutils literal"><span class="pre">characterId</span></tt> is the unique ID of any character) -
 which will be replaced by the name of that character</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Renamed from <tt class="docutils literal"><span class="pre">[Grass]</span></tt></td>
+</tr>
+<tr class="row-odd"><td>0.1</td>
+<td>New (as <tt class="docutils literal"><span class="pre">[Grass]</span></tt>)</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="images">
-<span id="id18"></span><h2>[Images]<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h2>
+<span id="id19"></span><h2>[Images]<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h2>
 <p>Each line in the <tt class="docutils literal"><span class="pre">Images</span></tt> section has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>imageId, path
 </pre></div>
@@ -827,9 +1139,28 @@ safe) - paper colours only</li>
 <li><tt class="docutils literal"><span class="pre">SPEECH_BUBBLE</span></tt>: speech bubble and lip</li>
 <li><tt class="docutils literal"><span class="pre">SPRITES</span></tt>: the characters in various &#8216;animatory states&#8217;</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.4</td>
+<td>Added the <tt class="docutils literal"><span class="pre">LESSON_BOX</span></tt> and <tt class="docutils literal"><span class="pre">MESSAGE_BOX</span></tt> image IDs</td>
+</tr>
+<tr class="row-odd"><td>0.0.4</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="inventory">
-<span id="id19"></span><h2>[Inventory]<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h2>
+<span id="id20"></span><h2>[Inventory]<a class="headerlink" href="#inventory" title="Permalink to this headline">¶</a></h2>
 <p>Each line in the <tt class="docutils literal"><span class="pre">Inventory</span></tt> section has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>itemId, topLeft, size
 </pre></div>
@@ -858,6 +1189,22 @@ order in which they will be printed in the on-screen inventory.</p>
 <p>See also the <a class="reference internal" href="#mice"><em>[Mice]</em></a> and <a class="reference internal" href="#frogs"><em>[Frogs]</em></a> sections (for details on those
 animals), and the <tt class="docutils literal"><span class="pre">InventoryPos</span></tt> and <tt class="docutils literal"><span class="pre">MouseInventoryPos</span></tt> configuration
 parameters in the <a class="reference internal" href="#screenconfig"><em>[ScreenConfig]</em></a> section.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.2</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="lesson">
 <span id="lessons"></span><h2>[Lesson ...]<a class="headerlink" href="#lesson" title="Permalink to this headline">¶</a></h2>
@@ -896,7 +1243,7 @@ will control the character&#8217;s movements during the lesson</li>
 defined in the <a class="reference internal" href="#characters"><em>[Characters]</em></a> section.</p>
 </div>
 <div class="section" id="lessonconfig">
-<span id="id20"></span><h2>[LessonConfig]<a class="headerlink" href="#lessonconfig" title="Permalink to this headline">¶</a></h2>
+<span id="id21"></span><h2>[LessonConfig]<a class="headerlink" href="#lessonconfig" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">LessonConfig</span></tt> section contains configuration parameters in the format:</p>
 <div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
 </pre></div>
@@ -919,9 +1266,25 @@ question-and-answer session with the swot</li>
 <li><tt class="docutils literal"><span class="pre">WriteOnBoardProbability</span></tt> - the probability that a teacher will write on
 the blackboard during a lesson without Eric and the swot</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="lessonmessages">
-<span id="id21"></span><h2>[LessonMessages]<a class="headerlink" href="#lessonmessages" title="Permalink to this headline">¶</a></h2>
+<span id="id22"></span><h2>[LessonMessages]<a class="headerlink" href="#lessonmessages" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">LessonMessages</span></tt> section contains a list of messages that will be used by
 teachers who are not teaching Eric, or teachers who are teaching Eric but have
 chosen not to do a question-and-answer session. Each line in the section takes
@@ -949,9 +1312,25 @@ in every teacher&#8217;s repertoire.</p>
 <a class="reference internal" href="#messageconfig"><em>[MessageConfig]</em></a> section) which, if specified, means the message will be
 used only if the blackboard (if there is one) has been written on. Any other
 condition identifier will evaluate to true.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="linesmessages">
-<span id="id22"></span><h2>[LinesMessages]<a class="headerlink" href="#linesmessages" title="Permalink to this headline">¶</a></h2>
+<span id="id23"></span><h2>[LinesMessages]<a class="headerlink" href="#linesmessages" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">LinesMessages</span></tt> section contains a list of admonitions delivered by
 lines-givers when Eric has been spotted doing something he shouldn&#8217;t. Each line
 in this section has the form:</p>
@@ -1006,9 +1385,25 @@ particular lines message ID is missing from the list, then lines will not be
 given for the infraction it refers to. So if there were no entry in the
 <tt class="docutils literal"><span class="pre">LinesMessages</span></tt> section with the lines message ID <tt class="docutils literal"><span class="pre">NO_HITTING</span></tt>, no lines
 would ever be dished out for hitting.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="messageconfig">
-<span id="id23"></span><h2>[MessageConfig]<a class="headerlink" href="#messageconfig" title="Permalink to this headline">¶</a></h2>
+<span id="id24"></span><h2>[MessageConfig]<a class="headerlink" href="#messageconfig" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">MessageConfig</span></tt> section contains messages and message-related
 configuration parameters that apply skool-wide. Each line in this section has
 the form:</p>
@@ -1037,9 +1432,29 @@ speech</li>
 <li><tt class="docutils literal"><span class="pre">UpAYearMessage</span></tt> - the message printed in the lesson box when Eric has
 completed the game and advanced a year</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.4</td>
+<td>Added the <tt class="docutils literal"><span class="pre">HiScoreLabel</span></tt>, <tt class="docutils literal"><span class="pre">LinesTotalLabel</span></tt> and
+<tt class="docutils literal"><span class="pre">ScoreLabel</span></tt> parameters</td>
+</tr>
+<tr class="row-odd"><td>0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="mice">
-<span id="id24"></span><h2>[Mice]<a class="headerlink" href="#mice" title="Permalink to this headline">¶</a></h2>
+<span id="id25"></span><h2>[Mice]<a class="headerlink" href="#mice" title="Permalink to this headline">¶</a></h2>
 <p>Each line in the <tt class="docutils literal"><span class="pre">Mice</span></tt> section has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>mouseId, spriteGroupId, animatoryState, (x, y), commandListId, spriteXY
 </pre></div>
@@ -1058,15 +1473,50 @@ detecting whether Eric has caught it)</li>
 </ul>
 <p>Any mouse defined in this section will be catchable by ERIC, and show up in the
 on-screen mouse inventory when caught.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">spriteXY</span></tt> parameter</td>
+</tr>
+<tr class="row-odd"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="mouselocations">
-<span id="id25"></span><h2>[MouseLocations]<a class="headerlink" href="#mouselocations" title="Permalink to this headline">¶</a></h2>
+<span id="id26"></span><h2>[MouseLocations]<a class="headerlink" href="#mouselocations" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">MouseLocations</span></tt> section defines the locations at which a new immortal
 mouse may appear after Eric catches one. Each line has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>x, y
 </pre></div>
 </div>
 <p>where <tt class="docutils literal"><span class="pre">(x,</span> <span class="pre">y)</span></tt> are the coordinates of the location.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="nogozones">
 <h2>[NoGoZones]<a class="headerlink" href="#nogozones" title="Permalink to this headline">¶</a></h2>
@@ -1085,9 +1535,25 @@ Eric is never supposed to enter. The lines take the form:</p>
 </ul>
 <p>Whenever Eric is spotted in one of these zones by a teacher, the <tt class="docutils literal"><span class="pre">GET_OUT</span></tt>
 <a class="reference internal" href="#linesmessages"><em>lines message</em></a> will be delivered in screeching tones.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.0.4</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="plants">
-<span id="id26"></span><h2>[Plants]<a class="headerlink" href="#plants" title="Permalink to this headline">¶</a></h2>
+<span id="id27"></span><h2>[Plants]<a class="headerlink" href="#plants" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Plants</span></tt> section contains information about plants. Each line describes a
 single plant, and has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>plantId, spriteGroupId, x, y, commandListId
@@ -1103,9 +1569,25 @@ grown)</li>
 <li><tt class="docutils literal"><span class="pre">commandListId</span></tt> is the unique ID of the <a class="reference internal" href="#commandlist"><em>command list</em></a>
 that the plant will use when watered</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="questionsandanswers">
-<span id="id27"></span><h2>[QuestionsAndAnswers ...]<a class="headerlink" href="#questionsandanswers" title="Permalink to this headline">¶</a></h2>
+<span id="id28"></span><h2>[QuestionsAndAnswers ...]<a class="headerlink" href="#questionsandanswers" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">[QuestionsAndAnswers</span> <span class="pre">...]</span></tt> section names take the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>QuestionsAndAnswers characterId
 </pre></div>
@@ -1177,7 +1659,7 @@ case, simply knocking the teacher over with a catapult pellet will make him
 reveal his safe combination letter.</p>
 </div>
 <div class="section" id="randomlocations">
-<span id="id28"></span><h2>[RandomLocations]<a class="headerlink" href="#randomlocations" title="Permalink to this headline">¶</a></h2>
+<span id="id29"></span><h2>[RandomLocations]<a class="headerlink" href="#randomlocations" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">RandomLocations</span></tt> section contains lists of suitable locations for the
 characters to visit when they go on walkabouts (e.g. during playtime). Each
 line has the form:</p>
@@ -1193,7 +1675,7 @@ line has the form:</p>
 one line for each character defined in the <a class="reference internal" href="#characters"><em>[Characters]</em></a> section.</p>
 </div>
 <div class="section" id="rooms">
-<span id="id29"></span><h2>[Rooms]<a class="headerlink" href="#rooms" title="Permalink to this headline">¶</a></h2>
+<span id="id30"></span><h2>[Rooms]<a class="headerlink" href="#rooms" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Rooms</span></tt> section contains one line for each room or region in the skool
 that Eric will be expected to show up at when the timetable requires it. Each
 line has the form:</p>
@@ -1210,9 +1692,25 @@ the screen)</li>
 <li><tt class="docutils literal"><span class="pre">getAlong</span></tt> is <tt class="docutils literal"><span class="pre">Y</span></tt> if Eric should get lines for being in the room when the
 timetable does not require his presence</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="79%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.2.1</td>
+<td>Added the <tt class="docutils literal"><span class="pre">getAlong</span></tt> parameter</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="routes">
-<span id="id30"></span><h2>[Routes]<a class="headerlink" href="#routes" title="Permalink to this headline">¶</a></h2>
+<span id="id31"></span><h2>[Routes]<a class="headerlink" href="#routes" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Routes</span></tt> section is one of the most important sections in the ini file.
 It defines the routes (a route may be considered as a list of staircases) that
 the characters must take to get from where they are to wherever they are going.
@@ -1269,9 +1767,25 @@ area</li>
 safe.</p>
 <p>If the safe will never need to flash (as in Back to Skool), <tt class="docutils literal"><span class="pre">topLeft</span></tt> and
 <tt class="docutils literal"><span class="pre">size</span></tt> will not be used, and so may be set to any value.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.0.4</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="screenconfig">
-<span id="id31"></span><h2>[ScreenConfig]<a class="headerlink" href="#screenconfig" title="Permalink to this headline">¶</a></h2>
+<span id="id32"></span><h2>[ScreenConfig]<a class="headerlink" href="#screenconfig" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">ScreenConfig</span></tt> section contains parameters that determine the appearance
 and layout of the screen. Each line has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
@@ -1357,9 +1871,34 @@ including the lip (width and height in tiles)</li>
 image</li>
 <li><tt class="docutils literal"><span class="pre">Width</span></tt> - the width of the screen (in tiles)</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.5</td>
+<td>Added the <tt class="docutils literal"><span class="pre">SpriteMatrixWidth</span></tt> parameter</td>
+</tr>
+<tr class="row-odd"><td>0.4</td>
+<td>Added the <tt class="docutils literal"><span class="pre">InventoryKey</span></tt>, <tt class="docutils literal"><span class="pre">MessageBoxColour</span></tt>,
+<tt class="docutils literal"><span class="pre">MessageBoxKey</span></tt>, <tt class="docutils literal"><span class="pre">MouseInventoryInk</span></tt>, <tt class="docutils literal"><span class="pre">MouseInventorySize</span></tt>,
+<tt class="docutils literal"><span class="pre">SpeechBubbleKey</span></tt>, <tt class="docutils literal"><span class="pre">SpeechBubbleLipCoords</span></tt> and
+<tt class="docutils literal"><span class="pre">SpeechBubbleLipSize</span></tt> parameters</td>
+</tr>
+<tr class="row-even"><td>0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="sherrydrop">
-<span id="id32"></span><h2>[SherryDrop]<a class="headerlink" href="#sherrydrop" title="Permalink to this headline">¶</a></h2>
+<span id="id33"></span><h2>[SherryDrop]<a class="headerlink" href="#sherrydrop" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">SherryDrop</span></tt> section defines a drop of sherry (as knocked out of a cup by
 a catapult pellet). It contains a single line of the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>objectId, spriteGroupId, commandListId, hitXY
@@ -1375,6 +1914,25 @@ that the drop of sherry will use when knocked out of a cup</li>
 <li><tt class="docutils literal"><span class="pre">hitXY</span></tt> is the coordinates of the sherry drop within its sprite (used for
 collision detection)</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">hitXY</span></tt> parameter</td>
+</tr>
+<tr class="row-odd"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="shields">
 <h2>[Shields]<a class="headerlink" href="#shields" title="Permalink to this headline">¶</a></h2>
@@ -1398,9 +1956,28 @@ area</li>
 <cite>mutables.png</cite> is arranged so that the inverse image of a shield is at
 <cite>(x + width, y)</cite>, where <cite>(x, y)</cite> are the coordinates of the normal image of the
 shield.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.0.4</td>
+<td>Added the <tt class="docutils literal"><span class="pre">score</span></tt> parameter</td>
+</tr>
+<tr class="row-odd"><td>0.0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="sitdownmessages">
-<span id="id33"></span><h2>[SitDownMessages]<a class="headerlink" href="#sitdownmessages" title="Permalink to this headline">¶</a></h2>
+<span id="id34"></span><h2>[SitDownMessages]<a class="headerlink" href="#sitdownmessages" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">SitDownMessages</span></tt> section contains one or more lines for each teacher of
 the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>characterId, sitDownMessage
@@ -1417,7 +1994,7 @@ random when the time comes. If no sit-down messages are defined for a teacher,
 he will say nothing at the classroom doorway.</p>
 </div>
 <div class="section" id="skoollocations">
-<span id="id34"></span><h2>[SkoolLocations]<a class="headerlink" href="#skoollocations" title="Permalink to this headline">¶</a></h2>
+<span id="id35"></span><h2>[SkoolLocations]<a class="headerlink" href="#skoollocations" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">SkoolLocations</span></tt> section contains a list of descriptive IDs for commonly
 used locations in the skool. These descriptive IDs are used by the <a class="reference internal" href="commands.html#goto"><em>GoTo</em></a>
 command in the <a class="reference internal" href="#commandlist"><em>command lists</em></a> that control the characters.
@@ -1434,7 +2011,7 @@ Each line in this section has the form:</p>
 you think it means.</p>
 </div>
 <div class="section" id="sounds">
-<span id="id35"></span><h2>[Sounds]<a class="headerlink" href="#sounds" title="Permalink to this headline">¶</a></h2>
+<span id="id36"></span><h2>[Sounds]<a class="headerlink" href="#sounds" title="Permalink to this headline">¶</a></h2>
 <p>Each line in the <tt class="docutils literal"><span class="pre">Sounds</span></tt> section has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>soundId, path
 </pre></div>
@@ -1479,9 +2056,38 @@ the base name and a <cite>.wav</cite> or <cite>.ogg</cite> suffix.</p>
 then that sound effect will never play. For example, if there is no
 <tt class="docutils literal"><span class="pre">CATAPULT</span></tt> entry, then Eric&#8217;s firings of that weapon will be completely
 silent.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1.1</td>
+<td>Added the <tt class="docutils literal"><span class="pre">ALARM</span></tt>, <tt class="docutils literal"><span class="pre">HIT0</span></tt> and <tt class="docutils literal"><span class="pre">HIT1</span></tt> sound IDs</td>
+</tr>
+<tr class="row-odd"><td>0.5.2</td>
+<td>Added the <tt class="docutils literal"><span class="pre">JUMP</span></tt> sound ID</td>
+</tr>
+<tr class="row-even"><td>0.2.4</td>
+<td>Added the <tt class="docutils literal"><span class="pre">BIKE</span></tt>, <tt class="docutils literal"><span class="pre">DESK</span></tt>, <tt class="docutils literal"><span class="pre">KISS</span></tt>, <tt class="docutils literal"><span class="pre">OPEN_SAFE</span></tt>,
+<tt class="docutils literal"><span class="pre">STOREROOM_KEY</span></tt> and <tt class="docutils literal"><span class="pre">WATER_PISTOL</span></tt> sound IDs</td>
+</tr>
+<tr class="row-odd"><td>0.2</td>
+<td>Added the <tt class="docutils literal"><span class="pre">FROG</span></tt>, <tt class="docutils literal"><span class="pre">MOUSE</span></tt> and <tt class="docutils literal"><span class="pre">SHERRY</span></tt> sound IDs</td>
+</tr>
+<tr class="row-even"><td>0.0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="specialplaytimes">
-<span id="id36"></span><h2>[SpecialPlaytimes]<a class="headerlink" href="#specialplaytimes" title="Permalink to this headline">¶</a></h2>
+<span id="id37"></span><h2>[SpecialPlaytimes]<a class="headerlink" href="#specialplaytimes" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">SpecialPlaytimes</span></tt> section contains a list of lesson IDs that refer to
 playtimes which will be considered &#8220;special&#8221;. A special playtime does not
 appear in the timetable proper (though you could insert it), but with a given
@@ -1498,9 +2104,25 @@ Playtime-HiddenPeaShooter
 have to steer clear of the pestilential bully, prevent the swot from reaching
 the head&#8217;s study, or fix the race to the fire escape between the tearaway and
 the headmaster.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="spritegroup">
-<span id="id37"></span><h2>[SpriteGroup ...]<a class="headerlink" href="#spritegroup" title="Permalink to this headline">¶</a></h2>
+<span id="id38"></span><h2>[SpriteGroup ...]<a class="headerlink" href="#spritegroup" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">[SpriteGroup</span> <span class="pre">...]</span></tt> section names take the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>SpriteGroup spriteGroupId
 </pre></div>
@@ -1563,9 +2185,35 @@ Heroine and teachers</li>
 <li><tt class="docutils literal"><span class="pre">WATER4</span></tt>: water fired from a pistol (phase 5)</li>
 <li><tt class="docutils literal"><span class="pre">WATERPISTOL</span></tt>: shooting water pistol - Eric</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="12%" />
+<col width="88%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.2.1</td>
+<td>Added the <tt class="docutils literal"><span class="pre">BIKE_ON_FLOOR</span></tt>, <tt class="docutils literal"><span class="pre">BIKE_UPRIGHT</span></tt>, <tt class="docutils literal"><span class="pre">DESK_EMPTY</span></tt>,
+<tt class="docutils literal"><span class="pre">DESK_STINKBOMBS</span></tt>, <tt class="docutils literal"><span class="pre">DESK_WATER_PISTOL</span></tt>, <tt class="docutils literal"><span class="pre">KISSING_ERIC</span></tt>,
+<tt class="docutils literal"><span class="pre">PLANT_GROWING</span></tt>, <tt class="docutils literal"><span class="pre">PLANT_GROWN</span></tt>, <tt class="docutils literal"><span class="pre">SHERRY_DROP</span></tt>,
+<tt class="docutils literal"><span class="pre">WATER_DROP</span></tt>, <tt class="docutils literal"><span class="pre">WATER0</span></tt>, <tt class="docutils literal"><span class="pre">WATER1</span></tt>, <tt class="docutils literal"><span class="pre">WATER2</span></tt>, <tt class="docutils literal"><span class="pre">WATER3</span></tt>
+and <tt class="docutils literal"><span class="pre">WATER4</span></tt> sprite IDs</td>
+</tr>
+<tr class="row-odd"><td>0.2</td>
+<td>Added the <tt class="docutils literal"><span class="pre">HOP1</span></tt>, <tt class="docutils literal"><span class="pre">HOP2</span></tt>, <tt class="docutils literal"><span class="pre">RUN</span></tt> and <tt class="docutils literal"><span class="pre">SIT</span></tt> sprite IDs</td>
+</tr>
+<tr class="row-even"><td>0.0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="staircases">
-<span id="id38"></span><h2>[Staircases]<a class="headerlink" href="#staircases" title="Permalink to this headline">¶</a></h2>
+<span id="id39"></span><h2>[Staircases]<a class="headerlink" href="#staircases" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Staircases</span></tt> section contains details of the staircases in the skool.
 Each line has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>staircaseId[:alias], bottom, top[, force]
@@ -1593,7 +2241,7 @@ This staircase&#8217;s unique ID is <tt class="docutils literal"><span class="pr
 section.</p>
 </div>
 <div class="section" id="stinkbombs">
-<span id="id39"></span><h2>[Stinkbombs]<a class="headerlink" href="#stinkbombs" title="Permalink to this headline">¶</a></h2>
+<span id="id40"></span><h2>[Stinkbombs]<a class="headerlink" href="#stinkbombs" title="Permalink to this headline">¶</a></h2>
 <p>Each line in the <tt class="docutils literal"><span class="pre">Stinkbombs</span></tt> section has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>characterId, stinkbombId, spriteGroupId, commandListId, animationPhases, stinkRange
 </pre></div>
@@ -1613,9 +2261,31 @@ that the stinkbomb will use when dropped</li>
 </ul>
 <p>Each character whose unique ID appears in this section will be given the
 ability to drop a stinkbomb. In the stock Pyskool this will be Eric.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="87%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">animationPhases</span></tt> and <tt class="docutils literal"><span class="pre">stinkRange</span></tt> parameters</td>
+</tr>
+<tr class="row-odd"><td>0.2.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">stinkbombId</span></tt> parameter</td>
+</tr>
+<tr class="row-even"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="timetable">
-<span id="id40"></span><h2>[Timetable]<a class="headerlink" href="#timetable" title="Permalink to this headline">¶</a></h2>
+<span id="id41"></span><h2>[Timetable]<a class="headerlink" href="#timetable" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Timetable</span></tt> section contains an ordered list of lesson IDs. Lessons
 happen starting with the first in the list, and proceed one by one to the end
 of the list. When the last lesson in the list is finished, the game loops back
@@ -1628,7 +2298,7 @@ of the characters. These sets of entries can be found in the <a class="reference
 sections.</p>
 </div>
 <div class="section" id="timetableconfig">
-<span id="id41"></span><h2>[TimetableConfig]<a class="headerlink" href="#timetableconfig" title="Permalink to this headline">¶</a></h2>
+<span id="id42"></span><h2>[TimetableConfig]<a class="headerlink" href="#timetableconfig" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">TimetableConfig</span></tt> section contains configuration parameters in the
 format:</p>
 <div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
@@ -1648,9 +2318,25 @@ regarded as Playtime</li>
 <li><tt class="docutils literal"><span class="pre">SpecialPlaytimeProbability</span></tt> - the probability that a playtime in the main
 timetable will be replaced by a <a class="reference internal" href="#specialplaytimes"><em>special playtime</em></a></li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="timingconfig">
-<span id="id42"></span><h2>[TimingConfig]<a class="headerlink" href="#timingconfig" title="Permalink to this headline">¶</a></h2>
+<span id="id43"></span><h2>[TimingConfig]<a class="headerlink" href="#timingconfig" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">TimingConfig</span></tt> section contains configuration parameters in the format:</p>
 <div class="highlight-none"><div class="highlight"><pre>parameterName, parameterValue
 </pre></div>
@@ -1684,9 +2370,25 @@ time and run the other half)</li>
 <li><tt class="docutils literal"><span class="pre">TellEricDelay</span></tt> - the length of time a character will wait for Eric to
 respond to a message before repeating it</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="walls">
-<span id="id43"></span><h2>[Walls]<a class="headerlink" href="#walls" title="Permalink to this headline">¶</a></h2>
+<span id="id44"></span><h2>[Walls]<a class="headerlink" href="#walls" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Walls</span></tt> section contains details of the impenetrable barriers in the
 skool. Each line has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>wallId, x, bottomY, topY
@@ -1705,9 +2407,25 @@ wall</li>
 </div>
 <p>defines the wall at the far left (x=0) of the skool, which stretches from the
 bottom floor (y=20) to the ceiling of the top floor (y=0).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.2.1</td>
+<td>Added the <tt class="docutils literal"><span class="pre">wallId</span></tt> parameter</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="water">
-<span id="id44"></span><h2>[Water]<a class="headerlink" href="#water" title="Permalink to this headline">¶</a></h2>
+<span id="id45"></span><h2>[Water]<a class="headerlink" href="#water" title="Permalink to this headline">¶</a></h2>
 <p>Each line in the <tt class="docutils literal"><span class="pre">Water</span></tt> section has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>characterId, waterId, spriteGroupId, commandListId, animationPhases
 </pre></div>
@@ -1728,9 +2446,31 @@ fired from the water pistol</li>
 <p>Each character whose unique ID appears in this section will be given the
 ability to fire a water pistol. In the stock Pyskool this will be Eric alone;
 he is the only character with a water pistol-firing sprite.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="82%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">animationPhases</span></tt> parameter</td>
+</tr>
+<tr class="row-odd"><td>0.2.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">waterId</span></tt> parameter</td>
+</tr>
+<tr class="row-even"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="waterdrop">
-<span id="id45"></span><h2>[WaterDrop]<a class="headerlink" href="#waterdrop" title="Permalink to this headline">¶</a></h2>
+<span id="id46"></span><h2>[WaterDrop]<a class="headerlink" href="#waterdrop" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">WaterDrop</span></tt> section defines a drop of water (as knocked out of a cup by a
 catapult pellet). It contains a single line of the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>objectId, spriteGroupId, commandListId, hitXY
@@ -1746,9 +2486,28 @@ that the drop of water will use when knocked out of a cup</li>
 <li><tt class="docutils literal"><span class="pre">hitXY</span></tt> is the coordinates of the water drop within its sprite (used for
 collision detection)</li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="78%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">hitXY</span></tt> parameter</td>
+</tr>
+<tr class="row-odd"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="windows">
-<span id="id46"></span><h2>[Windows]<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<span id="id47"></span><h2>[Windows]<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
 <p>The <tt class="docutils literal"><span class="pre">Windows</span></tt> section contains details of the windows in the game. Each line
 has the form:</p>
 <div class="highlight-none"><div class="highlight"><pre>windowId, x, bottomY, topY, initiallyShut, openerCoords, shutTopLeft, size, coords, descentPhases[, notABird]
@@ -1779,6 +2538,25 @@ be paralysed when he hits the ground</li>
 <cite>mutables.png</cite> is arranged so that the image of a window when open is at
 <cite>(x + width, y)</cite>, where <cite>(x, y)</cite> are the coordinates of the image of the same
 window when shut. The open/shut images for any given window are the same size.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="86%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Version</th>
+<th class="head">Changes</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0.3</td>
+<td>Added the <tt class="docutils literal"><span class="pre">descentPhases</span></tt> and <tt class="docutils literal"><span class="pre">notABird</span></tt> parameters</td>
+</tr>
+<tr class="row-odd"><td>0.2.1</td>
+<td>New</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -1803,11 +2581,11 @@ window when shut. The open/shut images for any given window are the same size.</
         <li class="right" >
           <a href="mainini.html" title="Main ini file"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2015, Richard Dymond.
+        &copy; Copyright 2016, Richard Dymond.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>

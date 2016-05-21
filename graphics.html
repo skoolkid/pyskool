@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>graphics &mdash; Pyskool 1.2 documentation</title>
+    <title>graphics &mdash; Pyskool 1.2.1 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.2',
+        VERSION:     '1.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
     <link rel="next" title="iniparser" href="iniparser.html" />
     <link rel="prev" title="game" href="game.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="game.html" title="game"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -122,6 +122,12 @@ the left edge of the font image.</li>
 <tt class="descname">build_image</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.graphics.Font.build_image" title="Permalink to this definition">¶</a></dt>
 <dd><p>Build the font image. This method is called after rescaling the
 screen or loading a saved game.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyskool.graphics.Font.get_width">
+<tt class="descname">get_width</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#pyskool.graphics.Font.get_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width (in pixels) of <cite>text</cite> when rendered at scale 1.</p>
 </dd></dl>
 
 <dl class="method">
@@ -465,7 +471,7 @@ the left edge of the font image.</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) &#8211; The character to check.</li>
+<li><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</li>
 <li><strong>full</strong> &#8211; If <cite>True</cite>, return whether the character&#8217;s entire sprite
 is on-screen; if <cite>False</cite>, return whether any part of the
 character&#8217;s sprite is on-screen.</li>
@@ -507,7 +513,7 @@ member).</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>menu</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Menu</span></tt>) &#8211; The menu.</li>
+<li><strong>menu</strong> (<a class="reference internal" href="game.html#pyskool.game.Menu" title="pyskool.game.Menu"><tt class="xref py py-class docutils literal"><span class="pre">Menu</span></tt></a>) &#8211; The menu.</li>
 <li><strong>refresh</strong> &#8211; If <cite>True</cite>, the entire screen will be updated; if
 <cite>False</cite>, only the part of the screen occupied by the
 menu will be updated.</li>
@@ -581,6 +587,12 @@ left, or 0 if it should not scroll.</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyskool.graphics.Screen.get_text_width">
+<tt class="descname">get_text_width</tt><big>(</big><em>text</em><big>)</big><a class="headerlink" href="#pyskool.graphics.Screen.get_text_width" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the width (in pixels) of <cite>text</cite> when rendered at scale 1.</p>
 </dd></dl>
 
 <dl class="method">
@@ -749,7 +761,7 @@ the screen.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>inc</strong> &#8211; The scroll increment (-1 to scroll one column at a time
 rightwards, 1 to scroll one column at a time leftwards).</li>
-<li><strong>skool</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt>) &#8211; The skool.</li>
+<li><strong>skool</strong> (<a class="reference internal" href="skool.html#pyskool.skool.Skool" title="pyskool.skool.Skool"><tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt></a>) &#8211; The skool.</li>
 <li><strong>clock</strong> (<cite>pygame.time.Clock</cite>) &#8211; The clock to use to time the scrolling.</li>
 </ul>
 </td>
@@ -768,7 +780,7 @@ left.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>skool</strong> (<tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt>) &#8211; The skool.</li>
+<li><strong>skool</strong> (<a class="reference internal" href="skool.html#pyskool.skool.Skool" title="pyskool.skool.Skool"><tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt></a>) &#8211; The skool.</li>
 <li><strong>clock</strong> (<cite>pygame.time.Clock</cite>) &#8211; The clock to use to time the scrolling.</li>
 </ul>
 </td>
@@ -923,11 +935,11 @@ left.</p>
         <li class="right" >
           <a href="game.html" title="game"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2015, Richard Dymond.
+        &copy; Copyright 2016, Richard Dymond.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>

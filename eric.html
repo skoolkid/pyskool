@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>eric &mdash; Pyskool 1.2 documentation</title>
+    <title>eric &mdash; Pyskool 1.2.1 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.2',
+        VERSION:     '1.2.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,7 +23,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2 documentation" href="index.html" />
+    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
     <link rel="next" title="floor" href="floor.html" />
     <link rel="prev" title="droppable" href="droppable.html" /> 
   </head>
@@ -43,7 +43,7 @@
         <li class="right" >
           <a href="droppable.html" title="droppable"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -138,16 +138,17 @@ make him give lines to Eric.</p>
 <dt id="pyskool.eric.Eric.can_bend_over">
 <tt class="descname">can_bend_over</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_bend_over" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can bend over. This will be <cite>True</cite> if and only
-if he has a <tt class="xref py py-data docutils literal"><span class="pre">BENDING_OVER</span></tt> sprite defined.</p>
+if he has a <a class="reference internal" href="animatorystates.html#pyskool.animatorystates.BENDING_OVER" title="pyskool.animatorystates.BENDING_OVER"><tt class="xref py py-data docutils literal"><span class="pre">BENDING_OVER</span></tt></a> sprite
+defined.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyskool.eric.Eric.can_drop_stinkbomb">
 <tt class="descname">can_drop_stinkbomb</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_drop_stinkbomb" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can drop a stinkbomb. This will be <cite>True</cite> if
-<tt class="xref py py-meth docutils literal"><span class="pre">can_drop_stinkbomb()</span></tt> (on
-<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) returns <cite>True</cite> and Eric has a stinkbomb
-and is standing on a floor (as opposed to a staircase).</p>
+<a class="reference internal" href="character.html#pyskool.character.Character.can_drop_stinkbomb" title="pyskool.character.Character.can_drop_stinkbomb"><tt class="xref py py-meth docutils literal"><span class="pre">can_drop_stinkbomb()</span></tt></a> (on
+<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) returns <cite>True</cite> and Eric has a
+stinkbomb and is standing on a floor (as opposed to a staircase).</p>
 </dd></dl>
 
 <dl class="method">
@@ -155,16 +156,16 @@ and is standing on a floor (as opposed to a staircase).</p>
 <tt class="descname">can_dump_water_pistol</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_dump_water_pistol" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can throw away the water pistol. This will be
 <cite>True</cite> if Eric has the water pistol and has a
-<tt class="xref py py-data docutils literal"><span class="pre">BENDING_OVER</span></tt> sprite defined.</p>
+<a class="reference internal" href="animatorystates.html#pyskool.animatorystates.BENDING_OVER" title="pyskool.animatorystates.BENDING_OVER"><tt class="xref py py-data docutils literal"><span class="pre">BENDING_OVER</span></tt></a> sprite defined.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pyskool.eric.Eric.can_fire_catapult">
 <tt class="descname">can_fire_catapult</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_fire_catapult" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can fire a catapult. This will be <cite>True</cite> if and
-only if <tt class="xref py py-meth docutils literal"><span class="pre">can_fire_catapult()</span></tt> (on
-<tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt>) returns <cite>True</cite> and the conker is not
-falling from the tree.</p>
+only if <a class="reference internal" href="character.html#pyskool.character.Character.can_fire_catapult" title="pyskool.character.Character.can_fire_catapult"><tt class="xref py py-meth docutils literal"><span class="pre">can_fire_catapult()</span></tt></a> (on
+<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) returns <cite>True</cite> and the conker is
+not falling from the tree.</p>
 </dd></dl>
 
 <dl class="method">
@@ -185,8 +186,8 @@ the water pistol.</p>
 <dt id="pyskool.eric.Eric.can_mount_bike">
 <tt class="descname">can_mount_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.eric.Eric.can_mount_bike" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return whether Eric can mount the bike at the moment. This will be
-<cite>True</cite> if Eric has the <tt class="xref py py-data docutils literal"><span class="pre">RIDING_BIKE0</span></tt> sprite
-defined and is standing next to the bike.</p>
+<cite>True</cite> if Eric has the <a class="reference internal" href="animatorystates.html#pyskool.animatorystates.RIDING_BIKE0" title="pyskool.animatorystates.RIDING_BIKE0"><tt class="xref py py-data docutils literal"><span class="pre">RIDING_BIKE0</span></tt></a>
+sprite defined and is standing next to the bike.</p>
 </dd></dl>
 
 <dl class="method">
@@ -639,7 +640,7 @@ pressed on this call</li>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>sound_id</strong> &#8211; The ID of the sound effect.</li>
-<li><strong>mode</strong> &#8211; See <tt class="xref py py-meth docutils literal"><span class="pre">sound.Beeper.play()</span></tt>.</li>
+<li><strong>mode</strong> &#8211; See <a class="reference internal" href="sound.html#pyskool.sound.Beeper.play" title="pyskool.sound.Beeper.play"><tt class="xref py py-meth docutils literal"><span class="pre">pyskool.sound.Beeper.play()</span></tt></a>.</li>
 </ul>
 </td>
 </tr>
@@ -774,11 +775,11 @@ close enough to the left or right edge of the screen, it will scroll.</p>
         <li class="right" >
           <a href="droppable.html" title="droppable"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2 documentation</a> &raquo;</li> 
+        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2015, Richard Dymond.
+        &copy; Copyright 2016, Richard Dymond.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
