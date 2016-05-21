@@ -47,6 +47,9 @@ cp -p xdg/pyskool.appdata.xml %{buildroot}%{_datadir}/appdata
 %{python_sitelib}/*
 
 %changelog
+* Sat May 21 2016 Richard Dymond <rjdymond@gmail.com> 1.2.1-1
+- Updated to 1.2.1
+
 * Wed Jan 14 2015 Richard Dymond <rjdymond@gmail.com> 1.2-1
 - Updated to 1.2
 
