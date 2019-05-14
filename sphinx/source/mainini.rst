@@ -56,10 +56,10 @@ related to moving Eric:
 
 Pygame uses keyboard constants to identify keys; a full list of those constants
 can be found in the
-`pygame documentation <http://pygame.org/docs/ref/key.html>`_. The key names
-(``key1``, ``key2`` etc.) declared in a line of the ``Keys`` section should
-match the names of the Pygame keyboard constants, but with the ``K_`` prefix
-removed.
+`pygame documentation <https://www.pygame.org/docs/ref/key.html>`_. The key
+names (``key1``, ``key2`` etc.) declared in a line of the ``Keys`` section
+should match the names of the Pygame keyboard constants, but with the ``K_``
+prefix removed.
 
 +---------+---------------------------------------------+
 | Version | Changes                                     |

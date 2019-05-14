@@ -4,7 +4,7 @@ Installing and running Pyskool
 Requirements
 ------------
 Pyskool requires `Python <https://www.python.org/downloads/>`_ (version 2.7)
-and `Pygame <http://www.pygame.org/download.shtml>`_ (version 1.8+).
+and `Pygame <https://www.pygame.org/download.shtml>`_ (version 1.8+).
 
 On Linux/\*BSD, Python and Pygame are available via the package management
 system. Python is in the `python` package on all systems; Pygame is in the
@@ -20,11 +20,10 @@ Installing Pyskool
 There are various ways to install the latest stable release of Pyskool:
 
 * from the zip archive or tarball available at
-  `pyskool.ca <http://pyskool.ca/?page_id=44>`_
+  `pyskool.ca <https://pyskool.ca/?page_id=44>`_
 * from the DEB package or RPM package available at `pyskool.ca`_
-* from `PyPI <https://pypi.python.org/pypi/pyskool>`_ by using
-  `easy_install <https://pythonhosted.org/setuptools/easy_install.html>`_ or
-  `pip <http://www.pip-installer.org/>`_
+* from `PyPI <https://pypi.org/project/pyskool/>`_ by using
+  `pip <https://pip.pypa.io/>`_
 
 If you choose the zip archive or tarball, note that Pyskool can be used
 wherever it is unpacked: it does not need to be installed in any particular

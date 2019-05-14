@@ -6,8 +6,8 @@ Release:        1
 Summary:        Remake of Skool Daze and Back to Skool in Python and Pygame
 
 License:        GPLv3+
-URL:            http://pyskool.ca/
-Source0:        http://pyskool.ca/downloads/%{name}/%{name}-%{version}.tar.xz
+URL:            https://pyskool.ca
+Source0:        https://pyskool.ca/downloads/%{name}/%{name}-%{version}.tar.xz
 
 BuildArch:      noarch
 BuildRequires:  python-devel

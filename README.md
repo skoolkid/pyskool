@@ -1,9 +1,9 @@
 Pyskool
 =======
 In 1984, Microsphere published
-[Skool Daze](http://en.wikipedia.org/wiki/Skool_Daze), a game for the
-[Sinclair ZX Spectrum](http://en.wikipedia.org/wiki/ZX_Spectrum). In 1985, the
-sequel [Back to Skool](http://en.wikipedia.org/wiki/Back_to_Skool) was
+[Skool Daze](https://en.wikipedia.org/wiki/Skool_Daze), a game for the
+[Sinclair ZX Spectrum](https://en.wikipedia.org/wiki/ZX_Spectrum). In 1985, the
+sequel [Back to Skool](https://en.wikipedia.org/wiki/Back_to_Skool) was
 published.
 
 Each game is based in a boys' school (though Back to Skool adds a playground
@@ -19,8 +19,8 @@ Pyskool is a re-implementation of these classic games in Python and Pygame,
 with the aim of making them easy to customise by editing a configuration file
 or - for more advanced customisation - writing some Python code.
 
-See the [documentation](http://skoolkid.github.io/pyskool/) for more details
-(mirror [here](http://skoolkid.gitlab.io/pyskool/)).
+See the [documentation](https://skoolkid.github.io/pyskool/) for more details
+(mirror [here](https://skoolkid.gitlab.io/pyskool/)).
 
 Playing Pyskool
 ---------------

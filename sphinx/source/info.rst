@@ -45,7 +45,7 @@ In Skool Daze mode:
 * Eric will get lines if a teacher spots him writing on a blackboard
 * The `broken jumping sound effect`_ has been fixed
 
-.. _broken jumping sound effect: http://skoolkit.ca/disassemblies/skool_daze/reference/bugs.html#jumpSound
+.. _broken jumping sound effect: https://skoolkit.ca/disassemblies/skool_daze/reference/bugs.html#jumpSound
 
 In Back to Skool mode:
 

@@ -21,15 +21,15 @@
   </description>
   <screenshots>
     <screenshot type="default">
-      <image>http://pyskool.ca/xdg/pyskool-1.png</image>
+      <image>https://pyskool.ca/xdg/pyskool-1.png</image>
     </screenshot>
     <screenshot>
-      <image>http://pyskool.ca/xdg/pyskool-2.png</image>
+      <image>https://pyskool.ca/xdg/pyskool-2.png</image>
     </screenshot>
     <screenshot>
-      <image>http://pyskool.ca/xdg/pyskool-3.png</image>
+      <image>https://pyskool.ca/xdg/pyskool-3.png</image>
     </screenshot>
   </screenshots>
-  <url type="homepage">http://pyskool.ca/</url>
+  <url type="homepage">https://pyskool.ca</url>
   <updatecontact>rjdymond@gmail.com</updatecontact>
 </component>

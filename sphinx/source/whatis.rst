@@ -17,11 +17,11 @@ with the aim of making them easy to customise by editing a configuration file
 or - for more advanced customisation - writing some Python code.
 
 The latest version of Pyskool can always be obtained from
-`pyskool.ca <http://pyskool.ca/>`_.
+`pyskool.ca <https://pyskool.ca>`_.
 
-.. _`Skool Daze`: http://en.wikipedia.org/wiki/Skool_Daze
-.. _`Back to Skool`: http://en.wikipedia.org/wiki/Back_to_Skool
-.. _`Sinclair ZX Spectrum`: http://en.wikipedia.org/wiki/ZX_Spectrum
+.. _`Skool Daze`: https://en.wikipedia.org/wiki/Skool_Daze
+.. _`Back to Skool`: https://en.wikipedia.org/wiki/Back_to_Skool
+.. _`Sinclair ZX Spectrum`: https://en.wikipedia.org/wiki/ZX_Spectrum
 
 Licence and copyrights
 ----------------------

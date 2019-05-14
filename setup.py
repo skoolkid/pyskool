@@ -23,9 +23,9 @@ Pyskool is a re-implementation of these classic games in Pygame, with the aim
 of making them easy to customise by editing configuration files or - for more
 advanced customisation - writing some Python code.
 
-.. _Skool Daze: http://en.wikipedia.org/wiki/Skool_Daze
-.. _Back to Skool: http://en.wikipedia.org/wiki/Back_to_Skool
-.. _Sinclair ZX Spectrum: http://en.wikipedia.org/wiki/ZX_Spectrum
+.. _Skool Daze: https://en.wikipedia.org/wiki/Skool_Daze
+.. _Back to Skool: https://en.wikipedia.org/wiki/Back_to_Skool
+.. _Sinclair ZX Spectrum: https://en.wikipedia.org/wiki/ZX_Spectrum
 
 Requirements
 ------------
@@ -39,7 +39,7 @@ package on Fedora, the `devel/py-game` port on FreeBSD and NetBSD, and the
 Windows and Mac OS X users should take care to select the Pygame installer that
 matches the version of Python that is installed.
 
-.. _Pygame: http://www.pygame.org/download.shtml
+.. _Pygame: https://www.pygame.org/download.shtml
 
 Running Pyskool
 ---------------
@@ -94,7 +94,7 @@ Other useful keys are:
 
 For full instructions, see the `documentation`_.
 
-.. _documentation: http://pyskool.ca/docs/pyskool/play.html
+.. _documentation: https://pyskool.ca/docs/pyskool/play.html
 """
 
 setup(
@@ -103,7 +103,7 @@ setup(
     author='Richard Dymond',
     author_email='rjdymond@gmail.com',
     license='GPLv3',
-    url='http://pyskool.ca/',
+    url='https://pyskool.ca',
     description="A remake of 'Skool Daze' and 'Back to Skool' using Pygame",
     long_description=LONG_DESCRIPTION,
     packages=['pyskool'],
