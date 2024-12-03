@@ -19,8 +19,7 @@ Pyskool is a re-implementation of these classic games in Python and Pygame,
 with the aim of making them easy to customise by editing a configuration file
 or - for more advanced customisation - writing some Python code.
 
-See the [documentation](https://skoolkid.github.io/pyskool/) for more details
-(mirror [here](https://skoolkid.gitlab.io/pyskool/)).
+See the [documentation](https://skoolkid.github.io/pyskool/) for more details.
 
 Playing Pyskool
 ---------------
