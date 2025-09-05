@@ -482,8 +482,9 @@ class Screen(object):
         text_x = max(shift, 0) * tile_width
         max_width = tile_width * self.speech_bubble_size[0] - 2 * min_inset_x
         width = min(min_inset_x + max_width - inset_x, text.get_width() - text_x)
-        text_window = text.subsurface((text_x, 0), (width, tile_width))
-        bubble.blit(text_window, (inset_x, inset_y))
+        if width > 0:
+            text_window = text.subsurface((text_x, 0), (width, tile_width))
+            bubble.blit(text_window, (inset_x, inset_y))
         return (Image(None, None, bubble), width < 0)
 
     def _update(self, *args):
