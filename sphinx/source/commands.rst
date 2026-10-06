@@ -488,7 +488,7 @@ The ``MoveFrog`` command takes three arguments, which specify the probability
 that the frog will:
 
 * keep still if Eric is not nearby
-* turn round (if he decides to move at all)
+* turn round (if it decides to move at all)
 * attempt a short hop (instead of a long hop) if not turning round
 
 .. _moveMouse:
@@ -655,8 +655,8 @@ bell rings.
 ShutDoor
 --------
 The :class:`~pyskool.ai.ShutDoor` command makes a character shut a door. It
-takes one argument: unique ID of the door (see :ref:`doors`) to shut. If the
-door is already shut, the command does nothing.
+takes one argument: the unique ID of the door (see :ref:`doors`) to shut. If
+the door is already shut, the command does nothing.
 
 .. _signal:
 
@@ -860,7 +860,7 @@ The :class:`~pyskool.ai.WatchForEric` command is used as an argument to
 jumping out of skool windows. If Albert does spot Eric trying to escape,
 control is handed over to the :ref:`stopEric` command.
 
-The ``WatchForEric`` command takes five arguments
+The ``WatchForEric`` command takes five arguments:
 
 * the ID of the character who will be alerted by Albert when he spots Eric
   trying to escape

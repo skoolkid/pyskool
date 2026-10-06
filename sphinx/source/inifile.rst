@@ -473,7 +473,7 @@ where:
   for the desk lid when raised
 * ``commandListId`` is the unique ID of the :ref:`command list <commandList>`
   that the desk lid will use
-* ``xOffset`` - the offset (relative to the desk being opened) at which the
+* ``xOffset`` is the offset (relative to the desk being opened) at which the
   desk lid should be displayed
 
 +---------+-----------------------------------+
@@ -494,7 +494,7 @@ Each line in the ``Desks`` section has the form::
 
   roomId, x1, x2...
 
-where
+where:
 
 * ``roomId`` is a classroom's unique ID (see :ref:`rooms`)
 * ``x1``, ``x2`` and so on are the x-coordinates of the desks in the classroom
@@ -546,8 +546,7 @@ The door images can be found in `mutables.png` (or `mutables_ink.png` and
 `mutables_paper.png` if ``GraphicsMode`` is 1 - see :ref:`screenConfig`).
 `mutables.png` is arranged so that the image of a door when open is at
 `(x + width, y)`, where `(x, y)` are the coordinates of the image of the same
-door/window when shut. The open/shut images for any given door are the same
-size.
+door when shut. The open/shut images for any given door are the same size.
 
 +---------+---------------------------------------------------------------+
 | Version | Changes                                                       |
@@ -621,8 +620,9 @@ The ``Floors`` section contains details of the "floors" in the skool. A "floor"
 (note the quotes) is a region of the skool that cannot be reached from another
 region of the skool without navigating a staircase. For example, in Skool Daze,
 the region to the left of the Map Room wall is one floor, and the region to the
-right of the Map Room wall is another floor. You can't get from one to other
-without going up or down a staircase (walking through walls is prohibited).
+right of the Map Room wall is another floor. You can't get from one to the
+other without going up or down a staircase (walking through walls is
+prohibited).
 
 Each line in this section has the form::
 
@@ -668,7 +668,7 @@ where:
 * ``ericProximity`` is the minimum distance from the frog that Eric can be
   before it will try to hop away
 
-Any frog defined in this section will be catchable by ERIC, and show up in the
+Any frog defined in this section will be catchable by Eric, and show up in the
 on-screen inventory when caught.
 
 +---------+-------------------------------------------------------------------+
@@ -852,7 +852,7 @@ Each line in the ``Images`` section has the form::
 
   imageId, path
 
-where
+where:
 
 * ``imageId`` is the unique ID of an image
 * ``path`` is the location of the corresponding image file on disk (relative to
@@ -954,7 +954,7 @@ Each line in a ``[Lesson ...]`` section has the form::
 
   characterId, commandListId
 
-where
+where:
 
 * ``characterId`` is the unique ID of a character (see :ref:`characters`)
 * ``commandListId`` is the ID of the :ref:`command list <commandList>` that
@@ -1049,7 +1049,7 @@ in this section has the form::
 
   characterId|*, linesMessageId, linesMessage
 
-where
+where:
 
 * ``characterId`` is the unique ID of the lines-giving character
 * ``linesMessageId`` is the unique ID of the following message
@@ -1167,7 +1167,7 @@ where:
 * ``spriteXY`` is the coordinates of the mouse within its sprite (used for
   detecting whether Eric has caught it)
 
-Any mouse defined in this section will be catchable by ERIC, and show up in the
+Any mouse defined in this section will be catchable by Eric, and show up in the
 on-screen mouse inventory when caught.
 
 +---------+----------------------------------+
@@ -1285,7 +1285,7 @@ The third type of entry in this section is the Q&A pair entry::
 
   groupId, word1, word2
 
-where
+where:
 
 * ``groupId`` is the ID of the group of Q&A pairs to which this particular pair
   belongs; the ID should be something other than `Question`, `Answer`,
@@ -1312,7 +1312,7 @@ order to obtain the relevant teacher's safe combination letter. The
 ``SpecialAnswer`` keyword is followed by the text of the swot's answer to the
 special question (which will contain a macro to be expanded). The
 ``SpecialGroup`` keyword is followed by ``groupId`` (which specifies the ID of
-the group of Q&A Pairs from which the "magic word" will be taken), and
+the group of Q&A pairs from which the "magic word" will be taken), and
 ``qaPairIndex`` (which is 0 or 1, and refers to the element of the Q&A pair
 that will be the magic word). Once Eric has figured out what the magic word is,
 he will need to write it on a blackboard and hope that the teacher sees it,
@@ -1456,7 +1456,7 @@ Recognised parameters are:
   shield) flashes once
 * ``FontInk`` - the ink colour in `font.png` (used to create transparency)
 * ``FontPaper`` - the paper colour in `font.png` (used to create transparency)
-* ``GraphicsMode`` - 0 = hi-res colour; 1 = spectrum mode, meaning just two
+* ``GraphicsMode`` - 0 = hi-res colour; 1 = Spectrum mode, meaning just two
   colours (ink and paper) per 8x8-pixel block
 * ``Height`` - the height of the screen (in tiles)
 * ``HiScoreOffset`` - the y-coordinate offset used to position the printing of
@@ -1605,7 +1605,7 @@ the form::
 
   characterId, sitDownMessage
 
-where
+where:
 
 * ``characterId`` is the teacher's unique ID (see :ref:`characters`)
 * ``sitDownMessage`` is what the teacher may say while standing at the
@@ -1626,7 +1626,7 @@ Each line in this section has the form::
 
   locationId, x, y
 
-where
+where:
 
 * ``locationId`` is the descriptive ID
 * ``x`` and ``y`` are the coordinates of the location
@@ -1642,7 +1642,7 @@ Each line in the ``Sounds`` section has the form::
 
   soundId, path
 
-where
+where:
 
 * ``soundId`` is the unique ID of a sound effect
 * ``path`` is the location of the sound file on disk (relative to the `sounds`
@@ -1745,7 +1745,7 @@ Each line in a ``SpriteGroup`` section represents a single sprite from
 
   spriteId, index
 
-where
+where:
 
 * ``spriteId`` is the descriptive ID for the sprite (unique within the section)
 * ``index`` is the index of the sprite as it appears in `sprites.png`
@@ -1857,7 +1857,7 @@ where:
   that the stinkbomb will use when dropped
 * ``animationPhases`` is the ID of the sequence of
   :ref:`animation phases <animationPhases>` that the stinkbomb cloud will use
-* ``stinkRange`` - the maximum distance at which the stinkbomb can be smelt
+* ``stinkRange`` is the maximum distance at which the stinkbomb can be smelt
 
 Each character whose unique ID appears in this section will be given the
 ability to drop a stinkbomb. In the stock Pyskool this will be Eric.
@@ -1936,8 +1936,8 @@ Recognised parameters are:
   Eric when he's walking
 * ``JumpDelay`` - the delay (in frames) before Eric returns to the floor after
   jumping
-* ``KnockedOverDelay`` - the delay before a knocked over teacher rises
-* ``KnockoutDelay`` - the delay before a knocked out kid rises
+* ``KnockedOverDelay`` - the delay before a knocked-over teacher rises
+* ``KnockoutDelay`` - the delay before a knocked-out kid rises
 * ``GoFast`` - the number of frames between successive movements of a character
   who is moving quickly; this parameter is used when a character is running or
   speaking
@@ -1947,7 +1947,7 @@ Recognised parameters are:
 * ``GoSlow`` - the number of frames between consecutive movements of a
   character who is moving slowly; this parameter is used when a character is
   walking at a normal pace
-* ``ReprimandDelay`` - the delay before a knocked over teacher gives lines to
+* ``ReprimandDelay`` - the delay before a knocked-over teacher gives lines to
   someone for knocking him over
 * ``SpeedChangeDelayRange`` - the minimum and maximum values of the delay
   between a character's walking speed changes (used by kids, who walk half the

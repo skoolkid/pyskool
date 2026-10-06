@@ -83,7 +83,7 @@ Changelog
 * Fixed the audio latency that can occur when using Pygame 1.8+
 * Fixed the bug that enables Eric to ride the bike past Albert when he has his
   arm raised
-* Fixed the bug that makes Eric remain aloft after the knocked out kid he's
+* Fixed the bug that makes Eric remain aloft after the knocked-out kid he's
   standing on (near a staircase) has risen
 * Fixed the bug in Back to Skool Daze that makes the shield on the shelf in the
   boys' skool turn into a cup when Eric goes onto the next year

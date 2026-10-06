@@ -78,7 +78,7 @@ recipient is ``R``. So add that flag to each line, thus::
 
 Now run `skool_daze.py`, find a teacher milling about with a bunch of little
 kids, let rip with the catapult, and experience the satisfaction of seeing the
-hitherto nameless ones get their come-uppance.
+hitherto nameless ones get their comeuppance.
 
 Punch the pedagogue
 -------------------
