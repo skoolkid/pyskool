@@ -3,8 +3,8 @@ Installing and running Pyskool
 
 Requirements
 ------------
-Pyskool requires `Python <https://www.python.org/downloads/>`_ (version 2.7)
-and `Pygame <https://www.pygame.org/download.shtml>`_ (version 1.8+).
+Pyskool requires `Python <https://www.python.org/downloads/>`_ (version 3) and
+`Pygame <https://www.pygame.org/download.shtml>`_ (version 1.8+).
 
 On Linux/\*BSD, Python and Pygame are available via the package management
 system. Python is in the `python` package on all systems; Pygame is in the
@@ -45,9 +45,9 @@ command::
   > setup.py install
 
 This should install the Pyskool game launcher scripts in
-`C:\\Python2X\\Scripts` (assuming you have installed Python in `C:\\Python2X`),
+`C:\\Python\\Scripts` (assuming you have installed Python in `C:\\Python`),
 which means you can run them from anywhere (assuming you have added
-`C:\\Python2X\\Scripts` to the ``Path`` environment variable).
+`C:\\Python\\Scripts` to the ``Path`` environment variable).
 
 Linux/\*BSD/Mac OS X
 ^^^^^^^^^^^^^^^^^^^^

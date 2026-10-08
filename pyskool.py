@@ -1,7 +1,6 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
-# Copyright 2013, 2015 Richard Dymond (rjdymond@gmail.com)
+# © 2013, 2015, 2026 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #

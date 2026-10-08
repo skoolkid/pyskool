@@ -1,6 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-from distutils.core import setup
+#!/usr/bin/env python3
+from setuptools import setup
 
 from pyskool import version
 
@@ -29,7 +28,7 @@ advanced customisation - writing some Python code.
 
 Requirements
 ------------
-Pyskool requires Python 2.7 and `Pygame`_ (version 1.8+).
+Pyskool requires Python 3 and `Pygame`_ (version 1.8+).
 
 On Linux/\*BSD, Pygame is available via the package management system: the
 `python-pygame` package on Debian-based distros and openSUSE, the `pygame`
@@ -119,10 +118,7 @@ setup(
         'Development Status :: 5 - Production/Stable',
         'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Topic :: Games/Entertainment',
         'Topic :: Games/Entertainment :: Arcade',
         'Topic :: Games/Entertainment :: Side-Scrolling/Arcade Games'
