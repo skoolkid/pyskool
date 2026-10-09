@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# Copyright 2008, 2010, 2013-2016 Richard Dymond (rjdymond@gmail.com)
+# © 2008, 2010, 2013-2016, 2026 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -482,8 +481,9 @@ class Screen(object):
         text_x = max(shift, 0) * tile_width
         max_width = tile_width * self.speech_bubble_size[0] - 2 * min_inset_x
         width = min(min_inset_x + max_width - inset_x, text.get_width() - text_x)
-        text_window = text.subsurface((text_x, 0), (width, tile_width))
-        bubble.blit(text_window, (inset_x, inset_y))
+        if width > 0:
+            text_window = text.subsurface((text_x, 0), (width, tile_width))
+            bubble.blit(text_window, (inset_x, inset_y))
         return (Image(None, None, bubble), width < 0)
 
     def _update(self, *args):

@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# Copyright 2008, 2010 Richard Dymond (rjdymond@gmail.com)
+# © 2008, 2010, 2026 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
@@ -38,7 +37,7 @@ class Keyboard:
                 self.key_down_events.append(event)
         # It's important to collect pressed_keys AFTER clearing the event queue,
         # otherwise keys may appear to "stick"
-        self.pressed_keys = list(pygame.key.get_pressed())
+        self.pressed_keys = pygame.key.get_pressed()
 
     def got_quit(self):
         """Return whether the window close button was clicked."""
@@ -67,7 +66,6 @@ class Keyboard:
         if not self.writing:
             for key in keys:
                 if self.pressed_keys[key]:
-                    self.pressed_keys[key] = 0
                     pressed = True
         return pressed
 
