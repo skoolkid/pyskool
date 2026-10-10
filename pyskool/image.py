@@ -16,10 +16,8 @@
 
 import sys
 import os
-try:
-    from urllib2 import urlopen, URLError
-except ImportError:
-    from urllib.request import urlopen, URLError
+from urllib.error import URLError
+from urllib.request import urlopen
 import zipfile
 from io import BytesIO
 
@@ -49,10 +47,10 @@ def get_tzx(name, sources):
 
         try:
             info('Downloading {0}'.format(url))
-            u = urlopen(url, timeout=30)
-            data = u.read()
-        except URLError as e:
-            error(e.args[0])
+            with urlopen(url, timeout=30) as u:
+                data = u.read()
+        except (TimeoutError, URLError) as e:
+            error(str(e))
             continue
 
         if member:
