@@ -58,9 +58,11 @@ class NoClock:
 
 def read_inputs(fname):
     """Read an inputs file and return a list of (tick, action, duration)
-    tuples sorted by tick. Each line has the form 'TICK ACTION [DURATION]';
-    blank lines and anything after '#' are ignored. An action with a duration
-    is held down for that many ticks; an action without one is a single press.
+    tuples sorted by tick. Each line has the form 'TICK ACTION [DURATION]' or
+    'TICK TYPE TEXT'; blank lines and anything after '#' are ignored. An action
+    with a duration is held down for that many ticks; an action without one is
+    a single press. For TYPE, the 'duration' is the text to type on a
+    blackboard.
     """
     inputs = []
     try:
@@ -71,13 +73,18 @@ def read_inputs(fname):
                     continue
                 try:
                     if len(fields) not in (2, 3):
-                        raise ValueError('expected TICK ACTION [DURATION]')
+                        raise ValueError('expected TICK ACTION [DURATION] or TICK TYPE TEXT')
                     if not fields[0].isdigit():
                         raise ValueError('invalid tick: {0}'.format(fields[0]))
-                    if len(fields) == 3 and not fields[2].isdigit():
-                        raise ValueError('invalid duration: {0}'.format(fields[2]))
                     tick = int(fields[0])
                     action = fields[1].upper()
+                    if action == 'TYPE':
+                        if len(fields) != 3:
+                            raise ValueError('expected TICK TYPE TEXT')
+                        inputs.append((tick, action, fields[2]))
+                        continue
+                    if len(fields) == 3 and not fields[2].isdigit():
+                        raise ValueError('invalid duration: {0}'.format(fields[2]))
                     duration = int(fields[2]) if len(fields) == 3 else 0
                     if action not in ACTIONS:
                         raise ValueError('unknown action: {0}'.format(fields[1]))
@@ -103,6 +110,7 @@ class Demo:
         self.next_input = 0
         self.held_inputs = []
         self.pending = []
+        self.typing = []
         self.busy = False
         self.sound_busy = False
         if options.record:
@@ -171,18 +179,32 @@ class Demo:
         key press that Eric didn't get round to (because he was midstride or
         busy, or acted on another key press first, e.g. HIT before JUMP) is
         delivered again.
+
+        The characters of a TYPE input, and any key press that arrives while
+        Eric is writing on a blackboard (e.g. ENTER), are queued instead, and
+        delivered one at a time by pump().
         """
         downs = []
-        if self.busy or self.eric.controller is not None:
+        # Eric.write() doesn't remove the key-down events it reads, so don't
+        # treat them as unread while he's writing
+        writing = self.eric.keyboard.writing
+        if (self.busy or self.eric.controller is not None) and not writing:
             downs = [e.key for e in self.pending if any(e is f for f in unread_events)]
         while self.next_input < len(self.inputs) and self.inputs[self.next_input][0] <= self.tick:
             tick, action, duration = self.inputs[self.next_input]
+            self.next_input += 1
+            if action == 'TYPE':
+                self.typing.extend((ord(c.lower()), c) for c in duration)
+                continue
             # Look up the key now, after the game has applied any custom key
             # bindings from pyskool.ini
-            downs.append(getattr(keys, action)[0])
+            key = getattr(keys, action)[0]
+            if writing:
+                self.typing.append((key, ''))
+            else:
+                downs.append(key)
             if duration != 0:
-                self.held_inputs.append(self.next_input)
-            self.next_input += 1
+                self.held_inputs.append(self.next_input - 1)
         # A duration of None means the key is still held down (when recording)
         self.held_inputs = [i for i in self.held_inputs
                             if self.inputs[i][2] is None or self.inputs[i][0] + self.inputs[i][2] > self.tick]
@@ -200,6 +222,16 @@ class Demo:
             for key in getattr(keys, action):
                 if key not in key_actions or key == getattr(keys, action)[0]:
                     key_actions[key] = action
+        if self.eric.keyboard.writing:
+            # Record the characters typed on a blackboard (TYPE can't record a
+            # space or '#'), and ENTER
+            for e in events:
+                if e.type == pygame.KEYDOWN:
+                    if e.key in keys.ENTER:
+                        self.inputs.append((self.tick, 'ENTER', 0))
+                    elif e.unicode.isprintable() and e.unicode not in ' #':
+                        self.inputs.append((self.tick, 'TYPE', e.unicode))
+            return
         pressed = pygame.key.get_pressed()
         held = {a for k, a in key_actions.items() if pressed[k]}
         downs = []
@@ -271,6 +303,12 @@ class Demo:
         # Eric.write() reads the 'unicode' attribute of key-down events
         self.pending = [pygame.event.Event(pygame.KEYDOWN, key=k, unicode='') for k in downs]
         keyboard.key_down_events = self.pending[:]
+        if self.typing and keyboard.writing and not self.eric.has_arm_raised():
+            # Eric reads only the first key-down event when his arm is down
+            # (and ignores the keyboard when it's raised), so deliver the
+            # queued characters one at a time
+            key, char = self.typing.pop(0)
+            keyboard.key_down_events.insert(0, pygame.event.Event(pygame.KEYDOWN, key=key, unicode=char))
         if self.eric and self.eric.frozen:
             # Acknowledge any message, or the skool clock stays stopped
             keyboard.key_down_events.append(pygame.event.Event(pygame.KEYDOWN, key=keys.UNDERSTOOD[0], unicode=''))
@@ -425,7 +463,9 @@ def parse_args(args):
                         help="Move Eric according to the keypresses in this file instead of under automatic control. "
                              "Each line has the form 'TICK ACTION [DURATION]', where ACTION is LEFT, RIGHT, UP, DOWN etc. "
                              "(as in pyskool/keys.py) or WAIT, and DURATION is the number of ticks to hold the key down for "
-                             "(default: a single press). Anything after '#' is ignored.")
+                             "(default: a single press). A line of the form 'TICK TYPE TEXT' types TEXT (no spaces) on a "
+                             "blackboard once Eric starts writing (after WRITE); follow it with ENTER to finish. "
+                             "Anything after '#' is ignored.")
     parser.add_argument('-l', '--lesson', metavar='ID',
                         help='Use a timetable consisting of only this lesson.')
     parser.add_argument('-r', '--record', metavar='FILE',
