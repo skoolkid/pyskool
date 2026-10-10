@@ -18,9 +18,9 @@
 Defines the :class:`Pellet` class.
 """
 
-from .character import Character
-from . import animatorystates
-from .location import Location
+from pyskool.character import Character
+from pyskool import animatorystates
+from pyskool.location import Location
 
 class Pellet(Character):
     """A catapult pellet.

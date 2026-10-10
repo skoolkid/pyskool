@@ -14,15 +14,15 @@
 # You should have received a copy of the GNU General Public License along with
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
-from .skoolini import SkoolIniMaker, BACK_TO_SKOOL, BACK_TO_SKOOL_DAZE
-from .btstaps import BTSTapMaker
-from .skoolids import *
-from . import animatorystates as states
-from . import graphics
-from . import items
-from . import lines
-from . import skoolbuilder
-from . import sound
+from pyskool.skoolini import SkoolIniMaker, BACK_TO_SKOOL, BACK_TO_SKOOL_DAZE
+from pyskool.btstaps import BTSTapMaker
+from pyskool.skoolids import *
+from pyskool import animatorystates as states
+from pyskool import graphics
+from pyskool import items
+from pyskool import lines
+from pyskool import skoolbuilder
+from pyskool import sound
 
 # Animation phases
 AP_FROG_TURN_ROUND = 'FrogTurnRound'

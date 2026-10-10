@@ -18,9 +18,9 @@
 Classes that represent the animals in the game.
 """
 
-from .character import Character
-from . import animatorystates
-from .location import Location
+from pyskool.character import Character
+from pyskool import animatorystates
+from pyskool.location import Location
 
 class Animal(Character):
     """Abstract superclass for any animals in the game.

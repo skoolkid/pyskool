@@ -20,20 +20,20 @@ Defines the :class:`Skool` class.
 
 import random
 
-from .barrier import Door, Wall, Window
-from .floor import Floor
-from .plant import PlantPot
-from .lesson import AssemblyMessageGenerator
-from .mutable import Shield, Safe, Cup, Bike
-from .room import Room, NoGoZone
-from .staircase import Staircase
-from .scoreboard import Scoreboard
-from .location import Location
-from .timetable import Timetable
-from . import items
-from . import sound
-from . import graphics
-from . import debug
+from pyskool.barrier import Door, Wall, Window
+from pyskool.floor import Floor
+from pyskool.plant import PlantPot
+from pyskool.lesson import AssemblyMessageGenerator
+from pyskool.mutable import Shield, Safe, Cup, Bike
+from pyskool.room import Room, NoGoZone
+from pyskool.staircase import Staircase
+from pyskool.scoreboard import Scoreboard
+from pyskool.location import Location
+from pyskool.timetable import Timetable
+from pyskool import items
+from pyskool import sound
+from pyskool import graphics
+from pyskool import debug
 
 class Skool:
     """Represents the play area and its features and fixtures.

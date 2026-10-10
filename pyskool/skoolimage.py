@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License along with
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
-from .snapshot import get_snapshot
+from pyskool.snapshot import get_snapshot
 
 class Udg:
     def __init__(self, attr, data, mask=None):

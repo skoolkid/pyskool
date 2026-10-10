@@ -18,8 +18,8 @@
 Defines the :class:`Stinkbomb` class.
 """
 
-from .character import Character
-from .location import Location
+from pyskool.character import Character
+from pyskool.location import Location
 
 class Stinkbomb(Character):
     """A stinkbomb.

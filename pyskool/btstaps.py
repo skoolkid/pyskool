@@ -14,10 +14,10 @@
 # You should have received a copy of the GNU General Public License along with
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
-from .skoolini import BACK_TO_SKOOL_DAZE
-from . import skoolbuilder
-from .skooltaps import *
-from .skoolids import *
+from pyskool.skoolini import BACK_TO_SKOOL_DAZE
+from pyskool import skoolbuilder
+from pyskool.skooltaps import *
+from pyskool.skoolids import *
 
 #: The `chase_x` argument for the MonitorEric command.
 CHASE_X = 160

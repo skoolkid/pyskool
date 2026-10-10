@@ -22,8 +22,8 @@ Classes that implement the commands found in command lists, such as
 import sys
 import random
 
-from .location import Location
-from . import debug
+from pyskool.location import Location
+from pyskool import debug
 
 def get_command_class(command_name):
     """Return the class object for a given command.

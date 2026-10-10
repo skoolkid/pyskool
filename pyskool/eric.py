@@ -20,13 +20,13 @@ Defines the :class:`Eric` class.
 
 import random
 
-from . import character
-from .animatorystates import ARM_UP, BENDING_OVER, RIDING_BIKE0, RIDING_BIKE1, WALK0
-from . import ai
-from . import lines
-from . import items
-from . import keys
-from . import sound
+from pyskool import character
+from pyskool.animatorystates import ARM_UP, BENDING_OVER, RIDING_BIKE0, RIDING_BIKE1, WALK0
+from pyskool import ai
+from pyskool import lines
+from pyskool import items
+from pyskool import keys
+from pyskool import sound
 
 class Eric(character.Character):
     """This class represents our hero.

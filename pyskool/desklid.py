@@ -18,10 +18,10 @@
 Defines the :class:`DeskLid` class.
 """
 
-from . import animatorystates
-from .character import Character
-from .location import Location
-from . import items
+from pyskool import animatorystates
+from pyskool.character import Character
+from pyskool.location import Location
+from pyskool import items
 
 class DeskLid(Character):
     """A desk lid.

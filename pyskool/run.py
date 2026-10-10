@@ -18,11 +18,11 @@ import sys
 import os.path
 from argparse import ArgumentParser
 
-from .game import Game
-from . import version, package_dir, user_dir, images_subdir, sounds_subdir, skoolsound
-from .image import get_images, SKOOL_DAZE, BACK_TO_SKOOL
-from .sdini import SDIniMaker
-from .btsini import BTSIniMaker
+from pyskool.game import Game
+from pyskool import version, package_dir, user_dir, images_subdir, sounds_subdir, skoolsound
+from pyskool.image import get_images, SKOOL_DAZE, BACK_TO_SKOOL
+from pyskool.sdini import SDIniMaker
+from pyskool.btsini import BTSIniMaker
 
 SOUNDS = {
     'skool_daze.py': skoolsound.SKOOL_DAZE,

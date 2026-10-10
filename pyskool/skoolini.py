@@ -17,11 +17,11 @@
 import sys
 import os
 
-from .skoolids import *
-from . import animatorystates as states
-from . import graphics
-from . import skoolbuilder
-from . import sound
+from pyskool.skoolids import *
+from pyskool import animatorystates as states
+from pyskool import graphics
+from pyskool import skoolbuilder
+from pyskool import sound
 
 SKOOL_DAZE = 0
 SKOOL_DAZE_TAKE_TOO = 1

@@ -14,14 +14,14 @@
 # You should have received a copy of the GNU General Public License along with
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
-from .skoolini import SkoolIniMaker, SKOOL_DAZE, SKOOL_DAZE_TAKE_TOO, EZAD_LOOKS
-from .sdtaps import SDTapMaker
-from .skoolids import *
-from . import animatorystates as states
-from . import graphics
-from . import lines
-from . import skoolbuilder
-from . import sound
+from pyskool.skoolini import SkoolIniMaker, SKOOL_DAZE, SKOOL_DAZE_TAKE_TOO, EZAD_LOOKS
+from pyskool.sdtaps import SDTapMaker
+from pyskool.skoolids import *
+from pyskool import animatorystates as states
+from pyskool import graphics
+from pyskool import lines
+from pyskool import skoolbuilder
+from pyskool import sound
 
 # Floor IDs
 FLR_BOTTOM = 'Bottom'

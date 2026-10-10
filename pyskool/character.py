@@ -22,17 +22,17 @@ animated and how they behave.
 import random
 import re
 
-from .location import Location
-from . import ai
-from .animatorystates import (
+from pyskool.location import Location
+from pyskool import ai
+from pyskool.animatorystates import (
     ARM_UP, CATAPULT0, CATAPULT1, HITTING0, HITTING1, KISSING_ERIC,
     KNOCKED_OUT, KNOCKED_OVER, RIDING_BIKE0, RIDING_BIKE1, SITTING_ON_CHAIR,
     SITTING_ON_FLOOR, WALK0, WALK1, WALK2, WALK3, WATERPISTOL
 )
-from . import lines
-from .lesson import QAGenerator
-from . import sound
-from . import debug
+from pyskool import lines
+from pyskool.lesson import QAGenerator
+from pyskool import sound
+from pyskool import debug
 
 class Character:
     """Base class for anything in the game that moves.

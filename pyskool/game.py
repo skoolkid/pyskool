@@ -26,17 +26,17 @@ import pygame
 import random
 import time
 
-from .cast import Cast
-from .character import Character
-from .skool import Skool
-from .graphics import Screen, Gallery
-from .sound import Beeper
-from .input import Keyboard
-from .iniparser import IniParser
-from . import skoolbuilder
-from . import keys
-from . import items
-from . import debug
+from pyskool.cast import Cast
+from pyskool.character import Character
+from pyskool.skool import Skool
+from pyskool.graphics import Screen, Gallery
+from pyskool.sound import Beeper
+from pyskool.input import Keyboard
+from pyskool.iniparser import IniParser
+from pyskool import skoolbuilder
+from pyskool import keys
+from pyskool import items
+from pyskool import debug
 
 #: Menu operation: Resume.
 RESUME = 'RESUME'

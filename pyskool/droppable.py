@@ -19,9 +19,9 @@ Classes for things in the skool that fall from a height onto the floor or
 someone's head.
 """
 
-from . import character
-from . import animatorystates
-from .location import Location
+from pyskool import character
+from pyskool import animatorystates
+from pyskool.location import Location
 
 class Droppable(character.Character):
     """Abstract superclass for objects that fall from a height.

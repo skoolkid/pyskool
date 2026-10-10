@@ -22,7 +22,7 @@ import pygame
 import os
 import random
 
-from . import debug
+from pyskool import debug
 
 #: ID of the sound effect to play when Albert tells Mr Wacker that Eric is
 #: escaping.

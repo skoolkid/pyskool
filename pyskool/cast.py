@@ -20,19 +20,19 @@ Defines the :class:`Cast` class.
 
 import random
 
-from .character import Character
-from .desklid import DeskLid
-from . import animal
-from .bike import Bike
-from . import droppable
-from .plant import Plant
-from .eric import Eric
-from .pellet import Pellet
-from .water import Water
-from .stinkbomb import Stinkbomb
-from . import ai
-from .lesson import Lesson
-from . import graphics
+from pyskool.character import Character
+from pyskool.desklid import DeskLid
+from pyskool import animal
+from pyskool.bike import Bike
+from pyskool import droppable
+from pyskool.plant import Plant
+from pyskool.eric import Eric
+from pyskool.pellet import Pellet
+from pyskool.water import Water
+from pyskool.stinkbomb import Stinkbomb
+from pyskool import ai
+from pyskool.lesson import Lesson
+from pyskool import graphics
 
 class Cast:
     """The control centre from which the entire cast of characters is

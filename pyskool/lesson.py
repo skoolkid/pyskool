@@ -21,8 +21,8 @@ Classes concerned with controlling what goes on during a lesson.
 import random
 import re
 
-from . import lines
-from . import ai
+from pyskool import lines
+from pyskool import ai
 
 class Lesson:
     """Controls the interaction between the teacher, the swot and Eric during a

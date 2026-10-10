@@ -18,9 +18,9 @@
 Defines the :class:`Plant` and :class:`PlantPot` classes.
 """
 
-from .character import Character
-from . import animatorystates
-from .location import Location
+from pyskool.character import Character
+from pyskool import animatorystates
+from pyskool.location import Location
 
 class Plant(Character):
     """A plant that grows when watered.

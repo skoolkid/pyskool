@@ -23,10 +23,10 @@ except ImportError:
 import zipfile
 from io import BytesIO
 
-from . import user_dir
-from .skoolimage import SDMemory, BTSMemory, Udg
-from .pngwriter import PngWriter, WHITE, BLACK
-from .iniparser import IniParser
+from pyskool import user_dir
+from pyskool.skoolimage import SDMemory, BTSMemory, Udg
+from pyskool.pngwriter import PngWriter, WHITE, BLACK
+from pyskool.iniparser import IniParser
 
 show_info = True
 

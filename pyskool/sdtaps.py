@@ -14,10 +14,10 @@
 # You should have received a copy of the GNU General Public License along with
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
-from .skoolini import SKOOL_DAZE_TAKE_TOO
-from . import skoolbuilder
-from .skooltaps import *
-from .skoolids import *
+from pyskool.skoolini import SKOOL_DAZE_TAKE_TOO
+from pyskool import skoolbuilder
+from pyskool.skooltaps import *
+from pyskool.skoolids import *
 
 SIG_MAP_ROOM_READY = 'MapRoomReady'
 SIG_READING_ROOM_READY = 'ReadingRoomReady'

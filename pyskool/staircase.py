@@ -18,7 +18,7 @@
 Defines the :class:`Staircase` class.
 """
 
-from .location import Location
+from pyskool.location import Location
 
 class Staircase:
     """A staircase.

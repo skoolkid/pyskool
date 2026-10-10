@@ -18,7 +18,7 @@
 Build the skool and its cast of characters.
 """
 
-from .iniparser import IniParser
+from pyskool.iniparser import IniParser
 
 # Section names
 ANIMATION_PHASES = 'AnimationPhases'
