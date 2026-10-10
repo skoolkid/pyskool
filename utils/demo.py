@@ -495,4 +495,5 @@ def parse_args(args):
 ###############################################################################
 # Begin
 ###############################################################################
-sys.exit(0 if Demo(parse_args(sys.argv[1:])).run() else 1)
+if __name__ == '__main__':
+    sys.exit(0 if Demo(parse_args(sys.argv[1:])).run() else 1)
