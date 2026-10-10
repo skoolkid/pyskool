@@ -1791,7 +1791,7 @@ class Character:
             self.animatory_state = SITTING_ON_CHAIR
             occupant = chair.occupant
             chair.seat(self)
-            if occupant:
+            if occupant and occupant is not self:
                 occupant.dethrone()
         else:
             staircase = self.skool.staircase(self)
