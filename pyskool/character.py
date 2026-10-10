@@ -1591,7 +1591,7 @@ class Character:
         result.
         """
         while True:
-            search = re.search('\$\( *[0-9]+, *[0-9]+ *\)', message)
+            search = re.search(r'\$\( *[0-9]+, *[0-9]+ *\)', message)
             if not search:
                 break
             macro = search.group()

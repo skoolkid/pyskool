@@ -504,7 +504,7 @@ class AssemblyMessageGenerator:
         """
         message = random.choice(self.templates)
         while True:
-            search = re.search('\$[A-Z0-9]+', message)
+            search = re.search(r'\$[A-Z0-9]+', message)
             if not search:
                 break
             marker = search.group()
