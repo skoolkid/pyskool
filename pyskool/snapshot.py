@@ -21,7 +21,7 @@ def get_snapshot(fname):
     if ext not in ('.sna', '.z80', '.szx', '.tzx'):
         raise SnapshotError("{0}: Unknown file type '{1}'".format(fname, ext[1:]))
     with open(fname, 'rb') as f:
-        data = bytearray(f.read()) # PY: 'return f.read()' in Python 3
+        data = f.read()
     if ext == '.sna':
         ram = data[27:49179]
     elif ext == '.z80':
@@ -84,8 +84,7 @@ def _read_szx(data):
             ram = rampage[3:]
             if rampage[0] & 1:
                 try:
-                    # PY: No need to convert to bytes and bytearray in Python 3
-                    ram = bytearray(zlib.decompress(bytes(ram)))
+                    ram = zlib.decompress(ram)
                 except zlib.error as e:
                     raise SnapshotError("Error while decompressing page {0}: {1}".format(page, e.args[0]))
             if len(ram) != 16384:

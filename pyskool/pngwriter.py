@@ -275,7 +275,6 @@ class PngWriter:
                 elif bit_depth == 4:
                     p.extend((0,) * (2 - len(p) & 1))
                     scanline.extend([p[j] * 16 + p[j + 1] for j in range(0, len(p), 2)])
-                # PY: No need to convert to bytes in Python 3
-                img_data.extend(compressor.compress(bytes(scanline[:width] * scale)))
+                img_data.extend(compressor.compress(scanline[:width] * scale))
         img_data.extend(compressor.flush())
         return img_data
