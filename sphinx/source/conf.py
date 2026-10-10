@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-#
 # Pyskool documentation build configuration file, created by
 # sphinx-quickstart on Tue Apr 27 15:37:16 2010.
 #

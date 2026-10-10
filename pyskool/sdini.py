@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-# Copyright 2010, 2013, 2014 Richard Dymond (rjdymond@gmail.com)
+# © 2010, 2013, 2014, 2026 Richard Dymond (rjdymond@gmail.com)
 #
 # This file is part of Pyskool.
 #
