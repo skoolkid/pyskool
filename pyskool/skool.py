@@ -346,7 +346,7 @@ class Skool:
         for door in self.doors.values():
             self.move_door(door.barrier_id, door.initially_shut)
         for window in self.windows.values():
-            self.move_door(window.barrier_id, door.initially_shut)
+            self.move_door(window.barrier_id, window.initially_shut)
         self.chain_bike()
         self.game_over = False
 
