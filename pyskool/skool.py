@@ -333,6 +333,8 @@ class Skool:
             self.scoreboard.reinitialise()
         for room in self.rooms.values():
             room.wipe_blackboard()
+            for chair in room.chairs:
+                chair.vacate()
         self.shield_mode = 1
         for shield in self.shields:
             self.unflash(shield)
