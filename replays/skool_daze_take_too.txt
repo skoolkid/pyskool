@@ -1,0 +1,289 @@
+# Skool Daze Take Too to completion (seed 0)
+# Shield 1: (26,14), catapult from the staff room stairs
+0 RIGHT 22          # walk to the foot of the staircase at (19,17)
+22 LEFT             # turn to face the staircase
+24 UP 16            # climb to (15,13)
+40 RIGHT            # turn to face right
+130 FIRE_CATAPULT   # pellet hits shield (26,14) (after the teachers have gone upstairs)
+
+# Shields 2 and 3: (47,2) and (50,2), jumping on the top floor
+146 UP 14           # climb to the top of the staircase at (12,10)
+160 RIGHT 31        # walk to the foot of the study staircase at (19,10)
+191 LEFT            # turn to face the staircase
+193 UP 28           # climb to (12,3)
+221 RIGHT 134       # walk to (45,3)
+355 JUMP            # hit shield (47,2)
+365 RIGHT 13        # walk to (48,3)
+378 JUMP            # hit shield (50,2)
+
+# Shields 4 and 5: (67,14) and (65,8), catapult from the right-hand stairs
+# Shield 6: (78,2), jumping on the top floor
+388 LEFT 147        # walk back to the top of the study staircase at (12,3)
+535 RIGHT           # turn to face down the staircase
+537 DOWN 28         # go down to (19,10)
+565 LEFT 30         # walk to the top of the staff room staircase at (12,10)
+595 RIGHT           # turn to face down the staircase
+597 DOWN 28         # go down to (19,17)
+625 RIGHT 204       # walk to the foot of the Exam Room staircase at (70,17)
+829 UP 16           # climb to (74,13)
+845 LEFT            # turn to face left
+847 FIRE_CATAPULT   # pellet hits shield (67,14)
+862 UP 15           # turn and climb to the top of the staircase at (77,10)
+877 LEFT 31         # walk to the foot of the Map Room staircase at (70,10)
+908 RIGHT           # turn to face the staircase
+910 UP 12           # climb to (73,7)
+922 LEFT            # turn to face left
+924 FIRE_CATAPULT   # pellet hits shield (65,8)
+937 UP 19           # turn and climb to the top of the Map Room staircase at (77,3)
+956 RIGHT 5         # walk to (78,3)
+961 LEFT            # turn to face left
+963 JUMP            # hit shield (78,2)
+
+# Shield 7: (65,14), bouncing a pellet off Mr Rockitt's head
+973 DOWN 33         # walk down the Map Room staircase to (70,10)
+1006 RIGHT 30       # walk to the top of the Exam Room staircase at (77,10)
+1036 LEFT           # turn to face down the staircase
+1038 DOWN 28        # go down to (70,17)
+1066 RIGHT 18       # walk to (74,17)
+1084 LEFT           # turn to face left (Cook tells Eric that Einstein is going to grass on him)
+1626 FIRE_CATAPULT  # knock Mr Rockitt over at (64,17) on his way back along the bottom floor
+1666 FIRE_CATAPULT  # pellet bounces off his head and hits shield (65,14)
+
+# Shield 8: (30,14), bouncing a pellet off Mr Withit's head
+2250 LEFT 149       # follow Mr Withit along the bottom floor to (37,17)
+2442 FIRE_CATAPULT  # knock Mr Withit over at (29,17)
+2478 FIRE_CATAPULT  # pellet bounces off his head and hits shield (30,14)
+2492 RIGHT 20       # step out of range before he gets up; then Einstein reaches Mr
+                    # Wacker's study, and Mr Wacker comes to give Eric 2000 lines
+
+# Shields 9 and 10: (8,2) and (6,2), jumping in the head's study while Mr Wacker is away
+2870 LEFT 94        # walk to the foot of the staff room staircase at (19,17)
+2964 UP 30          # climb to (12,10)
+2994 RIGHT 30       # walk to the foot of the study staircase at (19,10)
+3024 LEFT           # turn to face the staircase
+3026 UP 28          # climb to (12,3)
+3054 LEFT 16        # walk to (8,3)
+3070 JUMP           # hit shield (8,2)
+3080 LEFT 9         # walk to (6,3)
+3089 JUMP           # hit shield (6,2)
+
+# Attend Miss Take's lesson in the Reading Room (she fetches Eric if he's absent)
+3100 RIGHT 170      # walk into the Reading Room to the front seat at (48,3)
+3270 LEFT           # turn to face the blackboard
+3272 SIT_STAND      # sit down
+
+# Shield 11: (28,14), bouncing a pellet off Mr Wacker's head during Revision Library
+5376 SIT_STAND      # stand up after the bell
+5378 LEFT 146       # walk to the top of the study staircase at (12,3)
+5524 RIGHT          # turn to face down the staircase
+5526 DOWN 28        # go down to (19,10)
+5554 LEFT 30        # walk to the top of the staff room staircase at (12,10)
+5584 RIGHT          # turn to face down the staircase
+5586 DOWN 28        # go down to (19,17)
+5614 RIGHT 68       # walk to (36,17) and let Mr Wacker walk past
+6100 LEFT           # turn to face left
+6184 FIRE_CATAPULT  # knock Mr Wacker over at (27,17)
+6220 FIRE_CATAPULT  # pellet bounces off his head and hits shield (28,14)
+6232 RIGHT 12       # step out of range before he gets up
+
+# Shields 12-15: (60,8), (55,8), (50,8) and (45,8), bouncing pellets off Mr
+# Withit's head as he walks through the Exam Room to wipe the blackboard
+6300 RIGHT 129      # walk to the foot of the Exam Room staircase at (70,17)
+6429 UP 28          # climb to the top of the staircase at (77,10)
+6457 LEFT           # turn to face left and wait for Mr Withit to come down from the Map Room
+6820 LEFT 48        # follow Mr Withit into the Exam Room to (65,10) (100 lines for passing him)
+6910 FIRE_CATAPULT  # knock Mr Withit over at (59,10)
+6950 FIRE_CATAPULT  # pellet bounces off his head and hits shield (60,8)
+6966 LEFT 8         # walk to (63,10) (200 lines when Mr Withit gets up)
+7041 FIRE_CATAPULT  # knock Mr Withit over at (54,10)
+7081 FIRE_CATAPULT  # pellet bounces off his head and hits shield (55,8)
+7120 LEFT 24        # walk to (57,10) (200 lines when Mr Withit gets up)
+7184 FIRE_CATAPULT  # knock Mr Withit over at (49,10)
+7224 FIRE_CATAPULT  # pellet bounces off his head and hits shield (50,8)
+7236 RIGHT 16       # step out of range to (60,10) before he gets up
+7320 LEFT 26        # walk to (54,10)
+7363 FIRE_CATAPULT  # knock Mr Withit over at (44,10) as he wipes the blackboard
+7403 FIRE_CATAPULT  # pellet bounces off his head and hits shield (45,8); all shields flashing
+7418 RIGHT 6        # step out of range to (55,10) before he gets up
+
+# Attend Mr Creak's lesson in the White Room
+7430 RIGHT 90       # walk out of the Exam Room to the top of the Exam Room staircase at (77,10)
+7520 LEFT           # turn to face down the staircase
+7522 DOWN 28        # go down to (70,17)
+7550 LEFT 204       # walk to the foot of the staff room staircase at (19,17)
+7754 UP 28          # climb to (12,10)
+7782 RIGHT 72       # walk into the White Room to the front seat at (29,10)
+7854 LEFT           # turn to face the blackboard
+7856 SIT_STAND      # sit down
+
+# Safe combination letter E (Mr Wacker) as he walks into his study
+10195 SIT_STAND     # stand up after the bell
+10197 LEFT 41       # walk to the foot of the study staircase at (19,10)
+10238 UP 28         # climb to (12,3) and let Mr Wacker walk past
+10552 FIRE_CATAPULT # knock Mr Wacker over at (6,3); he reveals E
+10566 RIGHT         # turn to face down the staircase
+10568 DOWN 28       # go down to (19,10) before he gets up
+
+# Safe combination letter D (Mr Withit) on the bottom floor
+10596 LEFT 31       # walk to the top of the staff room staircase at (12,10)
+10627 RIGHT         # turn to face down the staircase
+10629 DOWN 28       # go down to (19,17)
+10657 RIGHT 132     # walk to (52,17), passing Mr Withit
+10820 LEFT          # turn to face left
+10850 FIRE_CATAPULT # knock Mr Withit over at (41,17); he reveals D
+
+# Write Mr Creak's year of birth on the Reading Room blackboard for him to see
+# when he starts the next lesson there
+10940 LEFT 132      # after Mr Withit gets up, walk to the foot of the staff room staircase at (19,17)
+11072 UP 28         # climb to (12,10)
+11100 RIGHT 30      # walk to the foot of the study staircase at (19,10)
+11130 LEFT          # turn to face the staircase
+11132 UP 28         # climb to (12,3)
+11168 RIGHT 118     # walk to the Reading Room blackboard at (41,3), dodging Boy Wander's pellets
+11286 WRITE         # start writing on the blackboard
+11286 TYPE 1266     # write Mr Creak's year of birth
+11306 ENTER         # finish writing
+
+# Safe combination letter J (Mr Rockitt) on the bottom floor
+11310 LEFT 120      # walk back to the top of the study staircase at (12,3)
+11430 RIGHT         # turn to face down the staircase
+11432 DOWN 28       # go down to (19,10)
+11460 LEFT 30       # walk to the top of the staff room staircase at (12,10)
+11490 RIGHT         # turn to face down the staircase
+11492 DOWN 28       # go down to (19,17)
+11520 RIGHT 220     # walk to (74,17)
+11740 LEFT          # turn to face left
+12051 FIRE_CATAPULT # knock Mr Rockitt over at (63,17) after he comes down the Exam Room staircase; he reveals J
+
+# Attend Mr Creak's lesson in the Reading Room; he reveals V when he sees his
+# year of birth on the blackboard (and gives Eric 400 lines for writing on it)
+12132 LEFT 221      # after Mr Rockitt gets up, walk to the foot of the staff room staircase at (19,17)
+12353 UP 28         # climb to (12,10)
+12381 RIGHT 30      # walk to the foot of the study staircase at (19,10)
+12411 LEFT          # turn to face the staircase
+12413 UP 28         # climb to (12,3)
+12441 RIGHT 146     # walk into the Reading Room to (48,3)
+12587 RIGHT 33      # walk to the back of the room at (56,3) (sitting gets Eric bumped onto the floor)
+12622 LEFT          # turn to face the blackboard
+
+# Write the safe combination on the Reading Room blackboard and open the safe
+15006 LEFT 48       # after the bell, walk to the blackboard at (44,3)
+15054 WRITE         # start writing on the blackboard
+15054 TYPE EDVJ     # write the safe combination
+15074 ENTER         # finish writing
+15078 LEFT 130      # walk to the top of the study staircase at (12,3)
+15208 RIGHT         # turn to face down the staircase
+15210 DOWN 28       # go down to (19,10)
+15238 LEFT 38       # walk into the staff room to (10,10)
+15276 JUMP          # open the safe (and Miss Take gives Eric 300 lines for being in the staff room)
+
+# Attend Mr Rockitt's lesson in the White Room
+15292 RIGHT 81      # walk into the White Room to the front seat at (29,10)
+15373 LEFT          # turn to face the blackboard
+15375 SIT_STAND     # sit down
+
+# Second pass, shield 1: (26,14), catapult from the staff room stairs
+17410 SIT_STAND     # stand up after the bell
+17412 LEFT 69       # walk to the top of the staff room staircase at (12,10)
+17481 RIGHT         # turn to face down the staircase
+17483 DOWN 12       # go down to (15,13)
+17512 FIRE_CATAPULT # pellet hits shield (26,14)
+
+# Second pass, shields 2-4: (65,14), (30,14) and (28,14), bouncing pellets off
+# Mr Wacker's head as he walks left along the bottom floor
+17528 DOWN 17       # go down to (19,17)
+17545 RIGHT 221     # walk to (74,17)
+17766 LEFT          # turn to face left
+17874 FIRE_CATAPULT # knock Mr Wacker over at (64,17) after he comes down the Exam Room staircase
+17910 FIRE_CATAPULT # pellet bounces off his head and hits shield (65,14)
+18170 LEFT 148      # follow Mr Wacker along the bottom floor to (37,17)
+18320 FIRE_CATAPULT # knock Mr Wacker over at (29,17)
+18360 FIRE_CATAPULT # pellet bounces off his head and hits shield (30,14)
+18374 RIGHT 14      # step out of range to (40,17) before he gets up
+18394 LEFT 6        # turn and step to (39,17)
+18416 FIRE_CATAPULT # knock Mr Wacker over at (27,17)
+18456 FIRE_CATAPULT # pellet bounces off his head and hits shield (28,14)
+
+# Second pass, shields 5-7: (67,14) and (65,8), catapult from the right-hand
+# stairs, and (78,2), jumping on the top floor
+18472 RIGHT 127     # walk to the foot of the Exam Room staircase at (70,17)
+18599 UP 16         # climb to (74,13)
+18615 LEFT          # turn to face left
+18617 FIRE_CATAPULT # pellet hits shield (67,14)
+18632 UP 15         # turn and climb to the top of the staircase at (77,10)
+18647 LEFT 31       # walk to the foot of the Map Room staircase at (70,10)
+18678 RIGHT         # turn to face the staircase
+18680 UP 12         # climb to (73,7)
+18692 LEFT          # turn to face left
+18694 FIRE_CATAPULT # pellet hits shield (65,8)
+18707 UP 19         # turn and climb to the top of the Map Room staircase at (77,3)
+18726 RIGHT 5       # walk to (78,3)
+18731 LEFT          # turn to face left
+18733 JUMP          # hit shield (78,2)
+
+# Second pass, shields 8 and 9: (8,2) and (6,2), jumping in the head's study
+18743 DOWN 33       # walk down the Map Room staircase to (70,10)
+18776 RIGHT 30      # walk to the top of the Exam Room staircase at (77,10)
+18806 LEFT          # turn to face down the staircase
+18808 DOWN 28       # go down to (70,17)
+18836 LEFT 204      # walk to the foot of the staff room staircase at (19,17)
+19040 UP 28         # climb to (12,10)
+19068 RIGHT 30      # walk to the foot of the study staircase at (19,10)
+19098 LEFT          # turn to face the staircase
+19100 UP 28         # climb to (12,3)
+19128 LEFT 16       # walk to (8,3)
+19144 JUMP          # hit shield (8,2)
+19154 LEFT 9        # walk to (6,3)
+19163 JUMP          # hit shield (6,2)
+
+# Second pass, shields 10 and 11: (47,2) and (50,2), jumping in the Reading
+# Room after Mr Wacker has left it to race Boy Wander to the fire escape (Cook
+# tells Eric about the race at about tick 20200; the skool clock stops until he
+# does)
+19252 RIGHT 34      # leave the study and wait at (14,3) for Cook
+20260 RIGHT 124     # walk to (45,3)
+20384 JUMP          # hit shield (47,2)
+20394 RIGHT 13      # walk to (48,3)
+20407 JUMP          # hit shield (50,2)
+20417 LEFT 72       # leave the Reading Room and wait at (30,3) (Mr Wacker wins the race and
+                    # comes to give Eric 2000 lines)
+
+# Dinner (Mr Withit fetches Eric if he's not in the dinner hall)
+21930 LEFT 72       # walk to the top of the study staircase at (12,3)
+22002 RIGHT         # turn to face down the staircase
+22004 DOWN 28       # go down to (19,10)
+22032 LEFT 30       # walk to the top of the staff room staircase at (12,10)
+22062 RIGHT         # turn to face down the staircase
+22064 DOWN 28       # go down to (19,17)
+22092 RIGHT 82      # walk into the dinner hall to (40,17), where Angelface leaves Eric alone
+
+# Second pass, shields 12-15: (60,8), (45,8), (50,8) and (55,8), jumping off
+# Boy Wander in the Exam Room as he goes to and from the blackboard
+24340 RIGHT 120     # walk to the foot of the Exam Room staircase at (70,17)
+24460 UP 28         # climb to the top of the staircase at (77,10)
+24488 LEFT 82       # walk into the Exam Room to (57,10)
+24570 RIGHT         # turn to face right
+24788 HIT           # knock Boy Wander over at (59,10) as he approaches
+24802 RIGHT 5       # step forward to (58,10)
+24807 JUMP          # jump onto Boy Wander
+24817 JUMP          # hit shield (60,8)
+24900 LEFT 42       # get off Boy Wander and follow him to (48,10)
+24962 HIT           # knock Boy Wander over at (46,10) as he turns away from the blackboard
+24976 LEFT 12       # walk to (45,10)
+24989 LEFT          # face left
+24990 JUMP          # jump onto Boy Wander
+25000 JUMP          # hit shield (45,8)
+25020 RIGHT         # get off Boy Wander and turn to face right
+25022 RIGHT 30      # walk to (52,10)
+25053 LEFT          # turn to face left
+25066 HIT           # knock Boy Wander over at (50,10) as he approaches
+25080 LEFT 6        # walk to (50,10)
+25087 JUMP          # jump onto Boy Wander
+25097 JUMP          # hit shield (50,8)
+25108 RIGHT         # get off Boy Wander and turn to face right
+25110 RIGHT 28      # walk to (56,10)
+25139 LEFT          # turn to face left
+25164 HIT           # knock Boy Wander over at (54,10) as he approaches
+25178 LEFT 6        # walk to (55,10)
+25185 JUMP          # jump onto Boy Wander
+25195 JUMP          # hit shield (55,8); all shields have stopped flashing, and Eric goes up a year
