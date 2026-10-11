@@ -1,0 +1,339 @@
+# Back to Skool to completion (seed 0); replay with: utils/demo.py -g bts -i replays/back_to_skool.txt
+# Water pistol: Upper Room desk at x=172, during the first playtime (Miss Take
+# passes Eric on the stairs and gives him 400 lines)
+0 RIGHT 177         # walk to the foot of the girls' skool lower staircase at (176,17)
+177 UP 30           # climb to (183,10)
+207 RIGHT 12        # walk to the foot of the girls' skool upper staircase at (186,10)
+219 LEFT            # turn to face the staircase
+221 UP 28           # climb to (179,3)
+249 LEFT 28         # walk to the chair at (172,3)
+277 SIT_STAND       # sit down
+281 OPEN_DESK       # collect the water pistol
+
+# Stinkbombs: Science Lab desk at x=40
+300 SIT_STAND       # stand up
+302 RIGHT 30        # walk to the top of the girls' skool upper staircase at (179,3)
+332 DOWN 28         # go down to (186,10)
+360 LEFT 14         # walk to the top of the girls' skool lower staircase at (183,10)
+374 DOWN 28         # go down to (176,17)
+402 LEFT 616        # walk to the foot of the toilets staircase at (22,17)
+1018 UP 28          # climb to (15,10)
+1046 RIGHT 102      # walk into the Science Lab to (40,10)
+1148 LEFT           # turn to face left
+1150 SIT_STAND      # sit down
+1154 OPEN_DESK      # collect the stinkbombs
+
+# Mouse: on the top floor near the Revision Library
+1170 SIT_STAND      # stand up
+1172 LEFT 85        # walk to the foot of the library staircase at (19,10)
+1257 RIGHT          # turn to face the staircase
+1259 UP 28          # climb to (26,3)
+1287 RIGHT 32       # walk to (34,3)
+1507 CATCH          # catch the mouse at (35,3)
+
+# Fill the middle cup with water
+1515 LEFT 35        # walk to the top of the library staircase at (26,3)
+1550 DOWN 28        # go down to (19,10)
+1578 LEFT 16        # walk to the top of the toilets staircase at (15,10)
+1594 RIGHT          # turn to face the staircase
+1596 DOWN 28        # go down to (22,17)
+1624 LEFT 10        # walk to (20,17)
+1634 RIGHT          # turn to face right
+1636 FIRE_WATER_PISTOL # fill the middle cup at (27,14) with water
+
+# Bike combination digits 1, 0 and 8: from the toilets staircase, knock water
+# from the middle cup onto the heads of teachers passing underneath
+1650 RIGHT 8        # walk to the foot of the toilets staircase at (22,17)
+1658 LEFT           # turn to face the staircase
+1660 UP 16          # climb to (18,13)
+1676 RIGHT          # turn to face right
+2640 FIRE_CATAPULT  # knock water onto Mr Rockitt at (26,17); he reveals 1
+2706 FIRE_CATAPULT  # knock water onto Mr Withit at (26,17); he reveals 0
+3368 FIRE_CATAPULT  # knock water onto Mr Wacker at (26,17); he reveals 8
+
+# Attend Mr Creak's lesson in the Yellow Room (if Eric stays away, Mr Creak
+# comes to fetch him, and gives him lines every few seconds)
+3410 LEFT           # turn to face up the staircase
+3412 UP 13          # climb to the top of the toilets staircase at (15,10)
+3425 RIGHT 18       # walk to the foot of the library staircase at (19,10)
+3443 UP 28          # climb to (26,3)
+3471 RIGHT 96       # walk into the Yellow Room to the front seat at (50,3)
+3567 LEFT           # turn to face the blackboard
+3569 SIT_STAND      # sit down for the rest of the lesson
+
+# Bike combination digit 6: catch Mr Creak on his way to assembly
+4816 SIT_STAND      # stand up after the bell
+4818 LEFT 97        # walk to the top of the library staircase at (26,3)
+4915 DOWN 28        # go down to (19,10)
+4943 LEFT 16        # walk to the top of the toilets staircase at (15,10)
+4959 RIGHT          # turn to face the staircase
+4961 DOWN 12        # go down to (18,13); Mr Creak follows Eric down the stairs
+5190 FIRE_CATAPULT  # knock water onto Mr Creak at (26,17); he reveals 6
+
+# Write the bike combination on the Yellow Room blackboard (skipping assembly)
+5240 LEFT           # turn to face up the staircase
+5242 UP 12          # climb to the top of the toilets staircase at (15,10)
+5254 RIGHT 20       # walk to the foot of the library staircase at (19,10)
+5274 UP 28          # climb to (26,3)
+5302 RIGHT 72       # walk to the Yellow Room blackboard at (44,3)
+5374 LEFT           # turn to face the blackboard
+5376 WRITE          # start writing on the blackboard
+5376 TYPE 8016      # write the bike combination
+5396 ENTER          # finish writing; the bike appears at (100,17)
+
+# Attend Mr Rockitt's lesson in the Science Lab (skipping the rest of
+# assembly costs nothing)
+5800 LEFT 73        # walk to the top of the library staircase at (26,3)
+5873 DOWN 28        # go down to (19,10)
+5901 RIGHT 86       # walk into the Science Lab to the front seat at (40,10)
+5989 LEFT           # turn to face the blackboard
+5991 SIT_STAND      # sit down for the lesson
+
+# Revision Library: open the middle-floor and top-floor windows by dropping
+# stinkbombs near Mr Wacker on his walkabout (leave the Science Lab at the
+# bell, because Mr Rockitt teaches another class there)
+8360 SIT_STAND      # stand up after the bell
+8362 LEFT 101       # walk to the top of the toilets staircase at (15,10)
+9483 RIGHT          # (after Mr Wacker has passed by below) turn to face the staircase
+9485 DOWN 28        # go down to (22,17)
+9513 RIGHT 244      # walk to the foot of the stage staircase at (83,17)
+9757 LEFT           # turn to face the staircase
+9759 UP 12          # climb to the stage at (80,14)
+9771 RIGHT 6        # walk to (81,14)
+9777 UP 16          # climb to (85,10)
+10400 DROP_STINKBOMB# drop a stinkbomb at (86,10) just before Mr Wacker comes up from the stage
+10408 RIGHT 24      # walk to the foot of the study staircase at (91,10)
+10432 LEFT          # turn to face the staircase
+10434 UP 28         # climb to (84,3); Mr Wacker smells the stinkbomb and opens the middle-floor window
+10462 RIGHT 29      # walk to (90,3), behind Mr Wacker as he comes up to his study
+10760 LEFT 20       # walk to (86,3)
+10802 DROP_STINKBOMB# drop a stinkbomb at (85,3) as Mr Wacker leaves his study; he opens the top-floor window
+
+# Playtime: ride the bike out through the skool gate and leave it by the
+# girls' skool
+11080 LEFT 9        # walk to the top of the study staircase at (84,3)
+11089 RIGHT         # turn to face down the staircase
+11091 DOWN 30       # go down to (91,10)
+11121 LEFT 26       # walk to the top of the stage staircase at (85,10)
+11147 DOWN 16       # go down to the stage at (81,14)
+11163 LEFT 4        # walk to (80,14)
+11167 RIGHT         # turn to face down the staircase
+11169 DOWN 14       # go down to (83,17)
+11183 RIGHT 68      # walk out of the skool door to the bike at (100,17)
+11252 MOUNT_BIKE    # get on the bike
+11256 RIGHT         # pedal (18 strokes)
+11259 LEFT
+11262 RIGHT
+11265 LEFT
+11268 RIGHT
+11271 LEFT
+11274 RIGHT
+11277 LEFT
+11280 RIGHT
+11283 LEFT
+11286 RIGHT
+11289 LEFT
+11292 RIGHT
+11295 LEFT
+11298 RIGHT
+11301 LEFT
+11304 RIGHT
+11307 LEFT
+11422 DOWN          # get off the bike at (156,17); it rolls on to (157,17)
+
+# Kiss Hayley on the way back, then wait outside the Science Lab
+11430 LEFT 100      # walk to (130,17)
+11530 KISS          # kiss Hayley (1000 lines off)
+11560 LEFT 433      # walk to the foot of the toilets staircase at (22,17)
+11993 UP 28         # climb to (15,10)
+12021 RIGHT 18      # walk to (19,10)
+
+# Attend Mr Rockitt's lesson in the Science Lab
+13250 RIGHT 100     # walk into the Science Lab to the seat at (44,10)
+13354 LEFT          # turn to face the blackboard
+13356 SIT_STAND     # sit down
+
+# Attend Mr Creak's lesson in the Blue Room
+15540 SIT_STAND     # stand up after the bell
+15542 LEFT 101      # walk to the foot of the library staircase at (19,10)
+15643 RIGHT         # turn to face the staircase
+15645 UP 28         # climb to (26,3)
+15673 LEFT 62       # walk into the Blue Room to the front seat at (11,3)
+15735 SIT_STAND     # sit down
+
+# Playtime, then Mr Rockitt's lesson in the Science Lab
+18000 SIT_STAND     # stand up after the bell
+18002 RIGHT 63      # walk to the top of the library staircase at (26,3)
+18065 LEFT          # turn to face down the staircase
+18067 DOWN 28       # go down to (19,10) and wait for the bell
+20250 RIGHT 86      # walk into the Science Lab to the front seat at (40,10)
+20338 LEFT          # turn to face the blackboard
+20340 SIT_STAND     # sit down
+
+# Revision Library: escape from skool. First knock a conker out of the tree
+# onto Albert from the open top-floor window
+22800 SIT_STAND     # stand up after the bell
+22802 LEFT 101      # walk to the top of the toilets staircase at (15,10)
+22903 RIGHT         # turn to face the staircase
+22905 DOWN 28       # go down to (22,17)
+22933 RIGHT 244     # walk to the foot of the stage staircase at (83,17)
+23177 LEFT          # turn to face the staircase
+23179 UP 12         # climb to the stage at (80,14)
+23191 RIGHT 6       # walk to (81,14)
+23197 UP 16         # climb to (85,10)
+23213 RIGHT 24      # walk to the foot of the study staircase at (91,10)
+23237 LEFT          # turn to face the staircase
+23239 UP 28         # climb to (84,3)
+23267 RIGHT 30      # walk to the open top-floor window at (91,3)
+23328 FIRE_CATAPULT # knock a conker out of the tree onto Albert at (99,17)
+
+# Grow the plant by the middle-floor window and climb out of the window
+23400 LEFT 30       # walk to the top of the study staircase at (84,3)
+23430 RIGHT         # turn to face down the staircase
+23432 DOWN 28       # go down to (91,10)
+23460 LEFT 22       # walk to (86,10)
+23482 RIGHT         # turn to face right
+23484 FIRE_WATER_PISTOL # water the plant pot at (93,9)
+23494 RIGHT 28      # walk to (93,10)
+23530 JUMP          # jump onto the plant pot
+23566 RIGHT 10      # step off the fully grown plant and out of the window to (95,17)
+
+# Grow the plant by the skool gate and climb over the gate
+23620 RIGHT 121     # walk to (125,17)
+23741 FIRE_WATER_PISTOL # water the plant pot at (132,16)
+23751 RIGHT 28      # walk to (132,17)
+23787 JUMP          # jump onto the plant pot
+23823 RIGHT 10      # step off the fully grown plant and over the gate to (135,17)
+
+# Release the mouse in Miss Take's lesson in the Upper Room and, while she's
+# busy with it, fill the water pistol with sherry from her drinks cabinet
+23850 RIGHT 164     # walk to the foot of the girls' skool lower staircase at (176,17)
+24014 UP 28         # climb to (183,10)
+24042 RIGHT 12      # walk to the foot of the girls' skool upper staircase at (186,10)
+24054 LEFT          # turn to face the staircase
+24056 UP 28         # climb to (179,3)
+24084 RELEASE_MICE  # release the mouse; Miss Take starts jumping
+24094 RIGHT 36      # walk to the drinks cabinet at (188,3)
+24132 JUMP          # jump up to the open drinks cabinet: the water pistol is now filled with sherry
+
+# Ride the bike at the skool gate and stand on the saddle to be thrown over it
+24145 LEFT 38       # walk to the top of the girls' skool upper staircase at (179,3)
+24183 RIGHT         # turn to face down the staircase
+24185 DOWN 30       # go down to (186,10)
+24215 LEFT 14       # walk to the top of the girls' skool lower staircase at (183,10)
+24229 DOWN 28       # go down to (176,17)
+24257 LEFT 76       # walk to the bike at (157,17)
+24333 MOUNT_BIKE    # get on the bike
+24337 LEFT          # pedal (10 strokes)
+24340 RIGHT
+24343 LEFT
+24346 RIGHT
+24349 LEFT
+24352 RIGHT
+24355 LEFT
+24358 RIGHT
+24361 LEFT
+24364 RIGHT
+24392 UP            # stand on the saddle; the bike hits the gate and Eric flies over it
+24420 SIT_STAND     # get up
+
+# Wait in the playground, out of sight of Miss Take, until Mr Withit opens
+# the skool door to fetch Eric for dinner; then go to the dinner hall
+24422 LEFT 54       # walk to (116,17)
+27800 LEFT 240      # walk into the dinner hall to (57,17)
+
+# Playtime: fill the middle cup with sherry
+28830 LEFT 150      # walk to (20,17)
+28980 RIGHT         # turn to face right
+28982 FIRE_WATER_PISTOL # fill the middle cup at (27,14) with sherry
+
+# Storeroom combination letters V, Z, W and U: from the toilets staircase,
+# knock sherry from the middle cup onto the heads of teachers passing underneath
+29000 RIGHT 8       # walk to the foot of the toilets staircase at (22,17)
+29008 LEFT          # turn to face the staircase
+29010 UP 16         # climb to (18,13)
+29026 RIGHT         # turn to face right
+29070 FIRE_CATAPULT # knock sherry onto Mr Rockitt at (26,17); he reveals V
+29838 FIRE_CATAPULT # knock sherry onto Mr Withit at (26,17); he reveals Z
+30452 FIRE_CATAPULT # knock sherry onto Mr Wacker at (26,17); he reveals W
+30514 FIRE_CATAPULT # knock sherry onto Mr Creak at (26,17); he reveals U
+
+# Write the storeroom combination on the Science Lab blackboard, then catch
+# the frog in the storeroom
+30560 LEFT          # turn to face up the staircase
+30562 UP 12         # climb to the top of the toilets staircase at (15,10)
+30574 RIGHT 82      # walk to the Science Lab blackboard at (35,10)
+30656 LEFT          # turn to face the blackboard
+30658 WRITE         # start writing on the blackboard
+30658 TYPE WZVU     # write the storeroom combination
+30678 ENTER         # finish writing; Eric gets the storeroom key
+30690 RIGHT 88      # open the storeroom door and walk into the storeroom to (56,10)
+30789 CATCH         # catch the frog
+
+# Attend Mr Rockitt's lesson in the Science Lab (skipping assembly afterwards
+# costs nothing), then Mr Creak's lesson in the Yellow Room
+31100 LEFT 60       # walk to the seat at (42,10)
+31164 SIT_STAND     # sit down
+34400 SIT_STAND     # stand up near the end of assembly
+34402 LEFT 92       # walk to the foot of the library staircase at (19,10)
+34494 RIGHT         # turn to face the staircase
+34496 UP 28         # climb to (26,3)
+34524 RIGHT 136     # walk into the Yellow Room to the back seat at (60,3)
+34664 LEFT          # turn to face the blackboard
+34666 SIT_STAND     # sit down (and get bumped onto the floor)
+
+# Playtime: ride the bike into the girls' skool, and jump off the saddle to
+# put the frog in the cup
+37130 SIT_STAND     # get up after the bell
+37132 LEFT 138      # walk to the top of the library staircase at (26,3)
+37270 DOWN 28       # go down to (19,10)
+37298 LEFT 16       # walk to the top of the toilets staircase at (15,10)
+37314 RIGHT         # turn to face the staircase
+37316 DOWN 28       # go down to (22,17)
+37344 RIGHT 452     # walk out through the skool door and the gate to the bike at (135,17)
+37796 MOUNT_BIKE    # get on the bike
+37800 RIGHT         # pedal (22 strokes)
+37803 LEFT
+37806 RIGHT
+37809 LEFT
+37812 RIGHT
+37815 LEFT
+37818 RIGHT
+37821 LEFT
+37824 RIGHT
+37827 LEFT
+37830 RIGHT
+37833 LEFT
+37836 RIGHT
+37839 LEFT
+37842 RIGHT
+37845 LEFT
+37848 RIGHT
+37851 LEFT
+37854 RIGHT
+37857 LEFT
+37860 RIGHT
+37863 LEFT
+37910 UP            # stand on the saddle
+37952 JUMP          # jump off the saddle at (184,16) and put the frog in the girls' cup at (186,14)
+
+# Knock Miss Take over (as she walks away), and bounce a pellet off her head
+# to knock the frog out of the cup onto her: Eric gets the safe key
+37975 SIT_STAND     # get up
+37977 LEFT 38       # walk to (175,17)
+38015 RIGHT         # turn to face right
+38020 FIRE_CATAPULT # knock Miss Take over at (185,17)
+38060 FIRE_CATAPULT # pellet bounces off her head and knocks the frog onto it: Eric gets the safe key
+
+# Follow Mr Wacker up to his study, slip through the door behind him, and
+# jump up to the safe: Eric goes up a year!
+38650 LEFT 370      # (after Mr Wacker has walked past) walk to the foot of the stage staircase at (83,17)
+39020 UP 12         # climb to the stage at (80,14)
+39032 RIGHT 6       # walk to (81,14)
+39038 UP 16         # climb to (85,10)
+39054 RIGHT 26      # walk to the foot of the study staircase at (91,10)
+39080 LEFT          # turn to face the staircase
+39082 UP 30         # climb to (84,3) behind Mr Wacker
+39112 RIGHT 18      # walk to (88,3)
+39130 LEFT 28       # walk through the open study door to (81,3)
+39160 JUMP          # open the safe at (81,2): Eric goes up a year!
