@@ -56,6 +56,16 @@ class NoClock:
     def tick(self, *args):
         return 0
 
+class FastClock:
+    """A clock that runs the game (including scrolling) at a multiple of its
+    normal speed."""
+    def __init__(self, speed):
+        self.clock = pygame.time.Clock()
+        self.speed = speed
+
+    def tick(self, framerate=0):
+        return self.clock.tick(framerate * self.speed)
+
 def read_inputs(fname):
     """Read an inputs file and return a list of (tick, action, duration)
     tuples sorted by tick. Each line has the form 'TICK ACTION [DURATION]' or
@@ -357,7 +367,7 @@ class Demo:
         g = game.Game(os.path.join(PYSKOOL_HOME, 'pyskool', 'data', 'pyskool.ini'), options.images_dir,
                       options.sounds_dir, options.ini_dir or os.path.join(user_dir, 'ini', GAMES[options.game]),
                       game_options, 'demo', None)
-        g.clock = pygame.time.Clock() if options.screen else NoClock()
+        g.clock = FastClock(options.speed) if options.screen else NoClock()
         g.confirm_close = 0
         g.paused = False
         g.scroll = 0
@@ -404,6 +414,8 @@ class Demo:
                     if c.name not in lost and self.is_lost(c):
                         lost.add(c.name)
                         self._report_lost(c, tick, history)
+                if options.trace is not None and tick >= options.trace:
+                    self._trace(tick)
         except Exception:
             status = 'CRASH'
             traceback.print_exc(file=sys.stdout)
@@ -414,6 +426,22 @@ class Demo:
             status, options.seed, tick, restarts, timetable.lesson_id, sorted(lost)))
         print('Lessons seen ({0}): {1}'.format(len(lessons_seen), ' '.join(sorted(lessons_seen))))
         return status != 'CRASH' and not lost
+
+    def _trace(self, tick):
+        """Print Eric's state, and that of any watched characters or objects,
+        after a tick.
+        """
+        eric, skool = self.eric, self.skool
+        line = '{0}: ({1},{2}) dir={3} as={4} controller={5} score={6} lines={7}'.format(
+            tick, eric.x, eric.y, eric.direction, eric.animatory_state,
+            type(eric.controller).__name__ if eric.controller else None,
+            skool.scoreboard.score, skool.scoreboard.lines)
+        for name in self.options.watch:
+            for c in skool.cast.everything:
+                if name in (c.name, c.character_id):
+                    line += ' | {0} ({1},{2}) dir={3} as={4}'.format(name, c.x, c.y, c.direction, c.animatory_state)
+                    break
+        print(line)
 
     def _report_lost(self, character, tick, history):
         print('LOST seed={0} tick={1} {2} at ({3},{4}) as={5} dir={6} stack={7}'.format(
@@ -476,17 +504,29 @@ def parse_args(args):
                              'Close the window or press Escape to stop.')
     parser.add_argument('-s', '--seed', type=int, default=0,
                         help='Random number seed (default: 0).')
+    parser.add_argument('--speed', metavar='N', type=float, default=1,
+                        help='With --screen, run the game at N times normal speed (default: 1).')
     parser.add_argument('--sounds', action='store_true',
                         help='Play sound effects (requires --screen).')
     parser.add_argument('--sounds-dir', metavar='DIR', default=os.path.join(user_dir, 'sounds'),
                         help='Sounds directory (default: ~/.pyskool/sounds).')
     parser.add_argument('-t', '--ticks', type=int, default=160000,
                         help='Number of ticks to run for (default: 160000, about one cycle of the timetable).')
+    parser.add_argument('--trace', metavar='TICK', type=int,
+                        help="Print Eric's location, animatory state, controlling command, score and lines total "
+                             "after every tick from this one on.")
+    parser.add_argument('--watch', metavar='NAMES', type=lambda s: s.split(','), default=[],
+                        help="With --trace, also print the location of these characters or objects (a comma-separated "
+                             "list of names or IDs, e.g. 'MR WACKER,MOUSE').")
     options = parser.parse_args(args)
     if sum(1 for o in (options.eric, options.inputs, options.record) if o) > 1:
         parser.error('only one of --eric, --inputs and --record may be used')
     if options.record and not options.screen:
         parser.error('--record requires --screen')
+    if options.speed <= 0:
+        parser.error('--speed must be greater than 0')
+    if options.speed != 1 and not options.screen:
+        parser.error('--speed requires --screen')
     if options.sounds and not options.screen:
         parser.error('--sounds requires --screen')
     options.eric = options.eric or 'follow'
