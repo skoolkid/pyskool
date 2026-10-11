@@ -21,7 +21,9 @@ sys.path.insert(0, PYSKOOL_HOME)
 with contextlib.redirect_stderr(io.StringIO()):
     with contextlib.redirect_stdout(io.StringIO()):
         import pygame
-from pyskool import ai, game, keys, sound, user_dir
+from pyskool import ai, character, game, keys, sound, user_dir
+from pyskool import eric as eric_mod
+from pyskool import skool as skool_mod
 from pyskool.input import Keyboard
 from pyskool.animatorystates import WALK1, WALK3
 
@@ -360,6 +362,8 @@ class Demo:
             sound.Beeper.is_busy = lambda beeper: False
         Keyboard.pump = lambda keyboard: self.pump(keyboard)
         self._guard_against_hangs()
+        if options.lines:
+            self._log_lines()
 
         # With a screen, use the game's default scale and run at normal speed
         scale = None if options.screen else 1
@@ -453,6 +457,41 @@ class Demo:
             near = [e for e in snapshot if e[0] != character.name and abs(e[1] - me[1]) <= 3 and abs(e[2] - me[2]) <= 3]
             print('  t={0} {1} ctr={2} me={3} near={4}'.format(t, lesson_id, counter, me[1:], near))
 
+    def _log_lines(self):
+        """Print a line whenever Eric's lines total changes, saying who changed
+        it and why.
+        """
+        source = [None]
+        def with_source(method, get_source):
+            def wrapped(*args):
+                source[0] = get_source(*args)
+                try:
+                    return method(*args)
+                finally:
+                    source[0] = None
+            return wrapped
+        character.Character.print_lines_message = with_source(
+            character.Character.print_lines_message,
+            lambda c, recipient_id, message_id: (c, message_id, recipient_id))
+        character.Character.add_lines = with_source(
+            character.Character.add_lines, lambda c, lines: (c, 'AddLines', None))
+        eric_mod.Eric.kiss = with_source(eric_mod.Eric.kiss, lambda e: (e, 'KISS', None))
+        add_lines = skool_mod.Skool.add_lines
+        def logged_add_lines(skool, addend):
+            before = skool.scoreboard.lines
+            add_lines(skool, addend)
+            if skool.scoreboard.lines != before:
+                line = 'LINES {0}: {1:+} = {2}'.format(self.tick + 1, skool.scoreboard.lines - before,
+                                                       skool.scoreboard.lines)
+                if source[0]:
+                    c, reason, recipient_id = source[0]
+                    line += ' by {0} ({1},{2}) [{3}]'.format(c.name, c.x, c.y, reason)
+                    if recipient_id not in (None, self.eric.character_id):
+                        line += ' to {0}'.format(skool.cast.get(recipient_id).name)
+                line += ' Eric ({0},{1})'.format(self.eric.x, self.eric.y)
+                print(line)
+        skool_mod.Skool.add_lines = logged_add_lines
+
     def _guard_against_hangs(self):
         """Make an infinite loop inside CommandList.command() raise an
         exception instead of freezing the demo.
@@ -496,6 +535,10 @@ def parse_args(args):
                              "Anything after '#' is ignored.")
     parser.add_argument('-l', '--lesson', metavar='ID',
                         help='Use a timetable consisting of only this lesson.')
+    parser.add_argument('--lines', action='store_true',
+                        help="Print a line whenever Eric's lines total changes, showing the tick, the change, the new "
+                             "total, who changed it (and where), the reason (a lines message ID, AddLines or KISS), "
+                             "any other recipient of the lines, and Eric's location.")
     parser.add_argument('-r', '--record', metavar='FILE',
                         help="Control Eric with the keyboard (requires --screen), and record the keypresses in this "
                              "file for replaying with --inputs (and the same --game, --seed and --lesson).")
