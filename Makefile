@@ -1,3 +1,6 @@
+LSCPU = $(shell command -v lscpu)
+CORES ?= $(if $(LSCPU),$(shell $(LSCPU) -p=SOCKET,CORE | grep -v '^#' | sort -u | wc -l),0)
+
 .PHONY: usage
 usage:
 	@echo "Supported targets:"
@@ -8,6 +11,7 @@ usage:
 	@echo "  sounds     create the stock Pyskool sound files in ~/.pyskool"
 	@echo "  doc        build the documentation"
 	@echo "  clean      clean the documentation"
+	@echo "  test       run tests"
 	@echo "  release    build a Pyskool release tarball and zip archive"
 	@echo "  deb        build a Pyskool Debian package"
 	@echo "  rpm        build a Pyskool RPM package"
@@ -38,6 +42,10 @@ doc:
 .PHONY: clean
 clean:
 	$(MAKE) -C sphinx clean
+
+.PHONY: test
+test:
+	PYSKOOL_HOME=$$(pwd) pytest -n $(CORES) tests
 
 .PHONY: release
 release:
