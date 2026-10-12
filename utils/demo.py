@@ -380,6 +380,8 @@ class Demo:
             self._log_signals()
         if options.lessons:
             self._log_lessons()
+        if options.endings:
+            self._log_endings()
 
         # With a screen, use the game's default scale and run at normal speed
         scale = None if options.screen else 1
@@ -645,6 +647,38 @@ class Demo:
             return execute(command)
         ai.FetchEric.execute = logged_execute
 
+    def _log_endings(self):
+        """Print a line whenever Eric goes up a year, and whenever the game
+        ends, saying why.
+        """
+        up_a_year = skool_mod.Skool._up_a_year
+        def logged_up_a_year(skool):
+            print('UP_A_YEAR {0}: Eric ({1},{2})'.format(self.tick + 1, self.eric.x, self.eric.y))
+            return up_a_year(skool)
+        skool_mod.Skool._up_a_year = logged_up_a_year
+        source = [None]
+        end_game = character.Character.end_game
+        def character_end_game(c):
+            source[0] = c
+            try:
+                return end_game(c)
+            finally:
+                source[0] = None
+        character.Character.end_game = character_end_game
+        skool_end_game = skool_mod.Skool.end_game
+        def logged_end_game(skool, up_a_year=False):
+            line = 'GAME_OVER {0}:'.format(self.tick + 1)
+            if up_a_year:
+                line += ' up a year'
+            elif source[0]:
+                c = source[0]
+                line += ' by {0} ({1},{2})'.format(c.name, c.x, c.y)
+                if self.eric.expelled:
+                    line += ' expelled'
+            print(line + ' Eric ({0},{1})'.format(self.eric.x, self.eric.y))
+            return skool_end_game(skool, up_a_year)
+        skool_mod.Skool.end_game = logged_end_game
+
     def _guard_against_hangs(self):
         """Make an infinite loop inside CommandList.command() raise an
         exception instead of freezing the demo.
@@ -680,6 +714,11 @@ def parse_args(args):
     parser.add_argument('--ffwd', metavar='TICKS', type=int,
                         help='With --screen, run the first TICKS ticks unthrottled, silently and without updating the '
                              'window, then continue at normal speed (or the speed set by --speed).')
+    parser.add_argument('--endings', action='store_true',
+                        help="Print an UP_A_YEAR line whenever Eric goes up a year, and a GAME_OVER line whenever the "
+                             "game ends, showing the tick, why it ended (up a year, or who ended it and where, and "
+                             "whether Eric was expelled), and Eric's location. The demo restarts the game after it "
+                             "ends.")
     parser.add_argument('-g', '--game', metavar='GAME', choices=tuple(GAMES), default='sd',
                         help='The game to run: sd (Skool Daze, the default), bts (Back to Skool), el (Ezad Looks), '
                              'sdtt (Skool Daze Take Too) or btsd (Back to Skool Daze).')

@@ -1,9 +1,8 @@
-from pyskooltest import demo, run
+from pyskooltest import run
 
-def _recorder(signals, endings):
+def _recorder(signals):
     """Return a 'setup' function for run() that records the signals raised
-    and lowered (as ('signal', ID) and ('unsignal', ID) pairs) in 'signals',
-    and the game endings (as (tick, up_a_year) pairs) in 'endings'."""
+    and lowered (as ('signal', ID) and ('unsignal', ID) pairs) in 'signals'."""
     def setup(d):
         skool = d.skool
         for name in ('signal', 'unsignal'):
@@ -11,11 +10,6 @@ def _recorder(signals, endings):
                 signals.append((name, signal_id))
                 method(signal_id)
             setattr(skool, name, recorded)
-        end_game = skool.end_game
-        def recorded_end_game(up_a_year=False):
-            endings.append((d.tick + 1, up_a_year))
-            end_game(up_a_year)
-        skool.end_game = recorded_end_game
     return setup
 
 def test_skool_daze_swot_grasses(monkeypatch, capsys, tmp_path):
@@ -64,9 +58,9 @@ def test_skool_daze_swot_stopped(monkeypatch, capsys, tmp_path):
         1321 HIT
         1384 HIT
     """
-    signals, endings = [], []
+    signals = []
     d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-SwotGrass', inputs, 2435,
-                   setup=_recorder(signals, endings))
+                   setup=_recorder(signals))
 
     # Eric was told about Einstein, but Einstein never got to Mr Wacker's
     # study before the bell rang (at tick 2433), and the skool clock was reset
@@ -121,9 +115,9 @@ def test_skool_daze_pea_shooter_found_by_boy_wander(monkeypatch, capsys, tmp_pat
         1742 FIRE_CATAPULT
         1826 FIRE_CATAPULT
     """
-    signals, endings = [], []
+    signals = []
     d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-HiddenPeaShooter', inputs, 3144,
-                   setup=_recorder(signals, endings))
+                   setup=_recorder(signals))
 
     # Boy Wander reached the fire escape (and lowered his signal) before Mr
     # Wacker; then the bell rang (at tick 3142), and the skool clock was reset
@@ -149,21 +143,14 @@ def test_skool_daze_mumps(monkeypatch, capsys, tmp_path):
         224 LEFT 117
         341 UP 16
     """
-    signals, endings = [], []
-    enders = []
-    execute = demo.ai.EndGame.execute
-    def recorded_execute(command):
-        enders.append(command.character.name)
-        return execute(command)
-    monkeypatch.setattr(demo.ai.EndGame, 'execute', recorded_execute)
+    signals = []
     d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-Mumps', inputs, 470,
-                   setup=_recorder(signals, endings))
+                   setup=_recorder(signals))
 
     # Eric caught mumps from Angelface, and then Mr Rockitt found him and sent
     # him home (ending the game)
     assert signals.index(('signal', 'EricWasToldAboutBully')) < signals.index(('signal', 'EricHasMumps'))
-    assert enders == ['MR ROCKITT']
-    assert endings == [(468, False)]
+    assert d.endings == [(468, 'MR ROCKITT')]
 
     # Eric got no lines
     assert lines == []
@@ -178,16 +165,16 @@ def test_skool_daze_mumps_avoided(monkeypatch, capsys, tmp_path):
         295 UP 28
         323 RIGHT 74
     """
-    signals, endings = [], []
+    signals = []
     d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-Mumps', inputs, 1680,
-                   setup=_recorder(signals, endings))
+                   setup=_recorder(signals))
 
     # Eric was told about Angelface, but never caught mumps; the bell rang (at
     # tick 1678) and the skool clock was reset for the next lesson
     # (Playtime-Mumps again)
     assert ('signal', 'EricWasToldAboutBully') in signals
     assert ('signal', 'EricHasMumps') not in signals
-    assert endings == []
+    assert d.endings == []
     assert d.skool.timetable.counter > 2000
 
     # Eric got no lines, and is still in the White Room
