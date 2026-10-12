@@ -176,3 +176,34 @@ def test_ezad_looks(monkeypatch):
 
     # Eric is in the Exam Room
     assert skool.room(d.eric).name == 'EXAM ROOM'
+
+def test_back_to_skool_daze(monkeypatch):
+    d, shield_modes, up_a_year_ticks, endings = _run_replay(monkeypatch, 'btsd', 'back_to_skool_daze.txt', 86800)
+    skool = d.skool
+
+    # Eric flashed all the shields, opened the safe, unflashed all the shields,
+    # and went up a year exactly once
+    assert [m for t, m in shield_modes] == [1, 2, 3, 1]
+    assert up_a_year_ticks == [86686]
+
+    # The game ended exactly once, because Eric went up a year (Back to Skool
+    # Daze restarts then, keeping the score and lines), and was then restarted
+    assert endings == [(86687, True)]
+    assert not skool.game_over
+    assert not skool.clear_score
+
+    # Eric is now in the next year: no shields are flashing and the safe is
+    # closed
+    assert skool.shield_mode == 1
+    assert not any(shield.flashing for shield in skool.shields)
+    assert not skool.safe.flashing
+
+    # Eric's score and lines
+    assert skool.scoreboard.score == 18500
+    assert skool.scoreboard.lines == 9000
+    # demo.py lifts the lines limit, so check against the game's real limit
+    assert skool.scoreboard.lines < 10000
+
+    # Eric is outside, in the playground
+    assert skool.room(d.eric) is None
+    assert (d.eric.x, d.eric.y) == (133, 17)
