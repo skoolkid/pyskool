@@ -21,9 +21,10 @@ sys.path.insert(0, PYSKOOL_HOME)
 with contextlib.redirect_stderr(io.StringIO()):
     with contextlib.redirect_stdout(io.StringIO()):
         import pygame
-from pyskool import ai, character, game, keys, sound, user_dir
+from pyskool import ai, character, game, graphics, keys, sound, user_dir
 from pyskool import eric as eric_mod
 from pyskool import skool as skool_mod
+from pyskool import timetable as timetable_mod
 from pyskool.input import Keyboard
 from pyskool.animatorystates import WALK1, WALK3
 
@@ -349,13 +350,20 @@ class Demo:
         if not options.screen:
             os.environ['SDL_VIDEODRIVER'] = 'dummy'
         random.seed(options.seed)
+        # Fast-forward (with no sound or display updates) until tick --ffwd
+        self.ffwd = bool(options.ffwd)
         if options.sounds:
             # Note when the game is suspended while a sound effect plays
             is_busy = sound.Beeper.is_busy
+            play = sound.Beeper.play
             def watched_is_busy(beeper):
-                self.sound_busy = is_busy(beeper)
+                self.sound_busy = not self.ffwd and is_busy(beeper)
                 return self.sound_busy
+            def watched_play(beeper, *args, **kwargs):
+                if not self.ffwd:
+                    return play(beeper, *args, **kwargs)
             sound.Beeper.is_busy = watched_is_busy
+            sound.Beeper.play = watched_play
         else:
             os.environ['SDL_AUDIODRIVER'] = 'dummy'
             sound.Beeper.play = lambda *args, **kwargs: None
@@ -364,6 +372,10 @@ class Demo:
         self._guard_against_hangs()
         if options.lines:
             self._log_lines()
+        if options.doors:
+            self._log_doors()
+        if options.bells:
+            self._log_bells()
 
         # With a screen, use the game's default scale and run at normal speed
         scale = None if options.screen else 1
@@ -371,7 +383,13 @@ class Demo:
         g = game.Game(os.path.join(PYSKOOL_HOME, 'pyskool', 'data', 'pyskool.ini'), options.images_dir,
                       options.sounds_dir, options.ini_dir or os.path.join(user_dir, 'ini', GAMES[options.game]),
                       game_options, 'demo', None)
-        g.clock = FastClock(options.speed) if options.screen else NoClock()
+        if options.screen and not self.ffwd:
+            g.clock = FastClock(options.speed)
+        else:
+            g.clock = NoClock()
+        if self.ffwd:
+            update = graphics.Screen._update
+            graphics.Screen._update = lambda screen, *args: None
         g.confirm_close = 0
         g.paused = False
         g.scroll = 0
@@ -411,6 +429,12 @@ class Demo:
                     # tick numbers don't depend on how long sound effects take
                     continue
                 tick += 1
+                if self.ffwd and tick >= options.ffwd:
+                    # Show the current frame and continue at normal speed
+                    self.ffwd = False
+                    graphics.Screen._update = update
+                    pygame.display.update()
+                    g.clock = FastClock(options.speed)
                 lessons_seen.add(timetable.lesson_id)
                 history.append((tick, timetable.lesson_id, timetable.counter,
                                 [(c.name, c.x, c.y, c.animatory_state) for c in skool.cast.character_list]))
@@ -492,6 +516,45 @@ class Demo:
                 print(line)
         skool_mod.Skool.add_lines = logged_add_lines
 
+    def _log_bells(self):
+        """Print a line whenever a lesson starts."""
+        next_lesson = timetable_mod.Timetable.next_lesson
+        def logged_next_lesson(timetable):
+            next_lesson(timetable)
+            print('BELL {0}: {1}'.format(self.tick + 1, timetable.lesson_id))
+        timetable_mod.Timetable.next_lesson = logged_next_lesson
+
+    def _log_doors(self):
+        """Print a line whenever a door or window opens or shuts, saying who
+        moved it.
+        """
+        source = [None]
+        def with_source(method, get_source):
+            def wrapped(*args):
+                source[0] = get_source(*args)
+                try:
+                    return method(*args)
+                finally:
+                    source[0] = None
+            return wrapped
+        character.Character.move_door = with_source(character.Character.move_door, lambda c, barrier_id, shut: c)
+        eric_mod.Eric.open_door = with_source(eric_mod.Eric.open_door, lambda e: e)
+        skool_mod.Skool.auto_shut_doors = with_source(skool_mod.Skool.auto_shut_doors, lambda s: 'auto')
+        move_door = skool_mod.Skool.move_door
+        def logged_move_door(skool, barrier_id, shut):
+            before = skool.barriers[barrier_id].shut
+            move_door(skool, barrier_id, shut)
+            if skool.barriers[barrier_id].shut != before:
+                line = 'DOOR {0}: {1} {2}'.format(self.tick + 1, barrier_id, 'shut' if shut else 'opened')
+                if source[0] == 'auto':
+                    line += ' automatically'
+                elif source[0]:
+                    c = source[0]
+                    line += ' by {0} ({1},{2})'.format(c.name, c.x, c.y)
+                line += ' Eric ({0},{1})'.format(self.eric.x, self.eric.y)
+                print(line)
+        skool_mod.Skool.move_door = logged_move_door
+
     def _guard_against_hangs(self):
         """Make an infinite loop inside CommandList.command() raise an
         exception instead of freezing the demo.
@@ -516,9 +579,17 @@ def parse_args(args):
         usage='%(prog)s [options]',
         description="Run Pyskool headless and unthrottled (or on screen at normal speed), with Eric under "
                     "automatic control, following a file of keypresses, or under keyboard control, and report any crash, hang, or character found off every floor and staircase.")
+    parser.add_argument('--bells', action='store_true',
+                        help='Print a line whenever a lesson starts, showing the tick and the lesson ID.')
+    parser.add_argument('--doors', action='store_true',
+                        help="Print a line whenever a door or window opens or shuts, showing the tick, the door or "
+                             "window ID, who moved it (and where), and Eric's location.")
     parser.add_argument('-e', '--eric', metavar='MODE', choices=('follow', 'random', 'idle'),
                         help="How Eric behaves: follow little boy no. 10 or 11 (MODE=follow, the default), "
                              "press keys at random (MODE=random), or do nothing (MODE=idle).")
+    parser.add_argument('--ffwd', metavar='TICKS', type=int,
+                        help='With --screen, run the first TICKS ticks unthrottled, silently and without updating the '
+                             'window, then continue at normal speed (or the speed set by --speed).')
     parser.add_argument('-g', '--game', metavar='GAME', choices=tuple(GAMES), default='sd',
                         help='The game to run: sd (Skool Daze, the default), bts (Back to Skool), el (Ezad Looks), '
                              'sdtt (Skool Daze Take Too) or btsd (Back to Skool Daze).')
@@ -570,6 +641,8 @@ def parse_args(args):
         parser.error('--speed must be greater than 0')
     if options.speed != 1 and not options.screen:
         parser.error('--speed requires --screen')
+    if options.ffwd is not None and not options.screen:
+        parser.error('--ffwd requires --screen')
     if options.sounds and not options.screen:
         parser.error('--sounds requires --screen')
     options.eric = options.eric or 'follow'
