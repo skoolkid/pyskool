@@ -376,6 +376,8 @@ class Demo:
             self._log_doors()
         if options.bells:
             self._log_bells()
+        if options.signals:
+            self._log_signals()
 
         # With a screen, use the game's default scale and run at normal speed
         scale = None if options.screen else 1
@@ -555,6 +557,36 @@ class Demo:
                 print(line)
         skool_mod.Skool.move_door = logged_move_door
 
+    def _log_signals(self):
+        """Print a line whenever a signal is raised or lowered, saying who
+        raised or lowered it.
+        """
+        source = [None]
+        def with_source(method):
+            def wrapped(c, signal):
+                source[0] = c
+                try:
+                    return method(c, signal)
+                finally:
+                    source[0] = None
+            return wrapped
+        character.Character.signal = with_source(character.Character.signal)
+        character.Character.unsignal = with_source(character.Character.unsignal)
+        def logged(method, raised):
+            def wrapped(skool, signal):
+                before = skool.got_signal(signal)
+                method(skool, signal)
+                if skool.got_signal(signal) != before:
+                    line = 'SIGNAL {0}: {1} {2}'.format(self.tick + 1, signal, 'raised' if raised else 'lowered')
+                    if source[0]:
+                        c = source[0]
+                        line += ' by {0} ({1},{2})'.format(c.name, c.x, c.y)
+                    line += ' Eric ({0},{1})'.format(self.eric.x, self.eric.y)
+                    print(line)
+            return wrapped
+        skool_mod.Skool.signal = logged(skool_mod.Skool.signal, True)
+        skool_mod.Skool.unsignal = logged(skool_mod.Skool.unsignal, False)
+
     def _guard_against_hangs(self):
         """Make an infinite loop inside CommandList.command() raise an
         exception instead of freezing the demo.
@@ -620,6 +652,10 @@ def parse_args(args):
                         help='Random number seed (default: 0).')
     parser.add_argument('--speed', metavar='N', type=float, default=1,
                         help='With --screen, run the game at N times normal speed (default: 1).')
+    parser.add_argument('--signals', action='store_true',
+                        help="Print a line whenever a signal (as used by command lists, e.g. SwotGrassed) is raised or "
+                             "lowered, showing the tick, the signal, who raised or lowered it (and where), and Eric's "
+                             "location.")
     parser.add_argument('--sounds', action='store_true',
                         help='Play sound effects (requires --screen).')
     parser.add_argument('--sounds-dir', metavar='DIR', default=os.path.join(user_dir, 'sounds'),
