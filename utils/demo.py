@@ -21,7 +21,7 @@ sys.path.insert(0, PYSKOOL_HOME)
 with contextlib.redirect_stderr(io.StringIO()):
     with contextlib.redirect_stdout(io.StringIO()):
         import pygame
-from pyskool import ai, character, game, graphics, keys, sound, user_dir
+from pyskool import ai, character, game, graphics, keys, lesson, sound, user_dir
 from pyskool import eric as eric_mod
 from pyskool import skool as skool_mod
 from pyskool import timetable as timetable_mod
@@ -378,6 +378,8 @@ class Demo:
             self._log_bells()
         if options.signals:
             self._log_signals()
+        if options.lessons:
+            self._log_lessons()
 
         # With a screen, use the game's default scale and run at normal speed
         scale = None if options.screen else 1
@@ -600,6 +602,49 @@ class Demo:
         skool_mod.Skool.signal = logged(skool_mod.Skool.signal, True)
         skool_mod.Skool.unsignal = logged(skool_mod.Skool.unsignal, False)
 
+    def _log_lessons(self):
+        """Print a line whenever a teacher starts a lesson (by setting Eric's
+        home room) or finishes assembly (by unsetting it), whenever the swot
+        starts telling a tale, and whenever a character sets off to fetch Eric.
+        """
+        def location(c):
+            return '{0} ({1},{2})'.format(c.name, c.x, c.y)
+        def eric():
+            return 'Eric ({0},{1})'.format(self.eric.x, self.eric.y)
+
+        def logged_home_room(method, event):
+            def wrapped(c):
+                method(c)
+                room = c.skool.get_home_room()
+                print('LESSON {0}: {1} {2} by {3} {4}'.format(
+                    self.tick + 1, event, room.room_id if room else c.skool.timetable.get_room_id(), location(c), eric()))
+            return wrapped
+        character.Character.set_home_room = logged_home_room(character.Character.set_home_room, 'started')
+        character.Character.unset_home_room = logged_home_room(character.Character.unset_home_room, 'finished')
+
+        def logged_tale(method, kind, get_subject):
+            def wrapped(lsn):
+                command = method(lsn)
+                if command:
+                    print('TALE {0}: {1} {2} by {3} to {4} {5}'.format(
+                        self.tick + 1, kind, lsn.cast.get(get_subject(lsn)).name, location(lsn.swot),
+                        location(lsn.teacher), eric()))
+                return command
+            return wrapped
+        eric_id = lambda lsn: lsn.cast.eric.character_id
+        lesson.Lesson.check_eric_initial = logged_tale(lesson.Lesson.check_eric_initial, 'ABSENT', eric_id)
+        lesson.Lesson.check_eric = logged_tale(lesson.Lesson.check_eric, 'ABSENT', eric_id)
+        lesson.Lesson.grass_for_hitting = logged_tale(lesson.Lesson.grass_for_hitting, 'HIT', lambda lsn: lsn.hitter_id)
+        lesson.Lesson.grass_for_writing = logged_tale(lesson.Lesson.grass_for_writing, 'WRITE', lambda lsn: lsn.writer_id)
+
+        execute = ai.FetchEric.execute
+        def logged_execute(command):
+            if not hasattr(command, 'logged'):
+                command.logged = True
+                print('FETCH {0}: by {1} {2}'.format(self.tick + 1, location(command.character), eric()))
+            return execute(command)
+        ai.FetchEric.execute = logged_execute
+
     def _guard_against_hangs(self):
         """Make an infinite loop inside CommandList.command() raise an
         exception instead of freezing the demo.
@@ -651,6 +696,12 @@ def parse_args(args):
                              "Anything after '#' is ignored.")
     parser.add_argument('-l', '--lesson', metavar='ID',
                         help='Use a timetable consisting of only this lesson.')
+    parser.add_argument('--lessons', action='store_true',
+                        help="Print a LESSON line whenever a teacher starts a lesson (by setting Eric's home room) or "
+                             "finishes assembly, a TALE line whenever the swot starts telling a teacher that someone is "
+                             "absent (ABSENT), hit him (HIT) or wrote on the blackboard (WRITE), and a FETCH line "
+                             "whenever a character sets off to fetch Eric; each line shows the tick, who was involved "
+                             "(and where), and Eric's location.")
     parser.add_argument('--lines', action='store_true',
                         help="Print a line whenever Eric's lines total changes, showing the tick, the change, the new "
                              "total, who changed it (and where), the reason (a lines message ID, AddLines or KISS), "
