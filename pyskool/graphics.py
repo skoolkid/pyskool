@@ -784,6 +784,10 @@ class Image:
     def _flip_surface(self):
         """Flip the image."""
         self.surface = pygame.transform.flip(self.surface, True, False)
+        # Make sure that the colour key is set on the flipped surface
+        # (which may not be the case on systems without SDL2)
+        if self.colorkey:
+            self.surface.set_colorkey(self.colorkey)
 
     def subsurface(self, coords, size):
         """Return a subsurface of the image.
