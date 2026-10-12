@@ -24,7 +24,8 @@ from pyskool import user_dir
 
 # A line printed by 'demo.py --lines', e.g.
 #   LINES 284: +700 = 700 by MR WITHIT (38,17) [GET_UP] Eric (48,17)
-LINES_RE = re.compile(r'LINES (\d+): \+(\d+) = \d+ by (.+) \(\d+,\d+\) \[(\w+)\](?: to (.+))? Eric \(\d+,\d+\)$')
+#   LINES 306: +500 by MR WITHIT (36,17) [NEVER_AGAIN] to EINSTEIN Eric (30,17)
+LINES_RE = re.compile(r'LINES (\d+): \+(\d+)(?: = \d+)? by (.+) \(\d+,\d+\) \[(\w+)\](?: to (.+))? Eric \(\d+,\d+\)$')
 
 def check_assets(game):
     ini_dir = os.path.join(user_dir, 'ini', demo.GAMES[game])
@@ -38,9 +39,7 @@ def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setu
     random seed selects), using the given random seed and inputs (the contents
     of an inputs file), and return the Demo object and the lines given, as
     (tick, lines, giver, message ID, recipient) tuples, where recipient is None
-    if Eric got the lines. This includes lines given to characters (such as
-    Einstein) whose lines are added to Eric's score, which 'demo.py --lines'
-    does not report.
+    if Eric got the lines.
 
     If given, 'setup' is called with the Demo object (whose 'skool' attribute
     is then set) before the first tick.
@@ -52,7 +51,8 @@ def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setu
             (demo.character.Character, 'print_lines_message'),
             (demo.character.Character, 'add_lines'),
             (demo.eric_mod.Eric, 'kiss'),
-            (demo.skool_mod.Skool, 'add_lines')
+            (demo.skool_mod.Skool, 'add_lines'),
+            (demo.skool_mod.Skool, 'get_lines_message')
     ):
         monkeypatch.setattr(cls, name, getattr(cls, name))
     inputs_file = tmp_path / 'inputs.txt'
@@ -61,17 +61,6 @@ def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setu
     if lesson:
         args.extend(('-l', lesson))
     d = demo.Demo(demo.parse_args(args))
-
-    lines = []
-    print_lines_message = demo.character.Character.print_lines_message
-    def recorded_print_lines_message(giver, recipient_id, message_id):
-        scoreboard = giver.skool.scoreboard
-        score = scoreboard.score
-        print_lines_message(giver, recipient_id, message_id)
-        if scoreboard.score != score:
-            recipient = giver.cast.get(recipient_id).name
-            lines.append((d.tick + 1, scoreboard.score - score, giver.name, message_id, recipient))
-    monkeypatch.setattr(demo.character.Character, 'print_lines_message', recorded_print_lines_message)
 
     if setup:
         main_loop = demo.game.Game._main_loop
@@ -83,9 +72,10 @@ def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setu
         monkeypatch.setattr(demo.game.Game, '_main_loop', set_up_main_loop)
 
     assert d.run(), 'demo crashed or a character got lost'
+    lines = []
     for line in capsys.readouterr().out.splitlines():
         match = LINES_RE.match(line)
         if match:
             tick, num, giver, message_id, recipient = match.groups()
             lines.append((int(tick), int(num), giver, message_id, recipient))
-    return d, sorted(lines, key=lambda line: line[0])
+    return d, lines

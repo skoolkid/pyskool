@@ -485,7 +485,8 @@ class Demo:
 
     def _log_lines(self):
         """Print a line whenever Eric's lines total changes, saying who changed
-        it and why.
+        it and why, and whenever lines are given to another character whose
+        lines don't count towards Eric's total.
         """
         source = [None]
         def with_source(method, get_source):
@@ -517,6 +518,18 @@ class Demo:
                 line += ' Eric ({0},{1})'.format(self.eric.x, self.eric.y)
                 print(line)
         skool_mod.Skool.add_lines = logged_add_lines
+        # Skool.get_lines_message() is called by print_lines_message() whenever
+        # lines are actually given (e.g. by a teacher who is on screen)
+        get_lines_message = skool_mod.Skool.get_lines_message
+        def logged_get_lines_message(skool, num_lines, name):
+            if source[0]:
+                c, reason, recipient_id = source[0]
+                recipient = skool.cast.get(recipient_id)
+                if recipient and not recipient.is_eric() and not recipient.adds_to_lines_total():
+                    print('LINES {0}: +{1} by {2} ({3},{4}) [{5}] to {6} Eric ({7},{8})'.format(
+                        self.tick + 1, num_lines, c.name, c.x, c.y, reason, recipient.name, self.eric.x, self.eric.y))
+            return get_lines_message(skool, num_lines, name)
+        skool_mod.Skool.get_lines_message = logged_get_lines_message
 
     def _log_bells(self):
         """Print a line whenever a lesson starts."""
@@ -641,7 +654,9 @@ def parse_args(args):
     parser.add_argument('--lines', action='store_true',
                         help="Print a line whenever Eric's lines total changes, showing the tick, the change, the new "
                              "total, who changed it (and where), the reason (a lines message ID, AddLines or KISS), "
-                             "any other recipient of the lines, and Eric's location.")
+                             "any other recipient of the lines, and Eric's location. Also print a line (without the new "
+                             "total) whenever lines are given to another character whose lines don't count towards "
+                             "Eric's total.")
     parser.add_argument('-r', '--record', metavar='FILE',
                         help="Control Eric with the keyboard (requires --screen), and record the keypresses in this "
                              "file for replaying with --inputs (and the same --game, --seed and --lesson).")

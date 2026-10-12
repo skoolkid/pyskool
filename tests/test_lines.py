@@ -173,8 +173,13 @@ def test_skool_daze_stand_in_class(monkeypatch, capsys, tmp_path):
     """
     d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 862)
 
-    # Mr Withit started the lesson and told Eric to find a seat
-    assert lines == [(860, 100, 'MR WITHIT', 'SIT_DOWN', None)]
+    # Mr Withit started the lesson and told Eric to find a seat (and earlier,
+    # on the top floor, Mr Creak gave Boy Wander lines after Boy Wander's
+    # catapult pellet knocked him over)
+    assert lines == [
+        (591, 400, 'MR CREAK', 'NEVER_AGAIN', 'BOY WANDER'),
+        (860, 100, 'MR WITHIT', 'SIT_DOWN', None)
+    ]
 
     # Eric is still standing in the White Room, where the lesson is
     assert d.eric.is_standing()
@@ -218,8 +223,13 @@ def test_skool_daze_not_staying_in_class(monkeypatch, capsys, tmp_path):
     """
     d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 1315)
 
-    # Mr Withit told Eric to stay this time
-    assert lines == [(1313, 400, 'MR WITHIT', 'STAY_IN_CLASS', None)]
+    # Mr Withit told Eric to stay this time (and earlier, on the top floor, Mr
+    # Creak gave Boy Wander lines after Boy Wander's catapult pellet knocked
+    # him over)
+    assert lines == [
+        (591, 400, 'MR CREAK', 'NEVER_AGAIN', 'BOY WANDER'),
+        (1313, 400, 'MR WITHIT', 'STAY_IN_CLASS', None)
+    ]
 
     # Eric is in the White Room, where the lesson is
     assert d.skool.get_home_room() is d.skool.room(d.eric)
@@ -440,8 +450,10 @@ def test_back_to_skool_not_attending_class(monkeypatch, capsys, tmp_path):
 
     # Mr Withit found Eric and told him to come along, then told him not to
     # keep him waiting, and then started again (Back to Skool has only two
-    # COME_ALONG messages)
+    # COME_ALONG messages); earlier, Mr Creak gave Boy Wander lines after Boy
+    # Wander's catapult pellet knocked him over
     assert lines == [
+        (431, 800, 'MR CREAK', 'NEVER_AGAIN', 'BOY WANDER'),
         (1047, 100, 'MR WITHIT', 'COME_ALONG_1', None),
         (1109, 500, 'MR WITHIT', 'COME_ALONG_2', None),
         (1171, 600, 'MR WITHIT', 'COME_ALONG_1', None)
