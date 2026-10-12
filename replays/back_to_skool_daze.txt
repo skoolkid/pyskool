@@ -1,0 +1,665 @@
+# Back to Skool Daze to completion (seed 0); replay with:
+# utils/demo.py -g btsd -i replays/back_to_skool_daze.txt -t 86800
+# Water pistol: Upper Room desk at x=172 (Miss Take passes Eric on the stairs
+# and gives him 400 lines); then jump up to the two Upper Room shields
+0 RIGHT 177
+177 UP 30
+207 RIGHT 12
+219 LEFT
+221 UP 28
+249 LEFT 28
+277 SIT_STAND
+281 OPEN_DESK
+300 SIT_STAND
+302 LEFT 20
+322 JUMP            # jump up to the shield at (167,2)
+340 LEFT 20
+360 JUMP            # jump up to the shield at (162,2)
+
+# Shield on the shelf next to the cups: with the cups empty, a pellet fired
+# from the toilets staircase hits it directly
+373 RIGHT 68
+441 DOWN 28
+469 LEFT 14
+483 DOWN 28
+511 LEFT 616
+1131 UP 16
+1147 RIGHT
+1149 FIRE_CATAPULT  # hit the shield at (30,14)
+
+# Stinkbombs: Science Lab desk at x=40
+1195 LEFT
+1197 UP 12
+1209 RIGHT 102
+1311 LEFT
+1313 SIT_STAND
+1317 OPEN_DESK      # collect the stinkbombs
+
+# Mouse: in the Blue Room, out of the way of the stampede; also jump up to
+# the two Blue Room shields
+1333 SIT_STAND
+1335 LEFT 85
+1420 RIGHT
+1422 UP 28
+1450 LEFT 68
+1518 JUMP           # jump up to the shield at (9,2)
+1535 LEFT 20
+1555 JUMP           # jump up to the shield at (4,2)
+1566 RIGHT
+1594 CATCH          # catch the mouse
+
+# Fill the middle cup with water (after the stampede has gone up to the top
+# floor)
+1790 RIGHT 89
+1879 LEFT
+1881 DOWN 28
+1909 LEFT 16
+1925 RIGHT
+1927 DOWN 28
+1955 LEFT 10
+1965 RIGHT
+1967 FIRE_WATER_PISTOL # fill the middle cup at (27,14) with water
+
+# Bike combination digit 5: knock water onto Mr Rockitt from the toilets
+# staircase
+1979 RIGHT 8
+1987 LEFT
+1989 UP 16
+2005 RIGHT
+2034 FIRE_CATAPULT  # knock water onto Mr Rockitt; he reveals 5
+
+# Get off the staircase while the stampede comes back down
+2240 DOWN 16
+2256 LEFT 20
+
+# Bike combination digits 9, 7 and 3: knock water onto Mr Wacker, Mr Withit
+# and Mr Creak as they pass under the cups
+2600 RIGHT 20
+2620 LEFT
+2622 UP 16
+2638 RIGHT
+2760 FIRE_CATAPULT  # knock water onto Mr Wacker; he reveals 9
+2966 FIRE_CATAPULT  # knock water onto Mr Withit; he reveals 7
+3196 FIRE_CATAPULT  # knock water onto Mr Creak; he reveals 3
+
+# Attend Mr Creak's lesson in the Yellow Room
+3240 LEFT
+3242 UP 12
+3256 RIGHT 19
+3275 UP 28
+3303 RIGHT 96
+3399 LEFT
+3401 SIT_STAND      # sit down for the lesson
+
+# Write the bike combination on the Yellow Room blackboard (skipping assembly
+# costs nothing), then sit in the Science Lab
+5512 SIT_STAND
+5514 LEFT 24
+5540 WRITE          # write the bike combination
+5540 TYPE 9753
+5560 ENTER          # finish writing; the bike appears at (100,17)
+5580 LEFT 72
+5652 DOWN 28
+5680 RIGHT 86
+5766 LEFT
+5768 SIT_STAND      # sit down
+
+# Mr Rockitt's lesson: knock him over at x=37 and x=32 as he walks to the
+# blackboard, and bounce pellets off his head up to the two Science Lab shields
+7990 SIT_STAND
+7992 RIGHT 26
+8018 LEFT
+8034 FIRE_CATAPULT  # knock Mr Rockitt over at (37,10)
+8068 FIRE_CATAPULT  # bounce a pellet off his head up to the shield at (38,8)
+8120 LEFT 25
+8222 FIRE_CATAPULT  # knock Mr Rockitt over at (32,10)
+8254 FIRE_CATAPULT  # bounce a pellet off his head up to the shield at (33,8)
+8296 SIT_STAND      # sit down
+
+# Revision Library: knock Mr Wacker over at x=11, 7 and 3 as he walks to the
+# cloakroom, and bounce pellets off his head up to the three cloakroom shields
+9548 SIT_STAND
+9550 LEFT 100
+9650 RIGHT
+9652 DOWN 28
+9680 LEFT 8
+10656 FIRE_CATAPULT # knock Mr Wacker over at (11,17)
+10690 FIRE_CATAPULT # hit the shield at (12,15)
+10738 LEFT 21
+10786 FIRE_CATAPULT # knock Mr Wacker over at (7,17)
+10818 FIRE_CATAPULT # hit the shield at (8,15)
+10900 FIRE_CATAPULT # knock Mr Wacker over at (3,17)
+10944 FIRE_CATAPULT # hit the shield at (4,15)
+
+# Get ahead of Mr Wacker, and drop stinkbombs near him as he comes up from the
+# stage and leaves his study, so that he opens the middle-floor and top-floor
+# windows
+10997 RIGHT 274
+11271 LEFT
+11273 UP 12
+11285 RIGHT 6
+11291 UP 16
+11870 DROP_STINKBOMB # drop a stinkbomb at (86,10); Mr Wacker opens the middle-floor window
+11878 RIGHT 24
+11902 LEFT
+11904 UP 35
+11940 RIGHT 40
+12270 LEFT 12
+12284 DROP_STINKBOMB # drop a stinkbomb as Mr Wacker leaves his study; he opens the top-floor window
+
+# Playtime: ride the bike out through the skool gate and leave it by the girls'
+# skool
+12710 LEFT 16
+12726 RIGHT
+12728 DOWN 30
+12760 LEFT 31
+12791 DOWN 16
+12807 LEFT 4
+12811 RIGHT
+12813 DOWN 14
+12827 RIGHT 66
+12893 MOUNT_BIKE    # get on the bike
+12897 RIGHT
+12900 LEFT
+12903 RIGHT
+12906 LEFT
+12909 RIGHT
+12912 LEFT
+12915 RIGHT
+12918 LEFT
+12921 RIGHT
+12924 LEFT
+12927 RIGHT
+12930 LEFT
+12933 RIGHT
+12936 LEFT
+12939 RIGHT
+12942 LEFT
+12945 RIGHT
+12948 LEFT
+13062 DOWN          # get off the bike; it rolls on to (157,17)
+
+# Knock Miss Take over in the kitchen and bounce a pellet off her head up to
+# the shield on the girls' skool shelf; then kiss Hayley on the way back
+13150 RIGHT 84
+13326 FIRE_CATAPULT # knock Miss Take over at (185,17)
+13360 FIRE_CATAPULT # bounce a pellet off her head up to the shield at (186,14)
+13405 LEFT 300
+13600 KISS          # kiss Hayley (1000 lines off)
+
+# Attend Mr Rockitt's lesson in the Science Lab (sitting at the back)
+13720 LEFT 324
+14044 UP 28
+14072 RIGHT 16
+14350 RIGHT 126
+14476 LEFT
+14478 SIT_STAND     # sit down
+
+# Attend Mr Creak's lesson in the Blue Room
+16795 SIT_STAND
+16797 LEFT 131
+16928 RIGHT
+16930 UP 28
+16958 LEFT 62
+17020 SIT_STAND     # sit down
+
+# Playtime: kiss Hayley again, then wait outside the Science Lab
+19160 SIT_STAND
+19162 RIGHT 62
+19224 LEFT
+19226 DOWN 28
+19254 LEFT 16
+19270 RIGHT
+19272 DOWN 28
+19300 RIGHT 476
+19766 KISS          # kiss Hayley (1000 lines off)
+19790 LEFT 475
+20265 UP 28
+20293 RIGHT 18
+
+# Attend Mr Rockitt's lesson in the Science Lab
+22390 RIGHT 126
+22516 LEFT
+22518 SIT_STAND     # sit down
+
+# Revision Library: escape from skool. First get to the open top-floor window
+# ahead of Mr Wacker, and knock a conker out of the tree onto Albert
+24788 SIT_STAND
+24790 LEFT 147
+24937 RIGHT
+24939 DOWN 28
+24967 RIGHT 244
+25211 LEFT
+25213 UP 12
+25225 RIGHT 6
+25231 UP 16
+25247 RIGHT 24
+25271 LEFT
+25273 UP 35
+25308 RIGHT 31
+25424 FIRE_CATAPULT # knock a conker out of the tree onto Albert
+
+# While Mr Wacker is in his study, grow the plant by the middle-floor window
+# and climb out of the window
+25632 LEFT 30
+25662 RIGHT
+25664 DOWN 28
+25692 LEFT 22
+25714 RIGHT
+25716 FIRE_WATER_PISTOL # water the plant pot at (93,9)
+25726 RIGHT 28
+25754 JUMP          # jump onto the plant pot
+25796 RIGHT 10      # step off the plant and out of the window
+
+# Grow the plant by the skool gate and climb over the gate
+25832 RIGHT 121
+25953 FIRE_WATER_PISTOL # water the plant pot at (132,16)
+25963 RIGHT 28
+25991 JUMP          # jump onto the plant pot
+26027 RIGHT 10      # step off the plant and over the gate
+
+# Knock out a girl in the Middle Room, stand on her and jump up to the shield
+26058 RIGHT 164
+26222 UP 28
+26250 LEFT
+26254 LEFT 28
+26284 HIT           # knock Jessica out at (174,10)
+26296 LEFT 15
+26311 JUMP          # jump onto Jessica
+26327 JUMP          # jump up to the shield at (173,8)
+
+# Release the mouse in Miss Take's lesson in the Upper Room and, while she's
+# busy with it, fill the water pistol with sherry from her drinks cabinet
+26350 RIGHT 55
+26405 LEFT
+26407 UP 28
+26435 RELEASE_MICE  # release the mouse; Miss Take starts jumping
+26445 RIGHT 38
+26483 JUMP          # jump up to the drinks cabinet: the water pistol is now filled with sherry
+
+# Ride the bike at the skool gate and stand on the saddle to be thrown over it
+26495 LEFT 39
+26534 RIGHT
+26536 DOWN 30
+26566 LEFT 20
+26586 DOWN 28
+26614 LEFT 72
+26686 LEFT 4
+26690 MOUNT_BIKE    # get on the bike
+26694 LEFT
+26697 RIGHT
+26700 LEFT
+26703 RIGHT
+26706 LEFT
+26709 RIGHT
+26712 LEFT
+26715 RIGHT
+26718 LEFT
+26721 RIGHT
+26740 UP            # stand on the saddle; the bike hits the gate and Eric flies over it
+
+# Wait in the playground until Mr Withit opens the skool door to fetch Eric for
+# dinner; then go to the dinner hall
+26781 SIT_STAND     # get up
+26783 LEFT 54
+29816 LEFT 241      # walk into the dinner hall to (57,17)
+
+# Playtime: fill the middle cup with sherry
+30832 LEFT 149
+30981 RIGHT
+30983 FIRE_WATER_PISTOL # fill the middle cup with sherry
+
+# Storeroom combination letters C, X, K and W: from the toilets staircase,
+# knock sherry onto the teachers as they pass under the cups
+30995 RIGHT 8
+31003 LEFT
+31005 UP 16
+31021 RIGHT
+31702 FIRE_CATAPULT # knock sherry onto Mr Creak; he reveals C
+32010 FIRE_CATAPULT # knock sherry onto Mr Wacker; he reveals X
+33138 FIRE_CATAPULT # knock sherry onto Mr Withit; he reveals K
+33414 FIRE_CATAPULT # knock sherry onto Mr Rockitt; he reveals W
+
+# Write the storeroom combination on the Science Lab blackboard, then go into
+# the storeroom and jump up to the shield
+33440 LEFT
+33442 UP 12
+33456 RIGHT 83
+33539 LEFT
+33541 WRITE         # write the storeroom combination
+33541 TYPE XKWC
+33561 ENTER         # finish writing; Eric gets the storeroom key
+33575 RIGHT 97
+33672 LEFT 6
+33678 JUMP          # jump up to the shield at (57,9)
+
+# Attend Mr Rockitt's lesson in the Science Lab (getting lines for the writing
+# on the blackboard), then Mr Creak's lesson in the Yellow Room (skipping
+# assembly costs nothing)
+33680 LEFT 20
+33700 SIT_STAND     # sit down (and get bumped onto the floor)
+35625 SIT_STAND
+35627 LEFT 142
+35769 RIGHT
+35771 UP 28
+36700 RIGHT 138
+36838 LEFT
+36840 SIT_STAND     # sit down (and get bumped onto the floor)
+
+# Playtime: wait in the playground, then follow Mr Wacker up to his study, slip
+# through the door behind him, jump up to the three shields in the study, and
+# follow him out: all the shields are flashing!
+39157 SIT_STAND
+39159 LEFT 136
+39295 DOWN 28
+39323 LEFT 16
+39339 RIGHT
+39341 DOWN 28
+39369 RIGHT 300
+41060 LEFT 59
+41119 UP 12
+41131 RIGHT 6
+41137 UP 16
+41153 RIGHT 28
+41181 LEFT
+41183 UP 35
+41222 LEFT 5
+41227 JUMP          # jump up to the shield at (82,2)
+41241 LEFT 13
+41256 JUMP          # jump up to the shield at (79,2)
+41270 LEFT 23
+41293 JUMP          # jump up to the shield at (74,2): all the shields are flashing!
+41356 RIGHT 60      # follow Mr Wacker out of his study
+
+# Revision Library: with all the shields flashing, Mr Wacker, Mr Withit and Mr
+# Rockitt each reveal a safe combination letter when knocked over. First knock
+# Mr Withit over from behind as he walks away from the stage
+41740 LEFT 23
+41763 RIGHT
+41765 DOWN 28
+41793 LEFT 28
+41821 DOWN 16
+41837 LEFT 4
+41841 RIGHT
+41843 DOWN 14
+41857 RIGHT 34
+41891 LEFT
+42372 FIRE_CATAPULT # knock Mr Withit over; he reveals Z
+
+# Knock Mr Rockitt over from the corridor outside the Science Lab while he's
+# teaching at the blackboard
+42470 LEFT 276
+42746 UP 28
+42774 RIGHT 30
+42814 FIRE_CATAPULT # knock Mr Rockitt over; he reveals R
+
+# Attend Mr Rockitt's lesson in the Science Lab
+44000 RIGHT 114
+44114 LEFT
+44116 SIT_STAND     # sit down
+
+# Assembly: write Mr Creak's birth year on the Yellow Room blackboard (clean
+# since he wiped it), so that he reveals his safe combination letter when he
+# next starts a lesson there
+46465 SIT_STAND
+46467 LEFT 130
+46597 RIGHT
+46599 UP 28
+46627 RIGHT 72
+46699 LEFT
+46701 WRITE         # write Mr Creak's birth year
+46701 TYPE 1742
+46721 ENTER
+
+# Playtime (after waiting out assembly in the Yellow Room): knock Mr Wacker
+# over from behind as he walks back from the skool door
+47460 LEFT 73
+47533 DOWN 28
+47561 LEFT 16
+47577 RIGHT
+47579 DOWN 28
+47607 RIGHT 312
+47919 LEFT
+48080 FIRE_CATAPULT # knock Mr Wacker over; he reveals B
+
+# Wait near the Yellow Room doorway for Mr Creak to start his lesson; he sees
+# 1742 on the blackboard and reveals C
+48300 LEFT 312
+48612 UP 28
+48640 RIGHT 18
+48658 UP 28
+48686 RIGHT 16      # walk to (30,3) and wait; Mr Creak reveals C at 50958
+
+# Withit's lesson in the Blue Room: stand at the back (every seat gets Eric
+# bumped onto the floor)
+50962 LEFT 51       # stand at (18,3)
+
+# Revision Library: wait outside the Science Lab, then attend Mr Rockitt's
+# lesson
+52270 RIGHT 34
+52304 LEFT
+52306 DOWN 28
+52334 RIGHT 15
+54690 RIGHT 114
+54804 LEFT
+54806 SIT_STAND     # sit down (and get bumped onto the floor)
+
+# Playtime: write the safe combination on the Yellow Room blackboard (wiped
+# clean by Mr Withit in the last lesson, and unused in the next one), then wait
+# in the cloakroom out of the stampede's way
+57072 SIT_STAND
+57074 LEFT 131
+57205 RIGHT
+57207 UP 28
+57235 RIGHT 72
+57307 LEFT
+57309 WRITE         # write the safe combination
+57309 TYPE BCRZ
+57329 ENTER
+57340 LEFT 73
+57413 DOWN 28
+57441 LEFT 16
+57457 RIGHT
+57459 DOWN 28
+57487 LEFT 50
+
+# Follow Mr Wacker up to his study at the start of the next lesson, slip
+# through the door behind him, and jump up to the safe
+59970 RIGHT 291
+60261 RIGHT 4
+60265 LEFT
+60267 UP 12
+60279 RIGHT 6
+60285 UP 16
+60301 RIGHT 26
+60327 LEFT
+60329 UP 35
+60364 LEFT 119
+60483 JUMP          # open the safe at (81,2)
+60492 RIGHT 14      # walk out of the study behind Mr Wacker
+
+# Attend Mr Rockitt's lesson in the Science Lab
+60620 DOWN 28
+60648 LEFT 26
+60674 DOWN 16
+60690 LEFT 4
+60694 RIGHT
+60696 DOWN 14
+60710 LEFT 246
+60956 UP 28
+60984 RIGHT 150
+61134 LEFT
+61136 SIT_STAND     # sit down (and get bumped onto the floor)
+
+# Attend Mr Creak's lesson in the Yellow Room
+62713 SIT_STAND
+62715 LEFT 133
+62848 RIGHT
+62850 UP 28
+62878 RIGHT 138
+63016 LEFT
+63018 SIT_STAND     # sit down
+
+# Revision Library: with the safe open, hitting a shield now unflashes it.
+# Knock Mr Wacker over at x=29, 11, 7 and 3 as he walks to the cloakroom (always
+# from 11-12 squares away, so he gives no lines when he gets up), and bounce
+# pellets off his head up to the shields on the cups shelf and in the cloakroom
+65119 SIT_STAND
+65121 LEFT 139
+65260 DOWN 28
+65288 LEFT 16
+65304 RIGHT
+65306 DOWN 28
+65334 RIGHT 76
+65410 LEFT
+66032 FIRE_CATAPULT # knock Mr Wacker over at (29,17)
+66076 FIRE_CATAPULT # hit the shield at (30,14)
+66226 LEFT 73
+66301 FIRE_CATAPULT # knock Mr Wacker over at (11,17)
+66344 FIRE_CATAPULT # hit the shield at (12,15)
+66400 LEFT 16
+66424 FIRE_CATAPULT # knock Mr Wacker over at (7,17)
+66468 FIRE_CATAPULT # hit the shield at (8,15)
+66530 LEFT 17
+66549 FIRE_CATAPULT # knock Mr Wacker over at (3,17)
+66592 FIRE_CATAPULT # hit the shield at (4,15)
+
+# Knock Mr Rockitt over from the corridor outside the Science Lab, and bounce
+# a pellet off his head up to the shield at (33,8)
+66650 RIGHT 30
+66680 LEFT
+66682 UP 28
+66710 RIGHT 26
+66742 FIRE_CATAPULT # knock Mr Rockitt over at (32,10)
+66782 FIRE_CATAPULT # hit the shield at (33,8)
+
+# Playtime: jump up to the shield in the storeroom, then to the two Blue Room
+# shields
+67600 RIGHT 151
+67751 LEFT 6
+67757 JUMP          # jump up to the shield at (57,9)
+67770 LEFT 154
+67924 RIGHT
+67926 UP 28
+67954 LEFT 70
+68024 JUMP          # jump up to the shield at (9,2)
+68040 LEFT 21
+68061 JUMP          # jump up to the shield at (4,2)
+
+# Punch Perkins as he walks into the Science Lab, stand on him and jump up to
+# the shield at (38,8); then attend Mr Withit's lesson
+69700 RIGHT 90
+69790 LEFT
+69792 DOWN 28
+69820 RIGHT 82
+69902 LEFT
+70150 HIT           # knock Perkins out at (37,10)
+70162 LEFT 7
+70169 JUMP          # jump onto Perkins
+70185 JUMP          # jump up to the shield at (38,8)
+70220 RIGHT 59
+70279 LEFT
+70281 SIT_STAND     # sit down
+
+# Assembly: wait in the Yellow Room, then attend Mr Withit's lesson there
+72340 SIT_STAND
+72342 LEFT 133
+72475 RIGHT
+72477 UP 28
+73455 RIGHT 136
+73591 LEFT
+73593 SIT_STAND     # sit down
+
+# Playtime: jump up to the two Upper Room shields, knock Miss Take over in the
+# kitchen and bounce a pellet off her head up to the shield on the girls' skool
+# shelf, and kiss Hayley on the way back
+75890 SIT_STAND
+75892 LEFT 137
+76029 DOWN 28
+76057 LEFT 16
+76073 RIGHT
+76075 DOWN 28
+76103 RIGHT 616
+76719 UP 28
+76747 RIGHT 14
+76761 LEFT
+76763 UP 28
+76791 LEFT 48
+76839 JUMP          # jump up to the shield at (167,2)
+76855 LEFT 21
+76876 JUMP          # jump up to the shield at (162,2)
+76890 RIGHT 71
+76961 DOWN 30
+76991 LEFT 20
+77011 DOWN 28
+77039 LEFT 12
+77051 RIGHT
+77129 FIRE_CATAPULT # knock Miss Take over at (185,17)
+77172 FIRE_CATAPULT # hit the shield at (186,14)
+77232 LEFT 176
+77408 KISS          # kiss Hayley (1000 lines off)
+
+# Attend Mr Rockitt's lesson in the Science Lab
+77430 LEFT 425
+77855 UP 28
+77883 RIGHT 30
+78295 RIGHT 120
+78415 LEFT
+78417 SIT_STAND     # sit down
+
+# Attend Mr Creak's lesson in the Blue Room (standing at the back)
+80663 SIT_STAND
+80665 LEFT 132
+80797 RIGHT
+80799 UP 28
+80827 LEFT 18       # stand at (22,3)
+
+# Attend assembly, then follow Mr Wacker up to his study, slip through the door
+# behind him, jump up to the three shields in the study, and follow him out
+83070 RIGHT 19
+83089 LEFT
+83091 DOWN 28
+83119 LEFT 16
+83135 RIGHT
+83137 DOWN 28
+83165 RIGHT 216
+83381 SIT_STAND     # sit down facing the stage
+84180 SIT_STAND
+84182 RIGHT 29
+84211 LEFT
+84213 UP 12
+84225 RIGHT 6
+84231 UP 16
+84247 RIGHT 26
+84273 LEFT
+84275 UP 35
+84312 JUMP          # jump up to the shield at (82,2)
+84330 LEFT 12
+84350 JUMP          # jump up to the shield at (79,2)
+84364 LEFT 21
+84385 JUMP          # jump up to the shield at (74,2)
+84440 RIGHT 44      # follow Mr Wacker out of his study
+
+# Get out of the boys' skool and into the girls' skool, out of Miss Take's sight
+# (while Eric is on the girls' side, Albert keeps the skool gate open)
+84540 LEFT 6
+84546 RIGHT
+84548 DOWN 28
+84576 LEFT 30
+84606 DOWN 16
+84622 LEFT 4
+84626 RIGHT
+84628 DOWN 14
+84642 RIGHT 268
+85200 RIGHT 104
+85304 UP 28
+85332 LEFT 50
+85382 RIGHT
+
+# At the start of the next lesson, punch Violet as she walks into the Middle
+# Room, stand on her and jump up to the last shield: Eric goes up a year!
+86636 HIT           # knock Violet out at (173,10)
+86646 RIGHT 13
+86659 LEFT
+86661 JUMP          # jump onto Violet
+86677 JUMP          # jump up to the shield at (173,8): Eric goes up a year!
