@@ -1,0 +1,22 @@
+name: tests
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v7
+
+    - name: Install pygame & pytest
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-pygame python3-pytest python3-pytest-xdist
+
+    - name: Build Pyskool assets
+      run: make images ini sounds
+
+    - name: Run tests
+      run: PYSKOOL_HOME=$(pwd) pytest -n auto tests
