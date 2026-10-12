@@ -1,37 +1,14 @@
 import os
-import sys
-import warnings
 
-import pytest
-
-PYSKOOL_HOME = os.environ.get('PYSKOOL_HOME')
-if not PYSKOOL_HOME:
-    pytest.exit('PYSKOOL_HOME is not set; aborting', 1)
-if not os.path.isdir(PYSKOOL_HOME):
-    pytest.exit(f'PYSKOOL_HOME={PYSKOOL_HOME}: directory not found', 1)
-sys.path.insert(0, os.path.join(PYSKOOL_HOME, 'utils'))
-
-# Import pygame now (before demo does) to swallow the warnings it emits
-with warnings.catch_warnings():
-    warnings.simplefilter('ignore')
-    import pygame
-
-import demo
-from pyskool import user_dir
+from pyskooltest import PYSKOOL_HOME, check_assets, demo
 
 REPLAYS_DIR = os.path.join(PYSKOOL_HOME, 'replays')
-
-def _check_assets(game):
-    ini_dir = os.path.join(user_dir, 'ini', demo.GAMES[game])
-    for path in (ini_dir, os.path.join(user_dir, 'images'), os.path.join(user_dir, 'sounds')):
-        if not os.path.isdir(path):
-            pytest.skip(f'{path} not found (run "make images ini sounds")')
 
 def _run_replay(monkeypatch, game, replay, ticks):
     """Run a replay headless and return the Demo object, the shield mode
     changes as (tick, mode) pairs, the ticks at which Eric went up a year, and
     the game endings as (tick, up_a_year) pairs."""
-    _check_assets(game)
+    check_assets(game)
     d = demo.Demo(demo.parse_args(['-g', game, '-i', os.path.join(REPLAYS_DIR, replay), '-t', str(ticks)]))
 
     up_a_year_ticks = []

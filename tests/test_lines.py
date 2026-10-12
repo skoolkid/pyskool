@@ -1,91 +1,4 @@
-import os
-import re
-import sys
-import warnings
-
-import pytest
-
-PYSKOOL_HOME = os.environ.get('PYSKOOL_HOME')
-if not PYSKOOL_HOME:
-    pytest.exit('PYSKOOL_HOME is not set; aborting', 1)
-if not os.path.isdir(PYSKOOL_HOME):
-    pytest.exit(f'PYSKOOL_HOME={PYSKOOL_HOME}: directory not found', 1)
-sys.path.insert(0, os.path.join(PYSKOOL_HOME, 'utils'))
-
-# Import pygame now (before demo does) to swallow the warnings it emits
-with warnings.catch_warnings():
-    warnings.simplefilter('ignore')
-    import pygame
-
-import demo
-from pyskool import user_dir
-
-# A line printed by 'demo.py --lines', e.g.
-#   LINES 284: +700 = 700 by MR WITHIT (38,17) [GET_UP] Eric (48,17)
-LINES_RE = re.compile(r'LINES (\d+): \+(\d+) = \d+ by (.+) \(\d+,\d+\) \[(\w+)\](?: to (.+))? Eric \(\d+,\d+\)$')
-
-def _check_assets(game):
-    ini_dir = os.path.join(user_dir, 'ini', demo.GAMES[game])
-    for path in (ini_dir, os.path.join(user_dir, 'images'), os.path.join(user_dir, 'sounds')):
-        if not os.path.isdir(path):
-            pytest.skip(f'{path} not found (run "make images ini sounds")')
-
-def _run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setup=None):
-    """Run a game headless with 'demo.py --lines' for one lesson (or, if
-    'lesson' is None, the normal timetable starting at the lesson that the
-    random seed selects), using the given random seed and inputs (the contents
-    of an inputs file), and return the Demo object and the lines given, as
-    (tick, lines, giver, message ID, recipient) tuples, where recipient is None
-    if Eric got the lines. This includes lines given to characters (such as
-    Einstein) whose lines are added to Eric's score, which 'demo.py --lines'
-    does not report.
-
-    If given, 'setup' is called with the Skool object before the first tick.
-    """
-    _check_assets(game)
-    # demo.py wraps these methods to log lines; make sure they are restored
-    # afterwards, so that the logging doesn't pile up over several tests
-    for cls, name in (
-            (demo.character.Character, 'print_lines_message'),
-            (demo.character.Character, 'add_lines'),
-            (demo.eric_mod.Eric, 'kiss'),
-            (demo.skool_mod.Skool, 'add_lines')
-    ):
-        monkeypatch.setattr(cls, name, getattr(cls, name))
-    inputs_file = tmp_path / 'inputs.txt'
-    inputs_file.write_text(inputs)
-    args = ['-g', game, '-s', str(seed), '-i', str(inputs_file), '-t', str(ticks), '--lines']
-    if lesson:
-        args.extend(('-l', lesson))
-    d = demo.Demo(demo.parse_args(args))
-
-    lines = []
-    print_lines_message = demo.character.Character.print_lines_message
-    def recorded_print_lines_message(giver, recipient_id, message_id):
-        scoreboard = giver.skool.scoreboard
-        score = scoreboard.score
-        print_lines_message(giver, recipient_id, message_id)
-        if scoreboard.score != score:
-            recipient = giver.cast.get(recipient_id).name
-            lines.append((d.tick + 1, scoreboard.score - score, giver.name, message_id, recipient))
-    monkeypatch.setattr(demo.character.Character, 'print_lines_message', recorded_print_lines_message)
-
-    if setup:
-        main_loop = demo.game.Game._main_loop
-        def set_up_main_loop(g):
-            if d.tick == 0 and not hasattr(g, 'set_up'):
-                g.set_up = True
-                setup(g.skool)
-            return main_loop(g)
-        monkeypatch.setattr(demo.game.Game, '_main_loop', set_up_main_loop)
-
-    assert d.run(), 'demo crashed or a character got lost'
-    for line in capsys.readouterr().out.splitlines():
-        match = LINES_RE.match(line)
-        if match:
-            tick, num, giver, message_id, recipient = match.groups()
-            lines.append((int(tick), int(num), giver, message_id, recipient))
-    return d, sorted(lines, key=lambda line: line[0])
+from pyskooltest import run
 
 def test_skool_daze_sit_on_floor(monkeypatch, capsys, tmp_path):
     # Eric walks left to meet Mr Withit, who is walking right along the bottom
@@ -94,7 +7,7 @@ def test_skool_daze_sit_on_floor(monkeypatch, capsys, tmp_path):
         1 LEFT 100
         101 SIT_STAND
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 110)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 110)
 
     # Mr Withit told Eric to get off the floor
     assert lines == [(106, 500, 'MR WITHIT', 'GET_UP', None)]
@@ -111,7 +24,7 @@ def test_skool_daze_sit_on_stairs(monkeypatch, capsys, tmp_path):
         143 RIGHT
         144 SIT_STAND
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 150)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 150)
 
     # Mr Wacker told Eric not to sit on the stairs
     assert lines == [(149, 300, 'MR WACKER', 'NO_SITTING_ON_STAIRS', None)]
@@ -126,7 +39,7 @@ def test_skool_daze_catapult(monkeypatch, capsys, tmp_path):
         1 LEFT 100
         101 FIRE_CATAPULT
     """
-    _, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 110)
+    _, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 110)
 
     # Mr Withit told Eric that catapults are forbidden
     assert lines == [(109, 800, 'MR WITHIT', 'NO_CATAPULTS', None)]
@@ -138,7 +51,7 @@ def test_skool_daze_punch(monkeypatch, capsys, tmp_path):
         1 LEFT 100
         101 HIT
     """
-    _, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 110)
+    _, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 110)
 
     # Mr Withit told Eric not to hit his mates
     assert lines == [(110, 800, 'MR WITHIT', 'NO_HITTING', None)]
@@ -150,7 +63,7 @@ def test_skool_daze_jump(monkeypatch, capsys, tmp_path):
         1 LEFT 100
         101 JUMP
     """
-    _, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 110)
+    _, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 110)
 
     # Mr Withit told Eric that he is not a kangaroo
     assert lines == [(107, 700, 'MR WITHIT', 'NO_JUMPING', None)]
@@ -164,7 +77,7 @@ def test_skool_daze_knock_over_teacher(monkeypatch, capsys, tmp_path):
         127 RIGHT
         128 FIRE_CATAPULT
     """
-    _, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 200)
+    _, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 200)
 
     # Mr Withit got up and told Eric not to do it again
     assert lines == [(198, 400, 'MR WITHIT', 'NEVER_AGAIN', None)]
@@ -176,7 +89,7 @@ def test_skool_daze_forbidden_area(monkeypatch, capsys, tmp_path):
         1 LEFT 118
         119 UP 36
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 160)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 160)
 
     # Mr Wacker told Eric that the room is private
     assert lines == [(159, 300, 'MR WACKER', 'GET_OUT', None)]
@@ -194,7 +107,7 @@ def test_skool_daze_classroom_at_playtime(monkeypatch, capsys, tmp_path):
         119 UP 28
         147 RIGHT 42
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 205)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 205)
 
     # Mr Wacker, walking along the middle floor towards the stairs up to the
     # top floor, told Eric to get to where he should be
@@ -213,7 +126,7 @@ def test_skool_daze_not_in_class(monkeypatch, capsys, tmp_path):
         119 UP 28
         147 RIGHT 42
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Wacker-ExamRoom', inputs, 205)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Wacker-ExamRoom', inputs, 205)
 
     # Mr Withit, walking along the middle floor towards the stairs up to the
     # top floor, told Eric to get to where he should be
@@ -235,7 +148,7 @@ def test_skool_daze_write_on_blackboard(monkeypatch, capsys, tmp_path):
         202 TYPE E
         203 ENTER
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Wacker-WhiteRoom', inputs, 215)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Wacker-WhiteRoom', inputs, 215)
 
     # Mr Creak told Eric not to touch blackboards, both when Eric started
     # writing and when he wrote a letter
@@ -258,7 +171,7 @@ def test_skool_daze_stand_in_class(monkeypatch, capsys, tmp_path):
         119 UP 28
         147 RIGHT 50
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 862)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 862)
 
     # Mr Withit started the lesson and told Eric to find a seat
     assert lines == [(860, 100, 'MR WITHIT', 'SIT_DOWN', None)]
@@ -280,7 +193,7 @@ def test_skool_daze_late_for_class(monkeypatch, capsys, tmp_path):
         147 RIGHT 34
         900 RIGHT 9
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 957)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 957)
 
     # Mr Withit told Eric never to be late again
     assert lines == [(955, 500, 'MR WITHIT', 'BE_PUNCTUAL', None)]
@@ -303,7 +216,7 @@ def test_skool_daze_not_staying_in_class(monkeypatch, capsys, tmp_path):
         860 LEFT 43
         1220 RIGHT 43
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 1315)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 1315)
 
     # Mr Withit told Eric to stay this time
     assert lines == [(1313, 400, 'MR WITHIT', 'STAY_IN_CLASS', None)]
@@ -322,7 +235,7 @@ def test_skool_daze_not_attending_class(monkeypatch, capsys, tmp_path):
         119 UP 28
         147 RIGHT 30
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 1172)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 1172)
 
     # Mr Withit found Eric and told him to come along with him, and then
     # alternately told him to hurry up and not to try his patience
@@ -353,7 +266,7 @@ def test_skool_daze_telling_tales(monkeypatch, capsys, tmp_path):
         420 LEFT 15
         860 LEFT 13
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 987)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 987)
 
     # Eric was not in the White Room when Einstein finished his tale, so Mr
     # Withit told Einstein not to tell tales (which added to Eric's score)
@@ -387,7 +300,7 @@ def test_back_to_skool_stinkbomb(monkeypatch, capsys, tmp_path):
         812 RIGHT 24
         836 DROP_STINKBOMB
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 844, seed=6)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 844, seed=6)
 
     # Mr Wacker told Eric that stinkbombs are not allowed
     assert lines == [(842, 300, 'MR WACKER', 'NO_STINKBOMBS', None)]
@@ -414,7 +327,7 @@ def test_back_to_skool_water_pistol(monkeypatch, capsys, tmp_path):
         812 RIGHT 24
         836 FIRE_WATER_PISTOL
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 844, seed=10)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 844, seed=10)
 
     # Mr Wacker told Eric that water pistols are not allowed
     assert lines == [(842, 200, 'MR WACKER', 'NO_WATERPISTOLS', None)]
@@ -429,7 +342,7 @@ def test_back_to_skool_plant_pot(monkeypatch, capsys, tmp_path):
         1 LEFT 4
         5 JUMP
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 713)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 713)
 
     # Mr Wacker told Eric to get off the plants
     assert lines == [(711, 500, 'MR WACKER', 'GET_OFF_PLANT', None)]
@@ -452,8 +365,8 @@ def test_back_to_skool_bike(monkeypatch, capsys, tmp_path):
         264 LEFT
         267 RIGHT
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 292,
-                    setup=lambda skool: skool.unchain_bike())
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 292,
+                    setup=lambda d: d.skool.unchain_bike())
 
     # Mr Wacker told Eric not to ride bikes in the skool
     assert lines == [(290, 500, 'MR WACKER', 'NO_BIKES', None)]
@@ -470,7 +383,7 @@ def test_back_to_skool_playground_during_lesson(monkeypatch, capsys, tmp_path):
     inputs = """
         1 LEFT 33
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'bts', None, inputs, 2607, seed=28)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', None, inputs, 2607, seed=28)
 
     # Once Eric should have left the playground (200 ticks after the bell),
     # Mr Withit told him to get back to school
@@ -489,7 +402,7 @@ def test_back_to_skool_sit_facing_away_from_stage(monkeypatch, capsys, tmp_path)
         1 LEFT 234
         235 SIT_STAND
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'bts', 'Assembly', inputs, 240)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Assembly', inputs, 240)
 
     # Mr Creak told Eric to sit facing the stage
     assert lines == [(238, 100, 'MR CREAK', 'SIT_FACING_STAGE', None)]
@@ -505,7 +418,7 @@ def test_back_to_skool_stand_in_assembly(monkeypatch, capsys, tmp_path):
     inputs = """
         1 LEFT 234
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'bts', 'Assembly', inputs, 712)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Assembly', inputs, 712)
 
     # Mr Withit told Eric to sit down
     assert lines == [(710, 500, 'MR WITHIT', 'SIT_DOWN', None)]
@@ -523,7 +436,7 @@ def test_back_to_skool_not_attending_class(monkeypatch, capsys, tmp_path):
     inputs = """
         1 LEFT 150
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'bts', 'Dinner-Withit', inputs, 1173)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Dinner-Withit', inputs, 1173)
 
     # Mr Withit found Eric and told him to come along, then told him not to
     # keep him waiting, and then started again (Back to Skool has only two
@@ -546,7 +459,7 @@ def test_skool_daze_knocked_out(monkeypatch, capsys, tmp_path):
     inputs = """
         1 LEFT 56
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-Stampede-1', inputs, 146, seed=29)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-Stampede-1', inputs, 146, seed=29)
 
     # Mr Rockitt told Eric to get off the floor
     assert lines == [(144, 400, 'MR ROCKITT', 'GET_UP', None)]
@@ -570,7 +483,7 @@ def test_skool_daze_tale_about_writing(monkeypatch, capsys, tmp_path):
         402 ENTER
         420 LEFT 15
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 987)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 987)
 
     # Eric was in the White Room when Einstein finished his tale, so Mr Withit
     # told Eric not to touch blackboards
@@ -594,7 +507,7 @@ def test_skool_daze_tale_about_hitting(monkeypatch, capsys, tmp_path):
         119 UP 28
         147 RIGHT 42
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 942, seed=20)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Withit-WhiteRoom', inputs, 942, seed=20)
 
     # Eric was in the White Room when Einstein finished his tale, so Mr Withit
     # told Eric not to hit his mates
@@ -614,7 +527,7 @@ def test_skool_daze_never_again_to_einstein(monkeypatch, capsys, tmp_path):
         199 RIGHT 40
         240 FIRE_CATAPULT
     """
-    d, lines = _run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 308)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 308)
 
     # Einstein was the kid nearest to Mr Withit when he got up, so Mr Withit
     # told Einstein not to do it again (which added to Eric's score)
