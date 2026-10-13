@@ -114,7 +114,7 @@ class Character:
         """Return whether the character is amenable to being punched at this
         exact moment.
         """
-        return self.is_punchable() and (self.is_standing() or self.is_sitting_on_chair())
+        return self.is_punchable() and self.is_deckable()
 
     def get_location(self):
         """Return the on-floor location that is closest to the character."""

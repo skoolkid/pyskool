@@ -570,11 +570,15 @@ class GoTo(Command):
         elif self.character.x > next_x:
             self.done = self.go_one_step
             return self.character.left()
-        else:
+        elif next_staircase:
             if next_staircase.contains(self.character):
                 self.character.walk(True)
             else:
                 self.character.turn()
+        else:
+            c, d = self.character, self.destination
+            debug.error(f"Cannot determine next staircase for {c.name} at ({c.x},{c.y}) going to ({d.x},{d.y})")
+            return
         self.done = self.go_one_step
 
     def is_GoTo(self):
