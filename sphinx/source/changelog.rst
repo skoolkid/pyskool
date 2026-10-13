@@ -1,6 +1,9 @@
 Changelog
 =========
 
+1.3b1
+-----
+
 1.2.1 (2016-05-21)
 ------------------
 * Added missing verbs to the :ref:`assemblyMessages` section for Back to Skool
