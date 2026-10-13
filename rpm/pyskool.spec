@@ -1,5 +1,3 @@
-%{!?python_sitelib: %global python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())")}
-
 Name:           pyskool
 Version:        %($PYSKOOL_HOME/pyskool.py --version 2>&1)
 Release:        1
@@ -10,8 +8,8 @@ URL:            https://pyskool.ca
 Source0:        https://pyskool.ca/downloads/%{name}/%{name}-%{version}.tar.xz
 
 BuildArch:      noarch
-BuildRequires:  python-devel
-Requires:       pygame
+BuildRequires:  python3-devel python3-setuptools
+Requires:       python3 >= 3.10 python3-pygame >= 2.0.2
 
 %description
 Pyskool is a re-implementation of the classic ZX Spectrum games, Skool Daze
@@ -25,12 +23,12 @@ and Back to Skool Daze.
 %setup -q
 
 %build
-%{__python} setup.py build
+%{__python3} setup.py build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 # --prefix=... is needed on openSUSE, but not Fedora
-%{__python} setup.py install -O1 --prefix=%{_prefix} --skip-build --root $RPM_BUILD_ROOT
+%{__python3} setup.py install -O1 --prefix=%{_prefix} --skip-build --root $RPM_BUILD_ROOT
 install -d %{buildroot}%{_mandir}/man6
 cp -p man/man6/*.6 %{buildroot}%{_mandir}/man6
 install -d %{buildroot}%{_datadir}/%{name}
@@ -44,7 +42,7 @@ cp -p xdg/pyskool.appdata.xml %{buildroot}%{_datadir}/appdata
 %{_mandir}/man6/*
 %{_datadir}/%{name}/*
 %{_datadir}/appdata/*
-%{python_sitelib}/*
+%{python3_sitelib}/*
 
 %changelog
 * Sat May 21 2016 Richard Dymond <rjdymond@gmail.com> 1.2.1-1

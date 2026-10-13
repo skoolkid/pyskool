@@ -3,14 +3,13 @@ Installing and running Pyskool
 
 Requirements
 ------------
-Pyskool requires `Python <https://www.python.org/downloads/>`_ (version 3) and
-`Pygame <https://www.pygame.org/download.shtml>`_ (version 1.8+).
+Pyskool requires `Python <https://www.python.org/downloads/>`_ (version 3.10+)
+and `Pygame <https://www.pygame.org/download.shtml>`_ (version 2.0.2+).
 
 On Linux/\*BSD, Python and Pygame are available via the package management
-system. Python is in the `python` package on all systems; Pygame is in the
-`python-pygame` package on Debian-based distros and openSUSE, the `pygame`
-package on Fedora, the `devel/py-game` port on FreeBSD and NetBSD, and the
-`devel/pygame` port on OpenBSD.
+system. Python is in the `python3` package on all systems; Pygame is in the
+`python3-pygame` package on most Linux distros, the `devel/py-game` port on
+FreeBSD and NetBSD, and the `devel/pygame` port on OpenBSD.
 
 Windows and Mac OS X users should take care to select the Pygame installer that
 matches the version of Python that is installed.

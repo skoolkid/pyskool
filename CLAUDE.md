@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Pyskool is a Pygame re-implementation of the ZX Spectrum games Skool Daze and Back to Skool. It is really five games sharing one engine: Skool Daze, Back to Skool, Skool Daze Take Too, Ezad Looks and Back to Skool Daze. It needs Python 3, and its only runtime dependency is Pygame.
+Pyskool is a Pygame re-implementation of the ZX Spectrum games Skool Daze and Back to Skool. It is really five games sharing one engine: Skool Daze, Back to Skool, Skool Daze Take Too, Ezad Looks and Back to Skool Daze. It needs Python 3.10+, and its only runtime dependency is Pygame.
 
 ## Commands
 

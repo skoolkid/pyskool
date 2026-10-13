@@ -2,12 +2,12 @@ Source: pyskool
 Maintainer: Richard Dymond <rjdymond@gmail.com>
 Section: games
 Priority: optional
-Build-Depends: python (>= 2.6.6-3), debhelper (>= 7.4.3)
-Standards-Version: 3.9.1
+Build-Depends: python3 (>= 3.10), python3-setuptools (>= 44.0.0), debhelper (>= 10), dh-python
+Standards-Version: 4.5.0
 
 Package: pyskool
 Architecture: all
-Depends: python2.7 | python2.6, python (>= 2.6), python (<< 2.8), python-pygame (>= 1.7)
+Depends: python3 (>= 3.10), python3-pygame (>= 2.0.2)
 Description: Remake of Skool Daze and Back to Skool in Python and Pygame
  Pyskool is a re-implementation of the classic ZX Spectrum games, Skool Daze
  and Back to Skool, in Python and Pygame. Pyskool aims to make the games easy

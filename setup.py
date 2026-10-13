@@ -28,12 +28,11 @@ advanced customisation - writing some Python code.
 
 Requirements
 ------------
-Pyskool requires Python 3 and `Pygame`_ (version 1.8+).
+Pyskool requires Python 3.10+ and `Pygame`_ (version 2.0.2+).
 
 On Linux/\*BSD, Pygame is available via the package management system: the
-`python-pygame` package on Debian-based distros and openSUSE, the `pygame`
-package on Fedora, the `devel/py-game` port on FreeBSD and NetBSD, and the
-`devel/pygame` port on OpenBSD.
+`python3-pygame` package on most Linux distros, the `devel/py-game` port on
+FreeBSD and NetBSD, and the `devel/pygame` port on OpenBSD.
 
 Windows and Mac OS X users should take care to select the Pygame installer that
 matches the version of Python that is installed.
@@ -107,6 +106,7 @@ setup(
     long_description=LONG_DESCRIPTION,
     packages=['pyskool'],
     package_data={'pyskool': ['data/images.ini', 'data/pyskool.ini']},
+    python_requires='>=3.10',
     scripts=[
         'back_to_skool_daze.py',
         'back_to_skool.py',
