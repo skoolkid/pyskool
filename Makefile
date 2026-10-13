@@ -1,3 +1,4 @@
+PYTEST ?= $(shell command -v pytest)
 LSCPU = $(shell command -v lscpu)
 CORES ?= $(if $(LSCPU),$(shell $(LSCPU) -p=SOCKET,CORE | grep -v '^#' | sort -u | wc -l),0)
 
@@ -12,6 +13,7 @@ usage:
 	@echo "  doc        build the documentation"
 	@echo "  clean      clean the documentation"
 	@echo "  test       run tests"
+	@echo "  test-cover run tests with coverage"
 	@echo "  release    build a Pyskool release tarball and zip archive"
 	@echo "  deb        build a Pyskool Debian package"
 	@echo "  rpm        build a Pyskool RPM package"
@@ -45,7 +47,13 @@ clean:
 
 .PHONY: test
 test:
-	PYSKOOL_HOME=$$(pwd) pytest -n $(CORES) tests
+	$(if $(PYTEST),,$(error pytest not found))
+	PYSKOOL_HOME=$$(pwd) $(PYTEST) -n $(CORES) tests
+
+.PHONY: test-cover
+test-cover:
+	$(if $(PYTEST),,$(error pytest not found))
+	PYSKOOL_HOME=$$(pwd) $(PYTEST) -n $(CORES) --cov --cov-report=term-missing tests
 
 .PHONY: release
 release:

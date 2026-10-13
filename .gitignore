@@ -1,5 +1,6 @@
 *.pyc
 *.py.6
+.coverage
 .emacs.desktop
 .emacs.desktop.lock
 back_to_skool.py
