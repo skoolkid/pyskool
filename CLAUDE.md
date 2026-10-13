@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Pyskool is a Pygame re-implementation of the ZX Spectrum games Skool Daze and Back to Skool. It is really five games sharing one engine: Skool Daze, Back to Skool, Skool Daze Take Too, Ezad Looks and Back to Skool Daze. The only runtime dependency is Pygame. No test suite exists.
+Pyskool is a Pygame re-implementation of the ZX Spectrum games Skool Daze and Back to Skool. It is really five games sharing one engine: Skool Daze, Back to Skool, Skool Daze Take Too, Ezad Looks and Back to Skool Daze. It needs Python 3, and its only runtime dependency is Pygame.
 
 ## Commands
 
@@ -15,7 +15,14 @@ From a checkout, set things up once (this downloads the original game TZX files 
 - `make scripts` creates the five launcher symlinks (`skool_daze.py` etc. → `pyskool.py`). They are gitignored.
 - `make images` / `make ini` / `make sounds` write generated assets into `~/.pyskool` using `utils/create-*.py`. These scripts need `PYSKOOL_HOME` set to the repo root (the Makefile sets it).
 
-Run a game with `./skool_daze.py`, `./back_to_skool.py` and so on. Useful flags: `-q` (quick start), `-c` (cheat keys), `-s N` (scale), `-i DIR` (alternative ini dir), `--config P,V`, `--search-dirs`. The shebang is `python`. If that isn't on PATH, run the launcher with `python3 ./skool_daze.py`.
+Run a game with `./skool_daze.py`, `./back_to_skool.py` and so on. Useful flags: `-q` (quick start), `-c` (cheat keys), `-s N` (scale), `-i DIR` (alternative ini dir), `--config P,V`, `--search-dirs`.
+
+`make test` runs the pytest suite in `tests/` in parallel (it needs `pytest-xdist`), and `make test-cover` runs it under coverage. To run the tests without make, use `PYSKOOL_HOME=$(pwd) pytest tests`. The tests drive `utils/demo.py` headless (see below), so they need the generated assets in `~/.pyskool`:
+- `test_replays.py` plays the five replays.
+- `test_lines.py` checks lines-giving scenarios.
+- `test_special_playtimes.py` checks special playtimes.
+
+`tests/pyskooltest.py` holds the shared helpers. `.github/workflows/tests.yml` runs the suite on every push to master.
 
 Other targets: `make doc` builds the Sphinx docs (`sphinx/source` → `sphinx/build/html`). `make release`, `make deb` and `make rpm` package the project via `utils/mkpstarball` and `utils/mkpspkg`. `utils/psrelease` holds the release checks, such as comparing generated images, sounds and ini files against a previous release. It needs `PYSKOOL_HOME`.
 
@@ -26,7 +33,7 @@ Other targets: `make doc` builds the Sphinx docs (`sphinx/source` → `sphinx/bu
 **Generated data.** The game ini files (`config.ini`, `skool.ini`, `command_lists.ini`, `lessons.ini`, `messages.ini`, `sprites.ini`, `font.ini`) are not checked in. Python code generates them:
 - `skoolini.SkoolIniMaker` is the base class. Its `build_ini()` calls `create_*` methods, one per ini section.
 - `sdini.SDIniMaker(custom)` and `btsini.BTSIniMaker(custom)` subclass it. `custom` picks the variant: `SKOOL_DAZE`/`SKOOL_DAZE_TAKE_TOO`/`EZAD_LOOKS` = 0/1/2, and `BACK_TO_SKOOL`/`BACK_TO_SKOOL_DAZE` = 0/1.
-- `sdtaps.py` and `btstaps.py` generate the "tap" (AI command list) definitions.
+- `sdtaps.py` and `btstaps.py` generate the "tap" (AI command list) definitions. `skooltaps.py` holds their base class and the command-name constants.
 
 To change default game data, edit these makers, not the output ini files. Images are built by `image.get_images()`. It reads a TZX/snapshot (`snapshot.py`) and extracts graphics from Spectrum memory (`skoolimage.SDMemory`/`BTSMemory`), then writes PNGs with `pngwriter.py`. Sounds are synthesised by `skoolsound.py`.
 
@@ -43,7 +50,7 @@ Eric can be controlled in three ways:
 - by replaying an inputs file, with `-i FILE`;
 - from the keyboard while recording, with `-r FILE` (needs `--screen`).
 
-Other options: `-g` picks the game (default `sd`), `-s` the random seed (default 0), `-t` the number of ticks to stop after, and `-l` restricts the timetable to one lesson.
+Other options: `-g` picks the game (default `sd`), `-s` the random seed (default 0), `-t` the number of ticks to stop after, and `-l` restricts the timetable to one lesson. `--images-dir`, `--sounds-dir` and `--ini-dir` override the default asset dirs in `~/.pyskool`.
 
 `--trace TICK` prints Eric's location, animatory state, controlling command, score and lines after every tick from TICK on. `--watch NAME,...` adds the locations of other characters or objects (by name or ID, e.g. `MOUSE`) to each line.
 
@@ -59,11 +66,11 @@ Other options: `-g` picks the game (default `sd`), `-s` the random seed (default
 
 Each line of an inputs file is `TICK ACTION [DURATION]`. ACTION is a key action from `pyskool/keys.py` or `WAIT`. A line `TICK TYPE TEXT` types TEXT on a blackboard after `WRITE`; follow it with `ENTER`. Anything after `#` is a comment. The same game, seed, lesson and inputs always give an identical replay.
 
-`replays/skool_daze.txt` makes Eric complete Skool Daze with seed 0; he goes up a year at tick 16478. To replay it, run `utils/demo.py -i replays/skool_daze.txt -t 16600 --screen`. Likewise, `replays/back_to_skool.txt` makes Eric complete Back to Skool with seed 0; he opens the safe and goes up a year at tick 39167 (`utils/demo.py -g bts -i replays/back_to_skool.txt -t 39300 --screen`). And `replays/skool_daze_take_too.txt` makes Eric complete Skool Daze Take Too with seed 0; he opens the safe at tick 15276, and goes up a year at tick 25205 after unflashing the shields (`utils/demo.py -g sdtt -i replays/skool_daze_take_too.txt -t 25300 --screen`). `replays/ezad_looks.txt` does the same for Ezad Looks; Eric opens the safe at tick 9774, and goes up a year at tick 23813 (`utils/demo.py -g el -i replays/ezad_looks.txt -t 23900 --screen`). And `replays/back_to_skool_daze.txt` completes Back to Skool Daze with seed 0. All 16 shields are flashing at tick 41293, Eric opens the safe at tick 60483, and he goes up a year at tick 86686 after unflashing the shields (`utils/demo.py -g btsd -i replays/back_to_skool_daze.txt -t 86800 --screen`).
+`replays/skool_daze.txt` makes Eric complete Skool Daze with seed 0; he goes up a year at tick 16478. To replay it, run `utils/demo.py -i replays/skool_daze.txt -t 16600 --screen`. Likewise, `replays/back_to_skool.txt` makes Eric complete Back to Skool with seed 0; he opens the safe and goes up a year at tick 39167 (`utils/demo.py -g bts -i replays/back_to_skool.txt -t 39300 --screen`). And `replays/skool_daze_take_too.txt` makes Eric complete Skool Daze Take Too with seed 0; he jumps to open the safe at tick 15276, and goes up a year at tick 25205 after unflashing the shields (`utils/demo.py -g sdtt -i replays/skool_daze_take_too.txt -t 25300 --screen`). `replays/ezad_looks.txt` does the same for Ezad Looks; Eric jumps to open the safe at tick 9774, and goes up a year at tick 23813 (`utils/demo.py -g el -i replays/ezad_looks.txt -t 23900 --screen`). And `replays/back_to_skool_daze.txt` completes Back to Skool Daze with seed 0. Eric jumps to hit the last of the 16 shields at tick 41293 and to open the safe at tick 60483, and he goes up a year at tick 86686 after unflashing the shields (`utils/demo.py -g btsd -i replays/back_to_skool_daze.txt -t 86800 --screen`). The safe and shield ticks are the `JUMP` input ticks in the replay files. The game state changes about 6–7 ticks later, when Eric reaches the top of the jump or the shield sound finishes. The up-a-year ticks are the event ticks. `tests/test_replays.py` asserts them.
 
 `utils/demoscan.py` finds input timings. It runs a game to tick `--at`, then forks a copy for each alternative continuation and runs it to tick `--to`. An alternative is the `-c` template (input lines separated by `;`) with each `{expr}` evaluated for one value `v` of the `-v` expression. `--until COND` stops an alternative early, and `--report EXPR` sets what is printed; both are Python evaluated with `demo`, `skool`, `eric`, `cast`, `tick`, `secrets` and `char(name)` available. Other options go to `demo.py`. For example: `utils/demoscan.py -g bts -i FILE --at 1287 --to 1600 -c '{v} CATCH' -v 'range(1300,1600,2)' --until 'eric.mice>0'`. It needs `os.fork()`, and must restore `random`'s state in each child, because Python reseeds it after a fork.
 
-`demo.py` is importable, with its run behind a `__main__` guard. Analysis scripts can therefore `import demo`, build `demo.Demo(demo.parse_args([...]))`, and wrap `demo.game.Game._main_loop` to inspect state each tick. `demo.tick` holds the current tick.
+`demo.py` is importable, with its run behind a `__main__` guard. Analysis scripts can therefore `import demo`, build `demo.Demo(demo.parse_args([...]))`, and wrap `demo.game.Game._main_loop` to inspect state each tick. The `Demo` object's `tick` attribute holds the current tick.
 
 ## Conventions
 
