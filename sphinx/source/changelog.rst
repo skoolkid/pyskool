@@ -3,6 +3,15 @@ Changelog
 
 1.3b1
 -----
+* Dropped support for Python 2.7 and Pygame 1.8
+* Added support for Pygame 2
+* Characters can no longer be knocked out with a punch while on a staircase
+* Fixed the bug that causes right-facing sprites to be misdrawn on systems
+  without SDL2
+* Fixed the bug that could cause a skool window to reset to an incorrect state
+  when starting a new game
+* Fixed the bug that could lead to characters being spontaneously "dethroned",
+  even when not sitting down
 
 1.2.1 (2016-05-21)
 ------------------
