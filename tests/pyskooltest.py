@@ -40,7 +40,7 @@ def check_assets(game):
         if not os.path.isdir(path):
             pytest.skip(f'{path} not found (run "make images ini sounds")')
 
-def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setup=None):
+def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setup=None, options=()):
     """Run a game headless with 'demo.py --lines --endings' for one lesson (or, if
     'lesson' is None, the normal timetable starting at the lesson that the
     random seed selects), using the given random seed and inputs (the contents
@@ -54,6 +54,8 @@ def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setu
 
     If given, 'setup' is called with the Demo object (whose 'skool' attribute
     is then set) before the first tick.
+
+    'options' is a sequence of any extra options to pass to demo.py.
     """
     check_assets(game)
     # demo.py wraps these methods to log lines; make sure they are restored
@@ -74,6 +76,7 @@ def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setu
     args = ['-g', game, '-s', str(seed), '-i', str(inputs_file), '-t', str(ticks), '--lines', '--endings']
     if lesson:
         args.extend(('-l', lesson))
+    args.extend(options)
     d = demo.Demo(demo.parse_args(args))
 
     if setup:
