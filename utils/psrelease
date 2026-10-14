@@ -4,7 +4,9 @@ set -e # Abort on errors
 PSTMPDIR=$HOME/tmp
 COMMANDS=$(echo {skool_daze{,_take_too},back_to_skool{,_daze},ezad_looks}.py)
 SHARE=/usr/share/pyskool
-APPDATA=/usr/share/appdata/pyskool.appdata.xml
+APPDATA=/usr/share/metainfo/ca.pyskool.Pyskool.metainfo.xml
+DESKTOP_FILES=$(echo /usr/share/applications/ca.pyskool.{SkoolDaze,BackToSkool,SkoolDazeTakeToo,EzadLooks,BackToSkoolDaze}.desktop)
+ICON=/usr/share/icons/hicolor/32x32/apps/ca.pyskool.Pyskool.png
 
 COMMON_IMAGES=$(echo {font,sprites}.png)
 SKOOL_DAZE_IMAGES=$(echo {bubble,logo,{message_,lesson_,score}box,{mutables,skool}{,_ink,_paper}}.png)
@@ -35,7 +37,7 @@ _require_pyskool() {
     exit 1
   fi
   TOOLS=$PYSKOOL_HOME/utils
-  VERSION=$($PYSKOOL_HOME/pyskool.py --version 2>&1)
+  VERSION=$($PYSKOOL_HOME/pyskool.py --version 2>&1 | tail -1)
   TARBALL=$PYSKOOL_HOME/dist/pyskool-$VERSION.tar.xz
   cd $PYSKOOL_HOME
   PREV_VERSION=$(git tag | tail -n 1 | cut -c2-)
@@ -111,7 +113,7 @@ _check_commands() {
       return 1
     fi
     logfile=$logdir/$(basename $cmdname .py)-help.log
-    $cmd --help &> $logfile || :
+    $cmd --help > $logfile 2>/dev/null || :
     firstword=$(head -n 1 $logfile | cut -f1 -d' ')
     if [[ "$firstword" != "usage:" ]]; then
       echo "FAILED (see $logfile)"
@@ -219,12 +221,14 @@ _check_assets() {
 }
 
 _check_appdata() {
-  echo -n "Checking $(basename $APPDATA): "
-  if [[ ! -f $APPDATA ]]; then
-    echo "FAILED ($APPDATA not found)"
-    return 1
-  fi
-  echo "OK"
+  for f in $APPDATA $DESKTOP_FILES $ICON; do
+    echo -n "Checking $(basename $f): "
+    if [[ ! -f $f ]]; then
+      echo "FAILED ($f not found)"
+      return 1
+    fi
+    echo "OK"
+  done
 }
 
 _check_setup() {
@@ -380,10 +384,12 @@ verify_setup() {
 build_deb() {
   _require_pyskool
 
-  debname=pyskool_$VERSION-1_all.deb
+  DEB_VERSION=$(dpkg-parsechangelog -l $PYSKOOL_HOME/debian/changelog -S Version)
+  debname=pyskool_${DEB_VERSION}_all.deb
   deb=$PYSKOOL_HOME/dist/$debname
   logdir=$PYSKOOL_HOME/dist/log
   mkdir -p $logdir
+  export PYGAME_HIDE_SUPPORT_PROMPT=1
 
   sudo dpkg -r pyskool &> /dev/null
 
@@ -391,7 +397,7 @@ build_deb() {
   _exec "Installing $debname" "sudo dpkg -i $deb" $logdir/dpkg-i.log
   _check_commands /usr/games $logdir
   _check_man_pages
-  _check_data $(/usr/games/skool_daze.py --package-dir)/data $logdir
+  _check_data $(/usr/games/skool_daze.py --package-dir 2>/dev/null)/data $logdir
   _check_assets $logdir
   _check_appdata
 
@@ -413,6 +419,7 @@ build_rpm() {
   rpm=$PYSKOOL_HOME/dist/$rpmname
   logdir=$PYSKOOL_HOME/dist/log
   mkdir -p $logdir
+  export PYGAME_HIDE_SUPPORT_PROMPT=1
 
   sudo rpm -e pyskool &> /dev/null || true
 
@@ -420,7 +427,7 @@ build_rpm() {
   _exec "Installing $rpmname" "sudo rpm -i $rpm" $logdir/rpm-i.log
   _check_commands /usr/bin $logdir
   _check_man_pages
-  _check_data $(/usr/bin/skool_daze.py --package-dir)/data $logdir
+  _check_data $(/usr/bin/skool_daze.py --package-dir | tail -1)/data $logdir
   _check_assets $logdir
   _check_appdata
 

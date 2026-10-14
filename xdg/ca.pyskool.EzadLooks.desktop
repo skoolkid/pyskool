@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Ezad Looks
+Comment=Skool Daze in a mirror-image skool
+Exec=ezad_looks.py
+Icon=ca.pyskool.Pyskool
+Terminal=false
+Categories=Game;ArcadeGame;
+Keywords=Pyskool;ZX Spectrum;Eric;Skool;

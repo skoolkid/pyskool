@@ -1,12 +1,12 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@ --with python3
+	dh $@ --with python3 --buildsystem=pybuild
 
 override_dh_auto_install:
-	python3 setup.py install --root=debian/pyskool --install-layout=deb --install-scripts=/usr/games
-
-override_dh_auto_build:
+	dh_auto_install
+	mv debian/pyskool/usr/bin debian/pyskool/usr/games
+	install -Dpm 644 icon.png debian/pyskool/usr/share/icons/hicolor/32x32/apps/ca.pyskool.Pyskool.png
 
 override_dh_compress:
 	dh_compress --exclude=changelog.html --exclude=.js

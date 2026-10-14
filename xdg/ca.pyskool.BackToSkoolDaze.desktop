@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Back to Skool Daze
+Comment=Hit the shields in the Back to Skool skool
+Exec=back_to_skool_daze.py
+Icon=ca.pyskool.Pyskool
+Terminal=false
+Categories=Game;ArcadeGame;
+Keywords=Pyskool;ZX Spectrum;Eric;Skool;

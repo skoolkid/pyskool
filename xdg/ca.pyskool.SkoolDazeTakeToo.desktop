@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Skool Daze Take Too
+Comment=Skool Daze with a new philosophy teacher
+Exec=skool_daze_take_too.py
+Icon=ca.pyskool.Pyskool
+Terminal=false
+Categories=Game;ArcadeGame;
+Keywords=Pyskool;ZX Spectrum;Eric;Skool;

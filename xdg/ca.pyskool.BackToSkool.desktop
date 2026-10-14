@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Back to Skool
+Comment=Get your report card back into the skool safe
+Exec=back_to_skool.py
+Icon=ca.pyskool.Pyskool
+Terminal=false
+Categories=Game;ArcadeGame;
+Keywords=Pyskool;ZX Spectrum;Eric;Skool;

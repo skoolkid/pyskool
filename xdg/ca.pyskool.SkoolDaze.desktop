@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Skool Daze
+Comment=Steal your report card from the skool safe
+Exec=skool_daze.py
+Icon=ca.pyskool.Pyskool
+Terminal=false
+Categories=Game;ArcadeGame;
+Keywords=Pyskool;ZX Spectrum;Eric;Skool;

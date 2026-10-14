@@ -1,5 +1,5 @@
 Name:           pyskool
-Version:        %($PYSKOOL_HOME/pyskool.py --version 2>&1)
+Version:        %($PYSKOOL_HOME/pyskool.py --version 2>&1 | tail -1)
 Release:        1
 Summary:        Remake of Skool Daze and Back to Skool in Python and Pygame
 
@@ -33,15 +33,20 @@ install -d %{buildroot}%{_mandir}/man6
 cp -p man/man6/*.6 %{buildroot}%{_mandir}/man6
 install -d %{buildroot}%{_datadir}/%{name}
 cp -a icon.png ini images sounds %{buildroot}%{_datadir}/%{name}
-install -d %{buildroot}%{_datadir}/appdata
-cp -p xdg/pyskool.appdata.xml %{buildroot}%{_datadir}/appdata
+install -d %{buildroot}%{_datadir}/metainfo
+cp -p xdg/ca.pyskool.Pyskool.metainfo.xml %{buildroot}%{_datadir}/metainfo
+install -d %{buildroot}%{_datadir}/applications
+cp -p xdg/*.desktop %{buildroot}%{_datadir}/applications
+install -Dpm 644 icon.png %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/ca.pyskool.Pyskool.png
 
 %files
 %doc COPYING docs/*
 %{_bindir}/*
 %{_mandir}/man6/*
 %{_datadir}/%{name}/*
-%{_datadir}/appdata/*
+%{_datadir}/metainfo/*
+%{_datadir}/applications/*
+%{_datadir}/icons/hicolor/32x32/apps/ca.pyskool.Pyskool.png
 %{python3_sitelib}/*
 
 %changelog

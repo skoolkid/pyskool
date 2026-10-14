@@ -7,7 +7,7 @@ Standards-Version: 4.5.0
 
 Package: pyskool
 Architecture: all
-Depends: python3 (>= 3.10), python3-pygame (>= 2.0.2)
+Depends: ${python3:Depends}, ${misc:Depends}, python3-pygame (>= 2.0.2)
 Description: Remake of Skool Daze and Back to Skool in Python and Pygame
  Pyskool is a re-implementation of the classic ZX Spectrum games, Skool Daze
  and Back to Skool, in Python and Pygame. Pyskool aims to make the games easy

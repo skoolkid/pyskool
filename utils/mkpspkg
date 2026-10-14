@@ -23,7 +23,7 @@ if [ ! -d "$PYSKOOL_HOME" ]; then
 fi
 
 cd $PYSKOOL_HOME
-VERSION=$(./pyskool.py --version 2>&1)
+VERSION=$(./pyskool.py --version 2>&1 | tail -1)
 PYSKOOL_TAR=pyskool-$VERSION.tar.xz
 if [ -f "dist/$PYSKOOL_TAR" ]; then
   echo "Using existing $PYSKOOL_TAR"
@@ -38,9 +38,10 @@ if [ "$PKGTYPE" = "deb" ]; then
   cd pyskool-$VERSION
   cp -a $PYSKOOL_HOME/debian .
   debuild -b -us -uc
-  rm -rf ../pyskool_$VERSION*.build ../pyskool_$VERSION*.changes
+  DEB_VERSION=$(dpkg-parsechangelog -S Version)
+  rm -rf ../pyskool_$DEB_VERSION*.build ../pyskool_$DEB_VERSION*.changes
   cd $PYSKOOL_HOME
-  echo "Created $(ls $PYSKOOL_HOME/dist/pyskool_$VERSION-*.deb)"
+  echo "Created $(ls $PYSKOOL_HOME/dist/pyskool_${DEB_VERSION}_*.deb)"
 elif [ "$PKGTYPE" = "rpm" ]; then
   cp -p dist/$PYSKOOL_TAR ~/rpmbuild/SOURCES/pyskool-$VERSION.tar.xz
   rm -f ~/rpmbuild/RPMS/noarch/pyskool-$VERSION-*.rpm

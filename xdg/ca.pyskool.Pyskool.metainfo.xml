@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>ca.pyskool.Pyskool</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Pyskool</name>
+  <summary>Remake of Skool Daze and Back to Skool</summary>
+  <developer id="ca.pyskool">
+    <name>Richard Dymond</name>
+  </developer>
+  <description>
+    <p>
+      Pyskool is a faithful re-implementation of the classic ZX Spectrum games
+      Skool Daze and Back to Skool.
+    </p>
+    <p>
+      Each game revolves around the antics of Eric, the hero. In Skool Daze,
+      Eric must steal his report card from the school safe - the combination of
+      which must be extracted from the teachers' brains using flashing shields
+      or, in the case of the history teacher, post-hypnotic suggestion. In Back
+      to Skool, Eric must get his report card back into the school safe, this
+      time with the extra help provided by a water pistol, stinkbombs, a bike,
+      mice, a frog and a girlfriend.
+    </p>
+    <p>
+      Pyskool also includes three new games built on the same engine: Skool
+      Daze Take Too, Ezad Looks and Back to Skool Daze.
+    </p>
+  </description>
+  <launchable type="desktop-id">ca.pyskool.SkoolDaze.desktop</launchable>
+  <launchable type="desktop-id">ca.pyskool.BackToSkool.desktop</launchable>
+  <launchable type="desktop-id">ca.pyskool.SkoolDazeTakeToo.desktop</launchable>
+  <launchable type="desktop-id">ca.pyskool.EzadLooks.desktop</launchable>
+  <launchable type="desktop-id">ca.pyskool.BackToSkoolDaze.desktop</launchable>
+  <provides>
+    <id>pyskool.desktop</id>
+    <binary>skool_daze.py</binary>
+    <binary>back_to_skool.py</binary>
+    <binary>skool_daze_take_too.py</binary>
+    <binary>ezad_looks.py</binary>
+    <binary>back_to_skool_daze.py</binary>
+  </provides>
+  <categories>
+    <category>Game</category>
+    <category>ArcadeGame</category>
+  </categories>
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">mild</content_attribute>
+  </content_rating>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Eric uses the head's head to get a shield</caption>
+      <image>https://pyskool.ca/xdg/pyskool-1.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Eric obtains a bike combination digit on the way to assembly</caption>
+      <image>https://pyskool.ca/xdg/pyskool-2.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Miss Take visits the old skool</caption>
+      <image>https://pyskool.ca/xdg/pyskool-3.png</image>
+    </screenshot>
+  </screenshots>
+  <url type="homepage">https://pyskool.ca</url>
+  <update_contact>rjdymond@gmail.com</update_contact>
+  <releases>
+    <release version="1.2.1" date="2016-05-21"/>
+    <release version="1.2" date="2015-01-14"/>
+  </releases>
+</component>
