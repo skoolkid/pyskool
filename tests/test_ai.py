@@ -1,5 +1,5 @@
 from pyskooltest import demo, run
-from pyskool import ai, items
+from pyskool import ai, barrier, items
 
 def _desk_with(skool, item):
     """Return the (room ID, x-coordinate) of the desk containing an item, or
@@ -58,6 +58,43 @@ def test_back_to_skool_collect_and_drop_water_pistol(monkeypatch, capsys, tmp_pa
     # Eric is standing up again next to the desk
     assert (d.eric.x, d.eric.y) == (167, 10)
     assert not d.eric.is_sitting()
+
+def test_back_to_skool_open_desk_while_lid_is_up(monkeypatch, capsys, tmp_path):
+    # Eric starts beside an empty desk in the Blue Room; he sits down, opens
+    # the desk, and then tries to open it again while the lid is still up
+    inputs = """
+        1 SIT_STAND
+        10 OPEN_DESK
+        14 OPEN_DESK
+    """
+    events = []
+    def setup(d):
+        eric = d.eric
+        eric.x, eric.y, eric.direction = 15, 3, -1
+        desk = [desk for desk in d.skool.rooms['BlueRoom'].desks if desk.x == 15][0]
+        assert desk.contents is None
+        lid = d.skool.cast.desk_lid
+        def raise_lid(desk, character, method=lid.raise_lid):
+            events.append((d.tick, 'raise_lid', desk.x, lid.is_visible()))
+            method(desk, character)
+        def hide(method=lid.hide):
+            events.append((d.tick, 'hide'))
+            method()
+        lid.raise_lid, lid.hide = raise_lid, hide
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 50, setup=setup)
+
+    # Eric raised the lid of the desk; the second attempt (while the lid was
+    # still up) had no effect, and the lid was lowered as usual
+    assert events == [
+        (11, 'raise_lid', 15, False),
+        (15, 'raise_lid', 15, True),
+        (39, 'hide')
+    ]
+    assert d.eric.is_sitting_on_chair()
+    assert not d.skool.cast.desk_lid.is_visible()
+
+    # Nobody gave Eric lines
+    assert lines == []
 
 def test_back_to_skool_fire_water_pistol_at_floor(monkeypatch, capsys, tmp_path):
     # Eric has the water pistol; he walks left, away from the plant pots by
@@ -145,6 +182,37 @@ def test_skool_daze_little_boy_repeats_message(monkeypatch, capsys, tmp_path):
     # Angelface walked past Eric (at tick 223) before Eric was told about him,
     # so Eric didn't catch mumps
     assert d.endings == []
+    assert lines == []
+
+def test_skool_daze_walk_into_wall(monkeypatch, capsys, tmp_path):
+    # Eric walks left until he reaches the far left wall, and keeps trying to
+    # walk left
+    inputs = """
+        1 LEFT 200
+    """
+    events = []
+    demos = []
+    def setup(d):
+        demos.append(d)
+    is_door = barrier.Barrier.is_door
+    def recording_is_door(b):
+        result = is_door(b)
+        eric = demos[0].eric
+        events.append((demos[0].tick, b.barrier_id, (eric.x, eric.y), result))
+        return result
+    monkeypatch.setattr(barrier.Barrier, 'is_door', recording_is_door)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 200, setup=setup)
+
+    # Each time Eric tried to walk into the wall, he checked whether it was a
+    # door (it wasn't), and stayed where he was
+    assert events == [
+        (195, 'FarLeftWall', (0, 17), False),
+        (197, 'FarLeftWall', (0, 17), False),
+        (199, 'FarLeftWall', (0, 17), False)
+    ]
+    assert (d.eric.x, d.eric.y) == (0, 17)
+
+    # Nobody gave Eric lines
     assert lines == []
 
 def test_back_to_skool_fall_off_dying_plant(monkeypatch, capsys, tmp_path):
@@ -282,6 +350,71 @@ def test_back_to_skool_slapped_by_hayley(monkeypatch, capsys, tmp_path):
     # Nobody gave Eric lines
     assert lines == []
 
+def test_back_to_skool_frog_mid_hop_is_not_catchable(monkeypatch, capsys, tmp_path):
+    # Eric starts in the Science Lab storeroom, facing the frog; it hops back
+    # and forth while he's near it, and he tries to catch it while it's
+    # mid-hop
+    inputs = """
+        157 CATCH
+    """
+    events = []
+    def setup(d):
+        eric = d.eric
+        eric.x, eric.y, eric.direction = 56, 10, 1
+        frog = d.skool.cast.frogs[0]
+        def is_catchable_at(x, y, method=frog.is_catchable_at):
+            catchable = method(x, y)
+            events.append((d.tick, (x, y), (frog.x, frog.y), frog.animatory_state, catchable))
+            return catchable
+        frog.is_catchable_at = is_catchable_at
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 163, setup=setup)
+
+    # Eric's hand was where a sitting frog at (57,10) would be caught, but the
+    # frog there was mid-hop, so Eric didn't catch it
+    assert events == [(158, (58, 13), (57, 10), 'HOP1', False)]
+    assert items.FROG not in d.eric.inventory
+
+    # The frog then landed and sat at (57,10)
+    frog = d.skool.cast.frogs[0]
+    assert (frog.x, frog.y) == (57, 10)
+    assert frog.animatory_state == 'SIT'
+
+    # Nobody gave Eric lines
+    assert lines == []
+
+def test_back_to_skool_catch_released_mouse(monkeypatch, capsys, tmp_path):
+    # Eric starts on the top floor near the Revision Library, facing the
+    # mouse; he catches it, releases it, and then catches it again
+    inputs = """
+        30 CATCH
+        40 RELEASE_MICE
+        54 CATCH
+    """
+    events = []
+    def setup(d):
+        eric, cast = d.eric, d.skool.cast
+        eric.x, eric.y, eric.direction = 16, 3, 1
+        for name in ('caught_mouse', 'kill_mouse'):
+            def recorded(mouse, name=name, method=getattr(cast, name)):
+                events.append((d.tick, name, mouse.character_id, (mouse.x, mouse.y), mouse.immortal))
+                method(mouse)
+            setattr(cast, name, recorded)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 70, setup=setup)
+
+    # Eric caught the immortal mouse (which was then relocated), released a
+    # mortal mouse in its place, and then caught the mortal mouse, which was
+    # removed from the game
+    assert events == [
+        (32, 'caught_mouse', 'MOUSE', (17, 3), True),
+        (55, 'caught_mouse', 'MortalMouse1', (17, 3), False),
+        (55, 'kill_mouse', 'MortalMouse1', (17, 3), False)
+    ]
+    assert [a.character_id for a in d.skool.cast.animals if a.is_mouse()] == ['MOUSE']
+    assert d.eric.mice == 1
+
+    # Nobody gave Eric lines
+    assert lines == []
+
 def test_back_to_skool_bike_runs_out_of_momentum(monkeypatch, capsys, tmp_path):
     # The bike is unchained from the start, and stands at the base of the
     # tree (at (100,17)); Eric walks left to it, turns round, gets on, pedals
@@ -331,6 +464,369 @@ def test_back_to_skool_bike_runs_out_of_momentum(monkeypatch, capsys, tmp_path):
     assert d.eric.controller is None
     bike = d.skool.cast.bike
     assert (bike.x, bike.y, bike.animatory_state) == (120, 17, 'BIKE_ON_FLOOR')
+
+    # Nobody gave Eric lines
+    assert lines == []
+
+def _shut_door_with_bike_nearby(monkeypatch, capsys, tmp_path, bike_x, ticks):
+    """Run Back to Skool with the bike lying at (bike_x,17) and Eric in the
+    Blue Room, and return the Demo object, the lines given, and a list of
+    (tick, door ID, bike location before, bike location after) tuples
+    recording when the bike was checked for being in the way of a door that
+    was about to be shut."""
+    events = []
+    def setup(d):
+        d.skool.unchain_bike()
+        eric, cast = d.eric, d.skool.cast
+        cast.bike.x = bike_x
+        eric.x, eric.y = 20, 3
+        def move_bike_away(door, method=cast.move_bike_away):
+            before = (cast.bike.x, cast.bike.y)
+            method(door)
+            events.append((d.tick, door.barrier_id, before, (cast.bike.x, cast.bike.y)))
+        cast.move_bike_away = move_bike_away
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Creak-BlueRoom-1', '', ticks, setup=setup)
+    return d, lines, events
+
+def test_back_to_skool_albert_moves_bike_away_from_skool_gate(monkeypatch, capsys, tmp_path):
+    # The bike is lying just inside the skool gate when Albert goes to shut it
+    d, lines, events = _shut_door_with_bike_nearby(monkeypatch, capsys, tmp_path, 133, 440)
+
+    # Albert moved the bike to the other side of the gate, and then shut it
+    assert events == [(433, 'SkoolGate', (133, 17), (135, 17))]
+    assert d.skool.is_door_shut('SkoolGate')
+    bike = d.skool.cast.bike
+    assert (bike.x, bike.y, bike.animatory_state) == (135, 17, 'BIKE_ON_FLOOR')
+
+    # Nobody gave Eric lines
+    assert lines == []
+
+def test_back_to_skool_albert_moves_bike_away_from_boys_skool_door(monkeypatch, capsys, tmp_path):
+    # The bike is lying just inside the boys' skool door when Albert goes to
+    # shut it (after shutting the skool gate)
+    d, lines, events = _shut_door_with_bike_nearby(monkeypatch, capsys, tmp_path, 94, 810)
+
+    # The bike wasn't in the way of the gate; Albert moved it to the other
+    # side of the door, and then shut the door
+    assert events == [
+        (433, 'SkoolGate', (94, 17), (94, 17)),
+        (803, 'SkoolDoor', (94, 17), (96, 17))
+    ]
+    assert d.skool.is_door_shut('SkoolDoor')
+    bike = d.skool.cast.bike
+    assert (bike.x, bike.y, bike.animatory_state) == (96, 17, 'BIKE_ON_FLOOR')
+
+    # Nobody gave Eric lines
+    assert lines == []
+
+def test_back_to_skool_wacker_smells_stinkbomb_in_his_study(monkeypatch, capsys, tmp_path):
+    # Eric has stinkbombs, and stands just outside Mr Wacker's study door,
+    # facing it; he drops a stinkbomb while Mr Wacker is walking about in his
+    # study
+    inputs = """
+        50 DROP_STINKBOMB
+    """
+    events = []
+    wacker_xy = {}  # tick -> Mr Wacker's location
+    demos = []
+    def setup(d):
+        demos.append(d)
+        eric, skool = d.eric, d.skool
+        eric.x, eric.y, eric.direction = 85, 3, -1
+        eric.inventory.add(items.STINKBOMBS3)
+        wacker = skool.cast.get('WACKER')
+        def open_window(window, method=wacker.open_window):
+            events.append((d.tick, 'open_window', window.barrier_id, (wacker.x, wacker.y),
+                           [type(c).__name__ for c in wacker.command_list.stack]))
+            method(window)
+        wacker.open_window = open_window
+        def move_door(barrier_id, shut, method=skool.move_door):
+            events.append((d.tick, 'move_door', barrier_id, shut, (wacker.x, wacker.y)))
+            method(barrier_id, shut)
+        skool.move_door = move_door
+    main_loop = demo.game.Game._main_loop
+    def recording_main_loop(g):
+        result = main_loop(g)
+        if demos:
+            wacker = demos[0].skool.cast.get('WACKER')
+            wacker_xy[demos[0].tick] = (wacker.x, wacker.y)
+        return result
+    monkeypatch.setattr(demo.game.Game, '_main_loop', recording_main_loop)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Creak-BlueRoom-1', inputs, 300, setup=setup)
+
+    # Mr Wacker smelt the stinkbomb while walking about in his study (and so
+    # not under the control of a GoTo command); he opened the study door,
+    # walked to the upper window, and opened it
+    assert events == [
+        (58, 'open_window', 'UpperWindow', (81, 3), ['MoveAboutUntil', 'WalkAround', 'GoToXY']),
+        (83, 'move_door', 'StudyDoor', False, (82, 3)),
+        (178, 'move_door', 'UpperWindow', False, (90, 3))
+    ]
+    assert not d.skool.is_door_shut('UpperWindow')
+
+    # Mr Wacker then went back to where he smelt the stinkbomb, and resumed
+    # walking about in his study
+    back = min(t for t in wacker_xy if t > 178 and wacker_xy[t] == (81, 3))
+    assert back == 278
+    assert all(wacker_xy[t][0] < 84 for t in range(back, 300))
+
+    # Nobody gave Eric lines
+    assert lines == []
+
+def test_back_to_skool_no_lines_for_jumping(monkeypatch, capsys, tmp_path):
+    # Eric stands in Mr Wacker's study, facing him, and jumps (Back to Skool
+    # has no NO_JUMPING lines message)
+    inputs = """
+        5 JUMP
+    """
+    events = []
+    def setup(d):
+        eric = d.eric
+        eric.x, eric.y, eric.direction = 82, 3, -1
+        # Scroll the screen to show the study (as it would if Eric had walked
+        # there), so that Mr Wacker is on screen and can give lines
+        d.skool.screen.column = 64
+        wacker = d.skool.cast.get('WACKER')
+        def print_lines_message(recipient_id, message_id, method=wacker.print_lines_message):
+            events.append((d.tick, (wacker.x, wacker.y), recipient_id, message_id,
+                           d.skool.screen.contains(wacker), message_id in wacker.lines_messages))
+            method(recipient_id, message_id)
+        wacker.print_lines_message = print_lines_message
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Creak-BlueRoom-1', inputs, 20, setup=setup)
+
+    # Mr Wacker, on screen, saw Eric jump and tried to give him lines, but
+    # had no NO_JUMPING lines message to give
+    assert events == [(8, (76, 3), 'HERO', 'NO_JUMPING', True, False)]
+
+    # So Eric got no lines
+    assert lines == []
+    assert d.skool.scoreboard.lines == 0
+
+def test_back_to_skool_hayleys_lines_added_to_erics_total(monkeypatch, capsys, tmp_path):
+    # Eric fires his catapult at Mr Withit, who is facing away from him; when
+    # Mr Withit gets up, Hayley is the nearest lines recipient
+    inputs = """
+        3 FIRE_CATAPULT
+    """
+    events = []
+    def setup(d):
+        eric, withit = d.eric, d.skool.cast.get('WITHIT')
+        eric.x, eric.y, eric.direction = 124, 17, 1
+        withit.x, withit.y, withit.direction = 136, 17, 1
+        for name in ('knock_over', 'print_lines_message'):
+            def recorded(*args, name=name, method=getattr(withit, name)):
+                events.append((d.tick, name, (withit.x, withit.y)) + args)
+                method(*args)
+            setattr(withit, name, recorded)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 80, setup=setup)
+
+    # The pellet knocked Mr Withit over, and when he got up he gave lines to
+    # Hayley (she was nearer to him than Eric or Angelface)
+    assert events == [
+        (34, 'knock_over', (133, 17)),
+        (74, 'print_lines_message', (133, 17), 'HEROINE', 'NEVER_AGAIN')
+    ]
+
+    # Hayley's lines were added to Eric's total
+    assert lines == [(75, 700, 'MR WITHIT', 'NEVER_AGAIN', 'HAYLEY')]
+    assert d.skool.scoreboard.lines == 700
+
+def test_back_to_skool_turn_round_on_stairs(monkeypatch, capsys, tmp_path):
+    # Eric is halfway up the stairs to the Revision Library, facing up them;
+    # he turns round and walks back down
+    inputs = """
+        1 DOWN 14
+    """
+    events = []
+    def setup(d):
+        eric = d.eric
+        eric.x, eric.y, eric.direction = 22, 7, 1
+        def turn(method=eric.turn):
+            method()
+            events.append((d.tick, (eric.x, eric.y), eric.direction))
+        eric.turn = turn
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 32, setup=setup)
+
+    # Eric turned round to face down the stairs without moving, and then
+    # walked down them to the bottom
+    assert events == [(3, (22, 7), -1)]
+    assert (d.eric.x, d.eric.y, d.eric.direction) == (19, 10, -1)
+
+    # Nobody gave Eric lines
+    assert lines == []
+
+def test_back_to_skool_lines_for_telling_tale_about_absent_eric(monkeypatch, capsys, tmp_path):
+    # Eric stays where he is (in the playground) and misses Mr Creak's lesson
+    # in the Yellow Room; Einstein tells Mr Creak that Eric is absent, and
+    # with seed 2, Mr Creak decides to give Einstein lines for telling tales
+    # before going to fetch Eric
+    events = []
+    demos = []
+    def setup(d):
+        demos.append(d)
+        # Show the Yellow Room on screen, so that Mr Creak can give lines
+        d.skool.screen.column = 32
+    fetch_eric = demo.lesson.Lesson.fetch_eric
+    def recording_fetch_eric(lesson):
+        events.append((demos[0].tick, 'fetch_eric', lesson.teacher.name))
+        return fetch_eric(lesson)
+    monkeypatch.setattr(demo.lesson.Lesson, 'fetch_eric', recording_fetch_eric)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', None, '', 960, seed=2, setup=setup)
+
+    # Mr Creak gave Einstein lines for telling tales (which were added to
+    # Eric's score) before setting off to fetch Eric
+    assert events == [(947, 'fetch_eric', 'MR CREAK')]
+    assert lines == [(948, 500, 'MR CREAK', 'NO_TALES', 'EINSTEIN')]
+    assert d.skool.scoreboard.score == 500
+
+def _return_to_base_after_fetching_eric(monkeypatch, capsys, tmp_path, game, lesson_id, seed, eric_xy, inputs, ticks):
+    """Run a lesson with Eric starting (facing left) at a given location
+    outside the classroom, and return the Demo object, the lines given, and
+    a list of (tick, teacher location, teacher direction, command returned,
+    teacher's next action, next actor) tuples recording each call to
+    Lesson.return_to_base()."""
+    events = []
+    demos = []
+    def setup(d):
+        demos.append(d)
+        d.eric.x, d.eric.y = eric_xy
+        d.eric.direction = -1
+    return_to_base = demo.lesson.Lesson.return_to_base
+    def recording_return_to_base(lesson):
+        command = return_to_base(lesson)
+        teacher = lesson.teacher
+        events.append((demos[0].tick, (teacher.x, teacher.y), teacher.direction, command and type(command).__name__,
+                       lesson.teacher_action, lesson.actor.name))
+        return command
+    monkeypatch.setattr(demo.lesson.Lesson, 'return_to_base', recording_return_to_base)
+    d, lines = run(monkeypatch, capsys, tmp_path, game, lesson_id, inputs, ticks, seed=seed, setup=setup)
+    return d, lines, events
+
+def test_back_to_skool_teacher_returns_to_blackboard_after_fetching_eric(monkeypatch, capsys, tmp_path):
+    # Eric is just outside the Yellow Room at the start of Mr Creak's lesson;
+    # Einstein tells Mr Creak that Eric is absent, and when Mr Creak sets off
+    # to fetch him, Eric walks into the classroom
+    inputs = """
+        949 LEFT 20
+    """
+    d, lines, events = _return_to_base_after_fetching_eric(monkeypatch, capsys, tmp_path, 'bts', 'Creak-YellowRoom-1', 0, (66, 3), inputs, 1000)
+
+    # Mr Creak went back to where he stood at the start of the lesson,
+    # arrived facing the wrong way and turned round, and then (since the
+    # Yellow Room has a blackboard and Einstein had not yet told any other
+    # tales) handed over to Einstein
+    assert events == [
+        (961, (51, 3), 1, 'GoToXY', 'return_to_base', 'MR CREAK'),
+        (984, (49, 3), -1, 'GoTowardsXY', 'return_to_base', 'MR CREAK'),
+        (989, (49, 3), 1, None, 'return_to_base', 'EINSTEIN')
+    ]
+
+    # Nobody gave Eric lines
+    assert lines == []
+
+def test_skool_daze_teacher_returns_to_ask_question_after_fetching_eric(monkeypatch, capsys, tmp_path):
+    # Eric is just outside the Map Room at the start of Mr Withit's lesson;
+    # Einstein tells Mr Withit that Eric is absent, and when Mr Withit sets
+    # off to fetch him, Eric walks into the classroom
+    inputs = """
+        1446 LEFT 40
+    """
+    d, lines, events = _return_to_base_after_fetching_eric(monkeypatch, capsys, tmp_path, 'sd', 'Withit-MapRoom-1', 0, (80, 3), inputs, 1540)
+
+    # Mr Withit went back to where he stood at the start of the lesson,
+    # arrived facing the wrong way and turned round, and then (since the Map
+    # Room has no blackboard, and this lesson has a question-and-answer
+    # session) asked a question
+    assert events == [
+        (1476, (67, 3), 1, 'GoToXY', 'return_to_base', 'MR WITHIT'),
+        (1529, (62, 3), -1, 'GoTowardsXY', 'return_to_base', 'MR WITHIT'),
+        (1534, (62, 3), 1, None, 'ask_question', 'MR WITHIT')
+    ]
+
+    # Nobody gave Eric lines
+    assert lines == []
+
+def test_skool_daze_teacher_returns_to_walk_up_and_down_after_fetching_eric(monkeypatch, capsys, tmp_path):
+    # Eric is just outside the Map Room at the start of Mr Withit's lesson
+    # (which, with seed 4, has no question-and-answer session); Einstein
+    # tells Mr Withit that Eric is absent, and when Mr Withit sets off to
+    # fetch him, Eric walks into the classroom
+    inputs = """
+        1451 LEFT 40
+    """
+    d, lines, events = _return_to_base_after_fetching_eric(monkeypatch, capsys, tmp_path, 'sd', 'Withit-MapRoom-1', 4, (80, 3), inputs, 1580)
+
+    # Mr Withit went back to where he stood at the start of the lesson, and
+    # arrived facing the wrong way; instead of turning round, he started
+    # walking up and down straight away
+    assert events == [
+        (1481, (67, 3), 1, 'GoToXY', 'return_to_base', 'MR WITHIT'),
+        (1534, (62, 3), -1, 'GoToXY', 'walk_up_or_down', 'MR WITHIT')
+    ]
+
+    # Eric didn't sit down, so Mr Withit gave him lines
+    assert lines == [(1576, 700, 'MR WITHIT', 'SIT_DOWN', None)]
+
+def _write_on_blue_room_blackboard(monkeypatch, capsys, tmp_path, text):
+    """Make Eric (starting beside the Blue Room blackboard) write some text on
+    it, and return the Demo object, the lines given, and a list of events
+    recording when a new line was started on the blackboard, and when the
+    blackboard was checked for a combination."""
+    inputs = f"""
+        5 WRITE
+        5 TYPE {text}
+        60 ENTER
+    """
+    events = []
+    def setup(d):
+        eric = d.eric
+        eric.x, eric.y, eric.direction = 6, 3, -1
+        blackboard = d.skool.rooms['BlueRoom'].blackboard
+        def newline(method=blackboard.newline):
+            events.append((d.tick, 'newline', list(blackboard.lines)))
+            method()
+        def shows(text, in_order=True, method=blackboard.shows):
+            result = method(text, in_order)
+            events.append((d.tick, 'shows', list(blackboard.lines), text, in_order, result))
+            return result
+        blackboard.newline, blackboard.shows = newline, shows
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 80, setup=setup)
+    return d, lines, events
+
+def test_back_to_skool_write_short_word_on_blackboard(monkeypatch, capsys, tmp_path):
+    # Eric writes a word that is shorter than the bike and storeroom
+    # combinations (8016 and WZVU)
+    d, lines, events = _write_on_blue_room_blackboard(monkeypatch, capsys, tmp_path, 'AB')
+
+    # The word was checked against the bike combination (since the bike is
+    # still chained to the tree) and the storeroom combination (since Eric
+    # doesn't have the storeroom key), and matched neither (being too short)
+    assert events == [
+        (62, 'shows', ['AB'], '8016', False, False),
+        (62, 'shows', ['AB'], 'WZVU', False, False)
+    ]
+    assert not d.skool.cast.is_bike_visible()
+    assert items.STOREROOM_KEY not in d.eric.inventory
+
+    # Nobody gave Eric lines
+    assert lines == []
+
+def test_back_to_skool_write_long_line_on_blackboard(monkeypatch, capsys, tmp_path):
+    # Eric writes some text that is too long to fit on one line of the
+    # blackboard
+    d, lines, events = _write_on_blue_room_blackboard(monkeypatch, capsys, tmp_path, 'HELLOWORLDAGAIN')
+
+    # When the first line was full, a new line was started; the text was then
+    # checked against the bike and storeroom combinations (8016 and WZVU),
+    # and matched neither (its first four letters being HELL)
+    assert events == [
+        (57, 'newline', ['HELLOWORLDAG']),
+        (71, 'shows', ['HELLOWORLDAG', 'AIN'], '8016', False, False),
+        (71, 'shows', ['HELLOWORLDAG', 'AIN'], 'WZVU', False, False)
+    ]
+    assert d.skool.rooms['BlueRoom'].blackboard.lines == ['HELLOWORLDAG', 'AIN']
+    assert not d.skool.cast.is_bike_visible()
+    assert items.STOREROOM_KEY not in d.eric.inventory
 
     # Nobody gave Eric lines
     assert lines == []
@@ -632,6 +1128,79 @@ def test_skool_daze_expelled_for_too_many_lines(monkeypatch, capsys, tmp_path):
     assert (d.eric.x, d.eric.y) == (48, 17)
     assert d.skool.scoreboard.lines == 0
     assert not d.eric.expelled
+
+def test_skool_daze_high_score_set_when_eric_is_expelled(monkeypatch, capsys, tmp_path):
+    # Eric has 10000 lines to begin with; he walks to the staff room stairs,
+    # climbs part of the way up, turns round in front of Mr Wacker, and fires
+    # his catapult at the shield at (26,14)
+    inputs = """
+        0 LEFT 118
+        118 UP 16
+        134 RIGHT
+        136 FIRE_CATAPULT
+    """
+    events = []
+    def setup(d):
+        d.skool.scoreboard.add_lines(10000)
+        # demo.py raises the lines limit to stop Eric being expelled; restore
+        # the game's default limit
+        d.skool.max_lines = 10000
+        scoreboard = d.skool.scoreboard
+        def add_to_score(addend, method=scoreboard.add_to_score):
+            method(addend)
+            events.append((d.tick, 'score', addend, scoreboard.score, scoreboard.hiscore))
+        scoreboard.add_to_score = add_to_score
+        def reinitialise(method=scoreboard.reinitialise):
+            method()
+            events.append((d.tick, 'reinitialise', scoreboard.score, scoreboard.hiscore))
+        scoreboard.reinitialise = reinitialise
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 370, setup=setup)
+
+    # Mr Wacker gave Eric lines for firing his catapult, taking him over the
+    # limit
+    assert lines == [(143, 400, 'MR WACKER', 'NO_CATAPULTS', None)]
+
+    # The pellet hit the shield, scoring 400 points; then Mr Wacker expelled
+    # Eric, and when the game ended, the score became the new high score (and
+    # was then reset to zero)
+    assert events == [
+        (174, 'score', 400, 400, 0),
+        (359, 'reinitialise', 0, 400)
+    ]
+    assert d.endings == [(360, 'MR WACKER (expelled)')]
+    assert d.skool.scoreboard.lines == 0
+
+def test_skool_daze_jump_at_safe_without_combination(monkeypatch, capsys, tmp_path):
+    # All the shields are flashing, but the safe combination is not written
+    # on any blackboard; Eric stands under the safe and jumps
+    inputs = """
+        5 JUMP
+    """
+    events = []
+    def setup(d):
+        skool = d.skool
+        for shield in skool.shields:
+            shield.flash()
+        skool.shield_mode = 2
+        d.eric.x, d.eric.y, d.eric.direction = 10, 10, -1
+        def got_safe_combination(method=skool.got_safe_combination):
+            result = method()
+            events.append((d.tick, (d.eric.x, d.eric.y), d.eric.animatory_state, result))
+            return result
+        skool.got_safe_combination = got_safe_combination
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 30, setup=setup)
+
+    # When Eric reached the top of his jump, the skool checked for the safe
+    # combination on the blackboards, and didn't find it
+    assert events == [(11, (10, 9), 'ARM_UP', False)]
+
+    # So the safe didn't open, and Eric scored no points
+    assert d.skool.shield_mode == 2
+    assert not d.skool.safe.flashing
+    assert d.skool.scoreboard.score == 0
+
+    # Nobody gave Eric lines
+    assert lines == []
 
 def test_skool_daze_einstein_knocked_out_of_seat_while_speaking(monkeypatch, capsys, tmp_path):
     # Eric goes to the White Room for Mr Withit's lesson (via the stairs up to
