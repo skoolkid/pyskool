@@ -342,6 +342,13 @@ class Game:
                 eric.print_inventory()
                 eric.print_mouse_inventory()
                 self.skool.unchain_bike()
+            if self.keyboard.was_pressed(keys.GIVE_WATER_PISTOL):
+                inventory.add(items.WATER_PISTOL)
+                eric.print_inventory()
+            if self.keyboard.was_pressed(keys.GIVE_STINKBOMBS):
+                inventory -= {items.STINKBOMBS1, items.STINKBOMBS2}
+                inventory.add(items.STINKBOMBS3)
+                eric.print_inventory()
         if self.skool.doors:
             if self.keyboard.was_pressed(keys.OPEN_DOORS):
                 for door_id in self.skool.doors:

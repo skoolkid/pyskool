@@ -47,6 +47,10 @@ REVEAL = [pygame.K_6]
 GIVE_ALL = [pygame.K_7]
 #: Toggle between a water-filled and sherry-filled water pistol.
 SWITCH_PISTOL = [pygame.K_8]
+#: Give Eric the water pistol.
+GIVE_WATER_PISTOL = [pygame.K_SLASH]
+#: Give Eric the stinkbombs.
+GIVE_STINKBOMBS = [pygame.K_PERIOD]
 #: Open all doors and windows.
 OPEN_DOORS = [pygame.K_PAGEUP]
 #: Close all doors and windows.
