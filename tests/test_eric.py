@@ -1,25 +1,26 @@
 import pytest
 
-from pyskooltest import give_water_pistol, run
+from pyskooltest import run
 from pyskool import ai, items
 
 def test_back_to_skool_climb_over_skool_gate_from_plant(monkeypatch, capsys, tmp_path):
-    # The skool gate is shut, and Eric has the water pistol and is standing 7
-    # paces to the right of the plant pot just right of the gate, facing it;
-    # he fires the water pistol at the plant pot, walks to it, jumps onto it,
-    # waits for the plant to grow to full height, and then walks left off it
+    # Every door (including the skool gate) is shut, and Eric has the water
+    # pistol and is standing 7 paces to the right of the plant pot just right
+    # of the gate, facing it; he fires the water pistol at the plant pot,
+    # walks to it, jumps onto it, waits for the plant to grow to full height,
+    # and then walks left off it
     inputs = """
-        1 FIRE_WATER_PISTOL
-        12 LEFT 26
-        40 JUMP
-        90 LEFT
+        1 GIVE_WATER_PISTOL
+        1 CLOSE_DOORS
+        5 FIRE_WATER_PISTOL
+        16 LEFT 26
+        44 JUMP
+        94 LEFT
     """
     events = []
     def setup(d):
-        give_water_pistol(d)
         eric = d.eric
         eric.x, eric.y, eric.direction = 142, 17, -1
-        d.skool.move_door('SkoolGate', True)
         # Put Albert where he's going (just inside the skool gate), so that he
         # doesn't open the gate on his way there
         albert = d.skool.cast.get('ALBERT')
@@ -34,14 +35,15 @@ def test_back_to_skool_climb_over_skool_gate_from_plant(monkeypatch, capsys, tmp
             if isinstance(command, ai.Flight):
                 events.append((d.tick, 'Flight', (eric.x, eric.y), command.phases))
         eric._set_controller = set_controller
-    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 120, seed=5, setup=setup)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 124, seed=5, setup=setup,
+                   options=['--config', 'Cheat,1'])
 
     # Eric was lifted to (135,14) as the plant grew to full height, and when
     # he walked left off the plant, he climbed over the skool gate
     gate = d.skool.barriers['SkoolGate']
     assert events == [
-        (79, 'finish_growing', (135, 14)),
-        (90, 'Flight', (135, 14), gate.climb_phases)
+        (82, 'finish_growing', (135, 14)),
+        (94, 'Flight', (135, 14), gate.climb_phases)
     ]
 
     # Eric landed on the other side of the gate, which is still shut
@@ -138,27 +140,28 @@ def test_back_to_skool_drop_three_stinkbombs(monkeypatch, capsys, tmp_path):
     # Eric has three stinkbombs; he drops them one at a time, waiting for each
     # stinkbomb cloud to disappear before dropping the next
     inputs = """
-        1 DROP_STINKBOMB
-        100 DROP_STINKBOMB
-        200 DROP_STINKBOMB
+        1 GIVE_STINKBOMBS
+        5 DROP_STINKBOMB
+        104 DROP_STINKBOMB
+        204 DROP_STINKBOMB
     """
     events = []
     def setup(d):
         eric = d.eric
-        eric.inventory.add(items.STINKBOMBS3)
         def drop_stinkbomb(method=eric.drop_stinkbomb):
             before = sorted(eric.inventory)
             method()
             events.append((d.tick, before, sorted(eric.inventory), eric.has_stinkbomb()))
         eric.drop_stinkbomb = drop_stinkbomb
-    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 210, seed=5, setup=setup)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 214, seed=5, setup=setup,
+                   options=['--config', 'Cheat,1'])
 
     # Each drop used up one stinkbomb, and after the last one Eric had none
     # left
     assert events == [
-        (7, [items.STINKBOMBS3], [items.STINKBOMBS2], True),
-        (105, [items.STINKBOMBS2], [items.STINKBOMBS1], True),
-        (205, [items.STINKBOMBS1], [], False)
+        (9, [items.STINKBOMBS3], [items.STINKBOMBS2], True),
+        (109, [items.STINKBOMBS2], [items.STINKBOMBS1], True),
+        (209, [items.STINKBOMBS1], [], False)
     ]
     assert d.eric.inventory == set()
 

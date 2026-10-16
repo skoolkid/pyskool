@@ -1,4 +1,4 @@
-from pyskooltest import demo, give_water_pistol, run
+from pyskooltest import demo, run
 from pyskool import ai, barrier, items
 
 def _desk_with(skool, item):
@@ -8,6 +8,11 @@ def _desk_with(skool, item):
         for desk in room.desks:
             if desk.contents == item:
                 return (room_id, desk.x)
+
+def _desks_with(skool, item):
+    """Return a list of the (room ID, x-coordinate) of every desk containing
+    an item."""
+    return [(room_id, desk.x) for room_id, room in skool.rooms.items() for desk in room.desks if desk.contents == item]
 
 def test_back_to_skool_collect_and_drop_water_pistol(monkeypatch, capsys, tmp_path):
     # With seed 5, the water pistol is in the leftmost desk in the girls'
@@ -51,28 +56,31 @@ def test_back_to_skool_collect_and_drop_water_pistol(monkeypatch, capsys, tmp_pa
     assert not d.eric.is_sitting()
 
 def test_back_to_skool_drop_sherry_filled_water_pistol(monkeypatch, capsys, tmp_path):
-    # Eric has the water pistol, filled with sherry; he drops it
+    # Eric is given the water pistol, fills it with sherry, and then drops it
+    # (the cheat keys don't take the original water pistol out of its desk,
+    # which with seed 5 is the leftmost desk in the girls' skool's Middle
+    # Room)
     inputs = """
-        1 DUMP_WATER_PISTOL
+        1 GIVE_WATER_PISTOL
+        4 SWITCH_PISTOL
+        7 DUMP_WATER_PISTOL
     """
     events = []
     def setup(d):
-        give_water_pistol(d)
         eric = d.eric
-        eric.inventory.remove(items.WATER_PISTOL)
-        eric.inventory.add(items.SHERRY_PISTOL)
         def dump_water_pistol(method=eric.dump_water_pistol):
-            events.append((d.tick, 'dump_water_pistol', sorted(eric.inventory)))
+            events.append((d.tick, 'dump_water_pistol', sorted(eric.inventory), _desks_with(d.skool, items.WATER_PISTOL)))
             method()
-            events.append((d.tick, 'dumped', sorted(eric.inventory), _desk_with(d.skool, items.WATER_PISTOL)))
+            events.append((d.tick, 'dumped', sorted(eric.inventory), _desks_with(d.skool, items.WATER_PISTOL)))
         eric.dump_water_pistol = dump_water_pistol
-    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 10, seed=5, setup=setup)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 15, seed=5, setup=setup,
+                   options=['--config', 'Cheat,1'])
 
     # Eric dropped the sherry-filled water pistol, which was then filled with
-    # water and hidden in a randomly chosen desk
+    # water and hidden in a randomly chosen (empty) desk
     assert events == [
-        (4, 'dump_water_pistol', [items.SHERRY_PISTOL]),
-        (4, 'dumped', [], ('MiddleRoom', 167))
+        (8, 'dump_water_pistol', [items.SHERRY_PISTOL], [('MiddleRoom', 167)]),
+        (8, 'dumped', [], [('MiddleRoom', 167), ('UpperRoom', 170)])
     ]
     assert _desk_with(d.skool, items.SHERRY_PISTOL) is None
 
@@ -120,12 +128,12 @@ def test_back_to_skool_fire_water_pistol_at_floor(monkeypatch, capsys, tmp_path)
     # Eric has the water pistol; he walks left, away from the plant pots by
     # the skool gate, and fires it to the left, away from any cups or plants
     inputs = """
+        1 GIVE_WATER_PISTOL
         1 LEFT 20
         30 FIRE_WATER_PISTOL
     """
     events = []
     def setup(d):
-        give_water_pistol(d)
         water = d.eric.water
         def launch(*args, method=water.launch):
             method(*args)
@@ -138,7 +146,8 @@ def test_back_to_skool_fire_water_pistol_at_floor(monkeypatch, capsys, tmp_path)
                     return True
                 return False
             setattr(water, name, hit)
-    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 60, seed=5, setup=setup)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 60, seed=5, setup=setup,
+                   options=['--config', 'Cheat,1'])
 
     # The water left the pistol at (126,15), and hit the floor (and nothing
     # else) at (121,17), where it disappeared
@@ -240,6 +249,7 @@ def test_back_to_skool_fall_off_dying_plant(monkeypatch, capsys, tmp_path):
     # water pistol at the plant pot, walks to it, and jumps onto it before the
     # plant starts growing
     inputs = """
+        1 GIVE_WATER_PISTOL
         1 RIGHT 38
         45 LEFT
         50 FIRE_WATER_PISTOL
@@ -248,14 +258,14 @@ def test_back_to_skool_fall_off_dying_plant(monkeypatch, capsys, tmp_path):
     """
     events = []
     def setup(d):
-        give_water_pistol(d)
         plant = d.skool.plant_pots['RightGatePlant'].plant
         for name in ('grow', 'appear', 'finish_growing', 'die'):
             def recorded(name=name, method=getattr(plant, name)):
                 method()
                 events.append((d.tick, name, (d.eric.x, d.eric.y)))
             setattr(plant, name, recorded)
-    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 160, seed=5, setup=setup)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 160, seed=5, setup=setup,
+                   options=['--config', 'Cheat,1'])
 
     # The water hit the plant pot while Eric was walking towards it; Eric
     # jumped onto the plant pot at (135,16), was lifted as the plant grew to
@@ -543,6 +553,7 @@ def test_back_to_skool_wacker_smells_stinkbomb_in_his_study(monkeypatch, capsys,
     # facing it; he drops a stinkbomb while Mr Wacker is walking about in his
     # study
     inputs = """
+        1 GIVE_STINKBOMBS
         50 DROP_STINKBOMB
     """
     events = []
@@ -552,7 +563,6 @@ def test_back_to_skool_wacker_smells_stinkbomb_in_his_study(monkeypatch, capsys,
         demos.append(d)
         eric, skool = d.eric, d.skool
         eric.x, eric.y, eric.direction = 85, 3, -1
-        eric.inventory.add(items.STINKBOMBS3)
         wacker = skool.cast.get('WACKER')
         def open_window(window, method=wacker.open_window):
             events.append((d.tick, 'open_window', window.barrier_id, (wacker.x, wacker.y),
@@ -571,7 +581,8 @@ def test_back_to_skool_wacker_smells_stinkbomb_in_his_study(monkeypatch, capsys,
             wacker_xy[demos[0].tick] = (wacker.x, wacker.y)
         return result
     monkeypatch.setattr(demo.game.Game, '_main_loop', recording_main_loop)
-    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Creak-BlueRoom-1', inputs, 300, setup=setup)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Creak-BlueRoom-1', inputs, 300, setup=setup,
+                   options=['--config', 'Cheat,1'])
 
     # Mr Wacker smelt the stinkbomb while walking about in his study (and so
     # not under the control of a GoTo command); he opened the study door,
@@ -921,6 +932,7 @@ def test_back_to_skool_albert_stops_eric_escaping(monkeypatch, capsys, tmp_path)
     # right towards Albert; after Mr Wacker has come to collect him and opened
     # the skool door, Eric walks back into the boys' skool
     inputs = """
+        1 GIVE_WATER_PISTOL
         1 LEFT 200
         201 UP 14
         215 RIGHT 25
@@ -940,7 +952,6 @@ def test_back_to_skool_albert_stops_eric_escaping(monkeypatch, capsys, tmp_path)
     def setup(d):
         demos.append(d)
         eric = d.eric
-        give_water_pistol(d)
         d.skool.move_door('MiddleWindow', False)
         albert = d.skool.cast.get('ALBERT')
         def raise_alarm(message, alertee_id, command_list_id, method=albert.raise_alarm):
@@ -962,7 +973,8 @@ def test_back_to_skool_albert_stops_eric_escaping(monkeypatch, capsys, tmp_path)
         next_lesson(timetable)
         bells.append(demos[0].tick)
     monkeypatch.setattr(demo.timetable_mod.Timetable, 'next_lesson', recording_next_lesson)
-    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 2500, seed=5, setup=setup)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 2500, seed=5, setup=setup,
+                   options=['--config', 'Cheat,1'])
 
     # Albert raised his arm when Eric came within range (2-6 paces in front
     # of him), and alerted Mr Wacker (sending him off to shadow Eric); Eric
@@ -986,14 +998,16 @@ def test_back_to_skool_albert_stops_eric_escaping(monkeypatch, capsys, tmp_path)
     assert lines == [(2011, 600, 'MR WACKER', 'BACK_TO_SKOOL', None)]
 
 def test_back_to_skool_eric_is_not_a_bird(monkeypatch, capsys, tmp_path):
-    # Eric has the water pistol, and the top-floor window in the boys' skool
-    # is open; he goes into the boys' skool and waits just inside the door
+    # Eric has the water pistol, and every door and window (including the
+    # top-floor window in the boys' skool) is opened; he goes into the boys' skool and waits just inside the door
     # until Mr Wacker has gone past on his way to the dinner hall; he then
     # goes up to the stage, up again to the middle floor, and up again to the
     # top floor (outside Mr Wacker's study), waters the plant next to the
     # window, jumps onto the plant pot, and steps out of the window when the
     # plant is fully grown
     inputs = """
+        1 GIVE_WATER_PISTOL
+        1 OPEN_DOORS
         1 LEFT 160
         461 LEFT 40
         499 UP 14
@@ -1008,8 +1022,6 @@ def test_back_to_skool_eric_is_not_a_bird(monkeypatch, capsys, tmp_path):
     """
     events = []
     def setup(d):
-        give_water_pistol(d)
-        d.skool.move_door('UpperWindow', False)
         eric, wacker = d.eric, d.skool.cast.get('WACKER')
         def paralyse(command_list_id, method=eric.paralyse):
             method(command_list_id)
@@ -1020,7 +1032,8 @@ def test_back_to_skool_eric_is_not_a_bird(monkeypatch, capsys, tmp_path):
                 events.append((d.tick, 'say', (wacker.x, wacker.y), words))
             return method(words, shift)
         wacker.say = say
-    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Dinner-Wacker', inputs, 1140, seed=5, setup=setup)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Dinner-Wacker', inputs, 1140, seed=5, setup=setup,
+                   options=['--config', 'Cheat,1'])
 
     # Eric was paralysed when he hit the ground, and Mr Wacker came out of the
     # dinner hall to find him and tell him he's expelled

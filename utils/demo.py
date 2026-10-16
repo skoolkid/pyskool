@@ -42,10 +42,14 @@ GAMES = {
 }
 
 # Actions that may be used in an inputs file (the names of key lists in the
-# pyskool.keys module, plus WAIT)
+# pyskool.keys module, including the cheat keys, which work only in cheat mode,
+# plus WAIT)
 ACTIONS = ('LEFT', 'RIGHT', 'UP', 'DOWN', 'SIT_STAND', 'OPEN_DESK', 'FIRE_CATAPULT', 'FIRE_WATER_PISTOL',
            'DUMP_WATER_PISTOL', 'DROP_STINKBOMB', 'HIT', 'JUMP', 'WRITE', 'ENTER', 'CATCH', 'UNDERSTOOD',
-           'MOUNT_BIKE', 'RELEASE_MICE', 'KISS', 'WAIT')
+           'MOUNT_BIKE', 'RELEASE_MICE', 'KISS',
+           'NEXT_LESSON', 'FLASH_MOST', 'UNFLASH_MOST', 'NO_LINES', 'ADD_LINES', 'ZERO_LINES', 'REVEAL',
+           'GIVE_ALL', 'SWITCH_PISTOL', 'GIVE_WATER_PISTOL', 'GIVE_STINKBOMBS', 'OPEN_DOORS', 'CLOSE_DOORS',
+           'WAIT')
 
 class Location:
     def __init__(self, x, y):
@@ -743,7 +747,8 @@ def parse_args(args):
                              "(default: a single press). A line of the form 'TICK TYPE TEXT' types TEXT (no spaces) on a "
                              "blackboard once Eric starts writing (after WRITE); follow it with ENTER to finish. "
                              "Use UNDERSTOOD to acknowledge a message while Eric is frozen (as when a little boy gives "
-                             "him a message). Anything after '#' is ignored.")
+                             "him a message). Cheat key actions (e.g. GIVE_WATER_PISTOL) work only in cheat mode "
+                             "(--config Cheat,1). Anything after '#' is ignored.")
     parser.add_argument('-l', '--lesson', metavar='ID',
                         help='Use a timetable consisting of only this lesson.')
     parser.add_argument('--lessons', action='store_true',

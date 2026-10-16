@@ -551,7 +551,8 @@ def test_cheat_key_switch_pistol(monkeypatch, capsys, tmp_path):
     _press(monkeypatch, g, keys.SWITCH_PISTOL)
     assert not inventory & {items.WATER_PISTOL, items.SHERRY_PISTOL}
 
-    inventory.add(items.WATER_PISTOL)
+    _press(monkeypatch, g, keys.GIVE_WATER_PISTOL)
+    assert items.WATER_PISTOL in inventory
     _press(monkeypatch, g, keys.SWITCH_PISTOL)
     assert items.SHERRY_PISTOL in inventory
     assert items.WATER_PISTOL not in inventory

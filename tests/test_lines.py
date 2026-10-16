@@ -292,55 +292,39 @@ def test_skool_daze_telling_tales(monkeypatch, capsys, tmp_path):
     assert blackboard.writer is d.eric
 
 def test_back_to_skool_stinkbomb(monkeypatch, capsys, tmp_path):
-    # With seed 6, the stinkbombs are in the Science Lab desk nearest the door
-    # (at x=52). Eric goes there (via the stairs up to the toilets), sits down
-    # and opens the desk, and then goes back down the stairs and drops a
-    # stinkbomb in front of Mr Wacker, who is walking along the bottom floor
+    # Eric is given the stinkbombs, walks left along the bottom floor, turns
+    # round, and drops a stinkbomb in front of Mr Wacker, who has come down
+    # the stairs and is walking left towards him
     inputs = """
-        1 LEFT 446
-        447 UP 28
-        475 RIGHT 150
-        625 LEFT
-        627 SIT_STAND
-        629 OPEN_DESK
-        631 SIT_STAND
-        633 LEFT 149
-        782 RIGHT
-        784 DOWN 28
-        812 RIGHT 24
-        836 DROP_STINKBOMB
+        1 GIVE_STINKBOMBS
+        1 LEFT 232
+        250 RIGHT
+        360 DROP_STINKBOMB
     """
-    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 844, seed=6)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 368, seed=6,
+                   options=['--config', 'Cheat,1'])
 
     # Mr Wacker told Eric that stinkbombs are not allowed
-    assert lines == [(842, 300, 'MR WACKER', 'NO_STINKBOMBS', None)]
+    assert lines == [(367, 100, 'MR WACKER', 'NO_STINKBOMBS', None)]
 
     # Eric has two stinkbombs left
     assert d.eric.inventory == {'STINKBOMBS2'}
 
 def test_back_to_skool_water_pistol(monkeypatch, capsys, tmp_path):
-    # With seed 10, the water pistol is in the Science Lab desk nearest the
-    # door (at x=52). Eric goes there (via the stairs up to the toilets), sits
-    # down and opens the desk, and then goes back down the stairs and fires the
-    # water pistol in front of Mr Wacker, who is walking along the bottom floor
+    # Eric is given the water pistol, walks left along the bottom floor, turns
+    # round, and fires the water pistol in front of Mr Wacker, who has come
+    # down the stairs and is walking left towards him
     inputs = """
-        1 LEFT 446
-        447 UP 28
-        475 RIGHT 150
-        625 LEFT
-        627 SIT_STAND
-        629 OPEN_DESK
-        631 SIT_STAND
-        633 LEFT 149
-        782 RIGHT
-        784 DOWN 28
-        812 RIGHT 24
-        836 FIRE_WATER_PISTOL
+        1 GIVE_WATER_PISTOL
+        1 LEFT 232
+        250 RIGHT
+        360 FIRE_WATER_PISTOL
     """
-    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 844, seed=10)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 368, seed=10,
+                   options=['--config', 'Cheat,1'])
 
     # Mr Wacker told Eric that water pistols are not allowed
-    assert lines == [(842, 200, 'MR WACKER', 'NO_WATERPISTOLS', None)]
+    assert lines == [(367, 600, 'MR WACKER', 'NO_WATERPISTOLS', None)]
 
     # Eric still has the water pistol
     assert d.eric.inventory == {'WATER_PISTOL'}

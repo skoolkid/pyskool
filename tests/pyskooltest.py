@@ -20,7 +20,7 @@ with warnings.catch_warnings():
     import pygame
 
 import demo
-from pyskool import items, user_dir
+from pyskool import user_dir
 
 # A line printed by 'demo.py --lines', e.g.
 #   LINES 284: +700 = 700 by MR WITHIT (38,17) [GET_UP] Eric (48,17)
@@ -39,15 +39,6 @@ def check_assets(game):
     for path in (ini_dir, os.path.join(user_dir, 'images'), os.path.join(user_dir, 'sounds')):
         if not os.path.isdir(path):
             pytest.skip(f'{path} not found (run "make images ini sounds")')
-
-def give_water_pistol(d):
-    """Take the water pistol out of whichever desk it's in, and give it to
-    Eric."""
-    for room in d.skool.rooms.values():
-        for desk in room.desks:
-            if desk.contents == items.WATER_PISTOL:
-                desk.empty()
-    d.eric.inventory.add(items.WATER_PISTOL)
 
 def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setup=None, options=()):
     """Run a game headless with 'demo.py --lines --endings' for one lesson (or, if
