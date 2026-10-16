@@ -1,4 +1,4 @@
-from pyskooltest import demo, run
+from pyskooltest import demo, give_water_pistol, run
 from pyskool import ai, barrier, items
 
 def _desk_with(skool, item):
@@ -8,15 +8,6 @@ def _desk_with(skool, item):
         for desk in room.desks:
             if desk.contents == item:
                 return (room_id, desk.x)
-
-def _give_water_pistol(d):
-    """Take the water pistol out of whichever desk it's in, and give it to
-    Eric."""
-    for room in d.skool.rooms.values():
-        for desk in room.desks:
-            if desk.contents == items.WATER_PISTOL:
-                desk.empty()
-    d.eric.inventory.add(items.WATER_PISTOL)
 
 def test_back_to_skool_collect_and_drop_water_pistol(monkeypatch, capsys, tmp_path):
     # With seed 5, the water pistol is in the leftmost desk in the girls'
@@ -58,6 +49,35 @@ def test_back_to_skool_collect_and_drop_water_pistol(monkeypatch, capsys, tmp_pa
     # Eric is standing up again next to the desk
     assert (d.eric.x, d.eric.y) == (167, 10)
     assert not d.eric.is_sitting()
+
+def test_back_to_skool_drop_sherry_filled_water_pistol(monkeypatch, capsys, tmp_path):
+    # Eric has the water pistol, filled with sherry; he drops it
+    inputs = """
+        1 DUMP_WATER_PISTOL
+    """
+    events = []
+    def setup(d):
+        give_water_pistol(d)
+        eric = d.eric
+        eric.inventory.remove(items.WATER_PISTOL)
+        eric.inventory.add(items.SHERRY_PISTOL)
+        def dump_water_pistol(method=eric.dump_water_pistol):
+            events.append((d.tick, 'dump_water_pistol', sorted(eric.inventory)))
+            method()
+            events.append((d.tick, 'dumped', sorted(eric.inventory), _desk_with(d.skool, items.WATER_PISTOL)))
+        eric.dump_water_pistol = dump_water_pistol
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'RevisionLibrary-1', inputs, 10, seed=5, setup=setup)
+
+    # Eric dropped the sherry-filled water pistol, which was then filled with
+    # water and hidden in a randomly chosen desk
+    assert events == [
+        (4, 'dump_water_pistol', [items.SHERRY_PISTOL]),
+        (4, 'dumped', [], ('MiddleRoom', 167))
+    ]
+    assert _desk_with(d.skool, items.SHERRY_PISTOL) is None
+
+    # Nobody gave Eric lines
+    assert lines == []
 
 def test_back_to_skool_open_desk_while_lid_is_up(monkeypatch, capsys, tmp_path):
     # Eric starts beside an empty desk in the Blue Room; he sits down, opens
@@ -105,7 +125,7 @@ def test_back_to_skool_fire_water_pistol_at_floor(monkeypatch, capsys, tmp_path)
     """
     events = []
     def setup(d):
-        _give_water_pistol(d)
+        give_water_pistol(d)
         water = d.eric.water
         def launch(*args, method=water.launch):
             method(*args)
@@ -229,7 +249,7 @@ def test_back_to_skool_fall_off_dying_plant(monkeypatch, capsys, tmp_path):
     """
     events = []
     def setup(d):
-        _give_water_pistol(d)
+        give_water_pistol(d)
         plant = d.skool.plant_pots['RightGatePlant'].plant
         for name in ('grow', 'appear', 'finish_growing', 'die'):
             def recorded(name=name, method=getattr(plant, name)):
@@ -921,7 +941,7 @@ def test_back_to_skool_albert_stops_eric_escaping(monkeypatch, capsys, tmp_path)
     def setup(d):
         demos.append(d)
         eric = d.eric
-        _give_water_pistol(d)
+        give_water_pistol(d)
         d.skool.move_door('MiddleWindow', False)
         albert = d.skool.cast.get('ALBERT')
         def raise_alarm(message, alertee_id, command_list_id, method=albert.raise_alarm):
@@ -989,7 +1009,7 @@ def test_back_to_skool_eric_is_not_a_bird(monkeypatch, capsys, tmp_path):
     """
     events = []
     def setup(d):
-        _give_water_pistol(d)
+        give_water_pistol(d)
         d.skool.move_door('UpperWindow', False)
         eric, wacker = d.eric, d.skool.cast.get('WACKER')
         def paralyse(command_list_id, method=eric.paralyse):

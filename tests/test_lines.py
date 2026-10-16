@@ -438,6 +438,24 @@ def test_back_to_skool_stand_in_assembly(monkeypatch, capsys, tmp_path):
     assert d.skool.get_home_room() is d.skool.room(d.eric)
     assert d.skool.room(d.eric).name == 'ASSEMBLY'
 
+def test_back_to_skool_sit_in_assembly_hall_at_playtime(monkeypatch, capsys, tmp_path):
+    # Eric walks left from the playground into the assembly hall, and sits
+    # down just inside the doorway, facing away from the stage, during
+    # playtime, in view of Mr Wacker
+    inputs = """
+        1 LEFT 234
+        235 SIT_STAND
+    """
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 280)
+
+    # It's not assembly, so Mr Wacker told Eric to get off the floor
+    assert lines == [(275, 800, 'MR WACKER', 'GET_UP', None)]
+
+    # Eric is still sitting on the floor of the assembly hall, facing left
+    assert d.eric.is_sitting_on_floor()
+    assert d.eric.direction == -1
+    assert d.skool.room(d.eric).name == 'ASSEMBLY'
+
 def test_back_to_skool_not_attending_class(monkeypatch, capsys, tmp_path):
     # Eric is supposed to be in the dinner hall with Mr Withit, but instead
     # walks left to the edge of the playground and waits there; after Einstein
