@@ -68,9 +68,10 @@ def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setu
     """
     check_assets(game)
     # demo.py wraps these methods to log lines (or replaces them to silence
-    # sound effects); make sure they are restored afterwards, so that the
-    # logging doesn't pile up over several tests, and the sound effects
-    # methods work in tests that don't use demo.py
+    # sound effects and feed in key presses); make sure they are restored
+    # afterwards, so that the logging doesn't pile up over several tests, and
+    # the sound effects and keyboard methods work in tests that don't use
+    # demo.py
     for cls, name in (
             (demo.character.Character, 'print_lines_message'),
             (demo.character.Character, 'add_lines'),
@@ -81,7 +82,8 @@ def run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, seed=0, setu
             (demo.skool_mod.Skool, 'end_game'),
             (demo.skool_mod.Skool, '_up_a_year'),
             (demo.sound.Beeper, 'play'),
-            (demo.sound.Beeper, 'is_busy')
+            (demo.sound.Beeper, 'is_busy'),
+            (demo.Keyboard, 'pump')
     ):
         monkeypatch.setattr(cls, name, getattr(cls, name))
     inputs_file = tmp_path / 'inputs.txt'
