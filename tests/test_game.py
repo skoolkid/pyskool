@@ -61,10 +61,10 @@ def _skool_images(skool):
     images in graphics mode 1."""
     return [pygame.image.tostring(image.surface, 'RGB') for image in (skool.skool, skool.ink, skool.paper) if image]
 
-def _start(monkeypatch, capsys, tmp_path, game, inputs, ticks, setup=None, lesson=None):
+def _start(monkeypatch, capsys, tmp_path, game, inputs, ticks, setup=None, lesson=None, options=()):
     """Run a game headless for a number of ticks with the given inputs (see
-    run(), which also explains 'setup' and 'lesson'), and return the Game
-    object that demo.py created."""
+    run(), which also explains 'setup', 'lesson' and 'options'), and return
+    the Game object that demo.py created."""
     games = []
     main_loop = demo.game.Game._main_loop
     def captured_main_loop(g):
@@ -72,7 +72,7 @@ def _start(monkeypatch, capsys, tmp_path, game, inputs, ticks, setup=None, lesso
             games.append(g)
         return main_loop(g)
     monkeypatch.setattr(demo.game.Game, '_main_loop', captured_main_loop)
-    run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, setup=setup)
+    run(monkeypatch, capsys, tmp_path, game, lesson, inputs, ticks, setup=setup, options=options)
     return games[0]
 
 def _new_game(game, sav_file=None):
@@ -89,7 +89,7 @@ def _new_game(game, sav_file=None):
     return g
 
 def _save_and_restore(monkeypatch, capsys, tmp_path, game, replay, ticks, more_ticks, setup=None, check_images=True,
-                      lesson=None):
+                      lesson=None, options=()):
     """Run a replay headless (or, if 'replay' is None, run the game with Eric
     idle) for a number of ticks, save the game, and then restore it into a
     new Game object. Check that the restored game's state and play area
@@ -100,14 +100,16 @@ def _save_and_restore(monkeypatch, capsys, tmp_path, game, replay, ticks, more_t
     If given, 'setup' is called with the Demo object before the first tick
     (see run()). If 'check_images' is False, the play area images are not
     checked. If 'lesson' is given, the timetable is restricted to that lesson
-    (see run()).
+    (see run()). 'options' is a sequence of any extra options to pass to
+    demo.py when running the game that is saved (see run()); the restored game
+    is created as demo.py creates its Game object, without them.
     """
     inputs = ''
     if replay:
         with open(os.path.join(REPLAYS_DIR, replay)) as f:
             inputs = f.read()
 
-    saved = _start(monkeypatch, capsys, tmp_path, game, inputs, ticks, setup, lesson)
+    saved = _start(monkeypatch, capsys, tmp_path, game, inputs, ticks, setup, lesson, options)
 
     # Save the game (Game._save() writes to a directory relative to the cwd)
     monkeypatch.chdir(tmp_path)
@@ -776,25 +778,6 @@ def test_save_and_load_keys(monkeypatch, capsys, tmp_path):
     assert states[1] == states[0]
     _continue(monkeypatch, g, 20)
 
-def _set_config(monkeypatch, param, value):
-    """Make every Game object created from now on use a value for a config
-    parameter (as if the '--config PARAM,VALUE' option had been given)."""
-    init = demo.game.Game.__init__
-    def init_with_config(g, ini_file, images_dir, sounds_dir, ini_dir, options, *args):
-        options.config.append(f'{param}, {value}')
-        init(g, ini_file, images_dir, sounds_dir, ini_dir, options, *args)
-    monkeypatch.setattr(demo.game.Game, '__init__', init_with_config)
-
-def _set_graphics_mode(monkeypatch, mode):
-    """Make every Game object created from now on use a graphics mode (as if
-    the '--config GraphicsMode,MODE' option had been given)."""
-    _set_config(monkeypatch, 'GraphicsMode', mode)
-    init = demo.game.Game.__init__
-    def init_and_check_mode(g, *args):
-        init(g, *args)
-        assert g.screen.mode == mode
-    monkeypatch.setattr(demo.game.Game, '__init__', init_and_check_mode)
-
 def _set_up_mutables(d):
     """Set up Back to Skool Daze with every kind of mutable object in a
     non-default state: flip every door and window, fill every cup, unchain
@@ -816,9 +799,11 @@ def test_save_and_restore_mutables(monkeypatch, capsys, tmp_path, mode):
     # mutable objects on them. The game is saved at tick 55, when the flashing
     # shields and safe are in the normal half of their flash cycle, because
     # Skool.restore() doesn't redraw them (see
-    # test_save_and_restore_skool_daze_take_too()).
-    _set_graphics_mode(monkeypatch, mode)
-    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'btsd', None, 55, 50, _set_up_mutables)
+    # test_save_and_restore_skool_daze_take_too()). The restored game is
+    # created without the GraphicsMode setting, so it gets the graphics mode
+    # from the saved game.
+    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'btsd', None, 55, 50, _set_up_mutables,
+                                        options=['--config', f'GraphicsMode,{mode}'])
     assert saved.screen.mode == restored.screen.mode == mode
     skool = restored.skool
     if mode == 0:
@@ -858,16 +843,17 @@ def _run_in_graphics_mode(capsys, tmp_path, mode, ticks):
     their flash cycle, a hash of the play area image (see
     _play_area_image()), and the screen contents (as RGB bytes)."""
     with pytest.MonkeyPatch.context() as monkeypatch:
-        _set_graphics_mode(monkeypatch, mode)
         ticks_seen = []
         main_loop = demo.game.Game._main_loop
         def recorded_main_loop(g):
+            assert g.screen.mode == mode
             rv = main_loop(g)
             ticks_seen.append((_state(g)[:-1], g.skool.inverse, _play_area_image(g),
                                pygame.image.tostring(pygame.display.get_surface(), 'RGB')))
             return rv
         monkeypatch.setattr(demo.game.Game, '_main_loop', recorded_main_loop)
-        run(monkeypatch, capsys, tmp_path, 'btsd', None, '', ticks, setup=_set_up_mutables)
+        run(monkeypatch, capsys, tmp_path, 'btsd', None, '', ticks, setup=_set_up_mutables,
+            options=['--config', f'GraphicsMode,{mode}'])
     return ticks_seen
 
 def test_graphics_mode_0(capsys, tmp_path):
@@ -956,9 +942,8 @@ def test_custom_icon(monkeypatch, capsys, tmp_path):
     pygame.image.save(custom_icon, str(tmp_path / 'icons' / 'custom.png'))
     shutil.copy(os.path.join(user_dir, 'icon.png'), tmp_path)
     monkeypatch.chdir(tmp_path)
-    _set_config(monkeypatch, 'Icon', 'icons/custom.png')
     icons = _record_icons(monkeypatch)
-    g = _start(monkeypatch, capsys, tmp_path, 'sd', '', 1)
+    g = _start(monkeypatch, capsys, tmp_path, 'sd', '', 1, options=['--config', 'Icon,icons/custom.png'])
     assert g.screen.icon_fname == 'icons/custom.png'
     assert icons == [_load_icon('icons/custom.png')]
     assert icons[0][0] == (16, 16)

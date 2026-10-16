@@ -1114,9 +1114,6 @@ def test_skool_daze_expelled_for_too_many_lines(monkeypatch, capsys, tmp_path):
     events = []
     def setup(d):
         d.skool.scoreboard.add_lines(10000)
-        # demo.py raises the lines limit to stop Eric being expelled; restore
-        # the game's default limit
-        d.skool.max_lines = 10000
         eric, wacker, cast = d.eric, d.skool.cast.get('WACKER'), d.skool.cast
         def expel_eric(character_id, command_list_id, method=cast.expel_eric):
             method(character_id, command_list_id)
@@ -1127,7 +1124,10 @@ def test_skool_daze_expelled_for_too_many_lines(monkeypatch, capsys, tmp_path):
                 events.append((d.tick, 'say', (wacker.x, wacker.y), (eric.x, eric.y), words))
             return method(words, shift)
         wacker.say = say
-    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 370, setup=setup)
+    # demo.py raises the lines limit to stop Eric being expelled; restore the
+    # game's default limit
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 370, setup=setup,
+                   options=['--config', 'MaxLines,10000'])
 
     # Mr Wacker gave Eric lines for firing his catapult, taking him over the
     # limit
@@ -1162,9 +1162,6 @@ def test_skool_daze_high_score_set_when_eric_is_expelled(monkeypatch, capsys, tm
     events = []
     def setup(d):
         d.skool.scoreboard.add_lines(10000)
-        # demo.py raises the lines limit to stop Eric being expelled; restore
-        # the game's default limit
-        d.skool.max_lines = 10000
         scoreboard = d.skool.scoreboard
         def add_to_score(addend, method=scoreboard.add_to_score):
             method(addend)
@@ -1174,7 +1171,10 @@ def test_skool_daze_high_score_set_when_eric_is_expelled(monkeypatch, capsys, tm
             method()
             events.append((d.tick, 'reinitialise', scoreboard.score, scoreboard.hiscore))
         scoreboard.reinitialise = reinitialise
-    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 370, setup=setup)
+    # demo.py raises the lines limit to stop Eric being expelled; restore the
+    # game's default limit
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 370, setup=setup,
+                   options=['--config', 'MaxLines,10000'])
 
     # Mr Wacker gave Eric lines for firing his catapult, taking him over the
     # limit
@@ -1655,9 +1655,6 @@ def test_skool_daze_wacker_expels_eric_after_adding_lines(monkeypatch, capsys, t
     def setup(d):
         demos.append(d)
         d.skool.scoreboard.add_lines(8100)
-        # demo.py raises the lines limit to stop Eric being expelled; restore
-        # the game's default limit
-        d.skool.max_lines = 10000
         wacker = d.skool.cast.get('WACKER')
         def say(words, shift, method=wacker.say):
             if shift == -4:
@@ -1674,7 +1671,10 @@ def test_skool_daze_wacker_expels_eric_after_adding_lines(monkeypatch, capsys, t
         events.append((demos[0].tick, 'AddLines.is_interruptible', command.character.character_id, result))
         return result
     monkeypatch.setattr(ai.AddLines, 'is_interruptible', recording_is_interruptible)
-    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-HiddenPeaShooter', inputs, 2400, setup=setup)
+    # demo.py raises the lines limit to stop Eric being expelled; restore the
+    # game's default limit
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-HiddenPeaShooter', inputs, 2400, setup=setup,
+                   options=['--config', 'MaxLines,10000'])
 
     # Mr Wacker found the pea-shooter, and told Eric he would get 2000 lines;
     # when those lines (added by Mr Wacker's AddLines command) took Eric over

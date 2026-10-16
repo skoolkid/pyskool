@@ -50,7 +50,7 @@ Eric can be controlled in three ways:
 - by replaying an inputs file, with `-i FILE`;
 - from the keyboard while recording, with `-r FILE` (needs `--screen`).
 
-Other options: `-g` picks the game (default `sd`), `-s` the random seed (default 0), `-t` the number of ticks to stop after, and `-l` restricts the timetable to one lesson. `--images-dir`, `--sounds-dir` and `--ini-dir` override the default asset dirs in `~/.pyskool`.
+Other options: `-g` picks the game (default `sd`), `-s` the random seed (default 0), `-t` the number of ticks to stop after, and `-l` restricts the timetable to one lesson. `--images-dir`, `--sounds-dir` and `--ini-dir` override the default asset dirs in `~/.pyskool`. `--config P,V` sets a configuration parameter, as the launchers' `--config` option does, and may be repeated (e.g. `--config GraphicsMode,0`). The demo sets `MaxLines` to 100000000 so that Eric is never expelled, unless `--config` sets it (e.g. `--config MaxLines,10000` restores the default). Tests pass these options with `run(..., options=[...])` in `tests/pyskooltest.py`.
 
 `--trace TICK` prints Eric's location, animatory state, controlling command, score and lines after every tick from TICK on. `--watch NAME,...` adds the locations of other characters or objects (by name or ID, e.g. `MOUSE`) to each line.
 

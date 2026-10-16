@@ -385,7 +385,10 @@ class Demo:
 
         # With a screen, use the game's default scale and run at normal speed
         scale = None if options.screen else 1
-        game_options = argparse.Namespace(config=['MaxLines, 100000000'], scale=scale, cheat=False, quick_start=True)
+        # Don't let Eric be expelled for having too many lines (unless --config
+        # says otherwise)
+        config = ['MaxLines, 100000000'] + options.config
+        game_options = argparse.Namespace(config=config, scale=scale, cheat=False, quick_start=True)
         g = game.Game(os.path.join(PYSKOOL_HOME, 'pyskool', 'data', 'pyskool.ini'), options.images_dir,
                       options.sounds_dir, options.ini_dir or os.path.join(user_dir, 'ini', GAMES[options.game]),
                       game_options, 'demo', None)
@@ -705,6 +708,10 @@ def parse_args(args):
                     "automatic control, following a file of keypresses, or under keyboard control, and report any crash, hang, or character found off every floor and staircase.")
     parser.add_argument('--bells', action='store_true',
                         help='Print a line whenever a lesson starts, showing the tick and the lesson ID.')
+    parser.add_argument('--config', metavar='P,V', action='append', default=[],
+                        help='Set the value of the configuration parameter P to V (as the --config option of the '
+                             'game launchers does); this option may be used multiple times. MaxLines is set to '
+                             '100000000 unless this option sets it.')
     parser.add_argument('--doors', action='store_true',
                         help="Print a line whenever a door or window opens or shuts, showing the tick, the door or "
                              "window ID, who moved it (and where), and Eric's location.")
