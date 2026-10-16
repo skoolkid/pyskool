@@ -182,8 +182,7 @@ def test_skool_daze_little_boy_repeats_message(monkeypatch, capsys, tmp_path):
             events.append((d.tick, 'signal', signal_id))
             method(signal_id)
         d.skool.signal = signal
-    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-Mumps', inputs, 460, setup=setup,
-                   options=['--no-auto-understood'])
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-Mumps', inputs, 460, setup=setup)
 
     # The boy gave Eric the message, waited for him to press 'U', and then
     # gave him the message again; Eric pressed 'U' during the repeat, and when
@@ -1636,12 +1635,13 @@ def test_skool_daze_wacker_expels_eric_after_adding_lines(monkeypatch, capsys, t
     # Eric has 8100 lines to begin with; he walks right to the gym, where the
     # little boy waiting there tells him that Boy Wander has hidden a
     # pea-shooter on the fire escape, and that Eric will get lines if Mr
-    # Wacker gets there first; Eric then goes up to the top floor and waits
-    # near the fire escape, making no attempt to stop Mr Wacker getting there
-    # (as in test_skool_daze_pea_shooter_found_by_wacker in
-    # test_special_playtimes.py)
+    # Wacker gets there first (Eric presses 'U' as soon as the boy starts
+    # speaking); Eric then goes up to the top floor and waits near the fire
+    # escape, making no attempt to stop Mr Wacker getting there (as in
+    # test_skool_daze_pea_shooter_found_by_wacker in test_special_playtimes.py)
     inputs = """
         1 RIGHT 184
+        639 UNDERSTOOD
         946 LEFT 95
         1041 RIGHT
         1043 UP 28

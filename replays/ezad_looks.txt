@@ -228,6 +228,7 @@
 # study, and Mr Wacker gives Eric 2000 lines), then go to dinner
 16882 SIT_STAND     # stand up after the bell
 16884 RIGHT 50      # walk out of the White Room to (77,10)
+18717 UNDERSTOOD    # acknowledge Cook's message (Einstein is going to grass on Eric)
 20400 RIGHT 16      # walk to the top of the staff room staircase at (81,10)
 20416 LEFT          # turn to face down the staircase
 20418 DOWN 28       # go down to (74,17)

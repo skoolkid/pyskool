@@ -322,8 +322,10 @@ class Demo:
             # queued characters one at a time
             key, char = self.typing.pop(0)
             keyboard.key_down_events.insert(0, pygame.event.Event(pygame.KEYDOWN, key=key, unicode=char))
-        if self.eric and self.eric.frozen and not options.no_auto_understood:
-            # Acknowledge any message, or the skool clock stays stopped
+        if self.eric and self.eric.frozen and self.inputs is None:
+            # Under automatic control, acknowledge any message, or the skool
+            # clock stays stopped (with --inputs or --record, Eric presses 'U'
+            # himself)
             keyboard.key_down_events.append(pygame.event.Event(pygame.KEYDOWN, key=keys.UNDERSTOOD[0], unicode=''))
         keyboard.pressed_keys = PressedKeys({k: True for k in held})
 
@@ -717,7 +719,8 @@ def parse_args(args):
                              "window ID, who moved it (and where), and Eric's location.")
     parser.add_argument('-e', '--eric', metavar='MODE', choices=('follow', 'random', 'idle'),
                         help="How Eric behaves: follow little boy no. 10 or 11 (MODE=follow, the default), "
-                             "press keys at random (MODE=random), or do nothing (MODE=idle).")
+                             "press keys at random (MODE=random), or do nothing (MODE=idle). In every mode, 'U' is "
+                             "pressed whenever Eric is frozen (as when a little boy gives him a message).")
     parser.add_argument('--ffwd', metavar='TICKS', type=int,
                         help='With --screen, run the first TICKS ticks unthrottled, silently and without updating the '
                              'window, then continue at normal speed (or the speed set by --speed).')
@@ -739,7 +742,8 @@ def parse_args(args):
                              "(as in pyskool/keys.py) or WAIT, and DURATION is the number of ticks to hold the key down for "
                              "(default: a single press). A line of the form 'TICK TYPE TEXT' types TEXT (no spaces) on a "
                              "blackboard once Eric starts writing (after WRITE); follow it with ENTER to finish. "
-                             "Anything after '#' is ignored.")
+                             "Use UNDERSTOOD to acknowledge a message while Eric is frozen (as when a little boy gives "
+                             "him a message). Anything after '#' is ignored.")
     parser.add_argument('-l', '--lesson', metavar='ID',
                         help='Use a timetable consisting of only this lesson.')
     parser.add_argument('--lessons', action='store_true',
@@ -754,9 +758,6 @@ def parse_args(args):
                              "any other recipient of the lines, and Eric's location. Also print a line (without the new "
                              "total) whenever lines are given to another character whose lines don't count towards "
                              "Eric's total.")
-    parser.add_argument('--no-auto-understood', action='store_true',
-                        help="Don't press 'U' automatically whenever Eric is frozen (as when a little boy gives him a "
-                             "message); press it with an UNDERSTOOD line in the inputs file instead.")
     parser.add_argument('-r', '--record', metavar='FILE',
                         help="Control Eric with the keyboard (requires --screen), and record the keypresses in this "
                              "file for replaying with --inputs (and the same --game, --seed and --lesson).")

@@ -46,6 +46,7 @@
 1038 DOWN 28        # go down to (70,17)
 1066 RIGHT 18       # walk to (74,17)
 1084 LEFT           # turn to face left (Cook tells Eric that Einstein is going to grass on him)
+1137 UNDERSTOOD     # acknowledge Cook's message
 1626 FIRE_CATAPULT  # knock Mr Rockitt over at (64,17) on his way back along the bottom floor
 1666 FIRE_CATAPULT  # pellet bounces off his head and hits shield (65,14)
 
@@ -241,6 +242,7 @@
 # tells Eric about the race at about tick 20200; the skool clock stops until he
 # does)
 19252 RIGHT 34      # leave the study and wait at (14,3) for Cook
+19794 UNDERSTOOD    # acknowledge Cook's message about the race
 20260 RIGHT 124     # walk to (45,3)
 20384 JUMP          # hit shield (47,2)
 20394 RIGHT 13      # walk to (48,3)

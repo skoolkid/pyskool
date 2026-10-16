@@ -14,12 +14,14 @@ def _recorder(signals):
 
 def test_skool_daze_swot_grasses(monkeypatch, capsys, tmp_path):
     # Eric walks right to the gym, where the little boy waiting there tells
-    # him that Einstein is going to tell Mr Wacker what he's up to (demo.py
-    # presses 'U' automatically); Eric then goes up to the top of the stairs
-    # outside Mr Wacker's study (via the stairs up to the staff room) and
-    # waits there, making no attempt to stop Einstein getting to the study
+    # him that Einstein is going to tell Mr Wacker what he's up to (Eric
+    # presses 'U' as soon as the boy starts speaking); Eric then goes up to the
+    # top of the stairs outside Mr Wacker's study (via the stairs up to the
+    # staff room) and waits there, making no attempt to stop Einstein getting
+    # to the study
     inputs = """
         1 RIGHT 184
+        367 UNDERSTOOD
         617 LEFT 298
         915 UP 28
         943 RIGHT 30
@@ -40,8 +42,9 @@ def test_skool_daze_swot_stopped(monkeypatch, capsys, tmp_path):
     # Eric goes up to the top floor (via the stairs up to the Exam Room and
     # the Map Room) and waits near the fire escape, where the little boy finds
     # him and tells him that Einstein is going to tell Mr Wacker what he's up
-    # to; then, as Einstein sets off for Mr Wacker's study, Eric punches him
-    # eight times, each time just as he gets up, which delays him long enough
+    # to (Eric presses 'U' as soon as the boy starts speaking); then, as
+    # Einstein sets off for Mr Wacker's study, Eric punches him eight times,
+    # each time just as he gets up, which delays him long enough
     inputs = """
         1 RIGHT 92
         93 UP 28
@@ -49,6 +52,7 @@ def test_skool_daze_swot_stopped(monkeypatch, capsys, tmp_path):
         151 RIGHT
         153 UP 28
         181 RIGHT 36
+        675 UNDERSTOOD
         942 HIT
         1005 HIT
         1069 HIT
@@ -75,12 +79,13 @@ def test_skool_daze_swot_stopped(monkeypatch, capsys, tmp_path):
 def test_skool_daze_pea_shooter_found_by_wacker(monkeypatch, capsys, tmp_path):
     # Eric walks right to the gym, where the little boy waiting there tells
     # him that Boy Wander has hidden a pea-shooter on the fire escape, and that
-    # Eric will get lines if Mr Wacker gets there first (demo.py presses 'U'
-    # automatically); Eric then goes up to the top floor (via the stairs up to
-    # the Exam Room and the Map Room) and waits near the fire escape, making no
-    # attempt to stop Mr Wacker getting there
+    # Eric will get lines if Mr Wacker gets there first (Eric presses 'U' as
+    # soon as the boy starts speaking); Eric then goes up to the top floor (via
+    # the stairs up to the Exam Room and the Map Room) and waits near the fire
+    # escape, making no attempt to stop Mr Wacker getting there
     inputs = """
         1 RIGHT 184
+        639 UNDERSTOOD
         946 LEFT 95
         1041 RIGHT
         1043 UP 28
@@ -102,8 +107,9 @@ def test_skool_daze_pea_shooter_found_by_wacker(monkeypatch, capsys, tmp_path):
 def test_skool_daze_pea_shooter_found_by_boy_wander(monkeypatch, capsys, tmp_path):
     # Eric goes up to the library (via the stairs up to the staff room and Mr
     # Wacker's study), where the little boy finds him and tells him about the
-    # pea-shooter; then, as Mr Wacker sets off for the fire escape (walking
-    # away from Eric), Eric knocks him over three times by firing at his back
+    # pea-shooter (Eric presses 'U' as soon as the boy starts speaking); then,
+    # as Mr Wacker sets off for the fire escape (walking away from Eric), Eric
+    # knocks him over three times by firing at his back
     inputs = """
         1 LEFT 118
         119 UP 28
@@ -111,6 +117,7 @@ def test_skool_daze_pea_shooter_found_by_boy_wander(monkeypatch, capsys, tmp_pat
         177 LEFT
         179 UP 28
         207 RIGHT 90
+        1329 UNDERSTOOD
         1660 FIRE_CATAPULT
         1742 FIRE_CATAPULT
         1826 FIRE_CATAPULT
@@ -136,10 +143,11 @@ def test_skool_daze_pea_shooter_found_by_boy_wander(monkeypatch, capsys, tmp_pat
 
 def test_skool_daze_mumps(monkeypatch, capsys, tmp_path):
     # Eric is told by a little boy not to let Angelface (who has mumps) touch
-    # him, but stays put while Angelface walks past (at tick 223); he then
-    # walks left and up the stairs towards the staff room, where Mr Rockitt is
-    # waiting
+    # him (and presses 'U' as soon as the boy starts speaking), but stays put
+    # while Angelface walks past (at tick 223); he then walks left and up the
+    # stairs towards the staff room, where Mr Rockitt is waiting
     inputs = """
+        3 UNDERSTOOD
         224 LEFT 117
         341 UP 16
     """
@@ -157,10 +165,12 @@ def test_skool_daze_mumps(monkeypatch, capsys, tmp_path):
 
 def test_skool_daze_mumps_avoided(monkeypatch, capsys, tmp_path):
     # Eric is told by a little boy not to let Angelface (who has mumps) touch
-    # him; he then walks left (ahead of Angelface) and goes up the stairs to
-    # the White Room, where he stays (out of sight of the teachers, and where
-    # Angelface never goes) until the bell rings
+    # him (and presses 'U' as soon as the boy starts speaking); he then walks
+    # left (ahead of Angelface) and goes up the stairs to the White Room, where
+    # he stays (out of sight of the teachers, and where Angelface never goes)
+    # until the bell rings
     inputs = """
+        3 UNDERSTOOD
         178 LEFT 117
         295 UP 28
         323 RIGHT 74
