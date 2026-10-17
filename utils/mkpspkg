@@ -22,30 +22,57 @@ if [ ! -d "$PYSKOOL_HOME" ]; then
   exit 1
 fi
 
+if [[ ! -f /etc/os-release ]]; then
+  echo "Error: /etc/os-release not found: unable to determine distro"
+  exit 1
+fi
+grep -q "^ID=fedora" /etc/os-release && fedora=1 || fedora=0
+
 cd $PYSKOOL_HOME
-VERSION=$(./pyskool.py --version 2>&1 | tail -1)
-PYSKOOL_TAR=pyskool-$VERSION.tar.xz
+PYSKOOL_VERSION=$(sed -n "s/^version = '\(.*\)'/\1/p" pyskool/__init__.py)
+PYSKOOL_TAR=pyskool-${PYSKOOL_VERSION}.tar.xz
+
 if [ -f "dist/$PYSKOOL_TAR" ]; then
   echo "Using existing $PYSKOOL_TAR"
+elif [[ $fedora -eq 1 ]]; then
+  echo "Error: No pre-built dist/$PYSKOOL_TAR found"
+  exit 1
 else
   echo "Building $PYSKOOL_TAR"
   utils/mkpstarball -q -t
 fi
 
 if [ "$PKGTYPE" = "deb" ]; then
+  DEB_VERSION=$(dpkg-parsechangelog -l $PYSKOOL_HOME/debian/changelog -S Version)
   cd dist
   tar xf $PYSKOOL_TAR
-  cd pyskool-$VERSION
+  cd pyskool-${PYSKOOL_VERSION}
   cp -a $PYSKOOL_HOME/debian .
   debuild -b -us -uc
-  DEB_VERSION=$(dpkg-parsechangelog -S Version)
   rm -rf ../pyskool_$DEB_VERSION*.build ../pyskool_$DEB_VERSION*.changes
   cd $PYSKOOL_HOME
   echo "Created $(ls $PYSKOOL_HOME/dist/pyskool_${DEB_VERSION}_*.deb)"
 elif [ "$PKGTYPE" = "rpm" ]; then
-  cp -p dist/$PYSKOOL_TAR ~/rpmbuild/SOURCES/pyskool-$VERSION.tar.xz
-  rm -f ~/rpmbuild/RPMS/noarch/pyskool-$VERSION-*.rpm
-  rpmbuild -bb --define='_binary_payload w6.xzdio' rpm/pyskool.spec
-  mv ~/rpmbuild/RPMS/noarch/pyskool-$VERSION-*.rpm dist
-  echo "Created $(ls $PYSKOOL_HOME/dist/pyskool-$VERSION-*.rpm)"
+  if [[ $fedora -eq 1 ]]; then
+    FEDORA_HOME=$HOME
+    FEDORA_PS_HOME=$PYSKOOL_HOME
+  else
+    FEDORA_HOME=$(ls -1vd ~/distrobox/fedora* | tail -1)
+    CONTAINER=$(basename $FEDORA_HOME)
+    echo "Using container $CONTAINER"
+    FEDORA_PS_HOME=$FEDORA_HOME/projects/pyskool
+    rm -rf $FEDORA_PS_HOME
+    mkdir -p $FEDORA_PS_HOME/dist
+    rsync -aR $(git ls-files) $FEDORA_PS_HOME
+  fi
+  cp -p dist/$PYSKOOL_TAR $FEDORA_HOME/rpmbuild/SOURCES/pyskool-${PYSKOOL_VERSION}.tar.xz
+  rm -f $FEDORA_HOME/rpmbuild/RPMS/noarch/pyskool-${PYSKOOL_VERSION}-*.rpm
+  sed -i "s/^\(Version:[[:space:]]*\).*/\1${PYSKOOL_VERSION}/" $FEDORA_PS_HOME/rpm/pyskool.spec
+  if [[ $fedora -eq 1 ]]; then
+    rpmbuild -bb rpm/pyskool.spec
+  else
+    distrobox enter $CONTAINER -- rpmbuild -bb $FEDORA_PS_HOME/rpm/pyskool.spec
+  fi
+  mv $FEDORA_HOME/rpmbuild/RPMS/noarch/pyskool-${PYSKOOL_VERSION}-*.rpm $PYSKOOL_HOME/dist
+  echo "Created $(ls $PYSKOOL_HOME/dist/pyskool-${PYSKOOL_VERSION}-*.rpm)"
 fi

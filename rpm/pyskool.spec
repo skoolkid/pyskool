@@ -1,6 +1,6 @@
 Name:           pyskool
-Version:        %($PYSKOOL_HOME/pyskool.py --version 2>&1 | tail -1)
-Release:        1
+Version:        1.2.1
+Release:        1%{?dist}
 Summary:        Remake of Skool Daze and Back to Skool in Python and Pygame
 
 License:        GPLv3+

@@ -37,10 +37,9 @@ _require_pyskool() {
     exit 1
   fi
   TOOLS=$PYSKOOL_HOME/utils
-  VERSION=$($PYSKOOL_HOME/pyskool.py --version 2>&1 | tail -1)
+  VERSION=$(sed -n "s/^version = '\(.*\)'/\1/p" $PYSKOOL_HOME/pyskool/__init__.py)
   TARBALL=$PYSKOOL_HOME/dist/pyskool-$VERSION.tar.xz
   cd $PYSKOOL_HOME
-  PREV_VERSION=$(git tag | tail -n 1 | cut -c2-)
 }
 
 _require_pyskool_archive() {
@@ -52,6 +51,8 @@ _require_pyskool_archive() {
     echo "PYSKOOL_ARCHIVE=$PYSKOOL_ARCHIVE: directory not found"
     exit 1
   fi
+  prev_tarball=$(basename $(ls -1v $PYSKOOL_ARCHIVE/pyskool-*.tar.xz | tail -1) .tar.xz)
+  PREV_VERSION=${prev_tarball#pyskool-}
 }
 
 _require_skoolkit() {
@@ -415,16 +416,15 @@ build_deb() {
 build_rpm() {
   _require_pyskool
 
-  rpmname=pyskool-$VERSION-1.noarch.rpm
-  rpm=$PYSKOOL_HOME/dist/$rpmname
   logdir=$PYSKOOL_HOME/dist/log
   mkdir -p $logdir
   export PYGAME_HIDE_SUPPORT_PROMPT=1
 
   sudo rpm -e pyskool &> /dev/null || true
 
-  _exec "Building $rpmname" "make -C $PYSKOOL_HOME rpm" $logdir/rpmbuild.log
-  _exec "Installing $rpmname" "sudo rpm -i $rpm" $logdir/rpm-i.log
+  _exec "Building RPM package" "make -C $PYSKOOL_HOME rpm" $logdir/rpmbuild.log
+  rpm=$(ls -1 $PYSKOOL_HOME/dist/pyskool-$VERSION-1*.noarch.rpm)
+  _exec "Installing $(basename $rpm)" "sudo rpm -i $rpm" $logdir/rpm-i.log
   _check_commands /usr/bin $logdir
   _check_man_pages
   _check_data $(/usr/bin/skool_daze.py --package-dir | tail -1)/data $logdir
