@@ -278,7 +278,7 @@ _create_sounds() {
   version=$2
 
   for cmdname in $COMMANDS; do
-    cmd="$rootdir/$cmdname --create-sounds"
+    cmd="python3 $rootdir/$cmdname --create-sounds"
     logfile=$(pwd)/$(basename $cmdname .py)-sounds-$version.txt
     _exec "Running '$cmdname --create-sounds' ($version)" "$cmd" $logfile
   done
@@ -311,7 +311,7 @@ _create_ini() {
   version=$2
 
   for cmdname in $COMMANDS; do
-    cmd="$rootdir/$cmdname --create-ini"
+    cmd="python3 $rootdir/$cmdname --create-ini"
     logfile=$(pwd)/$(basename $cmdname .py)-ini-$version.txt
     _exec "Running '$cmdname --create-ini' ($version)" "$cmd" $logfile
   done
