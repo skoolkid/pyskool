@@ -8,6 +8,8 @@ Changelog
 * Characters can no longer be knocked out with a punch while on a staircase
 * Eric now finishes any action he's engaged in (hitting, firing etc.) before
   being frozen by a character who has a message for him
+* Eric can no longer be knocked out if he's in the middle of an action
+  (hitting, firing etc.)
 * Fixed the bug that causes right-facing sprites to be misdrawn on systems
   without SDL2
 * Fixed the bug that can cause a skool window to reset to an incorrect state

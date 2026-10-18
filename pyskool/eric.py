@@ -315,6 +315,17 @@ class Eric(character.Character):
         self.sit_on_floor()
         self.play_sound(sound.KNOCKED_OUT, sound.ASYNC)
 
+    def is_deckable(self):
+        """Return whether Eric is in an animatory state and location that are
+        amenable to him being knocked over.
+        """
+        deckable = super().is_deckable()
+        if self.writing:
+            return deckable
+        if self.controller:
+            return False
+        return deckable
+
     def deck(self):
         """Knock Eric out and play a suitable sound effect."""
         if self.is_sitting_on_chair():
