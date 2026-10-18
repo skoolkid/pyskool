@@ -2570,9 +2570,7 @@ class Flight(Command):
         """Move Eric to the next location and phase of animation in the
         flight sequence.
 
-        :return: `self` if Eric has landed safely; a :class:`Freeze` command if
-                 Eric has landed but is now immobilised (as when falling from a
-                 great height); or `None` otherwise.
+        :return: `self` if Eric has landed, or `None` otherwise.
         """
         if self.index < len(self.phases):
             x_inc, y_inc, state = self.phases[self.index]
@@ -2584,7 +2582,6 @@ class Flight(Command):
             return
         if self.command_list_id:
             self.character.paralyse(self.command_list_id)
-            return Freeze()
         return self
 
 class JumpOffSaddle(ComplexCommand):

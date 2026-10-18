@@ -6,6 +6,8 @@ Changelog
 * Dropped support for Python 2.7 and Pygame 1.8
 * Added support for Pygame 2
 * Characters can no longer be knocked out with a punch while on a staircase
+* Eric now finishes any action he's engaged in (hitting, firing etc.) before
+  being frozen by a character who has a message for him
 * Fixed the bug that causes right-facing sprites to be misdrawn on systems
   without SDL2
 * Fixed the bug that can cause a skool window to reset to an incorrect state

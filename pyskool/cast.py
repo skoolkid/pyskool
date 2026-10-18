@@ -1008,8 +1008,8 @@ class Cast:
                 return c
 
     def freeze_eric(self):
-        """Attempt to freeze Eric. The attempt will fail if Eric is writing on
-        a blackboard.
+        """Attempt to freeze Eric. The attempt will fail if Eric is busy (i.e.
+        writing on a blackboard, firing, hitting, etc.).
 
         :return: `True` if Eric was frozen, `False` otherwise.
         """

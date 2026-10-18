@@ -86,6 +86,8 @@ class Eric(character.Character):
             elif next_controller is not None:
                 self._set_controller(next_controller)
             return self.screen.get_scroll_increment(self.x)
+        if self.paralysed:
+            return 0
         if self.midstride():
             self.make_walking_sound(self.get_walk_state_index())
             return self.walk()
@@ -633,12 +635,12 @@ class Eric(character.Character):
         return True
 
     def freeze(self):
-        """Attempt to freeze Eric. The attempt will fail if Eric is writing on
-        a blackboard, or is already frozen.
+        """Attempt to freeze Eric. The attempt will fail if Eric is busy (i.e.
+        writing on a blackboard, firing, hitting, etc.), or is already frozen.
 
         :return: `True` if Eric was frozen, `False` otherwise.
         """
-        if self.writing or self.frozen:
+        if self.frozen or self.controller:
             return False
         self._set_controller(ai.Freeze())
         self.frozen = True
@@ -670,6 +672,7 @@ class Eric(character.Character):
                                 switch to.
         """
         self.expelled = True
+        self.paralysed = True
         self.skool.expel_eric(command_list_id)
 
     def take_safe_key(self):
@@ -763,6 +766,7 @@ class Eric(character.Character):
         self.started_pedalling = False
         self.sitting_on_saddle = False
         self.expelled = False
+        self.paralysed = False
         self.hide_coords = None
         self.base_location = None
 
