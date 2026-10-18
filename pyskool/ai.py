@@ -1040,6 +1040,9 @@ class WriteOnBoard(Command):
         """
         if not (self.message and self.character.get_blackboard()):
             return self
+        if self.character.is_sitting():
+            self.character.get_up()
+            return
         if self.character.write_on_board(self.message, self.index):
             self.character.lower_arm()
             return self

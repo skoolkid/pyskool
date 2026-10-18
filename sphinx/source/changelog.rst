@@ -14,7 +14,7 @@ Changelog
   without SDL2
 * Fixed the bug that can cause a skool window to reset to an incorrect state
   when starting a new game
-* Fixed the bug that can lead to characters being spontaneously "dethroned",
+* Fixed two bugs that can lead to a character being spontaneously "dethroned",
   even when not sitting down
 * Fixed the bug that prevents lines-giving from being re-enabled after pressing
   the NO_LINES cheat key (3) a second time
