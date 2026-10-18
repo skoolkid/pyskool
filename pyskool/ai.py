@@ -349,7 +349,7 @@ class SitForAssembly(ComplexCommand):
         """
         if self.character.got_signal(self.assembly_finished):
             return self
-        return GoToXY(self.character.x - random.randint(*self.sit_range), self.character.y)
+        return GoToXY(max(0, self.character.x - random.randint(*self.sit_range)), self.character.y)
 
     def sit_down(self):
         """Make a character sit down for assembly, or turn round to face the
@@ -567,10 +567,10 @@ class GoTo(Command):
         if self.character.x < next_x:
             self.done = self.go_one_step
             return self.character.right()
-        elif self.character.x > next_x:
+        if self.character.x > next_x:
             self.done = self.go_one_step
             return self.character.left()
-        elif next_staircase:
+        if next_staircase:
             if next_staircase.contains(self.character):
                 self.character.walk(True)
             else:
@@ -719,9 +719,11 @@ class WalkAround(Command):
             self.character.walk(True)
             return
         if self.origin is None:
-            self.origin = self.character.x
+            # Prevent the infinite loop that would occur if the origin
+            # x-coordinate were 0
+            self.origin = max(1, self.character.x)
         if self.character.x == self.origin:
-            return GoToXY(self.character.x - random.randint(*self.walkabout_range), self.character.y)
+            return GoToXY(max(0, self.character.x - random.randint(*self.walkabout_range)), self.character.y)
         self.count -= 1
         return GoToXY(self.origin, self.character.y)
 

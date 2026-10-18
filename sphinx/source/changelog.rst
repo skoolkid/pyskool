@@ -8,12 +8,13 @@ Changelog
 * Characters can no longer be knocked out with a punch while on a staircase
 * Fixed the bug that causes right-facing sprites to be misdrawn on systems
   without SDL2
-* Fixed the bug that could cause a skool window to reset to an incorrect state
+* Fixed the bug that can cause a skool window to reset to an incorrect state
   when starting a new game
-* Fixed the bug that could lead to characters being spontaneously "dethroned",
+* Fixed the bug that can lead to characters being spontaneously "dethroned",
   even when not sitting down
 * Fixed the bug that prevents lines-giving from being re-enabled after pressing
   the NO_LINES cheat key (3) a second time
+* Fixed the bug that can send characters to negative x-coordinates
 
 1.2.1 (2016-05-21)
 ------------------
