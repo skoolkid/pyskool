@@ -296,11 +296,11 @@ class Game:
                 self.skool.shield_mode = 3
                 debug.log('Unflashed all but one shield; hit it to go up a year')
         if self.keyboard.was_pressed(keys.NO_LINES):
-            if Character.give_lines == self._no_lines:
-                Character.give_lines = self._give_lines
+            if Character.give_lines is Game._no_lines:
+                Character.give_lines = Game._give_lines
                 debug.log('Enabled lines-giving')
             else:
-                Character.give_lines = self._no_lines
+                Character.give_lines = Game._no_lines
                 debug.log('Disabled lines-giving')
         if self.keyboard.was_pressed(keys.ADD_LINES):
             lines = 100 * random.randrange(*self.cast.lines_range)

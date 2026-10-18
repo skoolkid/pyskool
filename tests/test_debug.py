@@ -322,10 +322,11 @@ def test_game_cheat_disable_and_enable_lines_giving(capsys, monkeypatch):
     monkeypatch.setattr(Character, 'give_lines', Character.give_lines)
     g = _make_game(skool=_cheat_skool())
 
+    give_lines = Character.give_lines
     _press_cheat_keys(g, keys.NO_LINES)
-    assert Character.give_lines == g._no_lines
+    assert Character.give_lines is Game._no_lines
     _press_cheat_keys(g, keys.NO_LINES)
-    assert Character.give_lines != g._no_lines
+    assert Character.give_lines is give_lines
     assert capsys.readouterr().err.splitlines() == [
         'DEBUG: Disabled lines-giving',
         'DEBUG: Enabled lines-giving'

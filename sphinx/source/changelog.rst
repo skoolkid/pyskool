@@ -12,6 +12,8 @@ Changelog
   when starting a new game
 * Fixed the bug that could lead to characters being spontaneously "dethroned",
   even when not sitting down
+* Fixed the bug that prevents lines-giving from being re-enabled after pressing
+  the NO_LINES cheat key (3) a second time
 
 1.2.1 (2016-05-21)
 ------------------

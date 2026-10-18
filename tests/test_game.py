@@ -484,7 +484,6 @@ def test_cheat_key_no_lines(monkeypatch, capsys, tmp_path):
     _press(monkeypatch, g, keys.NO_LINES)
     assert 'DEBUG: Enabled lines-giving' in capsys.readouterr().err
 
-@pytest.mark.xfail(strict=True, reason='Game._check_cheat_keys() restores Character.give_lines as a method bound to the Game')
 def test_cheat_key_no_lines_twice(monkeypatch, capsys, tmp_path):
     g = _start_cheat_test(monkeypatch, capsys, tmp_path)
     _press(monkeypatch, g, keys.NO_LINES, keys.NO_LINES)
