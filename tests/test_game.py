@@ -167,16 +167,11 @@ def _set_up_eric(score=0, lines=0, flashing=(), shield_mode=1, safe=False, inven
         eric.print_mouse_inventory()
     return setup
 
-# The game is saved at tick 105, when any flashing shields and safe are in
-# the normal half of their flash cycle, because Skool.restore() doesn't
-# redraw them (see untracked/bugs/Skool-restore-flashing-shields.txt)
-SAVE_TICK = 105
-
 def test_save_and_restore_skool_daze(monkeypatch, capsys, tmp_path):
     # Save the game after Eric has flashed all but two of the shields and got
     # some lines
     setup = _set_up_eric(2700, 1900, flashing=range(2, 15))
-    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'sd', None, SAVE_TICK, 500, setup)
+    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'sd', None, 100, 500, setup)
     skool = restored.skool
     assert skool.scoreboard.score >= 2700
     assert skool.scoreboard.lines >= 1900
@@ -187,7 +182,7 @@ def test_save_and_restore_back_to_skool(monkeypatch, capsys, tmp_path):
     # Save the game after Eric has collected the water pistol, some
     # stinkbombs and a mouse
     setup = _set_up_eric(2000, 400, inventory=(items.WATER_PISTOL, items.STINKBOMBS3), mice=1)
-    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'bts', None, SAVE_TICK, 500, setup)
+    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'bts', None, 100, 500, setup)
     skool = restored.skool
     assert skool.scoreboard.score >= 2000
     assert skool.scoreboard.lines >= 400
@@ -197,7 +192,7 @@ def test_save_and_restore_back_to_skool(monkeypatch, capsys, tmp_path):
 def test_save_and_restore_skool_daze_take_too(monkeypatch, capsys, tmp_path):
     # Save the game after Eric has flashed all the shields and opened the safe
     setup = _set_up_eric(6500, 3200, flashing=range(15), shield_mode=3, safe=True)
-    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'sdtt', None, SAVE_TICK, 500, setup)
+    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'sdtt', None, 100, 500, setup)
     skool = restored.skool
     assert skool.scoreboard.score >= 6500
     assert skool.scoreboard.lines >= 3200
@@ -209,7 +204,7 @@ def test_save_and_restore_ezad_looks(monkeypatch, capsys, tmp_path):
     # Save the game after Eric has opened the safe and started unflashing the
     # shields
     setup = _set_up_eric(8000, 300, flashing=range(1, 15), shield_mode=3, safe=True)
-    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'el', None, SAVE_TICK, 500, setup)
+    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'el', None, 100, 500, setup)
     skool = restored.skool
     assert skool.scoreboard.score >= 8000
     assert skool.scoreboard.lines >= 300
@@ -222,7 +217,7 @@ def test_save_and_restore_back_to_skool_daze(monkeypatch, capsys, tmp_path):
     # sherry-filled water pistol, some stinkbombs and the storeroom key.
     inventory = (items.SHERRY_PISTOL, items.STINKBOMBS1, items.STOREROOM_KEY)
     setup = _set_up_eric(10000, 6900, flashing=range(16), shield_mode=2, inventory=inventory)
-    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'btsd', None, SAVE_TICK, 500, setup)
+    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'btsd', None, 100, 500, setup)
     skool = restored.skool
     assert skool.scoreboard.score >= 10000
     assert skool.scoreboard.lines >= 6900
@@ -792,13 +787,9 @@ def _set_up_mutables(d):
 def test_save_and_restore_mutables(monkeypatch, capsys, tmp_path, mode):
     # Restoring a game rebuilds the play area images (the full-colour image in
     # graphics mode 0, or the ink and paper images in mode 1) and redraws the
-    # mutable objects on them. The game is saved at tick 55, when the flashing
-    # shields and safe are in the normal half of their flash cycle, because
-    # Skool.restore() doesn't redraw them (see
-    # test_save_and_restore_skool_daze_take_too()). The restored game is
-    # created without the GraphicsMode setting, so it gets the graphics mode
-    # from the saved game.
-    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'btsd', None, 55, 50, _set_up_mutables,
+    # mutable objects on them. The restored game is created without the
+    # GraphicsMode setting, so it gets the graphics mode from the saved game.
+    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'btsd', None, 50, 50, _set_up_mutables,
                                         options=['--config', f'GraphicsMode,{mode}'])
     assert saved.screen.mode == restored.screen.mode == mode
     skool = restored.skool

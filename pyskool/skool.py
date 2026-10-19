@@ -881,6 +881,9 @@ class Skool:
             self.draw_mutable(*window.get_images())
         for door in self.doors.values():
             self.draw_mutable(*door.get_images())
+        for flashable in (*self.shields, self.safe):
+            if flashable.flashing:
+                self.draw_mutable(*flashable.get_images(self.inverse))
         self.cast.restore()
 
     def update_score_box(self):
