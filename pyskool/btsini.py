@@ -977,7 +977,7 @@ class BTSIniMaker(SkoolIniMaker):
         self.cups.append(('MiddleCup', (14, 8), (1, 1), (27, 14)))
         if self.custom != BACK_TO_SKOOL_DAZE:
             self.cups.append(('RightCup', (14, 7), (1, 1), (30, 14)))
-        self.cups.append(('GirlsCup', (14, 9), (1, 1), (186, 14)))
+            self.cups.append(('GirlsCup', (14, 9), (1, 1), (186, 14)))
 
     def create_plants(self):
         self.plants = []

@@ -219,14 +219,10 @@ def test_save_and_restore_ezad_looks(monkeypatch, capsys, tmp_path):
 
 def test_save_and_restore_back_to_skool_daze(monkeypatch, capsys, tmp_path):
     # Save the game after Eric has flashed all the shields and collected the
-    # sherry-filled water pistol, some stinkbombs and the storeroom key. The
-    # play area images aren't checked: the Girls' Cup is at the same place
-    # as the shield at (186,14), and Skool.restore() draws the cup over the
-    # shield (see untracked/bugs/BTSD-GirlsCup.txt).
+    # sherry-filled water pistol, some stinkbombs and the storeroom key.
     inventory = (items.SHERRY_PISTOL, items.STINKBOMBS1, items.STOREROOM_KEY)
     setup = _set_up_eric(10000, 6900, flashing=range(16), shield_mode=2, inventory=inventory)
-    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'btsd', None, SAVE_TICK, 500, setup,
-                                        check_images=False)
+    saved, restored = _save_and_restore(monkeypatch, capsys, tmp_path, 'btsd', None, SAVE_TICK, 500, setup)
     skool = restored.skool
     assert skool.scoreboard.score >= 10000
     assert skool.scoreboard.lines >= 6900
@@ -815,7 +811,7 @@ def test_save_and_restore_mutables(monkeypatch, capsys, tmp_path, mode):
     barriers = list(skool.doors.values()) + list(skool.windows.values())
     assert any(b.shut and not b.initially_shut for b in barriers)
     assert any(not b.shut and b.initially_shut for b in barriers)
-    assert [cup.contents for cup in skool.cups.values()] == ['WATER'] * 3
+    assert [cup.contents for cup in skool.cups.values()] == ['WATER'] * 2
     assert not skool.bike.chained
     assert [shield.flashing for shield in skool.shields] == [True, False] * 8
     assert skool.safe.flashing
