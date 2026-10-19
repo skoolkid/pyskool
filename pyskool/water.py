@@ -62,8 +62,6 @@ class Water(Character):
         self.y = y
         self.direction = direction
         self.liquid = liquid
-        self.action_delay = 2
-        self.action == 3
 
     def hit_cup(self):
         """Check whether the jet of liquid hit a cup, and fill the cup if so.
