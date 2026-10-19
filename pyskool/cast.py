@@ -951,16 +951,19 @@ class Cast:
         return speech_bubbles
 
     def restore(self):
-        """Perform tasks required immediately after restoring a saved game. The
-        tasks are:
+        """Perform tasks required immediately after rescaling or restoring a
+        saved game. The tasks are:
 
         * build the sprite images
+        * build speech bubble images
         * print the inventory
         * print the mouse inventory
         """
         self.sprites.build()
         for m in self.movables:
             m.build_images()
+        for b in self.get_speech_bubbles():
+            b.update(self.screen)
         self.eric.build_images()
         self.eric.print_inventory()
         self.eric.print_mouse_inventory()

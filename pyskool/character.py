@@ -92,11 +92,6 @@ class Character:
         self.height = None
         self.command_list = ai.CommandList(self)
 
-    def __getstate__(self):
-        d = self.__dict__.copy()
-        d['bubble'] = None
-        return d
-
     def is_home(self, x):
         """Return whether the character is on the 'home' side of a given
         x-coordinate. For male characters, the home side is the left side; for
@@ -305,12 +300,11 @@ class Character:
                  otherwise.
         """
         if not self.bubble:
-            bubble_x = 8 * ((self.x + 1) // 8)
+            lip_pos = (self.x + 1) % 8
+            bubble_x = self.x + 1 - lip_pos
             bubble_y = self.y - (3 if self.is_adult() or self.is_standing() else 2)
-            self.bubble = [bubble_x, bubble_y, None]
-        lip_pos = (self.x + 1) % 8
-        self.bubble[2], done = self.screen.get_bubble(words, lip_pos, shift)
-        return done
+            self.bubble = SpeechBubble(bubble_x, bubble_y, lip_pos, words)
+        return self.bubble.update(self.screen, shift)
 
     def remove_bubble(self):
         """Remove the character's speech bubble."""
@@ -1851,3 +1845,40 @@ class Character:
         :param signal: The signal to check.
         """
         return self.skool.got_signal(signal)
+
+class SpeechBubble:
+    """A speech bubble.
+
+    :param x: The speech bubble's x-coordinate.
+    :param y: The speech bubble's y-coordinate.
+    :param lip_pos: The offset (in tiles) from the left edge of the speech
+                    bubble at which to place the lip.
+    :type words: string
+    :param words: The words to be spoken.
+    """
+    def __init__(self, x, y, lip_pos, words):
+        self.x = x
+        self.y = y
+        self.words = words
+        self.lip_pos = lip_pos
+        self.image = None
+        self.shift = None
+
+    def __getstate__(self):
+        d = self.__dict__.copy()
+        d['image'] = None
+        return d
+
+    def update(self, screen, shift=None):
+        """Update this speech bubble.
+
+        :type screen: :class:`~pyskool.graphics.Screen`
+        :param screen: The screen to draw on.
+        :type shift: number
+        :param shift: The amount by which the words should be shifted in the
+                      text window of the speech bubble. If `None`, use the
+                      current `shift` value.
+        """
+        if shift is not None:
+            self.shift = shift
+        return screen.get_bubble(self)

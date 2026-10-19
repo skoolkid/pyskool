@@ -12,6 +12,8 @@ Changelog
   (hitting, firing etc.)
 * The shield in the girls' skool kitchen is now restored when loading a saved
   Back to Skool Daze game
+* Speech bubbles are now drawn correctly after rescaling or loading a saved
+  game
 * Fixed the bug that causes right-facing sprites to be misdrawn on systems
   without SDL2
 * Fixed the bug that can cause a skool window to reset to an incorrect state

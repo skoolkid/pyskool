@@ -445,24 +445,20 @@ class Screen(object):
         self.screen.blit(box, (box_x, box_y))
         self._update(pygame.Rect((box_x, box_y), (box_width, box_height)))
 
-    def get_bubble(self, words, lip_pos, shift):
-        """Create a speech bubble displaying a portion of a message.
+    def get_bubble(self, speech_bubble):
+        """Create an image of a speech bubble displaying a portion of a
+        message.
 
-        :param words: The text of the message.
-        :param lip_pos: The offset (in tiles) from the left edge of the speech
-                        bubble at which to place the lip.
-        :param shift: The offset (in tiles) by which to shift the text image
-                      before displaying it in the bubble; if negative, leading
-                      spaces will be displayed.
-        :return: A 2-tuple, `(bubble, done)`, where `bubble` is the speech
-                 bubble image (an :class:`Image`), and `done` is `True` if the
-                 entire message has been spoken, `False` otherwise.
+        :type speech_bubble: :class:`~pyskool.character.SpeechBubble`
+        :param speech_bubble: The speech bubble to create an image of.
+        :return: `True` if the entire message has been spoken, `False`
+                 otherwise.
         """
         bubble = pygame.Surface(self.scale_coords(self.speech_bubble_size))
         bubble.fill(self.speech_bubble_colorkey)
         bubble.set_colorkey(self.speech_bubble_colorkey)
         bubble.blit(self.bubble.surface, (0, 0))
-        lip_x = min(lip_pos, self.speech_bubble_size[0] - self.bubble_lip_size[0])
+        lip_x = min(speech_bubble.lip_pos, self.speech_bubble_size[0] - self.bubble_lip_size[0])
         lip_coords = self.scale_coords((lip_x, self.speech_bubble_size[1] - self.bubble_lip_size[1]))
         bubble.blit(self.bubble_lip.surface, lip_coords)
 
@@ -471,18 +467,19 @@ class Screen(object):
         open_lip_area = (0, 0, self.bubble_lip.get_width(), self.scale)
         bubble.blit(self.bubble_lip.surface, open_lip_xy, open_lip_area)
 
-        text = self.get_text(words, self.speech_bubble_ink, self.speech_bubble_colorkey)
+        text = self.get_text(speech_bubble.words, self.speech_bubble_ink, self.speech_bubble_colorkey)
         tile_width = 8 * self.scale
         min_inset_x = self.speech_bubble_inset[0] * self.scale
-        inset_x = min_inset_x - tile_width * min(shift, 0)
+        inset_x = min_inset_x - tile_width * min(0, speech_bubble.shift)
         inset_y = self.speech_bubble_inset[1] * self.scale
-        text_x = max(shift, 0) * tile_width
+        text_x = max(0, speech_bubble.shift) * tile_width
         max_width = tile_width * self.speech_bubble_size[0] - 2 * min_inset_x
         width = min(min_inset_x + max_width - inset_x, text.get_width() - text_x)
         if width > 0:
             text_window = text.subsurface((text_x, 0), (width, tile_width))
             bubble.blit(text_window, (inset_x, inset_y))
-        return (Image(None, None, bubble), width < 0)
+        speech_bubble.image = Image(None, None, bubble)
+        return width < 0
 
     def _update(self, *args):
         """Update the display.
@@ -515,8 +512,8 @@ class Screen(object):
             self._draw_skool(self.screen, skool_images[2].surface)
             scratch.set_colorkey(self.skool_colorkey)
             self.screen.blit(scratch, (0, 0))
-        for x, y, image in speech_bubbles:
-            self._draw_image(self.screen, x, y, image)
+        for bubble in speech_bubbles:
+            self._draw_image(self.screen, bubble.x, bubble.y, bubble.image)
         if update:
             self._update()
 
