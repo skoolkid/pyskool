@@ -2220,6 +2220,7 @@ class EvadeMouse(Command):
         self.in_the_air = False
         self.on_a_chair = False
         self.old_as = None
+        self.was_seated = False
 
     def execute(self):
         """Make a character:
@@ -2233,6 +2234,7 @@ class EvadeMouse(Command):
         """
         if self.old_as is None:
             self.old_as = self.character.animatory_state
+            self.was_seated = self.character.is_sitting_on_chair()
             if self.character.is_sitting():
                 self.character.get_up()
                 return
@@ -2242,7 +2244,10 @@ class EvadeMouse(Command):
                 self.character.y += 1
                 self.in_the_air = self.on_a_chair = False
                 return
-            self.character.animatory_state = self.old_as
+            if self.was_seated:
+                self.character.sit()
+            else:
+                self.character.animatory_state = self.old_as
             self.character.trigger_speed_change()
             return self
         self.character.go_slow()
