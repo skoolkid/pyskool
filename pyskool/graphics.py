@@ -309,9 +309,7 @@ class Screen(object):
 
         :param text_lines: The lines of text to print.
         """
-        while len(text_lines) < 2:
-            text_lines.append('')
-        line1, line2 = text_lines[:2]
+        line1, line2 = (text_lines + ('', ''))[:2]
         lesson_box = self.lesson_box.surface.copy()
         line1_text = self.get_text(line1, self.lesson_box_ink, self.lesson_box_key)
         line2_text = self.get_text(line2, self.lesson_box_ink, self.lesson_box_key)
