@@ -229,39 +229,39 @@
 16882 SIT_STAND     # stand up after the bell
 16884 RIGHT 50      # walk out of the White Room to (77,10)
 18717 UNDERSTOOD    # acknowledge Cook's message (Einstein is going to grass on Eric)
-20400 RIGHT 16      # walk to the top of the staff room staircase at (81,10)
-20416 LEFT          # turn to face down the staircase
-20418 DOWN 28       # go down to (74,17)
-20446 LEFT 102      # walk into the dinner hall to (49,17), where Eric is left alone
-20552 RIGHT         # turn to face right
+20270 RIGHT 16      # walk to the top of the staff room staircase at (81,10)
+20286 LEFT          # turn to face down the staircase
+20288 DOWN 28       # go down to (74,17)
+20316 LEFT 102      # walk into the dinner hall to (48,17), where Eric is left alone
+20422 RIGHT         # turn to face right
 
 # Second pass, shields 12-15: (50,8), (45,8), (40,8) and (35,8), jumping off
 # Boy Wander in the Exam Room
-22905 LEFT 107      # walk to the foot of the Exam Room staircase at (23,17)
-23012 UP 28         # climb to (16,10)
-23040 RIGHT 138     # walk into the Exam Room to (50,10)
-23178 LEFT          # turn to face left
-23384 HIT           # knock Boy Wander over at the blackboard at (48,10)
-23398 LEFT 8        # walk to (48,10)
-23407 RIGHT         # turn to face right
-23409 JUMP          # jump onto Boy Wander
-23419 JUMP          # hit shield (50,8)
-23430 LEFT 26       # get off Boy Wander and walk to (42,10)
-23457 RIGHT         # turn to face right
-23532 HIT           # knock Boy Wander over at (44,10) as he approaches
-23546 RIGHT 12      # walk to (45,10)
-23559 LEFT          # turn to face left
-23561 JUMP          # jump onto Boy Wander
-23571 JUMP          # hit shield (45,8)
-23600 LEFT 36       # get off Boy Wander and walk to (36,10)
-23637 RIGHT         # turn to face right
-23656 HIT           # knock Boy Wander over at (38,10) as he approaches
-23670 RIGHT 8       # walk to (38,10)
-23679 JUMP          # jump onto Boy Wander
-23689 JUMP          # hit shield (40,8)
-23720 LEFT 32       # get off Boy Wander and walk to (31,10)
-23753 RIGHT         # turn to face right
-23770 HIT           # knock Boy Wander over at (33,10) as he approaches
-23784 RIGHT 8       # walk to (33,10)
-23793 JUMP          # jump onto Boy Wander
-23803 JUMP          # hit shield (35,8); all shields have stopped flashing, and Eric goes up a year
+22669 LEFT 103      # walk to the foot of the Exam Room staircase at (23,17)
+22772 UP 28         # climb to (16,10)
+22800 RIGHT 138     # walk into the Exam Room to (50,10)
+22940 LEFT          # turn to face left
+23097 HIT           # knock Boy Wander over at the blackboard at (48,10)
+23111 LEFT 8        # walk to (48,10)
+23120 RIGHT         # turn to face right
+23122 JUMP          # jump onto Boy Wander
+23132 JUMP          # hit shield (50,8)
+23143 LEFT 30       # get off Boy Wander and walk to (42,10)
+23174 RIGHT         # turn to face right
+23236 HIT           # knock Boy Wander over at (44,10) as he approaches
+23250 RIGHT 12      # walk to (45,10)
+23263 LEFT          # turn to face left
+23265 JUMP          # jump onto Boy Wander
+23275 JUMP          # hit shield (45,8)
+23294 LEFT 36       # get off Boy Wander and walk to (36,10)
+23331 RIGHT         # turn to face right
+23334 HIT           # knock Boy Wander over at (38,10) as he approaches
+23348 RIGHT 8       # walk to (38,10)
+23357 JUMP          # jump onto Boy Wander
+23367 JUMP          # hit shield (40,8)
+23390 LEFT 32       # get off Boy Wander and walk to (31,10)
+23423 RIGHT         # turn to face right
+23426 HIT           # knock Boy Wander over at (33,10) as he approaches
+23440 RIGHT 8       # walk to (33,10)
+23449 JUMP          # jump onto Boy Wander
+23459 JUMP          # hit shield (35,8); all shields have stopped flashing, and Eric goes up a year

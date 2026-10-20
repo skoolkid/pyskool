@@ -112,13 +112,13 @@ def test_skool_daze_take_too(monkeypatch, capsys, tmp_path):
     assert skool.room(d.eric).name == 'EXAM ROOM'
 
 def test_ezad_looks(monkeypatch, capsys, tmp_path):
-    d, shield_modes = _run_replay(monkeypatch, capsys, tmp_path, 'el', 'ezad_looks.txt', 23900)
+    d, shield_modes = _run_replay(monkeypatch, capsys, tmp_path, 'el', 'ezad_looks.txt', 23600)
     skool = d.skool
 
     # Eric flashed all the shields, opened the safe, unflashed all the shields,
     # and went up a year exactly once
     assert [m for t, m in shield_modes] == [1, 2, 3, 1]
-    assert d.up_a_year_ticks == [23813]
+    assert d.up_a_year_ticks == [23469]
 
     # The game never ended (Ezad Looks carries on into the next year after Eric
     # goes up a year, and Eric was never expelled)
@@ -132,8 +132,8 @@ def test_ezad_looks(monkeypatch, capsys, tmp_path):
     assert not skool.safe.flashing
 
     # Eric's score and lines
-    assert skool.scoreboard.score == 18300
-    assert skool.scoreboard.lines == 2500
+    assert skool.scoreboard.score == 17200
+    assert skool.scoreboard.lines == 2300
     # demo.py lifts the lines limit, so check against the game's real limit
     assert skool.scoreboard.lines < 10000
 
