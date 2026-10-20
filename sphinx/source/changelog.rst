@@ -23,6 +23,7 @@ Changelog
 * Fixed the bug that prevents lines-giving from being re-enabled after pressing
   the NO_LINES cheat key (3) a second time
 * Fixed the bug that can send characters to negative x-coordinates
+* Fixed Einstein's answers to Mr Rockitt's questions in Ezad Looks
 
 1.2.1 (2016-05-21)
 ------------------

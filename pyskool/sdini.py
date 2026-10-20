@@ -258,7 +258,7 @@ ROCKITT_QA = {
                     ('Q1', 'WHAT IS THE BOILING POINT OF $1?'),
                 ),
                 (
-                    ('Q1', 'Please {0} I cannot tell a lie . . it $2 K'.format(TITLE_MACRO)),
+                    ('Q1', 'Please {0} I cannot tell a lie . . it is $2 K'.format(TITLE_MACRO)),
                 ),
                 (
                     ('Hydrogen', 20.271),
@@ -279,7 +279,7 @@ ROCKITT_QA = {
                     ('Q2', 'WHAT IS THE MELTING POINT OF $1?'),
                 ),
                 (
-                    ('Q2', 'Please {0} I cannot tell a lie . . it $2 K'.format(TITLE_MACRO)),
+                    ('Q2', 'Please {0} I cannot tell a lie . . it is $2 K'.format(TITLE_MACRO)),
                 ),
                 (
                     ('Beryllium', 1560),
