@@ -527,7 +527,10 @@ class Eric(character.Character):
         """Make Eric catch any animal that is close at hand. If Eric catches
         something, a sound effect is played.
         """
-        animal = self.cast.get_animal(*self._get_bend_over_hand_coords())
+        bend_over_hand_coords = self._get_bend_over_hand_coords()
+        if bend_over_hand_coords is None:
+            return
+        animal = self.cast.get_animal(*bend_over_hand_coords)
         if animal:
             if animal.is_mouse():
                 self.skool.add_to_score(self.mouse_catch_score)
@@ -555,11 +558,14 @@ class Eric(character.Character):
 
     def release_mice(self):
         """Make Eric release some mice."""
+        bend_over_hand_coords = self._get_bend_over_hand_coords()
+        if bend_over_hand_coords is None:
+            return
         if self.mice > 0:
             num_mice = min(self.mice, self.max_mice_release)
             self.mice -= num_mice
             self.print_mouse_inventory()
-            self.cast.release_mice(num_mice, *self._get_bend_over_hand_coords())
+            self.cast.release_mice(num_mice, *bend_over_hand_coords)
         self.walk_delay = self.bend_over_delay
 
     def print_inventory(self):
