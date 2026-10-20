@@ -180,8 +180,10 @@ class Room:
                            character.
         :param go_to_back: If `True`, return the back seat in the room.
         :return: A 2-tuple containing the target chair and the direction it
-                 faces (-1 or 1).
+                 faces (-1 or 1), or `(None, None)` if there are no chairs.
         """
+        if not self.chairs:
+            return None, None
         front_seat, back_seat = self.chairs[0], self.chairs[-1]
         direction = self.get_chair_direction()
         if go_to_back:
