@@ -1,9 +1,9 @@
 import os
 import shutil
 
-from pyskooltest import run
-from pyskool import ai, animal, character, user_dir
-from pyskool.animatorystates import CATAPULT0, CATAPULT1, HITTING0, HITTING1, RIDING_BIKE0, RIDING_BIKE1, WALK0
+from pyskooltest import demo, run
+from pyskool import ai, animal, character, eric, user_dir
+from pyskool.animatorystates import ARM_UP, BENDING_OVER, CATAPULT0, CATAPULT1, HITTING0, HITTING1, RIDING_BIKE0, RIDING_BIKE1, WALK0
 from pyskool.location import Location
 
 def _mod_ini(tmp_path, game_dir, *mods):
@@ -98,6 +98,31 @@ def test_find_seat_outside_rooms(monkeypatch, capsys, tmp_path):
     # FindSeat was executed once, by BOY01 at (60,17), which is in no room,
     # and terminated immediately
     assert executions == [(142, 'BOY01', (60, 17), None, True)]
+
+def test_find_seat_in_room_without_chairs(monkeypatch, capsys, tmp_path):
+    # In Playtime-4, give BOY01 a command list that sends him to a spot in the
+    # dinner hall (which has no chairs), and then makes him look for a seat;
+    # FindSeat can find no chair there, and so terminates
+    ini_dir = _mod_ini(tmp_path, 'skool_daze',
+        ('command_lists.ini', None, '\n[CommandList FindSeatInDinnerHall]\nGoToXY, 42, 17\nFindSeat\nGoToRandomLocation\nWalkAround, 10\nRestart\n'),
+        ('lessons.ini', '[Lesson Playtime-4 PLAYTIME]\n; characterId, commandListID\nBOY01, BigWindow\n',
+         '[Lesson Playtime-4 PLAYTIME]\n; characterId, commandListID\nBOY01, FindSeatInDinnerHall\n')
+    )
+    executions = []
+    def setup(d):
+        execute = ai.FindSeat.execute
+        def recorded(command):
+            val = execute(command)
+            c = command.character
+            room = c.room
+            executions.append((d.tick, c.character_id, (c.x, c.y), room.room_id if room else None, room.chairs if room else None, val is command))
+            return val
+        monkeypatch.setattr(ai.FindSeat, 'execute', recorded)
+    run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', '', 200, setup=setup, options=['--ini-dir', str(ini_dir)])
+
+    # FindSeat was executed once, by BOY01 at (42,17), which is in the dinner
+    # hall, and terminated immediately
+    assert executions == [(9, 'BOY01', (42, 17), 'DinnerHall', [], True)]
 
 def test_walk_around_on_stairs(monkeypatch, capsys, tmp_path):
     # In Playtime-4 (repeated, and shortened to 340 ticks), give BOY01 a
@@ -351,6 +376,93 @@ def test_release_mice_without_mice(monkeypatch, capsys, tmp_path):
     assert d.eric.mice == 3
     assert [a.character_id for a in d.skool.cast.animals] == ['FROG']
 
+def _run_without_bend_over_hand_xy(monkeypatch, capsys, tmp_path, inputs):
+    """Run Back to Skool's Playtime-1 for 30 ticks in cheat mode with the
+    bendOverHandXY value removed from the [Eric] section, and with the given
+    inputs. Return the Demo object and a list of the ticks at which Eric looked
+    for an animal at his hand or released mice."""
+    ini_dir = _mod_ini(tmp_path, 'back_to_skool',
+        ('sprites.ini', 'BFPR, (0, 3)\n', 'BFPR\n')
+    )
+    calls = []
+    def setup(d):
+        cast = d.skool.cast
+        assert d.eric.bend_over_hand_xy is None
+        def recorded(c, *args):
+            calls.append(d.tick)
+        monkeypatch.setattr(type(cast), 'get_animal', recorded)
+        monkeypatch.setattr(type(cast), 'release_mice', recorded)
+    d, _ = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 30, setup=setup, options=['--ini-dir', str(ini_dir), '--config', 'Cheat,1'])
+    return d, calls
+
+def test_catch_without_bend_over_hand_xy(monkeypatch, capsys, tmp_path):
+    # Without the bendOverHandXY value, Eric can still bend over to catch an
+    # animal, but he doesn't look for one, and he catches nothing
+    inputs = """
+        10 CATCH
+    """
+    bends = []
+    catch_animal = eric.Eric.catch_animal
+    def recorded(e):
+        bends.append((e.animatory_state, e.mice, set(e.inventory)))
+        return catch_animal(e)
+    monkeypatch.setattr(eric.Eric, 'catch_animal', recorded)
+    d, calls = _run_without_bend_over_hand_xy(monkeypatch, capsys, tmp_path, inputs)
+    assert bends == [(BENDING_OVER, 0, set())]
+    assert calls == []
+    assert d.eric.mice == 0
+    assert d.eric.inventory == set()
+    assert d.eric.animatory_state != BENDING_OVER
+
+def test_release_mice_without_bend_over_hand_xy(monkeypatch, capsys, tmp_path):
+    # Without the bendOverHandXY value, Eric can still bend over to release
+    # mice (given some with the GIVE_ALL cheat key), but he releases none
+    inputs = """
+        1 GIVE_ALL
+        10 RELEASE_MICE
+    """
+    bends = []
+    release_mice = eric.Eric.release_mice
+    def recorded(e):
+        bends.append((e.animatory_state, e.mice))
+        return release_mice(e)
+    monkeypatch.setattr(eric.Eric, 'release_mice', recorded)
+    d, calls = _run_without_bend_over_hand_xy(monkeypatch, capsys, tmp_path, inputs)
+    assert bends == [(BENDING_OVER, 8)]
+    assert calls == []
+    assert d.eric.mice == 8
+    assert d.eric.animatory_state != BENDING_OVER
+
+def test_walk_from_non_walking_state(monkeypatch, capsys, tmp_path):
+    # In Playtime-4, make Eric start with his arm raised (ARM_UP, which is not
+    # one of his walking states), and make him walk left; he steps straight
+    # into WALK0
+    ini_dir = _mod_ini(tmp_path, 'skool_daze',
+        ('sprites.ini', 'HERO, ERIC, ERIC, WALK0,', 'HERO, ERIC, ERIC, ARM_UP,')
+    )
+    inputs = """
+        0 LEFT 3
+    """
+    indexes = []
+    states = []
+    def setup(d):
+        get_walk_state_index = character.Character.get_walk_state_index
+        def recorded(c):
+            index = get_walk_state_index(c)
+            if index < 0:
+                indexes.append((d.tick, c.name, c.animatory_state))
+            return index
+        monkeypatch.setattr(character.Character, 'get_walk_state_index', recorded)
+        states.append((d.eric.x, d.eric.animatory_state))
+    d, _ = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 10, setup=setup, options=['--ini-dir', str(ini_dir)])
+
+    # At tick 3, Eric.move() and then Character.walk() found Eric in ARM_UP
+    # (and so got -1 as his walk state index), and he stepped from (48,17) to
+    # (47,17) and into WALK0, where he stayed after LEFT was released
+    assert states == [(48, ARM_UP)]
+    assert indexes == [(3, 'ERIC', ARM_UP), (3, 'ERIC', ARM_UP)]
+    assert (d.eric.x, d.eric.y, d.eric.animatory_state) == (47, 17, WALK0)
+
 def test_go_to_random_location_without_random_locations(monkeypatch, capsys, tmp_path):
     # In Playtime-5, remove BOY01's random locations; GoToRandomLocation (at
     # the start of his command list) then chooses his current location as the
@@ -447,6 +559,74 @@ def test_fall_to_floor(monkeypatch, capsys, tmp_path):
     boy = d.skool.cast.get('BOY01')
     assert (boy.x, boy.y) == (43, 17)
     assert boy.is_sitting_on_floor()
+
+def test_fall_off_plant(monkeypatch, capsys, tmp_path):
+    # In Playtime-1, add a plant whose head starts at (40,10) on the left
+    # middle floor, and give BOY01 a command list that makes him stand still
+    # there; when he arrives, make the plant grow (as if Eric had watered it),
+    # which lifts him two places up, and then die, which makes him fall back
+    # down to the floor
+    ini_dir = _mod_ini(tmp_path, 'back_to_skool',
+        ('sprites.ini', 'RightGatePlant, PLANT, 135, 17, Plant\n', 'RightGatePlant, PLANT, 135, 17, Plant\nTestPlant, PLANT, 40, 11, Plant\n'),
+        ('command_lists.ini', None, '\n[CommandList StandOnPlant]\nGoToXY, 40, 10\nSitStill\n'),
+        ('lessons.ini', 'GIRL07, PlaytimeWalkabout-Boy/Girl\nBOY01, RevisionLibrary-Boy\n',
+         'GIRL07, PlaytimeWalkabout-Boy/Girl\nBOY01, StandOnPlant\n')
+    )
+    events = []
+    def setup(d):
+        cast = d.skool.cast
+        boy = cast.get('BOY01')
+        plant = [p for p in cast.plants if p.character_id == 'TestPlant'][0]
+        grow_execute = ai.Grow.execute
+        def grow(command):
+            if command.character is plant and not plant.growing and events == [] and (boy.x, boy.y) == (40, 10):
+                plant.grow()
+                events.append((d.tick, 'grow', (boy.x, boy.y)))
+            return grow_execute(command)
+        monkeypatch.setattr(ai.Grow, 'execute', grow)
+        for name in ('appear', 'finish_growing', 'die'):
+            method = getattr(type(plant), name)
+            def recorded(p, name=name, method=method):
+                method(p)
+                if p is plant:
+                    events.append((d.tick, name, (boy.x, boy.y)))
+            monkeypatch.setattr(type(plant), name, recorded)
+        fall_off_plant = character.Character.fall_off_plant
+        def recorded_fall_off_plant(c):
+            fall_off_plant(c)
+            events.append((d.tick, 'fall_off_plant', c.character_id, (c.x, c.y), type(c.command_list.stack[-1]).__name__))
+        monkeypatch.setattr(character.Character, 'fall_off_plant', recorded_fall_off_plant)
+        fall_to_floor = character.Character.fall_to_floor
+        def recorded_fall_to_floor(c):
+            fall_to_floor(c)
+            events.append((d.tick, 'fall_to_floor', c.character_id, (c.x, c.y)))
+        monkeypatch.setattr(character.Character, 'fall_to_floor', recorded_fall_to_floor)
+        # Standing on the plant or falling from it is not being lost
+        is_lost = demo.Demo.is_lost
+        def is_lost_off_plant(demo_obj, c):
+            stack = c.command_list.stack
+            if c is boy and (cast.plant(c) or (stack and isinstance(stack[-1], ai.FallToFloor))):
+                return False
+            return is_lost(demo_obj, c)
+        monkeypatch.setattr(demo.Demo, 'is_lost', is_lost_off_plant)
+    d, _ = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', '', 400, setup=setup, options=['--ini-dir', str(ini_dir)])
+
+    # BOY01 reached (40,10) at tick 307, and the plant started growing; it
+    # lifted him to (40,9) and then (40,8), and when it died, he fell off it
+    # (with FallToFloor at the top of his command stack), landed at (40,10)
+    # and sat on the floor
+    assert events == [
+        (307, 'grow', (40, 10)),
+        (340, 'appear', (40, 9)),
+        (361, 'finish_growing', (40, 8)),
+        (382, 'fall_off_plant', 'BOY01', (40, 8), 'FallToFloor'),
+        (382, 'die', (40, 8)),
+        (393, 'fall_to_floor', 'BOY01', (40, 10))
+    ]
+    boy = d.skool.cast.get('BOY01')
+    assert (boy.x, boy.y) == (40, 10)
+    assert boy.is_sitting_on_floor()
+    assert [type(c).__name__ for c in boy.command_list.stack] == ['SitStill']
 
 def test_sit_when_sitting(monkeypatch, capsys, tmp_path):
     # In Withit-MapRoom-1, add a second FindSeat command to BOY01's command

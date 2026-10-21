@@ -371,6 +371,48 @@ def test_menu_scale_up_and_down(monkeypatch, capsys, tmp_path):
     _continue(monkeypatch, g, 20)
     assert pygame.display.get_surface().get_size() == (2 * width, 2 * height)
 
+def _start_speech_bubble_test(monkeypatch, capsys, tmp_path):
+    """Run Skool Daze headless until Mr Withit is speaking, and return the
+    Game object and his speech bubble. The cwd is changed to 'tmp_path'
+    (where any saved games go)."""
+    g = _start(monkeypatch, capsys, tmp_path, 'sd', '', 620, lesson='Wacker-ExamRoom')
+    monkeypatch.chdir(tmp_path)
+    bubbles = g.skool.cast.get_speech_bubbles()
+    assert len(bubbles) == 1
+    bubble = bubbles[0]
+    assert bubble.words == 'COME ON CHAPS - SETTLE DOWN'
+    assert bubble.image is not None
+    return g, bubble
+
+def test_load_game_with_speech_bubble(monkeypatch, capsys, tmp_path):
+    g, bubble = _start_speech_bubble_test(monkeypatch, capsys, tmp_path)
+    g._save('test.sav')
+    sav_file = os.path.join(tmp_path, *g.skool.save_game_dir.split('/'), 'test.sav')
+
+    # The speech bubble's image isn't saved, but it's rebuilt when the game
+    # is loaded
+    restored = _new_game('sd', sav_file)
+    bubbles = restored.skool.cast.get_speech_bubbles()
+    assert len(bubbles) == 1
+    assert bubbles[0] is not bubble
+    assert bubbles[0].words == bubble.words
+    assert bubbles[0].image is not None
+    assert _image_data(bubbles[0].image.surface) == _image_data(bubble.image.surface)
+    _continue(monkeypatch, restored, 20)
+
+def test_menu_scale_up_with_speech_bubble(monkeypatch, capsys, tmp_path):
+    g, bubble = _start_speech_bubble_test(monkeypatch, capsys, tmp_path)
+    width, height = bubble.image.surface.get_size()
+
+    # The game doesn't advance while the menu is displayed, so the speech
+    # bubble's image is rebuilt at the new scale only by rescaling
+    assert not _press(monkeypatch, g, keys.MENU, keys.MENU_NEXT, keys.MENU_NEXT, keys.MENU_NEXT)
+    assert g.menu.items[3][0] == demo.game.SCALE_UP
+    assert not _press(monkeypatch, g, keys.MENU_EXEC)
+    assert g.screen.scale == 2
+    assert g.skool.cast.get_speech_bubbles() == [bubble]
+    assert bubble.image.surface.get_size() == (2 * width, 2 * height)
+
 def test_menu_toggle_fullscreen(monkeypatch, capsys, tmp_path):
     g = _start_test(monkeypatch, capsys, tmp_path)
     # Fullscreen mode isn't available with the dummy video driver
@@ -457,6 +499,49 @@ def test_cheat_keys_flash_and_unflash_most(monkeypatch, capsys, tmp_path):
     assert [shield.flashing for shield in skool.shields] == [True] + [False] * (len(skool.shields) - 1)
     assert skool.safe.flashing
     assert 'DEBUG: Unflashed all but one shield; hit it to go up a year' in capsys.readouterr().err
+
+def test_up_a_year_message_with_one_line(monkeypatch, capsys, tmp_path):
+    # Eric stands on the top floor below the first shield; he unflashes all
+    # the other shields (with the UNFLASH_MOST cheat key), and then jumps to
+    # hit the first one, which sends him up a year; the up-a-year message
+    # (configured here to have no newline character) is printed in the lesson
+    # box on a single line
+    inputs = """
+        1 UNFLASH_MOST
+        10 JUMP
+    """
+    prints = []
+    def setup(d):
+        d.eric.x, d.eric.y, d.eric.direction = 6, 3, -1
+        screen = d.skool.screen
+        print_lesson = type(screen).print_lesson
+        def lesson_box():
+            coords = screen.scale_coords(screen.lesson_box_pos)
+            size = screen.lesson_box.surface.get_size()
+            return pygame.image.tostring(screen.screen.subsurface(coords, size), 'RGB')
+        def recorded(s, *text_lines):
+            print_lesson(s, *text_lines)
+            if len(text_lines) > 1:
+                return
+            printed = lesson_box()
+            # The lesson box should look the same as when the text is printed
+            # with an empty second line, and different from when it's blank
+            print_lesson(s, *text_lines, '')
+            two_lines = lesson_box()
+            print_lesson(s, '', '')
+            blank = lesson_box()
+            print_lesson(s, *text_lines)
+            prints.append((d.tick, text_lines, printed == two_lines, printed != blank))
+        monkeypatch.setattr(type(screen), 'print_lesson', recorded)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-4', inputs, 30, setup=setup,
+                   options=['--config', 'Cheat,1', '--config', 'UpAYearMessage,UP A YEAR!'])
+
+    # Eric went up a year (the tick here is one more than d.tick, following
+    # demo.py's '--endings' output), and the up-a-year message was printed
+    # (with nothing on the second line); no other text was printed in the
+    # lesson box without a second line
+    assert d.up_a_year_ticks == [19]
+    assert prints == [(18, ('UP A YEAR!',), True, True)]
 
 def test_cheat_key_no_lines(monkeypatch, capsys, tmp_path):
     g = _start_cheat_test(monkeypatch, capsys, tmp_path)

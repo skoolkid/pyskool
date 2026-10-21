@@ -1,3 +1,5 @@
+import pytest
+
 from pyskooltest import demo, run
 from pyskool import ai, barrier, items
 
@@ -443,6 +445,51 @@ def test_back_to_skool_catch_released_mouse(monkeypatch, capsys, tmp_path):
 
     # Nobody gave Eric lines
     assert lines == []
+
+def test_back_to_skool_seated_girls_sit_down_again_after_evading_mice(monkeypatch, capsys, tmp_path):
+    # Eric walks through the skool gate and closes all the doors (so that Miss
+    # Take stops waiting for the boys' skool door to be shut, and goes to
+    # teach her class in the Middle Room), and gives himself some mice; then
+    # he goes up to the Middle Room, and releases the mice in front of the
+    # girls sitting there
+    inputs = """
+        1 RIGHT 172
+        45 CLOSE_DOORS
+        50 GIVE_ALL
+        1000 UP 40
+        1040 LEFT 70
+        1115 RELEASE_MICE
+    """
+    events = []
+    def setup(d):
+        execute = ai.EvadeMouse.execute
+        def recorded(command):
+            c = command.character
+            starting = command.old_as is None
+            old_as = c.animatory_state
+            val = execute(command)
+            if c.character_id.startswith('GIRL') and (starting or val is command):
+                chair = c.chair()
+                events.append((d.tick, 'start' if starting else 'end', c.name, (c.x, c.y), old_as, c.animatory_state,
+                               chair.occupant.name if chair and chair.occupant else None))
+            return val
+        monkeypatch.setattr(ai.EvadeMouse, 'execute', recorded)
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Withit-YellowRoom-1', inputs, 1275, setup=setup, options=['--config', 'Cheat,1'])
+
+    # Sarah-Jane, Amelia and Philippa got out of their seats (vacating them)
+    # to evade the mice, and when they'd finished evading, each sat down again
+    # in the same seat (and so occupied it again); Sarah-Jane and Amelia then
+    # got up again to evade the mice once more
+    assert events == [
+        (1120, 'start', 'SARAH-JANE', (171, 10), 'SITTING_ON_CHAIR', 'WALK0', None),
+        (1155, 'start', 'AMELIA', (173, 10), 'SITTING_ON_CHAIR', 'WALK0', None),
+        (1162, 'start', 'PHILIPPA', (175, 10), 'SITTING_ON_CHAIR', 'WALK0', None),
+        (1234, 'end', 'SARAH-JANE', (171, 10), 'WALK0', 'SITTING_ON_CHAIR', 'SARAH-JANE'),
+        (1239, 'start', 'SARAH-JANE', (171, 10), 'SITTING_ON_CHAIR', 'WALK0', None),
+        (1269, 'end', 'AMELIA', (173, 10), 'WALK0', 'SITTING_ON_CHAIR', 'AMELIA'),
+        (1274, 'start', 'AMELIA', (173, 10), 'SITTING_ON_CHAIR', 'WALK0', None),
+        (1274, 'end', 'PHILIPPA', (175, 10), 'WALK0', 'SITTING_ON_CHAIR', 'PHILIPPA')
+    ]
 
 def test_back_to_skool_bike_runs_out_of_momentum(monkeypatch, capsys, tmp_path):
     # The bike is unchained from the start, and stands at the base of the
@@ -1305,6 +1352,63 @@ def test_skool_daze_einstein_knocked_out_of_seat_while_speaking(monkeypatch, cap
         (1279, 100, 'MR WITHIT', 'SIT_DOWN', None)
     ]
 
+def test_skool_daze_boy_wander_gets_up_to_write_on_blackboard(monkeypatch, capsys, tmp_path):
+    # With seed 2, Boy Wander ends Mr Wacker's Map Room lesson sitting in the
+    # Exam Room at (51,10), with the blackboard clean; Eric gets up (after
+    # being knocked out), goes to the Exam Room, and sits in Boy Wander's seat
+    # three times, pushing him along to (45,10), which is also where he goes
+    # to write on the blackboard at the start of the next lesson
+    inputs = """
+        2000 SIT_STAND
+        2010 RIGHT 95
+        2105 UP 40
+        2145 LEFT 109
+        2265 SIT_STAND
+        2303 SIT_STAND
+        2306 LEFT 8
+        2316 SIT_STAND
+        2359 SIT_STAND
+        2362 LEFT 8
+        2372 SIT_STAND
+    """
+    events = []
+    def setup(d):
+        boy_wander = d.skool.cast.get('TEARAWAY')
+        def dethrone(method=boy_wander.dethrone):
+            if d.tick >= 2000:
+                events.append((d.tick, 'dethrone', (boy_wander.x, boy_wander.y)))
+            method()
+        boy_wander.dethrone = dethrone
+        execute = ai.WriteOnBoard.execute
+        def recorded(command):
+            c = command.character
+            was_sitting = c.is_sitting()
+            dirty = bool(d.skool.rooms['ExamRoom'].blackboard_dirty())
+            val = execute(command)
+            if c is boy_wander and was_sitting:
+                events.append((d.tick, 'WriteOnBoard', (c.x, c.y), dirty, c.animatory_state, val))
+            return val
+        monkeypatch.setattr(ai.WriteOnBoard, 'execute', recorded)
+        def write_on_board(message, index, method=boy_wander.write_on_board):
+            if index == 1 and d.tick >= 2000:
+                events.append((d.tick, 'write_on_board', (boy_wander.x, boy_wander.y), message))
+            return method(message, index)
+        boy_wander.write_on_board = write_on_board
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Wacker-MapRoom', inputs, 2500, seed=2, setup=setup)
+
+    # Eric knocked Boy Wander out of his seat at (51,10), (49,10) and (47,10);
+    # when the next lesson started, Boy Wander went to the blackboard (which
+    # he was already beside) and began writing on it while still sitting at
+    # (45,10), so he stood up first, and then wrote on the blackboard
+    assert events == [
+        (2265, 'dethrone', (51, 10)),
+        (2317, 'dethrone', (49, 10)),
+        (2373, 'dethrone', (47, 10)),
+        (2435, 'WriteOnBoard', (45, 10), False, 'WALK0', None),
+        (2440, 'write_on_board', (45, 10), 'i hate^fizziks')
+    ]
+    assert d.skool.rooms['ExamRoom'].blackboard_dirty()
+
 def test_skool_daze_dinner_duty_restarts_if_too_early(monkeypatch, capsys, tmp_path):
     # Mr Withit (on dinner duty) starts the lesson 2 paces from the far end of
     # the dinner hall (instead of outside the staff room), so he reaches the
@@ -1643,6 +1747,126 @@ def test_skool_daze_little_boy_waits_for_eric_to_finish_writing(monkeypatch, cap
         (580, 200, 'MR CREAK', 'GET_ALONG', None),
         (692, 600, 'MR WITHIT', 'GET_ALONG', None)
     ]
+
+@pytest.mark.parametrize('action,attempts', [
+    ('HIT', [
+        (1039, (25, 10), 'WALK2', 'Hit', False),
+        (1043, (25, 10), 'HITTING1', 'Hit', False),
+        (1046, (25, 10), 'HITTING1', 'Hit', False),
+        (1049, (25, 10), 'WALK0', 'Hit', False),
+        (1052, (25, 10), 'WALK0', None, True)
+    ]),
+    ('FIRE_CATAPULT', [
+        (1039, (25, 10), 'WALK2', 'FireCatapult', False),
+        (1042, (25, 10), 'CATAPULT1', 'FireCatapult', False),
+        (1045, (25, 10), 'CATAPULT1', 'FireCatapult', False),
+        (1048, (25, 10), 'WALK0', 'FireCatapult', False),
+        (1051, (25, 10), 'WALK0', None, True)
+    ]),
+    ('JUMP', [
+        (1039, (25, 10), 'WALK2', 'Jump', False),
+        (1042, (25, 9), 'ARM_UP', 'Jump', False),
+        (1046, (25, 10), 'WALK2', 'Jump', False),
+        (1049, (25, 10), 'WALK2', None, True)
+    ])
+], ids=['HIT', 'FIRE_CATAPULT', 'JUMP'])
+def test_skool_daze_little_boy_waits_for_eric_to_finish_action(monkeypatch, capsys, tmp_path, action, attempts):
+    # Eric goes to the White Room (via the stairs up to the staff room) and
+    # waits by the blackboard; just before the little boy who has a message
+    # for him (that Einstein is going to tell Mr Wacker what he's up to)
+    # arrives, Eric hits, fires his catapult or jumps
+    inputs = f"""
+        1 LEFT 118
+        119 UP 28
+        147 RIGHT 54
+        1036 {action}
+    """
+    recorded_attempts = []
+    events = []
+    def setup(d):
+        eric, boy = d.eric, d.skool.cast.get('BOY10')
+        def freeze_eric(method=boy.freeze_eric):
+            controller = type(eric.controller).__name__ if eric.controller else None
+            state = ((eric.x, eric.y), eric.animatory_state, controller)
+            frozen = method()
+            recorded_attempts.append((d.tick, *state, frozen))
+            return frozen
+        boy.freeze_eric = freeze_eric
+        def say(words, shift, method=boy.say):
+            if shift == -4:
+                events.append((d.tick, 'say', words))
+            return method(words, shift)
+        boy.say = say
+    d, lines = run(monkeypatch, capsys, tmp_path, 'sd', 'Playtime-SwotGrass', inputs, 1060, setup=setup)
+
+    # The boy arrived beside Eric while Eric was busy, and so couldn't freeze
+    # him; he tried again every time he moved, until Eric had finished what he
+    # was doing (and was standing on the floor again), and then froze him and
+    # started giving him the message
+    assert recorded_attempts == attempts
+    assert events == [
+        (attempts[-1][0], 'say', "EINSTEIN is going to tell MR WACKER what you're up to. You must stop him getting to "
+                                 "his study this break         Press 'U' if you understood")
+    ]
+    assert d.eric.frozen
+
+@pytest.mark.parametrize('action,attempts', [
+    ('CATCH', [
+        (475, 'BENDING_OVER', 'Catch', False),
+        (478, 'WALK0', None, True)
+    ]),
+    ('RELEASE_MICE', [
+        (475, 'BENDING_OVER', 'ReleaseMice', False),
+        (478, 'WALK0', None, True)
+    ]),
+    ('DUMP_WATER_PISTOL', [
+        (475, 'BENDING_OVER', 'DumpWaterPistol', False),
+        (478, 'WALK0', None, True)
+    ]),
+    ('FIRE_WATER_PISTOL', [
+        (475, 'WATERPISTOL', 'FireWaterPistol', False),
+        (478, 'WALK0', 'FireWaterPistol', False),
+        (481, 'WALK0', None, True)
+    ]),
+    ('DROP_STINKBOMB', [
+        (475, 'ARM_UP', 'DropStinkbomb', False),
+        (478, 'WALK0', 'DropStinkbomb', False),
+        (481, 'WALK0', None, True)
+    ])
+], ids=['CATCH', 'RELEASE_MICE', 'DUMP_WATER_PISTOL', 'FIRE_WATER_PISTOL', 'DROP_STINKBOMB'])
+def test_back_to_skool_wacker_waits_for_eric_to_finish_action(monkeypatch, capsys, tmp_path, action, attempts):
+    # Eric has 10000 lines to begin with, and is given the water pistol,
+    # stinkbombs and mice; he adds some lines (taking him over the limit), and
+    # then waits where he is for Mr Wacker to come and expel him; just before
+    # Mr Wacker arrives, Eric bends over (to catch or release mice, or drop the
+    # water pistol), fires the water pistol, or drops a stinkbomb
+    inputs = f"""
+        1 GIVE_ALL
+        5 ADD_LINES
+        471 {action}
+    """
+    recorded_attempts = []
+    def setup(d):
+        d.skool.scoreboard.add_lines(10000)
+        eric, wacker = d.eric, d.skool.cast.get('WACKER')
+        def freeze_eric(method=wacker.freeze_eric):
+            controller = type(eric.controller).__name__ if eric.controller else None
+            state = (eric.animatory_state, controller)
+            frozen = method()
+            recorded_attempts.append((d.tick, *state, frozen))
+            return frozen
+        wacker.freeze_eric = freeze_eric
+    # demo.py raises the lines limit to stop Eric being expelled; restore the
+    # game's default limit
+    d, lines = run(monkeypatch, capsys, tmp_path, 'bts', 'Playtime-1', inputs, 500, setup=setup,
+                   options=['--config', 'MaxLines,10000', '--config', 'Cheat,1'])
+
+    # Mr Wacker arrived beside Eric while Eric was busy, and so couldn't freeze
+    # him; he tried again every time he moved, until Eric had finished what he
+    # was doing, and then froze him
+    assert recorded_attempts == attempts
+    assert (d.eric.x, d.eric.y) == (133, 17)
+    assert d.eric.frozen
 
 def test_skool_daze_wacker_expels_eric_after_adding_lines(monkeypatch, capsys, tmp_path):
     # Eric has 8100 lines to begin with; he walks right to the gym, where the
