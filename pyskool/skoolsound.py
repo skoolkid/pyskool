@@ -15,11 +15,14 @@
 # Pyskool. If not, see <http://www.gnu.org/licenses/>.
 
 import os
-import math
+from math import ceil
+from struct import pack
 
 FRAME_T_STATES = 69888
-INTERRUPT_DELAY = 942
-CONTENTION_FACTOR = 0.34
+INTERRUPT_DELAY = 895
+CONTENTION_BEGIN = 14335
+CONTENTION_END = 57245
+CONTENTION_FACTOR = 1.51
 
 SKOOL_DAZE = 'skool_daze'
 BACK_TO_SKOOL = 'back_to_skool'
@@ -58,52 +61,72 @@ PITCH_DATA = (
     (107,86), # G2 (not in the original games)
 )
 
-def delays_to_samples(delays, sample_rate, max_amplitude):
-    sample_delay = 3500000.0 / sample_rate
+def delays_to_samples(delays, sample_rate):
+    sample_delay = 3500000 / sample_rate
+    s0, s1 = 0, sample_delay
+    t, t1 = 0, ceil(s1)
+    bit = bits = 0
     samples = []
-    direction = 1
-    i = 0
-    d0 = 0
-    d1 = delays[i]
-    t = 0
-    while 1:
-        while t >= d1:
-            i += 1
-            if i >= len(delays):
+    for d in delays:
+        while True:
+            if t + d < t1:
+                if bit:
+                    bits += d
+                t += d
                 break
-            d0 = d1
-            d1 += delays[i]
-            direction *= -1
-        if i >= len(delays):
-            break
-        sample = direction * int(max_amplitude * math.sin(math.pi * (t - d0) / (d1 - d0)))
-        if sample > 32767:
-            sample = 32767
-        elif sample < -32768:
-            sample = 32768
-        elif sample < 0:
-            sample += 65536
-        samples.append(sample)
-        t += sample_delay
+            i = t1 - t
+            if bit:
+                bits += i
+            d -= i
+            samples.append(bits / (t1 - s0))
+            s0 = t = t1
+            s1 += sample_delay
+            t1 = ceil(s1)
+            bits = 0
+        bit = 1 - bit
     return samples
 
 def add_contention(delays, contention=True, interrupts=False, cycle=0):
-    c_start = 14334
-    c_end = 57248
-    for i, delay in enumerate(delays):
-        d = 0
-        while d < delay:
+    for i in range(len(delays)):
+        d_offset = 0
+        while 1:
             if interrupts and cycle == 0:
-               cycle = INTERRUPT_DELAY
-               if i:
-                   delay += INTERRUPT_DELAY
-            end = min(FRAME_T_STATES, cycle + delay - d)
-            if contention and c_start <= end and cycle < c_end:
-                contended_cycles = min(c_end, end) - max(cycle, c_start)
-                delay += int(contended_cycles * CONTENTION_FACTOR)
-            d += end - cycle
-            cycle = end % FRAME_T_STATES
-        delays[i] = delay
+                cycle = INTERRUPT_DELAY
+                if i:
+                    delays[i] += INTERRUPT_DELAY
+                    d_offset += INTERRUPT_DELAY
+            d_remaining = delays[i] - d_offset
+            if contention and cycle < CONTENTION_END:
+                if cycle < CONTENTION_BEGIN:
+                    gap = CONTENTION_BEGIN - cycle
+                    if d_offset + gap >= delays[i]:
+                        # Delay ends before next contended interval starts
+                        cycle += d_remaining
+                        break
+                    # Delay crosses into contended interval
+                    d_offset += gap
+                    cycle = CONTENTION_BEGIN
+                else:
+                    c_period = CONTENTION_END - cycle
+                    d_rem_contended = int(d_remaining * CONTENTION_FACTOR)
+                    if d_rem_contended < c_period:
+                        # Delay ends within contended interval
+                        delays[i] = d_offset + d_rem_contended
+                        cycle += d_rem_contended
+                        break
+                    # Delay crosses into uncontended interval
+                    cd_cycles = int(c_period / CONTENTION_FACTOR)
+                    delays[i] += c_period - cd_cycles
+                    d_offset += c_period
+                    cycle = CONTENTION_END
+            else:
+                if d_remaining < FRAME_T_STATES - cycle:
+                    # Delay ends before frame boundary
+                    cycle += d_remaining
+                    break
+                # Delay crosses frame boundary
+                d_offset += FRAME_T_STATES - cycle
+                cycle = 0
 
 def sd65122(d, e, h):
     delays = []
@@ -555,7 +578,7 @@ def write_wav(samples, fname, sample_rate):
         write_text(f, 'data')
         write_bytes(f, _to_bytes4(data_length)) # length of data chunk
         for sample in samples:
-            write_bytes(f, (sample & 255, sample // 256))
+            f.write(pack('<h', round(sample * 0xFFFF) - 0x8000))
 
 FILES = {
     'catapult': (catapult, 'common', 'catapult'),
@@ -628,7 +651,7 @@ SOUNDS = {
     )
 }
 
-def create_sounds(game, odir, verbose=True, force=False, sample_rate=44100, max_amplitude=65536):
+def create_sounds(game, odir, verbose=True, force=False, sample_rate=44100):
     wrote_wavs = False
     for sound in SOUNDS[game]:
         delays_f, subdir, fname = FILES[sound]
@@ -639,7 +662,7 @@ def create_sounds(game, odir, verbose=True, force=False, sample_rate=44100, max_
         if force or not os.path.isfile(wav):
             if verbose:
                 print('Writing {0}'.format(wav))
-            samples = delays_to_samples(delays_f(), sample_rate, max_amplitude)
+            samples = delays_to_samples(delays_f(), sample_rate)
             write_wav(samples, wav, sample_rate)
             wrote_wavs = True
     if verbose and not wrote_wavs:
