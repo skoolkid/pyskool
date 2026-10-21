@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-if [ -z "$PYSKOOL_HOME" ]; then
-  echo "Error: PYSKOOL_HOME not defined."
+if [ -z "$SKOOLKIT_HOME" ]; then
+  echo "Error: SKOOLKIT_HOME not defined."
   exit 1
 fi
-if [ ! -d "$PYSKOOL_HOME" ]; then
-  echo "Error: directory not found: $PYSKOOL_HOME"
+if [ ! -d "$SKOOLKIT_HOME" ]; then
+  echo "Error: directory not found: $SKOOLKIT_HOME"
   exit 1
 fi
-ANALYSE_WAV=$PYSKOOL_HOME/utils/analyse-wav.py
+ANALYSE_WAV=$SKOOLKIT_HOME/tools/analyse-wav.py
 
 if [ $# -ne 2 ]; then
   echo "Usage: $(basename $0) OLDDIR NEWDIR" 1>&2
@@ -28,7 +28,7 @@ for d in back_to_skool{,_daze} common ezad_looks skool_daze{,_take_too}; do
   for oldwav in $olddir/$d/*.wav; do
     newwav=$newdir/$d/$(basename $oldwav)
     if ! cmp -s $oldwav $newwav; then
-      $ANALYSE_WAV -d $oldwav $newwav
+      $ANALYSE_WAV --diff $oldwav $newwav
     fi
   done
 done
