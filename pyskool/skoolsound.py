@@ -130,14 +130,14 @@ def add_contention(delays, contention=True, interrupts=False, cycle=0):
 
 def sd65122(d, e, h):
     delays = []
-    for n in range(d or 256):
+    for n in range((d - 1) & 255):
         delays.append(13 * (e or 256) + 50)
         e = (e + h) & 255
     return delays
 
 def bts62155(d, e, h):
     delays = []
-    for n in range(d or 256):
+    for n in range((d - 1) & 255):
         delays.append(13 * (e or 256) + 50)
         e = (e + h) & 255
     if d & 1:
@@ -174,7 +174,9 @@ def catapult():
 
 def shield():
     # SD 58604
-    return sd65122(64, 0, 254) * 16
+    delays = sd65122(64, 0, 254)
+    delays += ([1823] + delays) * 15
+    return delays
 
 def hit(cycle):
     # SD 60128
@@ -210,8 +212,8 @@ def knocked_out():
 
 def mouse():
     # BTS 28952#28964
-    squeak = bts29836(26, 1632)
-    pause_delay = 399464 + squeak[0]
+    squeak = bts29836(26, 1536)
+    pause_delay = 399465 + squeak[0]
     delays = squeak + ([pause_delay] + squeak[1:]) * 2
     add_contention(delays, interrupts=True)
     return delays
@@ -224,17 +226,27 @@ def conker():
 
 def safe_key():
     # BTS 30804#30853
-    delays = bts29836(1, 256)
+    prev_b = 1
+    delays = bts29836(prev_b, 256)
     for n in range(255, 0, -1):
-        subdelays = bts29836((n & 63) + 1, 256)
-        delays.append(119 + subdelays[0])
+        if prev_b & 16:
+            delays[-1] += 120
+        else:
+            delays.append(120)
+        b = (n & 63) + 1
+        subdelays = bts29836(b, 256)
+        if b & 16:
+            delays.append(subdelays[0])
+        else:
+            delays[-1] += subdelays[0]
         delays.extend(subdelays[1:])
+        prev_b = b
     add_contention(delays, interrupts=True)
     return delays
 
 def bts_bell():
     # BTS 32433#32492
-    delays = bts29836(128, 4096)
+    delays = bts29836(128, 4112)
     add_contention(delays, interrupts=True)
     return delays
 
@@ -303,9 +315,9 @@ def tune(notes):
             duration *= beats
             duration //= 2
             if i:
-                gap = 207 + 13 * prev_pitch + 24 * beats
+                gap = 233 + 13 * prev_pitch + 24 * beats
                 if silence:
-                    gap += 61617
+                    gap += 61605
                 delays.append(gap)
             delays.extend([13 * pitch + 51] * (duration - 1))
             prev_pitch = pitch
