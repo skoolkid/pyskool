@@ -314,13 +314,18 @@ def tune(notes):
             duration, pitch = PITCH_DATA[note]
             duration *= beats
             duration //= 2
+            subdelays = [13 * pitch + 51] * (duration - 1)
             if i:
                 gap = 233 + 13 * prev_pitch + 24 * beats
                 if silence:
                     gap += 61605
-                delays.append(gap)
-            delays.extend([13 * pitch + 51] * (duration - 1))
+                if prev_duration & 1:
+                    subdelays[0] += gap
+                else:
+                    delays.append(gap)
+            delays.extend(subdelays)
             prev_pitch = pitch
+            prev_duration = duration
     add_contention(delays)
     return delays
 
