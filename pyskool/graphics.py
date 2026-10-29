@@ -103,7 +103,8 @@ class Screen(object):
         self.skool_colorkey = config.get('SkoolInkKey', (255, 255, 255))
         self.initial_column = config.get('InitialColumn', -1)
 
-        pygame.display.set_mode(self.scale_coords((self.width, self.height)))
+        self.fullscreen = False
+        self._set_mode()
         self.message_box = gallery.get_image(MESSAGE_BOX)
         self.message_box.set_colorkey(config.get('MessageBoxColour', (197, 0, 0)))
         self.lesson_box = gallery.get_image(LESSON_BOX)
@@ -125,6 +126,10 @@ class Screen(object):
         self.gallery.scale = value
     scale = property(_get_scale, _set_scale)
 
+    def _set_mode(self):
+        flags = pygame.FULLSCREEN | pygame.SCALED if self.fullscreen else 0
+        pygame.display.set_mode(self.scale_coords((self.width, self.height)), flags)
+
     def setup(self, set_mode=False):
         """Set up the following things:
 
@@ -137,7 +142,7 @@ class Screen(object):
         :param set_mode: If `True`, the size of the screen will be set.
         """
         if set_mode:
-            pygame.display.set_mode(self.scale_coords((self.width, self.height)))
+            self._set_mode()
         pygame.display.set_caption(self.title)
         if os.path.isfile(self.icon_fname):
             pygame.display.set_icon(pygame.image.load(self.icon_fname).convert())
@@ -157,7 +162,7 @@ class Screen(object):
 
     def _rescale(self):
         """Redraw the screen after a scale change."""
-        pygame.display.set_mode(self.scale_coords((self.width, self.height)))
+        self._set_mode()
         self._build_images()
 
     def _build_images(self):
@@ -192,6 +197,16 @@ class Screen(object):
             self._rescale()
             return True
         return False
+
+    def toggle_fullscreen(self, skool):
+        """Toggle between full-screen and windowed mode.
+
+        :type skool: :class:`~pyskool.skool.Skool`
+        :param skool: The skool.
+        """
+        self.fullscreen = not self.fullscreen
+        skool.restore()
+        skool.draw(True)
 
     def scale_coords(self, coords):
         """Scale up a pair of coordinates and return them.

@@ -171,7 +171,9 @@ class Game:
                 status = 'Scale set to %i' % self.screen.scale
                 self._build_menu_images()
         elif operation == TOGGLE_FULLSCREEN:
-            pygame.display.toggle_fullscreen()
+            self.screen.toggle_fullscreen(self.skool)
+            draw = True
+            refresh = True
         elif operation == QUIT:
             return True
         if draw or status:
@@ -226,6 +228,7 @@ class Game:
         :param fname: The name of the file to load from.
         """
         scale = self.screen.scale if self.screen else self.scale
+        fullscreen = self.screen.fullscreen if self.screen else False
         start = time.time()
         f = gzip.open(fname, 'rb')
         self.skool = pickle.load(f)
@@ -240,6 +243,7 @@ class Game:
         # Perform necessary post-load tasks
         if scale:
             self.screen.scale = scale
+        self.screen.fullscreen = fullscreen
         self.skool.beeper.restore(self.sounds_dir)
         self.skool.gallery.restore(self.images_dir)
         self.skool.restore()
@@ -408,7 +412,7 @@ class Game:
         :return: `True` if the game is quitting, `False` otherwise.
         """
         if self.keyboard.was_pressed(keys.FULL_SCREEN, force_check=True):
-            pygame.display.toggle_fullscreen()
+            self.screen.toggle_fullscreen(self.skool)
             return False
 
         if self.keyboard.was_pressed(keys.SCREENSHOT, force_check=True):
