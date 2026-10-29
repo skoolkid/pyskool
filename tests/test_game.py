@@ -333,6 +333,39 @@ def test_menu_load_game(monkeypatch, capsys, tmp_path):
     assert g.menu is None
     _continue(monkeypatch, g, 50)
 
+@pytest.mark.parametrize('saved_fullscreen', [True, False])
+def test_load_game_keeps_display_mode(monkeypatch, capsys, tmp_path, saved_fullscreen):
+    g = _start_test(monkeypatch, capsys, tmp_path)
+    modes = _record_modes(monkeypatch)
+    g.screen.fullscreen = saved_fullscreen
+    g._save('test.sav')
+    sav_file = os.path.join(tmp_path, *g.skool.save_game_dir.split('/'), 'test.sav')
+
+    # A game saved in one display mode is loaded in the current mode
+    g.screen.toggle_fullscreen(g.skool)
+    assert g.screen.fullscreen is not saved_fullscreen
+    skool = g.skool
+    modes.clear()
+    g._load(sav_file)
+    assert g.skool is not skool
+    assert g.screen.fullscreen is not saved_fullscreen
+    assert modes == [0 if saved_fullscreen else FULLSCREEN]
+    _continue(monkeypatch, g, 20)
+
+def test_load_game_saved_in_full_screen_mode_at_startup(monkeypatch, capsys, tmp_path):
+    g = _start_test(monkeypatch, capsys, tmp_path)
+    modes = _record_modes(monkeypatch)
+    g.screen.toggle_fullscreen(g.skool)
+    g._save('test.sav')
+    sav_file = os.path.join(tmp_path, *g.skool.save_game_dir.split('/'), 'test.sav')
+
+    # A game saved in full-screen mode is loaded at startup in windowed mode
+    modes.clear()
+    restored = _new_game('sd', sav_file)
+    assert not restored.screen.fullscreen
+    assert modes and not any(modes)
+    _continue(monkeypatch, restored, 20)
+
 def test_menu_load_game_with_no_saved_games(monkeypatch, capsys, tmp_path):
     g = _start_test(monkeypatch, capsys, tmp_path)
     skool = g.skool
@@ -413,16 +446,39 @@ def test_menu_scale_up_with_speech_bubble(monkeypatch, capsys, tmp_path):
     assert g.skool.cast.get_speech_bubbles() == [bubble]
     assert bubble.image.surface.get_size() == (2 * width, 2 * height)
 
+def _record_modes(monkeypatch):
+    """Replace pygame.display.set_mode() with a function that records the
+    flags it's given and then sets the mode without them (because full-screen
+    mode isn't available with the dummy video driver), and return the list of
+    flags."""
+    modes = []
+    set_mode = pygame.display.set_mode
+    def record_mode(size, flags=0):
+        modes.append(flags)
+        return set_mode(size)
+    monkeypatch.setattr(pygame.display, 'set_mode', record_mode)
+    return modes
+
+FULLSCREEN = pygame.FULLSCREEN | pygame.SCALED
+
 def test_menu_toggle_fullscreen(monkeypatch, capsys, tmp_path):
     g = _start_test(monkeypatch, capsys, tmp_path)
-    # Fullscreen mode isn't available with the dummy video driver
-    toggles = []
-    monkeypatch.setattr(pygame.display, 'toggle_fullscreen', lambda: toggles.append(1))
+    modes = _record_modes(monkeypatch)
     assert not _press(monkeypatch, g, keys.MENU, *[keys.MENU_NEXT] * 5)
     assert g.menu.items[5][0] == demo.game.TOGGLE_FULLSCREEN
     assert not _press(monkeypatch, g, keys.MENU_EXEC)
-    assert toggles == [1]
+    assert g.screen.fullscreen
+    assert modes == [FULLSCREEN]
     assert g.menu is g.menus['Main']
+
+    # The menu is redrawn over the redrawn skool
+    menu_screen = _state(g)[-1]
+    g.screen.draw_menu(g.menu)
+    assert _state(g)[-1] == menu_screen
+
+    assert not _press(monkeypatch, g, keys.MENU_EXEC)
+    assert not g.screen.fullscreen
+    assert modes == [FULLSCREEN, 0]
 
 def test_menu_quit(monkeypatch, capsys, tmp_path):
     g = _start_test(monkeypatch, capsys, tmp_path)
@@ -750,9 +806,7 @@ def test_mixer_failure(monkeypatch, capsys, tmp_path):
 
 def test_full_screen_key(monkeypatch, capsys, tmp_path):
     g = _start_test(monkeypatch, capsys, tmp_path)
-    # Fullscreen mode isn't available with the dummy video driver
-    toggles = []
-    monkeypatch.setattr(pygame.display, 'toggle_fullscreen', lambda: toggles.append(1))
+    modes = _record_modes(monkeypatch)
     tick = []
     tick_method = demo.skool_mod.Skool.tick
     monkeypatch.setattr(demo.skool_mod.Skool, 'tick', lambda skool: tick.append(1) or tick_method(skool))
@@ -763,11 +817,39 @@ def test_full_screen_key(monkeypatch, capsys, tmp_path):
     ticks = len(tick)
     # The main loop pass on which the key is acted on does nothing else
     assert not g._main_loop()
-    assert toggles == [1]
+    assert g.screen.fullscreen
+    assert modes == [FULLSCREEN]
     assert len(tick) == ticks
     assert g.menu is None
     assert not g._main_loop()
     assert len(tick) == ticks + 1
+
+def test_full_screen_key_while_paused(monkeypatch, capsys, tmp_path):
+    g = _start_test(monkeypatch, capsys, tmp_path)
+    assert not _press(monkeypatch, g, keys.PAUSE)
+    assert g.paused
+    state = _state(g)
+    modes = _record_modes(monkeypatch)
+    updates = []
+    update = pygame.display.update
+    monkeypatch.setattr(pygame.display, 'update', lambda *args: updates.append(args) or update(*args))
+
+    # The display is updated with the redrawn skool straight away, and the
+    # game stays paused
+    assert not _press(monkeypatch, g, keys.FULL_SCREEN)
+    assert g.screen.fullscreen
+    assert modes == [FULLSCREEN]
+    assert () in updates
+    assert g.paused
+    assert _state(g) == state
+
+    updates.clear()
+    assert not _press(monkeypatch, g, keys.FULL_SCREEN)
+    assert not g.screen.fullscreen
+    assert modes == [FULLSCREEN, 0]
+    assert () in updates
+    assert g.paused
+    assert _state(g) == state
 
 def test_screenshot_key(monkeypatch, capsys, tmp_path):
     g = _start_test(monkeypatch, capsys, tmp_path)
