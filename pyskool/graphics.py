@@ -205,6 +205,7 @@ class Screen(object):
         :param skool: The skool.
         """
         self.fullscreen = not self.fullscreen
+        self.gallery.reset(self.scale)
         skool.restore()
         skool.draw(True)
 
