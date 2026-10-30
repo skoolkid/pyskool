@@ -93,7 +93,7 @@ _cd_tmpdir() {
 _create_venv() {
   venvdir=${1:-venv}
 
-  _exec "Creating virtual environment" "virtualenv --system-site-packages $venvdir" $(pwd)/venv.log
+  _exec "Creating virtual environment" "python3 -m venv --system-site-packages $venvdir" $(pwd)/venv.log
 }
 
 _build_tarball() {
@@ -390,7 +390,6 @@ build_deb() {
   deb=$PYSKOOL_HOME/dist/$debname
   logdir=$PYSKOOL_HOME/dist/log
   mkdir -p $logdir
-  export PYGAME_HIDE_SUPPORT_PROMPT=1
 
   sudo dpkg -r pyskool &> /dev/null
 
@@ -418,7 +417,6 @@ build_rpm() {
 
   logdir=$PYSKOOL_HOME/dist/log
   mkdir -p $logdir
-  export PYGAME_HIDE_SUPPORT_PROMPT=1
 
   sudo rpm -e pyskool &> /dev/null || true
 
@@ -529,6 +527,7 @@ EOM
 ###############################################################################
 # Parse command line
 ###############################################################################
+export PYGAME_HIDE_SUPPORT_PROMPT=1
 [[ -z "$1" ]] && usage
 numcommands=$#
 
