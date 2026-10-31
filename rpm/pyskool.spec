@@ -1,5 +1,5 @@
 Name:           pyskool
-Version:        1.2.1
+Version:        1.3
 Release:        1%{?dist}
 Summary:        Remake of Skool Daze and Back to Skool in Python and Pygame
 
@@ -50,6 +50,9 @@ install -Dpm 644 icon.png %{buildroot}%{_datadir}/icons/hicolor/32x32/apps/ca.py
 %{python3_sitelib}/*
 
 %changelog
+* Sat Oct 31 2026 Richard Dymond <rjdymond@gmail.com> 1.3-1
+- Updated to 1.3
+
 * Sat May 21 2016 Richard Dymond <rjdymond@gmail.com> 1.2.1-1
 - Updated to 1.2.1
 

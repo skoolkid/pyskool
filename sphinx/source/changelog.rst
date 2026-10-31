@@ -1,8 +1,8 @@
 Changelog
 =========
 
-1.3b1
------
+1.3 (2026-10-31)
+----------------
 * Dropped support for Python 2.7 and Pygame 1.8
 * Added support for Pygame 2
 * Characters can no longer be knocked out with a punch while on a staircase
