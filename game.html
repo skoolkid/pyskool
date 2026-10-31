@@ -1,34 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="./">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>game &mdash; Pyskool 1.2.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>game &#8212; Pyskool 1.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=fe13c473" />
+    <script src="_static/documentation_options.js?v=c55cb9cb"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="graphics" href="graphics.html" />
     <link rel="prev" title="floor" href="floor.html" /> 
-  </head>
-  <body>
-    <div class="related">
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,170 +32,192 @@
         <li class="right" >
           <a href="floor.html" title="floor"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">game</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="floor.html"
-                        title="previous chapter">floor</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="graphics.html"
-                        title="next chapter">graphics</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="module-pyskool.game">
-<span id="game"></span><h1>game<a class="headerlink" href="#module-pyskool.game" title="Permalink to this headline">¶</a></h1>
-<p>Defines the <a class="reference internal" href="#pyskool.game.Game" title="pyskool.game.Game"><tt class="xref py py-class docutils literal"><span class="pre">Game</span></tt></a> class.</p>
-<dl class="class">
-<dt id="pyskool.game.Game">
-<em class="property">class </em><tt class="descclassname">pyskool.game.</tt><tt class="descname">Game</tt><big>(</big><em>ini_file</em>, <em>images_dir</em>, <em>sounds_dir</em>, <em>ini_dir</em>, <em>options</em>, <em>version</em>, <em>sav_file</em><big>)</big><a class="headerlink" href="#pyskool.game.Game" title="Permalink to this definition">¶</a></dt>
+  <section id="module-pyskool.game">
+<span id="game"></span><h1>game<a class="headerlink" href="#module-pyskool.game" title="Link to this heading">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#pyskool.game.Game" title="pyskool.game.Game"><code class="xref py py-class docutils literal notranslate"><span class="pre">Game</span></code></a> class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.game.Game">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.game.</span></span><span class="sig-name descname"><span class="pre">Game</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ini_file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">images_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sounds_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ini_dir</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sav_file</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.game.Game" title="Link to this definition">¶</a></dt>
 <dd><p>Builds the skool and the cast, and executes the main loop of the
 game.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>ini_file</strong> &#8211; The main Pyskool ini file.</li>
-<li><strong>images_dir</strong> &#8211; The path to the <cite>images</cite> directory.</li>
-<li><strong>sounds_dir</strong> &#8211; The path to the <cite>sounds</cite> directory.</li>
-<li><strong>ini_dir</strong> &#8211; The directory to scan for game ini files.</li>
-<li><strong>options</strong> &#8211; Options passed from the command line.</li>
-<li><strong>version</strong> (<em>string</em>) &#8211; The version number of Pyskool.</li>
-<li><strong>sav_file</strong> &#8211; A file from which to restore a saved game.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ini_file</strong> – The main Pyskool ini file.</p></li>
+<li><p><strong>images_dir</strong> – The path to the <cite>images</cite> directory.</p></li>
+<li><p><strong>sounds_dir</strong> – The path to the <cite>sounds</cite> directory.</p></li>
+<li><p><strong>ini_dir</strong> – The directory to scan for game ini files.</p></li>
+<li><p><strong>options</strong> – Options passed from the command line.</p></li>
+<li><p><strong>version</strong> (<em>string</em>) – The version number of Pyskool.</p></li>
+<li><p><strong>sav_file</strong> – A file from which to restore a saved game.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.game.Game.play">
-<tt class="descname">play</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.game.Game.play" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.game.Game.play">
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.game.Game.play" title="Link to this definition">¶</a></dt>
 <dd><p>Start the game and enter the main loop.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="pyskool.game.Menu">
-<em class="property">class </em><tt class="descclassname">pyskool.game.</tt><tt class="descname">Menu</tt><big>(</big><em>screen</em>, <em>config</em>, <em>items</em><big>)</big><a class="headerlink" href="#pyskool.game.Menu" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.game.Menu">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.game.</span></span><span class="sig-name descname"><span class="pre">Menu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">items</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.game.Menu" title="Link to this definition">¶</a></dt>
 <dd><p>The in-game menu.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>screen</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Screen" title="pyskool.graphics.Screen"><tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt></a>) &#8211; The screen (to draw the menu on).</li>
-<li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters.</li>
-<li><strong>items</strong> &#8211; The menu items (<cite>(operation, label)</cite> tuples).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>screen</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Screen" title="pyskool.graphics.Screen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Screen</span></code></a>) – The screen (to draw the menu on).</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration parameters.</p></li>
+<li><p><strong>items</strong> – The menu items (<cite>(operation, label)</cite> tuples).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.game.Menu.build_images">
-<tt class="descname">build_images</tt><big>(</big><em>screen</em><big>)</big><a class="headerlink" href="#pyskool.game.Menu.build_images" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.game.Menu.build_images">
+<span class="sig-name descname"><span class="pre">build_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.game.Menu.build_images" title="Link to this definition">¶</a></dt>
 <dd><p>Build the title image and menu item images.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.game.Menu.get_operation">
-<tt class="descname">get_operation</tt><big>(</big><em>keyboard</em><big>)</big><a class="headerlink" href="#pyskool.game.Menu.get_operation" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.game.Menu.get_operation">
+<span class="sig-name descname"><span class="pre">get_operation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keyboard</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.game.Menu.get_operation" title="Link to this definition">¶</a></dt>
 <dd><p>Return the operation to perform (which may be <cite>None</cite>).</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.game.Menu.reset">
-<tt class="descname">reset</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.game.Menu.reset" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.game.Menu.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.game.Menu.reset" title="Link to this definition">¶</a></dt>
 <dd><p>Reset the menu. Specifically:</p>
 <ul class="simple">
-<li>set the selected index to 0</li>
-<li>clear the status text</li>
-<li>clear the backdrop on which the menu is drawn</li>
+<li><p>set the selected index to 0</p></li>
+<li><p>clear the status text</p></li>
+<li><p>clear the backdrop on which the menu is drawn</p></li>
 </ul>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="data">
-<dt id="pyskool.game.LOAD">
-<tt class="descclassname">pyskool.game.</tt><tt class="descname">LOAD</tt><em class="property"> = 'LOAD'</em><a class="headerlink" href="#pyskool.game.LOAD" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyskool.game.LOAD">
+<span class="sig-prename descclassname"><span class="pre">pyskool.game.</span></span><span class="sig-name descname"><span class="pre">LOAD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LOAD'</span></em><a class="headerlink" href="#pyskool.game.LOAD" title="Link to this definition">¶</a></dt>
 <dd><p>Menu operation: Load.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pyskool.game.QUIT">
-<tt class="descclassname">pyskool.game.</tt><tt class="descname">QUIT</tt><em class="property"> = 'QUIT'</em><a class="headerlink" href="#pyskool.game.QUIT" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyskool.game.QUIT">
+<span class="sig-prename descclassname"><span class="pre">pyskool.game.</span></span><span class="sig-name descname"><span class="pre">QUIT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'QUIT'</span></em><a class="headerlink" href="#pyskool.game.QUIT" title="Link to this definition">¶</a></dt>
 <dd><p>Menu operation: Quit.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pyskool.game.RESUME">
-<tt class="descclassname">pyskool.game.</tt><tt class="descname">RESUME</tt><em class="property"> = 'RESUME'</em><a class="headerlink" href="#pyskool.game.RESUME" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyskool.game.RESUME">
+<span class="sig-prename descclassname"><span class="pre">pyskool.game.</span></span><span class="sig-name descname"><span class="pre">RESUME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'RESUME'</span></em><a class="headerlink" href="#pyskool.game.RESUME" title="Link to this definition">¶</a></dt>
 <dd><p>Menu operation: Resume.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pyskool.game.SAVE">
-<tt class="descclassname">pyskool.game.</tt><tt class="descname">SAVE</tt><em class="property"> = 'SAVE'</em><a class="headerlink" href="#pyskool.game.SAVE" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyskool.game.SAVE">
+<span class="sig-prename descclassname"><span class="pre">pyskool.game.</span></span><span class="sig-name descname"><span class="pre">SAVE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SAVE'</span></em><a class="headerlink" href="#pyskool.game.SAVE" title="Link to this definition">¶</a></dt>
 <dd><p>Menu operation: Save.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pyskool.game.SCALE_DOWN">
-<tt class="descclassname">pyskool.game.</tt><tt class="descname">SCALE_DOWN</tt><em class="property"> = 'SCALE_DOWN'</em><a class="headerlink" href="#pyskool.game.SCALE_DOWN" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyskool.game.SCALE_DOWN">
+<span class="sig-prename descclassname"><span class="pre">pyskool.game.</span></span><span class="sig-name descname"><span class="pre">SCALE_DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SCALE_DOWN'</span></em><a class="headerlink" href="#pyskool.game.SCALE_DOWN" title="Link to this definition">¶</a></dt>
 <dd><p>Menu operation: Decrease scale.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pyskool.game.SCALE_UP">
-<tt class="descclassname">pyskool.game.</tt><tt class="descname">SCALE_UP</tt><em class="property"> = 'SCALE_UP'</em><a class="headerlink" href="#pyskool.game.SCALE_UP" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyskool.game.SCALE_UP">
+<span class="sig-prename descclassname"><span class="pre">pyskool.game.</span></span><span class="sig-name descname"><span class="pre">SCALE_UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SCALE_UP'</span></em><a class="headerlink" href="#pyskool.game.SCALE_UP" title="Link to this definition">¶</a></dt>
 <dd><p>Menu operation: Increase scale.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pyskool.game.TOGGLE_FULLSCREEN">
-<tt class="descclassname">pyskool.game.</tt><tt class="descname">TOGGLE_FULLSCREEN</tt><em class="property"> = 'TOGGLE_FULLSCREEN'</em><a class="headerlink" href="#pyskool.game.TOGGLE_FULLSCREEN" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyskool.game.TOGGLE_FULLSCREEN">
+<span class="sig-prename descclassname"><span class="pre">pyskool.game.</span></span><span class="sig-name descname"><span class="pre">TOGGLE_FULLSCREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'TOGGLE_FULLSCREEN'</span></em><a class="headerlink" href="#pyskool.game.TOGGLE_FULLSCREEN" title="Link to this definition">¶</a></dt>
 <dd><p>Menu operation: Toggle fullscreen mode.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="pyskool.game.UPDATE">
-<tt class="descclassname">pyskool.game.</tt><tt class="descname">UPDATE</tt><em class="property"> = 'UPDATE'</em><a class="headerlink" href="#pyskool.game.UPDATE" title="Permalink to this definition">¶</a></dt>
+<dl class="py data">
+<dt class="sig sig-object py" id="pyskool.game.UPDATE">
+<span class="sig-prename descclassname"><span class="pre">pyskool.game.</span></span><span class="sig-name descname"><span class="pre">UPDATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'UPDATE'</span></em><a class="headerlink" href="#pyskool.game.UPDATE" title="Link to this definition">¶</a></dt>
 <dd><p>Menu operation: Update the screen.</p>
 </dd></dl>
 
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">game</a><ul>
+<li><a class="reference internal" href="#pyskool.game.Game"><code class="docutils literal notranslate"><span class="pre">Game</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.game.Game.play"><code class="docutils literal notranslate"><span class="pre">Game.play()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool.game.Menu"><code class="docutils literal notranslate"><span class="pre">Menu</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.game.Menu.build_images"><code class="docutils literal notranslate"><span class="pre">Menu.build_images()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.game.Menu.get_operation"><code class="docutils literal notranslate"><span class="pre">Menu.get_operation()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.game.Menu.reset"><code class="docutils literal notranslate"><span class="pre">Menu.reset()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool.game.LOAD"><code class="docutils literal notranslate"><span class="pre">LOAD</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.game.QUIT"><code class="docutils literal notranslate"><span class="pre">QUIT</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.game.RESUME"><code class="docutils literal notranslate"><span class="pre">RESUME</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.game.SAVE"><code class="docutils literal notranslate"><span class="pre">SAVE</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.game.SCALE_DOWN"><code class="docutils literal notranslate"><span class="pre">SCALE_DOWN</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.game.SCALE_UP"><code class="docutils literal notranslate"><span class="pre">SCALE_UP</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.game.TOGGLE_FULLSCREEN"><code class="docutils literal notranslate"><span class="pre">TOGGLE_FULLSCREEN</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.game.UPDATE"><code class="docutils literal notranslate"><span class="pre">UPDATE</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="floor.html"
+                          title="previous chapter">floor</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="graphics.html"
+                          title="next chapter">graphics</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -221,12 +232,13 @@ game.</p>
         <li class="right" >
           <a href="floor.html" title="floor"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">game</a></li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Richard Dymond.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Richard Dymond.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>

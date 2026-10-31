@@ -1,34 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="./">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>room &mdash; Pyskool 1.2.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>room &#8212; Pyskool 1.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=fe13c473" />
+    <script src="_static/documentation_options.js?v=c55cb9cb"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="scoreboard" href="scoreboard.html" />
     <link rel="prev" title="plant" href="plant.html" /> 
-  </head>
-  <body>
-    <div class="related">
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,512 +32,492 @@
         <li class="right" >
           <a href="plant.html" title="plant"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">room</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="plant.html"
-                        title="previous chapter">plant</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="scoreboard.html"
-                        title="next chapter">scoreboard</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="module-pyskool.room">
-<span id="room"></span><h1>room<a class="headerlink" href="#module-pyskool.room" title="Permalink to this headline">¶</a></h1>
+  <section id="module-pyskool.room">
+<span id="room"></span><h1>room<a class="headerlink" href="#module-pyskool.room" title="Link to this heading">¶</a></h1>
 <p>Classes that represent the rooms in the skool and their furniture.</p>
-<dl class="class">
-<dt id="pyskool.room.Blackboard">
-<em class="property">class </em><tt class="descclassname">pyskool.room.</tt><tt class="descname">Blackboard</tt><big>(</big><em>screen</em>, <em>top_left</em>, <em>size</em>, <em>chalk</em>, <em>skool_image</em><big>)</big><a class="headerlink" href="#pyskool.room.Blackboard" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.room.Blackboard">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.room.</span></span><span class="sig-name descname"><span class="pre">Blackboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chalk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skool_image</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Blackboard" title="Link to this definition">¶</a></dt>
 <dd><p>A blackboard in a classroom.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>screen</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Screen" title="pyskool.graphics.Screen"><tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt></a>) &#8211; The screen.</li>
-<li><strong>top_left</strong> &#8211; The coordinates of the top-left of the blackboard.</li>
-<li><strong>size</strong> &#8211; The size (width, height) of the blackboard.</li>
-<li><strong>chalk</strong> &#8211; The chalk colour to use when writing on the blackboard.</li>
-<li><strong>skool_image</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Image" title="pyskool.graphics.Image"><tt class="xref py py-class docutils literal"><span class="pre">Image</span></tt></a>) &#8211; An image of the skool.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>screen</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Screen" title="pyskool.graphics.Screen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Screen</span></code></a>) – The screen.</p></li>
+<li><p><strong>top_left</strong> – The coordinates of the top-left of the blackboard.</p></li>
+<li><p><strong>size</strong> – The size (width, height) of the blackboard.</p></li>
+<li><p><strong>chalk</strong> – The chalk colour to use when writing on the blackboard.</p></li>
+<li><p><strong>skool_image</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Image" title="pyskool.graphics.Image"><code class="xref py py-class docutils literal notranslate"><span class="pre">Image</span></code></a>) – An image of the skool.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.room.Blackboard.beside">
-<tt class="descname">beside</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.room.Blackboard.beside" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Blackboard.beside">
+<span class="sig-name descname"><span class="pre">beside</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Blackboard.beside" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether a character is standing beside the blackboard.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character to check.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Blackboard.build_images">
-<tt class="descname">build_images</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Blackboard.build_images" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Blackboard.build_images">
+<span class="sig-name descname"><span class="pre">build_images</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Blackboard.build_images" title="Link to this definition">¶</a></dt>
 <dd><p>Build the images for the blackboard. This method is called after
 rescaling the screen or loading a saved game.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Blackboard.clear">
-<tt class="descname">clear</tt><big>(</big><em>blit=False</em><big>)</big><a class="headerlink" href="#pyskool.room.Blackboard.clear" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Blackboard.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">blit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Blackboard.clear" title="Link to this definition">¶</a></dt>
 <dd><p>Mark this blackboard as clean.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>blit</strong> &#8211; If <cite>True</cite>, the blackboard surface will be blitted clean
-too; otherwise it will be left alone.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>blit</strong> – If <cite>True</cite>, the blackboard surface will be blitted clean
+too; otherwise it will be left alone.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Blackboard.is_dirty">
-<tt class="descname">is_dirty</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Blackboard.is_dirty" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Blackboard.is_dirty">
+<span class="sig-name descname"><span class="pre">is_dirty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Blackboard.is_dirty" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether anything is written on the blackboard.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Blackboard.newline">
-<tt class="descname">newline</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Blackboard.newline" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Blackboard.newline">
+<span class="sig-name descname"><span class="pre">newline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Blackboard.newline" title="Link to this definition">¶</a></dt>
 <dd><p>Start a new line on the blackboard.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Blackboard.restore">
-<tt class="descname">restore</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Blackboard.restore" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Blackboard.restore">
+<span class="sig-name descname"><span class="pre">restore</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Blackboard.restore" title="Link to this definition">¶</a></dt>
 <dd><p>Restore the image of this blackboard. This method is used after
 restoring a saved game.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Blackboard.shows">
-<tt class="descname">shows</tt><big>(</big><em>text</em>, <em>in_order=True</em><big>)</big><a class="headerlink" href="#pyskool.room.Blackboard.shows" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Blackboard.shows">
+<span class="sig-name descname"><span class="pre">shows</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Blackboard.shows" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether the blackboard displays all the characters in a given
 piece of text.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>text</strong> &#8211; The text to look for.</li>
-<li><strong>in_order</strong> &#8211; If <cite>True</cite>, return <cite>True</cite> only if the order of the
-characters written on the board matches too.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>text</strong> – The text to look for.</p></li>
+<li><p><strong>in_order</strong> – If <cite>True</cite>, return <cite>True</cite> only if the order of the
+characters written on the board matches too.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Blackboard.wipe">
-<tt class="descname">wipe</tt><big>(</big><em>column</em><big>)</big><a class="headerlink" href="#pyskool.room.Blackboard.wipe" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Blackboard.wipe">
+<span class="sig-name descname"><span class="pre">wipe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Blackboard.wipe" title="Link to this definition">¶</a></dt>
 <dd><p>Wipe a column of the blackboard clean.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>column</strong> &#8211; The column to wipe clean.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>column</strong> – The column to wipe clean.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Blackboard.write">
-<tt class="descname">write</tt><big>(</big><em>char</em><big>)</big><a class="headerlink" href="#pyskool.room.Blackboard.write" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Blackboard.write">
+<span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">char</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Blackboard.write" title="Link to this definition">¶</a></dt>
 <dd><p>Write a character on the blackboard.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>char</strong> &#8211; The character to write.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>char</strong> – The character to write.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="pyskool.room.Chair">
-<em class="property">class </em><tt class="descclassname">pyskool.room.</tt><tt class="descname">Chair</tt><big>(</big><em>room</em>, <em>x</em><big>)</big><a class="headerlink" href="#pyskool.room.Chair" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.room.Chair">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.room.</span></span><span class="sig-name descname"><span class="pre">Chair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">room</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Chair" title="Link to this definition">¶</a></dt>
 <dd><p>A seat in a classroom.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>room</strong> (<a class="reference internal" href="#pyskool.room.Room" title="pyskool.room.Room"><tt class="xref py py-class docutils literal"><span class="pre">Room</span></tt></a>) &#8211; The room the chair is in.</li>
-<li><strong>x</strong> &#8211; The x-coordinate of the chair.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>room</strong> (<a class="reference internal" href="#pyskool.room.Room" title="pyskool.room.Room"><code class="xref py py-class docutils literal notranslate"><span class="pre">Room</span></code></a>) – The room the chair is in.</p></li>
+<li><p><strong>x</strong> – The x-coordinate of the chair.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.room.Chair.seat">
-<tt class="descname">seat</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.room.Chair.seat" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Chair.seat">
+<span class="sig-name descname"><span class="pre">seat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Chair.seat" title="Link to this definition">¶</a></dt>
 <dd><p>Mark the chair as being occupied by a character.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character sitting in the chair.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character sitting in the chair.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Chair.vacate">
-<tt class="descname">vacate</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Chair.vacate" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Chair.vacate">
+<span class="sig-name descname"><span class="pre">vacate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Chair.vacate" title="Link to this definition">¶</a></dt>
 <dd><p>Mark this chair as vacant.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="pyskool.room.Desk">
-<em class="property">class </em><tt class="descclassname">pyskool.room.</tt><tt class="descname">Desk</tt><big>(</big><em>room</em>, <em>x</em><big>)</big><a class="headerlink" href="#pyskool.room.Desk" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.room.Desk">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.room.</span></span><span class="sig-name descname"><span class="pre">Desk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">room</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Desk" title="Link to this definition">¶</a></dt>
 <dd><p>A desk (that can be opened) in a classroom.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>room</strong> (<a class="reference internal" href="#pyskool.room.Room" title="pyskool.room.Room"><tt class="xref py py-class docutils literal"><span class="pre">Room</span></tt></a>) &#8211; The room the desk is in.</li>
-<li><strong>x</strong> &#8211; The x-coordinate of the desk.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>room</strong> (<a class="reference internal" href="#pyskool.room.Room" title="pyskool.room.Room"><code class="xref py py-class docutils literal notranslate"><span class="pre">Room</span></code></a>) – The room the desk is in.</p></li>
+<li><p><strong>x</strong> – The x-coordinate of the desk.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.room.Desk.empty">
-<tt class="descname">empty</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Desk.empty" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Desk.empty">
+<span class="sig-name descname"><span class="pre">empty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Desk.empty" title="Link to this definition">¶</a></dt>
 <dd><p>Mark the desk as empty.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Desk.insert">
-<tt class="descname">insert</tt><big>(</big><em>item</em><big>)</big><a class="headerlink" href="#pyskool.room.Desk.insert" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Desk.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Desk.insert" title="Link to this definition">¶</a></dt>
 <dd><p>Insert an inventory item (water pistol or stinkbombs) into the desk.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>item</strong> &#8211; The ID of the item to insert.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item</strong> – The ID of the item to insert.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="pyskool.room.NoGoZone">
-<em class="property">class </em><tt class="descclassname">pyskool.room.</tt><tt class="descname">NoGoZone</tt><big>(</big><em>zone_id</em>, <em>min_x</em>, <em>max_x</em>, <em>bottom_y</em>, <em>top_y</em><big>)</big><a class="headerlink" href="#pyskool.room.NoGoZone" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.room.NoGoZone">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.room.</span></span><span class="sig-name descname"><span class="pre">NoGoZone</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zone_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.NoGoZone" title="Link to this definition">¶</a></dt>
 <dd><p>A region of the skool in which Eric is never allowed to be.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>zone_id</strong> &#8211; The zone&#8217;s unique ID.</li>
-<li><strong>min_x</strong> &#8211; The x-coordinate of the left edge of the zone.</li>
-<li><strong>max_x</strong> &#8211; The x-coordinate of the right edge of the zone.</li>
-<li><strong>bottom_y</strong> &#8211; The y-coordinate of the bottom edge of the zone.</li>
-<li><strong>top_y</strong> &#8211; The y-coordinate of the top edge of the zone.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zone_id</strong> – The zone’s unique ID.</p></li>
+<li><p><strong>min_x</strong> – The x-coordinate of the left edge of the zone.</p></li>
+<li><p><strong>max_x</strong> – The x-coordinate of the right edge of the zone.</p></li>
+<li><p><strong>bottom_y</strong> – The y-coordinate of the bottom edge of the zone.</p></li>
+<li><p><strong>top_y</strong> – The y-coordinate of the top edge of the zone.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.room.NoGoZone.contains">
-<tt class="descname">contains</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.room.NoGoZone.contains" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.NoGoZone.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.NoGoZone.contains" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether a given location is inside the zone.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The y-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="pyskool.room.Room">
-<em class="property">class </em><tt class="descclassname">pyskool.room.</tt><tt class="descname">Room</tt><big>(</big><em>room_id</em>, <em>name</em>, <em>top_left</em>, <em>bottom_right</em>, <em>get_along</em><big>)</big><a class="headerlink" href="#pyskool.room.Room" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.room.Room">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.room.</span></span><span class="sig-name descname"><span class="pre">Room</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">room_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bottom_right</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_along</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room" title="Link to this definition">¶</a></dt>
 <dd><p>A classroom or some other region of the skool that Eric is expected to
 show up in when the timetable demands it.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>room_id</strong> &#8211; The unique ID of the room.</li>
-<li><strong>name</strong> &#8211; The name of the room (as it should appear in the lesson box).</li>
-<li><strong>top_left</strong> &#8211; The coordinates of the top-left corner of the room.</li>
-<li><strong>bottom_right</strong> &#8211; The coordinates of the bottom-right corner of the
-room.</li>
-<li><strong>get_along</strong> &#8211; If <cite>True</cite>, Eric will be told to get along if he&#8217;s found
-in this room when the timetable doesn&#8217;t say he should be
-in it.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>room_id</strong> – The unique ID of the room.</p></li>
+<li><p><strong>name</strong> – The name of the room (as it should appear in the lesson box).</p></li>
+<li><p><strong>top_left</strong> – The coordinates of the top-left corner of the room.</p></li>
+<li><p><strong>bottom_right</strong> – The coordinates of the bottom-right corner of the
+room.</p></li>
+<li><p><strong>get_along</strong> – If <cite>True</cite>, Eric will be told to get along if he’s found
+in this room when the timetable doesn’t say he should be
+in it.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.room.Room.add_blackboard">
-<tt class="descname">add_blackboard</tt><big>(</big><em>screen</em>, <em>top_left</em>, <em>size</em>, <em>chalk</em>, <em>skool_image</em><big>)</big><a class="headerlink" href="#pyskool.room.Room.add_blackboard" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.add_blackboard">
+<span class="sig-name descname"><span class="pre">add_blackboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_left</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">chalk</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skool_image</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.add_blackboard" title="Link to this definition">¶</a></dt>
 <dd><p>Add a blackboard to the room.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>screen</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Screen" title="pyskool.graphics.Screen"><tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt></a>) &#8211; The screen.</li>
-<li><strong>top_left</strong> &#8211; The coordinates of the top-left of the blackboard.</li>
-<li><strong>size</strong> &#8211; The size (width, height) of the blackboard.</li>
-<li><strong>chalk</strong> &#8211; The chalk colour to use when writing on the blackboard.</li>
-<li><strong>skool_image</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Image" title="pyskool.graphics.Image"><tt class="xref py py-class docutils literal"><span class="pre">Image</span></tt></a>) &#8211; An image of the skool.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>screen</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Screen" title="pyskool.graphics.Screen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Screen</span></code></a>) – The screen.</p></li>
+<li><p><strong>top_left</strong> – The coordinates of the top-left of the blackboard.</p></li>
+<li><p><strong>size</strong> – The size (width, height) of the blackboard.</p></li>
+<li><p><strong>chalk</strong> – The chalk colour to use when writing on the blackboard.</p></li>
+<li><p><strong>skool_image</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Image" title="pyskool.graphics.Image"><code class="xref py py-class docutils literal notranslate"><span class="pre">Image</span></code></a>) – An image of the skool.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.add_chair">
-<tt class="descname">add_chair</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#pyskool.room.Room.add_chair" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.add_chair">
+<span class="sig-name descname"><span class="pre">add_chair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.add_chair" title="Link to this definition">¶</a></dt>
 <dd><p>Add a chair to the room.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; The x-coordinate of the chair.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – The x-coordinate of the chair.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.add_desk">
-<tt class="descname">add_desk</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#pyskool.room.Room.add_desk" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.add_desk">
+<span class="sig-name descname"><span class="pre">add_desk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.add_desk" title="Link to this definition">¶</a></dt>
 <dd><p>Add a desk (that can be opened) to the room.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; The x-coordinate of the desk.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – The x-coordinate of the desk.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.beside_blackboard">
-<tt class="descname">beside_blackboard</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.room.Room.beside_blackboard" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.beside_blackboard">
+<span class="sig-name descname"><span class="pre">beside_blackboard</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.beside_blackboard" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether a character is standing beside the blackboard in this
 room.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character to check.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.blackboard_dirty">
-<tt class="descname">blackboard_dirty</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Room.blackboard_dirty" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.blackboard_dirty">
+<span class="sig-name descname"><span class="pre">blackboard_dirty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.blackboard_dirty" title="Link to this definition">¶</a></dt>
 <dd><p>Return <cite>True</cite> if the room has a blackboard and it is dirty,
 <cite>False</cite> otherwise.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.build_blackboard_images">
-<tt class="descname">build_blackboard_images</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Room.build_blackboard_images" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.build_blackboard_images">
+<span class="sig-name descname"><span class="pre">build_blackboard_images</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.build_blackboard_images" title="Link to this definition">¶</a></dt>
 <dd><p>Build the images for the blackboard in this room (if any). This
 method is called after rescaling the screen or loading a saved game.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.chair">
-<tt class="descname">chair</tt><big>(</big><em>character</em>, <em>check_dir=True</em><big>)</big><a class="headerlink" href="#pyskool.room.Room.chair" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.chair">
+<span class="sig-name descname"><span class="pre">chair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.chair" title="Link to this definition">¶</a></dt>
 <dd><p>Return the chair in this room that a character is next to, or
 <cite>None</cite> if the character is not next to a chair.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</li>
-<li><strong>check_dir</strong> &#8211; If <cite>True</cite>, return a chair only if the character is
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character to check.</p></li>
+<li><p><strong>check_dir</strong> – If <cite>True</cite>, return a chair only if the character is
 beside one and facing the right way to sit in it;
 otherwise disregard the direction in which the
-character is facing.</li>
+character is facing.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.contains">
-<tt class="descname">contains</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.room.Room.contains" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.contains" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether a character is in this room.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character to check.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.desk">
-<tt class="descname">desk</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.room.Room.desk" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.desk">
+<span class="sig-name descname"><span class="pre">desk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.desk" title="Link to this definition">¶</a></dt>
 <dd><p>Return the desk in this room that a character is sitting at, or
 <cite>None</cite> if the character is not sitting at a desk.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character to check.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.get_blackboard_writer">
-<tt class="descname">get_blackboard_writer</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Room.get_blackboard_writer" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.get_blackboard_writer">
+<span class="sig-name descname"><span class="pre">get_blackboard_writer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.get_blackboard_writer" title="Link to this definition">¶</a></dt>
 <dd><p>Return the character who wrote on the blackboard in this room, or
 <cite>None</cite> if either the room has no blackboard, or the blackboard is
 clean.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.get_chair_direction">
-<tt class="descname">get_chair_direction</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Room.get_chair_direction" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.get_chair_direction">
+<span class="sig-name descname"><span class="pre">get_chair_direction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.get_chair_direction" title="Link to this definition">¶</a></dt>
 <dd><p>Return the direction in which the chairs in this room are facing.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">-1 if the chairs are facing left, 1 if they are facing right,
-or <cite>None</cite> if there are no chairs in the room.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>-1 if the chairs are facing left, 1 if they are facing right,
+or <cite>None</cite> if there are no chairs in the room.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.get_next_chair">
-<tt class="descname">get_next_chair</tt><big>(</big><em>character</em>, <em>move_along</em>, <em>go_to_back</em><big>)</big><a class="headerlink" href="#pyskool.room.Room.get_next_chair" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.get_next_chair">
+<span class="sig-name descname"><span class="pre">get_next_chair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">move_along</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">go_to_back</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.get_next_chair" title="Link to this definition">¶</a></dt>
 <dd><p>Return the chair that a character should find and sit in.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character looking for a chair.</li>
-<li><strong>move_along</strong> &#8211; If <cite>True</cite> (and <cite>go_to_back</cite> is False), return the
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character looking for a chair.</p></li>
+<li><p><strong>move_along</strong> – If <cite>True</cite> (and <cite>go_to_back</cite> is False), return the
 next seat along if the character is currently beside
 one; otherwise return the seat closest to the
-character.</li>
-<li><strong>go_to_back</strong> &#8211; If <cite>True</cite>, return the back seat in the room.</li>
+character.</p></li>
+<li><p><strong>go_to_back</strong> – If <cite>True</cite>, return the back seat in the room.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A 2-tuple containing the target chair and the direction it
-faces (-1 or 1).</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A 2-tuple containing the target chair and the direction it
+faces (-1 or 1), or <cite>(None, None)</cite> if there are no chairs.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.has_blackboard">
-<tt class="descname">has_blackboard</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Room.has_blackboard" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.has_blackboard">
+<span class="sig-name descname"><span class="pre">has_blackboard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.has_blackboard" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether the room has a blackboard.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.restore_blackboard">
-<tt class="descname">restore_blackboard</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Room.restore_blackboard" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.restore_blackboard">
+<span class="sig-name descname"><span class="pre">restore_blackboard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.restore_blackboard" title="Link to this definition">¶</a></dt>
 <dd><p>Restore the image of the blackboard in this room. This method is
 used to draw the contents of a blackboard afresh after restoring a
 saved game.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.room.Room.wipe_blackboard">
-<tt class="descname">wipe_blackboard</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.room.Room.wipe_blackboard" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.room.Room.wipe_blackboard">
+<span class="sig-name descname"><span class="pre">wipe_blackboard</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.room.Room.wipe_blackboard" title="Link to this definition">¶</a></dt>
 <dd><p>Wipe the blackboard in the room (if any) and mark it as clean.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">room</a><ul>
+<li><a class="reference internal" href="#pyskool.room.Blackboard"><code class="docutils literal notranslate"><span class="pre">Blackboard</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.room.Blackboard.beside"><code class="docutils literal notranslate"><span class="pre">Blackboard.beside()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Blackboard.build_images"><code class="docutils literal notranslate"><span class="pre">Blackboard.build_images()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Blackboard.clear"><code class="docutils literal notranslate"><span class="pre">Blackboard.clear()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Blackboard.is_dirty"><code class="docutils literal notranslate"><span class="pre">Blackboard.is_dirty()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Blackboard.newline"><code class="docutils literal notranslate"><span class="pre">Blackboard.newline()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Blackboard.restore"><code class="docutils literal notranslate"><span class="pre">Blackboard.restore()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Blackboard.shows"><code class="docutils literal notranslate"><span class="pre">Blackboard.shows()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Blackboard.wipe"><code class="docutils literal notranslate"><span class="pre">Blackboard.wipe()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Blackboard.write"><code class="docutils literal notranslate"><span class="pre">Blackboard.write()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool.room.Chair"><code class="docutils literal notranslate"><span class="pre">Chair</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.room.Chair.seat"><code class="docutils literal notranslate"><span class="pre">Chair.seat()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Chair.vacate"><code class="docutils literal notranslate"><span class="pre">Chair.vacate()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool.room.Desk"><code class="docutils literal notranslate"><span class="pre">Desk</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.room.Desk.empty"><code class="docutils literal notranslate"><span class="pre">Desk.empty()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Desk.insert"><code class="docutils literal notranslate"><span class="pre">Desk.insert()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool.room.NoGoZone"><code class="docutils literal notranslate"><span class="pre">NoGoZone</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.room.NoGoZone.contains"><code class="docutils literal notranslate"><span class="pre">NoGoZone.contains()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool.room.Room"><code class="docutils literal notranslate"><span class="pre">Room</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.room.Room.add_blackboard"><code class="docutils literal notranslate"><span class="pre">Room.add_blackboard()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.add_chair"><code class="docutils literal notranslate"><span class="pre">Room.add_chair()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.add_desk"><code class="docutils literal notranslate"><span class="pre">Room.add_desk()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.beside_blackboard"><code class="docutils literal notranslate"><span class="pre">Room.beside_blackboard()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.blackboard_dirty"><code class="docutils literal notranslate"><span class="pre">Room.blackboard_dirty()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.build_blackboard_images"><code class="docutils literal notranslate"><span class="pre">Room.build_blackboard_images()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.chair"><code class="docutils literal notranslate"><span class="pre">Room.chair()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.contains"><code class="docutils literal notranslate"><span class="pre">Room.contains()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.desk"><code class="docutils literal notranslate"><span class="pre">Room.desk()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.get_blackboard_writer"><code class="docutils literal notranslate"><span class="pre">Room.get_blackboard_writer()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.get_chair_direction"><code class="docutils literal notranslate"><span class="pre">Room.get_chair_direction()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.get_next_chair"><code class="docutils literal notranslate"><span class="pre">Room.get_next_chair()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.has_blackboard"><code class="docutils literal notranslate"><span class="pre">Room.has_blackboard()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.restore_blackboard"><code class="docutils literal notranslate"><span class="pre">Room.restore_blackboard()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.room.Room.wipe_blackboard"><code class="docutils literal notranslate"><span class="pre">Room.wipe_blackboard()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="plant.html"
+                          title="previous chapter">plant</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="scoreboard.html"
+                          title="next chapter">scoreboard</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -563,12 +532,13 @@ saved game.</p>
         <li class="right" >
           <a href="plant.html" title="plant"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">room</a></li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Richard Dymond.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Richard Dymond.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>

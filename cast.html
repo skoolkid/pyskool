@@ -1,34 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="./">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>cast &mdash; Pyskool 1.2.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>cast &#8212; Pyskool 1.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=fe13c473" />
+    <script src="_static/documentation_options.js?v=c55cb9cb"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="character" href="character.html" />
     <link rel="prev" title="bike" href="bike.html" /> 
-  </head>
-  <body>
-    <div class="related">
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,1504 +32,1350 @@
         <li class="right" >
           <a href="bike.html" title="bike"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">cast</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="bike.html"
-                        title="previous chapter">bike</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="character.html"
-                        title="next chapter">character</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="module-pyskool.cast">
-<span id="cast"></span><h1>cast<a class="headerlink" href="#module-pyskool.cast" title="Permalink to this headline">¶</a></h1>
-<p>Defines the <a class="reference internal" href="#pyskool.cast.Cast" title="pyskool.cast.Cast"><tt class="xref py py-class docutils literal"><span class="pre">Cast</span></tt></a> class.</p>
-<dl class="class">
-<dt id="pyskool.cast.Cast">
-<em class="property">class </em><tt class="descclassname">pyskool.cast.</tt><tt class="descname">Cast</tt><big>(</big><em>config</em>, <em>screen</em>, <em>gallery</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast" title="Permalink to this definition">¶</a></dt>
+  <section id="module-pyskool.cast">
+<span id="cast"></span><h1>cast<a class="headerlink" href="#module-pyskool.cast" title="Link to this heading">¶</a></h1>
+<p>Defines the <a class="reference internal" href="#pyskool.cast.Cast" title="pyskool.cast.Cast"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cast</span></code></a> class.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.cast.Cast">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.cast.</span></span><span class="sig-name descname"><span class="pre">Cast</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">screen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gallery</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast" title="Link to this definition">¶</a></dt>
 <dd><p>The control centre from which the entire cast of characters is
 monitored.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters from the ini file.</li>
-<li><strong>screen</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Screen" title="pyskool.graphics.Screen"><tt class="xref py py-class docutils literal"><span class="pre">Screen</span></tt></a>) &#8211; The screen to draw on.</li>
-<li><strong>gallery</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Gallery" title="pyskool.graphics.Gallery"><tt class="xref py py-class docutils literal"><span class="pre">Gallery</span></tt></a>) &#8211; The gallery of images to use for drawing.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration parameters from the ini file.</p></li>
+<li><p><strong>screen</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Screen" title="pyskool.graphics.Screen"><code class="xref py py-class docutils literal notranslate"><span class="pre">Screen</span></code></a>) – The screen to draw on.</p></li>
+<li><p><strong>gallery</strong> (<a class="reference internal" href="graphics.html#pyskool.graphics.Gallery" title="pyskool.graphics.Gallery"><code class="xref py py-class docutils literal notranslate"><span class="pre">Gallery</span></code></a>) – The gallery of images to use for drawing.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_bike">
-<tt class="descname">add_bike</tt><big>(</big><em>bike_id</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>location</em>, <em>command_list_id</em>, <em>move_delay</em>, <em>pedal_momentum</em>, <em>max_momentum</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_bike" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_bike">
+<span class="sig-name descname"><span class="pre">add_bike</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bike_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_as</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">move_delay</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pedal_momentum</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_momentum</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_bike" title="Link to this definition">¶</a></dt>
 <dd><p>Add the bike to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>bike_id</strong> &#8211; The ID of the bike.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the bike&#8217;s sprite group.</li>
-<li><strong>initial_as</strong> &#8211; The bike&#8217;s initial animatory state.</li>
-<li><strong>location</strong> &#8211; The bike&#8217;s initial location (after being unchained).</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the bike will use.</li>
-<li><strong>move_delay</strong> &#8211; The delay between consecutive movements of the bike
-when wheeling along or being pedalled.</li>
-<li><strong>pedal_momentum</strong> &#8211; The momentum increment when the bike is
-pedalled.</li>
-<li><strong>max_momentum</strong> &#8211; The maximum momentum the bike can have.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bike_id</strong> – The ID of the bike.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the bike’s sprite group.</p></li>
+<li><p><strong>initial_as</strong> – The bike’s initial animatory state.</p></li>
+<li><p><strong>location</strong> – The bike’s initial location (after being unchained).</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the bike will use.</p></li>
+<li><p><strong>move_delay</strong> – The delay between consecutive movements of the bike
+when wheeling along or being pedalled.</p></li>
+<li><p><strong>pedal_momentum</strong> – The momentum increment when the bike is
+pedalled.</p></li>
+<li><p><strong>max_momentum</strong> – The maximum momentum the bike can have.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_blackboard_message">
-<tt class="descname">add_blackboard_message</tt><big>(</big><em>character_id</em>, <em>message</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_blackboard_message" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a blackboard message to a character&#8217;s collection.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the character.</li>
-<li><strong>message</strong> &#8211; The blackboard message.</li>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_blackboard_message">
+<span class="sig-name descname"><span class="pre">add_blackboard_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_blackboard_message" title="Link to this definition">¶</a></dt>
+<dd><p>Add a blackboard message to a character’s collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the character.</p></li>
+<li><p><strong>message</strong> – The blackboard message.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_character">
-<tt class="descname">add_character</tt><big>(</big><em>character_id</em>, <em>name</em>, <em>title</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>direction</em>, <em>head_xy</em>, <em>flags</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_character" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_character">
+<span class="sig-name descname"><span class="pre">add_character</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_as</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_xy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_character" title="Link to this definition">¶</a></dt>
 <dd><p>Add a character (other than Eric) to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The character&#8217;s unique ID.</li>
-<li><strong>name</strong> &#8211; The character&#8217;s name.</li>
-<li><strong>title</strong> &#8211; The character&#8217;s title (how he is addressed by the swot).</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the character&#8217;s sprite group.</li>
-<li><strong>initial_as</strong> &#8211; The character&#8217;s initial animatory state.</li>
-<li><strong>direction</strong> &#8211; The character&#8217;s initial direction.</li>
-<li><strong>head_xy</strong> &#8211; The coordinates of the character&#8217;s head within his
-sprite when he&#8217;s standing upright (used for collision
-detection).</li>
-<li><strong>flags</strong> &#8211; The character&#8217;s flags.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The character’s unique ID.</p></li>
+<li><p><strong>name</strong> – The character’s name.</p></li>
+<li><p><strong>title</strong> – The character’s title (how he is addressed by the swot).</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the character’s sprite group.</p></li>
+<li><p><strong>initial_as</strong> – The character’s initial animatory state.</p></li>
+<li><p><strong>direction</strong> – The character’s initial direction.</p></li>
+<li><p><strong>head_xy</strong> – The coordinates of the character’s head within his
+sprite when he’s standing upright (used for collision
+detection).</p></li>
+<li><p><strong>flags</strong> – The character’s flags.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_command">
-<tt class="descname">add_command</tt><big>(</big><em>command_list_id</em>, <em>command_name</em>, <em>*params</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_command" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_command">
+<span class="sig-name descname"><span class="pre">add_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_command" title="Link to this definition">¶</a></dt>
 <dd><p>Add a command to a command list.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>command_list_id</strong> &#8211; The ID of the command list.</li>
-<li><strong>command_name</strong> &#8211; The name of the command.</li>
-<li><strong>params</strong> &#8211; The command&#8217;s parameters.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command_list_id</strong> – The ID of the command list.</p></li>
+<li><p><strong>command_name</strong> – The name of the command.</p></li>
+<li><p><strong>params</strong> – The command’s parameters.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_command_list">
-<tt class="descname">add_command_list</tt><big>(</big><em>character_id</em>, <em>lesson_id</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_command_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a command list to a character&#8217;s personal timetable.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the character.</li>
-<li><strong>lesson_id</strong> &#8211; The ID of the lesson to place the command list
-against.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list.</li>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_command_list">
+<span class="sig-name descname"><span class="pre">add_command_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lesson_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_command_list" title="Link to this definition">¶</a></dt>
+<dd><p>Add a command list to a character’s personal timetable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the character.</p></li>
+<li><p><strong>lesson_id</strong> – The ID of the lesson to place the command list
+against.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_conker">
-<tt class="descname">add_conker</tt><big>(</big><em>object_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>min_x</em>, <em>max_x</em>, <em>min_y</em>, <em>max_y</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_conker" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_conker">
+<span class="sig-name descname"><span class="pre">add_conker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hit_xy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_conker" title="Link to this definition">¶</a></dt>
 <dd><p>Add the conker to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>object_id</strong> &#8211; The ID of the conker.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the conker&#8217;s sprite group.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the conker will use.</li>
-<li><strong>min_x</strong> &#8211; The minimum x-coordinate a pellet must reach to knock the
-conker out of the tree.</li>
-<li><strong>max_x</strong> &#8211; The maximum x-coordinate a pellet must reach to knock the
-conker out of the tree.</li>
-<li><strong>min_y</strong> &#8211; The minimum y-coordinate a pellet must fly at to knock
-the conker out of the tree.</li>
-<li><strong>max_y</strong> &#8211; The maximum y-coordinate a pellet must fly at to knock
-the conker out of the tree.</li>
-<li><strong>hit_xy</strong> &#8211; The coordinates of the conker within its sprite (used
-for collision detection).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>object_id</strong> – The ID of the conker.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the conker’s sprite group.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the conker will use.</p></li>
+<li><p><strong>min_x</strong> – The minimum x-coordinate a pellet must reach to knock the
+conker out of the tree.</p></li>
+<li><p><strong>max_x</strong> – The maximum x-coordinate a pellet must reach to knock the
+conker out of the tree.</p></li>
+<li><p><strong>min_y</strong> – The minimum y-coordinate a pellet must fly at to knock
+the conker out of the tree.</p></li>
+<li><p><strong>max_y</strong> – The maximum y-coordinate a pellet must fly at to knock
+the conker out of the tree.</p></li>
+<li><p><strong>hit_xy</strong> – The coordinates of the conker within its sprite (used
+for collision detection).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_desk_lid">
-<tt class="descname">add_desk_lid</tt><big>(</big><em>desk_lid_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>x_offset</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_desk_lid" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_desk_lid">
+<span class="sig-name descname"><span class="pre">add_desk_lid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">desk_lid_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_offset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_desk_lid" title="Link to this definition">¶</a></dt>
 <dd><p>Add the desk lid to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>desk_lid_id</strong> &#8211; The ID of the desk lid.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the desk lid&#8217;s sprite group.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the desk lid will
-use.</li>
-<li><strong>x_offset</strong> &#8211; The offset (relative to the desk being opened) at
-which the desk lid should be displayed.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>desk_lid_id</strong> – The ID of the desk lid.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the desk lid’s sprite group.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the desk lid will
+use.</p></li>
+<li><p><strong>x_offset</strong> – The offset (relative to the desk being opened) at
+which the desk lid should be displayed.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_eric">
-<tt class="descname">add_eric</tt><big>(</big><em>character_id</em>, <em>name</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>direction</em>, <em>head_xy</em>, <em>flags</em>, <em>bend_over_hand_xy</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_eric" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_eric">
+<span class="sig-name descname"><span class="pre">add_eric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_as</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">head_xy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bend_over_hand_xy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_eric" title="Link to this definition">¶</a></dt>
 <dd><p>Add Eric to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; Eric&#8217;s unique ID.</li>
-<li><strong>name</strong> &#8211; Eric&#8217;s name.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of Eric&#8217;s sprite group.</li>
-<li><strong>initial_as</strong> &#8211; Eric&#8217;s initial animatory state.</li>
-<li><strong>direction</strong> &#8211; Eric&#8217;s initial direction.</li>
-<li><strong>head_xy</strong> &#8211; The coordinates of Eric&#8217;s head within his sprite when
-he&#8217;s standing upright (used for collision detection).</li>
-<li><strong>flags</strong> &#8211; Eric&#8217;s character flags.</li>
-<li><strong>bend_over_hand_xy</strong> &#8211; The coordinates of Eric&#8217;s hand within his
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – Eric’s unique ID.</p></li>
+<li><p><strong>name</strong> – Eric’s name.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of Eric’s sprite group.</p></li>
+<li><p><strong>initial_as</strong> – Eric’s initial animatory state.</p></li>
+<li><p><strong>direction</strong> – Eric’s initial direction.</p></li>
+<li><p><strong>head_xy</strong> – The coordinates of Eric’s head within his sprite when
+he’s standing upright (used for collision detection).</p></li>
+<li><p><strong>flags</strong> – Eric’s character flags.</p></li>
+<li><p><strong>bend_over_hand_xy</strong> – The coordinates of Eric’s hand within his
 left-facing <cite>BENDING_OVER</cite> sprite (used to
 determine where a mouse or frog should be
-when caught or released).</li>
+when caught or released).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_frog">
-<tt class="descname">add_frog</tt><big>(</big><em>frog_id</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>location</em>, <em>command_list_id</em>, <em>turn_round</em>, <em>short_hop</em>, <em>long_hop</em>, <em>sit_xy</em>, <em>eric_proximity</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_frog" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_frog">
+<span class="sig-name descname"><span class="pre">add_frog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frog_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_as</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">turn_round</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">short_hop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">long_hop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sit_xy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eric_proximity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_frog" title="Link to this definition">¶</a></dt>
 <dd><p>Add a frog to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>frog_id</strong> &#8211; The ID of the frog.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the frog&#8217;s sprite group.</li>
-<li><strong>initial_as</strong> &#8211; The frog&#8217;s initial animatory state.</li>
-<li><strong>location</strong> &#8211; The frog&#8217;s initial location.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the frog will use.</li>
-<li><strong>turn_round</strong> &#8211; The animation phases to use when the frog turns
-round.</li>
-<li><strong>short_hop</strong> &#8211; The animation phases to use when the frog makes a
-short hop.</li>
-<li><strong>long_hop</strong> &#8211; The animation phases to use when the frog makes a long
-hop.</li>
-<li><strong>sit_xy</strong> &#8211; The coordinates of the frog within its sprite when it&#8217;s
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frog_id</strong> – The ID of the frog.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the frog’s sprite group.</p></li>
+<li><p><strong>initial_as</strong> – The frog’s initial animatory state.</p></li>
+<li><p><strong>location</strong> – The frog’s initial location.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the frog will use.</p></li>
+<li><p><strong>turn_round</strong> – The animation phases to use when the frog turns
+round.</p></li>
+<li><p><strong>short_hop</strong> – The animation phases to use when the frog makes a
+short hop.</p></li>
+<li><p><strong>long_hop</strong> – The animation phases to use when the frog makes a long
+hop.</p></li>
+<li><p><strong>sit_xy</strong> – The coordinates of the frog within its sprite when it’s
 sitting (used for collision detection and placement in
-cups).</li>
-<li><strong>eric_proximity</strong> &#8211; The minimum distance from the frog that Eric can
-be before it will try to hop away.</li>
+cups).</p></li>
+<li><p><strong>eric_proximity</strong> – The minimum distance from the frog that Eric can
+be before it will try to hop away.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_lesson_message">
-<tt class="descname">add_lesson_message</tt><big>(</big><em>character_id</em>, <em>message</em>, <em>condition</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_lesson_message" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a lesson message to a character&#8217;s collection. A lesson message
-is something like &#8216;START READING AT THE NEXT CHAPTER IN YOUR BOOKS&#8217;,
-which will be used by a teacher during class if he&#8217;s not teaching Eric,
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_lesson_message">
+<span class="sig-name descname"><span class="pre">add_lesson_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_lesson_message" title="Link to this definition">¶</a></dt>
+<dd><p>Add a lesson message to a character’s collection. A lesson message
+is something like ‘START READING AT THE NEXT CHAPTER IN YOUR BOOKS’,
+which will be used by a teacher during class if he’s not teaching Eric,
 or he has decided not to have a question-and-answer session with the
 swot.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the character.</li>
-<li><strong>message</strong> &#8211; The lesson message.</li>
-<li><strong>condition</strong> (<em>string</em>) &#8211; The name of the condition that must be met before the
-lesson message is used.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the character.</p></li>
+<li><p><strong>message</strong> – The lesson message.</p></li>
+<li><p><strong>condition</strong> (<em>string</em>) – The name of the condition that must be met before the
+lesson message is used.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_lines_message">
-<tt class="descname">add_lines_message</tt><big>(</big><em>character_id</em>, <em>message_id</em>, <em>message</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_lines_message" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a lines message to a character&#8217;s collection.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the character.</li>
-<li><strong>message_id</strong> &#8211; The ID of the lines message.</li>
-<li><strong>message</strong> &#8211; The lines message.</li>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_lines_message">
+<span class="sig-name descname"><span class="pre">add_lines_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_lines_message" title="Link to this definition">¶</a></dt>
+<dd><p>Add a lines message to a character’s collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the character.</p></li>
+<li><p><strong>message_id</strong> – The ID of the lines message.</p></li>
+<li><p><strong>message</strong> – The lines message.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_mouse">
-<tt class="descname">add_mouse</tt><big>(</big><em>mouse_id</em>, <em>sprite_group_id</em>, <em>initial_as</em>, <em>location</em>, <em>command_list_id</em>, <em>sprite_xy</em>, <em>immortal=True</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_mouse" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_mouse">
+<span class="sig-name descname"><span class="pre">add_mouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouse_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_as</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_xy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">immortal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_mouse" title="Link to this definition">¶</a></dt>
 <dd><p>Add a mouse to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>mouse_id</strong> &#8211; The ID of the mouse.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the mouse&#8217;s sprite group.</li>
-<li><strong>initial_as</strong> &#8211; The mouse&#8217;s initial animatory state.</li>
-<li><strong>location</strong> &#8211; The mouse&#8217;s initial location.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the mouse will use.</li>
-<li><strong>sprite_xy</strong> &#8211; The coordinates of the mouse within its sprite (used
-for detecting whether Eric has caught it).</li>
-<li><strong>immortal</strong> &#8211; Whether the mouse is immortal (will not disappear
-until Eric catches it).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mouse_id</strong> – The ID of the mouse.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the mouse’s sprite group.</p></li>
+<li><p><strong>initial_as</strong> – The mouse’s initial animatory state.</p></li>
+<li><p><strong>location</strong> – The mouse’s initial location.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the mouse will use.</p></li>
+<li><p><strong>sprite_xy</strong> – The coordinates of the mouse within its sprite (used
+for detecting whether Eric has caught it).</p></li>
+<li><p><strong>immortal</strong> – Whether the mouse is immortal (will not disappear
+until Eric catches it).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_mouse_location">
-<tt class="descname">add_mouse_location</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_mouse_location" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_mouse_location">
+<span class="sig-name descname"><span class="pre">add_mouse_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_mouse_location" title="Link to this definition">¶</a></dt>
 <dd><p>Add a location at which a new immortal mouse may appear after Eric
 catches one.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The x-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The x-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_pellet">
-<tt class="descname">add_pellet</tt><big>(</big><em>character_id</em>, <em>pellet_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>pellet_range</em>, <em>hit_zone</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_pellet" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_pellet">
+<span class="sig-name descname"><span class="pre">add_pellet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pellet_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pellet_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hit_zone</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hit_xy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_pellet" title="Link to this definition">¶</a></dt>
 <dd><p>Add a pellet to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the pellet&#8217;s owner.</li>
-<li><strong>pellet_id</strong> &#8211; The ID of the pellet.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the pellet&#8217;s sprite group.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the pellet will use.</li>
-<li><strong>pellet_range</strong> &#8211; The maximum distance the pellet will travel after
-launch.</li>
-<li><strong>hit_zone</strong> &#8211; The size of the portion at the end of the pellet&#8217;s
-journey in which it can hit things.</li>
-<li><strong>hit_xy</strong> &#8211; The coordinates of the pellet within its sprite (used
-for collision detection).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the pellet’s owner.</p></li>
+<li><p><strong>pellet_id</strong> – The ID of the pellet.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the pellet’s sprite group.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the pellet will use.</p></li>
+<li><p><strong>pellet_range</strong> – The maximum distance the pellet will travel after
+launch.</p></li>
+<li><p><strong>hit_zone</strong> – The size of the portion at the end of the pellet’s
+journey in which it can hit things.</p></li>
+<li><p><strong>hit_xy</strong> – The coordinates of the pellet within its sprite (used
+for collision detection).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_plant">
-<tt class="descname">add_plant</tt><big>(</big><em>plant_id</em>, <em>sprite_group_id</em>, <em>x</em>, <em>y</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_plant" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_plant">
+<span class="sig-name descname"><span class="pre">add_plant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plant_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_plant" title="Link to this definition">¶</a></dt>
 <dd><p>Add a plant to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>plant_id</strong> &#8211; The ID of the plant.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the plant&#8217;s sprite group.</li>
-<li><strong>x</strong> &#8211; The plant&#8217;s x-coordinate.</li>
-<li><strong>y</strong> &#8211; The plant&#8217;s y-coordinate.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the bike will use.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plant_id</strong> – The ID of the plant.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the plant’s sprite group.</p></li>
+<li><p><strong>x</strong> – The plant’s x-coordinate.</p></li>
+<li><p><strong>y</strong> – The plant’s y-coordinate.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the bike will use.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The plant.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The plant.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_sherry_drop">
-<tt class="descname">add_sherry_drop</tt><big>(</big><em>object_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_sherry_drop" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_sherry_drop">
+<span class="sig-name descname"><span class="pre">add_sherry_drop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hit_xy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_sherry_drop" title="Link to this definition">¶</a></dt>
 <dd><p>Add the sherry drop to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>object_id</strong> &#8211; The ID of the sherry drop.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the sherry drop&#8217;s sprite group.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the sherry drop will
-use.</li>
-<li><strong>hit_xy</strong> &#8211; The coordinates of the sherry drop within its sprite
-(used for collision detection).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>object_id</strong> – The ID of the sherry drop.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the sherry drop’s sprite group.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the sherry drop will
+use.</p></li>
+<li><p><strong>hit_xy</strong> – The coordinates of the sherry drop within its sprite
+(used for collision detection).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_sit_down_message">
-<tt class="descname">add_sit_down_message</tt><big>(</big><em>character_id</em>, <em>message</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_sit_down_message" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_sit_down_message">
+<span class="sig-name descname"><span class="pre">add_sit_down_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_sit_down_message" title="Link to this definition">¶</a></dt>
 <dd><p>Add a sit-down message for a character.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the character</li>
-<li><strong>message</strong> &#8211; The sit-down message.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the character</p></li>
+<li><p><strong>message</strong> – The sit-down message.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_sprite">
-<tt class="descname">add_sprite</tt><big>(</big><em>group_id</em>, <em>sprite_id</em>, <em>sprite_index</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_sprite" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_sprite">
+<span class="sig-name descname"><span class="pre">add_sprite</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_sprite" title="Link to this definition">¶</a></dt>
 <dd><p>Add a sprite (an animatory state image) to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>group_id</strong> &#8211; The sprite group ID.</li>
-<li><strong>sprite_id</strong> &#8211; The sprite ID.</li>
-<li><strong>sprite_index</strong> &#8211; The index of the sprite in the sprite matrix.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_id</strong> – The sprite group ID.</p></li>
+<li><p><strong>sprite_id</strong> – The sprite ID.</p></li>
+<li><p><strong>sprite_index</strong> – The index of the sprite in the sprite matrix.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_stinkbomb">
-<tt class="descname">add_stinkbomb</tt><big>(</big><em>character_id</em>, <em>stinkbomb_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>phases</em>, <em>stink_range</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_stinkbomb" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_stinkbomb">
+<span class="sig-name descname"><span class="pre">add_stinkbomb</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stinkbomb_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phases</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stink_range</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_stinkbomb" title="Link to this definition">¶</a></dt>
 <dd><p>Add a stinkbomb to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the stinkbomb&#8217;s owner.</li>
-<li><strong>stinkbomb_id</strong> &#8211; The ID of the stinkbomb.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the stinkbomb&#8217;s sprite group.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the stinkbomb will
-use.</li>
-<li><strong>phases</strong> &#8211; The phases of animation the stinkbomb cloud will use.</li>
-<li><strong>stink_range</strong> &#8211; The maximum distance from which the stinkbomb can
-be smelt.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the stinkbomb’s owner.</p></li>
+<li><p><strong>stinkbomb_id</strong> – The ID of the stinkbomb.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the stinkbomb’s sprite group.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the stinkbomb will
+use.</p></li>
+<li><p><strong>phases</strong> – The phases of animation the stinkbomb cloud will use.</p></li>
+<li><p><strong>stink_range</strong> – The maximum distance from which the stinkbomb can
+be smelt.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_water">
-<tt class="descname">add_water</tt><big>(</big><em>character_id</em>, <em>water_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>phases</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_water" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_water">
+<span class="sig-name descname"><span class="pre">add_water</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phases</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_water" title="Link to this definition">¶</a></dt>
 <dd><p>Add a jet of water or sherry to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the water/sherry&#8217;s owner.</li>
-<li><strong>water_id</strong> &#8211; The ID of the water/sherry.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the water/sherry&#8217;s sprite group.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the water/sherry
-will use.</li>
-<li><strong>phases</strong> &#8211; The phases of animation the water will use after being
-fired from a water pistol.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the water/sherry’s owner.</p></li>
+<li><p><strong>water_id</strong> – The ID of the water/sherry.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the water/sherry’s sprite group.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the water/sherry
+will use.</p></li>
+<li><p><strong>phases</strong> – The phases of animation the water will use after being
+fired from a water pistol.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.add_water_drop">
-<tt class="descname">add_water_drop</tt><big>(</big><em>object_id</em>, <em>sprite_group_id</em>, <em>command_list_id</em>, <em>hit_xy</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.add_water_drop" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.add_water_drop">
+<span class="sig-name descname"><span class="pre">add_water_drop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">object_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hit_xy</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.add_water_drop" title="Link to this definition">¶</a></dt>
 <dd><p>Add the water drop to the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>object_id</strong> &#8211; The ID of the water drop.</li>
-<li><strong>sprite_group_id</strong> &#8211; The ID of the water drop&#8217;s sprite group.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the water drop will
-use.</li>
-<li><strong>hit_xy</strong> &#8211; The coordinates of the water drop within its sprite
-(used for collision detection).</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>object_id</strong> – The ID of the water drop.</p></li>
+<li><p><strong>sprite_group_id</strong> – The ID of the water drop’s sprite group.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the water drop will
+use.</p></li>
+<li><p><strong>hit_xy</strong> – The coordinates of the water drop within its sprite
+(used for collision detection).</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.can_get_lines">
-<tt class="descname">can_get_lines</tt><big>(</big><em>message_id</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.can_get_lines" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.can_get_lines">
+<span class="sig-name descname"><span class="pre">can_get_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.can_get_lines" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether any member of the cast can give a specific lines
 message.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message_id</strong> &#8211; The ID of the lines message.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message_id</strong> – The ID of the lines message.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.caught_mouse">
-<tt class="descname">caught_mouse</tt><big>(</big><em>mouse</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.caught_mouse" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.caught_mouse">
+<span class="sig-name descname"><span class="pre">caught_mouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouse</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.caught_mouse" title="Link to this definition">¶</a></dt>
 <dd><p>Take appropriate action when a mouse is caught. If the mouse is
 immortal (defined in the [Mice] section of the ini file), it will be
 relocated (so that Eric can catch it again). If it is not immortal
 (Eric previously released it), it is removed from the game.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mouse</strong> &#8211; The captured mouse.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mouse</strong> – The captured mouse.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.change_command_list">
-<tt class="descname">change_command_list</tt><big>(</big><em>character_id</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.change_command_list" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.change_command_list">
+<span class="sig-name descname"><span class="pre">change_command_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.change_command_list" title="Link to this definition">¶</a></dt>
 <dd><p>Switch a character to a new command list.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the character.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the character.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.check_heads_at">
-<tt class="descname">check_heads_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.check_heads_at" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.check_heads_at">
+<span class="sig-name descname"><span class="pre">check_heads_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.check_heads_at" title="Link to this definition">¶</a></dt>
 <dd><p>Check whether a frog has hit the head of anyone who holds a safe
 key, and hand the safe key to Eric if so.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> &#8211; The x-coordinate to check for heads.</li>
-<li><strong>y</strong> &#8211; The y-coordinate to check for heads.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate to check for heads.</p></li>
+<li><p><strong>y</strong> – The y-coordinate to check for heads.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><cite>True</cite> if the frog hit someone&#8217;s head, <cite>False</cite> otherwise.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>True</cite> if the frog hit someone’s head, <cite>False</cite> otherwise.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.conker_falling">
-<tt class="descname">conker_falling</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.conker_falling" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.conker_falling">
+<span class="sig-name descname"><span class="pre">conker_falling</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.conker_falling" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether a conker is currently falling.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.create_lesson">
-<tt class="descname">create_lesson</tt><big>(</big><em>swot</em>, <em>room</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.create_lesson" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a new <a class="reference internal" href="lesson.html#pyskool.lesson.Lesson" title="pyskool.lesson.Lesson"><tt class="xref py py-class docutils literal"><span class="pre">Lesson</span></tt></a> instance for the swot.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>swot</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The swot.</li>
-<li><strong>room</strong> (<a class="reference internal" href="room.html#pyskool.room.Room" title="pyskool.room.Room"><tt class="xref py py-class docutils literal"><span class="pre">Room</span></tt></a>) &#8211; The room in which the lesson will take place.</li>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.create_lesson">
+<span class="sig-name descname"><span class="pre">create_lesson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">swot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">room</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.create_lesson" title="Link to this definition">¶</a></dt>
+<dd><p>Return a new <a class="reference internal" href="lesson.html#pyskool.lesson.Lesson" title="pyskool.lesson.Lesson"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lesson</span></code></a> instance for the swot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>swot</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The swot.</p></li>
+<li><p><strong>room</strong> (<a class="reference internal" href="room.html#pyskool.room.Room" title="pyskool.room.Room"><code class="xref py py-class docutils literal notranslate"><span class="pre">Room</span></code></a>) – The room in which the lesson will take place.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.drop_anyone_at">
-<tt class="descname">drop_anyone_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.drop_anyone_at" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.drop_anyone_at">
+<span class="sig-name descname"><span class="pre">drop_anyone_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.drop_anyone_at" title="Link to this definition">¶</a></dt>
 <dd><p>Drop any character at a given location. This is used by plants when
 they die.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The y-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.eric_understood">
-<tt class="descname">eric_understood</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.eric_understood" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.eric_understood">
+<span class="sig-name descname"><span class="pre">eric_understood</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.eric_understood" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether Eric understood the message just delivered to him.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.expand_names">
-<tt class="descname">expand_names</tt><big>(</big><em>message</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.expand_names" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.expand_names">
+<span class="sig-name descname"><span class="pre">expand_names</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.expand_names" title="Link to this definition">¶</a></dt>
 <dd><p>Replace occurrences of $BLAH in a message with the name of the
-character whose unique ID is &#8216;BLAH&#8217;.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>message</strong> &#8211; The message.</td>
-</tr>
-</tbody>
-</table>
+character whose unique ID is ‘BLAH’.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> – The message.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.expand_title">
-<tt class="descname">expand_title</tt><big>(</big><em>message</em>, <em>character</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.expand_title" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.expand_title">
+<span class="sig-name descname"><span class="pre">expand_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.expand_title" title="Link to this definition">¶</a></dt>
 <dd><p>Replace any title macros in a message with the title of a character.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>message</strong> &#8211; The message that may contain title macros.</li>
-<li><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character whose title should be substituted.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> – The message that may contain title macros.</p></li>
+<li><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character whose title should be substituted.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.expel_eric">
-<tt class="descname">expel_eric</tt><big>(</big><em>character_id</em>, <em>command_list_id</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.expel_eric" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.expel_eric">
+<span class="sig-name descname"><span class="pre">expel_eric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.expel_eric" title="Link to this definition">¶</a></dt>
 <dd><p>Mark Eric as expelled and set somebody on their way to expel him.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the character who will expel Eric.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the character should
-switch to.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the character who will expel Eric.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the character should
+switch to.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.freeze_eric">
-<tt class="descname">freeze_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.freeze_eric" title="Permalink to this definition">¶</a></dt>
-<dd><p>Attempt to freeze Eric. The attempt will fail if Eric is writing on
-a blackboard.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite> if Eric was frozen, <cite>False</cite> otherwise.</td>
-</tr>
-</tbody>
-</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.freeze_eric">
+<span class="sig-name descname"><span class="pre">freeze_eric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.freeze_eric" title="Link to this definition">¶</a></dt>
+<dd><p>Attempt to freeze Eric. The attempt will fail if Eric is busy (i.e.
+writing on a blackboard, firing, hitting, etc.).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>True</cite> if Eric was frozen, <cite>False</cite> otherwise.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get">
-<tt class="descname">get</tt><big>(</big><em>character_id</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get" title="Link to this definition">¶</a></dt>
 <dd><p>Return a member of the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character_id</strong> &#8211; The ID of the cast member.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character_id</strong> – The ID of the cast member.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_absent_tale">
-<tt class="descname">get_absent_tale</tt><big>(</big><em>teacher</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_absent_tale" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_absent_tale">
+<span class="sig-name descname"><span class="pre">get_absent_tale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">teacher</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_absent_tale" title="Link to this definition">¶</a></dt>
 <dd><p>Return a tale about Eric being absent for the swot to tell a
 teacher.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>teacher</strong> &#8211; The teacher.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>teacher</strong> – The teacher.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_animal">
-<tt class="descname">get_animal</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_animal" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_animal">
+<span class="sig-name descname"><span class="pre">get_animal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_animal" title="Link to this definition">¶</a></dt>
 <dd><p>Return any animal that is on the floor at a given location.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The y-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The animal, or <cite>None</cite> if there is none.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The animal, or <cite>None</cite> if there is none.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_conkerable">
-<tt class="descname">get_conkerable</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_conkerable" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_conkerable">
+<span class="sig-name descname"><span class="pre">get_conkerable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_conkerable" title="Link to this definition">¶</a></dt>
 <dd><p>Return a suitable character to hit with a conker at a given
 location, or <cite>None</cite> if there is none. A character is considered
 suitable if he can be knocked over by a conker.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The x-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The x-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_eric_stopper">
-<tt class="descname">get_eric_stopper</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_eric_stopper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return any character who is currently standing in Eric&#8217;s way (as
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_eric_stopper">
+<span class="sig-name descname"><span class="pre">get_eric_stopper</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_eric_stopper" title="Link to this definition">¶</a></dt>
+<dd><p>Return any character who is currently standing in Eric’s way (as
 Albert does when trying to prevent him from escaping), or <cite>None</cite> if
 there is none.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_hit_tale">
-<tt class="descname">get_hit_tale</tt><big>(</big><em>teacher</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_hit_tale" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_hit_tale">
+<span class="sig-name descname"><span class="pre">get_hit_tale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">teacher</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_hit_tale" title="Link to this definition">¶</a></dt>
 <dd><p>Return a tale about hitting for the swot to tell a teacher.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>teacher</strong> &#8211; The teacher.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A 2-tuple containing the ID of the character blamed by the
-swot, and the tale.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>teacher</strong> – The teacher.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A 2-tuple containing the ID of the character blamed by the
+swot, and the tale.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_images">
-<tt class="descname">get_images</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_images" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_images">
+<span class="sig-name descname"><span class="pre">get_images</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_images" title="Link to this definition">¶</a></dt>
 <dd><p>Return a list of images for every member of the cast.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_location_of_eric">
-<tt class="descname">get_location_of_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_location_of_eric" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_location_of_eric">
+<span class="sig-name descname"><span class="pre">get_location_of_eric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_location_of_eric" title="Link to this definition">¶</a></dt>
 <dd><p>Return the non-staircase location closest to Eric.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_nearby_adults">
-<tt class="descname">get_nearby_adults</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_nearby_adults" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_nearby_adults">
+<span class="sig-name descname"><span class="pre">get_nearby_adults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_nearby_adults" title="Link to this definition">¶</a></dt>
 <dd><p>Return a list of adults who are close to and facing a target
 character.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The target character.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The target character.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_nearby_lines_givers">
-<tt class="descname">get_nearby_lines_givers</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_nearby_lines_givers" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_nearby_lines_givers">
+<span class="sig-name descname"><span class="pre">get_nearby_lines_givers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_nearby_lines_givers" title="Link to this definition">¶</a></dt>
 <dd><p>Return a list of lines-givers who are close to and facing a target
 character, and are able to give lines now.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The target character.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The target character.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_nearest_lines_recipient">
-<tt class="descname">get_nearest_lines_recipient</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_nearest_lines_recipient" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_nearest_lines_recipient">
+<span class="sig-name descname"><span class="pre">get_nearest_lines_recipient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_nearest_lines_recipient" title="Link to this definition">¶</a></dt>
 <dd><p>Return the potential lines recipient who is nearest to a target
 character, or <cite>None</cite> if there is none.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The target character.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The target character.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_pelletable">
-<tt class="descname">get_pelletable</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_pelletable" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_pelletable">
+<span class="sig-name descname"><span class="pre">get_pelletable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_pelletable" title="Link to this definition">¶</a></dt>
 <dd><p>Return the most suitable character to hit with a catapult pellet at
 a given location, or <cite>None</cite> if there is none.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The x-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The x-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_punchee">
-<tt class="descname">get_punchee</tt><big>(</big><em>character</em>, <em>offset</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_punchee" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_punchee">
+<span class="sig-name descname"><span class="pre">get_punchee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_punchee" title="Link to this definition">¶</a></dt>
 <dd><p>Return the first punchable character who is facing a target
 character at a given distance.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The target character.</li>
-<li><strong>offset</strong> &#8211; The distance in front of the target character to look
-for facing characters.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The target character.</p></li>
+<li><p><strong>offset</strong> – The distance in front of the target character to look
+for facing characters.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A punchable character, or <cite>None</cite> if there is none at the
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A punchable character, or <cite>None</cite> if there is none at the
 given distance.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_sherryable">
-<tt class="descname">get_sherryable</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_sherryable" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_sherryable">
+<span class="sig-name descname"><span class="pre">get_sherryable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_sherryable" title="Link to this definition">¶</a></dt>
 <dd><p>Return a suitable character to hit with a drop of sherry at a given
 location, or <cite>None</cite> if there is none. A character is considered
 suitable if he holds a storeroom combination letter.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The x-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The x-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_speech_bubbles">
-<tt class="descname">get_speech_bubbles</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_speech_bubbles" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_speech_bubbles">
+<span class="sig-name descname"><span class="pre">get_speech_bubbles</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_speech_bubbles" title="Link to this definition">¶</a></dt>
 <dd><p>Return a list of speech bubbles currently in use by the cast.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_waterable">
-<tt class="descname">get_waterable</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_waterable" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_waterable">
+<span class="sig-name descname"><span class="pre">get_waterable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_waterable" title="Link to this definition">¶</a></dt>
 <dd><p>Return a suitable character to hit with a drop of water at a given
 location, or <cite>None</cite> if there is none. A character is considered
 suitable if he holds a bike combination digit.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The x-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The x-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.get_write_tale">
-<tt class="descname">get_write_tale</tt><big>(</big><em>writer_id</em>, <em>teacher</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.get_write_tale" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.get_write_tale">
+<span class="sig-name descname"><span class="pre">get_write_tale</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">writer_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">teacher</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.get_write_tale" title="Link to this definition">¶</a></dt>
 <dd><p>Return a tale about writing on the blackboard for the swot to tell a
 teacher.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>writer_id</strong> &#8211; The ID of the character to who wrote on the
-blackboard.</li>
-<li><strong>teacher</strong> &#8211; The teacher.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>writer_id</strong> – The ID of the character to who wrote on the
+blackboard.</p></li>
+<li><p><strong>teacher</strong> – The teacher.</p></li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A 2-tuple containing <cite>writer_id</cite> and the tale, or
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A 2-tuple containing <cite>writer_id</cite> and the tale, or
 <cite>(None, None)</cite> if the character who wrote on the board is not
 in the list of scapegoats favoured by the swot.</p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.has_kissees">
-<tt class="descname">has_kissees</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.has_kissees" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.has_kissees">
+<span class="sig-name descname"><span class="pre">has_kissees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.has_kissees" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether anyone in the cast can kiss Eric.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.hit_conker">
-<tt class="descname">hit_conker</tt><big>(</big><em>pellet</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.hit_conker" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.hit_conker">
+<span class="sig-name descname"><span class="pre">hit_conker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pellet</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.hit_conker" title="Link to this definition">¶</a></dt>
 <dd><p>Check whether a catapult pellet has hit a conker. If it has, the
 conker will start falling.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pellet</strong> &#8211; The catapult pellet.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite> if a conker was hit, <cite>False</cite> otherwise.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pellet</strong> – The catapult pellet.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>True</cite> if a conker was hit, <cite>False</cite> otherwise.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.initialise">
-<tt class="descname">initialise</tt><big>(</big><em>skool</em>, <em>keyboard</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.initialise" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.initialise">
+<span class="sig-name descname"><span class="pre">initialise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">skool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keyboard</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.initialise" title="Link to this definition">¶</a></dt>
 <dd><p>Initialise every member of the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>skool</strong> (<a class="reference internal" href="skool.html#pyskool.skool.Skool" title="pyskool.skool.Skool"><tt class="xref py py-class docutils literal"><span class="pre">Skool</span></tt></a>) &#8211; The skool.</li>
-<li><strong>keyboard</strong> (<a class="reference internal" href="input.html#pyskool.input.Keyboard" title="pyskool.input.Keyboard"><tt class="xref py py-class docutils literal"><span class="pre">Keyboard</span></tt></a>) &#8211; The keyboard for Eric to use.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>skool</strong> (<a class="reference internal" href="skool.html#pyskool.skool.Skool" title="pyskool.skool.Skool"><code class="xref py py-class docutils literal notranslate"><span class="pre">Skool</span></code></a>) – The skool.</p></li>
+<li><p><strong>keyboard</strong> (<a class="reference internal" href="input.html#pyskool.input.Keyboard" title="pyskool.input.Keyboard"><code class="xref py py-class docutils literal notranslate"><span class="pre">Keyboard</span></code></a>) – The keyboard for Eric to use.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.initialise_bike_combo">
-<tt class="descname">initialise_bike_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.initialise_bike_combo" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.initialise_bike_combo">
+<span class="sig-name descname"><span class="pre">initialise_bike_combo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.initialise_bike_combo" title="Link to this definition">¶</a></dt>
 <dd><p>Initialise the bike combination.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The combination.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The combination.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.initialise_safe_combo">
-<tt class="descname">initialise_safe_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.initialise_safe_combo" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.initialise_safe_combo">
+<span class="sig-name descname"><span class="pre">initialise_safe_combo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.initialise_safe_combo" title="Link to this definition">¶</a></dt>
 <dd><p>Initialise the safe combination.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The combination.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The combination.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.initialise_storeroom_combo">
-<tt class="descname">initialise_storeroom_combo</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.initialise_storeroom_combo" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.initialise_storeroom_combo">
+<span class="sig-name descname"><span class="pre">initialise_storeroom_combo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.initialise_storeroom_combo" title="Link to this definition">¶</a></dt>
 <dd><p>Initialise the storeroom combination.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The combination.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The combination.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.insert_frog">
-<tt class="descname">insert_frog</tt><big>(</big><em>cup</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.insert_frog" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.insert_frog">
+<span class="sig-name descname"><span class="pre">insert_frog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.insert_frog" title="Link to this definition">¶</a></dt>
 <dd><p>Insert any frogs that have been caught by Eric into a cup.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cup</strong> &#8211; The cup.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cup</strong> – The cup.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.is_beside_bike">
-<tt class="descname">is_beside_bike</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.is_beside_bike" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.is_beside_bike">
+<span class="sig-name descname"><span class="pre">is_beside_bike</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.is_beside_bike" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether a character is next to the bike.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character to check.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.is_beside_eric">
-<tt class="descname">is_beside_eric</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.is_beside_eric" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.is_beside_eric">
+<span class="sig-name descname"><span class="pre">is_beside_eric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.is_beside_eric" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether a character is beside Eric (and so need go no further
 to find him).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character to check.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.is_bike_visible">
-<tt class="descname">is_bike_visible</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.is_bike_visible" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.is_bike_visible">
+<span class="sig-name descname"><span class="pre">is_bike_visible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.is_bike_visible" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether the bike is in the play area at the moment.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.is_eric_absent">
-<tt class="descname">is_eric_absent</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.is_eric_absent" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.is_eric_absent">
+<span class="sig-name descname"><span class="pre">is_eric_absent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.is_eric_absent" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether Eric is playing truant.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.is_eric_expelled">
-<tt class="descname">is_eric_expelled</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.is_eric_expelled" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.is_eric_expelled">
+<span class="sig-name descname"><span class="pre">is_eric_expelled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.is_eric_expelled" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether Eric is due to be or is in the process of being
 expelled.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.is_home">
-<tt class="descname">is_home</tt><big>(</big><em>x</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.is_home" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return whether every character is on the &#8216;home&#8217; side of a given
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.is_home">
+<span class="sig-name descname"><span class="pre">is_home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.is_home" title="Link to this definition">¶</a></dt>
+<dd><p>Return whether every character is on the ‘home’ side of a given
 x-coordinate.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> &#8211; The x-coordinate.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – The x-coordinate.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.is_standing_on_kid">
-<tt class="descname">is_standing_on_kid</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.is_standing_on_kid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return whether a character is standing on a kid who&#8217;s been knocked
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.is_standing_on_kid">
+<span class="sig-name descname"><span class="pre">is_standing_on_kid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.is_standing_on_kid" title="Link to this definition">¶</a></dt>
+<dd><p>Return whether a character is standing on a kid who’s been knocked
 out.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character to check.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.is_touching_eric">
-<tt class="descname">is_touching_eric</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.is_touching_eric" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.is_touching_eric">
+<span class="sig-name descname"><span class="pre">is_touching_eric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.is_touching_eric" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether a character is in the same location as Eric.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character to check.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.kill_mouse">
-<tt class="descname">kill_mouse</tt><big>(</big><em>mouse</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.kill_mouse" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.kill_mouse">
+<span class="sig-name descname"><span class="pre">kill_mouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouse</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.kill_mouse" title="Link to this definition">¶</a></dt>
 <dd><p>Remove a mouse from the game.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mouse</strong> &#8211; The mouse to remove.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mouse</strong> – The mouse to remove.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.kissee">
-<tt class="descname">kissee</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.kissee" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.kissee">
+<span class="sig-name descname"><span class="pre">kissee</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.kissee" title="Link to this definition">¶</a></dt>
 <dd><p>Return the first kissable candidate in front of Eric, or <cite>None</cite> if
 there is none.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.knock_cup">
-<tt class="descname">knock_cup</tt><big>(</big><em>cup</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.knock_cup" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.knock_cup">
+<span class="sig-name descname"><span class="pre">knock_cup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.knock_cup" title="Link to this definition">¶</a></dt>
 <dd><p>Make a cup spill its contents (as when hit by a catapult pellet). A
 cup may contain water, sherry, a frog, or nothing.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cup</strong> &#8211; The cup.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cup</strong> – The cup.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.lift_anyone_at">
-<tt class="descname">lift_anyone_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.lift_anyone_at" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.lift_anyone_at">
+<span class="sig-name descname"><span class="pre">lift_anyone_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.lift_anyone_at" title="Link to this definition">¶</a></dt>
 <dd><p>Lift any character at a given location. This is used by plants when
 growing.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The y-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.move">
-<tt class="descname">move</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.move" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.move">
+<span class="sig-name descname"><span class="pre">move</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.move" title="Link to this definition">¶</a></dt>
 <dd><p>Move the members of the cast.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">-1 if the screen should scroll right, 1 if it should scroll
-left, or 0 if it should not scroll (after moving Eric).</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>-1 if the screen should scroll right, 1 if it should scroll
+left, or 0 if it should not scroll (after moving Eric).</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.move_bike_away">
-<tt class="descname">move_bike_away</tt><big>(</big><em>door</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.move_bike_away" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.move_bike_away">
+<span class="sig-name descname"><span class="pre">move_bike_away</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">door</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.move_bike_away" title="Link to this definition">¶</a></dt>
 <dd><p>Move the bike away from a door if necessary (so that it may be
 closed).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>door</strong> &#8211; The door.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>door</strong> – The door.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.open_desk">
-<tt class="descname">open_desk</tt><big>(</big><em>character</em>, <em>desk</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.open_desk" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.open_desk">
+<span class="sig-name descname"><span class="pre">open_desk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desk</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.open_desk" title="Link to this definition">¶</a></dt>
 <dd><p>Make a character open a desk. The desk lid will be raised.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character.</li>
-<li><strong>desk</strong> &#8211; The desk.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character.</p></li>
+<li><p><strong>desk</strong> – The desk.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.plant">
-<tt class="descname">plant</tt><big>(</big><em>character</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.plant" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the plant that a character is standing on, or <cite>None</cite> if he&#8217;s
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.plant">
+<span class="sig-name descname"><span class="pre">plant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.plant" title="Link to this definition">¶</a></dt>
+<dd><p>Return the plant that a character is standing on, or <cite>None</cite> if he’s
 not standing on one.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character to check.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character to check.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.reinitialise">
-<tt class="descname">reinitialise</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.reinitialise" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.reinitialise">
+<span class="sig-name descname"><span class="pre">reinitialise</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.reinitialise" title="Link to this definition">¶</a></dt>
 <dd><p>Reinitialise every member of the cast.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.release_mice">
-<tt class="descname">release_mice</tt><big>(</big><em>num_mice</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.release_mice" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.release_mice">
+<span class="sig-name descname"><span class="pre">release_mice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_mice</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.release_mice" title="Link to this definition">¶</a></dt>
 <dd><p>Release some mice at a given location.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>num_mice</strong> &#8211; The number of mice to release.</li>
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_mice</strong> – The number of mice to release.</p></li>
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The y-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.relocate_mouse">
-<tt class="descname">relocate_mouse</tt><big>(</big><em>mouse</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.relocate_mouse" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.relocate_mouse">
+<span class="sig-name descname"><span class="pre">relocate_mouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouse</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.relocate_mouse" title="Link to this definition">¶</a></dt>
 <dd><p>Relocate a mouse at a randomly chosen location.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.restore">
-<tt class="descname">restore</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.restore" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform tasks required immediately after restoring a saved game. The
-tasks are:</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.restore">
+<span class="sig-name descname"><span class="pre">restore</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.restore" title="Link to this definition">¶</a></dt>
+<dd><p>Perform tasks required immediately after rescaling or restoring a
+saved game. The tasks are:</p>
 <ul class="simple">
-<li>build the sprite images</li>
-<li>print the inventory</li>
-<li>print the mouse inventory</li>
+<li><p>build the sprite images</p></li>
+<li><p>build speech bubble images</p></li>
+<li><p>print the inventory</p></li>
+<li><p>print the mouse inventory</p></li>
 </ul>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.scare_musophobes">
-<tt class="descname">scare_musophobes</tt><big>(</big><em>mouse</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.scare_musophobes" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.scare_musophobes">
+<span class="sig-name descname"><span class="pre">scare_musophobes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouse</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.scare_musophobes" title="Link to this definition">¶</a></dt>
 <dd><p>Make any characters near a mouse respond appropriately.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mouse</strong> &#8211; The mouse.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>mouse</strong> – The mouse.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.set_lesson">
-<tt class="descname">set_lesson</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.set_lesson" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.set_lesson">
+<span class="sig-name descname"><span class="pre">set_lesson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lesson_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.set_lesson" title="Link to this definition">¶</a></dt>
 <dd><p>Set the lesson (as after the bell rings). Everybody except Eric
 collects a new command list from their personal timetable.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lesson_id</strong> &#8211; The ID of the lesson.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lesson_id</strong> – The ID of the lesson.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.set_location">
-<tt class="descname">set_location</tt><big>(</big><em>character_id</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.set_location" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.set_location">
+<span class="sig-name descname"><span class="pre">set_location</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.set_location" title="Link to this definition">¶</a></dt>
 <dd><p>Set the location of a character.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the character.</li>
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the character.</p></li>
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The y-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.set_random_locations">
-<tt class="descname">set_random_locations</tt><big>(</big><em>character_id</em>, <em>locations</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.set_random_locations" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.set_random_locations">
+<span class="sig-name descname"><span class="pre">set_random_locations</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locations</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.set_random_locations" title="Link to this definition">¶</a></dt>
 <dd><p>Set the collection of random locations for a character.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character_id</strong> &#8211; The ID of the character.</li>
-<li><strong>locations</strong> &#8211; The locations.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character_id</strong> – The ID of the character.</p></li>
+<li><p><strong>locations</strong> – The locations.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.smeller">
-<tt class="descname">smeller</tt><big>(</big><em>stinkbomb</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.smeller" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.smeller">
+<span class="sig-name descname"><span class="pre">smeller</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stinkbomb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.smeller" title="Link to this definition">¶</a></dt>
 <dd><p>Return a character who can smell a stinkbomb, or <cite>None</cite> if there is
 none.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stinkbomb</strong> &#8211; The stinkbomb.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stinkbomb</strong> – The stinkbomb.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.somebody_near_door">
-<tt class="descname">somebody_near_door</tt><big>(</big><em>door</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.somebody_near_door" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.somebody_near_door">
+<span class="sig-name descname"><span class="pre">somebody_near_door</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">door</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.somebody_near_door" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether somebody is standing near a door.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>door</strong> &#8211; The door to check.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>door</strong> – The door to check.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.trip_people_up_at">
-<tt class="descname">trip_people_up_at</tt><big>(</big><em>character</em>, <em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.trip_people_up_at" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.trip_people_up_at">
+<span class="sig-name descname"><span class="pre">trip_people_up_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">character</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.trip_people_up_at" title="Link to this definition">¶</a></dt>
 <dd><p>Make a character trip people up at a given location.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The character trying to trip people up.</li>
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>character</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The character trying to trip people up.</p></li>
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The y-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.unchain_bike">
-<tt class="descname">unchain_bike</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.unchain_bike" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.unchain_bike">
+<span class="sig-name descname"><span class="pre">unchain_bike</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.unchain_bike" title="Link to this definition">¶</a></dt>
 <dd><p>Bring the bike into the play area (as after being unchained).</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.unfreeze_eric">
-<tt class="descname">unfreeze_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.unfreeze_eric" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.unfreeze_eric">
+<span class="sig-name descname"><span class="pre">unfreeze_eric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.unfreeze_eric" title="Link to this definition">¶</a></dt>
 <dd><p>Unfreeze Eric.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.cast.Cast.water_plant">
-<tt class="descname">water_plant</tt><big>(</big><em>plant_pot</em>, <em>liquid</em><big>)</big><a class="headerlink" href="#pyskool.cast.Cast.water_plant" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.cast.Cast.water_plant">
+<span class="sig-name descname"><span class="pre">water_plant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plant_pot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liquid</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.cast.Cast.water_plant" title="Link to this definition">¶</a></dt>
 <dd><p>Water (or sherry) a plant. If the liquid is water, the plant will
 start growing.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>plant_pot</strong> &#8211; The plant pot hit by the water or sherry.</li>
-<li><strong>liquid</strong> &#8211; The type of liquid.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plant_pot</strong> – The plant pot hit by the water or sherry.</p></li>
+<li><p><strong>liquid</strong> – The type of liquid.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">cast</a><ul>
+<li><a class="reference internal" href="#pyskool.cast.Cast"><code class="docutils literal notranslate"><span class="pre">Cast</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_bike"><code class="docutils literal notranslate"><span class="pre">Cast.add_bike()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_blackboard_message"><code class="docutils literal notranslate"><span class="pre">Cast.add_blackboard_message()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_character"><code class="docutils literal notranslate"><span class="pre">Cast.add_character()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_command"><code class="docutils literal notranslate"><span class="pre">Cast.add_command()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_command_list"><code class="docutils literal notranslate"><span class="pre">Cast.add_command_list()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_conker"><code class="docutils literal notranslate"><span class="pre">Cast.add_conker()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_desk_lid"><code class="docutils literal notranslate"><span class="pre">Cast.add_desk_lid()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_eric"><code class="docutils literal notranslate"><span class="pre">Cast.add_eric()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_frog"><code class="docutils literal notranslate"><span class="pre">Cast.add_frog()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_lesson_message"><code class="docutils literal notranslate"><span class="pre">Cast.add_lesson_message()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_lines_message"><code class="docutils literal notranslate"><span class="pre">Cast.add_lines_message()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_mouse"><code class="docutils literal notranslate"><span class="pre">Cast.add_mouse()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_mouse_location"><code class="docutils literal notranslate"><span class="pre">Cast.add_mouse_location()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_pellet"><code class="docutils literal notranslate"><span class="pre">Cast.add_pellet()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_plant"><code class="docutils literal notranslate"><span class="pre">Cast.add_plant()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_sherry_drop"><code class="docutils literal notranslate"><span class="pre">Cast.add_sherry_drop()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_sit_down_message"><code class="docutils literal notranslate"><span class="pre">Cast.add_sit_down_message()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_sprite"><code class="docutils literal notranslate"><span class="pre">Cast.add_sprite()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_stinkbomb"><code class="docutils literal notranslate"><span class="pre">Cast.add_stinkbomb()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_water"><code class="docutils literal notranslate"><span class="pre">Cast.add_water()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.add_water_drop"><code class="docutils literal notranslate"><span class="pre">Cast.add_water_drop()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.can_get_lines"><code class="docutils literal notranslate"><span class="pre">Cast.can_get_lines()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.caught_mouse"><code class="docutils literal notranslate"><span class="pre">Cast.caught_mouse()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.change_command_list"><code class="docutils literal notranslate"><span class="pre">Cast.change_command_list()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.check_heads_at"><code class="docutils literal notranslate"><span class="pre">Cast.check_heads_at()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.conker_falling"><code class="docutils literal notranslate"><span class="pre">Cast.conker_falling()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.create_lesson"><code class="docutils literal notranslate"><span class="pre">Cast.create_lesson()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.drop_anyone_at"><code class="docutils literal notranslate"><span class="pre">Cast.drop_anyone_at()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.eric_understood"><code class="docutils literal notranslate"><span class="pre">Cast.eric_understood()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.expand_names"><code class="docutils literal notranslate"><span class="pre">Cast.expand_names()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.expand_title"><code class="docutils literal notranslate"><span class="pre">Cast.expand_title()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.expel_eric"><code class="docutils literal notranslate"><span class="pre">Cast.expel_eric()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.freeze_eric"><code class="docutils literal notranslate"><span class="pre">Cast.freeze_eric()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get"><code class="docutils literal notranslate"><span class="pre">Cast.get()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_absent_tale"><code class="docutils literal notranslate"><span class="pre">Cast.get_absent_tale()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_animal"><code class="docutils literal notranslate"><span class="pre">Cast.get_animal()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_conkerable"><code class="docutils literal notranslate"><span class="pre">Cast.get_conkerable()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_eric_stopper"><code class="docutils literal notranslate"><span class="pre">Cast.get_eric_stopper()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_hit_tale"><code class="docutils literal notranslate"><span class="pre">Cast.get_hit_tale()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_images"><code class="docutils literal notranslate"><span class="pre">Cast.get_images()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_location_of_eric"><code class="docutils literal notranslate"><span class="pre">Cast.get_location_of_eric()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_nearby_adults"><code class="docutils literal notranslate"><span class="pre">Cast.get_nearby_adults()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_nearby_lines_givers"><code class="docutils literal notranslate"><span class="pre">Cast.get_nearby_lines_givers()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_nearest_lines_recipient"><code class="docutils literal notranslate"><span class="pre">Cast.get_nearest_lines_recipient()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_pelletable"><code class="docutils literal notranslate"><span class="pre">Cast.get_pelletable()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_punchee"><code class="docutils literal notranslate"><span class="pre">Cast.get_punchee()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_sherryable"><code class="docutils literal notranslate"><span class="pre">Cast.get_sherryable()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_speech_bubbles"><code class="docutils literal notranslate"><span class="pre">Cast.get_speech_bubbles()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_waterable"><code class="docutils literal notranslate"><span class="pre">Cast.get_waterable()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.get_write_tale"><code class="docutils literal notranslate"><span class="pre">Cast.get_write_tale()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.has_kissees"><code class="docutils literal notranslate"><span class="pre">Cast.has_kissees()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.hit_conker"><code class="docutils literal notranslate"><span class="pre">Cast.hit_conker()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.initialise"><code class="docutils literal notranslate"><span class="pre">Cast.initialise()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.initialise_bike_combo"><code class="docutils literal notranslate"><span class="pre">Cast.initialise_bike_combo()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.initialise_safe_combo"><code class="docutils literal notranslate"><span class="pre">Cast.initialise_safe_combo()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.initialise_storeroom_combo"><code class="docutils literal notranslate"><span class="pre">Cast.initialise_storeroom_combo()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.insert_frog"><code class="docutils literal notranslate"><span class="pre">Cast.insert_frog()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.is_beside_bike"><code class="docutils literal notranslate"><span class="pre">Cast.is_beside_bike()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.is_beside_eric"><code class="docutils literal notranslate"><span class="pre">Cast.is_beside_eric()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.is_bike_visible"><code class="docutils literal notranslate"><span class="pre">Cast.is_bike_visible()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.is_eric_absent"><code class="docutils literal notranslate"><span class="pre">Cast.is_eric_absent()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.is_eric_expelled"><code class="docutils literal notranslate"><span class="pre">Cast.is_eric_expelled()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.is_home"><code class="docutils literal notranslate"><span class="pre">Cast.is_home()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.is_standing_on_kid"><code class="docutils literal notranslate"><span class="pre">Cast.is_standing_on_kid()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.is_touching_eric"><code class="docutils literal notranslate"><span class="pre">Cast.is_touching_eric()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.kill_mouse"><code class="docutils literal notranslate"><span class="pre">Cast.kill_mouse()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.kissee"><code class="docutils literal notranslate"><span class="pre">Cast.kissee()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.knock_cup"><code class="docutils literal notranslate"><span class="pre">Cast.knock_cup()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.lift_anyone_at"><code class="docutils literal notranslate"><span class="pre">Cast.lift_anyone_at()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.move"><code class="docutils literal notranslate"><span class="pre">Cast.move()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.move_bike_away"><code class="docutils literal notranslate"><span class="pre">Cast.move_bike_away()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.open_desk"><code class="docutils literal notranslate"><span class="pre">Cast.open_desk()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.plant"><code class="docutils literal notranslate"><span class="pre">Cast.plant()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.reinitialise"><code class="docutils literal notranslate"><span class="pre">Cast.reinitialise()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.release_mice"><code class="docutils literal notranslate"><span class="pre">Cast.release_mice()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.relocate_mouse"><code class="docutils literal notranslate"><span class="pre">Cast.relocate_mouse()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.restore"><code class="docutils literal notranslate"><span class="pre">Cast.restore()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.scare_musophobes"><code class="docutils literal notranslate"><span class="pre">Cast.scare_musophobes()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.set_lesson"><code class="docutils literal notranslate"><span class="pre">Cast.set_lesson()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.set_location"><code class="docutils literal notranslate"><span class="pre">Cast.set_location()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.set_random_locations"><code class="docutils literal notranslate"><span class="pre">Cast.set_random_locations()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.smeller"><code class="docutils literal notranslate"><span class="pre">Cast.smeller()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.somebody_near_door"><code class="docutils literal notranslate"><span class="pre">Cast.somebody_near_door()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.trip_people_up_at"><code class="docutils literal notranslate"><span class="pre">Cast.trip_people_up_at()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.unchain_bike"><code class="docutils literal notranslate"><span class="pre">Cast.unchain_bike()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.unfreeze_eric"><code class="docutils literal notranslate"><span class="pre">Cast.unfreeze_eric()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.cast.Cast.water_plant"><code class="docutils literal notranslate"><span class="pre">Cast.water_plant()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bike.html"
+                          title="previous chapter">bike</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="character.html"
+                          title="next chapter">character</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -1555,12 +1390,13 @@ start growing.</p>
         <li class="right" >
           <a href="bike.html" title="bike"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">cast</a></li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Richard Dymond.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Richard Dymond.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>

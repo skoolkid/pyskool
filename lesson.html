@@ -1,34 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="./">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>lesson &mdash; Pyskool 1.2.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>lesson &#8212; Pyskool 1.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=fe13c473" />
+    <script src="_static/documentation_options.js?v=c55cb9cb"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="lines" href="lines.html" />
     <link rel="prev" title="keys" href="keys.html" /> 
-  </head>
-  <body>
-    <div class="related">
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,82 +32,56 @@
         <li class="right" >
           <a href="keys.html" title="keys"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">lesson</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="keys.html"
-                        title="previous chapter">keys</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="lines.html"
-                        title="next chapter">lines</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="module-pyskool.lesson">
-<span id="lesson"></span><h1>lesson<a class="headerlink" href="#module-pyskool.lesson" title="Permalink to this headline">¶</a></h1>
+  <section id="module-pyskool.lesson">
+<span id="lesson"></span><h1>lesson<a class="headerlink" href="#module-pyskool.lesson" title="Link to this heading">¶</a></h1>
 <p>Classes concerned with controlling what goes on during a lesson.</p>
-<dl class="class">
-<dt id="pyskool.lesson.AssemblyMessageGenerator">
-<em class="property">class </em><tt class="descclassname">pyskool.lesson.</tt><tt class="descname">AssemblyMessageGenerator</tt><a class="headerlink" href="#pyskool.lesson.AssemblyMessageGenerator" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.lesson.AssemblyMessageGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.lesson.</span></span><span class="sig-name descname"><span class="pre">AssemblyMessageGenerator</span></span><a class="headerlink" href="#pyskool.lesson.AssemblyMessageGenerator" title="Link to this definition">¶</a></dt>
 <dd><p>Generates messages to be delivered by whoever is conducting assembly.
 There is only one assembly message generator, shared by the whole skool.</p>
-<dl class="method">
-<dt id="pyskool.lesson.AssemblyMessageGenerator.add_message_template">
-<tt class="descname">add_message_template</tt><big>(</big><em>template</em><big>)</big><a class="headerlink" href="#pyskool.lesson.AssemblyMessageGenerator.add_message_template" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add <cite>template</cite> to the generator&#8217;s collection of message templates.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.AssemblyMessageGenerator.add_message_template">
+<span class="sig-name descname"><span class="pre">add_message_template</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.AssemblyMessageGenerator.add_message_template" title="Link to this definition">¶</a></dt>
+<dd><p>Add <cite>template</cite> to the generator’s collection of message templates.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.AssemblyMessageGenerator.add_word">
-<tt class="descname">add_word</tt><big>(</big><em>group_id</em>, <em>word</em><big>)</big><a class="headerlink" href="#pyskool.lesson.AssemblyMessageGenerator.add_word" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a word to the generator&#8217;s collection.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>group_id</strong> &#8211; The name of the group to add the word to.</li>
-<li><strong>word</strong> &#8211; The word.</li>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.AssemblyMessageGenerator.add_word">
+<span class="sig-name descname"><span class="pre">add_word</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">word</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.AssemblyMessageGenerator.add_word" title="Link to this definition">¶</a></dt>
+<dd><p>Add a word to the generator’s collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_id</strong> – The name of the group to add the word to.</p></li>
+<li><p><strong>word</strong> – The word.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.AssemblyMessageGenerator.generate_message">
-<tt class="descname">generate_message</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.AssemblyMessageGenerator.generate_message" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.AssemblyMessageGenerator.generate_message">
+<span class="sig-name descname"><span class="pre">generate_message</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.AssemblyMessageGenerator.generate_message" title="Link to this definition">¶</a></dt>
 <dd><p>Return a message based on a randomly chosen template and containing
 randomly chosen phrases.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="pyskool.lesson.Lesson">
-<em class="property">class </em><tt class="descclassname">pyskool.lesson.</tt><tt class="descname">Lesson</tt><big>(</big><em>cast</em>, <em>swot</em>, <em>room</em>, <em>config</em><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.lesson.</span></span><span class="sig-name descname"><span class="pre">Lesson</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cast</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">swot</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">room</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson" title="Link to this definition">¶</a></dt>
 <dd><p>Controls the interaction between the teacher, the swot and Eric during a
 lesson. The various actions required by the teacher and the swot during a
 lesson - such as grassing on Eric for being absent, writing on the board,
@@ -126,485 +89,490 @@ and asking and answering questions - are defined by individual methods on
 this class.</p>
 <p>A new lesson is created by the swot when he sits down after being told to
 by the teacher at the classroom doorway.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cast</strong> (<a class="reference internal" href="cast.html#pyskool.cast.Cast" title="pyskool.cast.Cast"><tt class="xref py py-class docutils literal"><span class="pre">Cast</span></tt></a>) &#8211; The cast.</li>
-<li><strong>swot</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The swot.</li>
-<li><strong>room</strong> (<a class="reference internal" href="room.html#pyskool.room.Room" title="pyskool.room.Room"><tt class="xref py py-class docutils literal"><span class="pre">Room</span></tt></a>) &#8211; The classroom in which the lesson is taking place.</li>
-<li><strong>config</strong> (<em>dict</em>) &#8211; Configuration parameters from the ini file.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cast</strong> (<a class="reference internal" href="cast.html#pyskool.cast.Cast" title="pyskool.cast.Cast"><code class="xref py py-class docutils literal notranslate"><span class="pre">Cast</span></code></a>) – The cast.</p></li>
+<li><p><strong>swot</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The swot.</p></li>
+<li><p><strong>room</strong> (<a class="reference internal" href="room.html#pyskool.room.Room" title="pyskool.room.Room"><code class="xref py py-class docutils literal notranslate"><span class="pre">Room</span></code></a>) – The classroom in which the lesson is taking place.</p></li>
+<li><p><strong>config</strong> (<em>dict</em>) – Configuration parameters from the ini file.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.answer_question">
-<tt class="descname">answer_question</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.answer_question" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make the swot answer the teacher&#8217;s question. The swot&#8217;s next action
-will be <a class="reference internal" href="#pyskool.lesson.Lesson.check_eric" title="pyskool.lesson.Lesson.check_eric"><tt class="xref py py-meth docutils literal"><span class="pre">check_eric()</span></tt></a>.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.answer_question">
+<span class="sig-name descname"><span class="pre">answer_question</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.answer_question" title="Link to this definition">¶</a></dt>
+<dd><p>Make the swot answer the teacher’s question. The swot’s next action
+will be <a class="reference internal" href="#pyskool.lesson.Lesson.check_eric" title="pyskool.lesson.Lesson.check_eric"><code class="xref py py-meth docutils literal notranslate"><span class="pre">check_eric()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.ask_question">
-<tt class="descname">ask_question</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.ask_question" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make the teacher ask a question. The swot&#8217;s next action is set to
-<a class="reference internal" href="#pyskool.lesson.Lesson.answer_question" title="pyskool.lesson.Lesson.answer_question"><tt class="xref py py-meth docutils literal"><span class="pre">answer_question()</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command.</td>
-</tr>
-</tbody>
-</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.ask_question">
+<span class="sig-name descname"><span class="pre">ask_question</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.ask_question" title="Link to this definition">¶</a></dt>
+<dd><p>Make the teacher ask a question. The swot’s next action is set to
+<a class="reference internal" href="#pyskool.lesson.Lesson.answer_question" title="pyskool.lesson.Lesson.answer_question"><code class="xref py py-meth docutils literal notranslate"><span class="pre">answer_question()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><code class="xref py py-class docutils literal notranslate"><span class="pre">Say</span></code></a> command.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.check_eric">
-<tt class="descname">check_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.check_eric" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.check_eric">
+<span class="sig-name descname"><span class="pre">check_eric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.check_eric" title="Link to this definition">¶</a></dt>
 <dd><p>Make the swot tell the teacher that Eric is absent (if he is). If
-Eric is absent, the teacher&#8217;s next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.fetch_eric" title="pyskool.lesson.Lesson.fetch_eric"><tt class="xref py py-meth docutils literal"><span class="pre">fetch_eric()</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command if Eric is absent,
-otherwise <cite>None</cite>.</td>
-</tr>
-</tbody>
-</table>
+Eric is absent, the teacher’s next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.fetch_eric" title="pyskool.lesson.Lesson.fetch_eric"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fetch_eric()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><code class="xref py py-class docutils literal notranslate"><span class="pre">Say</span></code></a> command if Eric is absent,
+otherwise <cite>None</cite>.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.check_eric_initial">
-<tt class="descname">check_eric_initial</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.check_eric_initial" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.check_eric_initial">
+<span class="sig-name descname"><span class="pre">check_eric_initial</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.check_eric_initial" title="Link to this definition">¶</a></dt>
 <dd><p>Make the swot tell the teacher that Eric is absent (if he is). This
-method defines the swot&#8217;s first action during a lesson. If Eric is
-absent, the teacher&#8217;s next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.fetch_eric" title="pyskool.lesson.Lesson.fetch_eric"><tt class="xref py py-meth docutils literal"><span class="pre">fetch_eric()</span></tt></a>. The
-swot&#8217;s next action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.grass_for_hitting" title="pyskool.lesson.Lesson.grass_for_hitting"><tt class="xref py py-meth docutils literal"><span class="pre">grass_for_hitting()</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command if Eric is absent,
-otherwise <cite>None</cite>.</td>
-</tr>
-</tbody>
-</table>
+method defines the swot’s first action during a lesson. If Eric is
+absent, the teacher’s next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.fetch_eric" title="pyskool.lesson.Lesson.fetch_eric"><code class="xref py py-meth docutils literal notranslate"><span class="pre">fetch_eric()</span></code></a>. The
+swot’s next action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.grass_for_hitting" title="pyskool.lesson.Lesson.grass_for_hitting"><code class="xref py py-meth docutils literal notranslate"><span class="pre">grass_for_hitting()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><code class="xref py py-class docutils literal notranslate"><span class="pre">Say</span></code></a> command if Eric is absent,
+otherwise <cite>None</cite>.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.fetch_eric">
-<tt class="descname">fetch_eric</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.fetch_eric" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.fetch_eric">
+<span class="sig-name descname"><span class="pre">fetch_eric</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.fetch_eric" title="Link to this definition">¶</a></dt>
 <dd><p>Make the teacher track down Eric if he is absent. The teacher may
 first give lines to the swot for telling tales. If Eric is present by
 the time this method is called (after the swot has finished telling the
 teacher that Eric is not in class), the teacher will give lines to Eric
 for being late (or for leaving early).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.FetchEric" title="pyskool.ai.FetchEric"><tt class="xref py py-class docutils literal"><span class="pre">FetchEric</span></tt></a> command if Eric is still
-absent after the swot has finished speaking, otherwise <cite>None</cite>.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.FetchEric" title="pyskool.ai.FetchEric"><code class="xref py py-class docutils literal notranslate"><span class="pre">FetchEric</span></code></a> command if Eric is still
+absent after the swot has finished speaking, otherwise <cite>None</cite>.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.finished_speaking">
-<tt class="descname">finished_speaking</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.finished_speaking" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.finished_speaking">
+<span class="sig-name descname"><span class="pre">finished_speaking</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.finished_speaking" title="Link to this definition">¶</a></dt>
 <dd><p>Indicate that the current actor (teacher or swot) has finished
 speaking.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.get_question">
-<tt class="descname">get_question</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.get_question" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.get_question">
+<span class="sig-name descname"><span class="pre">get_question</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.get_question" title="Link to this definition">¶</a></dt>
 <dd><p>Return the next question for the teacher to ask in a
 question-and-answer session with the swot.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.give_lines">
-<tt class="descname">give_lines</tt><big>(</big><em>victim_id</em>, <em>message_id</em><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.give_lines" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.give_lines">
+<span class="sig-name descname"><span class="pre">give_lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">victim_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.give_lines" title="Link to this definition">¶</a></dt>
 <dd><p>Make the teacher give lines to the swot for telling a tale, or give
-lines to the subject of the swot&#8217;s tale.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>victim_id</strong> &#8211; The ID of the subject (may be <cite>None</cite>, in which case
-no lines will be given).</li>
-<li><strong>message_id</strong> &#8211; The ID of the lines message.</li>
+lines to the subject of the swot’s tale.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>victim_id</strong> – The ID of the subject (may be <cite>None</cite>, in which case
+no lines will be given).</p></li>
+<li><p><strong>message_id</strong> – The ID of the lines message.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.give_lines_for_hitting">
-<tt class="descname">give_lines_for_hitting</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.give_lines_for_hitting" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.give_lines_for_hitting">
+<span class="sig-name descname"><span class="pre">give_lines_for_hitting</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.give_lines_for_hitting" title="Link to this definition">¶</a></dt>
 <dd><p>Make the teacher give lines to the swot for telling a tale about
 being hit, or give lines to the subject of the tale. If the swot has
 not told such a tale, nothing happens.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.give_lines_for_writing">
-<tt class="descname">give_lines_for_writing</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.give_lines_for_writing" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.give_lines_for_writing">
+<span class="sig-name descname"><span class="pre">give_lines_for_writing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.give_lines_for_writing" title="Link to this definition">¶</a></dt>
 <dd><p>Make the teacher give lines to the swot for telling a tale about the
 blackboard being written on, or give lines to the subject of the tale.
-If the swot has not told such a tale, nothing happens. The teacher&#8217;s
-next action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.wipe_board" title="pyskool.lesson.Lesson.wipe_board"><tt class="xref py py-meth docutils literal"><span class="pre">wipe_board()</span></tt></a>.</p>
+If the swot has not told such a tale, nothing happens. The teacher’s
+next action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.wipe_board" title="pyskool.lesson.Lesson.wipe_board"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wipe_board()</span></code></a>.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.grass_for_hitting">
-<tt class="descname">grass_for_hitting</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.grass_for_hitting" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.grass_for_hitting">
+<span class="sig-name descname"><span class="pre">grass_for_hitting</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.grass_for_hitting" title="Link to this definition">¶</a></dt>
 <dd><p>Make the swot tell a tale about someone hitting him (possibly). This
-method defines the swot&#8217;s second action during a lesson. The teacher&#8217;s
-next action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.give_lines_for_hitting" title="pyskool.lesson.Lesson.give_lines_for_hitting"><tt class="xref py py-meth docutils literal"><span class="pre">give_lines_for_hitting()</span></tt></a>. The swot&#8217;s next
-action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.grass_for_writing" title="pyskool.lesson.Lesson.grass_for_writing"><tt class="xref py py-meth docutils literal"><span class="pre">grass_for_writing()</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command, or <cite>None</cite> if the swot
-decides not to tell a tale.</td>
-</tr>
-</tbody>
-</table>
+method defines the swot’s second action during a lesson. The teacher’s
+next action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.give_lines_for_hitting" title="pyskool.lesson.Lesson.give_lines_for_hitting"><code class="xref py py-meth docutils literal notranslate"><span class="pre">give_lines_for_hitting()</span></code></a>. The swot’s next
+action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.grass_for_writing" title="pyskool.lesson.Lesson.grass_for_writing"><code class="xref py py-meth docutils literal notranslate"><span class="pre">grass_for_writing()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><code class="xref py py-class docutils literal notranslate"><span class="pre">Say</span></code></a> command, or <cite>None</cite> if the swot
+decides not to tell a tale.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.grass_for_writing">
-<tt class="descname">grass_for_writing</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.grass_for_writing" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.grass_for_writing">
+<span class="sig-name descname"><span class="pre">grass_for_writing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.grass_for_writing" title="Link to this definition">¶</a></dt>
 <dd><p>Make the swot tell a tale about someone writing on the blackboard
 (if it was written on by Eric or the tearaway). This method defines the
-swot&#8217;s third action during a lesson. The teacher&#8217;s next action is set
-to <a class="reference internal" href="#pyskool.lesson.Lesson.give_lines_for_writing" title="pyskool.lesson.Lesson.give_lines_for_writing"><tt class="xref py py-meth docutils literal"><span class="pre">give_lines_for_writing()</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><tt class="xref py py-class docutils literal"><span class="pre">Say</span></tt></a> command, or <cite>None</cite> if the swot
-decides not to tell a tale.</td>
-</tr>
-</tbody>
-</table>
+swot’s third action during a lesson. The teacher’s next action is set
+to <a class="reference internal" href="#pyskool.lesson.Lesson.give_lines_for_writing" title="pyskool.lesson.Lesson.give_lines_for_writing"><code class="xref py py-meth docutils literal notranslate"><span class="pre">give_lines_for_writing()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.Say" title="pyskool.ai.Say"><code class="xref py py-class docutils literal notranslate"><span class="pre">Say</span></code></a> command, or <cite>None</cite> if the swot
+decides not to tell a tale.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.is_eric_absent">
-<tt class="descname">is_eric_absent</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.is_eric_absent" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.is_eric_absent">
+<span class="sig-name descname"><span class="pre">is_eric_absent</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.is_eric_absent" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether Eric is absent from the classroom in which this
 lesson is taking place.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.join">
-<tt class="descname">join</tt><big>(</big><em>teacher</em>, <em>qa_generator</em>, <em>qa_group</em><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.join" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.join">
+<span class="sig-name descname"><span class="pre">join</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">teacher</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qa_generator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qa_group</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.join" title="Link to this definition">¶</a></dt>
 <dd><p>Make a teacher join the lesson. This method is called by the teacher
 when he notices that the swot has sat down.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>teacher</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><tt class="xref py py-class docutils literal"><span class="pre">Character</span></tt></a>) &#8211; The teacher.</li>
-<li><strong>qa_generator</strong> (<a class="reference internal" href="#pyskool.lesson.QAGenerator" title="pyskool.lesson.QAGenerator"><tt class="xref py py-class docutils literal"><span class="pre">QAGenerator</span></tt></a>) &#8211; The question-and-answer generator to use.</li>
-<li><strong>qa_group</strong> &#8211; The Q&amp;A group from which to choose questions and
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>teacher</strong> (<a class="reference internal" href="character.html#pyskool.character.Character" title="pyskool.character.Character"><code class="xref py py-class docutils literal notranslate"><span class="pre">Character</span></code></a>) – The teacher.</p></li>
+<li><p><strong>qa_generator</strong> (<a class="reference internal" href="#pyskool.lesson.QAGenerator" title="pyskool.lesson.QAGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">QAGenerator</span></code></a>) – The question-and-answer generator to use.</p></li>
+<li><p><strong>qa_group</strong> – The Q&amp;A group from which to choose questions and
 answers for the teacher and the swot; if <cite>None</cite>, the
 Q&amp;A group will be chosen at random from those
 available each time a question and answer is
-generated.</li>
+generated.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.next_swot_action">
-<tt class="descname">next_swot_action</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.next_swot_action" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.next_swot_action">
+<span class="sig-name descname"><span class="pre">next_swot_action</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.next_swot_action" title="Link to this definition">¶</a></dt>
 <dd><p>Complete any actions required of the swot, and return the next
-command to be executed by him, or <cite>None</cite> if it&#8217;s not his turn to act.</p>
+command to be executed by him, or <cite>None</cite> if it’s not his turn to act.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.next_teacher_action">
-<tt class="descname">next_teacher_action</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.next_teacher_action" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.next_teacher_action">
+<span class="sig-name descname"><span class="pre">next_teacher_action</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.next_teacher_action" title="Link to this definition">¶</a></dt>
 <dd><p>Complete any actions required of the teacher, and return the next
-command to be executed by him, or <cite>None</cite> if it&#8217;s not his turn to act.</p>
+command to be executed by him, or <cite>None</cite> if it’s not his turn to act.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.return_to_base">
-<tt class="descname">return_to_base</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.return_to_base" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.return_to_base">
+<span class="sig-name descname"><span class="pre">return_to_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.return_to_base" title="Link to this definition">¶</a></dt>
 <dd><p>Make the teacher return to the classroom after fetching Eric. The
-teacher&#8217;s next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.ask_question" title="pyskool.lesson.Lesson.ask_question"><tt class="xref py py-meth docutils literal"><span class="pre">ask_question()</span></tt></a> (if a
+teacher’s next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.ask_question" title="pyskool.lesson.Lesson.ask_question"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ask_question()</span></code></a> (if a
 question-and-answer session was interrupted) or
-<a class="reference internal" href="#pyskool.lesson.Lesson.walk_up_or_down" title="pyskool.lesson.Lesson.walk_up_or_down"><tt class="xref py py-meth docutils literal"><span class="pre">walk_up_or_down()</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.GoToXY" title="pyskool.ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command.</td>
-</tr>
-</tbody>
-</table>
+<a class="reference internal" href="#pyskool.lesson.Lesson.walk_up_or_down" title="pyskool.lesson.Lesson.walk_up_or_down"><code class="xref py py-meth docutils literal notranslate"><span class="pre">walk_up_or_down()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.GoToXY" title="pyskool.ai.GoToXY"><code class="xref py py-class docutils literal notranslate"><span class="pre">GoToXY</span></code></a> command.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.switch">
-<tt class="descname">switch</tt><big>(</big><em>action=None</em><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.switch" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.switch">
+<span class="sig-name descname"><span class="pre">switch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.switch" title="Link to this definition">¶</a></dt>
 <dd><p>Switch turns between the actors in this lesson (the teacher and the
 swot).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>action</strong> &#8211; The next action (method to execute) for the next actor;
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>action</strong> – The next action (method to execute) for the next actor;
 if <cite>None</cite>, the next action (which may have already been
-set) is unchanged.</td>
-</tr>
-</tbody>
-</table>
+set) is unchanged.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.tell_class_what_to_do">
-<tt class="descname">tell_class_what_to_do</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.tell_class_what_to_do" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.tell_class_what_to_do">
+<span class="sig-name descname"><span class="pre">tell_class_what_to_do</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.tell_class_what_to_do" title="Link to this definition">¶</a></dt>
 <dd><p>Make the teacher tell the class what to do (as opposed to starting a
-question-and-answer session with the swot). The teacher&#8217;s next action
+question-and-answer session with the swot). The teacher’s next action
 (and base action for the remainder of the lesson) will be
-<a class="reference internal" href="#pyskool.lesson.Lesson.walk_up_or_down" title="pyskool.lesson.Lesson.walk_up_or_down"><tt class="xref py py-meth docutils literal"><span class="pre">walk_up_or_down()</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.TellClassWhatToDo" title="pyskool.ai.TellClassWhatToDo"><tt class="xref py py-class docutils literal"><span class="pre">TellClassWhatToDo</span></tt></a> command.</td>
-</tr>
-</tbody>
-</table>
+<a class="reference internal" href="#pyskool.lesson.Lesson.walk_up_or_down" title="pyskool.lesson.Lesson.walk_up_or_down"><code class="xref py py-meth docutils literal notranslate"><span class="pre">walk_up_or_down()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.TellClassWhatToDo" title="pyskool.ai.TellClassWhatToDo"><code class="xref py py-class docutils literal notranslate"><span class="pre">TellClassWhatToDo</span></code></a> command.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.walk_to_board">
-<tt class="descname">walk_to_board</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.walk_to_board" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.walk_to_board">
+<span class="sig-name descname"><span class="pre">walk_to_board</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.walk_to_board" title="Link to this definition">¶</a></dt>
 <dd><p>Make the teacher walk to the middle of the blackboard (after having
-wiped it). The teacher&#8217;s next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.write_on_board" title="pyskool.lesson.Lesson.write_on_board"><tt class="xref py py-meth docutils literal"><span class="pre">write_on_board()</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.GoToXY" title="pyskool.ai.GoToXY"><tt class="xref py py-class docutils literal"><span class="pre">GoToXY</span></tt></a> command.</td>
-</tr>
-</tbody>
-</table>
+wiped it). The teacher’s next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.write_on_board" title="pyskool.lesson.Lesson.write_on_board"><code class="xref py py-meth docutils literal notranslate"><span class="pre">write_on_board()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.GoToXY" title="pyskool.ai.GoToXY"><code class="xref py py-class docutils literal notranslate"><span class="pre">GoToXY</span></code></a> command.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.walk_up_or_down">
-<tt class="descname">walk_up_or_down</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.walk_up_or_down" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.walk_up_or_down">
+<span class="sig-name descname"><span class="pre">walk_up_or_down</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.walk_up_or_down" title="Link to this definition">¶</a></dt>
 <dd><p>Make the teacher walk up or down in front of the blackboard. This
 action is used during a lesson with no question-and-answer session.
-The swot&#8217;s next action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.check_eric" title="pyskool.lesson.Lesson.check_eric"><tt class="xref py py-meth docutils literal"><span class="pre">check_eric()</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.WalkUpOrDown" title="pyskool.ai.WalkUpOrDown"><tt class="xref py py-class docutils literal"><span class="pre">WalkUpOrDown</span></tt></a> command.</td>
-</tr>
-</tbody>
-</table>
+The swot’s next action is set to <a class="reference internal" href="#pyskool.lesson.Lesson.check_eric" title="pyskool.lesson.Lesson.check_eric"><code class="xref py py-meth docutils literal notranslate"><span class="pre">check_eric()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.WalkUpOrDown" title="pyskool.ai.WalkUpOrDown"><code class="xref py py-class docutils literal notranslate"><span class="pre">WalkUpOrDown</span></code></a> command.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.wipe_board">
-<tt class="descname">wipe_board</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.wipe_board" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make the teacher wipe the board (if there is one). The teacher&#8217;s
-next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.walk_to_board" title="pyskool.lesson.Lesson.walk_to_board"><tt class="xref py py-meth docutils literal"><span class="pre">walk_to_board()</span></tt></a>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.WipeBoard" title="pyskool.ai.WipeBoard"><tt class="xref py py-class docutils literal"><span class="pre">WipeBoard</span></tt></a> command if there is a
-blackboard, <cite>None</cite> otherwise.</td>
-</tr>
-</tbody>
-</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.wipe_board">
+<span class="sig-name descname"><span class="pre">wipe_board</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.wipe_board" title="Link to this definition">¶</a></dt>
+<dd><p>Make the teacher wipe the board (if there is one). The teacher’s
+next action will be <a class="reference internal" href="#pyskool.lesson.Lesson.walk_to_board" title="pyskool.lesson.Lesson.walk_to_board"><code class="xref py py-meth docutils literal notranslate"><span class="pre">walk_to_board()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.WipeBoard" title="pyskool.ai.WipeBoard"><code class="xref py py-class docutils literal notranslate"><span class="pre">WipeBoard</span></code></a> command if there is a
+blackboard, <cite>None</cite> otherwise.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.Lesson.write_on_board">
-<tt class="descname">write_on_board</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.Lesson.write_on_board" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make the teacher write on the blackboard (possibly). The teacher&#8217;s
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.Lesson.write_on_board">
+<span class="sig-name descname"><span class="pre">write_on_board</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.Lesson.write_on_board" title="Link to this definition">¶</a></dt>
+<dd><p>Make the teacher write on the blackboard (possibly). The teacher’s
 next action will be the base action for this lesson (either
-<a class="reference internal" href="#pyskool.lesson.Lesson.tell_class_what_to_do" title="pyskool.lesson.Lesson.tell_class_what_to_do"><tt class="xref py py-meth docutils literal"><span class="pre">tell_class_what_to_do()</span></tt></a> or <a class="reference internal" href="#pyskool.lesson.Lesson.ask_question" title="pyskool.lesson.Lesson.ask_question"><tt class="xref py py-meth docutils literal"><span class="pre">ask_question()</span></tt></a>).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A <a class="reference internal" href="ai.html#pyskool.ai.WriteOnBoard" title="pyskool.ai.WriteOnBoard"><tt class="xref py py-class docutils literal"><span class="pre">WriteOnBoard</span></tt></a> command if the teacher
-chooses to write, otherwise <cite>None</cite>.</td>
-</tr>
-</tbody>
-</table>
+<a class="reference internal" href="#pyskool.lesson.Lesson.tell_class_what_to_do" title="pyskool.lesson.Lesson.tell_class_what_to_do"><code class="xref py py-meth docutils literal notranslate"><span class="pre">tell_class_what_to_do()</span></code></a> or <a class="reference internal" href="#pyskool.lesson.Lesson.ask_question" title="pyskool.lesson.Lesson.ask_question"><code class="xref py py-meth docutils literal notranslate"><span class="pre">ask_question()</span></code></a>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="ai.html#pyskool.ai.WriteOnBoard" title="pyskool.ai.WriteOnBoard"><code class="xref py py-class docutils literal notranslate"><span class="pre">WriteOnBoard</span></code></a> command if the teacher
+chooses to write, otherwise <cite>None</cite>.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="pyskool.lesson.QAGenerator">
-<em class="property">class </em><tt class="descclassname">pyskool.lesson.</tt><tt class="descname">QAGenerator</tt><a class="headerlink" href="#pyskool.lesson.QAGenerator" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.lesson.QAGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.lesson.</span></span><span class="sig-name descname"><span class="pre">QAGenerator</span></span><a class="headerlink" href="#pyskool.lesson.QAGenerator" title="Link to this definition">¶</a></dt>
 <dd><p>Generates questions and answers for the teacher and swot to use during a
 lesson. Every teacher gets his own generator to keep; it is built before
 the game starts.</p>
-<dl class="method">
-<dt id="pyskool.lesson.QAGenerator.add_answer">
-<tt class="descname">add_answer</tt><big>(</big><em>question_id</em>, <em>text</em><big>)</big><a class="headerlink" href="#pyskool.lesson.QAGenerator.add_answer" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.QAGenerator.add_answer">
+<span class="sig-name descname"><span class="pre">add_answer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.QAGenerator.add_answer" title="Link to this definition">¶</a></dt>
 <dd><p>Add an answer to a question.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>question_id</strong> &#8211; The ID of the question.</li>
-<li><strong>text</strong> &#8211; The text of the answer.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>question_id</strong> – The ID of the question.</p></li>
+<li><p><strong>text</strong> – The text of the answer.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.QAGenerator.add_qa_pair">
-<tt class="descname">add_qa_pair</tt><big>(</big><em>qa_group</em>, <em>word1</em>, <em>word2</em><big>)</big><a class="headerlink" href="#pyskool.lesson.QAGenerator.add_qa_pair" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.QAGenerator.add_qa_pair">
+<span class="sig-name descname"><span class="pre">add_qa_pair</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qa_group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">word1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">word2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.QAGenerator.add_qa_pair" title="Link to this definition">¶</a></dt>
 <dd><p>Add a Q&amp;A pair to a Q&amp;A group.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>qa_group</strong> &#8211; The name of the Q&amp;A group.</li>
-<li><strong>word1</strong> &#8211; The first word of the pair.</li>
-<li><strong>word2</strong> &#8211; The second word of the pair.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qa_group</strong> – The name of the Q&amp;A group.</p></li>
+<li><p><strong>word1</strong> – The first word of the pair.</p></li>
+<li><p><strong>word2</strong> – The second word of the pair.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.QAGenerator.add_question">
-<tt class="descname">add_question</tt><big>(</big><em>question_id</em>, <em>qa_group</em>, <em>text</em><big>)</big><a class="headerlink" href="#pyskool.lesson.QAGenerator.add_question" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.QAGenerator.add_question">
+<span class="sig-name descname"><span class="pre">add_question</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qa_group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.QAGenerator.add_question" title="Link to this definition">¶</a></dt>
 <dd><p>Add a question to a Q&amp;A group.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>question_id</strong> &#8211; The ID of the question.</li>
-<li><strong>qa_group</strong> &#8211; The name of the Q&amp;A group to add the question to.</li>
-<li><strong>text</strong> &#8211; The text of the question.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>question_id</strong> – The ID of the question.</p></li>
+<li><p><strong>qa_group</strong> – The name of the Q&amp;A group to add the question to.</p></li>
+<li><p><strong>text</strong> – The text of the question.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.QAGenerator.has_special_question">
-<tt class="descname">has_special_question</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.QAGenerator.has_special_question" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.QAGenerator.has_special_question">
+<span class="sig-name descname"><span class="pre">has_special_question</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.QAGenerator.has_special_question" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether the teacher has a special question. A special
 question is one to which the answer must be seen written on a
 blackboard by the teacher to make him reveal his safe combination
 letter.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.QAGenerator.initialise_special_answer">
-<tt class="descname">initialise_special_answer</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.QAGenerator.initialise_special_answer" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialise the answer to the teacher&#8217;s special question (if there is
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.QAGenerator.initialise_special_answer">
+<span class="sig-name descname"><span class="pre">initialise_special_answer</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.QAGenerator.initialise_special_answer" title="Link to this definition">¶</a></dt>
+<dd><p>Initialise the answer to the teacher’s special question (if there is
 one). The special answer is chosen at random from the Q&amp;A pairs in the
 Q&amp;A group of the special question.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.QAGenerator.prepare_qa">
-<tt class="descname">prepare_qa</tt><big>(</big><em>qa_group=None</em><big>)</big><a class="headerlink" href="#pyskool.lesson.QAGenerator.prepare_qa" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.QAGenerator.prepare_qa">
+<span class="sig-name descname"><span class="pre">prepare_qa</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qa_group</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.QAGenerator.prepare_qa" title="Link to this definition">¶</a></dt>
 <dd><p>Prepare a randomly chosen question and answer.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>qa_group</strong> &#8211; The Q&amp;A group from which to choose the question and
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>qa_group</strong> – The Q&amp;A group from which to choose the question and
 answer; if <cite>None</cite>, the Q&amp;A group will be chosen at
-random from those available.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A 2-tuple containing the question and the answer.</td>
-</tr>
-</tbody>
-</table>
+random from those available.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A 2-tuple containing the question and the answer.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.QAGenerator.prepare_special_qa">
-<tt class="descname">prepare_special_qa</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.lesson.QAGenerator.prepare_special_qa" title="Permalink to this definition">¶</a></dt>
-<dd><p>Prepare the teacher&#8217;s special question and answer (if any).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">A 2-tuple containing the question and the answer.</td>
-</tr>
-</tbody>
-</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.QAGenerator.prepare_special_qa">
+<span class="sig-name descname"><span class="pre">prepare_special_qa</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.QAGenerator.prepare_special_qa" title="Link to this definition">¶</a></dt>
+<dd><p>Prepare the teacher’s special question and answer (if any).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A 2-tuple containing the question and the answer.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.lesson.QAGenerator.set_special_group">
-<tt class="descname">set_special_group</tt><big>(</big><em>qa_group</em>, <em>index</em><big>)</big><a class="headerlink" href="#pyskool.lesson.QAGenerator.set_special_group" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set the Q&amp;A group to use for the teacher&#8217;s special question (if
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.lesson.QAGenerator.set_special_group">
+<span class="sig-name descname"><span class="pre">set_special_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">qa_group</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.lesson.QAGenerator.set_special_group" title="Link to this definition">¶</a></dt>
+<dd><p>Set the Q&amp;A group to use for the teacher’s special question (if
 there is one).</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>qa_group</strong> &#8211; The name of the Q&amp;A group.</li>
-<li><strong>index</strong> &#8211; The index (0 or 1) of the special answer in the Q&amp;A pair.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>qa_group</strong> – The name of the Q&amp;A group.</p></li>
+<li><p><strong>index</strong> – The index (0 or 1) of the special answer in the Q&amp;A pair.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">lesson</a><ul>
+<li><a class="reference internal" href="#pyskool.lesson.AssemblyMessageGenerator"><code class="docutils literal notranslate"><span class="pre">AssemblyMessageGenerator</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.lesson.AssemblyMessageGenerator.add_message_template"><code class="docutils literal notranslate"><span class="pre">AssemblyMessageGenerator.add_message_template()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.AssemblyMessageGenerator.add_word"><code class="docutils literal notranslate"><span class="pre">AssemblyMessageGenerator.add_word()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.AssemblyMessageGenerator.generate_message"><code class="docutils literal notranslate"><span class="pre">AssemblyMessageGenerator.generate_message()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson"><code class="docutils literal notranslate"><span class="pre">Lesson</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.answer_question"><code class="docutils literal notranslate"><span class="pre">Lesson.answer_question()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.ask_question"><code class="docutils literal notranslate"><span class="pre">Lesson.ask_question()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.check_eric"><code class="docutils literal notranslate"><span class="pre">Lesson.check_eric()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.check_eric_initial"><code class="docutils literal notranslate"><span class="pre">Lesson.check_eric_initial()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.fetch_eric"><code class="docutils literal notranslate"><span class="pre">Lesson.fetch_eric()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.finished_speaking"><code class="docutils literal notranslate"><span class="pre">Lesson.finished_speaking()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.get_question"><code class="docutils literal notranslate"><span class="pre">Lesson.get_question()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.give_lines"><code class="docutils literal notranslate"><span class="pre">Lesson.give_lines()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.give_lines_for_hitting"><code class="docutils literal notranslate"><span class="pre">Lesson.give_lines_for_hitting()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.give_lines_for_writing"><code class="docutils literal notranslate"><span class="pre">Lesson.give_lines_for_writing()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.grass_for_hitting"><code class="docutils literal notranslate"><span class="pre">Lesson.grass_for_hitting()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.grass_for_writing"><code class="docutils literal notranslate"><span class="pre">Lesson.grass_for_writing()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.is_eric_absent"><code class="docutils literal notranslate"><span class="pre">Lesson.is_eric_absent()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.join"><code class="docutils literal notranslate"><span class="pre">Lesson.join()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.next_swot_action"><code class="docutils literal notranslate"><span class="pre">Lesson.next_swot_action()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.next_teacher_action"><code class="docutils literal notranslate"><span class="pre">Lesson.next_teacher_action()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.return_to_base"><code class="docutils literal notranslate"><span class="pre">Lesson.return_to_base()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.switch"><code class="docutils literal notranslate"><span class="pre">Lesson.switch()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.tell_class_what_to_do"><code class="docutils literal notranslate"><span class="pre">Lesson.tell_class_what_to_do()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.walk_to_board"><code class="docutils literal notranslate"><span class="pre">Lesson.walk_to_board()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.walk_up_or_down"><code class="docutils literal notranslate"><span class="pre">Lesson.walk_up_or_down()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.wipe_board"><code class="docutils literal notranslate"><span class="pre">Lesson.wipe_board()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.Lesson.write_on_board"><code class="docutils literal notranslate"><span class="pre">Lesson.write_on_board()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool.lesson.QAGenerator"><code class="docutils literal notranslate"><span class="pre">QAGenerator</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.lesson.QAGenerator.add_answer"><code class="docutils literal notranslate"><span class="pre">QAGenerator.add_answer()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.QAGenerator.add_qa_pair"><code class="docutils literal notranslate"><span class="pre">QAGenerator.add_qa_pair()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.QAGenerator.add_question"><code class="docutils literal notranslate"><span class="pre">QAGenerator.add_question()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.QAGenerator.has_special_question"><code class="docutils literal notranslate"><span class="pre">QAGenerator.has_special_question()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.QAGenerator.initialise_special_answer"><code class="docutils literal notranslate"><span class="pre">QAGenerator.initialise_special_answer()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.QAGenerator.prepare_qa"><code class="docutils literal notranslate"><span class="pre">QAGenerator.prepare_qa()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.QAGenerator.prepare_special_qa"><code class="docutils literal notranslate"><span class="pre">QAGenerator.prepare_special_qa()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.lesson.QAGenerator.set_special_group"><code class="docutils literal notranslate"><span class="pre">QAGenerator.set_special_group()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="keys.html"
+                          title="previous chapter">keys</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="lines.html"
+                          title="next chapter">lines</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -619,12 +587,13 @@ there is one).</p>
         <li class="right" >
           <a href="keys.html" title="keys"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">lesson</a></li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Richard Dymond.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Richard Dymond.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>

@@ -1,34 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="./">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>iniparser &mdash; Pyskool 1.2.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>iniparser &#8212; Pyskool 1.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=fe13c473" />
+    <script src="_static/documentation_options.js?v=c55cb9cb"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="input" href="input.html" />
     <link rel="prev" title="graphics" href="graphics.html" /> 
-  </head>
-  <body>
-    <div class="related">
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,105 +32,114 @@
         <li class="right" >
           <a href="graphics.html" title="graphics"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iniparser</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="graphics.html"
-                        title="previous chapter">graphics</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="input.html"
-                        title="next chapter">input</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="module-pyskool.iniparser">
-<span id="iniparser"></span><h1>iniparser<a class="headerlink" href="#module-pyskool.iniparser" title="Permalink to this headline">¶</a></h1>
+  <section id="module-pyskool.iniparser">
+<span id="iniparser"></span><h1>iniparser<a class="headerlink" href="#module-pyskool.iniparser" title="Link to this heading">¶</a></h1>
 <p>Parse a single ini file, or a directory of ini files.</p>
-<dl class="class">
-<dt id="pyskool.iniparser.IniParser">
-<em class="property">class </em><tt class="descclassname">pyskool.iniparser.</tt><tt class="descname">IniParser</tt><big>(</big><em>path</em>, <em>verbose=True</em><big>)</big><a class="headerlink" href="#pyskool.iniparser.IniParser" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.iniparser.IniParser">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.iniparser.</span></span><span class="sig-name descname"><span class="pre">IniParser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.iniparser.IniParser" title="Link to this definition">¶</a></dt>
 <dd><p>Parses one or more ini files.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>path</strong> &#8211; An ini file, or a directory to scan for ini files.</li>
-<li><strong>verbose</strong> &#8211; Whether to print status information while reading files.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – An ini file, or a directory to scan for ini files.</p></li>
+<li><p><strong>verbose</strong> – Whether to print status information while reading files.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.iniparser.IniParser.get_config">
-<tt class="descname">get_config</tt><big>(</big><em>pattern</em><big>)</big><a class="headerlink" href="#pyskool.iniparser.IniParser.get_config" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.iniparser.IniParser.get_config">
+<span class="sig-name descname"><span class="pre">get_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pattern</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.iniparser.IniParser.get_config" title="Link to this definition">¶</a></dt>
 <dd><p>Return a dictionary of keys and values from every section whose name
 matches <cite>pattern</cite>.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.iniparser.IniParser.parse_section">
-<tt class="descname">parse_section</tt><big>(</big><em>name</em>, <em>parse_numbers=True</em>, <em>num_elements=None</em>, <em>split=True</em>, <em>separator='</em>, <em>'</em><big>)</big><a class="headerlink" href="#pyskool.iniparser.IniParser.parse_section" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.iniparser.IniParser.parse_section">
+<span class="sig-name descname"><span class="pre">parse_section</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parse_numbers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_elements</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">separator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">','</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.iniparser.IniParser.parse_section" title="Link to this definition">¶</a></dt>
 <dd><p>Extract the elements from every line in a section. The return value
 is a list of lists of elements from each line (if <cite>split</cite> is <cite>True</cite>),
 or a list of the lines. If the named section does not exist, an empty
 list is returned.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> &#8211; The name of the section.</li>
-<li><strong>parse_numbers</strong> &#8211; If <cite>True</cite>, any numeric element is converted to a
-number; otherwise it is left as a string.</li>
-<li><strong>num_elements</strong> &#8211; The minimum number of elements to return for each
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the section.</p></li>
+<li><p><strong>parse_numbers</strong> – If <cite>True</cite>, any numeric element is converted to a
+number; otherwise it is left as a string.</p></li>
+<li><p><strong>num_elements</strong> – The minimum number of elements to return for each
 line in the section. If any line has fewer
 elements than this, the list of elements is padded
-out with <cite>None</cite> instances.</li>
-<li><strong>split</strong> &#8211; If <cite>True</cite>, each line is split on commas; otherwise, the
-line is returned whole.</li>
-<li><strong>separator</strong> &#8211; The character sequence that separates the elements in
-a line.</li>
+out with <cite>None</cite> instances.</p></li>
+<li><p><strong>split</strong> – If <cite>True</cite>, each line is split on commas; otherwise, the
+line is returned whole.</p></li>
+<li><p><strong>separator</strong> – The character sequence that separates the elements in
+a line.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">iniparser</a><ul>
+<li><a class="reference internal" href="#pyskool.iniparser.IniParser"><code class="docutils literal notranslate"><span class="pre">IniParser</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.iniparser.IniParser.get_config"><code class="docutils literal notranslate"><span class="pre">IniParser.get_config()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.iniparser.IniParser.parse_section"><code class="docutils literal notranslate"><span class="pre">IniParser.parse_section()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="graphics.html"
+                          title="previous chapter">graphics</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="input.html"
+                          title="next chapter">input</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -156,12 +154,13 @@ a line.</li>
         <li class="right" >
           <a href="graphics.html" title="graphics"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">iniparser</a></li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Richard Dymond.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Richard Dymond.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>

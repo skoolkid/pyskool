@@ -1,34 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="./">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>animal &mdash; Pyskool 1.2.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>animal &#8212; Pyskool 1.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=fe13c473" />
+    <script src="_static/documentation_options.js?v=c55cb9cb"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="animatorystates" href="animatorystates.html" />
     <link rel="prev" title="ai" href="ai.html" /> 
-  </head>
-  <body>
-    <div class="related">
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,310 +32,303 @@
         <li class="right" >
           <a href="ai.html" title="ai"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">animal</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ai.html"
-                        title="previous chapter">ai</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="animatorystates.html"
-                        title="next chapter">animatorystates</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="module-pyskool.animal">
-<span id="animal"></span><h1>animal<a class="headerlink" href="#module-pyskool.animal" title="Permalink to this headline">¶</a></h1>
+  <section id="module-pyskool.animal">
+<span id="animal"></span><h1>animal<a class="headerlink" href="#module-pyskool.animal" title="Link to this heading">¶</a></h1>
 <p>Classes that represent the animals in the game.</p>
-<dl class="class">
-<dt id="pyskool.animal.Animal">
-<em class="property">class </em><tt class="descclassname">pyskool.animal.</tt><tt class="descname">Animal</tt><big>(</big><em>animal_id</em>, <em>command_list_id</em>, <em>initial_as</em>, <em>location</em><big>)</big><a class="headerlink" href="#pyskool.animal.Animal" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.animal.Animal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.animal.</span></span><span class="sig-name descname"><span class="pre">Animal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">animal_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_as</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Animal" title="Link to this definition">¶</a></dt>
 <dd><p>Abstract superclass for any animals in the game.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>animal_id</strong> &#8211; The ID of the animal.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the animal will use.</li>
-<li><strong>initial_as</strong> &#8211; The animal&#8217;s initial animatory state.</li>
-<li><strong>location</strong> &#8211; The animal&#8217;s initial location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>animal_id</strong> – The ID of the animal.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the animal will use.</p></li>
+<li><p><strong>initial_as</strong> – The animal’s initial animatory state.</p></li>
+<li><p><strong>location</strong> – The animal’s initial location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.animal.Animal.get_command_list_id">
-<tt class="descname">get_command_list_id</tt><big>(</big><em>lesson_id</em><big>)</big><a class="headerlink" href="#pyskool.animal.Animal.get_command_list_id" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Animal.get_command_list_id">
+<span class="sig-name descname"><span class="pre">get_command_list_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lesson_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Animal.get_command_list_id" title="Link to this definition">¶</a></dt>
 <dd><p>Return the ID of the command list used by the animal.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lesson_id</strong> &#8211; The ID of the current lesson (ignored - animals do
-not follow a timetable).</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>lesson_id</strong> – The ID of the current lesson (ignored - animals do
+not follow a timetable).</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Animal.is_blocked">
-<tt class="descname">is_blocked</tt><big>(</big><em>distance=0</em><big>)</big><a class="headerlink" href="#pyskool.animal.Animal.is_blocked" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Animal.is_blocked">
+<span class="sig-name descname"><span class="pre">is_blocked</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Animal.is_blocked" title="Link to this definition">¶</a></dt>
 <dd><p>Return <cite>True</cite> if the animal can proceed no further in the current
 direction, <cite>False</cite> otherwise.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>distance</strong> &#8211; The maximum distance to check in front of the animal.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>distance</strong> – The maximum distance to check in front of the animal.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Animal.is_frog">
-<tt class="descname">is_frog</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.animal.Animal.is_frog" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Animal.is_frog">
+<span class="sig-name descname"><span class="pre">is_frog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Animal.is_frog" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether this animal is a frog.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>False</cite>.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Animal.is_mouse">
-<tt class="descname">is_mouse</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.animal.Animal.is_mouse" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Animal.is_mouse">
+<span class="sig-name descname"><span class="pre">is_mouse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Animal.is_mouse" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether this animal is a mouse.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>False</cite>.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>False</cite>.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="pyskool.animal.Frog">
-<em class="property">class </em><tt class="descclassname">pyskool.animal.</tt><tt class="descname">Frog</tt><big>(</big><em>frog_id</em>, <em>command_list_id</em>, <em>initial_as</em>, <em>location</em>, <em>sit_xy</em>, <em>eric_proximity</em><big>)</big><a class="headerlink" href="#pyskool.animal.Frog" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.animal.Frog">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.animal.</span></span><span class="sig-name descname"><span class="pre">Frog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frog_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_as</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sit_xy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eric_proximity</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Frog" title="Link to this definition">¶</a></dt>
 <dd><p>A frog.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>frog_id</strong> &#8211; The ID of the frog.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the frog will use.</li>
-<li><strong>initial_as</strong> &#8211; The frog&#8217;s initial animatory state.</li>
-<li><strong>location</strong> &#8211; The frog&#8217;s initial location.</li>
-<li><strong>sit_xy</strong> &#8211; The coordinates of the frog within its sprite when it&#8217;s
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frog_id</strong> – The ID of the frog.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the frog will use.</p></li>
+<li><p><strong>initial_as</strong> – The frog’s initial animatory state.</p></li>
+<li><p><strong>location</strong> – The frog’s initial location.</p></li>
+<li><p><strong>sit_xy</strong> – The coordinates of the frog within its sprite when it’s
 sitting (used for collision detection and placement in
-cups).</li>
-<li><strong>eric_proximity</strong> &#8211; The minimum distance from the frog that Eric can be
-before it will try to hop away.</li>
+cups).</p></li>
+<li><p><strong>eric_proximity</strong> – The minimum distance from the frog that Eric can be
+before it will try to hop away.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.animal.Frog.bounce_off_head">
-<tt class="descname">bounce_off_head</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.animal.Frog.bounce_off_head" title="Permalink to this definition">¶</a></dt>
-<dd><p>Make the frog bounce off a character&#8217;s head.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Frog.bounce_off_head">
+<span class="sig-name descname"><span class="pre">bounce_off_head</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Frog.bounce_off_head" title="Link to this definition">¶</a></dt>
+<dd><p>Make the frog bounce off a character’s head.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Frog.check_heads">
-<tt class="descname">check_heads</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.animal.Frog.check_heads" title="Permalink to this definition">¶</a></dt>
-<dd><p>Check whether this frog has hit anybody&#8217;s head, and take appropriate
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Frog.check_heads">
+<span class="sig-name descname"><span class="pre">check_heads</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Frog.check_heads" title="Link to this definition">¶</a></dt>
+<dd><p>Check whether this frog has hit anybody’s head, and take appropriate
 action (such as handing the safe key to Eric) if so.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Frog.fall_from_cup">
-<tt class="descname">fall_from_cup</tt><big>(</big><em>cup</em><big>)</big><a class="headerlink" href="#pyskool.animal.Frog.fall_from_cup" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Frog.fall_from_cup">
+<span class="sig-name descname"><span class="pre">fall_from_cup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Frog.fall_from_cup" title="Link to this definition">¶</a></dt>
 <dd><p>Make this frog fall out of a cup.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cup</strong> &#8211; The cup.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cup</strong> – The cup.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Frog.insert_into_cup">
-<tt class="descname">insert_into_cup</tt><big>(</big><em>cup</em><big>)</big><a class="headerlink" href="#pyskool.animal.Frog.insert_into_cup" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Frog.insert_into_cup">
+<span class="sig-name descname"><span class="pre">insert_into_cup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cup</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Frog.insert_into_cup" title="Link to this definition">¶</a></dt>
 <dd><p>Insert this frog into a cup. The frog will be trapped until Eric
 knocks the frog out.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cup</strong> &#8211; The cup.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cup</strong> – The cup.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Frog.is_catchable_at">
-<tt class="descname">is_catchable_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.animal.Frog.is_catchable_at" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Frog.is_catchable_at">
+<span class="sig-name descname"><span class="pre">is_catchable_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Frog.is_catchable_at" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether the frog is currently catchable at a given location.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The y-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Frog.is_eric_nearby">
-<tt class="descname">is_eric_nearby</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.animal.Frog.is_eric_nearby" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Frog.is_eric_nearby">
+<span class="sig-name descname"><span class="pre">is_eric_nearby</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Frog.is_eric_nearby" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether Eric is on the same floor as and close to the frog.
 The answer is used by the frog to decide whether to hop.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Frog.is_frog">
-<tt class="descname">is_frog</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.animal.Frog.is_frog" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Frog.is_frog">
+<span class="sig-name descname"><span class="pre">is_frog</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Frog.is_frog" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether this animal is a frog.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite>.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>True</cite>.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Frog.sit">
-<tt class="descname">sit</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.animal.Frog.sit" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Frog.sit">
+<span class="sig-name descname"><span class="pre">sit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Frog.sit" title="Link to this definition">¶</a></dt>
 <dd><p>Make the frog assume a sitting position.</p>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="class">
-<dt id="pyskool.animal.Mouse">
-<em class="property">class </em><tt class="descclassname">pyskool.animal.</tt><tt class="descname">Mouse</tt><big>(</big><em>mouse_id</em>, <em>command_list_id</em>, <em>initial_as</em>, <em>location</em>, <em>sprite_xy</em>, <em>immortal=True</em><big>)</big><a class="headerlink" href="#pyskool.animal.Mouse" title="Permalink to this definition">¶</a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyskool.animal.Mouse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">pyskool.animal.</span></span><span class="sig-name descname"><span class="pre">Mouse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mouse_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">command_list_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_as</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sprite_xy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">immortal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Mouse" title="Link to this definition">¶</a></dt>
 <dd><p>A mouse.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>mouse_id</strong> &#8211; The ID of the mouse.</li>
-<li><strong>command_list_id</strong> &#8211; The ID of the command list the mouse will use.</li>
-<li><strong>initial_as</strong> &#8211; The mouse&#8217;s initial animatory state.</li>
-<li><strong>location</strong> &#8211; The mouse&#8217;s initial location.</li>
-<li><strong>sprite_xy</strong> &#8211; The coordinates of the mouse within its sprite (used for
-detecting whether Eric has caught it).</li>
-<li><strong>immortal</strong> &#8211; If <cite>True</cite>, the mouse will not disappear until Eric catches
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mouse_id</strong> – The ID of the mouse.</p></li>
+<li><p><strong>command_list_id</strong> – The ID of the command list the mouse will use.</p></li>
+<li><p><strong>initial_as</strong> – The mouse’s initial animatory state.</p></li>
+<li><p><strong>location</strong> – The mouse’s initial location.</p></li>
+<li><p><strong>sprite_xy</strong> – The coordinates of the mouse within its sprite (used for
+detecting whether Eric has caught it).</p></li>
+<li><p><strong>immortal</strong> – If <cite>True</cite>, the mouse will not disappear until Eric catches
 it; otherwise it will die (disappear from the game) after
-a certain time.</li>
+a certain time.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="pyskool.animal.Mouse.die">
-<tt class="descname">die</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.animal.Mouse.die" title="Permalink to this definition">¶</a></dt>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Mouse.die">
+<span class="sig-name descname"><span class="pre">die</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Mouse.die" title="Link to this definition">¶</a></dt>
 <dd><p>Kill this mouse. The mouse is removed from the game, never to be
 seen again.</p>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Mouse.is_catchable_at">
-<tt class="descname">is_catchable_at</tt><big>(</big><em>x</em>, <em>y</em><big>)</big><a class="headerlink" href="#pyskool.animal.Mouse.is_catchable_at" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Mouse.is_catchable_at">
+<span class="sig-name descname"><span class="pre">is_catchable_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Mouse.is_catchable_at" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether the mouse is currently catchable at a given location.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> &#8211; The x-coordinate of the location.</li>
-<li><strong>y</strong> &#8211; The y-coordinate of the location.</li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – The x-coordinate of the location.</p></li>
+<li><p><strong>y</strong> – The y-coordinate of the location.</p></li>
 </ul>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Mouse.is_mouse">
-<tt class="descname">is_mouse</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.animal.Mouse.is_mouse" title="Permalink to this definition">¶</a></dt>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Mouse.is_mouse">
+<span class="sig-name descname"><span class="pre">is_mouse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Mouse.is_mouse" title="Link to this definition">¶</a></dt>
 <dd><p>Return whether this animal is a mouse.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><cite>True</cite>.</td>
-</tr>
-</tbody>
-</table>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><cite>True</cite>.</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="method">
-<dt id="pyskool.animal.Mouse.scare_people">
-<tt class="descname">scare_people</tt><big>(</big><big>)</big><a class="headerlink" href="#pyskool.animal.Mouse.scare_people" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alert any nearby musophobes of this mouse&#8217;s presence.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyskool.animal.Mouse.scare_people">
+<span class="sig-name descname"><span class="pre">scare_people</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#pyskool.animal.Mouse.scare_people" title="Link to this definition">¶</a></dt>
+<dd><p>Alert any nearby musophobes of this mouse’s presence.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">animal</a><ul>
+<li><a class="reference internal" href="#pyskool.animal.Animal"><code class="docutils literal notranslate"><span class="pre">Animal</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.animal.Animal.get_command_list_id"><code class="docutils literal notranslate"><span class="pre">Animal.get_command_list_id()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Animal.is_blocked"><code class="docutils literal notranslate"><span class="pre">Animal.is_blocked()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Animal.is_frog"><code class="docutils literal notranslate"><span class="pre">Animal.is_frog()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Animal.is_mouse"><code class="docutils literal notranslate"><span class="pre">Animal.is_mouse()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool.animal.Frog"><code class="docutils literal notranslate"><span class="pre">Frog</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.animal.Frog.bounce_off_head"><code class="docutils literal notranslate"><span class="pre">Frog.bounce_off_head()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Frog.check_heads"><code class="docutils literal notranslate"><span class="pre">Frog.check_heads()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Frog.fall_from_cup"><code class="docutils literal notranslate"><span class="pre">Frog.fall_from_cup()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Frog.insert_into_cup"><code class="docutils literal notranslate"><span class="pre">Frog.insert_into_cup()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Frog.is_catchable_at"><code class="docutils literal notranslate"><span class="pre">Frog.is_catchable_at()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Frog.is_eric_nearby"><code class="docutils literal notranslate"><span class="pre">Frog.is_eric_nearby()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Frog.is_frog"><code class="docutils literal notranslate"><span class="pre">Frog.is_frog()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Frog.sit"><code class="docutils literal notranslate"><span class="pre">Frog.sit()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#pyskool.animal.Mouse"><code class="docutils literal notranslate"><span class="pre">Mouse</span></code></a><ul>
+<li><a class="reference internal" href="#pyskool.animal.Mouse.die"><code class="docutils literal notranslate"><span class="pre">Mouse.die()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Mouse.is_catchable_at"><code class="docutils literal notranslate"><span class="pre">Mouse.is_catchable_at()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Mouse.is_mouse"><code class="docutils literal notranslate"><span class="pre">Mouse.is_mouse()</span></code></a></li>
+<li><a class="reference internal" href="#pyskool.animal.Mouse.scare_people"><code class="docutils literal notranslate"><span class="pre">Mouse.scare_people()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="ai.html"
+                          title="previous chapter">ai</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="animatorystates.html"
+                          title="next chapter">animatorystates</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -361,12 +343,13 @@ seen again.</p>
         <li class="right" >
           <a href="ai.html" title="ai"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">animal</a></li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Richard Dymond.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Richard Dymond.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>

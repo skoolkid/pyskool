@@ -1,34 +1,23 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" data-content_root="./">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>Main ini file &mdash; Pyskool 1.2.1 documentation</title>
-    
-    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.2.1',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="Pyskool 1.2.1 documentation" href="index.html" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Main ini file &#8212; Pyskool 1.3 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinxdoc.css?v=34905f61" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=fe13c473" />
+    <script src="_static/documentation_options.js?v=c55cb9cb"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Game ini files" href="inifile.html" />
     <link rel="prev" title="Graphics" href="images.html" /> 
-  </head>
-  <body>
-    <div class="related">
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,225 +32,218 @@
         <li class="right" >
           <a href="images.html" title="Graphics"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Main ini file</a></li> 
       </ul>
-    </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Main ini file</a><ul>
-<li><a class="reference internal" href="#keys">[Keys]</a></li>
-<li><a class="reference internal" href="#menu">[Menu ...]</a></li>
-<li><a class="reference internal" href="#menuitems">[MenuItems ...]</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="images.html"
-                        title="previous chapter">Graphics</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="inifile.html"
-                        title="next chapter">Game ini files</a></p>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
+    </div>  
 
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="main-ini-file">
-<span id="id1"></span><h1>Main ini file<a class="headerlink" href="#main-ini-file" title="Permalink to this headline">¶</a></h1>
+  <section id="main-ini-file">
+<span id="id1"></span><h1>Main ini file<a class="headerlink" href="#main-ini-file" title="Link to this heading">¶</a></h1>
 <p>The main ini file - <cite>pyskool.ini</cite> - defines key bindings and the appearance and
 content of the game menus. Each section is described below.</p>
-<div class="section" id="keys">
-<span id="id2"></span><h2>[Keys]<a class="headerlink" href="#keys" title="Permalink to this headline">¶</a></h2>
-<p>The <tt class="docutils literal"><span class="pre">Keys</span></tt> section defines the key bindings. Each line in the section has the
+<section id="keys">
+<span id="id2"></span><h2>[Keys]<a class="headerlink" href="#keys" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Keys</span></code> section defines the key bindings. Each line in the section has the
 form:</p>
-<div class="highlight-none"><div class="highlight"><pre>actionId, key1, key2, ...
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>actionId, key1, key2, ...
 </pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">actionId</span></tt> is the identifier of the action to bind to the keys
-<tt class="docutils literal"><span class="pre">key1</span></tt>, <tt class="docutils literal"><span class="pre">key2</span></tt> and so on. Any number of keys may be bound to an action.</p>
+<p>where <code class="docutils literal notranslate"><span class="pre">actionId</span></code> is the identifier of the action to bind to the keys
+<code class="docutils literal notranslate"><span class="pre">key1</span></code>, <code class="docutils literal notranslate"><span class="pre">key2</span></code> and so on. Any number of keys may be bound to an action.</p>
 <p>Pyskool recognises the following action identifiers for moving Eric:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">LEFT</span></tt> - move left</li>
-<li><tt class="docutils literal"><span class="pre">RIGHT</span></tt> - move right</li>
-<li><tt class="docutils literal"><span class="pre">UP</span></tt> - move up</li>
-<li><tt class="docutils literal"><span class="pre">DOWN</span></tt> - move down</li>
-<li><tt class="docutils literal"><span class="pre">SIT_STAND</span></tt> - sit down or stand up</li>
-<li><tt class="docutils literal"><span class="pre">OPEN_DESK</span></tt> - open a desk</li>
-<li><tt class="docutils literal"><span class="pre">FIRE_CATAPULT</span></tt> - fire the catapult</li>
-<li><tt class="docutils literal"><span class="pre">FIRE_WATER_PISTOL</span></tt> - fire the water pistol</li>
-<li><tt class="docutils literal"><span class="pre">DROP_STINKBOMB</span></tt> - drop a stinkbomb</li>
-<li><tt class="docutils literal"><span class="pre">HIT</span></tt> - throw a punch</li>
-<li><tt class="docutils literal"><span class="pre">JUMP</span></tt> - jump</li>
-<li><tt class="docutils literal"><span class="pre">WRITE</span></tt> - start writing on a blackboard</li>
-<li><tt class="docutils literal"><span class="pre">ENTER</span></tt> - finish writing on a blackboard</li>
-<li><tt class="docutils literal"><span class="pre">CATCH</span></tt> - try to catch a mouse or frog</li>
-<li><tt class="docutils literal"><span class="pre">UNDERSTOOD</span></tt> - acknowledge understanding of a message</li>
-<li><tt class="docutils literal"><span class="pre">MOUNT_BIKE</span></tt> - mount the bike</li>
-<li><tt class="docutils literal"><span class="pre">DUMP_WATER_PISTOL</span></tt> - throw away the water pistol</li>
-<li><tt class="docutils literal"><span class="pre">RELEASE_MICE</span></tt> - release some mice</li>
-<li><tt class="docutils literal"><span class="pre">KISS</span></tt> - try to kiss someone</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LEFT</span></code> - move left</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RIGHT</span></code> - move right</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UP</span></code> - move up</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DOWN</span></code> - move down</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SIT_STAND</span></code> - sit down or stand up</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OPEN_DESK</span></code> - open a desk</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FIRE_CATAPULT</span></code> - fire the catapult</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FIRE_WATER_PISTOL</span></code> - fire the water pistol</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DROP_STINKBOMB</span></code> - drop a stinkbomb</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HIT</span></code> - throw a punch</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JUMP</span></code> - jump</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WRITE</span></code> - start writing on a blackboard</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ENTER</span></code> - finish writing on a blackboard</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CATCH</span></code> - try to catch a mouse or frog</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">UNDERSTOOD</span></code> - acknowledge understanding of a message</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MOUNT_BIKE</span></code> - mount the bike</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DUMP_WATER_PISTOL</span></code> - throw away the water pistol</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RELEASE_MICE</span></code> - release some mice</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">KISS</span></code> - try to kiss someone</p></li>
 </ul>
 <p>In addition, Pyskool recognises the following identifiers for actions not
 related to moving Eric:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">QUIT</span></tt> - quit Pyskool</li>
-<li><tt class="docutils literal"><span class="pre">FULL_SCREEN</span></tt> - toggle full-screen mode</li>
-<li><tt class="docutils literal"><span class="pre">PAUSE</span></tt> - pause the game</li>
-<li><tt class="docutils literal"><span class="pre">SCREENSHOT</span></tt> - take a screenshot</li>
-<li><tt class="docutils literal"><span class="pre">SAVE</span></tt> - save the game</li>
-<li><tt class="docutils literal"><span class="pre">LOAD</span></tt> - load the most recently saved game</li>
-<li><tt class="docutils literal"><span class="pre">MENU</span></tt> - show the menu</li>
-<li><tt class="docutils literal"><span class="pre">MENU_EXIT</span></tt> - hide the menu and resume the game</li>
-<li><tt class="docutils literal"><span class="pre">MENU_PREV</span></tt> - move to the previous item in the menu</li>
-<li><tt class="docutils literal"><span class="pre">MENU_NEXT</span></tt> - move to the next item in the menu</li>
-<li><tt class="docutils literal"><span class="pre">MENU_EXEC</span></tt> - execute the selected menu item</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QUIT</span></code> - quit Pyskool</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FULL_SCREEN</span></code> - toggle full-screen mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAUSE</span></code> - pause the game</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCREENSHOT</span></code> - take a screenshot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAVE</span></code> - save the game</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOAD</span></code> - load the most recently saved game</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MENU</span></code> - show the menu</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MENU_EXIT</span></code> - hide the menu and resume the game</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MENU_PREV</span></code> - move to the previous item in the menu</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MENU_NEXT</span></code> - move to the next item in the menu</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MENU_EXEC</span></code> - execute the selected menu item</p></li>
 </ul>
 <p>Pygame uses keyboard constants to identify keys; a full list of those constants
 can be found in the
-<a class="reference external" href="http://pygame.org/docs/ref/key.html">pygame documentation</a>. The key names
-(<tt class="docutils literal"><span class="pre">key1</span></tt>, <tt class="docutils literal"><span class="pre">key2</span></tt> etc.) declared in a line of the <tt class="docutils literal"><span class="pre">Keys</span></tt> section should
-match the names of the Pygame keyboard constants, but with the <tt class="docutils literal"><span class="pre">K_</span></tt> prefix
-removed.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="17%" />
-<col width="83%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Version</th>
-<th class="head">Changes</th>
+<a class="reference external" href="https://www.pygame.org/docs/ref/key.html">pygame documentation</a>. The key
+names (<code class="docutils literal notranslate"><span class="pre">key1</span></code>, <code class="docutils literal notranslate"><span class="pre">key2</span></code> etc.) declared in a line of the <code class="docutils literal notranslate"><span class="pre">Keys</span></code> section
+should match the names of the Pygame keyboard constants, but with the <code class="docutils literal notranslate"><span class="pre">K_</span></code>
+prefix removed.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Changes</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>1.0</td>
-<td>Added the <tt class="docutils literal"><span class="pre">FULL_SCREEN</span></tt> action identifier</td>
+<tbody>
+<tr class="row-even"><td><p>1.0</p></td>
+<td><p>Added the <code class="docutils literal notranslate"><span class="pre">FULL_SCREEN</span></code> action identifier</p></td>
 </tr>
-<tr class="row-odd"><td>0.5</td>
-<td>New</td>
+<tr class="row-odd"><td><p>0.5</p></td>
+<td><p>New</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="menu">
-<span id="id3"></span><h2>[Menu ...]<a class="headerlink" href="#menu" title="Permalink to this headline">¶</a></h2>
-<p>Each <tt class="docutils literal"><span class="pre">Menu</span> <span class="pre">...</span></tt> section defines a menu and its appearance. The section name
+</section>
+<section id="menu">
+<span id="id3"></span><h2>[Menu …]<a class="headerlink" href="#menu" title="Link to this heading">¶</a></h2>
+<p>Each <code class="docutils literal notranslate"><span class="pre">Menu</span> <span class="pre">...</span></code> section defines a menu and its appearance. The section name
 has the form:</p>
-<div class="highlight-none"><div class="highlight"><pre>Menu menuId
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Menu menuId
 </pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">menuId</span></tt> is a unique identifier for the menu. The section may contain
+<p>where <code class="docutils literal notranslate"><span class="pre">menuId</span></code> is a unique identifier for the menu. The section may contain
 the following configuration parameters:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">Alpha</span></tt> - the transparency of the menu (0=fully transparent, 255=fully
-opaque)</li>
-<li><tt class="docutils literal"><span class="pre">Highlight</span></tt> - the background colour of the selected menu item</li>
-<li><tt class="docutils literal"><span class="pre">Ink</span></tt> - the ink colour to use for the title, menu items and status bar</li>
-<li><tt class="docutils literal"><span class="pre">Paper</span></tt> - the main background colour</li>
-<li><tt class="docutils literal"><span class="pre">StatusBar</span></tt> - whether to show a status bar (0=no, 1=yes)</li>
-<li><tt class="docutils literal"><span class="pre">StatusPaper</span></tt> - the background colour of the status bar</li>
-<li><tt class="docutils literal"><span class="pre">Title</span></tt> - the menu title</li>
-<li><tt class="docutils literal"><span class="pre">TitlePaper</span></tt> - the background colour of the title bar</li>
-<li><tt class="docutils literal"><span class="pre">Width</span></tt> - the width of the menu (as a fraction of the screen width)</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Alpha</span></code> - the transparency of the menu (0=fully transparent, 255=fully
+opaque)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Highlight</span></code> - the background colour of the selected menu item</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ink</span></code> - the ink colour to use for the title, menu items and status bar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Paper</span></code> - the main background colour</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StatusBar</span></code> - whether to show a status bar (0=no, 1=yes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StatusPaper</span></code> - the background colour of the status bar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Title</span></code> - the menu title</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TitlePaper</span></code> - the background colour of the title bar</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Width</span></code> - the width of the menu (as a fraction of the screen width)</p></li>
 </ul>
 <p><cite>pyskool.ini</cite> contains the definitions for two menus, whose unique IDs must be
-<tt class="docutils literal"><span class="pre">Main</span></tt> and <tt class="docutils literal"><span class="pre">Quit</span></tt>.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Version</th>
-<th class="head">Changes</th>
+<code class="docutils literal notranslate"><span class="pre">Main</span></code> and <code class="docutils literal notranslate"><span class="pre">Quit</span></code>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Changes</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>1.1.1</td>
-<td>Added the <tt class="docutils literal"><span class="pre">StatusBar</span></tt> parameter</td>
+<tbody>
+<tr class="row-even"><td><p>1.1.1</p></td>
+<td><p>Added the <code class="docutils literal notranslate"><span class="pre">StatusBar</span></code> parameter</p></td>
 </tr>
-<tr class="row-odd"><td>0.5</td>
-<td>New</td>
+<tr class="row-odd"><td><p>0.5</p></td>
+<td><p>New</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="menuitems">
-<span id="id4"></span><h2>[MenuItems ...]<a class="headerlink" href="#menuitems" title="Permalink to this headline">¶</a></h2>
-<p>Each <tt class="docutils literal"><span class="pre">MenuItems</span> <span class="pre">...</span></tt> section defines the menu items for a menu. The section
+</section>
+<section id="menuitems">
+<span id="id4"></span><h2>[MenuItems …]<a class="headerlink" href="#menuitems" title="Link to this heading">¶</a></h2>
+<p>Each <code class="docutils literal notranslate"><span class="pre">MenuItems</span> <span class="pre">...</span></code> section defines the menu items for a menu. The section
 name has the form:</p>
-<div class="highlight-none"><div class="highlight"><pre>MenuItems menuId
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>MenuItems menuId
 </pre></div>
 </div>
-<p>where <tt class="docutils literal"><span class="pre">menuId</span></tt> is the unique identifier of the menu (defined by a <a class="reference internal" href="#menu"><em>[Menu ...]</em></a>
+<p>where <code class="docutils literal notranslate"><span class="pre">menuId</span></code> is the unique identifier of the menu (defined by a <a class="reference internal" href="#menu"><span class="std std-ref">[Menu …]</span></a>
 section).</p>
 <p>Each line in the section has the form:</p>
-<div class="highlight-none"><div class="highlight"><pre>operation, text
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>operation, text
 </pre></div>
 </div>
 <p>where:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">operation</span></tt> is the unique ID of the operation to which the menu item is
-bound</li>
-<li><tt class="docutils literal"><span class="pre">text</span></tt> is the text of the menu item</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">operation</span></code> is the unique ID of the operation to which the menu item is
+bound</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text</span></code> is the text of the menu item</p></li>
 </ul>
 <p>The operation IDs recognised by Pyskool are:</p>
 <ul class="simple">
-<li><tt class="docutils literal"><span class="pre">LOAD</span></tt> - load the most recently saved game</li>
-<li><tt class="docutils literal"><span class="pre">QUIT</span></tt> - quit Pyskool</li>
-<li><tt class="docutils literal"><span class="pre">RESUME</span></tt> - hide the menu and resume the game</li>
-<li><tt class="docutils literal"><span class="pre">SAVE</span></tt> - save the game</li>
-<li><tt class="docutils literal"><span class="pre">SCALE_DOWN</span></tt> - decrease the scale factor by 1</li>
-<li><tt class="docutils literal"><span class="pre">SCALE_UP</span></tt> - increase the scale factor by 1</li>
-<li><tt class="docutils literal"><span class="pre">TOGGLE_FULLSCREEN</span></tt> - toggle fullscreen mode</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LOAD</span></code> - load the most recently saved game</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">QUIT</span></code> - quit Pyskool</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RESUME</span></code> - hide the menu and resume the game</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SAVE</span></code> - save the game</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCALE_DOWN</span></code> - decrease the scale factor by 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SCALE_UP</span></code> - increase the scale factor by 1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TOGGLE_FULLSCREEN</span></code> - toggle full-screen mode</p></li>
 </ul>
-<table border="1" class="docutils">
-<colgroup>
-<col width="17%" />
-<col width="83%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Version</th>
-<th class="head">Changes</th>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Version</p></th>
+<th class="head"><p>Changes</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>1.1.1</td>
-<td>Added the <tt class="docutils literal"><span class="pre">TOGGLE_FULLSCREEN</span></tt> operation</td>
+<tbody>
+<tr class="row-even"><td><p>1.1.1</p></td>
+<td><p>Added the <code class="docutils literal notranslate"><span class="pre">TOGGLE_FULLSCREEN</span></code> operation</p></td>
 </tr>
-<tr class="row-odd"><td>0.5</td>
-<td>New</td>
+<tr class="row-odd"><td><p>0.5</p></td>
+<td><p>New</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
+</section>
+</section>
 
 
+            <div class="clearer"></div>
           </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Main ini file</a><ul>
+<li><a class="reference internal" href="#keys">[Keys]</a></li>
+<li><a class="reference internal" href="#menu">[Menu …]</a></li>
+<li><a class="reference internal" href="#menuitems">[MenuItems …]</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="images.html"
+                          title="previous chapter">Graphics</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="inifile.html"
+                          title="next chapter">Game ini files</a></p>
+  </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="Related">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -276,12 +258,13 @@ bound</li>
         <li class="right" >
           <a href="images.html" title="Graphics"
              >previous</a> |</li>
-        <li><a href="index.html">Pyskool 1.2.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">Pyskool 1.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Main ini file</a></li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2016, Richard Dymond.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2026, Richard Dymond.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     </div>
   </body>
 </html>
